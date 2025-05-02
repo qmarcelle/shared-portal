@@ -59,53 +59,6 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -878,53 +831,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -1628,53 +1534,6 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -3334,53 +3193,6 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -4224,53 +4036,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -5040,53 +4805,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -5873,53 +5591,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -6706,53 +6377,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -7573,53 +7197,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -8315,53 +7892,6 @@ exports[`SiteHeader And Navigation Menu should navigate the menu links correctly
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -8853,53 +8383,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -9669,53 +9152,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -10485,53 +9921,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -11315,53 +10704,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -12059,53 +11401,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -12858,53 +12153,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -13594,53 +12842,6 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                   width="174"
                 />
               </a>
-              <div
-                class="mx-4 w-[268px] hidden md:block"
-              >
-                <div
-                  class="rich-dropdown"
-                >
-                  <div
-                    class="flex flex-col switch-filter disabled"
-                    tabindex="1"
-                  >
-                    <div>
-                      <div
-                        class="flex flex-row px-4 py-2 items-center justify-between"
-                      >
-                        <div
-                          class="flex flex-col max-w-[90%]"
-                        >
-                          <p
-                            class="body-2 app-base-font-color"
-                            style="display: block;"
-                          >
-                            View Plan:
-                          </p>
-                          <p
-                            class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                            style="display: block;"
-                          >
-                            BlueCross BlueShield of Tennessee
-                          </p>
-                        </div>
-                        <img
-                          alt="switch"
-                          class="size-5 head-icon m-[4px]"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div
               class="flex items-center"
@@ -14410,53 +13611,6 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -15280,53 +14434,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -16092,53 +15199,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -16904,53 +15964,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               width="174"
             />
           </a>
-          <div
-            class="mx-4 w-[268px] hidden md:block"
-          >
-            <div
-              class="rich-dropdown"
-            >
-              <div
-                class="flex flex-col switch-filter disabled"
-                tabindex="1"
-              >
-                <div>
-                  <div
-                    class="flex flex-row px-4 py-2 items-center justify-between"
-                  >
-                    <div
-                      class="flex flex-col max-w-[90%]"
-                    >
-                      <p
-                        class="body-2 app-base-font-color"
-                        style="display: block;"
-                      >
-                        View Plan:
-                      </p>
-                      <p
-                        class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                        style="display: block;"
-                      >
-                        BlueCross BlueShield of Tennessee
-                      </p>
-                    </div>
-                    <img
-                      alt="switch"
-                      class="size-5 head-icon m-[4px]"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="flex items-center"
@@ -17768,53 +16781,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -18307,53 +17273,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -19102,53 +18021,6 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -19723,53 +18595,6 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"
@@ -20607,53 +19432,6 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                 width="174"
               />
             </a>
-            <div
-              class="mx-4 w-[268px] hidden md:block"
-            >
-              <div
-                class="rich-dropdown"
-              >
-                <div
-                  class="flex flex-col switch-filter disabled"
-                  tabindex="1"
-                >
-                  <div>
-                    <div
-                      class="flex flex-row px-4 py-2 items-center justify-between"
-                    >
-                      <div
-                        class="flex flex-col max-w-[90%]"
-                      >
-                        <p
-                          class="body-2 app-base-font-color"
-                          style="display: block;"
-                        >
-                          View Plan:
-                        </p>
-                        <p
-                          class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                          style="display: block;"
-                        >
-                          BlueCross BlueShield of Tennessee
-                        </p>
-                      </div>
-                      <img
-                        alt="switch"
-                        class="size-5 head-icon m-[4px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             class="flex items-center"

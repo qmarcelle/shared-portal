@@ -26,9 +26,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               <p
                 class="body-1 title-3 center mt-2"
                 style="display: block;"
-              >
-                Topical fluoride varnish
-              </p>
+              />
             </div>
             <div
               class="flex flex-col flex flex-col mr-4 ml-4"
@@ -42,9 +40,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               <p
                 class="body-1 title-3 center mt-2"
                 style="display: block;"
-              >
-                $48.51
-              </p>
+              />
             </div>
             <div
               class="flex flex-col flex flex-col mr-4 ml-4"
@@ -58,9 +54,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               <p
                 class="body-1 title-3 center mt-2"
                 style="display: block;"
-              >
-                $30.00
-              </p>
+              />
             </div>
           </div>
           <span
@@ -154,9 +148,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             <p
               class="body-1 title-3 center mt-2"
               style="display: block;"
-            >
-              Topical fluoride varnish
-            </p>
+            />
           </div>
           <div
             class="flex flex-col flex flex-col mr-4 ml-4"
@@ -170,9 +162,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             <p
               class="body-1 title-3 center mt-2"
               style="display: block;"
-            >
-              $48.51
-            </p>
+            />
           </div>
           <div
             class="flex flex-col flex flex-col mr-4 ml-4"
@@ -186,9 +176,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             <p
               class="body-1 title-3 center mt-2"
               style="display: block;"
-            >
-              $30.00
-            </p>
+            />
           </div>
         </div>
         <span

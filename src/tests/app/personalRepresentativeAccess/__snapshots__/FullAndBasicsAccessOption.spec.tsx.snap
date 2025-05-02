@@ -427,24 +427,25 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           aria-checked="true"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Checkbox"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row items-baseline"
             tabindex="0"
           >
             <input
               aria-label=""
               checked=""
-              class="checkbox  checked  "
-              id="checkbox-"
+              class="checkbox  checked checkbox--checked  "
+              id="checkbox-checkbox"
               type="checkbox"
             />
             <label
-              class="ml-2 "
-              for="checkbox-"
+              class="ml-2  cursor-pointer"
+              for="checkbox-checkbox"
             >
               <span
                 class="rich-text body-1 undefined"
@@ -474,6 +475,9 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
                    including the Member's highly sensitive health information.
                 </span>
               </span>
+              <span
+                class="sr-only"
+              />
             </label>
           </div>
         </div>
@@ -816,24 +820,25 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
           aria-checked="true"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Checkbox"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row items-baseline"
             tabindex="0"
           >
             <input
               aria-label=""
               checked=""
-              class="checkbox  checked  "
-              id="checkbox-"
+              class="checkbox  checked checkbox--checked  "
+              id="checkbox-checkbox"
               type="checkbox"
             />
             <label
-              class="ml-2 "
-              for="checkbox-"
+              class="ml-2  cursor-pointer"
+              for="checkbox-checkbox"
             >
               <span
                 class="rich-text body-1 undefined"
@@ -862,6 +867,9 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
                    
                 </span>
               </span>
+              <span
+                class="sr-only"
+              />
             </label>
           </div>
         </div>

@@ -101,7 +101,7 @@ export const Checkbox = memo(
         }}
       >
         <div
-          className="flex flex-row items-center"
+          className="flex flex-row items-baseline"
           tabIndex={isDisabled ? -1 : 0}
           onKeyDown={handleKeyDown}
         >

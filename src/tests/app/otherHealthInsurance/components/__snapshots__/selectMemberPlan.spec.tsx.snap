@@ -123,23 +123,24 @@ exports[` 1`] = `
               aria-checked="true"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Chris Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
                   aria-label="Chris Hall"
                   checked=""
-                  class="checkbox  checked  "
+                  class="checkbox  checked checkbox--checked  "
                   id="checkbox-chris-hall"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-chris-hall"
                 >
                   Chris Hall
@@ -153,12 +154,13 @@ exports[` 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Maddison Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -168,7 +170,7 @@ exports[` 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-maddison-hall"
                 >
                   Maddison Hall
@@ -182,12 +184,13 @@ exports[` 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Forrest Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -197,7 +200,7 @@ exports[` 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-forrest-hall"
                 >
                   Forrest Hall
@@ -211,12 +214,13 @@ exports[` 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Corey Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -226,7 +230,7 @@ exports[` 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-corey-hall"
                 >
                   Corey Hall
@@ -240,12 +244,13 @@ exports[` 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Telly Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -255,7 +260,7 @@ exports[` 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-telly-hall"
                 >
                   Telly Hall
@@ -269,12 +274,13 @@ exports[` 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Janie Hall"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row items-baseline"
                 tabindex="0"
               >
                 <input
@@ -284,7 +290,7 @@ exports[` 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-janie-hall"
                 >
                   Janie Hall
@@ -418,23 +424,24 @@ exports[` 1`] = `
             aria-checked="true"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Chris Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
                 aria-label="Chris Hall"
                 checked=""
-                class="checkbox  checked  "
+                class="checkbox  checked checkbox--checked  "
                 id="checkbox-chris-hall"
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-chris-hall"
               >
                 Chris Hall
@@ -448,12 +455,13 @@ exports[` 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Maddison Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -463,7 +471,7 @@ exports[` 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-maddison-hall"
               >
                 Maddison Hall
@@ -477,12 +485,13 @@ exports[` 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Forrest Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -492,7 +501,7 @@ exports[` 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-forrest-hall"
               >
                 Forrest Hall
@@ -506,12 +515,13 @@ exports[` 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Corey Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -521,7 +531,7 @@ exports[` 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-corey-hall"
               >
                 Corey Hall
@@ -535,12 +545,13 @@ exports[` 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Telly Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -550,7 +561,7 @@ exports[` 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-telly-hall"
               >
                 Telly Hall
@@ -564,12 +575,13 @@ exports[` 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Janie Hall"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row items-baseline"
               tabindex="0"
             >
               <input
@@ -579,7 +591,7 @@ exports[` 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-janie-hall"
               >
                 Janie Hall

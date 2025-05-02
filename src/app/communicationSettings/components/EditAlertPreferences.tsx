@@ -171,7 +171,6 @@ export const EditAlertPreferncesSection = ({
       ),
     });
   };
-
   const generateCheckBox = (
     preference: Preferences,
     alertType: AlertType,
@@ -179,10 +178,15 @@ export const EditAlertPreferncesSection = ({
   ) => {
     return (
       <Checkbox
-        label={preference.hText}
-        classProps="font-bold"
+        label={preference.hText} // Use hText for the label
+        classProps=""
         checked={preference.selected}
-        body={<TextBox className="mt-2" text={preference.pText} />}
+        body={
+          <>
+            <TextBox className="body-bold" text={preference.hText} />{' '}
+            <TextBox className="mt-2" text={preference.pText} />{' '}
+          </>
+        }
         onChange={() => checkBoxHandler(alertType, parentAlertType)}
       />
     );
@@ -204,6 +208,7 @@ export const EditAlertPreferncesSection = ({
                   {generateCheckBox(preference, alertType)}
                   {preference.selected && preference.childCheckBox && (
                     <Column className="emailAlertsSublevel">
+                      <Spacer size={18} />
                       <Divider axis="vertical" />
                       <Spacer size={18} />
                       <TextBox text="Choose the emails you want to receive:" />

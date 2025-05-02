@@ -23,12 +23,13 @@ exports[`otherPlan should render the UI correctly 1`] = `
           aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Medicare Plan"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row items-baseline"
             tabindex="0"
           >
             <input
@@ -38,7 +39,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
               type="checkbox"
             />
             <label
-              class="ml-2 "
+              class="ml-2  cursor-pointer"
               for="checkbox-medicare-plan"
             >
               Medicare Plan
@@ -52,12 +53,13 @@ exports[`otherPlan should render the UI correctly 1`] = `
           aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Medical Plan"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row items-baseline"
             tabindex="0"
           >
             <input
@@ -67,7 +69,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
               type="checkbox"
             />
             <label
-              class="ml-2 "
+              class="ml-2  cursor-pointer"
               for="checkbox-medical-plan"
             >
               Medical Plan
@@ -81,12 +83,13 @@ exports[`otherPlan should render the UI correctly 1`] = `
           aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Dental Plan"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row items-baseline"
             tabindex="0"
           >
             <input
@@ -96,7 +99,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
               type="checkbox"
             />
             <label
-              class="ml-2 "
+              class="ml-2  cursor-pointer"
               for="checkbox-dental-plan"
             >
               Dental Plan
