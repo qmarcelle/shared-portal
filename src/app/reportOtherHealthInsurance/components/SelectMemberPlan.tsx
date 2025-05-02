@@ -35,8 +35,8 @@ const SelectMemberPlan: React.FC<SelectMemberPlanProps> = ({
   };
 
   const handleCheckboxChange = (label: string) => {
-    return (val: React.ChangeEvent<HTMLInputElement>) => {
-      if (val.target.checked) {
+    return (val: boolean) => {
+      if (val) {
         setSelectedCheckboxes((prev) => [...prev, label]);
       } else {
         setSelectedCheckboxes((prev) => prev.filter((item) => item !== label));

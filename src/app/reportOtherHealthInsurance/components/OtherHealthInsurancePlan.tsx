@@ -35,20 +35,6 @@ const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
     onCheckboxChange(checkboxValue);
   };
 
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value as 'all' | 'selected');
-  };
-
-  const handleCheckboxChange = (label: string) => {
-    return (val: React.ChangeEvent<HTMLInputElement>) => {
-      if (val.target.checked) {
-        setSelectedCheckboxes((prev) => [...prev, label]);
-      } else {
-        setSelectedCheckboxes((prev) => prev.filter((item) => item !== label));
-      }
-    };
-  };
-
   const disabledClass = 'disabled-checkbox';
   return (
     <main className="max-w-[650px]">
