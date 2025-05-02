@@ -87,6 +87,7 @@ export const MembersRepresented = ({
               effectiveOn={item.effectiveOn}
               firstName={item.firstName}
               lastName={item.lastName}
+              isMatureMinor={item.isMatureMinor}
             />
           ))}
         </Column>

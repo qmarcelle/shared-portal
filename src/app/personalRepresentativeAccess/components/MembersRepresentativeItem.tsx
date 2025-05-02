@@ -15,7 +15,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import { formatDateToLocale } from '@/utils/date_formatter';
-import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -30,6 +29,7 @@ interface MembersRepresentativeItemProps extends IComponent {
   memberName: string;
   DOB: string;
   isOnline: boolean;
+  isMatureMinor: boolean;
   icon?: JSX.Element;
   fullAccess: boolean;
   icon1?: JSX.Element;
@@ -58,6 +58,7 @@ export const MembersRepresentativeItem = ({
   memberName,
   DOB,
   isOnline = true,
+  isMatureMinor,
   onClick,
   className,
   fullAccess,
@@ -65,7 +66,6 @@ export const MembersRepresentativeItem = ({
   memberMemeCk,
   requesteeFHRID,
   requesteeUMPID,
-  visibilityRules,
   id,
   policyId,
   expiresOn,
@@ -77,7 +77,6 @@ export const MembersRepresentativeItem = ({
   pendingIcon = <Image src={pendingLogo} alt="link" />,
 }: MembersRepresentativeItemProps) => {
   const { showAppModal } = useAppModalStore();
-  const matureMinor = isMatureMinor(visibilityRules);
   const currentDate: string = formatDateToLocale(new Date());
   function getProfileOfflineContent() {
     return (
@@ -107,7 +106,7 @@ export const MembersRepresentativeItem = ({
                   showAppModal({
                     content: (
                       <InviteToRegister
-                        isMaturedMinor={matureMinor}
+                        isMaturedMinor={isMatureMinor}
                         memberName={memberName}
                         memeCk={memberMemeCk!}
                         requesteeFHRID={requesteeFHRID!}
@@ -150,7 +149,7 @@ export const MembersRepresentativeItem = ({
               />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && matureMinor && (
+            {!isRepresentative && isMatureMinor && (
               <Row>
                 <Spacer size={42} />
                 <Title
@@ -162,7 +161,7 @@ export const MembersRepresentativeItem = ({
                       content: (
                         <EditLevelOfAccess
                           memberName={memberName}
-                          isMaturedMinor={matureMinor}
+                          isMaturedMinor={isMatureMinor}
                           currentAccessType="basic"
                           id={id}
                           policyId={policyId}
@@ -190,7 +189,7 @@ export const MembersRepresentativeItem = ({
                           content: (
                             <PersonalRepRequestAccessOnMyPlan
                               memberName={memberName}
-                              isMaturedMinor={matureMinor}
+                              isMaturedMinor={isMatureMinor}
                               memeCk={memberMemeCk!}
                               requesteeFHRID={requesteeFHRID!}
                               requesteeUMPID={requesteeUMPID!}
@@ -230,7 +229,7 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          {matureMinor ? (
+          {isMatureMinor ? (
             <TextBox className="font-bold body-1" text="[Mature Minor]" />
           ) : (
             <TextBox className="font-bold body-1" text={memberName} />

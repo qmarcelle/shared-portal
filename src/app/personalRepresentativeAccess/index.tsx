@@ -89,7 +89,7 @@ const PersonalRepresentativeAccess = ({
             </Card>
 
             <AuthorizationForm
-              isMatureMinor={true}
+              isMatureMinor={representativeDetails!.isMatureMinor}
               fullAccess={true}
               isRepresentative={representativeDetails?.isRepresentativeLoggedIn}
               linkLabel="Download Authorization Form"
