@@ -237,6 +237,7 @@ export default function SiteHeader({
                       key={index}
                       id={page.id}
                       title={page.title}
+                      titleLink={page.titleLink}
                       description={page.description}
                       category={page.category}
                       showOnMenu={page.showOnMenu}

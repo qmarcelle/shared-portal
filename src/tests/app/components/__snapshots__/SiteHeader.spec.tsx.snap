@@ -480,7 +480,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Health
+                      View My Health Dashboard
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -1254,7 +1254,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                   >
-                    Support
+                    View All Support
                   </span>
                   <img
                     alt="Parent Page Arrow"
@@ -1954,7 +1954,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -3613,7 +3613,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -4457,7 +4457,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Health
+                      View My Health Dashboard
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -5224,7 +5224,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      Find All Care & Costs
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -6010,7 +6010,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      Find All Care & Costs
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -6797,7 +6797,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -8802,7 +8802,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      Find All Care & Costs
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -9571,7 +9571,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      Find All Care & Costs
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -10340,7 +10340,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      Find Care & Costs
+                      Find All Care & Costs
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -11127,7 +11127,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                   >
-                    Support
+                    View All Support
                   </span>
                   <img
                     alt="Parent Page Arrow"
@@ -11822,7 +11822,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Health
+                      View My Health Dashboard
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -12573,7 +12573,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -13263,7 +13263,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       <span
                         class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                       >
-                        My Health
+                        View My Health Dashboard
                       </span>
                       <img
                         alt="Parent Page Arrow"
@@ -14032,7 +14032,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Health
+                      View My Health Dashboard
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -14853,7 +14853,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                   >
-                    Find Care & Costs
+                    Find All Care & Costs
                   </span>
                   <img
                     alt="Parent Page Arrow"
@@ -15618,7 +15618,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                   >
-                    Find Care & Costs
+                    Find All Care & Costs
                   </span>
                   <img
                     alt="Parent Page Arrow"
@@ -16383,7 +16383,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                   >
-                    Find Care & Costs
+                    Find All Care & Costs
                   </span>
                   <img
                     alt="Parent Page Arrow"
@@ -19015,7 +19015,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
@@ -19852,7 +19852,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
                     >
-                      My Plan
+                      View All Plan Details
                     </span>
                     <img
                       alt="Parent Page Arrow"
