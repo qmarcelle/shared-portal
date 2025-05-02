@@ -65,6 +65,7 @@ export const EmployeeProvidedBenefitsTile = ({
         <AppLink
           label="View Employer Provided Benefits"
           className="body-bold p-0 sm:p-2"
+          url="/member/myplan/benefits/employerprovidedbenefits"
         />
       </Column>
     </Card>
