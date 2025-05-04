@@ -14,7 +14,7 @@ export { useChatService } from './hooks/useChatService';
 // Context
 export {
   ChatServiceContext,
-  ChatServiceProvider,
+  ChatServiceProvider
 } from './context/ChatServiceContext';
 
 // Types
@@ -25,5 +25,6 @@ export type {
   ChatMessage,
   ChatService as ChatServiceType,
   ChatState,
-  UseChatReturn,
-} from './types/index';
+  UseChatReturn
+} from './types';
+

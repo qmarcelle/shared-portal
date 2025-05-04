@@ -1,6 +1,6 @@
 import { switchUser } from '@/userManagement/actions/switchUser';
 import { usePlanStore } from '@/userManagement/stores/planStore';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { useChatStore } from '../stores/chatStore';
 

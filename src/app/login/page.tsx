@@ -6,6 +6,7 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { EmailUniquenessVerification } from './components/EmailUniquenessVerification';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
@@ -50,10 +51,8 @@ export default function LogIn() {
 
   const router = useRouter();
   const queryParams = useSearchParams();
-  function renderComp() {
-    if (unhandledErrors == true) {
-      return <LoginGenericErrorcomponent />;
-    }
+
+  useEffect(() => {
     if (loggedUser == true) {
       router.replace(
         queryParams.get('TargetResource') ||
@@ -62,11 +61,17 @@ export default function LogIn() {
       );
       router.refresh();
     }
-    if (multipleLoginAttempts == true) {
-      return <MultipleAttemptsErrorComponent />;
-    }
     if (isRiskScoreHigh == true || riskLevelNotDetermined == true) {
       router.replace(process.env.NEXT_PUBLIC_PORTAL_ERROR_URL ?? '');
+    }
+  }, [loggedUser, isRiskScoreHigh, riskLevelNotDetermined, queryParams, router]);
+
+  function renderComp() {
+    if (unhandledErrors == true) {
+      return <LoginGenericErrorcomponent />;
+    }
+    if (multipleLoginAttempts == true) {
+      return <MultipleAttemptsErrorComponent />;
     }
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;

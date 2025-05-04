@@ -1,6 +1,7 @@
+import { reloadPage } from '@/utils/navigation';
 import { useSession } from 'next-auth/react';
 import { useEffect, useMemo } from 'react';
-import { useChatEligibility } from '../hooks';
+import { useChat } from '../hooks';
 import { ChatTrigger } from './ChatTrigger';
 import { GenesysScripts } from './GenesysScripts';
 import { PlanInfoHeader } from './PlanInfoHeader';
@@ -14,6 +15,7 @@ export interface ChatWidgetProps {
   onLockPlanSwitcher: (locked: boolean) => void;
   onOpenPlanSwitcher: () => void;
   _onError?: (error: Error) => void;
+  forceCloudChat?: boolean; // New prop to control chat mode
 }
 
 export function ChatWidget({
@@ -24,6 +26,7 @@ export function ChatWidget({
   onLockPlanSwitcher,
   onOpenPlanSwitcher,
   _onError,
+  forceCloudChat = true, // Default to true to force cloud chat for testing
 }: ChatWidgetProps) {
   const _session = useSession();
 
@@ -59,7 +62,13 @@ export function ChatWidget({
     maximizeChat,
     startChat,
     endChat,
-  } = useChatEligibility(memberId, planId);
+  } = useChat({
+    memberId,
+    planId,
+    planName,
+    hasMultiplePlans,
+    onLockPlanSwitcher,
+  });
 
   // Initialize chat when config is ready
   useEffect(() => {
@@ -116,7 +125,7 @@ export function ChatWidget({
       >
         <p className="font-medium">{error.message}</p>
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => reloadPage()}
           className="mt-2 px-4 py-2 bg-error-content text-error rounded hover:bg-opacity-90 transition-colors"
         >
           Retry
@@ -133,6 +142,7 @@ export function ChatWidget({
         orgId={process.env.NEXT_PUBLIC_GENESYS_ORG_ID || ''}
         memberId={memberId}
         planId={planId}
+        forceCloudChat={forceCloudChat} // Pass the prop to force cloud chat
       />
       <div
         className="chat-widget-container"

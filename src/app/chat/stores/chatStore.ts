@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
-import { ChatError, ChatInfoResponse } from '../types';
+import { ChatError, ChatInfoResponse } from '../types/index';
 
 /**
- * Chat store state interface
+ * Chat store state interface-
  */
 export interface ChatState {
   // UI state

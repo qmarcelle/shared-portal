@@ -25,96 +25,68 @@ export const createMockChatInfo = (overrides = {}): ChatInfoResponse => ({
   ...overrides,
 });
 
+// Consolidate mock creation and reset logic
 export const createMockChatState = (overrides = {}): ChatState => ({
-  // UI state
   isOpen: false,
   isMinimized: false,
   newMessageCount: 0,
-
-  // Chat state
   isChatActive: false,
   isLoading: true,
   error: null,
   messages: [],
-
-  // Eligibility state
   eligibility: null,
-
-  // Plan switching
   isPlanSwitcherLocked: false,
   planSwitcherTooltip: '',
-
-  // Actions
-  setOpen: () => {},
-  setMinimized: () => {},
-  setError: () => {},
-  addMessage: () => {},
-  clearMessages: () => {},
-  setChatActive: () => {},
-  setLoading: () => {},
-  incrementMessageCount: () => {},
-  resetMessageCount: () => {},
-  setEligibility: () => {},
-  setPlanSwitcherLocked: () => {},
-  updateConfig: () => {},
-
+  setOpen: jest.fn(),
+  setMinimized: jest.fn(),
+  setError: jest.fn(),
+  addMessage: jest.fn(),
+  clearMessages: jest.fn(),
+  setChatActive: jest.fn(),
+  setLoading: jest.fn(),
+  incrementMessageCount: jest.fn(),
+  resetMessageCount: jest.fn(),
+  setEligibility: jest.fn(),
+  setPlanSwitcherLocked: jest.fn(),
+  updateConfig: jest.fn(),
+  closeAndRedirect: jest.fn(),
   ...overrides,
 });
 
-// Mock window.CXBus for Genesys Cloud
-export const mockCXBus = {
-  configure: jest.fn(),
-  command: jest.fn(),
-  subscribe: jest.fn(),
-};
-
-// Mock window.GenesysChat for legacy chat
-export const mockGenesysChat = {
-  configure: jest.fn(),
-  onSessionStart: jest.fn(),
-  onSessionEnd: jest.fn(),
-  sendMessage: jest.fn(),
-};
-
-// Custom render function with providers if needed
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>,
-) => render(ui, { ...options });
-
-export * from '@testing-library/react';
-export { customRender as render };
-
-// Reset all mocks between tests
-export const resetMocks = () => {
-  jest.clearAllMocks();
-  Object.assign(mockCXBus, {
-    configure: jest.fn(),
-    command: jest.fn(),
-    subscribe: jest.fn(),
-  });
-  Object.assign(mockGenesysChat, {
-    configure: jest.fn(),
-    onSessionStart: jest.fn(),
-    onSessionEnd: jest.fn(),
-    sendMessage: jest.fn(),
-  });
-};
-
-// Mock window globals
-export const setupWindowMocks = () => {
+export const setupChatMocks = (options = { autoReset: true }) => {
   const originalWindow = { ...window };
+  const mocks = {
+    cxBus: {
+      configure: jest.fn(),
+      command: jest.fn(),
+      subscribe: jest.fn(),
+    },
+    genesysChat: {
+      configure: jest.fn(),
+      onSessionStart: jest.fn(),
+      onSessionEnd: jest.fn(),
+      sendMessage: jest.fn(),
+    },
+    reset: () => {
+      Object.values(mocks.cxBus).forEach(mock => mock.mockReset());
+      Object.values(mocks.genesysChat).forEach(mock => mock.mockReset());
+    },
+  };
 
   beforeAll(() => {
     Object.defineProperty(window, 'CXBus', {
-      value: mockCXBus,
+      value: mocks.cxBus,
       writable: true,
     });
     Object.defineProperty(window, 'GenesysChat', {
-      value: mockGenesysChat,
+      value: mocks.genesysChat,
       writable: true,
     });
   });
+
+  if (options.autoReset) {
+    afterEach(() => mocks.reset());
+  }
 
   afterAll(() => {
     Object.defineProperty(window, 'CXBus', {
@@ -126,4 +98,16 @@ export const setupWindowMocks = () => {
       writable: true,
     });
   });
+
+  return mocks;
 };
+
+// Custom render function with providers if needed
+const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>,
+) => render(ui, { ...options });
+
+export * from '@testing-library/react';
+export { customRender as render };
+

@@ -1,3 +1,4 @@
+import { memberService } from '@/utils/api/memberService';
 import React, {
   createContext,
   useCallback,
@@ -9,10 +10,39 @@ import React, {
 import { createGenesysConfig } from '../schemas/genesys.schema';
 import { ChatService } from '../services/ChatService';
 import { useChatStore } from '../stores/chatStore';
-import { ChatError, ChatInfoResponse } from '../types';
+import { ChatDataPayload, ChatError, ChatInfoResponse } from '../types';
 
 // Create chat service context
 const ChatServiceContext = createContext<ChatService | null>(null);
+
+// Business hours utilities
+const parseBusinessHours = (hoursString: string) => {
+  const [days, hours] = hoursString.split('_');
+  const [startHour, endHour] = hours.split('-').map(Number);
+  return {
+    days,
+    startHour,
+    endHour,
+    isValid: !isNaN(startHour) && !isNaN(endHour),
+  };
+};
+
+// Check if current time is within business hours
+const isWithinBusinessHours = (businessHours: string): boolean => {
+  const { days, startHour, endHour, isValid } = parseBusinessHours(businessHours);
+  if (!isValid) return false;
+
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentDay = now.getDay();
+
+  // Check if current day is within business days
+  const isBusinessDay = days.includes(
+    ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][currentDay],
+  );
+
+  return isBusinessDay && currentHour >= startHour && currentHour < endHour;
+};
 
 /**
  * Provider component for the chat service
@@ -205,7 +235,7 @@ export function useLocalChat({
     setError,
     setChatActive,
     setLoading,
-    setEligibility: _setEligibility,
+    setEligibility,
     setPlanSwitcherLocked,
     updateConfig,
   } = useChatStore();
@@ -222,6 +252,59 @@ export function useLocalChat({
       ),
     [memberId, planId, planName, hasMultiplePlans, onLockPlanSwitcher],
   );
+
+  // Direct eligibility check via API (incorporated from useChatEligibility)
+  useEffect(() => {
+    const fetchEligibility = async () => {
+      try {
+        setLoading(true);
+        
+        // Use memberService to fetch chat eligibility
+        const response = await memberService.get(
+          `/api/member/v1/members/byMemberCk/${memberId}/chat/getChatInfo`,
+          { params: { planId } }
+        );
+        
+        if (!response || response.status !== 200) {
+          throw new ChatError(
+            'Failed to fetch chat eligibility',
+            'ELIGIBILITY_ERROR',
+          );
+        }
+        
+        const data: ChatInfoResponse = response.data;
+
+        // Enhance eligibility with business hours check
+        const isAvailable = data.businessHours?.text
+          ? isWithinBusinessHours(data.businessHours.text)
+          : true;
+
+        // Update to match ChatInfoResponse structure with isEligible property
+        const eligibilityData: ChatInfoResponse = {
+          isEligible: data.isEligible && isAvailable,
+          cloudChatEligible: data.cloudChatEligible,
+          chatGroup: data.chatGroup,
+          workingHours: data.workingHours,
+          businessHours: data.businessHours,
+          chatAvailable: data.isEligible && isAvailable, // Keep chatAvailable for backward compatibility if needed
+        };
+
+        setEligibility(eligibilityData);
+        setInfo(data);
+      } catch (err) {
+        const chatError =
+          err instanceof ChatError
+            ? err
+            : new ChatError('Failed to fetch chat eligibility', 'ELIGIBILITY_ERROR');
+        setError(chatError);
+        setEligibility(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEligibility();
+  }, [memberId, planId, setLoading, setError, setEligibility]);
 
   // Initialize chat configuration
   const initializeChat = useCallback(async () => {
@@ -309,9 +392,26 @@ export function useLocalChat({
       setLoading(true);
 
       // Create chat payload
-      const payload = {
-        memberId,
-        planId,
+      //TODO: MOVE THIS ELSEWHERE
+      const payload: ChatDataPayload = {
+        SERV_Type: 'MemberPortal',
+        firstname: '', 
+        lastname: '',
+        RoutingChatbotInteractionId: '',
+        PLAN_ID: planId,
+        GROUP_ID: '',
+        IDCardBotName: '',
+        IsVisionEligible: false,
+        MEMBER_ID: memberId,
+        coverage_eligibility: 'eligible',
+        INQ_TYPE: 'general',
+        IsDentalEligible: false,
+        MEMBER_DOB: '',
+        LOB: '',
+        lob_group: '',
+        IsMedicalEligibile: true,
+        Origin: 'MemberPortal',
+        Source: 'Web',
         message: `Starting chat about plan: ${planName}`,
         timestamp: Date.now(),
       };

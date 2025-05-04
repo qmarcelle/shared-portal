@@ -1,5 +1,18 @@
 import { ChatError } from '../types/index';
 
+// Extend Window interface to include elementTag property
+declare global {
+  interface Window {
+    elementTag?: (
+      event: string, 
+      category: string, 
+      data: Record<string, unknown>, 
+      label: string, 
+      callback: () => void
+    ) => void;
+  }
+}
+
 /**
  * Registers global error handlers for chat functionality.
  * This ensures errors are properly caught, logged, and potentially reported.

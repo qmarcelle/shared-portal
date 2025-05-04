@@ -1,5 +1,6 @@
 import type { ChatEligibility, ChatInfoResponse } from '@/app/chat/types/index';
 import { ChatError } from '@/app/chat/types/index';
+import { memberService } from '@/utils/api/memberService';
 import { useEffect, useState } from 'react';
 
 /**
@@ -48,7 +49,7 @@ export function useChatEligibility(
   const [isInitialized, setIsInitialized] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isChatActive, setIsChatActive] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, _setError] = useState<Error | null>(null);
 
   // Parse business hours string into a structured format
   const parseBusinessHours = (hoursString: string) => {
@@ -93,16 +94,20 @@ export function useChatEligibility(
   useEffect(() => {
     const fetchEligibility = async () => {
       try {
-        const response = await fetch(
-          `/api/chat/eligibility?memberId=${memberId}&planId=${planId}`,
+        // Use memberService utility to make the API call
+        const response = await memberService.get(
+          `/api/member/v1/members/byMemberCk/${memberId}/chat/getChatInfo`,
+          { params: { planId } }
         );
-        if (!response.ok) {
+        
+        if (!response || response.status !== 200) {
           throw new ChatError(
             'Failed to fetch chat eligibility',
             'ELIGIBILITY_ERROR',
           );
         }
-        const data: ChatInfoResponse = await response.json();
+        
+        const data: ChatInfoResponse = response.data;
 
         // Enhance eligibility with business hours check
         const isAvailable = data.businessHours?.text
@@ -110,7 +115,7 @@ export function useChatEligibility(
           : true;
 
         setEligibility({
-          chatAvailable: data.chatAvailable && isAvailable,
+          chatAvailable: data.isEligible && isAvailable,
           cloudChatEligible: data.cloudChatEligible,
           chatGroup: data.chatGroup,
           workingHours: data.workingHours,

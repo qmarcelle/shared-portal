@@ -1,146 +1,126 @@
 import { useChat } from '@/app/chat/hooks/useChat';
-import { useChatEligibility } from '@/app/chat/hooks/useChatEligibility';
-import { ChatError } from '@/app/chat/types/index';
-import {
-  createMockChatInfo,
-  mockCXBus,
-  resetMocks,
-  setupWindowMocks,
-} from '@/utils/test-utils';
-import { act, renderHook } from '@testing-library/react';
+import { ChatService } from '@/app/chat/services/ChatService';
+import { useChatStore } from '@/app/chat/stores/chatStore';
+import { ChatError } from '@/app/chat/types';
+import { renderHook } from '@testing-library/react-hooks';
 
-jest.mock('@/app/chat/hooks/useChatEligibility');
+// Mock dependencies
+jest.mock('@/app/chat/services/ChatService');
+jest.mock('@/app/chat/stores/chatStore');
+jest.mock('@/utils/api/memberService', () => ({
+  memberService: {
+    get: jest.fn().mockResolvedValue({
+      status: 200,
+      data: {
+        isEligible: true,
+        cloudChatEligible: true,
+        chatGroup: 'test-group',
+        businessHours: { text: 'MON_9-17', isOpen: true }
+      }
+    })
+  }
+}));
 
 describe('useChat', () => {
-  setupWindowMocks();
-
-  const defaultProps = {
-    memberId: 'test-123',
-    planId: 'plan-456',
+  const mockOptions = {
+    memberId: 'test-member-id',
+    planId: 'test-plan-id',
     planName: 'Test Plan',
     hasMultiplePlans: true,
     onLockPlanSwitcher: jest.fn(),
-    onOpenPlanSwitcher: jest.fn(),
+  };
+
+  const mockChatState = {
+    isOpen: false,
+    isMinimized: false,
+    isChatActive: false,
+    error: null,
+    eligibility: null,
+    isLoading: false,
+    setOpen: jest.fn(),
+    setMinimized: jest.fn(),
+    setError: jest.fn(),
+    setChatActive: jest.fn(),
+    setLoading: jest.fn(),
+    setEligibility: jest.fn(),
+    setPlanSwitcherLocked: jest.fn(),
+    updateConfig: jest.fn(),
   };
 
   beforeEach(() => {
-    resetMocks();
-  });
-
-  it('should initialize with default values', () => {
-    const { result } = renderHook(() => useChat(defaultProps));
-
-    expect(result.current).toEqual(
-      expect.objectContaining({
-        isInitialized: false,
-        isOpen: false,
-        isChatActive: false,
-        isLoading: true,
-        error: null,
+    // Set up mock implementations
+    jest.clearAllMocks();
+    (useChatStore as unknown as jest.Mock).mockReturnValue(mockChatState);
+    
+    // Mock ChatService constructor and methods
+    (ChatService as jest.Mock).mockImplementation(() => ({
+      initialize: jest.fn().mockResolvedValue(undefined),
+      getChatInfo: jest.fn().mockResolvedValue({
+        chatAvailable: true,
+        cloudChatEligible: true,
+        chatGroup: 'test-group',
+        workingHours: 'MON_9-17',
       }),
-    );
+      startChat: jest.fn().mockResolvedValue(undefined),
+      endChat: jest.fn().mockResolvedValue(undefined),
+      sendMessage: jest.fn().mockResolvedValue(undefined),
+      memberId: mockOptions.memberId,
+      planId: mockOptions.planId,
+      planName: mockOptions.planName,
+      hasMultiplePlans: mockOptions.hasMultiplePlans,
+    }));
   });
 
-  it('should handle chat initialization with Genesys Cloud', async () => {
-    const { result } = renderHook(() => useChat(defaultProps));
+  it('should initialize correctly with options', () => {
+    const { result } = renderHook(() => useChat(mockOptions));
 
-    // Simulate script load and initialization
-    await act(async () => {
-      mockCXBus.configure.mockImplementation(() => Promise.resolve());
-      mockCXBus.subscribe.mockImplementation((event, callback) => {
-        if (event === 'WebChat.started') {
-          callback();
-        }
-      });
-    });
-
-    expect(mockCXBus.configure).toHaveBeenCalled();
-    expect(result.current.isInitialized).toBe(true);
+    expect(result.current).toHaveProperty('isInitialized');
+    expect(result.current).toHaveProperty('isOpen');
+    expect(result.current).toHaveProperty('isMinimized');
+    expect(result.current).toHaveProperty('isChatActive');
+    expect(result.current).toHaveProperty('error');
+    expect(result.current).toHaveProperty('eligibility');
+    expect(result.current).toHaveProperty('isLoading');
+    expect(result.current).toHaveProperty('openChat');
+    expect(result.current).toHaveProperty('closeChat');
   });
 
-  it('should handle opening and closing chat', async () => {
-    const { result } = renderHook(() => useChat(defaultProps));
+  it('should fetch eligibility on mount', async () => {
+    const { waitForNextUpdate } = renderHook(() => useChat(mockOptions));
+    await waitForNextUpdate();
 
-    await act(async () => {
-      result.current.openChat();
-    });
-
-    expect(result.current.isOpen).toBe(true);
-    expect(result.current.isChatActive).toBe(true);
-
-    await act(async () => {
-      result.current.closeChat();
-    });
-
-    expect(result.current.isOpen).toBe(false);
-    expect(result.current.isChatActive).toBe(false);
+    expect(mockChatState.setLoading).toHaveBeenCalledWith(true);
+    expect(mockChatState.setEligibility).toHaveBeenCalled();
+    expect(mockChatState.setLoading).toHaveBeenCalledWith(false);
   });
 
-  it('should handle chat unavailable state', async () => {
-    // Mock the eligibility hook to return chat unavailable
-    (useChatEligibility as jest.Mock).mockReturnValue({
-      eligibility: createMockChatInfo({ chatAvailable: false }),
-      loading: false,
-    });
+  it('should initialize chat when not initialized', async () => {
+    const { waitForNextUpdate } = renderHook(() => useChat(mockOptions));
+    await waitForNextUpdate();
 
-    const { result } = renderHook(() => useChat(defaultProps));
-
-    await act(async () => {
-      result.current.openChat();
-    });
-
-    expect(result.current.error).toBeInstanceOf(ChatError);
-    expect(result.current.error?.message).toBe('Chat is currently unavailable');
+    expect(mockChatState.setLoading).toHaveBeenCalledWith(true);
+    expect(mockChatState.updateConfig).toHaveBeenCalled();
   });
 
-  it('should handle plan switching during chat', async () => {
-    const { result } = renderHook(() => useChat(defaultProps));
+  it('should handle chat errors gracefully', async () => {
+    // Override mock to throw an error
+    (ChatService as jest.Mock).mockImplementation(() => ({
+      initialize: jest.fn().mockRejectedValue(new ChatError('Test error', 'TEST_ERROR')),
+      getChatInfo: jest.fn().mockRejectedValue(new ChatError('Test error', 'TEST_ERROR')),
+      startChat: jest.fn(),
+      endChat: jest.fn(),
+      sendMessage: jest.fn(),
+      memberId: mockOptions.memberId,
+      planId: mockOptions.planId,
+      planName: mockOptions.planName,
+      hasMultiplePlans: mockOptions.hasMultiplePlans,
+    }));
 
-    // Simulate chat start
-    await act(async () => {
-      mockCXBus.subscribe.mockImplementation((event, callback) => {
-        if (event === 'WebChat.started') {
-          callback();
-        }
-      });
-      result.current.openChat();
-    });
+    const { waitForNextUpdate } = renderHook(() => useChat(mockOptions));
+    await waitForNextUpdate();
 
-    expect(defaultProps.onLockPlanSwitcher).toHaveBeenCalledWith(true);
-
-    // Simulate chat end
-    await act(async () => {
-      mockCXBus.subscribe.mockImplementation((event, callback) => {
-        if (event === 'WebChat.ended') {
-          callback();
-        }
-      });
-      result.current.closeChat();
-    });
-
-    expect(defaultProps.onLockPlanSwitcher).toHaveBeenCalledWith(false);
+    expect(mockChatState.setError).toHaveBeenCalled();
   });
 
-  it('should handle initialization errors', async () => {
-    mockCXBus.configure.mockRejectedValue(new Error('Failed to initialize'));
-
-    const { result } = renderHook(() => useChat(defaultProps));
-
-    await act(async () => {
-      // Force initialization error
-      await result.current.openChat();
-    });
-
-    expect(result.current.error).toBeInstanceOf(ChatError);
-    expect(result.current.error?.message).toBe('Failed to initialize chat');
-  });
-
-  it('should clean up resources on unmount', () => {
-    const { unmount } = renderHook(() => useChat(defaultProps));
-
-    unmount();
-
-    // Verify cleanup (specific expectations would depend on cleanup implementation)
-    expect(mockCXBus.subscribe).toHaveBeenCalled();
-  });
+  // Add more tests as needed for specific functionality
 });

@@ -3,6 +3,7 @@ import type {
   ChatInfoResponse,
   ChatService as IChatService,
 } from '@/app/chat/types/index';
+import { LoggedInMember } from '@/models/app/loggedin_member';
 import { ChatError } from '@/app/chat/types/index';
 import { getAuthToken } from '@/utils/api/getToken';
 import { memberService } from '@/utils/api/memberService';
@@ -15,19 +16,17 @@ import {
 /**
  * Constants for chat service configuration
  */
-const GENESYS_SCRIPT_ID = 'cx-widget-script';
+const GENESYS_SCRIPT_ID = 'genesys-web-messenger-script'; // Changed ID to avoid conflicts
 const MAX_RECONNECT_ATTEMPTS = 3;
 const RECONNECT_DELAY = 2000; // 2 seconds
 
 /**
- * API Endpoints from environment variables
+ * API Endpoints base URLs from environment variables
  */
-const MEMBER_PORTAL_REST_ENDPOINT =
-  process.env.NEXT_PUBLIC_MEMBER_PORTAL_REST_ENDPOINT;
-const IDCARD_MEMBER_SOA_ENDPOINT =
-  process.env.NEXT_PUBLIC_IDCARD_MEMBER_SOA_ENDPOINT;
-const MEMBER_PORTAL_SOA_ENDPOINT =
-  process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT;
+const PORTAL_SERVICES_URL = process.env.PORTAL_SERVICES_URL || '';
+const MEMBERSERVICE_CONTEXT_ROOT = process.env.MEMBERSERVICE_CONTEXT_ROOT || '';
+const IDCARDSERVICE_CONTEXT_ROOT = process.env.IDCARDSERVICE_CONTEXT_ROOT || '';
+const MEMBER_PORTAL_SOA_ENDPOINT = process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || '';
 
 /**
  * ChatService class implements the core chat functionality.
@@ -77,6 +76,21 @@ export class ChatService implements IChatService {
     });
   }
 
+
+  /**
+   * Get member portal REST endpoint URL for the current member
+   */
+  private getMemberPortalRestEndpoint(): string {
+    return `${PORTAL_SERVICES_URL}${MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/members/byMemberCk/${this.memberId}`;
+  }
+
+  /**
+   * Get ID card member SOA endpoint
+   */
+  private getIdCardMemberSoaEndpoint(): string {
+    return `${PORTAL_SERVICES_URL}${IDCARDSERVICE_CONTEXT_ROOT}`;
+  }
+
   /**
    * Retrieves chat availability and configuration information.
    * This endpoint determines eligibility, cloud/legacy status, and business hours.
@@ -102,7 +116,7 @@ export class ChatService implements IChatService {
 
   /**
    * Initializes the chat service by:
-   * 1. Checking eligibility
+   * 1. Using configuration from GenesysScripts component
    * 2. Loading appropriate Genesys script
    * 3. Setting up event listeners
    * 4. Configuring authentication
@@ -118,26 +132,45 @@ export class ChatService implements IChatService {
         timestamp: new Date().toISOString(),
       });
 
+      // Get a fresh auth token before initializing
+      this.authToken = await getAuthToken();
+      
+      // Get eligibility information
       const eligibility = await this.getChatInfo();
       this.cloudChatEligible = eligibility.cloudChatEligible;
 
+      // Check if GenesysScripts has already set up the config objects
+      const isGenesysConfigured = this.cloudChatEligible 
+        ? !!window.Genesys?.c 
+        : !!window._genesys?.c;
+
+      if (!isGenesysConfigured) {
+        logger.warn('GenesysScripts component has not set up configuration objects yet', {
+          timestamp: new Date().toISOString(),
+        });
+      }
+      
+      // Web Messenger script URL - use specific version for better stability
       const scriptUrl = this.cloudChatEligible
-        ? `https://apps.mypurecloud.com/widgets/web-messenger.js`
+        ? `https://apps.mypurecloud.com/widgets/9.0/webmessenger.js`
         : '/assets/genesys/widgets.min.js';
 
       logger.info('Loading Genesys script', {
         scriptUrl,
         implementation: this.cloudChatEligible ? 'cloud' : 'legacy',
+        authTokenPresent: !!this.authToken,
         timestamp: new Date().toISOString(),
       });
 
+      // Load the appropriate script
       await loadGenesysScript(scriptUrl);
 
       if (!this.cloudChatEligible) {
+        // Legacy chat implementation
         logger.info('Initializing legacy chat', {
           timestamp: new Date().toISOString(),
         });
-        // Legacy chat initialization
+        
         registerGenesysOverride(() => {
           if (window._genesys?.widgets?.bus) {
             window._genesys.widgets.bus.command('WebChat.open');
@@ -145,34 +178,77 @@ export class ChatService implements IChatService {
         });
         executeGenesysOverrides();
       } else {
-        logger.info('Initializing cloud chat', {
+        // Cloud chat implementation
+        logger.info('Initializing cloud chat with Web Messenger', {
           timestamp: new Date().toISOString(),
         });
-        // Cloud chat initialization with JWT
+
+        // Configure the Web Messenger before subscribing to events
         if (window.Genesys) {
+          // Register UI widgets - use configuration from GenesysScripts if available
+          window.Genesys("widgets.registerUI", "webmessenger", {
+            position: "fixed",
+            showChatButton: true
+          });
+
+          // Subscribe to all relevant events for better debugging
           window.Genesys('subscribe', 'MessagingService.ready', () => {
-            logger.info('Messaging service ready', {
+            logger.info('Web Messenger ready', {
               timestamp: new Date().toISOString(),
             });
-            if (window.Genesys) {
+            
+            // Update auth token once the service is ready
+            if (this.authToken) {
+              logger.info('Updating auth token on messenger ready', {
+                timestamp: new Date().toISOString(),
+              });
+              
               window.Genesys('command', 'Messenger.updateAuthToken', {
                 token: this.authToken,
               });
+            } else {
+              logger.warn('No auth token available', {
+                timestamp: new Date().toISOString(),
+              });
             }
+            
             this.initialized = true;
           });
+          
+          // Add error handlers for better debugging
+          window.Genesys('subscribe', 'MessagingService.error', (error) => {
+            logger.error('Web Messenger error:', {
+              error,
+              timestamp: new Date().toISOString(),
+            });
+            
+            if (this.onError) {
+              this.onError(new Error(`Web Messenger error: ${JSON.stringify(error)}`));
+            }
+          });
+          
+          // Monitor connection events
+          window.Genesys('subscribe', 'MessagingService.connectionStateChanged', (state) => {
+            logger.info('Web Messenger connection state changed:', {
+              state,
+              timestamp: new Date().toISOString(),
+            });
+          });
+        } else {
+          logger.error('Genesys object not available', {
+            timestamp: new Date().toISOString(),
+          });
+          throw new ChatError('Genesys Web Messenger failed to load', 'INITIALIZATION_ERROR');
         }
       }
 
       // Add connection status listener
       window.addEventListener('offline', this.handleConnectionLoss.bind(this));
-      window.addEventListener(
-        'online',
-        this.handleConnectionRestore.bind(this),
-      );
+      window.addEventListener('online', this.handleConnectionRestore.bind(this));
 
       logger.info('Chat service initialized successfully', {
         cloudChatEligible: this.cloudChatEligible,
+        initialized: this.initialized,
         timestamp: new Date().toISOString(),
       });
     } catch (error) {
@@ -233,16 +309,37 @@ export class ChatService implements IChatService {
   }
 
   public destroy(): void {
+    logger.info('Destroying chat service', {
+      timestamp: new Date().toISOString(),
+    });
+    
     window.removeEventListener('offline', this.handleConnectionLoss.bind(this));
-    window.removeEventListener(
-      'online',
-      this.handleConnectionRestore.bind(this),
-    );
+    window.removeEventListener('online', this.handleConnectionRestore.bind(this));
 
-    if (window.Genesys?.WebMessenger) {
-      window.Genesys.WebMessenger.destroy();
-    } else if (window.Genesys?.Chat) {
-      window.Genesys.Chat.destroy();
+    try {
+      if (this.cloudChatEligible) {
+        // Clean up Web Messenger
+        if (window.Genesys?.WebMessenger) {
+          window.Genesys('command', 'Messenger.close');
+          window.Genesys.WebMessenger.destroy();
+          logger.info('Web Messenger destroyed', {
+            timestamp: new Date().toISOString(),
+          });
+        }
+      } else {
+        // Clean up legacy chat
+        if (window._genesys?.widgets?.bus) {
+          window._genesys.widgets.bus.command('WebChat.endChat');
+          logger.info('Legacy chat ended', {
+            timestamp: new Date().toISOString(),
+          });
+        }
+      }
+    } catch (error) {
+      logger.error('Error during chat service cleanup', {
+        error,
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -257,6 +354,8 @@ export class ChatService implements IChatService {
     try {
       logger.info('Starting chat session', {
         payload,
+        cloudChatEligible: this.cloudChatEligible,
+        initialized: this.initialized,
         timestamp: new Date().toISOString(),
       });
 
@@ -268,24 +367,39 @@ export class ChatService implements IChatService {
       const token = await getAuthToken();
       if (token !== this.authToken) {
         logger.info('Updating auth token', {
+          tokenChanged: true,
           timestamp: new Date().toISOString(),
         });
         this.authToken = token ?? null;
-        if (this.cloudChatEligible && window.Genesys) {
-          window.Genesys('command', 'Messenger.updateAuthToken', {
-            token: this.authToken,
-          });
-        }
       }
 
       if (this.cloudChatEligible && window.Genesys) {
         logger.info('Opening cloud chat messenger', {
           timestamp: new Date().toISOString(),
         });
+        
+        // First update the auth token
+        if (this.authToken) {
+          window.Genesys('command', 'Messenger.updateAuthToken', {
+            token: this.authToken,
+          });
+        }
+        
+        // Register member and plan data before opening messenger
+        window.Genesys('registerDataSource', {
+          memberId: this.memberId,
+          planId: this.planId,
+          planName: this.planName,
+        });
+        
+        // Then open the messenger with the payload
         window.Genesys('command', 'Messenger.open', {
           data: {
             ...payload,
-            jwt: this.authToken,
+            // Add member and plan information for better identification
+            memberId: this.memberId,
+            planId: this.planId,
+            planName: this.planName,
           },
         });
       } else if (window._genesys?.widgets?.bus) {
@@ -388,25 +502,64 @@ export class ChatService implements IChatService {
  */
 export const loadGenesysScript = async (scriptUrl: string): Promise<void> => {
   try {
-    // Remove any existing script
+    // Remove any existing scripts to avoid conflicts
     const existingScript = document.getElementById(GENESYS_SCRIPT_ID);
     if (existingScript) {
       existingScript.remove();
     }
+    
+    // Also check for other Genesys scripts that might cause conflicts
+    const possibleScriptIds = [
+      'cx-widget-script', 
+      'genesys-bootstrap-script', 
+      'genesys-web-messenger-script'
+    ];
+    
+    possibleScriptIds.forEach(id => {
+      if (id !== GENESYS_SCRIPT_ID) {
+        const script = document.getElementById(id);
+        if (script) {
+          logger.warn(`Removing potentially conflicting script: ${id}`, {
+            timestamp: new Date().toISOString(),
+          });
+          script.remove();
+        }
+      }
+    });
 
     const script = document.createElement('script');
     script.id = GENESYS_SCRIPT_ID;
     script.src = scriptUrl;
     script.async = true;
     script.defer = true;
+    
+    logger.info(`Loading Genesys script from ${scriptUrl}`, {
+      scriptId: GENESYS_SCRIPT_ID,
+      timestamp: new Date().toISOString(),
+    });
 
     await new Promise<void>((resolve, reject) => {
-      script.onload = () => resolve();
-      script.onerror = () => reject(new Error('Failed to load Genesys script'));
+      script.onload = () => {
+        logger.info(`Genesys script loaded successfully: ${scriptUrl}`, {
+          timestamp: new Date().toISOString(),
+        });
+        resolve();
+      };
+      script.onerror = (error) => {
+        logger.error(`Failed to load Genesys script: ${scriptUrl}`, {
+          error,
+          timestamp: new Date().toISOString(),
+        });
+        reject(new Error(`Failed to load Genesys script: ${error}`));
+      };
       document.head.appendChild(script);
     });
   } catch (error) {
-    console.error('Error loading Genesys script:', error);
+    logger.error('Error loading Genesys script:', {
+      error,
+      scriptUrl,
+      timestamp: new Date().toISOString(),
+    });
     throw new ChatError(
       'Failed to load Genesys chat script',
       'SCRIPT_LOAD_ERROR',
@@ -416,16 +569,18 @@ export const loadGenesysScript = async (scriptUrl: string): Promise<void> => {
 
 /**
  * Sends an email through the member portal service
+ * @param memberId The member ID
  * @param emailData Email data to send
  */
-async function sendEmail(emailData: {
+async function sendEmail(memberId: string, emailData: {
   subject: string;
   body: string;
   to: string;
 }): Promise<void> {
   try {
+    const memberPortalEndpoint = `${PORTAL_SERVICES_URL}${MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/members/byMemberCk/${memberId}`;
     const response = await memberService.post(
-      `${MEMBER_PORTAL_REST_ENDPOINT}/memberservice/api/v1/contactusemail`,
+      `${memberPortalEndpoint}/memberservice/api/v1/contactusemail`,
       emailData,
     );
     if (response.status !== 200) {
@@ -446,8 +601,9 @@ async function getPhoneAttributes(params: {
   effectiveDetails: string;
 }): Promise<any> {
   try {
+    const idCardEndpoint = `${PORTAL_SERVICES_URL}${IDCARDSERVICE_CONTEXT_ROOT}`;
     const response = await memberService.get(
-      `${IDCARD_MEMBER_SOA_ENDPOINT}OperationHours`,
+      `${idCardEndpoint}OperationHours`,
       { params },
     );
     return response.data;
