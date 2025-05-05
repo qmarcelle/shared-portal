@@ -5,14 +5,26 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { TextBox } from '@/components/foundation/TextBox';
-import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
+import {
+  AccessStatus,
+  ShareOutsideMyPlanDetails,
+  SharePlanInformationDetails,
+} from '@/models/app/getSharePlanDetails';
 import { ShareMyPlanComponent } from './components/ShareMyPlanComponent';
+import { ShareOutsideMyPlanComponent } from './components/ShareOutsideMyPlanComponent';
 
 export type ShareMyInformationProps = {
   data?: SharePlanInformationDetails;
 };
 
 const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
+  const testMember: ShareOutsideMyPlanDetails[] = [
+    {
+      memberName: 'JILL VALENTINE',
+      DOB: '01/19/1985',
+      accessStatus: AccessStatus.FullAccess,
+    },
+  ];
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -75,6 +87,21 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                 }
                 infoIcon={false}
                 ShareMyPlanDetails={data!.memberData}
+              />
+            </Card>
+            <Card className="large-section">
+              <ShareOutsideMyPlanComponent
+                header={
+                  <Column>
+                    <Header type="title-2" text="Outside My Plan" />
+                  </Column>
+                }
+                subHeader={
+                  <Column>
+                    <TextBox text="Share your information with individuals not on your health plan." />
+                  </Column>
+                }
+                ShareOutsideMyPlanDetails={testMember}
               />
             </Card>
           </Column>
