@@ -8,6 +8,15 @@ import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_PHARMACY_SEARCH_FAST,
+  EYEMED_DEEPLINK_MAP,
+  EYEMED_PROVIDER_DIRECTORY,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_DENTAL,
+  PROV_DIR_MENTAL_HEALTH,
+} from '@/app/sso/ssoConstants';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
@@ -20,10 +29,13 @@ import {
   isEmboldHealthEligible,
   isLifePointGrp,
   isPayMyPremiumEligible,
+  isPharmacyBenefitsEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import EstimateCost from '../../../../public/assets/estimate_cost.svg';
 import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
@@ -36,6 +48,7 @@ export type DashboardProps = {
 };
 
 const MemberDashboard = ({ data }: DashboardProps) => {
+  const router = useRouter();
   const { memberDetails, visibilityRules, primaryCareProvider } = data;
   return (
     <div className="flex flex-col w-full justify-center items-center page">
@@ -244,37 +257,63 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   {
                     label: 'Primary Care Provider',
                     callback: () => {
-                      console.log('Clicked Pill PCP');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
+                      );
                     },
                   },
                   {
                     label: 'Dentist',
                     callback: () => {
-                      console.log('Clicked Pill Dentist');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`,
+                      );
                     },
                   },
                   {
                     label: 'Mental Health Provider',
                     callback: () => {
-                      console.log('Clicked Pill Mental Health Provider');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`,
+                      );
                     },
                   },
-                  {
-                    label: 'Eye Doctor',
-                    callback: () => {
-                      console.log('Clicked Pill Eye Doctor');
-                    },
-                  },
-                  {
-                    label: 'Pharmacy',
-                    callback: () => {
-                      console.log('Clicked Pill Pharmacy');
-                    },
-                  },
+                  isVisionEligible(visibilityRules)
+                    ? {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push('');
+                        },
+                      },
+                  isPharmacyBenefitsEligible(visibilityRules)
+                    ? {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      },
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      console.log('Clicked Pill Virtual Care');
+                      router.push('/virtualCareOptions');
                     },
                   },
                 ]}
@@ -341,7 +380,30 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 className="large-section"
                 employer="Ben Cole Co"
                 employerLogo={bcbstBlueLogo}
-                benefits={data.employerProvidedBenefits}
+                benefits={[
+                  {
+                    id: '45',
+                    providedBy: 'Davis Vision',
+                    contact: '1-800-456-9876',
+                    url: 'https://davis-vision.com',
+                  },
+                  {
+                    id: '87',
+                    providedBy: 'Nirmal Dental',
+                    contact: '1-800-367-9676',
+                    url: 'https://nirmaldental.com',
+                  },
+                  {
+                    id: '25',
+                    providedBy: 'Low Pharm',
+                    contact: '1-800-834-2465',
+                  },
+                  {
+                    id: '289',
+                    providedBy: 'Quant Labs',
+                    contact: '1-800-834-3465',
+                  },
+                ]}
               />
             )}
         </section>
