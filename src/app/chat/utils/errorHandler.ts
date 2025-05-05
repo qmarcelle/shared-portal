@@ -4,11 +4,11 @@ import { ChatError } from '../types/index';
 declare global {
   interface Window {
     elementTag?: (
-      event: string, 
-      category: string, 
-      data: Record<string, unknown>, 
-      label: string, 
-      callback: () => void
+      event: string,
+      category: string,
+      data: Record<string, unknown>,
+      label: string,
+      callback: () => void,
     ) => void;
   }
 }

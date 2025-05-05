@@ -1,10 +1,9 @@
+// src/stores/chatStore.ts
 import { create } from 'zustand';
+import { getChatInfo } from '../../../utils/api/ChatService';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 import { ChatError, ChatInfoResponse } from '../types/index';
 
-/**
- * Chat store state interface-
- */
 export interface ChatState {
   // UI state
   isOpen: boolean;
@@ -15,14 +14,23 @@ export interface ChatState {
   isChatActive: boolean;
   isLoading: boolean;
   error: ChatError | null;
-  messages: Array<{
-    id: string;
-    content: string;
-    sender: 'user' | 'agent';
-  }>;
+  messages: Array<{ id: string; content: string; sender: 'user' | 'agent' }>;
 
-  // Eligibility state
+  // API response
   eligibility: ChatInfoResponse | null;
+
+  // Derived flags
+  isEligible: boolean;
+  chatMode: 'legacy' | 'cloud';
+  isOOO: boolean;
+  chatGroup?: string;
+  businessHoursText: string;
+  routingInteractionId?: string;
+  userData: Record<string, string>;
+  formInputs: { id: string; value: string }[];
+
+  // Zod-validated config
+  config?: ChatConfig;
 
   // Plan switching
   isPlanSwitcherLocked: boolean;
@@ -30,23 +38,27 @@ export interface ChatState {
 
   // Actions
   setOpen: (isOpen: boolean) => void;
-  setMinimized: (isMinimized: boolean) => void;
-  setError: (error: ChatError | null) => void;
-  addMessage: (message: { content: string; sender: 'user' | 'agent' }) => void;
+  setMinimized: (min: boolean) => void;
+  minimizeChat: () => void;
+  maximizeChat: () => void;
+  setError: (err: ChatError | null) => void;
+  addMessage: (m: { content: string; sender: 'user' | 'agent' }) => void;
   clearMessages: () => void;
   setChatActive: (active: boolean) => void;
   setLoading: (loading: boolean) => void;
   incrementMessageCount: () => void;
   resetMessageCount: () => void;
-  setEligibility: (eligibility: ChatState['eligibility']) => void;
+  setEligibility: (info: ChatInfoResponse | null) => void;
   setPlanSwitcherLocked: (locked: boolean) => void;
-  updateConfig: (config: Partial<ChatConfig>) => void;
+  updateConfig: (cfg: Partial<ChatConfig>) => void;
   closeAndRedirect: () => void;
+
+  // New actions
+  loadChatConfiguration: (memberId: number, planId: string) => Promise<void>;
+  startChat: () => void;
+  endChat: () => void;
 }
 
-/**
- * Create the chat store with Zustand
- */
 export const useChatStore = create<ChatState>((set) => ({
   // UI state
   isOpen: false,
@@ -59,8 +71,21 @@ export const useChatStore = create<ChatState>((set) => ({
   error: null,
   messages: [],
 
-  // Eligibility state
+  // API response
   eligibility: null,
+
+  // Derived flags
+  isEligible: false,
+  chatMode: 'legacy',
+  isOOO: true,
+  chatGroup: undefined,
+  businessHoursText: '',
+  routingInteractionId: undefined,
+  userData: {},
+  formInputs: [],
+
+  // Config slice
+  config: undefined,
 
   // Plan switching
   isPlanSwitcherLocked: false,
@@ -68,36 +93,20 @@ export const useChatStore = create<ChatState>((set) => ({
 
   // Actions
   setOpen: (isOpen) => set({ isOpen }),
-
-  setMinimized: (isMinimized) => set({ isMinimized }),
-
+  setMinimized: (min) => set({ isMinimized: min }),
+  minimizeChat: () => set({ isMinimized: true }),
+  maximizeChat: () => set({ isMinimized: false }),
   setError: (error) => set({ error }),
-
   addMessage: (message) =>
-    set((state) => ({
-      messages: [
-        ...state.messages,
-        {
-          id: Date.now().toString(),
-          content: message.content,
-          sender: message.sender,
-        },
-      ],
+    set((s) => ({
+      messages: [...s.messages, { id: Date.now().toString(), ...message }],
     })),
-
   clearMessages: () => set({ messages: [] }),
-
   setChatActive: (active) => set({ isChatActive: active }),
-
   setLoading: (loading) => set({ isLoading: loading }),
-
   incrementMessageCount: () =>
-    set((state) => ({
-      newMessageCount: state.newMessageCount + 1,
-    })),
-
+    set((s) => ({ newMessageCount: s.newMessageCount + 1 })),
   resetMessageCount: () => set({ newMessageCount: 0 }),
-
   setEligibility: (eligibility) => set({ eligibility }),
 
   setPlanSwitcherLocked: (locked) =>
@@ -108,25 +117,12 @@ export const useChatStore = create<ChatState>((set) => ({
         : '',
     }),
 
-  updateConfig: (config) => {
+  updateConfig: (cfg) => {
     try {
-      const validatedConfig = ChatConfigSchema.parse(config);
-      set((state) => ({
-        eligibility: {
-          ...state.eligibility,
-          isEligible: true,
-          chatAvailable: !!validatedConfig.isChatAvailable,
-          cloudChatEligible: !!validatedConfig.cloudChatEligible,
-          chatGroup: validatedConfig.chatGroup || '',
-          workingHours: validatedConfig.workingHours || '',
-          businessHours: {
-            text: validatedConfig.workingHours || '',
-            isOpen: !!validatedConfig.isChatAvailable,
-          },
-        },
-      }));
-    } catch (error) {
-      console.error('Invalid chat configuration:', error);
+      const validated = ChatConfigSchema.parse(cfg);
+      set({ config: validated });
+    } catch (err) {
+      console.error('Invalid chat configuration:', err);
       set({
         error: new ChatError(
           'Invalid chat configuration',
@@ -137,10 +133,42 @@ export const useChatStore = create<ChatState>((set) => ({
   },
 
   closeAndRedirect: () =>
-    set((state) => ({
+    set({
       isOpen: false,
       isChatActive: false,
       messages: [],
       isPlanSwitcherLocked: false,
-    })),
+    }),
+
+  // New actions
+  loadChatConfiguration: async (memberId, planId) => {
+    const info = await getChatInfo(memberId, planId);
+    set({
+      eligibility: info,
+      isEligible: info.isEligible,
+      chatMode: info.cloudChatEligible ? 'cloud' : 'legacy',
+      chatGroup: info.chatGroup,
+      isOOO: !info.businessHours?.isOpen,
+      businessHoursText: info.businessHours?.text || '',
+      routingInteractionId: info.RoutingChatbotInteractionId,
+      userData: {
+        MEMBER_ID: String(info.member_ck),
+        PLAN_ID: planId,
+        firstname: info.first_name,
+        lastname: info.last_name,
+        LOB: info.lob_group,
+        IDCardBotName: info.IDCardBotName || '',
+      },
+      formInputs: [
+        { id: 'MEMBER_ID', value: String(info.member_ck) },
+        { id: 'PLAN_ID', value: planId },
+        { id: 'firstname', value: info.first_name },
+        { id: 'lastname', value: info.last_name },
+        { id: 'LOB', value: info.lob_group },
+      ],
+    });
+  },
+
+  startChat: () => set({ isChatActive: true }),
+  endChat: () => set({ isChatActive: false }),
 }));

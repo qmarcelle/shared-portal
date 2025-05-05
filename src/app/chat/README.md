@@ -1,287 +1,136 @@
-# Chat System Documentation
+# BCBST Member Portal Chat Integration
 
 ## Overview
 
-The chat system provides a unified chat experience supporting both Genesys Cloud Web Messaging and legacy chat.js implementations. It automatically selects the appropriate implementation based on member eligibility while providing a consistent API for developers.
+A unified chat solution that automatically selects between the on-prem Genesys legacy widget and the Genesys Cloud Web Messenger based on member eligibility. Built on Next.js 14 App Router, Zustand for state, and declarative `<Script>` loads—no manual DOM hacks.
 
-## Architecture
+## File Structure
 
-### Key Components
+src/
+├─ app/
+│ └─ chat/
+│ ├─ layout.tsx # Server layout that mounts ChatLoader
+│ ├─ page.tsx # Chat page wrapper
+│ ├─ components/
+│ │ ├─ ChatLoader.tsx # Orchestrates config load, event hooks, UI
+│ │ ├─ ChatWidget.tsx # Launcher button + plan-lock chrome
+│ │ ├─ LegacyChatWrapper.tsx # <Script> + config for legacy widget
+│ │ ├─ CloudChatWrapper.tsx # <Script> + init for Cloud Messenger
+│ │ ├─ PlanInfoHeader.tsx # Displays current plan info
+│ │ ├─ PlanSwitcherButton.tsx # “Switch Plan” button
+│ │ ├─ TermsAndConditions.tsx # LOB-specific T&C copy
+│ │ ├─ BusinessHoursBanner.tsx# Out-of-hours notification
+│ │ ├─ ChatControls.tsx # Minimize/maximize/close buttons
+│ │ ├─ ChatSession.tsx # Typing indicator & inactivity timeout
+│ │ └─ ChatPersistence.tsx # Warn on unload, auto-minimize
+│ └─ hooks/
+│ ├─ useChatEventHandlers.ts # Subscribes CXBus & Messenger events
+│ └─ usePlanSwitcherLock.ts # Locks/unlocks plan switcher UI
+├─ stores/
+│ └─ chatStore.ts # Zustand store: payload, state, actions
+│ └─ planStore.ts # Zustand store: plans, selection, lock
+├─ schemas/
+│ └─ genesys.schema.ts # Zod schema for widget config
+├─ types/
+│ ├─ ChatError.ts # Domain‐specific ChatError class
+│ ├─ ChatInfoResponse.ts # API response interface for /api/chat/info
+│ └─ ChatDataPayload.ts # Payload interface for startChat
+├─ utils/
+│ └─ api/
+│ ├─ memberService.ts # Axios instance + interceptors
+│ └─ ChatService.ts # getChatInfo(), sendEmail, etc.
+└─ app/
+└─ api/
+└─ chat/ # Next.js API routes
+├─ chat-info/route.ts # GET /api/chat/info
+├─ sendEmail/route.ts # POST /api/chat/sendEmail
+├─ getPhoneAttributes/route.ts
+└─ getEmail/route.ts
+.env.local # NEXT_PUBLIC_GENESYS_CHAT_URL, CHAT_MODE_URL, etc.
 
-1. **ChatWidget** (`components/ChatWidget.tsx`)
+## Installation & Setup
 
-   - Main entry point for chat functionality
-   - Handles chat window state and plan switching
-   - Manages eligibility checks and implementation selection
+1. **Install**
 
-2. **ChatService** (`services/ChatService.ts`)
+   ```bash
+   npm install zustand zod axios
 
-   - Core service handling chat initialization and messaging
-   - Manages authentication and session state
-   - Implements reconnection logic and error handling
+   	2.	Copy your legacy assets into
+   public/assets/genesys/widgets.min.js
+   and any override CSS under public/assets/genesys/.
+   	3.	Configure your environment variables in .env.local:
+   ```
 
-3. **GenesysScripts** (`components/GenesysScripts.tsx`)
+NEXT_PUBLIC_GENESYS_CHAT_URL=…
+CHAT_MODE_URL=…
+NEXT_PUBLIC_GC_ENV=…
+NEXT_PUBLIC_GC_ORG_ID=…
+NEXT_PUBLIC_GC_DEPLOYMENT_KEY=…
+NEXT_PUBLIC_GC_QUEUE=…
+PORTAL_SERVICES_URL=…
+MEMBERSERVICE_CONTEXT_ROOT=…
+IDCARDSERVICE_CONTEXT_ROOT=…
+NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT=…
 
-   - Handles script loading for both implementations
-   - Manages script lifecycle and cleanup
-   - Configures chat widgets based on eligibility
+    4.	Run your dev server:
 
-4. **Chat Store** (`stores/chatStore.ts`)
-   - Centralized state management using Zustand
-   - Handles UI state, messages, and eligibility
-   - Manages plan switching lock state
+npm run dev
 
-### Directory Structure
+Usage
 
-```
-src/app/chat/
-├── components/              # React components
-│   ├── ChatWidget.tsx      # Main chat widget component
-│   ├── ChatWindow.tsx      # Chat window implementation
-│   ├── ChatTrigger.tsx     # Minimized chat button
-│   ├── PlanInfoHeader.tsx  # Plan information display
-│   ├── GenesysScripts.tsx  # Script loading
-│   └── shared/             # Shared component utilities
-├── config/                 # Configuration
-│   └── genesys.config.ts   # Genesys configuration
-├── hooks/                  # React hooks
-│   └── useChat.ts         # Main chat hook
-├── services/              # Core services
-│   └── ChatService.ts     # Chat service implementation
-├── stores/                # State management
-│   └── chatStore.ts       # Zustand store
-├── types/                 # TypeScript types
-│   ├── index.ts          # Type exports
-│   └── errors.ts         # Error types
-└── utils/                # Utilities
-    └── chatDomUtils.ts   # DOM manipulation
-```
+Mounting the Chat
 
-## Implementation Details
+In your app’s route:
 
-### 1. Chat Service
-
-The `ChatService` class is the core of the chat system:
-
-```typescript
-class ChatService {
-  constructor(
-    public readonly memberId: string,
-    public readonly planId: string,
-    public readonly planName: string,
-    public readonly hasMultiplePlans: boolean,
-    public readonly onLockPlanSwitcher: (locked: boolean) => void,
-  ) {}
+// src/app/chat/layout.tsx
+import ChatLoader from '@/app/chat/components/ChatLoader';
+export default function ChatLayout({ children, params }) {
+const memberId = Number(params.memberId);
+const planId = params.planId;
+return (
+<>
+<ChatLoader memberId={memberId} planId={planId} />
+{children}
+</>
+);
 }
-```
 
-Key responsibilities:
-
-- Chat initialization and script loading
-- Session management and authentication
-- Message handling and state management
-- Error handling and recovery
-- Plan switching support
-
-### 2. Error Handling
-
-The system uses a comprehensive error handling system:
-
-```typescript
-class ChatError extends Error {
-  constructor(
-    message: string,
-    type: ChatErrorType,
-    severity: ChatErrorSeverity = 'ERROR',
-    metadata: Partial<ChatErrorMetadata> = {},
-  ) {}
+// src/app/chat/page.tsx
+export default function ChatPage() {
+return (
+<main className="p-4">
+<h1 className="text-xl font-bold">Member Chat</h1>
+<p>Click “Start Chat” above to connect.</p>
+</main>
+);
 }
-```
 
-Error types include:
+Core Flow 1. ChatLoader calls loadChatConfiguration(memberId, planId) on mount. 2. ChatLoader invokes useChatEventHandlers() to wire CXBus/Messenger events → store. 3. ChatLoader renders <ChatWidget> with:
+• Pre-chat UI (PlanInfoHeader, PlanSwitcherButton, TermsAndConditions, Start Chat)
+• Widget injection via <LegacyChatWrapper> or <CloudChatWrapper>
+• In-chat UI (BusinessHoursBanner, ChatControls, ChatSession) 4. usePlanSwitcherLock locks/unlocks your plan switcher based on isChatActive. 5. All global state and actions live in chatStore.ts; plans live in planStore.ts.
 
-- Initialization errors
-- Configuration errors
-- API errors
-- Script loading errors
-- Business hours errors
-- Plan switching errors
+API Routes
+• GET /api/chat/info → returns ChatInfoResponse with eligibility, LOB, hours, routing.
+• POST /api/chat/sendEmail → proxies to member service email endpoint.
+• GET /api/chat/getPhoneAttributes → proxies to SOA OperationHours.
+• GET /api/chat/getEmail → proxies to memberContactPreference.
 
-### 3. Configuration
+Testing
+• Unit tests for each component, hook, and store action.
+• Integration tests covering:
+• Legacy vs. Cloud flows
+• Plan switching lock/unlock
+• Business-hours banner
+• Payload data refresh on plan swap
+• Mock the /api/chat/info response to simulate different eligibility scenarios.
 
-Configuration is managed through `genesys.config.ts`:
+Troubleshooting
+• Widget fails to load → verify asset URLs in public/assets/genesys and CSP headers.
+• CORS errors → ensure NEXT_PUBLIC_GENESYS_CHAT_URL and CHAT_MODE_URL allow localhost or use a proxy route.
+• Plan switcher not locking → confirm useChatEventHandlers is mounted and ChatControls dispatches startChat/endChat.
+• Missing payload fields → check loadChatConfiguration maps all required fields into userData and formInputs.
 
-```typescript
-export const GENESYS_CONFIG = {
-  deploymentId: process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID,
-  region: process.env.NEXT_PUBLIC_GENESYS_REGION,
-  orgId: process.env.NEXT_PUBLIC_GENESYS_ORG_ID,
-  queueName: process.env.NEXT_PUBLIC_CHAT_QUEUE_NAME,
-};
-```
+⸻
 
-Configuration is validated using Zod schemas to ensure type safety.
-
-## Usage Guide
-
-### Basic Usage
-
-```typescript
-import { ChatWidget } from '@/app/chat/components';
-
-function App() {
-  return (
-    <ChatWidget
-      memberId="123"
-      planId="456"
-      planName="Basic Plan"
-      hasMultiplePlans={true}
-      onLockPlanSwitcher={(locked) => console.log('Plan switcher locked:', locked)}
-    />
-  );
-}
-```
-
-### Using the Chat Hook
-
-```typescript
-import { useChat } from '@/app/chat/hooks';
-
-function ChatComponent() {
-  const {
-    isOpen,
-    isChatActive,
-    error,
-    openChat,
-    closeChat,
-    startChat,
-    endChat,
-  } = useChat();
-
-  // Use chat functionality
-}
-```
-
-## Error Handling
-
-### Handling Chat Errors
-
-```typescript
-try {
-  await startChat();
-} catch (error) {
-  if (error instanceof ChatError) {
-    // Show user-friendly message
-    showErrorMessage(error.getUserMessage());
-
-    // Log error if needed
-    if (error.shouldReport()) {
-      logger.error('Chat error:', error.toLog());
-    }
-
-    // Attempt recovery if possible
-    if (error.isRecoverable()) {
-      await retryOperation();
-    }
-  }
-}
-```
-
-## Testing
-
-The chat system includes comprehensive tests:
-
-1. **Unit Tests**
-
-   - Component tests
-   - Hook tests
-   - Service tests
-
-2. **Integration Tests**
-
-   - Chat flow tests
-   - Plan switching tests
-   - Error handling tests
-
-3. **Test Utilities**
-   - Mock services
-   - Test data generators
-   - Helper functions
-
-## Best Practices
-
-1. **Error Handling**
-
-   - Always use the ChatError class for errors
-   - Provide user-friendly error messages
-   - Log errors appropriately
-
-2. **State Management**
-
-   - Use the chat store for global state
-   - Keep component state minimal
-   - Handle side effects in hooks
-
-3. **Testing**
-   - Write tests for new features
-   - Use mock data for testing
-   - Test error scenarios
-
-## Contributing
-
-1. **Adding Features**
-
-   - Follow the existing architecture
-   - Add appropriate tests
-   - Update documentation
-
-2. **Bug Fixes**
-
-   - Add regression tests
-   - Update error handling
-   - Document fixes
-
-3. **Code Style**
-   - Follow TypeScript best practices
-   - Use consistent naming
-   - Add JSDoc comments
-
-## Deployment
-
-1. **Environment Variables**
-
-   - Set required Genesys variables
-   - Configure API endpoints
-   - Set appropriate debug flags
-
-2. **Build Process**
-
-   - Run type checks
-   - Run tests
-   - Build production bundle
-
-3. **Monitoring**
-   - Monitor error rates
-   - Track chat metrics
-   - Monitor performance
-
-## Troubleshooting
-
-Common issues and solutions:
-
-1. **Script Loading Issues**
-
-   - Check network connectivity
-   - Verify Genesys configuration
-   - Check browser console for errors
-
-2. **Authentication Issues**
-
-   - Verify token validity
-   - Check permissions
-   - Validate member eligibility
-
-3. **Plan Switching Issues**
-   - Check chat active state
-   - Verify lock mechanism
-   - Check error handling
+This document reflects the final, production-ready implementation. All legacy DOM utilities have been replaced by Next.js <Script> wrappers and airtight state management.

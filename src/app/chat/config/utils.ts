@@ -1,6 +1,28 @@
-import { ClientIdentification, MemberEligibility } from '../types/genesys';
-import { CHAT_TYPE_CONST, CLIENT_ID_CONST } from './constants';
+// Temporary local type definitions
+export type ClientIdentification = {
+  isBlueEliteGroup?: boolean | string;
+  groupType?: string;
+  memberClientId?: string;
+};
 
+export type MemberEligibility = {
+  isDental?: string;
+  isMedical?: string;
+  isVision?: string;
+  isWellnessOnly?: string;
+};
+
+// src/app/chat/config/constants.ts
+export const CLIENT_ID_CONST = {
+  BlueCare: 'BlueCare',
+  BlueCarePlus: 'BlueCarePlus',
+  CoverTN: 'CoverTN',
+  CoverKids: 'CoverKids',
+  SeniorCare: 'SeniorCare',
+  BlueElite: 'BlueElite',
+  Individual: 'Individual',
+  // Add any other client IDs you use
+};
 /**
  * Determines if the member has dental coverage only
  */
@@ -49,13 +71,16 @@ export function getChatType(calculatedCiciId: string): string {
     case CLIENT_ID_CONST.BlueCarePlus:
     case CLIENT_ID_CONST.CoverTN:
     case CLIENT_ID_CONST.CoverKids:
-      return CHAT_TYPE_CONST.BlueCareChat;
+      //return CHAT_TYPE_CONST.BlueCareChat;
+      return 'BlueCareChat';
     case CLIENT_ID_CONST.SeniorCare:
     case CLIENT_ID_CONST.BlueElite:
-      return CHAT_TYPE_CONST.SeniorCareChat;
+      //return CHAT_TYPE_CONST.SeniorCareChat;
+      return 'SeniorCareChat';
     case CLIENT_ID_CONST.Individual:
     default:
-      return CHAT_TYPE_CONST.DefaultChat;
+      //return CHAT_TYPE_CONST.DefaultChat;
+      return 'DefaultChat';
   }
 }
 
