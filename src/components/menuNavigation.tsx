@@ -12,6 +12,7 @@ import {
   isBiometricScreening,
   isBlueCareEligible,
   isBlueCareNotEligible,
+  isEmboldHealthEligible,
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
@@ -22,6 +23,7 @@ import {
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNotWellnessQa,
   isNurseChatEligible,
+  isPharmacyBenefitsEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
@@ -68,7 +70,8 @@ export const getMenuNavigation = (
         title: 'Find a Medical Provider',
         description: 'This is Find a Provider',
         category: 'Find Care',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isEmboldHealthEligible(rules),
         url: '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_EMBOLD,
         external: true,
         openInNewWindow: false,
@@ -158,7 +161,8 @@ export const getMenuNavigation = (
         title: 'Price a Medication',
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isPharmacyBenefitsEligible(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         external: true,
         openInNewWindow: false,
@@ -485,9 +489,7 @@ export const getMenuNavigation = (
         title: 'My Prescriptions',
         description: 'This is My Prescriptions',
         category: 'Manage My Prescriptions',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: (rules) => isPharmacyBenefitsEligible(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
         external: true,
       },
@@ -520,9 +522,7 @@ export const getMenuNavigation = (
         title: 'Find a Pharmacy',
         description: 'This is Find a Pharmacy',
         category: 'Manage My Prescriptions',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: (rules) => isPharmacyBenefitsEligible(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
         external: true,
         openInNewWindow: false,

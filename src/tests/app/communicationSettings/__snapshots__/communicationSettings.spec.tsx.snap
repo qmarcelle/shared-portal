@@ -195,7 +195,11 @@ exports[`Communication Settings should render communicationSettings if user role
                             type="checkbox"
                           />
                           <label
+<<<<<<< HEAD
+                            class="ml-2 font-bold cursor-pointer"
+=======
                             class="ml-2  cursor-pointer"
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             for="checkbox-receive-text-alerts"
                           >
                             <p
@@ -211,7 +215,10 @@ exports[`Communication Settings should render communicationSettings if user role
                             >
                               Get text alerts with plan updates and personalized health notifications.
                             </p>
+<<<<<<< HEAD
+=======
                              
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             <span
                               class="sr-only"
                             >
@@ -248,7 +255,11 @@ exports[`Communication Settings should render communicationSettings if user role
                             type="checkbox"
                           />
                           <label
+<<<<<<< HEAD
+                            class="ml-2 font-bold cursor-pointer"
+=======
                             class="ml-2  cursor-pointer"
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             for="checkbox-receive-email-alerts"
                           >
                             <p
@@ -264,7 +275,10 @@ exports[`Communication Settings should render communicationSettings if user role
                             >
                               Get important plan updates, claims information and/or health and wellness topics sent to your email.
                             </p>
+<<<<<<< HEAD
+=======
                              
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             <span
                               class="sr-only"
                             >
@@ -474,7 +488,11 @@ exports[`Communication Settings should render communicationSettings if user role
                           type="checkbox"
                         />
                         <label
+<<<<<<< HEAD
+                          class="ml-2 font-bold cursor-pointer"
+=======
                           class="ml-2  cursor-pointer"
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           for="checkbox-receive-text-alerts"
                         >
                           <p
@@ -490,7 +508,10 @@ exports[`Communication Settings should render communicationSettings if user role
                           >
                             Get text alerts with plan updates and personalized health notifications.
                           </p>
+<<<<<<< HEAD
+=======
                            
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           <span
                             class="sr-only"
                           >
@@ -527,7 +548,11 @@ exports[`Communication Settings should render communicationSettings if user role
                           type="checkbox"
                         />
                         <label
+<<<<<<< HEAD
+                          class="ml-2 font-bold cursor-pointer"
+=======
                           class="ml-2  cursor-pointer"
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           for="checkbox-receive-email-alerts"
                         >
                           <p
@@ -543,7 +568,10 @@ exports[`Communication Settings should render communicationSettings if user role
                           >
                             Get important plan updates, claims information and/or health and wellness topics sent to your email.
                           </p>
+<<<<<<< HEAD
+=======
                            
+>>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           <span
                             class="sr-only"
                           >

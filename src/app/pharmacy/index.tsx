@@ -148,26 +148,28 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
               </Column>
             </section>
           )}
-          <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-63_33 items-stretch">
-              <RecentClaimSection
-                className="large-section"
-                title="My Recent Pharmacy Claims"
-                linkText="View All Pharmacy Claims"
-                claims={claims}
-                linkUrl="member/myplan/claims?type=pharmacy"
-              />
-            </Column>
-            <Column className=" flex-grow page-section-36_67 items-stretch">
-              <PharmacySpendingSummary
-                className="large-section md:w-[352px] md:h-[248px]"
-                title="My Pharmacy Spending Summary"
-                description="View your annual statement for your pharmacy claims."
-                linkLabel="View Pharmacy Spending Summary"
-                url="/member/myplan/spendingsummary?type=Pharmacy"
-              />
-            </Column>
-          </section>
+          {isPharmacyBenefitsEligible(data.visibilityRules) && (
+            <section className="flex flex-row items-start app-body">
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                <RecentClaimSection
+                  className="large-section"
+                  title="My Recent Pharmacy Claims"
+                  linkText="View All Pharmacy Claims"
+                  claims={claims}
+                  linkUrl="member/myplan/claims?type=pharmacy"
+                />
+              </Column>
+              <Column className=" flex-grow page-section-36_67 items-stretch">
+                <PharmacySpendingSummary
+                  className="large-section md:w-[352px] md:h-[248px]"
+                  title="My Pharmacy Spending Summary"
+                  description="View your annual statement for your pharmacy claims."
+                  linkLabel="View Pharmacy Spending Summary"
+                  url="/member/myplan/spendingsummary?type=Pharmacy"
+                />
+              </Column>
+            </section>
+          )}
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow">
               <Title
