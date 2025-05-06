@@ -1,9 +1,11 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
-import { memberService } from '../../../utils/api/memberService';
+import {
+  ChatInfoResponse,
+  memberService,
+} from '../../../utils/api/memberService';
+// import { ChatError } from '../types/index'; // Commented out due to missing file
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
-import { ChatError, ChatInfoResponse } from '../types/index';
-import { calculateIsBusinessHoursOpen, formatBusinessHours } from '../utils/businessHours';
 
 export interface ChatState {
   // UI state
@@ -14,7 +16,7 @@ export interface ChatState {
   // Chat state
   isChatActive: boolean;
   isLoading: boolean;
-  error: ChatError | null;
+  error: Error | null;
   messages: Array<{ id: string; content: string; sender: 'user' | 'agent' }>;
 
   // API response
@@ -42,7 +44,7 @@ export interface ChatState {
   setMinimized: (min: boolean) => void;
   minimizeChat: () => void;
   maximizeChat: () => void;
-  setError: (err: ChatError | null) => void;
+  setError: (err: Error | null) => void;
   addMessage: (m: { content: string; sender: 'user' | 'agent' }) => void;
   clearMessages: () => void;
   setChatActive: (active: boolean) => void;
@@ -125,10 +127,7 @@ export const useChatStore = create<ChatState>((set) => ({
     } catch (err) {
       console.error('Invalid chat configuration:', err);
       set({
-        error: new ChatError(
-          'Invalid chat configuration',
-          'CONFIGURATION_ERROR',
-        ),
+        error: new Error('Invalid chat configuration'),
       });
     }
   },
@@ -145,91 +144,59 @@ export const useChatStore = create<ChatState>((set) => ({
   loadChatConfiguration: async (memberId, planId) => {
     try {
       set({ isLoading: true, error: null });
-      
-      // Use memberService directly instead of the removed getChatInfo function
       const response = await memberService.get('/chat/info', {
-        params: { memberId, planId }
+        params: { memberId, planId },
       });
       const info = response.data as ChatInfoResponse;
-      
-      // Map the member service response to chat configuration
-      const selectedPlan = info.plans?.find(plan => plan.planId === planId) || info.plans?.[0];
-      
-      if (!selectedPlan) {
-        throw new ChatError('Plan information not available', 'CONFIGURATION_ERROR');
-      }
-      
-      // Parse business hours to determine if currently in operating hours
-      // Format examples: "M_F_8_6" (Mon-Fri 8AM-6PM) or "S_S_24" (24/7)
-      const businessHoursStr = selectedPlan.businessHours || '';
-      const is24x7 = businessHoursStr?.includes('24');
-      const isOpen = is24x7 || calculateIsBusinessHoursOpen(businessHoursStr);
-      
-      // Determine chat mode based on plan type criteria
-      const cloudChatEligible = selectedPlan.cloudChatEligible === true;
-      
-      // Extract fields with safe fallbacks
-      const firstName = info.firstName || '';
-      const lastName = info.lastName || '';
-      
-      // Format member ID to match the expected format in click_to_chat.js: subscriberId-sfx
-      const formattedMemberId = info.subscriberId && info.sfx 
-        ? `${info.subscriberId}-${info.sfx}`
-        : String(memberId);
-      
-      // Get client ID
-      const clientId = getClientId(selectedPlan);
-      
       set({
-        // Set eligibility with chatAvailable flag required by the type
-        eligibility: {
-          ...info,
-          chatAvailable: true
-        },
-        isEligible: !!selectedPlan.isEligibleForChat,
-        chatMode: cloudChatEligible ? 'cloud' : 'legacy',
-        chatGroup: selectedPlan.groupId,
-        isOOO: !isOpen,
-        businessHoursText: formatBusinessHours(businessHoursStr),
-        routingInteractionId: info.routingChatbotInteractionId || '',
+        eligibility: info,
+        isEligible: info.isEligible,
+        chatMode: info.cloudChatEligible ? 'cloud' : 'legacy',
+        chatGroup: info.chatGroup,
+        isOOO: !info.businessHours?.isOpen,
+        businessHoursText: info.businessHours?.text || '',
+        routingInteractionId: info.RoutingChatbotInteractionId,
         userData: {
-          MEMBER_ID: formattedMemberId,
-          GROUP_ID: selectedPlan.groupId || '',
+          SERV_Type: info.SERV_Type,
+          firstname: info.first_name,
+          lastname: info.last_name,
+          RoutingChatbotInteractionId: info.RoutingChatbotInteractionId,
           PLAN_ID: planId,
-          firstname: firstName,
-          lastname: lastName,
-          LOB: clientId,
-          IDCardBotName: info.idCardBotName || '',
-          IsMedicalEligible: String(!!selectedPlan.isMedicalEligible),
-          IsDentalEligible: String(!!selectedPlan.isDentalEligible),
-          IsVisionEligible: String(!!selectedPlan.isVisionEligible),
-          MEMBER_DOB: info.dob || '',
-          INQ_TYPE: determineInquiryType(clientId),
+          GROUP_ID: info.GROUP_ID,
+          IDCardBotName: info.IDCardBotName,
+          IsVisionEligible: String((info as any).IsVisionEligible),
+          MEMBER_ID: String(info.member_ck),
+          coverage_eligibility: info.coverage_eligibility,
+          INQ_TYPE: info.INQ_TYPE,
+          IsDentalEligible: String((info as any).IsDentalEligible),
+          MEMBER_DOB: info.MEMBER_DOB,
+          LOB: info.lob_group,
+          lob_group: info.lob_group,
+          IsMedicalEligibile: String((info as any).IsMedicalEligibile),
+          Origin: info.Origin,
+          Source: info.Source,
         },
         formInputs: [
-          { id: 'MEMBER_ID', value: formattedMemberId },
-          { id: 'GROUP_ID', value: selectedPlan.groupId || '' },
+          { id: 'SERV_Type', value: info.SERV_Type },
+          { id: 'firstname', value: info.first_name },
+          { id: 'lastname', value: info.last_name },
           { id: 'PLAN_ID', value: planId },
-          { id: 'firstname', value: firstName },
-          { id: 'lastname', value: lastName },
-          { id: 'LOB', value: clientId },
-          { id: 'MEMBER_DOB', value: info.dob || '' },
-          // If routing chatbot is eligible, add its configuration
-          ...(info.routingChatbotEligible ? [
-            { id: 'ChatBotID', value: 'RoutingChatbot' },
-            { id: 'SERV_TYPE', value: '' }
-          ] : [
-            { id: 'SERV_TYPE', value: '' }
-          ])
+          { id: 'GROUP_ID', value: info.GROUP_ID },
+          { id: 'MEMBER_ID', value: String(info.member_ck) },
+          { id: 'LOB', value: info.lob_group },
+          // ...add more as needed for all required fields...
         ],
-        isLoading: false
+        isLoading: false,
       });
     } catch (err) {
       console.error('Error loading chat configuration:', err);
-      set({ 
-        error: err instanceof ChatError ? err : new ChatError('Failed to load chat configuration', 'API_ERROR'),
+      set({
+        error:
+          err instanceof Error
+            ? err
+            : new Error('Failed to load chat configuration'),
         isLoading: false,
-        isEligible: false
+        isEligible: false,
       });
     }
   },
@@ -251,7 +218,7 @@ function determineInquiryType(clientId: string): string {
     Individual: 'INDV',
     BlueElite: 'INDVMX',
   };
-  
+
   const ChatTypeConst = {
     BlueCareChat: 'BlueCare_Chat',
     SeniorCareChat: 'SCD_Chat',
@@ -289,16 +256,16 @@ function getClientId(plan: unknown): string {
 
   // Type guard to safely access properties on the unknown plan object
   const typedPlan = plan as Record<string, any>;
-  
+
   // Following the pattern in click_to_chat.js for client ID determination
   if (typedPlan && typedPlan.isBlueElite) {
     return ClientIdConst.BlueElite;
   }
-  
+
   if (typedPlan && typedPlan.groupType === 'INDV') {
     return ClientIdConst.Individual;
   }
-  
+
   // Default to memberClientID or 'Default' if not available
   return (typedPlan && typedPlan.memberClientID) || 'Default';
 }

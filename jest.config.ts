@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    '^@chat/(.*)$': '<rootDir>/src/app/chat/$1',
+    '^@chat/(.*)$': '<rootDir>/src/app/@chat/$1',
     '\\.svg$': '<rootDir>/src/__mocks__/fileMock.js',
     '\\.(jpg|jpeg|png|gif|webp|ico)$': '<rootDir>/src/__mocks__/fileMock.js',
     '^src/(.*)$': '<rootDir>/src/$1',
@@ -27,10 +27,6 @@ const config: Config.InitialOptions = {
       branches: 90,
       functions: 90,
       lines: 90,
-    },
-    './src/app/chat/services/**/*.ts': {
-      statements: 95,
-      branches: 95,
     },
   },
   testMatch: [

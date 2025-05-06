@@ -1,4 +1,4 @@
-// src/app/chat/page.tsx
+// src/app/@chat/page.tsx
 
 export default function ChatPage() {
   return (
