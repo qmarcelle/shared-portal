@@ -2,12 +2,12 @@ import type {
   ChatDataPayload,
   ChatInfoResponse,
   ChatService as IChatService,
-} from '@/app/chat/types/index';
-import { LoggedInMember } from '@/models/app/loggedin_member';
-import { ChatError } from '@/app/chat/types/index';
+} from '@/app/@chat/types/index';
+import { ChatError } from '@/app/@chat/types/index';
 import { getAuthToken } from '@/utils/api/getToken';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
+import axios from 'axios';
 import {
   executeGenesysOverrides,
   registerGenesysOverride,
@@ -21,8 +21,16 @@ const MAX_RECONNECT_ATTEMPTS = 3;
 const RECONNECT_DELAY = 2000; // 2 seconds
 
 /**
- * API Endpoints base URLs from environment variables
+ * API Endpoints base URLs from environment variables - Log for debugging
  */
+logger.info('Chat Service Environment Variables:', {
+  PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL || 'undefined',
+  MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT || 'undefined',
+  IDCARDSERVICE_CONTEXT_ROOT: process.env.IDCARDSERVICE_CONTEXT_ROOT || 'undefined',
+  MEMBER_PORTAL_SOA_ENDPOINT: process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || 'undefined',
+});
+
+// Store these values without undefined-checking to avoid redundant "||" code everywhere
 const PORTAL_SERVICES_URL = process.env.PORTAL_SERVICES_URL || '';
 const MEMBERSERVICE_CONTEXT_ROOT = process.env.MEMBERSERVICE_CONTEXT_ROOT || '';
 const IDCARDSERVICE_CONTEXT_ROOT = process.env.IDCARDSERVICE_CONTEXT_ROOT || '';
@@ -81,14 +89,16 @@ export class ChatService implements IChatService {
    * Get member portal REST endpoint URL for the current member
    */
   private getMemberPortalRestEndpoint(): string {
-    return `${PORTAL_SERVICES_URL}${MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/members/byMemberCk/${this.memberId}`;
+    // Use memberService instead of manually constructing URLs when possible
+    return `/api/member/v1/members/byMemberCk/${this.memberId}`;
   }
 
   /**
    * Get ID card member SOA endpoint
    */
   private getIdCardMemberSoaEndpoint(): string {
-    return `${PORTAL_SERVICES_URL}${IDCARDSERVICE_CONTEXT_ROOT}`;
+    // Return just the path part, memberService will add the base URL
+    return `OperationHours`;
   }
 
   /**
@@ -107,9 +117,13 @@ export class ChatService implements IChatService {
    */
   async getChatInfo(): Promise<ChatInfoResponse> {
     try {
-      const response = await memberService.get('/api/chat/info');
+      // Make sure to include the params for the chat info endpoint
+      const response = await memberService.get('/chat/info', {
+        params: { memberId: this.memberId, planId: this.planId }
+      });
       return response.data;
     } catch (error) {
+      logger.error('Failed to fetch chat info', { error });
       throw new ChatError('Failed to fetch chat info', 'API_ERROR');
     }
   }
@@ -133,7 +147,7 @@ export class ChatService implements IChatService {
       });
 
       // Get a fresh auth token before initializing
-      this.authToken = await getAuthToken();
+      this.authToken = await getAuthToken() ?? null;
       
       // Get eligibility information
       const eligibility = await this.getChatInfo();
@@ -186,7 +200,8 @@ export class ChatService implements IChatService {
         // Configure the Web Messenger before subscribing to events
         if (window.Genesys) {
           // Register UI widgets - use configuration from GenesysScripts if available
-          window.Genesys("widgets.registerUI", "webmessenger", {
+          window.Genesys("command", "widgets.registerUI", {
+            type: "webmessenger",
             position: "fixed",
             showChatButton: true
           });
@@ -203,7 +218,7 @@ export class ChatService implements IChatService {
                 timestamp: new Date().toISOString(),
               });
               
-              window.Genesys('command', 'Messenger.updateAuthToken', {
+              window.Genesys?.('command', 'Messenger.updateAuthToken', {
                 token: this.authToken,
               });
             } else {
@@ -578,9 +593,9 @@ async function sendEmail(memberId: string, emailData: {
   to: string;
 }): Promise<void> {
   try {
-    const memberPortalEndpoint = `${PORTAL_SERVICES_URL}${MEMBERSERVICE_CONTEXT_ROOT}/api/member/v1/members/byMemberCk/${memberId}`;
+    // Use memberService directly instead of constructing URLs
     const response = await memberService.post(
-      `${memberPortalEndpoint}/memberservice/api/v1/contactusemail`,
+      `/api/member/v1/members/byMemberCk/${memberId}/memberservice/api/v1/contactusemail`,
       emailData,
     );
     if (response.status !== 200) {
@@ -601,9 +616,9 @@ async function getPhoneAttributes(params: {
   effectiveDetails: string;
 }): Promise<any> {
   try {
-    const idCardEndpoint = `${PORTAL_SERVICES_URL}${IDCARDSERVICE_CONTEXT_ROOT}`;
+    // Use memberService with the correct path - no need to manually construct URL
     const response = await memberService.get(
-      `${idCardEndpoint}OperationHours`,
+      `OperationHours`,
       { params },
     );
     return response.data;
@@ -624,8 +639,10 @@ async function getEmail(params: {
   extendedOptions: string;
 }): Promise<any> {
   try {
-    const response = await memberService.get(
-      `${MEMBER_PORTAL_SOA_ENDPOINT}/memberContactPreference`,
+    // If this is a completely different endpoint URL, use axios directly
+    const baseUrl = process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || '';
+    const response = await axios.get(
+      `${baseUrl}/memberContactPreference`,
       { params },
     );
     return response.data;

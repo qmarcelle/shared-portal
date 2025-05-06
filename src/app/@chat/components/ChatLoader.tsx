@@ -1,12 +1,12 @@
 'use client';
 import { useEffect } from 'react';
-import { useChatEventHandlers } from '../hooks/useChatEventHandler';
+import { useChatEventHandler } from '../hooks/useChatEventHandler';
 import { useChatStore } from '../stores/chatStore';
 import BusinessHoursBanner from './BusinessHoursBanner';
 import ChatControls from './ChatControls';
 import { ChatPersistence } from './ChatPersistence';
 import ChatSession from './ChatSession';
-import ChatWidget from './ChatWidget';
+import { ChatWidget } from './ChatWidget';
 import CloudChatWrapper from './CloudChatWrapper';
 import LegacyChatWrapper from './LegacyChatWrapper';
 import PlanInfoHeader from './PlanInfoHeader';
@@ -41,7 +41,11 @@ export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
   }, [memberId, planId, loadChatConfiguration]);
 
   // Set up chat event handlers
-  useChatEventHandlers();
+  useChatEventHandler({
+    onLockPlanSwitcher: undefined,
+    onOpenPlanSwitcher: undefined,
+    onError: undefined
+  });
 
   if (isLoading)
     return (
@@ -65,7 +69,7 @@ export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
     );
 
   return (
-    <ChatWidget>
+    <ChatWidget memberId={memberId} planId={planId}>
       <ChatPersistence />
 
       {/* Pre-chat UI */}

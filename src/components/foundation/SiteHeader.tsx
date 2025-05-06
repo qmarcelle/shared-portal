@@ -5,7 +5,7 @@ import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
@@ -15,13 +15,13 @@ import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import { AlertBar } from './AlertBar';
 import {
-  bcbstBlueLogo,
-  bcbstStackedlogo,
-  closeIcon,
-  globalIdCardIcon,
-  hamburgerMenuIcon,
-  inboxIcon,
-  profileWhiteIcon,
+    bcbstBlueLogo,
+    bcbstStackedlogo,
+    closeIcon,
+    globalIdCardIcon,
+    hamburgerMenuIcon,
+    inboxIcon,
+    profileWhiteIcon,
 } from './Icons';
 
 type SiteHeaderProps = {
@@ -41,6 +41,13 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const isMobileQuery = useMediaQuery({ query: '(max-width: 1023px)' });
+
+  // Use useEffect to update the state after initial render to avoid hydration mismatch
+  useEffect(() => {
+    setIsMobile(isMobileQuery);
+  }, [isMobileQuery]);
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
@@ -106,21 +113,23 @@ export default function SiteHeader({
               </button>
             </div>
             <Link className="ml-5 lg:px-0" href="/dashboard">
-              {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
+              {/* Using display classes instead of conditional rendering to avoid hydration mismatch */}
+              <div className="block lg:hidden">
                 <Image
                   width="64"
                   height="36"
                   src={bcbstStackedlogo}
-                  alt="BCBST Stacked Logo"
+                  alt="BCBST Logo"
                 />
-              ) : (
+              </div>
+              <div className="hidden lg:block">
                 <Image
                   width="174"
                   height="35"
                   src={bcbstBlueLogo}
                   alt="BCBST Logo"
                 />
-              )}
+              </div>
             </Link>
             {selectedProfile?.type != UserRole.NON_MEM && (
               <PlanSwitcher

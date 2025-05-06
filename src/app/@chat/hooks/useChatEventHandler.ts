@@ -1,8 +1,8 @@
 // src/hooks/useChatEventHandlers.ts
-import { useChatStore } from '@/app/chat/stores/chatStore';
+import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { useEffect } from 'react';
 
-export function useChatEventHandlers() {
+export function useChatEventHandler(p0: { onLockPlanSwitcher: ((locked: boolean) => void) | undefined; onOpenPlanSwitcher: (() => void) | undefined; onError: ((error: Error) => void) | undefined; }) {
   const startChat = useChatStore((s: any) => s.startChat);
   const endChat = useChatStore((s: any) => s.endChat);
 
@@ -14,9 +14,9 @@ export function useChatEventHandlers() {
       window.CXBus?.subscribe?.('WebChat.closed', endChat);
       window.CXBus?.subscribe?.('WebChat.error', endChat);
       subs.push(
-        () => window.CXBus?.unsubscribe?.('WebChat.opened', startChat),
-        () => window.CXBus?.unsubscribe?.('WebChat.closed', endChat),
-        () => window.CXBus?.unsubscribe?.('WebChat.error', endChat),
+        () => window.CXBus?.runtime.unsubscribe?.('WebChat.opened'),
+        () => window.CXBus?.runtime.unsubscribe?.('WebChat.closed'),
+        () => window.CXBus?.runtime.unsubscribe?.('WebChat.error'),
       );
     }
     // Cloud Messenger events

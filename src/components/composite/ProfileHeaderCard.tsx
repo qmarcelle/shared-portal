@@ -29,7 +29,18 @@ export const ProfileHeaderCard = ({
     router.refresh();
   };
 
-  const selectedProfile = profiles.find((item) => item.selected == true);
+  // Find the selected profile with safe guard for empty profiles array
+  const selectedProfile = profiles && profiles.length > 0 
+    ? profiles.find((item) => item.selected === true)
+    : undefined;
+  
+  // If no profile is found or no profile is marked as selected, use the first one as fallback
+  const profileToDisplay = selectedProfile || (profiles && profiles.length > 0 ? profiles[0] : undefined);
+  
+  // If there's no profile at all, don't render the component
+  if (!profileToDisplay) {
+    return null;
+  }
 
   return (
     <div
@@ -69,13 +80,13 @@ export const ProfileHeaderCard = ({
       {icon}
       <div className="hidden lg:block p-2">
         <span className="text-xs">
-          {[UserRole.MEMBER, UserRole.NON_MEM].includes(selectedProfile!.type)
+          {profileToDisplay.type && [UserRole.MEMBER, UserRole.NON_MEM].includes(profileToDisplay.type)
             ? 'My Profile:'
             : 'Viewing as:'}
         </span>
         <p>
           {toPascalCase(
-            `${selectedProfile!.firstName} ${selectedProfile!.lastName}`,
+            `${profileToDisplay.firstName || ''} ${profileToDisplay.lastName || ''}`,
           )}
         </p>
       </div>

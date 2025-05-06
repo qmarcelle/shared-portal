@@ -7,6 +7,19 @@ const FIELDS_TO_BE_MASKED = ['password', 'newPassword'];
 class Logger {
   private sequence = 0;
 
+  // Add a new method to log environment configuration
+  logEnvironmentConfig() {
+    const envVars = {
+      NODE_ENV: process.env.NODE_ENV,
+      PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL,
+      MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT,
+      ES_API_URL: process.env.ES_API_URL,
+      ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL,
+    };
+    
+    this.info('Current Environment Configuration:', envVars);
+  }
+
   maskFields(data: any): string | undefined {
     if (typeof data === 'object') {
       for (const key in data) {

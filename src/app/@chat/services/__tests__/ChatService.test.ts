@@ -1,4 +1,4 @@
-import { ChatDataPayload, ChatError } from '@/app/chat/types/index';
+import { ChatDataPayload, ChatError } from '../../types/index';
 import { ChatService, loadGenesysScript } from '../ChatService';
 
 describe('ChatService', () => {

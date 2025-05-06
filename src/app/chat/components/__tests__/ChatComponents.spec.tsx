@@ -1,23 +1,23 @@
-import BusinessHoursBanner from '@/app/chat/components/BusinessHoursBanner';
-import ChatControls from '@/app/chat/components/ChatControls';
-import ChatWidget from '@/app/chat/components/ChatWidget';
-import PlanInfoHeader from '@/app/chat/components/PlanInfoHeader';
-import PlanSwitcherButton from '@/app/chat/components/PlanSwitcherButton';
-import PreChatWindow from '@/app/chat/components/PreChatWindow';
-import TermsAndConditions from '@/app/chat/components/TermsAndConditions';
-import { useChatStore } from '@/app/chat/stores/chatStore';
-import { usePlanStore } from '@/userManagement/stores/planStore';
+import BusinessHoursBanner from '@/app/@chat/components/BusinessHoursBanner';
+import ChatControls from '@/app/@chat/components/ChatControls';
+import ChatWidget from '@/app/@chat/components/ChatWidget';
+import PlanInfoHeader from '@/app/@chat/components/PlanInfoHeader';
+import PlanSwitcherButton from '@/app/@chat/components/PlanSwitcherButton';
+import PreChatWindow from '@/app/@chat/components/PreChatWindow';
+import TermsAndConditions from '@/app/@chat/components/TermsAndConditions';
+import { ChatState, useChatStore } from '@/app/@chat/stores/chatStore';
+import { PlanState, usePlanStore } from '@/userManagement/stores/planStore';
 import { render, screen } from '@testing-library/react';
 
 // Mock Zustand stores
-jest.mock('@/app/chat/stores/chatStore');
+jest.mock('@/app/@chat/stores/chatStore');
 jest.mock('@/userManagement/stores/planStore');
 
-// Helpers for mocking Zustand stores
-const mockUseChatStore = (state: any) => {
+// Helpers for mocking Zustand stores with proper types
+const mockUseChatStore = (state: Partial<ChatState>) => {
   (useChatStore as unknown as jest.Mock).mockImplementation(() => state);
 };
-const mockUsePlanStore = (state: any) => {
+const mockUsePlanStore = (state: Partial<PlanState>) => {
   (usePlanStore as unknown as jest.Mock).mockImplementation(() => state);
 };
 

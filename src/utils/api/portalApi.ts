@@ -2,9 +2,15 @@ import axios from 'axios';
 import { logger } from '../logger';
 import { getServerSideUserId } from '../server_session';
 import { getAuthToken } from './getToken';
+import { serverConfig } from '../env-config';
+
 export const ES_TRANSACTION_ID = 'ES-transactionId';
 
-const baseURL = process.env.ES_PORTAL_SVCS_API_URL;
+// Use the baseURL from serverConfig to ensure it's properly loaded
+const baseURL = serverConfig.ES_PORTAL_SVCS_API_URL;
+
+// Log the URL to help with debugging
+logger.info(`Portal Service API URL: ${baseURL || '(empty)'}`);
 
 export const portalSvcsApi = axios.create({
   baseURL: baseURL,
@@ -23,8 +29,7 @@ portalSvcsApi.interceptors.request?.use(
       logger.info(`Request URL: ${baseURL}${config.url}`);
       //Get Bearer Token from PING and add it in headers for ES service request.
       logger.info(
-        `Portal Service API Endpoint:
-        ${process.env.ES_PORTAL_SVCS_API_URL}`,
+        `Portal Service API Endpoint: ${serverConfig.ES_PORTAL_SVCS_API_URL}`,
       );
       const token = await getAuthToken();
       if (token) {

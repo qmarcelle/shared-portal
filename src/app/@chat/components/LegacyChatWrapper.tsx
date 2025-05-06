@@ -1,5 +1,5 @@
 'use client';
-import { useChatStore } from '@/app/chat/stores/chatStore';
+import { useChatStore } from '@/app/@chat/stores/chatStore';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import { GenesysBus } from '../types/genesys.types';
@@ -81,11 +81,11 @@ export default function LegacyChatWrapper() {
   );
 }
 
-('use client');
+//('use client');
 
 declare global {
   interface Window {
-    CXBus: GenesysBus;
+    CXBus?: GenesysBus;
   }
 }
 

@@ -20,3 +20,24 @@ export const ChatConfigSchema = z.object({
 });
 
 export type ChatConfig = z.infer<typeof ChatConfigSchema>;
+
+/**
+ * Creates a validated Genesys configuration object from raw data
+ * @param data Raw configuration data
+ * @returns Validated ChatConfig object
+ */
+export function createGenesysConfig(data: {
+  isChatAvailable: boolean;
+  cloudChatEligible: boolean;
+  chatGroup?: string;
+  workingHours?: string;
+  chatbotEligible?: boolean;
+  routingchatbotEligible?: boolean;
+}): ChatConfig {
+  return ChatConfigSchema.parse({
+    isChatAvailable: data.isChatAvailable,
+    cloudChatEligible: data.cloudChatEligible,
+    chatGroup: data.chatGroup,
+    workingHours: data.workingHours,
+  });
+}

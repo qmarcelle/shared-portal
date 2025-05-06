@@ -2,6 +2,7 @@
 import { initMocks } from '@/app/api/mocks';
 import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { GTM_ID } from '@/utils/analytics';
+import { logger } from '@/utils/logger';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
@@ -12,6 +13,9 @@ import { SideBarModal } from '../foundation/SideBarModal';
 
 export const ClientInitComponent = () => {
   useEffect(() => {
+    // Log environment configuration at startup
+    logger.logEnvironmentConfig();
+    
     const TagManagerArgs = {
       gtmId: GTM_ID,
       dataLayer: {

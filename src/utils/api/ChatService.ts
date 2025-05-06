@@ -6,6 +6,7 @@ export async function getChatInfo(
   planId: string,
 ): Promise<ChatInfoResponse> {
   try {
+    // Use memberService which already has the proper baseURL configuration
     const { data } = await memberService.get<ChatInfoResponse>('/chat/info', {
       params: { memberId, planId },
     });

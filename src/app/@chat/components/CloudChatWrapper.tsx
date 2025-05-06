@@ -3,26 +3,24 @@ import Script from 'next/script';
 import { useEffect } from 'react';
 import { useChatStore } from '../stores/chatStore';
 
-/**
- * Cloud chat implementation wrapper
- * Loads Genesys Web Messaging SDK with beforeInteractive strategy
- * Injects initialization config with afterInteractive
- */
+// Define MessengerWidget type for TypeScript
+declare global {
+  interface Window {
+    MessengerWidget?: any;
+  }
+}
+
 export default function CloudChatWrapper() {
   const { userData, routingInteractionId } = useChatStore();
-
+  
   useEffect(() => {
     // Defensive: destroy any previous instance
-    // @ts-expect-error: MessengerWidget.destroy is injected by Genesys script
     if (typeof window.MessengerWidget?.destroy === 'function') {
-      // @ts-expect-error: MessengerWidget.destroy is injected by Genesys script
       window.MessengerWidget.destroy();
     }
     // Optionally, you could re-initialize here if not using <Script>
     return () => {
-      // @ts-expect-error: MessengerWidget.destroy is injected by Genesys script
       if (typeof window.MessengerWidget?.destroy === 'function') {
-        // @ts-expect-error: MessengerWidget.destroy is injected by Genesys script
         window.MessengerWidget.destroy();
       }
     };

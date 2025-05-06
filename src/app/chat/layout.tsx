@@ -1,5 +1,5 @@
 // src/app/chat/layout.tsx
-import ChatLoader from '@/app/chat/components/ChatLoader';
+import ChatLoader from '@/app/@chat/components/ChatLoader';
 import { ReactNode } from 'react';
 
 interface ChatLayoutProps {

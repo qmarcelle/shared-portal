@@ -1,24 +1,9 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
 import { memberService } from '../../../utils/api/memberService';
-import { ChatConfig, ChatConfigSchema } from '../../@chat/schemas/genesys.schema';
-import { ChatError, ChatInfoResponse } from '../../@chat/types/index';
-import { calculateIsBusinessHoursOpen, formatBusinessHours } from '../../@chat/utils/businessHours';
-
-// Add interface for plan properties to fix type safety issues
-interface PlanDetails {
-  planId?: string;
-  isBlueElite?: boolean;
-  groupType?: string;
-  memberClientID?: string;
-  groupId?: string;
-  businessHours?: string;
-  cloudChatEligible?: boolean;
-  isEligibleForChat?: boolean;
-  isMedicalEligible?: boolean;
-  isDentalEligible?: boolean;
-  isVisionEligible?: boolean;
-}
+import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
+import { ChatError, ChatInfoResponse } from '../types/index';
+import { calculateIsBusinessHoursOpen, formatBusinessHours } from '../utils/businessHours';
 
 export interface ChatState {
   // UI state
@@ -291,7 +276,7 @@ function determineInquiryType(clientId: string): string {
 /**
  * Determines the client ID based on plan details, matching the logic in click_to_chat.js
  */
-function getClientId(plan: PlanDetails): string {
+function getClientId(plan: unknown): string {
   const ClientIdConst = {
     BlueCare: 'BC',
     BlueCarePlus: 'DS',
@@ -302,15 +287,18 @@ function getClientId(plan: PlanDetails): string {
     BlueElite: 'INDVMX',
   };
 
+  // Type guard to safely access properties on the unknown plan object
+  const typedPlan = plan as Record<string, any>;
+  
   // Following the pattern in click_to_chat.js for client ID determination
-  if (plan.isBlueElite) {
+  if (typedPlan && typedPlan.isBlueElite) {
     return ClientIdConst.BlueElite;
   }
   
-  if (plan.groupType === 'INDV') {
+  if (typedPlan && typedPlan.groupType === 'INDV') {
     return ClientIdConst.Individual;
   }
   
   // Default to memberClientID or 'Default' if not available
-  return plan.memberClientID || 'Default';
+  return (typedPlan && typedPlan.memberClientID) || 'Default';
 }
