@@ -1,4 +1,3 @@
-import { memberService } from '@/utils/api/memberService';
 import { createContext, useCallback, useEffect, useMemo } from 'react';
 import { ChatService } from '../services/ChatService';
 import { useChatStore } from '../stores/chatStore';
@@ -105,14 +104,21 @@ export function useChatSession(options?: any) {
     const fetchEligibility = async () => {
       try {
         setLoading(true);
-        const response = await memberService.get(
-          `/api/member/v1/members/byMemberCk/${options?.memberId}/chat/getChatInfo`,
-          { params: { planId: options?.planId } },
+        // SERVER-SIDE CALL: Use fetch to backend API route
+        const response = await fetch(
+          '/api/member/v1/members/byMemberCk/' +
+            options?.memberId +
+            '/chat/getChatInfo?planId=' +
+            options?.planId,
+          {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+          },
         );
-        if (!response || response.status !== 200) {
+        if (!response.ok) {
           throw new Error('Failed to fetch chat eligibility');
         }
-        const data = response.data;
+        const data = await response.json();
         const isAvailable = data.businessHours?.text
           ? isWithinBusinessHours(data.businessHours.text)
           : true;

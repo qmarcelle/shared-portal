@@ -1,9 +1,5 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
-import {
-  ChatInfoResponse,
-  getChatInfo,
-} from '../../../utils/api/memberService';
 // import { ChatError } from '../types/index'; // Commented out due to missing file
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 
@@ -20,7 +16,7 @@ export interface ChatState {
   messages: Array<{ id: string; content: string; sender: 'user' | 'agent' }>;
 
   // API response
-  eligibility: ChatInfoResponse | null;
+  eligibility: any | null;
 
   // Derived flags
   isEligible: boolean;
@@ -51,7 +47,7 @@ export interface ChatState {
   setLoading: (loading: boolean) => void;
   incrementMessageCount: () => void;
   resetMessageCount: () => void;
-  setEligibility: (info: ChatInfoResponse | null) => void;
+  setEligibility: (info: any | null) => void;
   setPlanSwitcherLocked: (locked: boolean) => void;
   updateConfig: (cfg: Partial<ChatConfig>) => void;
   closeAndRedirect: () => void;
@@ -152,15 +148,18 @@ export const useChatStore = create<ChatState>((set) => ({
   ) => {
     try {
       set({ isLoading: true, error: null });
-      // Optionally, pre-check eligibility/availability
-      // const eligibleResp = await isCloudChatEligible(memberType, String(memberId));
-      // const availableResp = await isChatAvailable(memberType, String(memberId));
-      // if (!eligibleResp.data || !availableResp.data) {
-      //   set({ isEligible: false, isLoading: false });
-      //   return;
-      // }
-      const response = await getChatInfo(memberType, String(memberId));
-      const info = response.data as ChatInfoResponse;
+      // SERVER-SIDE CALL: Use fetch to backend API route
+      const response = await fetch(
+        `/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo?planId=${planId}`,
+        {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
+      if (!response.ok) {
+        throw new Error('Failed to load chat configuration');
+      }
+      const info = await response.json();
       set({
         eligibility: info,
         isEligible: info.isEligible,
