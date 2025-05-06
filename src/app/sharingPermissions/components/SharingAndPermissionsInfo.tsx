@@ -18,7 +18,7 @@ export const SharingAndPermissionsInfo = ({
       <Column className="flex flex-col">
         <LinkRow
           label="Share My Information"
-          link="/shareMyInformation"
+          link="/member/profile/accountsharing/myinfo"
           description={
             <div className="body-1 flex flex-row">
               Control how your plan information is shared with your family or
@@ -31,7 +31,7 @@ export const SharingAndPermissionsInfo = ({
         {checkPersonalRepAccess(userRole) && (
           <LinkRow
             label="Access Others' Information"
-            link="/accessOthersInformation"
+            link="/member/profile/accountsharing/access"
             description={
               <div className="body-1 flex flex-row">
                 View or request access to others&apos; plan information.
@@ -43,7 +43,7 @@ export const SharingAndPermissionsInfo = ({
         {checkPersonalRepAccess(userRole) && (
           <LinkRow
             label="Personal Representative Access"
-            link="/personalRepresentativeAccess"
+            link="/member/profile/accountsharing/personalrep"
             description={
               <div className="body-1 flex flex-row">
                 A personal representative is an individual with the legal
@@ -59,7 +59,7 @@ export const SharingAndPermissionsInfo = ({
         )}
         <LinkRow
           label="Third Party Sharing"
-          link="/thirdPartySharing"
+          link="/member/profile/accountsharing/thirdparty"
           description={
             <div className="body-1 flex flex-row">
               View the apps and websites you&apos;ve shared your plan
