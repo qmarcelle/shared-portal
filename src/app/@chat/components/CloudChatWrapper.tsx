@@ -2,13 +2,6 @@
 import { useChatStore } from '../stores/chatStore';
 import { GenesysScript } from './GenesysScript';
 
-// Define MessengerWidget type for TypeScript
-declare global {
-  interface Window {
-    MessengerWidget?: any;
-  }
-}
-
 export default function CloudChatWrapper() {
   const { userData } = useChatStore();
   return (

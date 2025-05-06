@@ -4,15 +4,6 @@ import { useChatStore } from '../stores/chatStore';
 
 const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10min
 
-// This matches the pattern used in click_to_chat.js
-declare global {
-  interface Window {
-    CXBus?: any;
-    MessengerWidget?: any;
-    _genesys?: any;
-  }
-}
-
 export default function ChatSession() {
   const { isChatActive, endChat } = useChatStore();
   const [lastActivity, setLastActivity] = useState(Date.now());

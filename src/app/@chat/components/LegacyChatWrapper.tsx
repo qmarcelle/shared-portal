@@ -76,14 +76,6 @@ export default function LegacyChatWrapper() {
   );
 }
 
-//('use client');
-
-declare global {
-  interface Window {
-    CXBus?: any;
-  }
-}
-
 /**
  * Thin wrapper around the on-prem Genesys click_to_chat.js + widgets.min.js
  */
