@@ -32,6 +32,7 @@ import {
   isPharmacyBenefitsEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
+  isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -163,20 +164,21 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 />
               )}
 
-            {!isBlueCareEligible(visibilityRules) && (
-              <SpendingAccountSummary
-                className="large-section"
-                title="Spending Summary"
-                linkLabel="View Spending Summary"
-                subTitle={'October 12, 2023'}
-                amountPaid={1199.19}
-                totalBilledAmount={9804.31}
-                amountSaved={8605.12}
-                amountSavedPercentage={89}
-                color1={'#005EB9'}
-                color2={'#5DC1FD'}
-              />
-            )}
+            {!isBlueCareEligible(visibilityRules) &&
+              isSpendingAccountsEligible(visibilityRules) && (
+                <SpendingAccountSummary
+                  className="large-section"
+                  title="Spending Summary"
+                  linkLabel="View Spending Summary"
+                  subTitle={'October 12, 2023'}
+                  amountPaid={1199.19}
+                  totalBilledAmount={9804.31}
+                  amountSaved={8605.12}
+                  amountSavedPercentage={89}
+                  color1={'#005EB9'}
+                  color2={'#5DC1FD'}
+                />
+              )}
             <PriorAuthSection
               className="large-section"
               priorauth={[

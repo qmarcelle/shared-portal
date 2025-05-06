@@ -5253,29 +5253,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=EMBOLD"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Find a Medical Provider
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                       target=""
                     >
@@ -5377,29 +5354,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -6039,29 +5993,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=EMBOLD"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Find a Medical Provider
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                       target=""
                     >
@@ -6163,29 +6094,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -8831,29 +8739,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=EMBOLD"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Find a Medical Provider
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                       target=""
                     >
@@ -8938,29 +8823,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -9600,29 +9462,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=EMBOLD"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Find a Medical Provider
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                       target=""
                     >
@@ -9707,29 +9546,6 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -10369,29 +10185,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     </p>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=EMBOLD"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Find a Medical Provider
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                       target=""
                     >
@@ -10493,29 +10286,6 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -14882,29 +14652,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=EMBOLD"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Find a Medical Provider
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                     target=""
                   >
@@ -14989,29 +14736,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
@@ -15647,29 +15371,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=EMBOLD"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Find a Medical Provider
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                     target=""
                   >
@@ -15754,29 +15455,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
@@ -16412,29 +16090,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   </p>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=EMBOLD"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Find a Medical Provider
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
                     target=""
                   >
@@ -16570,29 +16225,6 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
-                    </p>
-                    <img
-                      alt="External Link"
-                      class="pb-2"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
-                    target=""
-                  >
-                    <p
-                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                    >
-                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
