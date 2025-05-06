@@ -148,7 +148,7 @@ export const appPaths: Map<string, AppPath> = new Map([
     'healthprograms',
     {
       label: 'Health Programs & Resources',
-      path: '/healthProgramsResources',
+      path: '/healthprograms',
     },
   ],
   [
@@ -296,6 +296,27 @@ export const appPaths: Map<string, AppPath> = new Map([
     {
       label: 'Communication Settings',
       path: '/communication',
+    },
+  ],
+  [
+    'caremanagement',
+    {
+      label: 'CareTN One-One Health Support',
+      path: '/caremanagement',
+    },
+  ],
+  [
+    'virtualcare',
+    {
+      label: 'Virtual Care Options',
+      path: '/virtualcare',
+    },
+  ],
+  [
+    'healthymaternity',
+    {
+      label: 'Healthy Maternity',
+      path: '/healthymaternity',
     },
   ],
 ]);

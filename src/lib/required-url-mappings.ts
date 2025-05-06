@@ -65,8 +65,15 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/myhealth': '/myHealth',
   '/member/myhealth/healthprograms': 'myHealth/healthProgramsResources',
   //'/member/myhealth/primarycare': '/updateMyPrimaryCareProvider',
-  '/member/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=':
-    '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=',
+
+  '/member/myhealth/healthprograms/caremanagement':
+    '/myHealth/healthProgramsResources/myHealthPrograms/careTN',
+
+  '/member/myhealth/healthprograms/healthymaternity':
+    '/myHealth/healthProgramsResources/myHealthPrograms/HealthyMaternity',
+
+  // 'member/myhealth/healthprograms/HealthyMaternity':
+  //   '/myHealth/healthProgramsResources/myHealthPrograms//healthyMaternity',
 
   // findcare Paths
   '/member/findcare': '/findcare',
@@ -74,6 +81,7 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/findcare/dentalcosts': '/priceDentalCare',
   '/member/findcare/virtualcare/teladochealth': '/member/findcare',
   '/member/findcare/mentalHealthOptions': '/mentalHealthOptions',
+  '/member/findcare/virtualcare': '/virtualCareOptions',
 
   // pharmacy Paths
   '/member/pharmacy': '/pharmacy',

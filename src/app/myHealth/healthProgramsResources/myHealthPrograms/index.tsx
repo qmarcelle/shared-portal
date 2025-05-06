@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import CareTNProgramLanding from './components/CareTNProgramLanding';
 import { HealthProgramsResources } from './components/HealthProgramsResources';
 import { HealthProgramType } from './models/health_program_type';
@@ -11,8 +11,8 @@ export type MyHealthProgramsProps = {
   data: MyHealthProgramsData;
 };
 const MyHealthPrograms = ({ data }: MyHealthProgramsProps) => {
-  const searchParams = useSearchParams();
-  const pageType = searchParams.get('healthProgramType');
+  const { programName } = useParams<{ programName: string }>();
+  const pageType = programName;
   let ComponentToRender;
 
   function isValidEnumValue<T extends string>(
