@@ -9,6 +9,7 @@ const renderUI = () => {
       healthProgramDetails={healthProgramsandResourcesDetails.get(
         HealthProgramType.AbleTo,
       )}
+      sessionData={null}
     />,
   );
 };

@@ -8,11 +8,9 @@ const renderUI = async () => {
   return render(page);
 };
 
-
 const vRules = {
   isMskEligible: true,
 };
-
 
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
@@ -47,37 +45,44 @@ describe('Benefits Page', () => {
   });
 
   it('should show Joint Procedure component if MskEligible is true', async () => {
-      vRules.isMskEligible = true;
-      const component = await renderUI();
-      waitFor(()=>expect(
+    vRules.isMskEligible = true;
+    const component = await renderUI();
+    waitFor(() =>
+      expect(
         screen.queryByRole('heading', {
           name: 'Call Before Scheduling Your Joint Procedure',
         }),
-      ).toBeInTheDocument());
+      ).toBeInTheDocument(),
+    );
 
-      waitFor(()=>expect(
+    waitFor(() =>
+      expect(
         screen.queryByText(
           'Your plan requires giving us a call before pursuing knee, hip, or spine procedures. Give us a call at ',
         ),
-      ).toBeInTheDocument());
-      expect(component).toMatchSnapshot();
-    });
+      ).toBeInTheDocument(),
+    );
+    expect(component).toMatchSnapshot();
+  });
 
-    it('should not show Joint Procedure component if MskEligible is false', async () => {
-      vRules.isMskEligible = false;
-      const component = await renderUI();
-      waitFor(()=>expect(
+  it('should not show Joint Procedure component if MskEligible is false', async () => {
+    vRules.isMskEligible = false;
+    const component = await renderUI();
+    waitFor(() =>
+      expect(
         screen.queryByRole('heading', {
           name: 'Call Before Scheduling Your Joint Procedure',
         }),
-      ).not.toBeInTheDocument());
-  
-      waitFor(()=>expect(
+      ).not.toBeInTheDocument(),
+    );
+
+    waitFor(() =>
+      expect(
         screen.queryByText(
           'Your plan requires giving us a call before pursuing knee, hip, or spine procedures. Give us a call at ',
         ),
-      ).not.toBeInTheDocument());
-      expect(component).toMatchSnapshot();
-    });
-
+      ).not.toBeInTheDocument(),
+    );
+    expect(component).toMatchSnapshot();
+  });
 });
