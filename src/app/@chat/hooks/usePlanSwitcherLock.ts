@@ -9,7 +9,7 @@ import { useChatStore } from '../stores/chatStore';
  * Subscribes to isChatActive in the chatStore and calls
  * setLocked and showHover in the planStore
  */
-export function usePlanSwitcherLock(hasMultiplePlans: boolean) {
+export function usePlanSwitcherLock(_hasMultiplePlans: boolean) {
   const isChatActive = useChatStore((state) => state.isChatActive);
   const { setLocked, showHover } = usePlanStore();
 

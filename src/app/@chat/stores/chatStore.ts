@@ -1,6 +1,7 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
 // import { ChatError } from '../types/index'; // Commented out due to missing file
+import { logger } from '@/utils/logger'; // Add logger import
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 
 export interface ChatState {
@@ -95,36 +96,93 @@ export const useChatStore = create<ChatState>((set) => ({
   planSwitcherTooltip: '',
 
   // Actions
-  setOpen: (isOpen) => set({ isOpen }),
-  setMinimized: (min) => set({ isMinimized: min }),
-  minimizeChat: () => set({ isMinimized: true }),
-  maximizeChat: () => set({ isMinimized: false }),
-  setError: (error) => set({ error }),
-  addMessage: (message) =>
+  setOpen: (isOpen) => {
+    logger.info('[ChatStore] Set chat open state', { isOpen });
+    set({ isOpen });
+  },
+  setMinimized: (min) => {
+    logger.info('[ChatStore] Set chat minimized state', { minimized: min });
+    set({ isMinimized: min });
+  },
+  minimizeChat: () => {
+    logger.info('[ChatStore] Minimizing chat');
+    set({ isMinimized: true });
+  },
+  maximizeChat: () => {
+    logger.info('[ChatStore] Maximizing chat');
+    set({ isMinimized: false });
+  },
+  setError: (error) => {
+    if (error) {
+      logger.error('[ChatStore] Chat error', {
+        error: error.message,
+        stack: error.stack,
+      });
+    } else {
+      logger.info('[ChatStore] Clearing chat error');
+    }
+    set({ error });
+  },
+  addMessage: (message) => {
+    logger.info('[ChatStore] Adding message', {
+      sender: message.sender,
+      contentLength: message.content?.length || 0,
+    });
     set((s) => ({
       messages: [...s.messages, { id: Date.now().toString(), ...message }],
-    })),
-  clearMessages: () => set({ messages: [] }),
-  setChatActive: (active) => set({ isChatActive: active }),
-  setLoading: (loading) => set({ isLoading: loading }),
-  incrementMessageCount: () =>
-    set((s) => ({ newMessageCount: s.newMessageCount + 1 })),
-  resetMessageCount: () => set({ newMessageCount: 0 }),
-  setEligibility: (eligibility) => set({ eligibility }),
+    }));
+  },
+  clearMessages: () => {
+    logger.info('[ChatStore] Clearing all messages');
+    set({ messages: [] });
+  },
+  setChatActive: (active) => {
+    logger.info('[ChatStore] Setting chat active state', { active });
+    set({ isChatActive: active });
+  },
+  setLoading: (loading) => {
+    logger.info('[ChatStore] Setting loading state', { loading });
+    set({ isLoading: loading });
+  },
+  incrementMessageCount: () => {
+    logger.info('[ChatStore] Incrementing message count');
+    set((s) => ({ newMessageCount: s.newMessageCount + 1 }));
+  },
+  resetMessageCount: () => {
+    logger.info('[ChatStore] Resetting message count to zero');
+    set({ newMessageCount: 0 });
+  },
+  setEligibility: (eligibility) => {
+    logger.info('[ChatStore] Setting eligibility data', {
+      isEligible: eligibility?.isEligible,
+      cloudChatEligible: eligibility?.cloudChatEligible,
+    });
+    set({ eligibility });
+  },
 
-  setPlanSwitcherLocked: (locked) =>
+  setPlanSwitcherLocked: (locked) => {
+    logger.info('[ChatStore] Setting plan switcher lock state', { locked });
     set({
       isPlanSwitcherLocked: locked,
       planSwitcherTooltip: locked
         ? 'You cannot switch plans during an active chat session.'
         : '',
-    }),
+    });
+  },
 
   updateConfig: (cfg) => {
+    logger.info('[ChatStore] Updating chat configuration', {
+      configFields: Object.keys(cfg),
+    });
     try {
       const validated = ChatConfigSchema.parse(cfg);
+      logger.info('[ChatStore] Chat configuration validated successfully');
       set({ config: validated });
     } catch (err) {
+      logger.error('[ChatStore] Invalid chat configuration', {
+        error: err instanceof Error ? err.message : 'Validation error',
+        invalidFields: Object.keys(cfg),
+      });
       console.error('Invalid chat configuration:', err);
       set({
         error: new Error('Invalid chat configuration'),
@@ -132,13 +190,15 @@ export const useChatStore = create<ChatState>((set) => ({
     }
   },
 
-  closeAndRedirect: () =>
+  closeAndRedirect: () => {
+    logger.info('[ChatStore] Closing chat and redirecting');
     set({
       isOpen: false,
       isChatActive: false,
       messages: [],
       isPlanSwitcherLocked: false,
-    }),
+    });
+  },
 
   // New actions
   loadChatConfiguration: async (
@@ -146,20 +206,55 @@ export const useChatStore = create<ChatState>((set) => ({
     planId,
     memberType = 'byMemberCk',
   ) => {
+    const requestId = Date.now().toString();
+    logger.info('[ChatStore] Loading chat configuration', {
+      requestId,
+      memberId,
+      planId,
+      memberType,
+    });
+
     try {
       set({ isLoading: true, error: null });
+
       // SERVER-SIDE CALL: Use fetch to backend API route
-      const response = await fetch(
-        `/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo?planId=${planId}`,
-        {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
+      const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
+      logger.info('[ChatStore] Sending API request for chat configuration', {
+        requestId,
+        url: apiUrl,
+      });
+
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-correlation-id': requestId,
         },
-      );
+      });
+
       if (!response.ok) {
+        logger.error('[ChatStore] API request failed', {
+          requestId,
+          status: response.status,
+          statusText: response.statusText,
+        });
         throw new Error('Failed to load chat configuration');
       }
+
+      logger.info('[ChatStore] API response received', {
+        requestId,
+        status: response.status,
+      });
+
       const info = await response.json();
+      logger.info('[ChatStore] Parsed chat configuration data', {
+        requestId,
+        isEligible: info.isEligible,
+        cloudChatEligible: info.cloudChatEligible,
+        chatGroup: info.chatGroup,
+        businessHoursOpen: !!info.businessHours?.isOpen,
+      });
+
       set({
         eligibility: info,
         isEligible: info.isEligible,
@@ -200,7 +295,21 @@ export const useChatStore = create<ChatState>((set) => ({
         ],
         isLoading: false,
       });
+
+      logger.info('[ChatStore] Chat configuration loaded successfully', {
+        requestId,
+        chatMode: info.cloudChatEligible ? 'cloud' : 'legacy',
+      });
     } catch (err) {
+      logger.error('[ChatStore] Error loading chat configuration', {
+        requestId,
+        error: err instanceof Error ? err.message : 'Unknown error',
+        stack: err instanceof Error ? err.stack : undefined,
+        memberId,
+        planId,
+        memberType,
+      });
+
       console.error('Error loading chat configuration:', err);
       set({
         error:
@@ -213,8 +322,14 @@ export const useChatStore = create<ChatState>((set) => ({
     }
   },
 
-  startChat: () => set({ isChatActive: true }),
-  endChat: () => set({ isChatActive: false }),
+  startChat: () => {
+    logger.info('[ChatStore] Starting chat');
+    set({ isChatActive: true });
+  },
+  endChat: () => {
+    logger.info('[ChatStore] Ending chat');
+    set({ isChatActive: false });
+  },
 }));
 
 /**
