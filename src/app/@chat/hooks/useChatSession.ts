@@ -75,11 +75,8 @@ export function useChatSession(options?: any) {
     // Legacy WebChat events
     const subs: Array<() => void> = [];
     if (typeof window !== 'undefined' && window.CXBus) {
-      // @ts-expect-error: CXBus injected by Genesys script, type not available
       window.CXBus?.on?.('WebChat.opened', () => setChatActive(true));
-      // @ts-expect-error: CXBus injected by Genesys script, type not available
       window.CXBus?.on?.('WebChat.closed', () => setChatActive(false));
-      // @ts-expect-error: CXBus injected by Genesys script, type not available
       window.CXBus?.on?.('WebChat.error', () => setChatActive(false));
       subs.push(
         () => window.CXBus?.runtime.unsubscribe?.('WebChat.opened'),

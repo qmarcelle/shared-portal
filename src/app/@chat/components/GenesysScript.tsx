@@ -3,6 +3,13 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 
+// Add this at the top or after imports:
+declare global {
+  interface Window {
+    Genesys?: any;
+  }
+}
+
 /**
  * Props for the GenesysScript component
  */

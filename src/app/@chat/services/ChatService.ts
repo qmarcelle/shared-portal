@@ -1,9 +1,30 @@
-import type {
-  ChatDataPayload,
-  ChatInfoResponse,
-  ChatService as IChatService,
-} from '@/app/@chat/types/index';
-import { ChatError } from '@/app/@chat/types/index';
+import type { ChatInfoResponse } from '@/utils/api/memberService';
+
+// Define ChatError locally if not already defined
+export class ChatError extends Error {
+  constructor(
+    message: string,
+    public code?: string,
+  ) {
+    super(message);
+    this.name = 'ChatError';
+  }
+}
+
+// Define ChatDataPayload as a minimal type (customize as needed)
+export interface ChatDataPayload {
+  [key: string]: any;
+}
+
+// Define IChatService as a minimal interface if only used here
+export interface IChatService {
+  getChatInfo(): Promise<ChatInfoResponse>;
+  startChat(payload: ChatDataPayload): Promise<void>;
+  endChat(): Promise<void>;
+  sendMessage(text: string): Promise<void>;
+  // Add other methods as needed
+}
+
 import { getAuthToken } from '@/utils/api/getToken';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
@@ -25,16 +46,20 @@ const RECONNECT_DELAY = 2000; // 2 seconds
  */
 logger.info('Chat Service Environment Variables:', {
   PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL || 'undefined',
-  MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT || 'undefined',
-  IDCARDSERVICE_CONTEXT_ROOT: process.env.IDCARDSERVICE_CONTEXT_ROOT || 'undefined',
-  MEMBER_PORTAL_SOA_ENDPOINT: process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || 'undefined',
+  MEMBERSERVICE_CONTEXT_ROOT:
+    process.env.MEMBERSERVICE_CONTEXT_ROOT || 'undefined',
+  IDCARDSERVICE_CONTEXT_ROOT:
+    process.env.IDCARDSERVICE_CONTEXT_ROOT || 'undefined',
+  MEMBER_PORTAL_SOA_ENDPOINT:
+    process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || 'undefined',
 });
 
 // Store these values without undefined-checking to avoid redundant "||" code everywhere
 const PORTAL_SERVICES_URL = process.env.PORTAL_SERVICES_URL || '';
 const MEMBERSERVICE_CONTEXT_ROOT = process.env.MEMBERSERVICE_CONTEXT_ROOT || '';
 const IDCARDSERVICE_CONTEXT_ROOT = process.env.IDCARDSERVICE_CONTEXT_ROOT || '';
-const MEMBER_PORTAL_SOA_ENDPOINT = process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || '';
+const MEMBER_PORTAL_SOA_ENDPOINT =
+  process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || '';
 
 /**
  * ChatService class implements the core chat functionality.
@@ -84,7 +109,6 @@ export class ChatService implements IChatService {
     });
   }
 
-
   /**
    * Get member portal REST endpoint URL for the current member
    */
@@ -119,7 +143,7 @@ export class ChatService implements IChatService {
     try {
       // Make sure to include the params for the chat info endpoint
       const response = await memberService.get('/chat/info', {
-        params: { memberId: this.memberId, planId: this.planId }
+        params: { memberId: this.memberId, planId: this.planId },
       });
       return response.data;
     } catch (error) {
@@ -147,23 +171,26 @@ export class ChatService implements IChatService {
       });
 
       // Get a fresh auth token before initializing
-      this.authToken = await getAuthToken() ?? null;
-      
+      this.authToken = (await getAuthToken()) ?? null;
+
       // Get eligibility information
       const eligibility = await this.getChatInfo();
       this.cloudChatEligible = eligibility.cloudChatEligible;
 
       // Check if GenesysScripts has already set up the config objects
-      const isGenesysConfigured = this.cloudChatEligible 
-        ? !!window.Genesys?.c 
+      const isGenesysConfigured = this.cloudChatEligible
+        ? !!window.Genesys?.c
         : !!window._genesys?.c;
 
       if (!isGenesysConfigured) {
-        logger.warn('GenesysScripts component has not set up configuration objects yet', {
-          timestamp: new Date().toISOString(),
-        });
+        logger.warn(
+          'GenesysScripts component has not set up configuration objects yet',
+          {
+            timestamp: new Date().toISOString(),
+          },
+        );
       }
-      
+
       // Web Messenger script URL - use specific version for better stability
       const scriptUrl = this.cloudChatEligible
         ? `https://apps.mypurecloud.com/widgets/9.0/webmessenger.js`
@@ -184,7 +211,7 @@ export class ChatService implements IChatService {
         logger.info('Initializing legacy chat', {
           timestamp: new Date().toISOString(),
         });
-        
+
         registerGenesysOverride(() => {
           if (window._genesys?.widgets?.bus) {
             window._genesys.widgets.bus.command('WebChat.open');
@@ -200,10 +227,10 @@ export class ChatService implements IChatService {
         // Configure the Web Messenger before subscribing to events
         if (window.Genesys) {
           // Register UI widgets - use configuration from GenesysScripts if available
-          window.Genesys("command", "widgets.registerUI", {
-            type: "webmessenger",
-            position: "fixed",
-            showChatButton: true
+          window.Genesys('command', 'widgets.registerUI', {
+            type: 'webmessenger',
+            position: 'fixed',
+            showChatButton: true,
           });
 
           // Subscribe to all relevant events for better debugging
@@ -211,13 +238,13 @@ export class ChatService implements IChatService {
             logger.info('Web Messenger ready', {
               timestamp: new Date().toISOString(),
             });
-            
+
             // Update auth token once the service is ready
             if (this.authToken) {
               logger.info('Updating auth token on messenger ready', {
                 timestamp: new Date().toISOString(),
               });
-              
+
               window.Genesys?.('command', 'Messenger.updateAuthToken', {
                 token: this.authToken,
               });
@@ -226,40 +253,56 @@ export class ChatService implements IChatService {
                 timestamp: new Date().toISOString(),
               });
             }
-            
+
             this.initialized = true;
           });
-          
+
           // Add error handlers for better debugging
-          window.Genesys('subscribe', 'MessagingService.error', (error) => {
-            logger.error('Web Messenger error:', {
-              error,
-              timestamp: new Date().toISOString(),
-            });
-            
-            if (this.onError) {
-              this.onError(new Error(`Web Messenger error: ${JSON.stringify(error)}`));
-            }
-          });
-          
+          window.Genesys(
+            'subscribe',
+            'MessagingService.error',
+            (error: any) => {
+              logger.error('Web Messenger error:', {
+                error,
+                timestamp: new Date().toISOString(),
+              });
+
+              if (this.onError) {
+                this.onError(
+                  new Error(`Web Messenger error: ${JSON.stringify(error)}`),
+                );
+              }
+            },
+          );
+
           // Monitor connection events
-          window.Genesys('subscribe', 'MessagingService.connectionStateChanged', (state) => {
-            logger.info('Web Messenger connection state changed:', {
-              state,
-              timestamp: new Date().toISOString(),
-            });
-          });
+          window.Genesys(
+            'subscribe',
+            'MessagingService.connectionStateChanged',
+            (state: any) => {
+              logger.info('Web Messenger connection state changed:', {
+                state,
+                timestamp: new Date().toISOString(),
+              });
+            },
+          );
         } else {
           logger.error('Genesys object not available', {
             timestamp: new Date().toISOString(),
           });
-          throw new ChatError('Genesys Web Messenger failed to load', 'INITIALIZATION_ERROR');
+          throw new ChatError(
+            'Genesys Web Messenger failed to load',
+            'INITIALIZATION_ERROR',
+          );
         }
       }
 
       // Add connection status listener
       window.addEventListener('offline', this.handleConnectionLoss.bind(this));
-      window.addEventListener('online', this.handleConnectionRestore.bind(this));
+      window.addEventListener(
+        'online',
+        this.handleConnectionRestore.bind(this),
+      );
 
       logger.info('Chat service initialized successfully', {
         cloudChatEligible: this.cloudChatEligible,
@@ -327,9 +370,12 @@ export class ChatService implements IChatService {
     logger.info('Destroying chat service', {
       timestamp: new Date().toISOString(),
     });
-    
+
     window.removeEventListener('offline', this.handleConnectionLoss.bind(this));
-    window.removeEventListener('online', this.handleConnectionRestore.bind(this));
+    window.removeEventListener(
+      'online',
+      this.handleConnectionRestore.bind(this),
+    );
 
     try {
       if (this.cloudChatEligible) {
@@ -392,21 +438,21 @@ export class ChatService implements IChatService {
         logger.info('Opening cloud chat messenger', {
           timestamp: new Date().toISOString(),
         });
-        
+
         // First update the auth token
         if (this.authToken) {
           window.Genesys('command', 'Messenger.updateAuthToken', {
             token: this.authToken,
           });
         }
-        
+
         // Register member and plan data before opening messenger
         window.Genesys('registerDataSource', {
           memberId: this.memberId,
           planId: this.planId,
           planName: this.planName,
         });
-        
+
         // Then open the messenger with the payload
         window.Genesys('command', 'Messenger.open', {
           data: {
@@ -522,15 +568,15 @@ export const loadGenesysScript = async (scriptUrl: string): Promise<void> => {
     if (existingScript) {
       existingScript.remove();
     }
-    
+
     // Also check for other Genesys scripts that might cause conflicts
     const possibleScriptIds = [
-      'cx-widget-script', 
-      'genesys-bootstrap-script', 
-      'genesys-web-messenger-script'
+      'cx-widget-script',
+      'genesys-bootstrap-script',
+      'genesys-web-messenger-script',
     ];
-    
-    possibleScriptIds.forEach(id => {
+
+    possibleScriptIds.forEach((id) => {
       if (id !== GENESYS_SCRIPT_ID) {
         const script = document.getElementById(id);
         if (script) {
@@ -547,7 +593,7 @@ export const loadGenesysScript = async (scriptUrl: string): Promise<void> => {
     script.src = scriptUrl;
     script.async = true;
     script.defer = true;
-    
+
     logger.info(`Loading Genesys script from ${scriptUrl}`, {
       scriptId: GENESYS_SCRIPT_ID,
       timestamp: new Date().toISOString(),
@@ -587,11 +633,14 @@ export const loadGenesysScript = async (scriptUrl: string): Promise<void> => {
  * @param memberId The member ID
  * @param emailData Email data to send
  */
-async function sendEmail(memberId: string, emailData: {
-  subject: string;
-  body: string;
-  to: string;
-}): Promise<void> {
+async function sendEmail(
+  memberId: string,
+  emailData: {
+    subject: string;
+    body: string;
+    to: string;
+  },
+): Promise<void> {
   try {
     // Use memberService directly instead of constructing URLs
     const response = await memberService.post(
@@ -617,10 +666,7 @@ async function getPhoneAttributes(params: {
 }): Promise<any> {
   try {
     // Use memberService with the correct path - no need to manually construct URL
-    const response = await memberService.get(
-      `OperationHours`,
-      { params },
-    );
+    const response = await memberService.get(`OperationHours`, { params });
     return response.data;
   } catch (error) {
     logger.error('Failed to get phone attributes:', error);
@@ -641,10 +687,9 @@ async function getEmail(params: {
   try {
     // If this is a completely different endpoint URL, use axios directly
     const baseUrl = process.env.NEXT_PUBLIC_MEMBER_PORTAL_SOA_ENDPOINT || '';
-    const response = await axios.get(
-      `${baseUrl}/memberContactPreference`,
-      { params },
-    );
+    const response = await axios.get(`${baseUrl}/memberContactPreference`, {
+      params,
+    });
     return response.data;
   } catch (error) {
     logger.error('Failed to get email preferences:', error);

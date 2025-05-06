@@ -2,7 +2,6 @@
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import Script from 'next/script';
 import { useEffect } from 'react';
-import { GenesysBus } from '../types/genesys.types';
 
 /**
  * Legacy chat implementation wrapper
@@ -14,15 +13,11 @@ export default function LegacyChatWrapper() {
 
   useEffect(() => {
     // Defensive: close any previous chat session
-    // @ts-expect-error: CXBus injected by Genesys script
     if (typeof window.CXBus?.command === 'function') {
-      // @ts-expect-error: CXBus injected by Genesys script
       window.CXBus.command('WebChat.close');
     }
     return () => {
-      // @ts-expect-error: CXBus injected by Genesys script
       if (typeof window.CXBus?.command === 'function') {
-        // @ts-expect-error: CXBus injected by Genesys script
         window.CXBus.command('WebChat.close');
       }
     };
@@ -85,7 +80,7 @@ export default function LegacyChatWrapper() {
 
 declare global {
   interface Window {
-    CXBus?: GenesysBus;
+    CXBus?: any;
   }
 }
 

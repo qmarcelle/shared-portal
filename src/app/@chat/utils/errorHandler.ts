@@ -1,4 +1,12 @@
-import { ChatError } from '../types/index';
+export class ChatError extends Error {
+  constructor(
+    message: string,
+    public code?: string,
+  ) {
+    super(message);
+    this.name = 'ChatError';
+  }
+}
 
 // Extend Window interface to include elementTag property
 declare global {

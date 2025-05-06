@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import { useChatEventHandler } from '../hooks/useChatEventHandler';
 import { useChatStore } from '../stores/chatStore';
 import BusinessHoursBanner from './BusinessHoursBanner';
 import ChatControls from './ChatControls';
@@ -39,13 +38,6 @@ export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
   useEffect(() => {
     loadChatConfiguration(memberId, planId);
   }, [memberId, planId, loadChatConfiguration]);
-
-  // Set up chat event handlers
-  useChatEventHandler({
-    onLockPlanSwitcher: undefined,
-    onOpenPlanSwitcher: undefined,
-    onError: undefined
-  });
 
   if (isLoading)
     return (
