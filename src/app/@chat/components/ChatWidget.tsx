@@ -13,6 +13,7 @@ interface ChatWidgetProps {
   onLockPlanSwitcher?: (locked: boolean) => void;
   onOpenPlanSwitcher?: () => void;
   _onError?: (error: Error) => void;
+  memberType?: string;
   children?: ReactNode; // Add support for children
 }
 
@@ -24,6 +25,7 @@ export function ChatWidget({
   onLockPlanSwitcher,
   onOpenPlanSwitcher,
   _onError,
+  memberType = 'byMemberCk',
   children, // Add children to the parameter list
 }: ChatWidgetProps) {
   const {
@@ -51,7 +53,7 @@ export function ChatWidget({
         // Parse memberId to number if it's a string
         const memberIdNum =
           typeof memberId === 'string' ? parseInt(memberId, 10) : memberId;
-        await loadChatConfiguration(memberIdNum, planId);
+        await loadChatConfiguration(memberIdNum, planId, memberType);
       } catch (err) {
         console.error('Failed to load chat configuration:', err);
         if (_onError)
@@ -60,7 +62,7 @@ export function ChatWidget({
     };
 
     loadConfig();
-  }, [memberId, planId, loadChatConfiguration, _onError]);
+  }, [memberId, planId, memberType, loadChatConfiguration, _onError]);
 
   // Don't render anything if loading or not eligible or outside business hours
   if (isLoading || !isEligible || isOOO) {

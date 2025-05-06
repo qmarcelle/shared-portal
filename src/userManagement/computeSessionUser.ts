@@ -14,19 +14,23 @@ export async function computeSessionUser(
   selectedUserId?: string,
   planId?: string,
 ): Promise<SessionUser> {
+  logger.info('[computeSessionUser] ENTRY', { userId, selectedUserId, planId });
   try {
-    logger.info('Calling computeSessionUser');
+    logger.info('[computeSessionUser] Calling revalidateUser', { userId });
     revalidateUser(userId);
-    // Get the PBE of the loggedIn user
-    // The loggedIn user here is the user who has logged in
-    // and not the user role to which user has switched to.
+    logger.info('[computeSessionUser] Fetching PBE', { userId });
     const pbe = await getPersonBusinessEntity(userId, true, true, true);
-
-    // Get the current user to which user has either switched to or
-    // their actual role with the selected plan.
-    // if user has only one plan, it is default selected.
-    // if multiple plans with no selected planId, no plan is selected.
+    logger.info('[computeSessionUser] PBE fetched', {
+      pbeSummary: pbe && pbe.getPBEDetails ? pbe.getPBEDetails.length : 'none',
+    });
+    logger.info('[computeSessionUser] Getting current user', {
+      selectedUserId,
+      planId,
+    });
     const currentUser = getCurrentUser(pbe, selectedUserId, planId);
+    logger.info('[computeSessionUser] Current user determined', {
+      currentUser,
+    });
     if (currentUser) {
       const plans = currentUser.plans;
 
@@ -51,9 +55,23 @@ export async function computeSessionUser(
       logger.error('User of given id not found');
       throw 'User Not Found';
     }
-  } catch (err) {
-    logger.error('Compute Session Error occurred', err);
-    throw err;
+    logger.info('[computeSessionUser] EXIT success', {
+      userId,
+      selectedUserId,
+      planId,
+    });
+    return {
+      id: userId,
+      currUsr: {
+        fhirId: currentUser.personFhirId,
+        umpi: currentUser.id,
+        role: currentUser.type,
+        plan: undefined,
+      },
+    };
+  } catch (error) {
+    logger.error('[computeSessionUser] ERROR', { error });
+    throw error;
   }
 }
 

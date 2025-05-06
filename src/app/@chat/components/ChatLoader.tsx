@@ -15,6 +15,7 @@ import TermsAndConditions from './TermsAndConditions';
 interface ChatLoaderProps {
   memberId: number;
   planId: string;
+  memberType?: string;
 }
 
 /**
@@ -23,7 +24,11 @@ interface ChatLoaderProps {
  * - Sets up chat event handlers
  * - Renders the appropriate chat UI based on state
  */
-export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
+export default function ChatLoader({
+  memberId,
+  planId,
+  memberType = 'byMemberCk',
+}: ChatLoaderProps) {
   const {
     loadChatConfiguration,
     isChatActive,
@@ -36,8 +41,8 @@ export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
 
   // Load chat configuration on mount
   useEffect(() => {
-    loadChatConfiguration(memberId, planId);
-  }, [memberId, planId, loadChatConfiguration]);
+    loadChatConfiguration(memberId, planId, memberType);
+  }, [memberId, planId, memberType, loadChatConfiguration]);
 
   if (isLoading)
     return (
@@ -61,7 +66,7 @@ export default function ChatLoader({ memberId, planId }: ChatLoaderProps) {
     );
 
   return (
-    <ChatWidget memberId={memberId} planId={planId}>
+    <ChatWidget memberId={memberId} planId={planId} memberType={memberType}>
       <ChatPersistence />
 
       {/* Pre-chat UI */}

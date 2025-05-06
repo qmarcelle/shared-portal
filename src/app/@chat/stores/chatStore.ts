@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import {
   ChatInfoResponse,
-  memberService,
+  getChatInfo,
 } from '../../../utils/api/memberService';
 // import { ChatError } from '../types/index'; // Commented out due to missing file
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
@@ -57,7 +57,11 @@ export interface ChatState {
   closeAndRedirect: () => void;
 
   // New actions
-  loadChatConfiguration: (memberId: number, planId: string) => Promise<void>;
+  loadChatConfiguration: (
+    memberId: number,
+    planId: string,
+    memberType?: string,
+  ) => Promise<void>;
   startChat: () => void;
   endChat: () => void;
 }
@@ -141,12 +145,21 @@ export const useChatStore = create<ChatState>((set) => ({
     }),
 
   // New actions
-  loadChatConfiguration: async (memberId, planId) => {
+  loadChatConfiguration: async (
+    memberId,
+    planId,
+    memberType = 'byMemberCk',
+  ) => {
     try {
       set({ isLoading: true, error: null });
-      const response = await memberService.get('/chat/info', {
-        params: { memberId, planId },
-      });
+      // Optionally, pre-check eligibility/availability
+      // const eligibleResp = await isCloudChatEligible(memberType, String(memberId));
+      // const availableResp = await isChatAvailable(memberType, String(memberId));
+      // if (!eligibleResp.data || !availableResp.data) {
+      //   set({ isEligible: false, isLoading: false });
+      //   return;
+      // }
+      const response = await getChatInfo(memberType, String(memberId));
       const info = response.data as ChatInfoResponse;
       set({
         eligibility: info,

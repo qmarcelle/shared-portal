@@ -10,6 +10,7 @@ import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
@@ -18,12 +19,24 @@ import { DashboardData } from '../models/dashboardData';
 export const getDashboardData = async (): Promise<
   ActionResponse<number, DashboardData>
 > => {
+  logger.info('[getDashboardData] ENTRY');
   try {
     const session = await auth();
+    logger.info('[getDashboardData] Session fetched', {
+      userId: session?.user.id,
+      role: session?.user.currUsr.role,
+    });
     // Check if current user is non member
     if (session?.user.currUsr.role == UserRole.NON_MEM) {
-      // Get the name of the non member and send off
+      logger.info(
+        '[getDashboardData] User is NON_MEM, calling getPersonBusinessEntity',
+        { userId: session!.user!.id },
+      );
       const pbe = await getPersonBusinessEntity(session!.user!.id);
+      logger.info('[getDashboardData] PBE fetched', {
+        pbeSummary:
+          pbe && pbe.getPBEDetails ? pbe.getPBEDetails.length : 'none',
+      });
       return {
         status: 200,
         data: {
@@ -36,15 +49,27 @@ export const getDashboardData = async (): Promise<
         },
       };
     } else if (session?.user.currUsr.plan == null) {
+      logger.info(
+        '[getDashboardData] User has no plan, calling getPersonBusinessEntity',
+        { userId: session!.user!.id },
+      );
       const pbe = await getPersonBusinessEntity(session!.user!.id);
+      logger.info('[getDashboardData] PBE fetched', {
+        pbeSummary:
+          pbe && pbe.getPBEDetails ? pbe.getPBEDetails.length : 'none',
+      });
       const profiles = computeUserProfilesFromPbe(
         pbe,
         session?.user.currUsr.umpi,
       );
       const selectedProfile = profiles.find((item) => item.selected == true);
+      logger.info('[getDashboardData] Selected profile', { selectedProfile });
       const plans = await getPolicyInfo(
         selectedProfile!.plans.map((item) => item.memCK),
       );
+      logger.info('[getDashboardData] Plans fetched', {
+        plansCount: Array.isArray(plans) ? plans.length : typeof plans,
+      });
       return {
         status: 200,
         data: {
@@ -57,7 +82,7 @@ export const getDashboardData = async (): Promise<
         },
       };
     }
-
+    logger.info('[getDashboardData] Fetching additional dashboard data');
     const [
       loggedUserDetails,
       primaryCareProviderData,
@@ -69,11 +94,16 @@ export const getDashboardData = async (): Promise<
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
     ]);
-
     let loggedUserInfo;
     if (loggedUserDetails.status === 'fulfilled')
       loggedUserInfo = loggedUserDetails.value;
-    else throw error;
+    else {
+      logger.error('[getDashboardData] loggedUserDetails failed', {
+        error: loggedUserDetails.reason,
+      });
+      throw error;
+    }
+    logger.info('[getDashboardData] EXIT success');
     return {
       status: 200,
       data: {
@@ -103,8 +133,9 @@ export const getDashboardData = async (): Promise<
       },
     };
   } catch (error) {
+    logger.error('[getDashboardData] ERROR', { error });
     return {
-      status: 400,
+      status: 500,
       data: {
         memberDetails: null,
         primaryCareProvider: null,
