@@ -210,8 +210,8 @@ export const appPaths: Map<string, AppPath> = new Map([
   [
     'access',
     {
-      label: 'Share My Information',
-      path: '/myinfo',
+      label: "Access Others' Information",
+      path: '/access',
     },
   ],
   [
@@ -296,6 +296,76 @@ export const appPaths: Map<string, AppPath> = new Map([
     {
       label: 'Communication Settings',
       path: '/communication',
+    },
+  ],
+  [
+    'officevisits',
+    {
+      label: 'Office Visits',
+      path: '/officevisits',
+    },
+  ],
+  [
+    'preventivecare',
+    {
+      label: 'Preventive Care',
+      path: '/preventivecare',
+    },
+  ],
+  [
+    'allergy',
+    {
+      label: 'Allergy',
+      path: '/allergy',
+    },
+  ],
+  [
+    'emergency',
+    {
+      label: 'Emergency',
+      path: '/emergency',
+    },
+  ],
+  [
+    'inpatientservices',
+    {
+      label: 'Inpatient Services',
+      path: '/inpatientservices',
+    },
+  ],
+  [
+    'outpatientservices',
+    {
+      label: 'Outpatient Services',
+      path: '/outpatientservices',
+    },
+  ],
+  [
+    'medicalequipment',
+    {
+      label: 'Medical Equipment',
+      path: '/medicalequipment',
+    },
+  ],
+  [
+    'behavioralhealth',
+    {
+      label: 'Behavioral Health',
+      path: '/behavioralhealth',
+    },
+  ],
+  [
+    'prescriptiondrugs',
+    {
+      label: 'Prescription Drugs',
+      path: '/prescriptiondrugs',
+    },
+  ],
+  [
+    'otherservices',
+    {
+      label: 'Other Services',
+      path: '/otherservices',
     },
   ],
   [

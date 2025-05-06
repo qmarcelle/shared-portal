@@ -36,14 +36,21 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/myplan/plancontact': '/myPlan/planContactInformation',
   '/member/myplan/claims/submit': '/claims/submitAClaim',
   '/member/myplan/managepolicy': '/myPlan/manageMyPolicy',
-  '/member/myplan/benefits/officevisits': '/benefits',
-  '/member/myplan/benefits/preventivecare': '/benefits',
-  '/member/myplan/benefits/allergy': '/benefits',
-  '/member/myplan/benefits/emergency': '/benefits',
-  '/member/myplan/benefits/impatientservices': '/benefits',
-  '/member/myplan/benefits/outpatientservices': '/benefits',
-  '/member/myplan/benefits/medicalequipment': '/benefits',
-  '/member/myplan/benefits/behavioralhealth': '/benefits',
+  '/member/myplan/benefits/officevisits': '/benefits/details/officevisits',
+  '/member/myplan/benefits/preventivecare': '/benefits/details/preventivecare',
+  '/member/myplan/benefits/allergy': '/benefits/details/allergy',
+  '/member/myplan/benefits/emergency': '/benefits/details/emergency',
+  '/member/myplan/benefits/inpatientservices':
+    '/benefits/details/inpatientservices',
+  '/member/myplan/benefits/outpatientservices':
+    '/benefits/details/outpatientservices',
+  '/member/myplan/benefits/medicalequipment':
+    '/benefits/details/medicalequipment',
+  '/member/myplan/benefits/behavioralhealth':
+    '/benefits/details/behavioralhealth',
+  '/member/myplan/benefits/prescriptiondrugs':
+    '/benefits/details/prescriptiondrugs',
+  '/member/myplan/benefits/otherservices': '/benefits/details/otherservices',
   '/member/myplan/benefits/medicalservices': '/benefits',
   '/member/myplan/benefits/pharmacy': '/benefits',
   '/member/myplan/benefits/dentalanasthesia': '/benefits',
