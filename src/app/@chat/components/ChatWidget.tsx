@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef, ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
+import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
 import { useChatStore } from '../stores/chatStore';
 import { GenesysScript } from './GenesysScript';
-import { useChatEventHandler } from '../hooks/useChatEventHandler';
-import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
 
 interface ChatWidgetProps {
   memberId: string | number;
@@ -36,38 +35,33 @@ export function ChatWidget({
     userData,
     isOOO,
   } = useChatStore();
-  
+
   const initializedRef = useRef(false);
-  
-  // Set up chat event handlers
-  useChatEventHandler({
-    onLockPlanSwitcher,
-    onOpenPlanSwitcher,
-    onError: _onError,
-  });
-  
+
   // Handle plan switcher lock/unlock
   usePlanSwitcherLock(hasMultiplePlans);
-  
+
   // Initialize chat configuration
   useEffect(() => {
     if (initializedRef.current) return;
     initializedRef.current = true;
-    
+
     const loadConfig = async () => {
       try {
         // Parse memberId to number if it's a string
-        const memberIdNum = typeof memberId === 'string' ? parseInt(memberId, 10) : memberId;
+        const memberIdNum =
+          typeof memberId === 'string' ? parseInt(memberId, 10) : memberId;
         await loadChatConfiguration(memberIdNum, planId);
       } catch (err) {
         console.error('Failed to load chat configuration:', err);
-        if (_onError) _onError(err instanceof Error ? err : new Error(String(err)));
+        if (_onError)
+          _onError(err instanceof Error ? err : new Error(String(err)));
       }
     };
-    
+
     loadConfig();
   }, [memberId, planId, loadChatConfiguration, _onError]);
-  
+
   // Don't render anything if loading or not eligible or outside business hours
   if (isLoading || !isEligible || isOOO) {
     return null;
@@ -78,11 +72,11 @@ export function ChatWidget({
     console.error('Chat error:', error);
     return null;
   }
-  
+
   return (
     <div className="chat-widget-container">
       {children}
-      
+
       {/* Only load the Genesys script for cloud chat mode */}
       {chatMode === 'cloud' && (
         <GenesysScript
