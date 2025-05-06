@@ -1,4 +1,4 @@
-import { PharmacyClaim } from '@/app/pharmacy/models/pharmacy_claim';
+import { PharmacyClaim } from '@/app/(protected)/(common)/member/pharmacy/models/pharmacy_claim';
 
 import { ClaimDetails } from '@/models/claim_details';
 import { capitalizeString } from './string_format';

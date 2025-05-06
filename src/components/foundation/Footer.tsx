@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = () => {
             <h3 className="body-bold mb-4">Popular Links</h3>
             <ul className="space-y-4 font-thin body-2">
               <li>
-                <Link href="/memberIDCard">Get an ID Card</Link>
+                <Link href="/myplan/idcard">Get an ID Card</Link>
               </li>
               <li>
                 <Link href="/findcare">Find Care & Costs</Link>

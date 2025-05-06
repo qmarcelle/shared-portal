@@ -1,4 +1,4 @@
-import { FindMedicalProvidersComponent } from '@/app/dashboard/components/FindMedicalProvidersComponent';
+import { FindMedicalProvidersComponent } from '@/app/(protected)/(common)/member/dashboard/components/FindMedicalProvidersComponent';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import ShareMyInformation from '../../../app/shareMyInformation/page';
+import ShareMyInformation from '../../../app/(protected)/(common)/member/shareMyInformation/page';
 
 const renderUI = () => {
   return render(<ShareMyInformation />);

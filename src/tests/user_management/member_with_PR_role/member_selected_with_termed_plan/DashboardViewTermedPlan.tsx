@@ -1,4 +1,4 @@
-import DashboardPage from '@/app/dashboard/page';
+import DashboardPage from '@/app/(protected)/(common)/member/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';

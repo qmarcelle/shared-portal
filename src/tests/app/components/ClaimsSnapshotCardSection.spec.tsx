@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { ClaimsSnapshotCardSection } from '../../../app/claims/components/ClaimsSnapshotCardSection';
+import { ClaimsSnapshotCardSection } from '../../../a../((common)/claims/components/ClaimsSnapshotCardSection';
 
 const renderUI = () => {
   return render(

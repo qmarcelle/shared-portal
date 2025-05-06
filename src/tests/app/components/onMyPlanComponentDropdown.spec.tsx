@@ -2,7 +2,7 @@ import { OnMyPlanComponent } from '@/components/composite/OnMyPlanComponent';
 import { TextBox } from '@/components/foundation/TextBox';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { ShareMyInfoDetails } from '../../../app/shareMyInformation/models/sharemyinfo_details';
+import { ShareMyInfoDetails } from '../../../app/(protected)/(common)/member/shareMyInformation/models/sharemyinfo_details';
 
 const renderUI = (
   planItems: ShareMyInfoDetails[],

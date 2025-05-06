@@ -1,4 +1,4 @@
-import OtherHealthInsurancePage from '@/app/reportOtherHealthInsurance/page';
+import OtherHealthInsurancePage from '@/app/(protected)/(common)/member/reportOtherHealthInsurance/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';

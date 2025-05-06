@@ -1,5 +1,5 @@
-import PersonalRepresentativeAccess from '@/app/personalRepresentativeAccess';
-import PersonalRepresentativePage from '@/app/personalRepresentativeAccess/page';
+import PersonalRepresentativeAccess from '@/app/(protected)/(common)/member/personalRepresentativeAccess';
+import PersonalRepresentativePage from '@/app/(protected)/(common)/member/personalRepresentativeAccess/page';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';

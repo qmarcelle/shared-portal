@@ -1,4 +1,4 @@
-import { EmailUniquenessVerification } from '@/app/login/components/EmailUniquenessVerification';
+import { EmailUniquenessVerification } from '@/app/(protected)/(common)/member/login/components/EmailUniquenessVerification';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

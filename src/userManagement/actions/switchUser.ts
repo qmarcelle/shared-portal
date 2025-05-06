@@ -1,6 +1,6 @@
 'use server';
 
-import { auth, unstable_update } from '@/auth';
+import { auth, unstable_update } from '@/app/(system)/auth';
 
 export async function switchUser(userId?: string, planId?: string) {
   const session = await auth();

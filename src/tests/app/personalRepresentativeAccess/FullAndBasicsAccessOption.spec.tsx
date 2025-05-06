@@ -1,5 +1,5 @@
-import FullAndBasicAccessOption from '@/app/personalRepresentativeAccess/components/FullAndBasicAccessOption';
-import { AccessType } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+import FullAndBasicAccessOption from '@/app/(protected)/(common)/member/personalRepresentativeAccess/components/FullAndBasicAccessOption';
+import { AccessType } from '@/app/(protected)/(common)/member/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

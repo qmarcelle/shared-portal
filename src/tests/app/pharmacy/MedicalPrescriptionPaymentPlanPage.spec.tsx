@@ -1,4 +1,4 @@
-import MedicalPrescriptionPaymentPlanPage from '@/app/pharmacy/medicalPrescriptionPaymentPlan/page';
+import MedicalPrescriptionPaymentPlanPage from '@/app/(protected)/(common)/member/pharmacy/medicalPrescriptionPaymentPlan/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

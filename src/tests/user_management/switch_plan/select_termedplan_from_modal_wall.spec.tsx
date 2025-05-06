@@ -1,4 +1,4 @@
-import DashboardPage from '@/app/dashboard/page';
+import DashboardPage from '@/app/(protected)/(common)/member/dashboard/page';
 import { unstable_update } from '@/auth';
 import { AppModal } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';

@@ -1,5 +1,5 @@
-import { LoginResponse } from '@/app/login/models/api/login';
-import LogInPage from '@/app/login/page';
+import { LoginResponse } from '@/app/(protected)/(common)/member/login/models/api/login';
+import LogInPage from '@/app/(protected)/(common)/member/login/page';
 import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';

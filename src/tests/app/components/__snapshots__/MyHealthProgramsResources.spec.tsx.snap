@@ -380,7 +380,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
           />
           <a
             aria-label="View All Health Programs & Resources"
-            href="/myHealth/healthProgramsResources"
+            href="/myhealth/healthProgramsResources"
             style="display: block;"
           >
             <button
@@ -776,7 +776,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
         />
         <a
           aria-label="View All Health Programs & Resources"
-          href="/myHealth/healthProgramsResources"
+          href="/myhealth/healthProgramsResources"
           style="display: block;"
         >
           <button

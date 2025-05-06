@@ -1,4 +1,4 @@
-import { useLoginStore } from '@/app/login/stores/loginStore';
+import { useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { getUserIdDetails } from '../actions/userSessionDetails';
 import { logger } from './logger';

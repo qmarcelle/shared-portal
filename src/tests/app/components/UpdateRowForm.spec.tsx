@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { TextBox } from '@/components/foundation/TextBox';
-import { UpdateRowForm } from '../../../app/otherProfileSettings/components/UpdateRowForm';
+import { UpdateRowForm } from '../../../app/(protected)/(common)/member/otherProfileSettings/components/UpdateRowForm';
 
 const renderUI = () => {
   const ethnicityList = [

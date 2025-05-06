@@ -6,9 +6,9 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import Link from 'next/link';
-import appleStoreLogo from '../../../../public/assets/apple_store.svg';
-import careTNDevice from '../../../../public/assets/caretn_device.png';
-import playStoreLogo from '../../../../public/assets/google_play.svg';
+import appleStoreLogo from 'apple_store.svg';
+import careTNDevice from 'caretn_device.png';
+import playStoreLogo from 'google_play.svg';
 
 const HealthyMaternityMobileApp = () => {
   return (

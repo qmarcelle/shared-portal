@@ -15,8 +15,8 @@ import { Row } from '@/components/foundation/Row';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
-import { useAppModalStore } from '../../components/foundation/AppModal';
-import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
+import { useAppModalStore } from '@/components/foundation/AppModal';
+import { SpendingAccountSummary } from '@/app/(protected)/(common)/dashboard/components/SpendingAccountSummary';
 import { DownloadPdf } from '../spendingSummary/journeys/DownloadPdf';
 
 /* eslint-disable */

@@ -1,4 +1,4 @@
-import externalIcon from '@/../public/assets/external.svg';
+import externalIcon from '/assets/external.svg';
 import Image from 'next/image';
 import { AppLink } from '../foundation/AppLink';
 import { Card } from '../foundation/Card';

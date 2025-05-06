@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/auth';
+import { auth } from '@/app/(system)/auth';
 import { UserProfile } from '@/models/user_profile';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';

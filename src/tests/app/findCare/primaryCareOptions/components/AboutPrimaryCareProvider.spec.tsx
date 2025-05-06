@@ -1,4 +1,4 @@
-import { AboutPrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/AboutPrimaryCareProvider';
+import { AboutPrimaryCareProvider } from '@/app/(protected)/(common)/member/findcare/primaryCareOptions/components/AboutPrimaryCareProvider';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 const renderUI = () => {

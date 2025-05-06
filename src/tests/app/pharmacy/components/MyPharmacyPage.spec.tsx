@@ -1,4 +1,4 @@
-import PharmacyPage from '@/app/pharmacy/page';
+import PharmacyPage from '@/app/(protected)/(common)/member/pharmacy/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';

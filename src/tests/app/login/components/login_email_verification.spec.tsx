@@ -1,4 +1,4 @@
-import { LoginEmailVerification } from '@/app/login/components/LoginEmailVerification';
+import { LoginEmailVerification } from '@/app/(protected)/(common)/member/login/components/LoginEmailVerification';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

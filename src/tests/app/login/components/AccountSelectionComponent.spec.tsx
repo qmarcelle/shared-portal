@@ -1,4 +1,4 @@
-import { AccountSelectionComponent } from '@/app/login/components/AccountSelectionComponent';
+import { AccountSelectionComponent } from '@/app/(protected)/(common)/member/login/components/AccountSelectionComponent';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

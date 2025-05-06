@@ -20,8 +20,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1"
-            style="display: block;"
+            class="body-1  block"
           >
             View your annual statement for your pharmacy claims.
           </p>
@@ -65,8 +64,7 @@ exports[`PharmacySpendingSummary should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
-          class="body-1"
-          style="display: block;"
+          class="body-1  block"
         >
           View your annual statement for your pharmacy claims.
         </p>

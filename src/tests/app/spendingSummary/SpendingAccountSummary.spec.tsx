@@ -1,4 +1,4 @@
-import SpendingSummaryPage from '@/app/spendingSummary/page';
+import SpendingSummaryPage from '@/app/(protected)/(common)/member/spendingSummary/page';
 import {
   dentalIcon,
   medicalIcon,
@@ -8,7 +8,7 @@ import {
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
+import { SpendingAccountSummary } from '../../../a../((common)/dashboard/components/SpendingAccountSummary';
 
 const renderUI = () => {
   return render(

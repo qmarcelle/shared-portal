@@ -112,14 +112,14 @@ export const fusionSearchMockWithAllSet = {
           {
             ta_type: 'entity',
             type: 'MEMBER',
-            id: 'https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/',
+            id: 'https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/comparehealthplans/',
             title: 'BlueCross BlueShield of Tennessee - Compare Health Plans',
             score: 4,
           },
           {
             ta_type: 'entity',
             type: 'MEMBER',
-            id: 'https://members.bcbst.com/wps/myportal/member/home/findcare/healthcarecostestimator/',
+            id: 'https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/healthcarecostestimator/',
             title:
               'BlueCross BlueShield of Tennessee - HealthCare Cost Estimator',
             score: 4,
@@ -287,13 +287,13 @@ export const fusionSearchMockWithAllSet = {
           'BlueCross BlueShield of Tennessee - Enroll in a <em>Health</em> Plan',
         ],
       },
-    'https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/':
+    'https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/comparehealthplans/':
       {
         value_t: [
           'BlueCross BlueShield of Tennessee - Compare <em>Health</em> Plans',
         ],
       },
-    'https://members.bcbst.com/wps/myportal/member/home/findcare/healthcarecostestimator/':
+    'https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/healthcarecostestimator/':
       {
         value_t: [
           'BlueCross BlueShield of Tennessee - <em>HealthCare</em> Cost Estimator',

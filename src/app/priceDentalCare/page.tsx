@@ -17,7 +17,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
 import { PriceDentalFilterItems } from '@/mock/PriceDentalFilterItems';
 import { useState } from 'react';
-import DentalIcon from '../../../public/assets/dental.svg';
+import DentalIcon from 'dental.svg';
 import { PriceDentalCareCard } from './components/PriceDentalCareCard';
 
 const PriceDentalCare = () => {

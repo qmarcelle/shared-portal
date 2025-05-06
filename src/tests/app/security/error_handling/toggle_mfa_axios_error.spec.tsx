@@ -1,7 +1,7 @@
-import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import { SecuritySettings } from '@/app/security/components/SecuritySettingsComponent';
-import { GetMfaDevices } from '@/app/security/models/get_mfa_devices';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { LoginStore, useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
+import { SecuritySettings } from '@/app/(protected)/(common)/member/security/components/SecuritySettingsComponent';
+import { GetMfaDevices } from '@/app/(protected)/(common)/member/security/models/get_mfa_devices';
+import { MfaDeviceType } from '@/app/(protected)/(common)/member/security/models/mfa_device_type';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

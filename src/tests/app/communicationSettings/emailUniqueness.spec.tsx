@@ -1,4 +1,4 @@
-import { UpdateCommunicationEmail } from '@/app/communicationSettings/journeys/UpdateCommunicationEmail';
+import { UpdateCommunicationEmail } from '@/app/(protected)/(common)/member/communicationSettings/journeys/UpdateCommunicationEmail';
 import { AppModal } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {

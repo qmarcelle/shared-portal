@@ -1,4 +1,4 @@
-import { useLoginStore } from '@/app/login/stores/loginStore';
+import { useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { toPascalCase } from '@/utils/pascale_case_formatter';

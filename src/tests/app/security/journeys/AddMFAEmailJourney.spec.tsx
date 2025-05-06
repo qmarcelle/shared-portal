@@ -1,4 +1,4 @@
-import { AddMFAEmailJourney } from '@/app/security/components/journeys/AddMFAEmailJourney';
+import { AddMFAEmailJourney } from '@/app/(protected)/(common)/member/security/components/journeys/AddMFAEmailJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

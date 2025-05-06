@@ -1,4 +1,4 @@
-import { hingeHealthLinks } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
+import { hingeHealthLinks } from '@/app/(protected)/(common)/member/myhealth/healthProgramsResources/myHealthPrograms/models/hinge_health_links';
 import { ahAdvisorpageSetting } from '@/models/app/visibility_rules_constants';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { Session } from 'next-auth';

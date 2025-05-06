@@ -240,7 +240,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/claims/submitAClaim',
+        url:'/claims/submitAClaim',
         external: false,
       },
       {
@@ -577,7 +577,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/support/faq',
+        url:'/support/faq',
         external: false,
       },
       {

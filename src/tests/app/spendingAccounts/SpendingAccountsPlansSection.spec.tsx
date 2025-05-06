@@ -1,6 +1,6 @@
-import RelatedLinks from '@/app/spendingAccounts/components/RelatedLinks';
-import { SpendingAccountsBalance } from '@/app/spendingAccounts/components/SpendingAccountsBalance';
-import SpendingAccount from '@/app/spendingAccounts/page';
+import RelatedLinks from '@/app/(protected)/(common)/member/spendingAccounts/components/RelatedLinks';
+import { SpendingAccountsBalance } from '@/app/(protected)/(common)/member/spendingAccounts/components/SpendingAccountsBalance';
+import SpendingAccount from '@/app/(protected)/(common)/member/spendingAccounts/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

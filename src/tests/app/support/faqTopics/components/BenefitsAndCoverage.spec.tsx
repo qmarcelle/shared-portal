@@ -1,4 +1,4 @@
-import { FaqTopics } from '@/app/support/faqTopics/components/FaqTopics';
+import { FaqTopics } from '@/app/(protected)/(common)/member/support/faqTopics/components/FaqTopics';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = () => {

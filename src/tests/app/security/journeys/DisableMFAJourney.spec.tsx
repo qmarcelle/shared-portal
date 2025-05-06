@@ -1,5 +1,5 @@
-import { DisableMFAJourney } from '@/app/security/components/journeys/DisableMFAJourney';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { DisableMFAJourney } from '@/app/(protected)/(common)/member/security/components/journeys/DisableMFAJourney';
+import { MfaDeviceType } from '@/app/(protected)/(common)/member/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {

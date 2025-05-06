@@ -1,4 +1,4 @@
-import { ProfileSettingsSection } from '@/app/profileSettings/components/ProfileSettingsSection';
+import { ProfileSettingsSection } from '@/app/(protected)/(common)/member/profileSettings/components/ProfileSettingsSection';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import '@testing-library/jest-dom';

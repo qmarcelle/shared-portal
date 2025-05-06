@@ -1,4 +1,4 @@
-import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
+import UpdateMyPrimaryCareProviderPage from '@/app/(protected)/(common)/member/updateMyPrimaryCareProvider/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';

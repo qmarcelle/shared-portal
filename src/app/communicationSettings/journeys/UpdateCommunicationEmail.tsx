@@ -11,7 +11,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
-import alertErrorSvg from '@/public/assets/alert_error_red.svg';
+import alertErrorSvg from 'alert_error_red.svg';
 import { isValidEmailAddress, validateLength } from '@/utils/inputValidator';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';

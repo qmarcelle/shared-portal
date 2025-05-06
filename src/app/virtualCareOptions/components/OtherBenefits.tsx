@@ -1,4 +1,4 @@
-import { VirtualCareOptionsCard } from '@/app/findcare/components/VirtualCareOptionsCard';
+import { VirtualCareOptionsCard } from '@/app/(commo../(common)/findcare/components/VirtualCareOptionsCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
@@ -6,7 +6,7 @@ import { Header } from '@/components/foundation/Header';
 import { SlidingCarousel } from '@/components/foundation/SlidingCarousel';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { IComponent } from '../../../components/IComponent';
+import { IComponent } from '@/components/IComponent';
 import { OtherBenefitsInfo } from '../models/OtherBenefitsInfo';
 
 interface OtherBenefitsProps extends IComponent {

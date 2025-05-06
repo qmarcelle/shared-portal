@@ -1,4 +1,4 @@
-import { AddMFAVoiceJourney } from '@/app/security/components/journeys/AddMFAVoiceJourney';
+import { AddMFAVoiceJourney } from '@/app/(protected)/(common)/member/security/components/journeys/AddMFAVoiceJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

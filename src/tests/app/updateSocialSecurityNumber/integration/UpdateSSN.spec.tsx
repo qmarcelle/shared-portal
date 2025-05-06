@@ -1,5 +1,5 @@
-import { MemberList } from '@/app/myPlan/updateSocialSecurityNumber/models/app/memberList';
-import UpdateSocialSecurityNumberPage from '@/app/myPlan/updateSocialSecurityNumber/page';
+import { MemberList } from '@/app/(protected)/(common)/member/myplan/updateSocialSecurityNumber/models/app/memberList';
+import UpdateSocialSecurityNumberPage from '@/app/(protected)/(common)/member/myplan/updateSocialSecurityNumber/page';
 import { AppModal } from '@/components/foundation/AppModal';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedFetch } from '@/tests/setup';

@@ -1,4 +1,4 @@
-import LogInPage from '@/app/login/page';
+import LogInPage from '@/app/(protected)/(common)/member/login/page';
 import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';

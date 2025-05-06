@@ -1,4 +1,4 @@
-import { DisableMFAWarning } from '@/app/security/components/DisableMFAWarning';
+import { DisableMFAWarning } from '@/app/(protected)/(common)/member/security/components/DisableMFAWarning';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import AlertIcon from '../../../public/assets/alert_gray.svg';
-import DentalIcon from '../../../public/assets/dental.svg';
-import MedicalIcon from '../../../public/assets/medical.svg';
-import PharmacyIcon from '../../../public/assets/pharmacy.svg';
-import VisionIcon from '../../../public/assets/vision.svg';
+import AlertIcon from '/assets/alert_gray.svg';
+import DentalIcon from '/assets/dental.svg';
+import MedicalIcon from '/assets/medical.svg';
+import PharmacyIcon from '/assets/pharmacy.svg';
+import VisionIcon from '/assets/vision.svg';
 import { PriorAuthorizationHelp } from '../composite/PriorAuthorizationHelp';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';

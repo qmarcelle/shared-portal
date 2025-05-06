@@ -1,4 +1,4 @@
-import AboutEnrollment from '@/app/healthyMaternity/components/AboutEnrollment';
+import AboutEnrollment from '@/app/(protected)/(common)/member/healthyMaternity/components/AboutEnrollment';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

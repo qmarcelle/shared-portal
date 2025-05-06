@@ -1,4 +1,4 @@
-import RewardProgramsFaqs from '@/app/myHealth/rewardsProgramsFAQs/page';
+import RewardProgramsFaqs from '@/app/(protected)/(common)/member/myhealth/rewardsProgramsFAQs/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

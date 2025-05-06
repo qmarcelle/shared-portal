@@ -1,4 +1,4 @@
-import { AmplifyHealthCard } from '@/app/dashboard/components/AmplifyHealthCard';
+import { AmplifyHealthCard } from '@/app/(protected)/(common)/member/dashboard/components/AmplifyHealthCard';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

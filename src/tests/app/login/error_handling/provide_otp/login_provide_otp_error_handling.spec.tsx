@@ -3,8 +3,8 @@ process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
 process.env.ES_API_POLICY_ID = 'policyId';
 process.env.ES_API_APP_ID = 'appId';
 
-import { LoginResponse } from '@/app/login/models/api/login';
-import LogInPage from '@/app/login/page';
+import { LoginPageClient } from '@/app/(public)/login/components/LoginPageClient';
+import { LoginResponse } from '@/app/(public)/login/models/api/login';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
@@ -34,7 +34,7 @@ jest.setTimeout(30000);
 global.open = jest.fn();
 
 const setupUI = () => {
-  const { unmount } = render(<LogInPage />);
+  const { unmount } = render(<LoginPageClient />);
   const inputUsername = screen.getByRole('textbox', {
     name: /username/i,
   });
@@ -121,6 +121,7 @@ describe('Login Provide Otp', () => {
       // call to /submitMfa
       .mockRejectedValueOnce(
         createAxiosErrorForTest({
+          errorObject: {},
           status: 400,
         }),
       );

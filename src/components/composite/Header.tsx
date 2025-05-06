@@ -1,4 +1,4 @@
-import { useGroup } from '@/app/providers/GroupProvider';
+import { useGroup } from '@/app/(protected)/(common)/member/providers/GroupProvider';
 import { IComponent } from '../IComponent';
 import { Column } from '../foundation/Column';
 import { SiteHeaderMenuSection } from './SiteHeaderMenuSection';

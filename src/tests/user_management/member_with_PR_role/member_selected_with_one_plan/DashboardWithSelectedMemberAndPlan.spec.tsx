@@ -1,4 +1,4 @@
-import DashboardPage from '@/app/dashboard/page';
+import DashboardPage from '@/app/(protected)/(common)/member/dashboard/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';

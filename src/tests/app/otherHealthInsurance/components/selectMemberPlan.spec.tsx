@@ -1,4 +1,4 @@
-import SelectMemberPlan from '@/app/reportOtherHealthInsurance/components/SelectMemberPlan';
+import SelectMemberPlan from '@/app/(protected)/(common)/member/reportOtherHealthInsurance/components/SelectMemberPlan';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

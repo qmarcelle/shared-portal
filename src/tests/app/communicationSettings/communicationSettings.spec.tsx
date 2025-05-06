@@ -1,5 +1,5 @@
-import CommunicationSettings from '@/app/communicationSettings';
-import CommunicationSettingsPage from '@/app/communicationSettings/page';
+import CommunicationSettings from '@/app/(protected)/(common)/member/communicationSettings';
+import CommunicationSettingsPage from '@/app/(protected)/(common)/member/communicationSettings/page';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';

@@ -1,5 +1,5 @@
 process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777818';
-import LogIn from '@/app/login/page';
+import LogIn from '@/app/(protected)/(common)/member/login/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

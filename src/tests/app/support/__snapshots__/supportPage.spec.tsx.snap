@@ -167,7 +167,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   </p>
                   <a
                     aria-label="Send an Email"
-                    href="/support/sendAnEmail"
+                    href../((common)/support/sendAnEmail"
                     style="display: block;"
                   >
                     <button
@@ -222,7 +222,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <a
                     class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                    href="/support/faq"
+                    href../((common)/support/faq"
                   >
                     <div
                       class="card-main px-4 py-3"
@@ -543,7 +543,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 </p>
                 <a
                   aria-label="Send an Email"
-                  href="/support/sendAnEmail"
+                  href../((common)/support/sendAnEmail"
                   style="display: block;"
                 >
                   <button
@@ -598,7 +598,7 @@ exports[`Support Page should render the page correctly 1`] = `
               >
                 <a
                   class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  href="/support/faq"
+                  href../((common)/support/faq"
                 >
                   <div
                     class="card-main px-4 py-3"

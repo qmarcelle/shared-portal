@@ -1,5 +1,5 @@
-import AccessOthersInformation from '@/app/accessOthersInformation';
-import AccessOthersInformationPage from '@/app/accessOthersInformation/page';
+import AccessOthersInformation from '@/app/(protected)/(common)/member/accessOthersInformation';
+import AccessOthersInformationPage from '@/app/(protected)/(common)/member/accessOthersInformation/page';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react';

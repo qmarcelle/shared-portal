@@ -8,7 +8,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import downIcon from '../../../../public/assets/down.svg';
+import downIcon from 'down.svg';
 import { PriorAuthFilterDetails } from '../models/prior_AuthFilterDetails';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {

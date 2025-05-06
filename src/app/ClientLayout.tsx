@@ -1,6 +1,6 @@
 'use client';
 
-import { ChatWidget } from '@/app/chat/components/ChatWidget';
+import { ChatWidget } from '@/app/(common)/member/chat/components/ChatWidget';
 import { useAuth } from '@/hooks/useAuth';
 
 export default function ClientLayout({

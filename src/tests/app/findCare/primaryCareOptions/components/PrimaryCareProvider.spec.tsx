@@ -1,5 +1,5 @@
-import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
-import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
+import { PrimaryCareProvider } from '@/app/(protected)/(common)/member/findcare/primaryCareOptions/components/PrimaryCareProvider';
+import { PrimaryCareProviderDetails } from '@/app/(protected)/(common)/member/findcare/primaryCareOptions/model/api/primary_care_provider';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -16,7 +16,7 @@ export const metadata = {
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useLoginStore } from '../../login/stores/loginStore';
+import { useLoginStore } from '../../(commo../(common)/login/stores/loginStore';
 
 const LogoutPage = () => {
   const router = useRouter();

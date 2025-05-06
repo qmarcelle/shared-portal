@@ -10,14 +10,12 @@ exports[`CareTN Access Code Computation should render AccessCode correctly 1`] =
         class="access-code "
       >
         <p
-          class="body-1 ml-6 mt-3 text-[10px]"
-          style="display: block;"
+          class="body-1 ml-6 mt-3 text-[10px] block"
         >
           Access Code
         </p>
         <p
-          class="body-1 ml-3  font-bold text-[15px]"
-          style="display: block;"
+          class="body-1 ml-3  font-bold text-[15px] block"
         >
           btnbluechat
         </p>

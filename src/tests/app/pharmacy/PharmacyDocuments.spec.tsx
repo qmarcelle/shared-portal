@@ -1,4 +1,4 @@
-import PharmacyPage from '@/app/pharmacy/page';
+import PharmacyPage from '@/app/(protected)/(common)/member/pharmacy/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { mockedAxios } from '../_mocks_/axios';

@@ -1,8 +1,11 @@
 'use server';
 
-import { getContactInfo } from '@/app/myPlan/actions/getAllPlansData';
-import { AllMyPlanData, PlanDetail } from '@/app/myPlan/model/app/myPlanData';
-import { auth } from '@/auth';
+import { getContactInfo } from '@/app/(protected)/(common)/member/myplan/actions/getAllPlansData';
+import {
+  AllMyPlanData,
+  PlanDetail,
+} from '@/app/(protected)/(common)/member/myplan/model/app/myPlanData';
+import { auth } from '@/app/(system)/auth';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { Session } from 'next-auth';

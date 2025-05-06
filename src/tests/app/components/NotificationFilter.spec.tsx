@@ -1,4 +1,4 @@
-import ProfileSettings from '@/app/inbox/page';
+import ProfileSettings from '@/app/(protected)/(common)/member/inbox/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

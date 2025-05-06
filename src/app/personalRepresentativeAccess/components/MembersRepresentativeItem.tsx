@@ -14,7 +14,7 @@ import { Title } from '@/components/foundation/Title';
 import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
-import editIcon from '../../../../public/assets/edit.svg';
+import editIcon from 'edit.svg';
 import { EditLevelOfAccess } from '../journeys/EditLevelOfAccess';
 
 interface MembersRepresentativeItemProps extends IComponent {

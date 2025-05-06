@@ -1,4 +1,4 @@
-import { IComponent } from '../../components/IComponent';
+import { IComponent } from '@/components/IComponent';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';

@@ -90,7 +90,7 @@ export const getMenuNavigationTermedPlan = (
         showOnMenu: () => {
           return true;
         },
-        url: '/support/faq',
+        url:'/support/faq',
         external: false,
       },
       {

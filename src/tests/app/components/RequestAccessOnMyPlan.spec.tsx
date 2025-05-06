@@ -1,4 +1,4 @@
-import { RequestAccessOnMyPlan } from '@/app/accessOthersInformation/journeys/RequestAccessOnMyPlan';
+import { RequestAccessOnMyPlan } from '@/app/(protected)/(common)/member/accessOthersInformation/journeys/RequestAccessOnMyPlan';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {

@@ -1,4 +1,4 @@
-import RequestFormPage from '@/app/1095BFormRequest/page';
+import RequestFormPage from '@/app/(protected)/(common)/member/1095BFormRequest/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -1086,7 +1086,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 />
                 <a
                   aria-label="View All Health Programs & Resources"
-                  href="/myHealth/healthProgramsResources"
+                  href="/myhealth/healthProgramsResources"
                   style="display: block;"
                 >
                   <button
@@ -2191,7 +2191,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
-                href="/myHealth/healthProgramsResources"
+                href="/myhealth/healthProgramsResources"
                 style="display: block;"
               >
                 <button

@@ -1,6 +1,6 @@
 import { useGroup } from '@/app/providers/GroupProvider';
 import { Metadata } from 'next';
-import SharedMyPlanPage from '../../(common)/myplan/page';
+import SharedMyPlanPage from '@/app/(common)/member/myplan/page';
 
 export const metadata: Metadata = {
   title: 'My Plan',

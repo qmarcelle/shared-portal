@@ -1,4 +1,4 @@
-// import DashboardLoader from '@/app/dashboard/components/DashboardLoader';
+// import DashboardLoader from '@/app/(protected)/(common)/member/dashboard/components/DashboardLoader';
 // import '@testing-library/jest-dom';
 // import { screen } from '@testing-library/react';
 
@@ -24,7 +24,7 @@
 //   });
 // });
 
-import DashboardLoader from '@/app/dashboard/components/DashboardLoader';
+import DashboardLoader from '@/app/(protected)/(common)/member/dashboard/components/DashboardLoader';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

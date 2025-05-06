@@ -1,4 +1,4 @@
-import { AmplifyHealthAdvisorBanner } from '@/app/dashboard/components/AmplifyHealthAdvisorBanner';
+import { AmplifyHealthAdvisorBanner } from '@/app/(protected)/(common)/member/dashboard/components/AmplifyHealthAdvisorBanner';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

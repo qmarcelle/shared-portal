@@ -1,4 +1,4 @@
-import { MFASecurityCodeMultipleAttemptComponent } from '@/app/login/components/MFASecurityCodeMultipleAttemptComponent';
+import { MFASecurityCodeMultipleAttemptComponent } from '@/app/(protected)/(common)/member/login/components/MFASecurityCodeMultipleAttemptComponent';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

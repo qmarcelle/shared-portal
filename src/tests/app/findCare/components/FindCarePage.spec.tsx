@@ -1,4 +1,4 @@
-import FindCarePage from '@/app/findcare/page';
+import FindCarePage from '@/app/(protected)/(common)/member/findcare/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';

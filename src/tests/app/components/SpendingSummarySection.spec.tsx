@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
+import { SpendingAccountSummary } from '../../../a../((common)/dashboard/components/SpendingAccountSummary';
 
 const renderUI = () => {
   return render(

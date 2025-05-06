@@ -4,7 +4,7 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { PrimaryCareOptionsData } from '../findcare/primaryCareOptions/model/app/primary_care_options_data';
+import { PrimaryCareOptionsData } from '@/app/(protected)/(common)/findcare/primaryCareOptions/model/app/primary_care_options_data';
 import { HelpWithPrimaryCareProvider } from './components/HelpWithPrimaryCareProvider';
 import { ProviderContactInformation } from './components/ProviderContactInformation';
 

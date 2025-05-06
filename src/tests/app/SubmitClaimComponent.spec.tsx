@@ -1,4 +1,4 @@
-import { SubmitClaimComponent } from '@/app/claim/components/SubmitClaimComponent';
+import { SubmitClaimComponent } from '@/app/(protected)/(common)/member/claim/components/SubmitClaimComponent';
 import '@testing-library/jest-dom';
 import {
   RenderResult,

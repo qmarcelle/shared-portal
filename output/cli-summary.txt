@@ -1,0 +1,40 @@
+# Visibility Rules Usage Analysis - CLI Summary
+
+📊 VISIBILITY RULES INVENTORY COMPLETED:
+
+✅ Scanned 9 pages with visibility logic (of 76 total routes)
+✅ Found 24 unique visibility flags used throughout the codebase
+✅ Identified 49 helper functions in the visibility engine
+
+📁 OUTPUT FILES:
+- Machine-readable JSON: output/visibility-usage.json 
+- Human-friendly report: output/visibility-summary.md
+
+🔍 KEY FINDINGS:
+
+1. Most Used Flags:
+   - isBlueCareEligible (6 uses)
+   - isEmboldHealthEligible (2 uses) 
+   - isTeladocPrimary360Eligible (2 uses)
+
+2. Common Flag Combinations:
+   - "isEmboldHealthEligible(visibilityRules) &&" (2 uses)
+   - "if (vRules.active && vRules.otcEnable)" (2 uses)
+
+3. Routes with No Visibility Logic:
+   - 67 routes have no visibility checks
+   - Consider moving applicable ones to (public) group
+
+🚀 OPTIMIZATION RECOMMENDATIONS:
+
+1. [HIGH IMPACT] Consider middleware-based route grouping
+   - Move common visibility patterns to Next.js middleware
+   - Create shared layout components for repeated logic
+   
+2. [MEDIUM IMPACT] Standardize visibility helper usage  
+   - Ensure consistent patterns across the codebase
+   - Normalize direct rule access vs. helper functions
+   
+3. [LOW IMPACT] Identify public routes for optimization
+   - Move routes with no visibility logic to (public)
+   - Consider whether routes need protection at all 

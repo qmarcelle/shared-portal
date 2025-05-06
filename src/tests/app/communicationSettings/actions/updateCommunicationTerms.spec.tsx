@@ -1,5 +1,5 @@
-import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/UpdateCommunicationTerms';
-import { CommunicationSettingsSaveResponse } from '@/app/communicationSettings/models/app/communicationSettingsAppData';
+import { UpdateCommunicationTerms } from '@/app/(protected)/(common)/member/communicationSettings/journeys/UpdateCommunicationTerms';
+import { CommunicationSettingsSaveResponse } from '@/app/(protected)/(common)/member/communicationSettings/models/app/communicationSettingsAppData';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ESResponse } from '@/models/enterprise/esResponse';

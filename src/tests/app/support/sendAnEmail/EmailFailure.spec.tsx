@@ -1,4 +1,4 @@
-import { EmailSuccessFailure } from '@/app/support/sendAnEmail/components/EmailSuccessFailure';
+import { EmailSuccessFailure } from '@/app/(protected)/(common)/member/support/sendAnEmail/components/EmailSuccessFailure';
 import { Column } from '@/components/foundation/Column';
 import { TextBox } from '@/components/foundation/TextBox';
 import { render, screen } from '@testing-library/react';

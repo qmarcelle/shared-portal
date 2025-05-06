@@ -1,8 +1,8 @@
-import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import { SecuritySettings } from '@/app/security/components/SecuritySettingsComponent';
-import { GetMfaDevices } from '@/app/security/models/get_mfa_devices';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
-import { useSecuritySettingsStore } from '@/app/security/stores/security_settings_store';
+import { LoginStore, useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
+import { SecuritySettings } from '@/app/(protected)/(common)/member/security/components/SecuritySettingsComponent';
+import { GetMfaDevices } from '@/app/(protected)/(common)/member/security/models/get_mfa_devices';
+import { MfaDeviceType } from '@/app/(protected)/(common)/member/security/models/mfa_device_type';
+import { useSecuritySettingsStore } from '@/app/(protected)/(common)/member/security/stores/security_settings_store';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';

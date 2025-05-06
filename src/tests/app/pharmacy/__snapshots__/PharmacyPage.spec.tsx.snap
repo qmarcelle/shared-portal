@@ -1417,7 +1417,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                       >
                         <a
                           aria-label="Prescription Drug Claim Form"
-                          href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                          href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                           style="display: inline;"
                         >
                           <button
@@ -1927,7 +1927,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                       >
                         <a
                           aria-label="Medicare Prescription Payment Plan Sign-up"
-                          href="/pharmacy/medicalPrescriptionPaymentPlan"
+                          href../((common)/pharmacy/medicalPrescriptionPaymentPlan"
                           style="display: flex;"
                         >
                           <button
@@ -2748,7 +2748,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                     >
                       <a
                         aria-label="Prescription Drug Claim Form"
-                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                         style="display: inline;"
                       >
                         <button
@@ -3258,7 +3258,7 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
                     >
                       <a
                         aria-label="Medicare Prescription Payment Plan Sign-up"
-                        href="/pharmacy/medicalPrescriptionPaymentPlan"
+                        href../((common)/pharmacy/medicalPrescriptionPaymentPlan"
                         style="display: flex;"
                       >
                         <button

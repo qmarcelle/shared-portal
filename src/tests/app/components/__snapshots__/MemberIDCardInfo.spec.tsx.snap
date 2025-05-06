@@ -457,7 +457,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
         class="flex flex-col"
       >
         <a
-          href="/myPlan"
+          href="/myplan"
         >
           <div
             class="card-elevated small-section"
@@ -1305,7 +1305,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
       class="flex flex-col"
     >
       <a
-        href="/myPlan"
+        href="/myplan"
       >
         <div
           class="card-elevated small-section"

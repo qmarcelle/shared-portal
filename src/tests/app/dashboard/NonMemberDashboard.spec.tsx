@@ -1,4 +1,4 @@
-import NonMemberDashboard from '@/app/dashboard/components/NonMemberDashboard';
+import NonMemberDashboard from '@/app/(protected)/(common)/member/dashboard/components/NonMemberDashboard';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import '@testing-library/jest-dom';

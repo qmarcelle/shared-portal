@@ -1,4 +1,4 @@
-import VirtualCareOptions from '@/app/virtualCareOptions/page';
+import VirtualCareOptions from '@/app/(protected)/(common)/member/virtualCareOptions/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

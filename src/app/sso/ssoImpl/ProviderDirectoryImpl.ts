@@ -5,7 +5,7 @@ import {
   getBenefitFlags,
   getFacilityNetworkName,
 } from '@/actions/getBenefitFlags';
-import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
+import { getPCPInfo } from '@/app/(commo../(common)/findcare/primaryCareOptions/actions/pcpInfo';
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { formatDateString } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';

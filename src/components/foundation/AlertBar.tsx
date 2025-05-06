@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import AlertIcon from '../../../public/assets/alert_white.svg';
-import CloseIcon from '../../../public/assets/close_white.svg';
+import AlertIcon from '/assets/alert_white.svg';
+import CloseIcon from '/assets/close_white.svg';
 import { IComponent } from '../IComponent';
 
 interface AlertBarProps extends IComponent {

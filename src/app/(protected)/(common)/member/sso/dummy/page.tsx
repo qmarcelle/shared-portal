@@ -1,0 +1,312 @@
+/**
+ * sso/dummy
+ * Dummy
+ */
+export const metadata = {
+  title: 'Dummy | Consumer Portal',
+  description: 'Dummy'
+};
+
+'use client';
+import Link from 'next/link';
+import {
+  BLUE_365_DEEPLINK_MAP,
+  BLUE_365_FITNESS,
+  BLUE_365_FOOTWEAR,
+  BLUE_365_HEARING_VISION,
+  BLUE_365_HOME_FAMILY,
+  BLUE_365_NUTRITION,
+  BLUE_365_PERSONAL_CARE,
+  BLUE_365_TRAVEL,
+  CVS_DEEPLINK_MAP,
+  CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
+  CVS_REFILL_RX,
+  EYEMED_DEEPLINK_MAP,
+  EYEMED_PROVIDER_DIRECTORY,
+  EYEMED_VISION,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_DENTAL,
+  PROV_DIR_MEDICAL,
+  PROV_DIR_MENTAL_HEALTH,
+  PROV_DIR_VISION,
+} from '../ssoConstants';
+
+const DummyPage = () => {
+  return (
+    <div>
+      <h1>SSO Redirect Links</h1>
+      <br />
+      <ul>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+          >
+            CHIP REWARDS
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}`}
+          >
+            EYEMED
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`}
+          >
+            EYEMED Vision
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`}
+          >
+            EYEMED Eye Doctor
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`}
+          >
+            Health Equity
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EMBOLD}`}
+          >
+            Embold
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
+          >
+            CVS Caremark
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET!.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`}
+          >
+            CVS Caremark Drug Search
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET!.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`}
+          >
+            CVS Caremark Pharmacy Search
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET!.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`}
+          >
+            CVS Caremark Refill RX
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`}
+          >
+            Teladoc
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PINNACLE_BANK}`}
+          >
+            Pinnacle Bank
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HSA_BANK}`}
+          >
+            HSA Bank
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`}
+          >
+            ON Life
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}&target=Challenge`}
+          >
+            ON Life Challenge
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}&target='PHA'`}
+          >
+            ON Life PHA
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
+          >
+            Blue 365
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!))}`}
+          >
+            Blue 365 FootWear
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!))}`}
+          >
+            Blue 365 Fitness
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!))}`}
+          >
+            Blue 365 Hearing & Vision
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HOME_FAMILY)!))}`}
+          >
+            Blue 365 Home & Family
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!))}`}
+          >
+            Blue 365 Nutrition
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!))}`}
+          >
+            Blue 365 Personal Care
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!))}`}
+          >
+            Blue 365 Travel
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`}
+          >
+            Premise Health
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}&target=schedule`}
+          >
+            Premise Health Schedule
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`}
+          >
+            Provider Directory
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MEDICAL)!)}`}
+          >
+            Provider Directory Medical
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`}
+          >
+            Provider Directory Dental
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_VISION)!)}`}
+          >
+            Provider Directory Vision
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`}
+          >
+            Provider Directory Mental Health
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
+          >
+            Provider Directory PCP Search
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&redirectLink=PCPSearchRedirect`}
+          >
+            Provider Directory Redirect Link
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED}&claimId=EXT820200100&claimType=M`}
+          >
+            Instamed
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_INSTAMED}&alternateText=Instamed Payment History&isInstamedPaymentHistory=true`}
+          >
+            Instamed Payment History
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&TargetResource=${process.env.NEXT_PUBLIC_VITALS_PRP_SSO_TARGET!.replace('{PROV_ID}', '4165326')}&provId=4165326`}
+          >
+            Vitals PRP
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA}`}
+          >
+            Electronic Payment BOA
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_M3P}`}
+          >
+            M3P
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+export default DummyPage;

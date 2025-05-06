@@ -1,4 +1,4 @@
-import { InviteToRegister } from '@/app/accessOthersInformation/journeys/InviteToRegister';
+import { InviteToRegister } from '@/app/(protected)/(common)/member/accessOthersInformation/journeys/InviteToRegister';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {

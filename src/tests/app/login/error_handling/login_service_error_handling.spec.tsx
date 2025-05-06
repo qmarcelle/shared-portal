@@ -1,6 +1,6 @@
 process.env.NEXT_PUBLIC_PORTAL_ERROR_URL = 'https://www.bcbst.com/error/';
-import LogInPage from '@/app/login/page';
-import { useLoginStore } from '@/app/login/stores/loginStore';
+import LogInPage from '@/app/(protected)/(common)/member/login/page';
+import { useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

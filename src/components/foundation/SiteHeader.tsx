@@ -166,7 +166,7 @@ export default function SiteHeader({
                         title: 'ID Card',
                         label: 'id card',
                         icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                        url: '/memberIDCard',
+                        url: '/myplan/idcard',
                       },
                     ]
                 : []
@@ -223,7 +223,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
                     : []
                 }
               />

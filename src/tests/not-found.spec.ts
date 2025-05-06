@@ -2,7 +2,7 @@ import { expect, test } from '@jest/globals';
 
 // The list of dynamic folders that should have not-found.tsx
 const dynamicFolders = [
-  'src/app/claims/[id]',
+  'src/a../((common)/claims/[id]',
   'src/app/error',
   'src/app/maintenance',
   // These are from the future implementation mentioned in the spec

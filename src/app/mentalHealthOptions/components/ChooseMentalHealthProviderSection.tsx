@@ -6,8 +6,8 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import Down from '../../../../public/assets/down.svg';
-import Up from '../../../../public/assets/up.svg';
+import Down from 'down.svg';
+import Up from 'up.svg';
 
 export const ChooseMentalHealthProvider = ({ className }: IComponent) => {
   return (

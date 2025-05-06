@@ -1,4 +1,4 @@
-import { PrescriptionPaymentsOptions } from '@/app/pharmacy/components/PrescriptionPaymentOptions';
+import { PrescriptionPaymentsOptions } from '@/app/(protected)/(common)/member/pharmacy/components/PrescriptionPaymentOptions';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {

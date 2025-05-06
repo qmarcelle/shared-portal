@@ -6,7 +6,7 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import File from '../../../../../public/assets/document_file.svg';
+import File from 'document_file.svg';
 
 export interface DocumentCardProps extends IComponent {
   title: string;

@@ -1,4 +1,4 @@
-import { HealthLibraryOptions } from '@/app/myHealth/components/HealthLibraryOptions';
+import { HealthLibraryOptions } from '@/app/(protected)/(common)/member/myhealth/components/HealthLibraryOptions';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {

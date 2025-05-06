@@ -1,4 +1,4 @@
-import { OtherBenefits } from '@/app/virtualCareOptions/components/OtherBenefits';
+import { OtherBenefits } from '@/app/(protected)/(common)/member/virtualCareOptions/components/OtherBenefits';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

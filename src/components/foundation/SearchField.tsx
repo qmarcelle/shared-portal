@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
-import SearchIcon from '../../../public/assets/search.svg';
+import SearchIcon from '/assets/search.svg';
 
 interface Props {
   onSearch: (searchTerm: string) => void;

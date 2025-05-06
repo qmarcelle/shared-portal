@@ -1,4 +1,4 @@
-import WellframeSection from '@/app/healthyMaternity/components/WellframeSection';
+import WellframeSection from '@/app/(protected)/(common)/member/healthyMaternity/components/WellframeSection';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

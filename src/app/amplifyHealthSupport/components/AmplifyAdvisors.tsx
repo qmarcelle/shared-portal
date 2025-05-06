@@ -5,11 +5,11 @@ import { medicalIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import calendarIcon from '@/public/assets/calendar.svg';
-import careManagementIcon from '@/public/assets/care_management.svg';
-import dollarIcon from '@/public/assets/dollar.svg';
-import questionMarkIcon from '@/public/assets/question_mark.svg';
-import searchIcon from '@/public/assets/search.svg';
+import calendarIcon from 'calendar.svg';
+import careManagementIcon from 'care_management.svg';
+import dollarIcon from 'dollar.svg';
+import questionMarkIcon from 'question_mark.svg';
+import searchIcon from 'search.svg';
 import Image from 'next/image';
 
 export const AmplifyAdvisors = () => {

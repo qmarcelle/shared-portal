@@ -1,4 +1,4 @@
-import { PharmacyFAQInformation } from '@/app/pharmacy/components/PharmacyFAQInformation';
+import { PharmacyFAQInformation } from '@/app/(protected)/(common)/member/pharmacy/components/PharmacyFAQInformation';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

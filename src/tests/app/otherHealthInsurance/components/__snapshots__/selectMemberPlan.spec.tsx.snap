@@ -18,8 +18,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             The policy you've entered is:
           </p>
@@ -30,20 +29,17 @@ exports[` 1`] = `
             class="flex flex-col text-center font-bold"
           >
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               [Company Name]
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               [Policy Identification #]
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               [Policy Start Date]
             </p>
@@ -52,8 +48,7 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1 body-1 w-[130%] text-center"
-            style="display: block;"
+            class="body-1 body-1 w-[130%] text-center block"
           >
             Do other members of your plan have this other health insurance policy?
           </p>
@@ -65,80 +60,125 @@ exports[` 1`] = `
           class="flex flex-col text-left ml-4"
         >
           <div
-            class="flex flex-row gap-1 "
+            aria-checked="false"
+            aria-label="Apply to All Members"
+            class="flex flex-row gap-2 p-2  "
+            role="radio"
+            tabindex="0"
           >
-            <label>
-              <input
-                aria-label="Apply to All Members"
-                id=""
-                name=""
-                type="radio"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              class="sr-only"
+              id="radio-cmruolk"
+              name="radio-cmruolk"
+              type="radio"
+            />
             <div
-              class="flex-col m-1"
+              aria-hidden="true"
+              class="w-5 h-5 border rounded-full border-gray-300 "
+            />
+            <div
+              class="flex flex-col"
             >
-              <p
-                class=""
+              <label
+                class="cursor-pointer  "
+                for="radio-cmruolk"
               >
                 Apply to All Members
-              </p>
+              </label>
             </div>
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <div
-            class="flex flex-row gap-1 "
+            aria-checked="true"
+            aria-label="Select Members"
+            class="flex flex-row gap-2 p-2  "
+            role="radio"
+            tabindex="0"
           >
-            <label>
-              <input
-                aria-label="Select Members"
-                checked=""
-                id=""
-                name=""
-                type="radio"
-              />
-            </label>
+            <input
+              aria-checked="true"
+              aria-disabled="false"
+              checked=""
+              class="sr-only"
+              id="radio-z62bd0l"
+              name="radio-z62bd0l"
+              type="radio"
+            />
             <div
-              class="flex-col m-1"
+              aria-hidden="true"
+              class="w-5 h-5 border rounded-full bg-blue-600 border-blue-600 "
             >
-              <p
-                class=""
+              <div
+                class="w-2 h-2 bg-white rounded-full m-1.5"
+              />
+            </div>
+            <div
+              class="flex flex-col"
+            >
+              <label
+                class="cursor-pointer  "
+                for="radio-z62bd0l"
               >
                 Select Members
-              </p>
+              </label>
             </div>
           </div>
           <div
             class="flex flex-col ml-7"
           >
             <p
-              class="body-1 body-1 text-left"
-              style="display: block;"
+              class="body-1 body-1 text-left block"
             >
               Check all that apply:
             </p>
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="true"
+              aria-label="Chris Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  checked=""
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="true"
+                aria-disabled="false"
+                aria-labelledby="6b1ysxz-label"
+                checked=""
+                class="sr-only"
+                id="6b1ysxz"
+                name="6b1ysxz"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded bg-blue-600 border-blue-600 "
+              >
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M5 13l4 4L19 7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="6b1ysxz"
+                  id="6b1ysxz-label"
                 >
-                  <p>
-                    Chris Hall
-                  </p>
+                  Chris Hall
                 </label>
               </div>
             </div>
@@ -146,24 +186,34 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-label="Maddison Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="false"
+                aria-disabled="false"
+                aria-labelledby="t0iclwy-label"
+                class="sr-only"
+                id="t0iclwy"
+                name="t0iclwy"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded border-gray-300 "
+              />
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="t0iclwy"
+                  id="t0iclwy-label"
                 >
-                  <p>
-                    Maddison Hall
-                  </p>
+                  Maddison Hall
                 </label>
               </div>
             </div>
@@ -171,24 +221,34 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-label="Forrest Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="false"
+                aria-disabled="false"
+                aria-labelledby="o1w3yfb-label"
+                class="sr-only"
+                id="o1w3yfb"
+                name="o1w3yfb"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded border-gray-300 "
+              />
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="o1w3yfb"
+                  id="o1w3yfb-label"
                 >
-                  <p>
-                    Forrest Hall
-                  </p>
+                  Forrest Hall
                 </label>
               </div>
             </div>
@@ -196,24 +256,34 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-label="Corey Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="false"
+                aria-disabled="false"
+                aria-labelledby="bhi3gx3-label"
+                class="sr-only"
+                id="bhi3gx3"
+                name="bhi3gx3"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded border-gray-300 "
+              />
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="bhi3gx3"
+                  id="bhi3gx3-label"
                 >
-                  <p>
-                    Corey Hall
-                  </p>
+                  Corey Hall
                 </label>
               </div>
             </div>
@@ -221,24 +291,34 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-label="Telly Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="false"
+                aria-disabled="false"
+                aria-labelledby="o9qdmky-label"
+                class="sr-only"
+                id="o9qdmky"
+                name="o9qdmky"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded border-gray-300 "
+              />
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="o9qdmky"
+                  id="o9qdmky-label"
                 >
-                  <p>
-                    Telly Hall
-                  </p>
+                  Telly Hall
                 </label>
               </div>
             </div>
@@ -246,24 +326,34 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-label="Janie Hall"
+              class="flex flex-row gap-2 p-2  "
+              role="checkbox"
+              tabindex="0"
             >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
+              <input
+                aria-checked="false"
+                aria-disabled="false"
+                aria-labelledby="917jprr-label"
+                class="sr-only"
+                id="917jprr"
+                name="917jprr"
+                type="checkbox"
+              />
+              <div
+                aria-hidden="true"
+                class="w-5 h-5 border rounded border-gray-300 "
+              />
               <div
                 class="flex flex-col"
               >
                 <label
-                  for="myCheckbox"
+                  class="cursor-pointer "
+                  for="917jprr"
+                  id="917jprr-label"
                 >
-                  <p>
-                    Janie Hall
-                  </p>
+                  Janie Hall
                 </label>
               </div>
             </div>
@@ -289,8 +379,7 @@ exports[` 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
-          class="body-1 body-1"
-          style="display: block;"
+          class="body-1 body-1 block"
         >
           The policy you've entered is:
         </p>
@@ -301,20 +390,17 @@ exports[` 1`] = `
           class="flex flex-col text-center font-bold"
         >
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             [Company Name]
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             [Policy Identification #]
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             [Policy Start Date]
           </p>
@@ -323,8 +409,7 @@ exports[` 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
-          class="body-1 body-1 w-[130%] text-center"
-          style="display: block;"
+          class="body-1 body-1 w-[130%] text-center block"
         >
           Do other members of your plan have this other health insurance policy?
         </p>
@@ -336,80 +421,125 @@ exports[` 1`] = `
         class="flex flex-col text-left ml-4"
       >
         <div
-          class="flex flex-row gap-1 "
+          aria-checked="false"
+          aria-label="Apply to All Members"
+          class="flex flex-row gap-2 p-2  "
+          role="radio"
+          tabindex="0"
         >
-          <label>
-            <input
-              aria-label="Apply to All Members"
-              id=""
-              name=""
-              type="radio"
-            />
-          </label>
+          <input
+            aria-checked="false"
+            aria-disabled="false"
+            class="sr-only"
+            id="radio-cmruolk"
+            name="radio-cmruolk"
+            type="radio"
+          />
           <div
-            class="flex-col m-1"
+            aria-hidden="true"
+            class="w-5 h-5 border rounded-full border-gray-300 "
+          />
+          <div
+            class="flex flex-col"
           >
-            <p
-              class=""
+            <label
+              class="cursor-pointer  "
+              for="radio-cmruolk"
             >
               Apply to All Members
-            </p>
+            </label>
           </div>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          class="flex flex-row gap-1 "
+          aria-checked="true"
+          aria-label="Select Members"
+          class="flex flex-row gap-2 p-2  "
+          role="radio"
+          tabindex="0"
         >
-          <label>
-            <input
-              aria-label="Select Members"
-              checked=""
-              id=""
-              name=""
-              type="radio"
-            />
-          </label>
+          <input
+            aria-checked="true"
+            aria-disabled="false"
+            checked=""
+            class="sr-only"
+            id="radio-z62bd0l"
+            name="radio-z62bd0l"
+            type="radio"
+          />
           <div
-            class="flex-col m-1"
+            aria-hidden="true"
+            class="w-5 h-5 border rounded-full bg-blue-600 border-blue-600 "
           >
-            <p
-              class=""
+            <div
+              class="w-2 h-2 bg-white rounded-full m-1.5"
+            />
+          </div>
+          <div
+            class="flex flex-col"
+          >
+            <label
+              class="cursor-pointer  "
+              for="radio-z62bd0l"
             >
               Select Members
-            </p>
+            </label>
           </div>
         </div>
         <div
           class="flex flex-col ml-7"
         >
           <p
-            class="body-1 body-1 text-left"
-            style="display: block;"
+            class="body-1 body-1 text-left block"
           >
             Check all that apply:
           </p>
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="true"
+            aria-label="Chris Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                checked=""
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="true"
+              aria-disabled="false"
+              aria-labelledby="6b1ysxz-label"
+              checked=""
+              class="sr-only"
+              id="6b1ysxz"
+              name="6b1ysxz"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded bg-blue-600 border-blue-600 "
+            >
+              <svg
+                class="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M5 13l4 4L19 7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="6b1ysxz"
+                id="6b1ysxz-label"
               >
-                <p>
-                  Chris Hall
-                </p>
+                Chris Hall
               </label>
             </div>
           </div>
@@ -417,24 +547,34 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-label="Maddison Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              aria-labelledby="t0iclwy-label"
+              class="sr-only"
+              id="t0iclwy"
+              name="t0iclwy"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded border-gray-300 "
+            />
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="t0iclwy"
+                id="t0iclwy-label"
               >
-                <p>
-                  Maddison Hall
-                </p>
+                Maddison Hall
               </label>
             </div>
           </div>
@@ -442,24 +582,34 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-label="Forrest Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              aria-labelledby="o1w3yfb-label"
+              class="sr-only"
+              id="o1w3yfb"
+              name="o1w3yfb"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded border-gray-300 "
+            />
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="o1w3yfb"
+                id="o1w3yfb-label"
               >
-                <p>
-                  Forrest Hall
-                </p>
+                Forrest Hall
               </label>
             </div>
           </div>
@@ -467,24 +617,34 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-label="Corey Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              aria-labelledby="bhi3gx3-label"
+              class="sr-only"
+              id="bhi3gx3"
+              name="bhi3gx3"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded border-gray-300 "
+            />
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="bhi3gx3"
+                id="bhi3gx3-label"
               >
-                <p>
-                  Corey Hall
-                </p>
+                Corey Hall
               </label>
             </div>
           </div>
@@ -492,24 +652,34 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-label="Telly Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              aria-labelledby="o9qdmky-label"
+              class="sr-only"
+              id="o9qdmky"
+              name="o9qdmky"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded border-gray-300 "
+            />
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="o9qdmky"
+                id="o9qdmky-label"
               >
-                <p>
-                  Telly Hall
-                </p>
+                Telly Hall
               </label>
             </div>
           </div>
@@ -517,24 +687,34 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-label="Janie Hall"
+            class="flex flex-row gap-2 p-2  "
+            role="checkbox"
+            tabindex="0"
           >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
+            <input
+              aria-checked="false"
+              aria-disabled="false"
+              aria-labelledby="917jprr-label"
+              class="sr-only"
+              id="917jprr"
+              name="917jprr"
+              type="checkbox"
+            />
+            <div
+              aria-hidden="true"
+              class="w-5 h-5 border rounded border-gray-300 "
+            />
             <div
               class="flex flex-col"
             >
               <label
-                for="myCheckbox"
+                class="cursor-pointer "
+                for="917jprr"
+                id="917jprr-label"
               >
-                <p>
-                  Janie Hall
-                </p>
+                Janie Hall
               </label>
             </div>
           </div>

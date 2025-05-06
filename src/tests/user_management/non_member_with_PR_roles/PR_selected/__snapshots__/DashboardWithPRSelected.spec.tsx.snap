@@ -62,7 +62,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <a
           class="link-white-text"
-          href="/myPlan"
+          href="/myplan"
         >
           <p
             class="pb-2 pt-2"

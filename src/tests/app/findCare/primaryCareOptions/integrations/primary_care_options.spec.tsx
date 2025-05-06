@@ -1,4 +1,4 @@
-import PrimaryCareOptionsPage from '@/app/findcare/primaryCareOptions/page';
+import PrimaryCareOptionsPage from '@/app/(protected)/(common)/member/findcare/primaryCareOptions/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

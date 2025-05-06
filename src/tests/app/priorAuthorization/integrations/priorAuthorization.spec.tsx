@@ -1,5 +1,5 @@
 import { getMemberDetails } from '@/actions/memberDetails';
-import PriorAuthorizationPage from '@/app/priorAuthorization/page';
+import PriorAuthorizationPage from '@/app/(protected)/(common)/member/priorAuthorization/page';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';

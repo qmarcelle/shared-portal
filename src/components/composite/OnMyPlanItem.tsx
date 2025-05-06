@@ -1,4 +1,4 @@
-import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+import { EditLevelOfAccess } from '@/app/(protected)/(common)/member/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';

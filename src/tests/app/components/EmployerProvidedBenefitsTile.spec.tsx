@@ -1,7 +1,7 @@
 import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { EmployeeProvidedBenefitsTile } from '../../../app/dashboard/components/EmployeeProvidedBenefitsTile';
+import { EmployeeProvidedBenefitsTile } from '../../../a../((common)/dashboard/components/EmployeeProvidedBenefitsTile';
 
 const renderUI = () => {
   return render(

@@ -1,0 +1,332 @@
+{
+  "routes": [
+    {
+      "path": "/dashboard",
+      "file": "src/app/(common)/dashboard/components/MemberDashboard.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isBlueCareEligible",
+          "condition": "{!isBlueCareEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isPrimaryCarePhysicianEligible",
+          "condition": "isPrimaryCarePhysicianEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isQuantumHealthEligible",
+          "condition": "!isQuantumHealthEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isAHAdvisorpage",
+          "condition": "isAHAdvisorpage(visibilityRules) && ("
+        },
+        {
+          "flag": "isPayMyPremiumEligible",
+          "condition": "isPayMyPremiumEligible(visibilityRules) && ("
+        },
+        {
+          "flag": "isEmboldHealthEligible",
+          "condition": "isEmboldHealthEligible(visibilityRules) && ("
+        }
+      ]
+    },
+    {
+      "path": "/findcare",
+      "file": "src/app/(common)/findcare/index.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isTeladocPrimary360Eligible",
+          "condition": "isTeladocPrimary360Eligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isNewMentalHealthSupportAbleToEligible",
+          "condition": "isNewMentalHealthSupportAbleToEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isNewMentalHealthSupportMyStrengthCompleteEligible",
+          "condition": "{isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isHingeHealthEligible",
+          "condition": "isHingeHealthEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isNurseChatEligible",
+          "condition": "isNurseChatEligible(visibilityRules) && ("
+        },
+        {
+          "flag": "isTeladocEligible",
+          "condition": "isTeladocEligible(visibilityRules) &&"
+        },
+        {
+          "flag": "isEmboldHealthEligible",
+          "condition": "{isEmboldHealthEligible(visibilityRules) && ("
+        }
+      ]
+    },
+    {
+      "path": "/myplan/benefits",
+      "file": "src/app/(common)/myplan/benefits/benefits.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isBlue365FitnessYourWayEligible",
+          "condition": "{isBlue365FitnessYourWayEligible(visibilityRules) &&"
+        }
+      ]
+    },
+    {
+      "path": "/myplan/benefits",
+      "file": "src/app/(common)/myplan/benefits/utils/createOtherBenefits.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "active",
+          "condition": "if (vRules.active && vRules.otcEnable) {"
+        },
+        {
+          "flag": "commercial",
+          "condition": "if (vRules.commercial && vRules.bluePerksElig) {"
+        },
+        {
+          "flag": "identityProtectionServices",
+          "condition": "if (vRules.identityProtectionServices) {"
+        },
+        {
+          "flag": "otcEnable",
+          "condition": "if (vRules.active && vRules.otcEnable) {"
+        },
+        {
+          "flag": "bluePerksElig",
+          "condition": "if (vRules.commercial && vRules.bluePerksElig) {"
+        }
+      ]
+    },
+    {
+      "path": "/myplan",
+      "file": "src/app/(common)/myplan/components/ManageMyPlan.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isBlueCareEligible",
+          "condition": "if (isBlueCareEligible(visibilityRules))"
+        },
+        {
+          "flag": "isManageMyPolicyEligible",
+          "condition": "else if (isManageMyPolicyEligible(visibilityRules))"
+        }
+      ]
+    },
+    {
+      "path": "/myplan",
+      "file": "src/app/(common)/myplan/components/PlanDetailsSection.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isBlueCareEligible",
+          "condition": "{isBlueCareEligible(visibilityRules) ? ("
+        }
+      ]
+    },
+    {
+      "path": "/myplan",
+      "file": "src/app/(common)/myplan/components/ViewOtherPlanInformation.tsx",
+      "type": "common",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isBlueCareEligible",
+          "condition": "if (isBlueCareEligible(visibilityRules))"
+        },
+        {
+          "flag": "isAnnualStatementEligible",
+          "condition": "else if (isAnnualStatementEligible(visibilityRules))"
+        }
+      ]
+    },
+    {
+      "path": "/personalRepresentativeAccess",
+      "file": "src/app/personalRepresentativeAccess/components/MembersRepresentativeItem.tsx",
+      "type": "other",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isMatureMinor",
+          "condition": "{!isRepresentative && isMatureMinor(visibilityRules) && ("
+        }
+      ]
+    },
+    {
+      "path": "/profileSettings",
+      "file": "src/app/profileSettings/components/ProfileSettingsSection.tsx",
+      "type": "other",
+      "fileType": "component",
+      "usage": [
+        {
+          "flag": "isCommunicationSettingsEligible",
+          "condition": "if (isCommunicationSettingsEligible(visibilityRules)) {"
+        }
+      ]
+    }
+  ],
+  "ruleDefinitions": [
+    "active",
+    "termed",
+    "futureEffective",
+    "selfFunded",
+    "fullyInsured",
+    "levelFunded",
+    "delinquent",
+    "subscriber",
+    "commercial",
+    "individual",
+    "medical",
+    "dental",
+    "vision",
+    "wellness",
+    "wellnessOnly",
+    "spendingAccounts",
+    "externalSpendingAcct",
+    "teladoc",
+    "pharmacy",
+    "amplifyHealth",
+    "premiumHealth",
+    "benefitBooklet",
+    "fsaOnly",
+    "terminated",
+    "katieBeckNoBenefitsElig",
+    "blueCare",
+    "myPCPElig",
+    "identityProtectionServices",
+    "otcEnable",
+    "showPharmacyTab",
+    "chipRewardsEligible",
+    "blueHealthRewardsEligible",
+    "bluePerksElig",
+    "amplifyMember",
+    "primary360Eligible",
+    "mentalHealthSupport",
+    "commercialFull",
+    "individualSBCEligible",
+    "medicareAdvantageGroupIndicator",
+    "isCondensedExperience",
+    "enRollEligible",
+    "enableBenefitChange",
+    "medicare",
+    "enableCostTools",
+    "dentalCostsEligible",
+    "payMyPremiumElig",
+    "mentalHealthSupport",
+    "myStrengthCompleteEligible",
+    "primary360Eligible",
+    "hingeHealthEligible",
+    "groupRenewalDateBeforeTodaysDate",
+    "healthCoachElig",
+    "indivEHBUser",
+    "groupEHBUser",
+    "isAmplifyMem",
+    "diabetesPreventionEligible",
+    "cmEnable",
+    "ohdEligible",
+    "otcEnable",
+    "fsaHraEligible",
+    "flexibleSpendingAccount",
+    "healthReimbursementAccount",
+    "dsnpGrpInd",
+    "rxChoiceEligible",
+    "rxEssentialEligible",
+    "rxEssentialPlusEligible",
+    "rxPreferredEligible",
+    "phsEligible",
+    "allMedicareAdvantageEligible",
+    "hypertensionMgmt",
+    "consumerMedicalEligible",
+    "matureMinor",
+    "isSilverFitClient",
+    "medicarePrescriptionPaymentPlanEligible",
+    "teladocEligible",
+    "isEmboldHealth",
+    "diabetesManagementEligible",
+    "questSelectEligible",
+    "phaMemberEligible",
+    "chatEligible",
+    "cloudChatEligible"
+  ],
+  "helperFunctions": [
+    "isChipRewardsEligible",
+    "isBlueCareEligible",
+    "isPrimaryCarePhysicianEligible",
+    "isBlue365FitnessYourWayEligible",
+    "isQuantumHealthEligible",
+    "isAHAdvisorpage",
+    "isTeladocPrimary360Eligible",
+    "isPrimaryCareMenuOption",
+    "isMentalHealthMenuOption",
+    "isBlueCareNotEligible",
+    "isBenefitBookletEnabled",
+    "isCommunicationSettingsEligible",
+    "isEnrollEligible",
+    "isManageMyPolicyEligible",
+    "isFindADentist",
+    "isDentalCostEstimator",
+    "isPriceDentalCareMenuOptions",
+    "isPayMyPremiumEligible",
+    "isNewMentalHealthSupportAbleToEligible",
+    "isNewMentalHealthSupportMyStrengthCompleteEligible",
+    "isHingeHealthEligible",
+    "isNurseChatEligible",
+    "isVisionEligible",
+    "isPriceVisionCareMenuOptions",
+    "isDiabetesPreventionEligible",
+    "isDiabetesManagementEligible",
+    "isCareManagementEligiblity",
+    "isBiometricScreening",
+    "isPharmacyBenefitsEligible",
+    "isSpendingAccountsMenuOptions",
+    "isSpendingAccountsEligible",
+    "isBlueCareAndPrimaryCarePhysicianEligible",
+    "isAnnualStatementEligible",
+    "isMedicareDsnpEligible",
+    "isMedicareEligible",
+    "isFreedomMaBlueAdvantage",
+    "isBloodPressureManagementEligible",
+    "isTeladocSecondOpinionAdviceAndSupportEligible",
+    "isIndividualMaBlueAdvantageEligible",
+    "isMatureMinor",
+    "isSilverAndFitnessEligible",
+    "isHealthProgamAndResourceEligible",
+    "isMedicarePrescriptionPaymentPlanEligible",
+    "isTeladocEligible",
+    "isQuestSelectEligible",
+    "isEmboldHealthEligible",
+    "isMemberWellnessCenterEligible",
+    "isChatEligible",
+    "isCloudChatEligible"
+  ],
+  "overrideGroups": {},
+  "optimizations": [
+    {
+      "title": "Consider middleware-based route grouping",
+      "description": "Common rule patterns like \"isEmboldHealthEligiblevisibilityRules &&\" are used across 2 routes and could be centralized in Next.js middleware.",
+      "impact": "high"
+    },
+    {
+      "title": "Identify public routes for optimization",
+      "description": "67 routes have no visibility checks. Consider moving them to a (public) group.",
+      "impact": "low"
+    },
+    {
+      "title": "Standardize visibility helper usage",
+      "description": "Helper \"isBlueCareEligible\" is used 6 times. Ensure consistent usage across the codebase.",
+      "impact": "medium"
+    }
+  ]
+}

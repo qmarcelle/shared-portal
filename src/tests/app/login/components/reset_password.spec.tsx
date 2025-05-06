@@ -1,5 +1,5 @@
-import { ResetPasswordComponent } from '@/app/login/components/ResetPasswordComponent';
-import { PasswordResetResponse } from '@/app/login/models/api/password_reset_response';
+import { ResetPasswordComponent } from '@/app/(protected)/(common)/member/login/components/ResetPasswordComponent';
+import { PasswordResetResponse } from '@/app/(protected)/(common)/member/login/models/api/password_reset_response';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';

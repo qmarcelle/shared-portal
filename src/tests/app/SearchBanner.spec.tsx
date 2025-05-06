@@ -1,4 +1,4 @@
-import { SearchBanner } from '@/app/searchResults/components/SearchBanner';
+import { SearchBanner } from '@/app/(protected)/(common)/member/searchResults/components/SearchBanner';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { PriorAuthorizationCardSection } from '../../../app/priorAuthorization/components/PriorAuthorizationCardSection';
+import { PriorAuthorizationCardSection } from '../../../app/(protected)/(common)/member/priorAuthorization/components/PriorAuthorizationCardSection';
 // Mock useRouter:
 jest.mock('next/navigation', () => ({
   useRouter() {

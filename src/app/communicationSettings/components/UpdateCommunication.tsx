@@ -6,7 +6,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { ReactElement } from 'react';
-import editIcon from '../../../../public/assets/edit.svg';
+import editIcon from 'edit.svg';
 
 export interface UpdateCommunicationProps extends IComponent {
   label: ReactElement;

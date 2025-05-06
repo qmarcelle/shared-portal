@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { MedicalBalanceSection } from '../../../app/dashboard/components/MedicalBalanceSection';
+import { MedicalBalanceSection } from '../../../a../((common)/dashboard/components/MedicalBalanceSection';
 
 const renderUI = () => {
   return render(

@@ -1,7 +1,7 @@
 'use server';
 
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-import { PrimaryCareOptionsData } from '@/app/findcare/primaryCareOptions/model/app/primary_care_options_data';
+import { PrimaryCareOptionsData } from '@/app/(commo../(common)/findcare/primaryCareOptions/model/app/primary_care_options_data';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';

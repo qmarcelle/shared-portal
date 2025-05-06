@@ -218,14 +218,12 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             class="card-main large-section"
           >
             <p
-              class="body-1 body-1 font-bold"
-              style="display: block;"
+              class="body-1 body-1 font-bold block"
             >
               Louthan, James D.
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               Primary Care Provider
             </p>
@@ -233,20 +231,17 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <p
-              class="body-1 body-2"
-              style="display: block;"
+              class="body-1 body-2 block"
             >
               Facility Address
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               2033 Meadowview Ln Ste 200
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               Kingsport TN 37660-7432
             </p>
@@ -254,14 +249,12 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <p
-              class="body-1 body-2"
-              style="display: block;"
+              class="body-1 body-2 block"
             >
               Phone
             </p>
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               (423) 857-2260
             </p>
@@ -308,14 +301,12 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
           class="card-main large-section"
         >
           <p
-            class="body-1 body-1 font-bold"
-            style="display: block;"
+            class="body-1 body-1 font-bold block"
           >
             Louthan, James D.
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             Primary Care Provider
           </p>
@@ -323,20 +314,17 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1 body-2"
-            style="display: block;"
+            class="body-1 body-2 block"
           >
             Facility Address
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             2033 Meadowview Ln Ste 200
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             Kingsport TN 37660-7432
           </p>
@@ -344,14 +332,12 @@ exports[`Primary Care Provider should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <p
-            class="body-1 body-2"
-            style="display: block;"
+            class="body-1 body-2 block"
           >
             Phone
           </p>
           <p
-            class="body-1 body-1"
-            style="display: block;"
+            class="body-1 body-1 block"
           >
             (423) 857-2260
           </p>

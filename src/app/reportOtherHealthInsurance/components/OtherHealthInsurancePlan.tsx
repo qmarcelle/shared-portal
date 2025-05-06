@@ -2,7 +2,7 @@ import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import SelectMemberPlan from '../components/SelectMemberPlan';
+import SelectMemberPlan from '@/components/SelectMemberPlan';
 interface OtherHealthInsurancePlanProps {
   checkboxState: {
     medicarePlan: boolean;

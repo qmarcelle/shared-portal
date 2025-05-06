@@ -1,4 +1,4 @@
-import PharmacyPage from '@/app/pharmacy/page';
+import PharmacyPage from '@/app/(protected)/(common)/member/pharmacy/page';
 import { render, screen } from '@testing-library/react';
 import { mockedAxios } from '../_mocks_/axios';
 process.env.NEXT_PUBLIC_SHOP_OVER_THE_COUNTER = 'https://www.shopbcbstotc.com';

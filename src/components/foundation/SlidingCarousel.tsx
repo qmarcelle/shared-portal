@@ -2,8 +2,8 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import Slider, { Settings } from 'react-slick';
-import leftIcon from '../../../public/assets/left_white_slider.svg';
-import rightIcon from '../../../public/assets/right_white_slider.svg';
+import leftIcon from '/assets/left_white_slider.svg';
+import rightIcon from '/assets/right_white_slider.svg';
 import { Button } from './Button';
 import { Spacer } from './Spacer';
 

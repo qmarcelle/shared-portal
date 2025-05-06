@@ -1,4 +1,4 @@
-import FrequentlyAskedQuestions from '@/app/support/faq/page';
+import FrequentlyAskedQuestions from '@/app/(protected)/(common)/member/support/faq/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

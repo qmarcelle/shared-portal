@@ -1,7 +1,7 @@
 import {
   OtherMfaEntry,
   OtherMfaEntryProps,
-} from '@/app/login/components/OtherMfaEntry';
+} from '@/app/(protected)/(common)/member/login/components/OtherMfaEntry';
 import { TextBox } from '@/components/foundation/TextBox';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';

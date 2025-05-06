@@ -1,8 +1,8 @@
-import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
+import { ViewCareOptions } from '@/app/(protected)/(common)/member/findcare/components/ViewCareOptions';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import MentalCareIcon from '../../../public/assets/mental_health.svg';
-import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
+import MentalCareIcon from '/assets/mental_health.svg';
+import PrimaryCareIcon from '/assets/primary_care.svg';
 
 // Mock useRouter:
 const mockReplace = jest.fn();

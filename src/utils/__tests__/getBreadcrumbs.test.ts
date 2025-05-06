@@ -64,9 +64,10 @@ describe('getBreadcrumbs', () => {
   });
 
   it('should handle ID card paths', () => {
-    const result = getBreadcrumbs('/memberIDCard');
+    const result = getBreadcrumbs('/myplan/idcard');
     expect(result).toEqual([
-      { label: 'Member ID Card', path: '/memberIDCard' },
+      { label: 'My Plan', path: '/myplan' },
+      { label: 'ID Card', path: '/myplan/idcard' },
     ]);
   });
 

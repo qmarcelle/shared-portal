@@ -1,7 +1,7 @@
 'use server';
 
-import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
-import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
+import { getPCPInfo } from '@/app/(commo../(common)/findcare/primaryCareOptions/actions/pcpInfo';
+import { PrimaryCareProviderDetails } from '@/app/(commo../(common)/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { auth } from '@/auth';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { pcpService } from '@/utils/api/pcpService';

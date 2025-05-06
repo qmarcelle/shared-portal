@@ -1,6 +1,6 @@
-import UpdateMyPrimaryCareProviderPage from '@/app/updateMyPrimaryCareProvider/page';
+import UpdateMyPrimaryCareProviderPage from '@/app/(protected)/(common)/member/updateMyPrimaryCareProvider/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
-import SelectPCPImage from '@/public/assets/select_pcp.png';
+import SelectPCPImage from '/assets/select_pcp.png';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';

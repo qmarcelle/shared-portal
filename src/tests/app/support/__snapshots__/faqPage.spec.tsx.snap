@@ -33,7 +33,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         />
       </section>
       <a
-        href="/support/faqTopics?faqtype=Benefits%20%26%20Coverage"
+        href../((common)/support/faqTopics?faqtype=Benefits%20%26%20Coverage"
       >
         <div
           class="card-elevated small-section"
@@ -75,7 +75,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Claims"
+        href../((common)/support/faqTopics?faqtype=Claims"
       >
         <div
           class="card-elevated small-section"
@@ -117,7 +117,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=ID Cards"
+        href../((common)/support/faqTopics?faqtype=ID Cards"
       >
         <div
           class="card-elevated small-section"
@@ -159,7 +159,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=My%20Plan%20Information"
+        href../((common)/support/faqTopics?faqtype=My%20Plan%20Information"
       >
         <div
           class="card-elevated small-section"
@@ -201,7 +201,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Pharmacy"
+        href../((common)/support/faqTopics?faqtype=Pharmacy"
       >
         <div
           class="card-elevated small-section"
@@ -243,7 +243,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Prior%20Authorization"
+        href../((common)/support/faqTopics?faqtype=Prior%20Authorization"
       >
         <div
           class="card-elevated small-section"
@@ -285,7 +285,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Security"
+        href../((common)/support/faqTopics?faqtype=Security"
       >
         <div
           class="card-elevated small-section"

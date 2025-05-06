@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Fragment } from 'react';
-import downIcon from '../../../public/assets/down.svg';
-import resetIcon from '../../../public/assets/reset.svg';
+import downIcon from '/assets/down.svg';
+import resetIcon from '/assets/reset.svg';
 import {
   FilterDetails,
   FilterItem,

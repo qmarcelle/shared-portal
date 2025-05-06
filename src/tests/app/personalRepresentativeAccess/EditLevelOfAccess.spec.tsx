@@ -1,4 +1,4 @@
-import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+import { EditLevelOfAccess } from '@/app/(protected)/(common)/member/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

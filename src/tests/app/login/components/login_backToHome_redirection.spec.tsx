@@ -1,4 +1,4 @@
-import LogInPage from '@/app/login/page';
+import LogInPage from '@/app/(protected)/(common)/member/login/page';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 const mockReplace = jest.fn();

@@ -1,7 +1,7 @@
 import {
   AccessType,
   EditLevelOfAccess,
-} from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+} from '@/app/(protected)/(common)/member/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

@@ -1,4 +1,4 @@
-import PriorAuthorizationPage from '@/app/priorAuthorization/page';
+import PriorAuthorizationPage from '@/app/(protected)/(common)/member/priorAuthorization/page';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import '@testing-library/jest-dom';

@@ -1,4 +1,4 @@
-import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
+import { PrimaryCareProviderDetails } from '@/app/(commo../(common)/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { IComponent } from '@/components/IComponent';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -7,8 +7,8 @@ import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import editIcon from '@/public/assets/edit.svg';
-import emptyStateDocument from '@/public/assets/empty_state_document.svg';
+import editIcon from 'edit.svg';
+import emptyStateDocument from 'empty_state_document.svg';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import { formatPhone } from '@/utils/phone_formatter';
 import { formatZip } from '@/utils/zipcode_formatter';

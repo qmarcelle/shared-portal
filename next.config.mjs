@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
-    dirs: ['src/app/chat'],
+    dirs: ['src'],
     ignoreDuringBuilds: false,
   },
   typescript: {
@@ -34,6 +39,10 @@ const nextConfig = {
   },
   experimental: {
     missingSuspenseWithCSRBailout: false,
+  },
+  webpack: (config) => {
+    config.resolve.alias['@/assets'] = path.join(__dirname, 'public/assets');
+    return config;
   },
   logging: {
     fetches: {

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { VirtualMentalHealthCareSection } from '../../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { VirtualMentalHealthCareSection } from '../../../app/(protected)/(common)/member/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 
 const renderUI = () => {
   return render(

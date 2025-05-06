@@ -1,7 +1,7 @@
 'use server';
 
 import { MemberData } from '@/actions/loggedUserInfo';
-import { getClaimDetails } from '@/app/claims/actions/getClaimsDetails';
+import { getClaimDetails } from '@/app/(commo../(common)/claims/actions/getClaimsDetails';
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { formatDateString } from '@/utils/date_formatter';
 import { getMemberDetails } from '@/utils/member_utils';

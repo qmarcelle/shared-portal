@@ -3,8 +3,8 @@ process.env.ENCRYPTION_SECRET = 'cb1a1f3b9f5dee0ba529d7a73f777882';
 process.env.ES_API_POLICY_ID = 'policyId';
 process.env.ES_API_APP_ID = 'appId';
 
-import { LoginResponse } from '@/app/login/models/api/login';
-import LogInPage from '@/app/login/page';
+import { LoginResponse } from '@/app/(protected)/(common)/member/login/models/api/login';
+import LogInPage from '@/app/(protected)/(common)/member/login/page';
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';

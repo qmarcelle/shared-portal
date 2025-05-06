@@ -1,6 +1,6 @@
 'use server';
 
-import { auth } from '@/auth';
+import { auth } from '@/app/(system)/auth';
 import { fusionSearchMockWithAllSet } from '@/mock/fusion_search/fusionSearchMockWithAllSets';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { ESResponse } from '@/models/enterprise/esResponse';

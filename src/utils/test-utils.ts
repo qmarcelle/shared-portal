@@ -1,7 +1,7 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement } from 'react';
-import { ChatState } from '../app/chat/stores/chatStore';
-import { ChatInfoResponse } from '../app/chat/types/index';
+import { ChatState } from '../a../((common)/chat/stores/chatStore';
+import { ChatInfoResponse } from '../a../((common)/chat/types/index';
 
 // Extend Window interface
 declare global {

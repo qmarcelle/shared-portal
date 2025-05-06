@@ -1,4 +1,4 @@
-import { PharmacySpendingSummary } from '@/app/pharmacy/components/PharmacySpendingSummary';
+import { PharmacySpendingSummary } from '@/app/(protected)/(common)/member/pharmacy/components/PharmacySpendingSummary';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

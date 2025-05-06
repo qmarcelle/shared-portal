@@ -1,4 +1,4 @@
-import { MemberWellnessCenterOptions } from '@/app/myHealth/components/MemberWellnessCenterOptions';
+import { MemberWellnessCenterOptions } from '@/app/(protected)/(common)/member/myhealth/components/MemberWellnessCenterOptions';
 import {
   healthAssessmentIcon,
   interactiveProgramsIcon,

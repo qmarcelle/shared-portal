@@ -1,4 +1,4 @@
-import DashboardPage from '@/app/dashboard/page';
+import DashboardPage from '@/app/(protected)/(common)/member/dashboard/page';
 import { unstable_update } from '@/auth';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';

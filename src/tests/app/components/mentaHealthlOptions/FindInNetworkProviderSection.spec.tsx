@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { FindInNetworkProviderSection } from '../../../../app/mentalHealthOptions/components/FindInNetworkProviderSection';
+import { FindInNetworkProviderSection } from '../../../../app/(protected)/(common)/member/mentalHealthOptions/components/FindInNetworkProviderSection';
 
 const renderUI = () => {
   return render(<FindInNetworkProviderSection />);

@@ -1,4 +1,4 @@
-import { PriceDentalCareCard } from '@/app/priceDentalCare/components/PriceDentalCareCard';
+import { PriceDentalCareCard } from '@/app/(protected)/(common)/member/priceDentalCare/components/PriceDentalCareCard';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

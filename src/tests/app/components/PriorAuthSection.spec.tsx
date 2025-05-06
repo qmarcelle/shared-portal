@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { PriorAuthSection } from '../../../app/dashboard/components/PriorAuthSection';
+import { PriorAuthSection } from '../../../a../((common)/dashboard/components/PriorAuthSection';
 
 const renderUI = () => {
   render(

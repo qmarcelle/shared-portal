@@ -1,4 +1,4 @@
-import PersonalRepresentativePage from '@/app/personalRepresentativeAccess/page';
+import PersonalRepresentativePage from '@/app/(protected)/(common)/member/personalRepresentativeAccess/page';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';

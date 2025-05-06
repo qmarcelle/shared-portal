@@ -1,6 +1,6 @@
-import { LoginStore, useLoginStore } from '@/app/login/stores/loginStore';
-import { AddMFATextJourney } from '@/app/security/components/journeys/AddMFATextJourney';
-import { MfaDeviceType } from '@/app/security/models/mfa_device_type';
+import { LoginStore, useLoginStore } from '@/app/(protected)/(common)/member/login/stores/loginStore';
+import { AddMFATextJourney } from '@/app/(protected)/(common)/member/security/components/journeys/AddMFATextJourney';
+import { MfaDeviceType } from '@/app/(protected)/(common)/member/security/models/mfa_device_type';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { createAxiosErrorForTest } from '@/tests/test_utils';

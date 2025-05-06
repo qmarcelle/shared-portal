@@ -1,4 +1,4 @@
-import { OtherHealthInsurance } from '@/app/reportOtherHealthInsurance/journeys/OtherHealthInsurance';
+import { OtherHealthInsurance } from '@/app/(protected)/(common)/member/reportOtherHealthInsurance/journeys/OtherHealthInsurance';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { ChildAppModalBody } from '@/components/foundation/ChildAppModalBody';
 import '@testing-library/jest-dom';

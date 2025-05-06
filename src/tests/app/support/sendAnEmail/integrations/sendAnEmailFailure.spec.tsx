@@ -1,4 +1,4 @@
-import SendAnEmailPage from '@/app/support/sendAnEmail/page';
+import SendAnEmailPage from '@/app/(protected)/(common)/member/support/sendAnEmail/page';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';

@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import { PillBox } from '../../../app/dashboard/components/PillBox';
-import FindCare from '../../public/assets/find_care_search.svg';
+import { PillBox } from '../../../a../((common)/dashboard/components/PillBox';
+import FindCare from '/assets/find_care_search.svg';
 
 const renderUI = () => {
   return render(

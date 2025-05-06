@@ -1,4 +1,4 @@
-import Transactions from '@/app/transactions/page';
+import Transactions from '@/app/(protected)/(common)/member/transactions/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

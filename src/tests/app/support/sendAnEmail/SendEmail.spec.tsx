@@ -1,4 +1,4 @@
-import SendEmailForm from '@/app/support/sendAnEmail/components/SendEmailForm';
+import SendEmailForm from '@/app/(protected)/(common)/member/support/sendAnEmail/components/SendEmailForm';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = () => {

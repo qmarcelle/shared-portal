@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import EnrollmentForm from '@/app/healthyMaternity/components/EnrollmentForm';
+import EnrollmentForm from '@/app/(protected)/(common)/member/healthyMaternity/components/EnrollmentForm';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 

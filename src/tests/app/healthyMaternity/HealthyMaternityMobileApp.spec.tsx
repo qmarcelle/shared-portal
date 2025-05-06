@@ -1,4 +1,4 @@
-import HealthyMaternityMobileApp from '@/app/healthyMaternity/components/HealthyMaternityMobileApp';
+import HealthyMaternityMobileApp from '@/app/(protected)/(common)/member/healthyMaternity/components/HealthyMaternityMobileApp';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

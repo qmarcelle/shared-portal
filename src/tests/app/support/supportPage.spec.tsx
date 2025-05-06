@@ -1,4 +1,4 @@
-import SupportPage from '@/app/support/page';
+import SupportPage from '@/app/(protected)/(common)/member/support/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';

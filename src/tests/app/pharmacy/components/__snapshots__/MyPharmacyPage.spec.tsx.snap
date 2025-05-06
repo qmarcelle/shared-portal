@@ -656,7 +656,7 @@ exports[`Pharmacy Page should download Choice formulary correctly 1`] = `
                     >
                       <a
                         aria-label="Prescription Drug Claim Form"
-                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                         style="display: inline;"
                       >
                         <button
@@ -2160,7 +2160,7 @@ exports[`Pharmacy Page should render Pharmacy page correctly 1`] = `
                     >
                       <a
                         aria-label="Prescription Drug Claim Form"
-                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                         style="display: inline;"
                       >
                         <button

@@ -18,14 +18,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               class="flex flex-col flex flex-col mr-2"
             >
               <p
-                class="body-1 body-1 center"
-                style="display: block;"
+                class="body-1 body-1 center block"
               >
                 Procedure
               </p>
               <p
-                class="body-1 title-3 center mt-2"
-                style="display: block;"
+                class="body-1 title-3 center mt-2 block"
               >
                 Topical fluoride varnish
               </p>
@@ -34,14 +32,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               class="flex flex-col flex flex-col mr-4 ml-4"
             >
               <p
-                class="body-1 body-1 decoration-dashed underline center"
-                style="display: block;"
+                class="body-1 body-1 decoration-dashed underline center block"
               >
                 Customary Cost
               </p>
               <p
-                class="body-1 title-3 center mt-2"
-                style="display: block;"
+                class="body-1 title-3 center mt-2 block"
               >
                 $48.51
               </p>
@@ -50,14 +46,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
               class="flex flex-col flex flex-col mr-4 ml-4"
             >
               <p
-                class="body-1 body-1 decoration-dashed underline center"
-                style="display: block;"
+                class="body-1 body-1 decoration-dashed underline center block"
               >
                 Network Allowance
               </p>
               <p
-                class="body-1 title-3 center mt-2"
-                style="display: block;"
+                class="body-1 title-3 center mt-2 block"
               >
                 $30.00
               </p>
@@ -74,10 +68,10 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <p
-            class="body-1 body-1 center"
-            style="display: block;"
+            class="body-1 body-1 center block"
           >
-            This cost is only an estimate and may be less based on your   deductible, coinsurance and annual maximum.
+            This cost is only an estimate and may be less based on your
+      deductible, coinsurance and annual maximum.
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -120,8 +114,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
                   </div>
                 </div>
                 <p
-                  class="body-1 body-1"
-                  style="display: block;"
+                  class="body-1 body-1 block"
                 >
                   Get started searching for a dentist near you.
                 </p>
@@ -146,14 +139,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             class="flex flex-col flex flex-col mr-2"
           >
             <p
-              class="body-1 body-1 center"
-              style="display: block;"
+              class="body-1 body-1 center block"
             >
               Procedure
             </p>
             <p
-              class="body-1 title-3 center mt-2"
-              style="display: block;"
+              class="body-1 title-3 center mt-2 block"
             >
               Topical fluoride varnish
             </p>
@@ -162,14 +153,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             class="flex flex-col flex flex-col mr-4 ml-4"
           >
             <p
-              class="body-1 body-1 decoration-dashed underline center"
-              style="display: block;"
+              class="body-1 body-1 decoration-dashed underline center block"
             >
               Customary Cost
             </p>
             <p
-              class="body-1 title-3 center mt-2"
-              style="display: block;"
+              class="body-1 title-3 center mt-2 block"
             >
               $48.51
             </p>
@@ -178,14 +167,12 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
             class="flex flex-col flex flex-col mr-4 ml-4"
           >
             <p
-              class="body-1 body-1 decoration-dashed underline center"
-              style="display: block;"
+              class="body-1 body-1 decoration-dashed underline center block"
             >
               Network Allowance
             </p>
             <p
-              class="body-1 title-3 center mt-2"
-              style="display: block;"
+              class="body-1 title-3 center mt-2 block"
             >
               $30.00
             </p>
@@ -202,10 +189,10 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <p
-          class="body-1 body-1 center"
-          style="display: block;"
+          class="body-1 body-1 center block"
         >
-          This cost is only an estimate and may be less based on your   deductible, coinsurance and annual maximum.
+          This cost is only an estimate and may be less based on your
+      deductible, coinsurance and annual maximum.
         </p>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -248,8 +235,7 @@ exports[`PriceDentalCareCard should render the UI correctly 1`] = `
                 </div>
               </div>
               <p
-                class="body-1 body-1"
-                style="display: block;"
+                class="body-1 body-1 block"
               >
                 Get started searching for a dentist near you.
               </p>

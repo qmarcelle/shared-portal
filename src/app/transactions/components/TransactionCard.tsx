@@ -1,14 +1,14 @@
 import { Card } from '@/components/foundation/Card';
 import { TransactionDetails } from '@/models/transaction_details';
 import Image from 'next/image';
-import downIcon from '../../../../public/assets/down.svg';
-import { IComponent } from '../../../components/IComponent';
-import { TransactionItem } from '../../../components/composite/TransactionItem';
-import { Column } from '../../../components/foundation/Column';
-import { SelectItem } from '../../../components/foundation/Dropdown';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import downIcon from 'down.svg';
+import { IComponent } from '@/components/IComponent';
+import { TransactionItem } from '@/components/composite/TransactionItem';
+import { Column } from '@/components/foundation/Column';
+import { SelectItem } from '@/components/foundation/Dropdown';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 
 interface TransactionCard extends IComponent {
   transactionsInfo: TransactionDetails[];

@@ -1,4 +1,4 @@
-import { AuthenticatorAppMfa } from '@/app/login/components/AuthenticatorAppMfa';
+import { AuthenticatorAppMfa } from '@/app/(protected)/(common)/member/login/components/AuthenticatorAppMfa';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

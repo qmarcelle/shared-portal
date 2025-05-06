@@ -9,15 +9,15 @@ import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import ableToIcon from '../../../../public/assets/able_to.svg';
-import alightIcon from '../../../../public/assets/alight.svg';
-import careTNIcon from '../../../../public/assets/caretn.svg';
-import healthyMaternityIcon from '../../../../public/assets/healthy_maternity.svg';
-import hingeHealthIcon from '../../../../public/assets/hinge_health.svg';
-import questSelectIcon from '../../../../public/assets/quest_select.svg';
-import sanitasIcon from '../../../../public/assets/sanitas_bot.svg';
-import silverFitIcon from '../../../../public/assets/silver_fit.svg';
-import teladocIcon from '../../../../public/assets/teladoc_health.svg';
+import ableToIcon from 'able_to.svg';
+import alightIcon from 'alight.svg';
+import careTNIcon from 'caretn.svg';
+import healthyMaternityIcon from 'healthy_maternity.svg';
+import hingeHealthIcon from 'hinge_health.svg';
+import questSelectIcon from 'quest_select.svg';
+import sanitasIcon from 'sanitas_bot.svg';
+import silverFitIcon from 'silver_fit.svg';
+import teladocIcon from 'teladoc_health.svg';
 
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 

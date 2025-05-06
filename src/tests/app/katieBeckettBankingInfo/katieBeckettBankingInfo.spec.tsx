@@ -1,4 +1,4 @@
-import KatieBeckettBankingInfoPage from '@/app/myPlan/katieBeckettBankingInfo/page';
+import KatieBeckettBankingInfoPage from '@/app/(protected)/(common)/member/myplan/katieBeckettBankingInfo/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

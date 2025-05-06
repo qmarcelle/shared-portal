@@ -1,6 +1,6 @@
-import { updatePCPhysician } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
-import { UpdatePCPPhysicianRequest } from '@/app/findcare/primaryCareOptions/model/app/updatePCPPhysicianRequest';
-import { EmailSuccessFailure } from '@/app/support/sendAnEmail/components/EmailSuccessFailure';
+import { updatePCPhysician } from '@/app/(commo../(common)/findcare/primaryCareOptions/actions/pcpInfo';
+import { UpdatePCPPhysicianRequest } from '@/app/(commo../(common)/findcare/primaryCareOptions/model/app/updatePCPPhysicianRequest';
+import { EmailSuccessFailure } from '@/app/(commo../(common)/support/sendAnEmail/components/EmailSuccessFailure';
 import { IComponent } from '@/components/IComponent';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';

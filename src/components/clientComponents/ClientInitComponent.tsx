@@ -1,6 +1,6 @@
 'use client';
+import { initPingOne } from '@/app/(system)/pingOne/setupPingOne';
 import { initMocks } from '@/app/api/mocks';
-import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { GTM_ID } from '@/utils/analytics';
 import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import { usePathname } from 'next/navigation';

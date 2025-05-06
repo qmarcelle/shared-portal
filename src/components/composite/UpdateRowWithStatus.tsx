@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ReactElement } from 'react';
-import editIcon from '../../../public/assets/edit.svg';
+import editIcon from '/assets/edit.svg';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';

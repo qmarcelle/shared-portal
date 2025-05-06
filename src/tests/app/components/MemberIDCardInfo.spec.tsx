@@ -1,6 +1,6 @@
-import { ImageSlider } from '@/app/memberIDCard/components/ImageSlider';
-import { MemberIDCardInfo } from '@/app/memberIDCard/components/MemberIDCardInfo';
-import { PlanInfo } from '@/app/memberIDCard/components/PlanInfo';
+import { ImageSlider } from '@/app/(protected)/(common)/member/myplan/idcard/components/ImageSlider';
+import { MemberIDCardInfo } from '@/app/(protected)/(common)/member/myplan/idcard/components/MemberIDCardInfo';
+import { PlanInfo } from '@/app/(protected)/(common)/member/myplan/idcard/components/PlanInfo';
 import { render, screen } from '@testing-library/react';
 
 const renderUI = () => {

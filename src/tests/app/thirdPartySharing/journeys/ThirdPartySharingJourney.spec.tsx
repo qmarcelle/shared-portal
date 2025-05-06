@@ -1,4 +1,4 @@
-import { ThirdPartySharingJourney } from '@/app/thirdPartySharing/components/journeys/ThirdPartySharingJourney';
+import { ThirdPartySharingJourney } from '@/app/(protected)/(common)/member/thirdPartySharing/components/journeys/ThirdPartySharingJourney';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import '@testing-library/jest-dom';
 import {

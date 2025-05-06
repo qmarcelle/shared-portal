@@ -1,5 +1,5 @@
-import OtherHealthInsurancePlan from '@/app/reportOtherHealthInsurance/components/OtherHealthInsurancePlan';
-import { OtherHealthInsurance } from '@/app/reportOtherHealthInsurance/journeys/OtherHealthInsurance';
+import OtherHealthInsurancePlan from '@/app/(protected)/(common)/member/reportOtherHealthInsurance/components/OtherHealthInsurancePlan';
+import { OtherHealthInsurance } from '@/app/(protected)/(common)/member/reportOtherHealthInsurance/journeys/OtherHealthInsurance';
 import { useAppModalStore } from '@/components/foundation/AppModal';
 
 import '@testing-library/jest-dom';

@@ -24,7 +24,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@chat/*": ["./src/app/chat/*"]
+      
     },
     "types": ["jest", "node", "@testing-library/jest-dom"],
     "typeRoots": ["./types", "./node_modules/@types"]
@@ -36,5 +36,11 @@
     ".next/types/**/*.ts",
     "types/**/*.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "**/__tests__/**",
+    "**/tests/**",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }

@@ -2,7 +2,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import wellframeLogo from '../../../../public/assets/wellframe.svg';
+import wellframeLogo from 'wellframe.svg';
 
 const WellframeSection = () => {
   return (

@@ -158,7 +158,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                   </a>
                   <a
                     class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
-                    href="https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/"
+                    href="https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/comparehealthplans/"
                     target="_blank"
                   >
                     <p>
@@ -593,7 +593,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 </a>
                 <a
                   class="body-1 py-2 px-4 cursor-pointer hover:bg-tertiary-5 block"
-                  href="https://members.bcbst.com/wps/myportal/member/home/findcare/comparehealthplans/"
+                  href="https://members.bcbst.com/wps/myportal/member/ho../((common)/findcare/comparehealthplans/"
                   target="_blank"
                 >
                   <p>

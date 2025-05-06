@@ -63,7 +63,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/myplan"
           >
             <p
               class="pb-2 pt-2"

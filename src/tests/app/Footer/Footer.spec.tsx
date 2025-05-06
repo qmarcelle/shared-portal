@@ -51,7 +51,7 @@ describe('Footer Component', () => {
 
     const user = userEvent.setup();
     const getIdCard = screen.getByText('Get an ID Card');
-    expect(getIdCard).toHaveAttribute('href', '/memberIDCard');
+    expect(getIdCard).toHaveAttribute('href', '/myplan/idcard');
     await user.click(getIdCard);
 
     const getFindCare = screen.getByText('Find Care & Costs');

@@ -24,14 +24,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
               class="flex flex-row justify-between py-1"
             >
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 Amount Billed
               </p>
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 $263.00
               </p>
@@ -40,14 +38,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
               class="flex flex-row justify-between py-1"
             >
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 Plan Discount
               </p>
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 --
               </p>
@@ -56,14 +52,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
               class="flex flex-row justify-between py-1"
             >
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 Plan Paid
               </p>
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 $187.94
               </p>
@@ -72,14 +66,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
               class="flex flex-row justify-between py-1"
             >
               <p
-                class="body-1 body-1"
-                style="display: block;"
+                class="body-1 body-1 block"
               >
                 Other Insurance Paid
               </p>
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 $0.74
               </p>
@@ -98,14 +90,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
               class="flex flex-row justify-between py-1"
             >
               <p
-                class="body-1 font-bold"
-                style="display: block;"
+                class="body-1 font-bold block"
               >
                 Your Share of the Cost
               </p>
               <p
-                class="body-1"
-                style="display: block;"
+                class="body-1  block"
               >
                 $0.00
               </p>
@@ -135,14 +125,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             class="flex flex-row justify-between py-1"
           >
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               Amount Billed
             </p>
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               $263.00
             </p>
@@ -151,14 +139,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             class="flex flex-row justify-between py-1"
           >
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               Plan Discount
             </p>
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               --
             </p>
@@ -167,14 +153,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             class="flex flex-row justify-between py-1"
           >
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               Plan Paid
             </p>
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               $187.94
             </p>
@@ -183,14 +167,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             class="flex flex-row justify-between py-1"
           >
             <p
-              class="body-1 body-1"
-              style="display: block;"
+              class="body-1 body-1 block"
             >
               Other Insurance Paid
             </p>
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               $0.74
             </p>
@@ -209,14 +191,12 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             class="flex flex-row justify-between py-1"
           >
             <p
-              class="body-1 font-bold"
-              style="display: block;"
+              class="body-1 font-bold block"
             >
               Your Share of the Cost
             </p>
             <p
-              class="body-1"
-              style="display: block;"
+              class="body-1  block"
             >
               $0.00
             </p>

@@ -9,7 +9,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { AddMemberDetails } from '@/models/add_member_details';
-import alertErrorSvg from '@/public/assets/alert_error_red.svg';
+import alertErrorSvg from 'alert_error_red.svg';
 import Image from 'next/image';
 import { useState } from 'react';
 

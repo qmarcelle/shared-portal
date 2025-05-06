@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Image from 'next/image';
 
-import { CVSCaremarkInformationCard } from '@/app/pharmacy/components/CVSCaremarkInformation';
+import { CVSCaremarkInformationCard } from '@/app/(protected)/(common)/member/pharmacy/components/CVSCaremarkInformation';
 import {
   costIcon,
   cvsCaremarkIcon,

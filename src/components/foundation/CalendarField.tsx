@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import alertErrorSvg from '../../../public/assets/alert_error_red.svg';
+import alertErrorSvg from '/assets/alert_error_red.svg';
 import { IComponent } from '../IComponent';
 import { calenderIcon } from './Icons';
 import { Row } from './Row';

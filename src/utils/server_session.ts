@@ -1,4 +1,4 @@
-import { auth, SERVER_ACTION_NO_SESSION_ERROR } from '@/auth';
+import { auth, SERVER_ACTION_NO_SESSION_ERROR } from '@/app/(system)/auth';
 
 export async function getServerSideUserId(): Promise<string> {
   const session = await auth();

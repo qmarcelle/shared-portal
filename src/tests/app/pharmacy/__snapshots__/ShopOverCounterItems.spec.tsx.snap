@@ -658,7 +658,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       >
                         <a
                           aria-label="Prescription Drug Claim Form"
-                          href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                          href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                           style="display: inline;"
                         >
                           <button
@@ -1803,7 +1803,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     >
                       <a
                         aria-label="Prescription Drug Claim Form"
-                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                         style="display: inline;"
                       >
                         <button
@@ -3082,7 +3082,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       >
                         <a
                           aria-label="Prescription Drug Claim Form"
-                          href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                          href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                           style="display: inline;"
                         >
                           <button
@@ -4304,7 +4304,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     >
                       <a
                         aria-label="Prescription Drug Claim Form"
-                        href="http://www.bcbst.com/docs/pharmacy/go-510.pdf"
+                        href="http://www.bcbst.com/do../((common)/pharmacy/go-510.pdf"
                         style="display: inline;"
                       >
                         <button
