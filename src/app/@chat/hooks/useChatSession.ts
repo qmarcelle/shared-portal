@@ -117,6 +117,8 @@ export function useChatSession(options?: any) {
           ? isWithinBusinessHours(data.businessHours.text)
           : true;
         setEligibility({ ...data, isEligible: data.isEligible && isAvailable });
+        // Initialize chatService with cloudChatEligible
+        await chatService.initialize(data.cloudChatEligible);
       } catch (err) {
         setError(
           err instanceof Error
@@ -135,6 +137,7 @@ export function useChatSession(options?: any) {
     setLoading,
     setError,
     setEligibility,
+    chatService,
   ]);
 
   // Chat actions

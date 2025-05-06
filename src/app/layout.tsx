@@ -13,6 +13,7 @@ import { SessionProvider } from 'next-auth/react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import ChatLoader from './@chat/components/ChatLoader';
 import ClientLayout from './ClientLayout';
 
 export default async function RootLayout({
@@ -23,11 +24,11 @@ export default async function RootLayout({
   chat: React.ReactNode;
 }) {
   const session = await auth();
-  
+
   // Only fetch userInfo if we have a session and memCk
   const memCk = session?.user?.currUsr?.plan?.memCk;
   const userInfo = memCk ? await getLoggedInUserInfo(memCk) : null;
-  
+
   // Log server environment variables
   await logServerEnvironment();
 
@@ -36,15 +37,19 @@ export default async function RootLayout({
       <body>
         <ErrorBoundary>
           <SessionProvider session={session}>
-          
-              <ClientInitComponent />
-              <SiteHeaderServerWrapper />
-              <ClientLayout>
+            <ClientInitComponent />
+            <SiteHeaderServerWrapper />
+            <ClientLayout>
               {children}
-              {chat}
-              </ClientLayout>
-              <Footer />
-            
+              {session?.user?.currUsr?.plan &&
+                userInfo?.members[0].memberCk && (
+                  <ChatLoader
+                    memberId={userInfo?.members[0].memberCk}
+                    planId={session?.user?.currUsr?.plan?.grpId}
+                  />
+                )}
+            </ClientLayout>
+            <Footer />
           </SessionProvider>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
           <script

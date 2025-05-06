@@ -208,7 +208,7 @@ export const useChatStore = create<ChatState>((set) => ({
 /**
  * Determines the inquiry type based on client ID, matching the logic in click_to_chat.js
  */
-function determineInquiryType(clientId: string): string {
+function _determineInquiryType(clientId: string): string {
   const ClientIdConst = {
     BlueCare: 'BC',
     BlueCarePlus: 'DS',
@@ -243,7 +243,7 @@ function determineInquiryType(clientId: string): string {
 /**
  * Determines the client ID based on plan details, matching the logic in click_to_chat.js
  */
-function getClientId(plan: unknown): string {
+function _getClientId(plan: unknown): string {
   const ClientIdConst = {
     BlueCare: 'BC',
     BlueCarePlus: 'DS',
