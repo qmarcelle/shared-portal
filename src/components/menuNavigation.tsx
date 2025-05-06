@@ -124,7 +124,7 @@ export const getMenuNavigation = (
             return false;
           }
         },
-        url: '/virtualCareOptions',
+        url: '/member/findcare/virtualcare',
         external: false,
       },
       {
@@ -359,7 +359,7 @@ export const getMenuNavigation = (
               View <span className="font-bold">Virtual Care Options.</span>
             </p>
           ),
-          link: '/virtualCareOptions',
+          link: '/member/findcare/virtualcare',
         }
       : undefined,
     template: {
