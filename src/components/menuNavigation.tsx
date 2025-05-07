@@ -12,7 +12,6 @@ import {
   isBiometricScreening,
   isBlueCareEligible,
   isBlueCareNotEligible,
-  isEmboldHealthEligible,
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
@@ -23,7 +22,6 @@ import {
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNotWellnessQa,
   isNurseChatEligible,
-  isPharmacyBenefitsEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
@@ -42,7 +40,6 @@ export const getMenuNavigation = (
   {
     id: 1,
     title: 'Find Care & Costs',
-    titleLink: 'Find All Care & Costs',
     description: 'This is Find Care & Costs',
     category: '',
     showOnMenu: isNotWellnessQa(rules) || isLifePointGrp(rules),
@@ -70,8 +67,7 @@ export const getMenuNavigation = (
         title: 'Find a Medical Provider',
         description: 'This is Find a Provider',
         category: 'Find Care',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isEmboldHealthEligible(rules),
+        showOnMenu: isBlueCareNotEligible,
         url: '/sso/launch?PartnerSpId=' + process.env.NEXT_PUBLIC_IDP_EMBOLD,
         external: true,
         openInNewWindow: false,
@@ -93,7 +89,7 @@ export const getMenuNavigation = (
         description: 'This is Primary Care Options',
         category: 'Find Care',
         showOnMenu: isPrimaryCareMenuOption,
-        url: '/member/findcare/virtualcare/primarycare',
+        url: 'findcare/primaryCareOptions',
         external: false,
       },
       {
@@ -112,11 +108,11 @@ export const getMenuNavigation = (
         category: 'Find Care',
         showOnMenu: () => {
           if (
-            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) &&
-            isNewMentalHealthSupportAbleToEligible(rules) &&
-            isHingeHealthEligible(rules) &&
-            isTeladocPrimary360Eligible(rules) &&
-            isTeladocEligible(rules) &&
+            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+            isNewMentalHealthSupportAbleToEligible(rules) ||
+            isHingeHealthEligible(rules) ||
+            isTeladocPrimary360Eligible(rules) ||
+            isTeladocEligible(rules) ||
             isNurseChatEligible(rules)
           ) {
             return true;
@@ -124,7 +120,7 @@ export const getMenuNavigation = (
             return false;
           }
         },
-        url: '/member/findcare/virtualcare',
+        url: '/virtualCareOptions',
         external: false,
       },
       {
@@ -161,8 +157,7 @@ export const getMenuNavigation = (
         title: 'Price a Medication',
         description: 'This is Price a Medication',
         category: 'Estimate Costs',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isPharmacyBenefitsEligible(rules),
+        showOnMenu: isBlueCareNotEligible,
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
         external: true,
         openInNewWindow: false,
@@ -174,7 +169,6 @@ export const getMenuNavigation = (
   {
     id: 2,
     title: 'My Plan',
-    titleLink: 'View All Plan Details',
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
@@ -345,7 +339,6 @@ export const getMenuNavigation = (
   {
     id: 3,
     title: 'My Health',
-    titleLink: 'View My Health Dashboard',
     description: 'This is My Health',
     category: '',
     showOnMenu: true,
@@ -359,7 +352,7 @@ export const getMenuNavigation = (
               View <span className="font-bold">Virtual Care Options.</span>
             </p>
           ),
-          link: '/member/findcare/virtualcare',
+          link: '/virtualCareOptions',
         }
       : undefined,
     template: {
@@ -458,7 +451,6 @@ export const getMenuNavigation = (
   {
     id: 4,
     title: 'Pharmacy',
-    titleLink: 'View All Pharmacy',
     description: 'This is Pharmacy',
     category: '',
     showOnMenu: isNotWellnessQa(rules),
@@ -489,7 +481,9 @@ export const getMenuNavigation = (
         title: 'My Prescriptions',
         description: 'This is My Prescriptions',
         category: 'Manage My Prescriptions',
-        showOnMenu: (rules) => isPharmacyBenefitsEligible(rules),
+        showOnMenu: () => {
+          return true;
+        },
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
         external: true,
       },
@@ -522,7 +516,9 @@ export const getMenuNavigation = (
         title: 'Find a Pharmacy',
         description: 'This is Find a Pharmacy',
         category: 'Manage My Prescriptions',
-        showOnMenu: (rules) => isPharmacyBenefitsEligible(rules),
+        showOnMenu: () => {
+          return true;
+        },
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
         external: true,
         openInNewWindow: false,
@@ -556,7 +552,6 @@ export const getMenuNavigation = (
   {
     id: 5,
     title: 'Support',
-    titleLink: 'View All Support',
     description: 'This is Support',
     category: '',
     showOnMenu: true,

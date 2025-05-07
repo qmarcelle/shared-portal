@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ableToIcon from '../../../../public/assets/able_to.svg';
 import alightIcon from '../../../../public/assets/alight.svg';
+import blueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
 import careTNIcon from '../../../../public/assets/caretn.svg';
 import healthyMaternityIcon from '../../../../public/assets/healthy_maternity.svg';
 import hingeHealthIcon from '../../../../public/assets/hinge_health.svg';
@@ -18,7 +19,6 @@ import questSelectIcon from '../../../../public/assets/quest_select.svg';
 import sanitasIcon from '../../../../public/assets/sanitas_bot.svg';
 import silverFitIcon from '../../../../public/assets/silver_fit.svg';
 import teladocIcon from '../../../../public/assets/teladoc_health.svg';
-
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
@@ -59,6 +59,8 @@ export const HealthCareItem = ({
       return hingeHealthIcon;
     } else if (healthCareInfo.icon == 'HealthyMaternity') {
       return healthyMaternityIcon;
+    } else if (healthCareInfo.icon == 'BlueTennesseIcon') {
+      return blueTennesseIcon;
     }
   }
 
@@ -66,7 +68,7 @@ export const HealthCareItem = ({
     return (
       <Row className={'flex flex-col align-top m-4 mt-8'}>
         <TextBox
-          className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
           text={healthCareInfo.healthcareType}
         ></TextBox>
         {healthCareInfo.icon && (
