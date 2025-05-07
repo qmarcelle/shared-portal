@@ -183,8 +183,8 @@ export const EditAlertPreferncesSection = ({
         checked={preference.selected}
         body={
           <>
-            <TextBox className="body-bold" text={preference.hText} />{' '}
-            <TextBox className="mt-2" text={preference.pText} />{' '}
+            <TextBox className="body-bold mb-2" text={preference.hText} />
+            <TextBox text={preference.pText} />
           </>
         }
         onChange={() => checkBoxHandler(alertType, parentAlertType)}

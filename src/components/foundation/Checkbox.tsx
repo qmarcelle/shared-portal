@@ -1,6 +1,5 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { IComponent } from '../IComponent';
-
 export interface CheckboxProps extends IComponent {
   selected?: boolean;
   callback?: (val: boolean) => void;
@@ -101,7 +100,7 @@ export const Checkbox = memo(
         }}
       >
         <div
-          className="flex flex-row items-baseline"
+          className="flex flex-row"
           tabIndex={isDisabled ? -1 : 0}
           onKeyDown={handleKeyDown}
         >
