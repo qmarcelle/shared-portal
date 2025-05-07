@@ -17,6 +17,7 @@ export async function getCommunicationSettingsAppData(): Promise<CommunicationSe
     const response = await esApi.get(
       `/memberContactPreference?memberKey=${session?.user.currUsr.plan!.memCk}&subscriberKey=${session?.user.currUsr?.plan!.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true`,
     );
+    logger.info('contactPrefRes', response?.data?.data);
     return response?.data?.data;
   } catch (error) {
     logger.error('Error Response from  Email API', error);
