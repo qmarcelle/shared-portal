@@ -55,28 +55,34 @@ export const PlanDetailsSection = ({
     );
   }
 
-  const onMyPlanDetails = planData.map((member) => ({
-    memberName: member.memberName,
-    DOB: new Date(member.dob).toLocaleDateString(),
-    sharingType: member.planDetails
-      .map((plan) => {
-        if (plan.isMedical) return 'Medical';
-        if (plan.isDental) return 'Dental';
-        if (plan.isVision) return 'Vision';
-        return '';
-      })
-      .filter((type) => type !== '')
-      .join(' / '),
-    medicalEffectiveDate: member.medicalEffectiveDate,
-    dentalEffectiveDate: member.dentalEffectiveDate,
-    visionEffectiveDate: member.visionEffectiveDate,
-    isMinor: false,
-    address: member.address,
-    primaryPhoneNumber: member.primaryPhoneNumber,
-    secondaryPhoneNumber: member.secondaryPhoneNumber,
-    memck: member.memCk,
-    loggedInMember: member.loggedInMember,
-  }));
+  const onMyPlanDetails = planData.map((member) => {
+    return {
+      memberName: member.memberName,
+      DOB: new Date(member.dob).toLocaleDateString(),
+      sharingType: member.planDetails
+        .map((plan) => {
+          if (plan.isMedical) return 'Medical';
+          if (plan.isDental) return 'Dental';
+          if (plan.isVision) return 'Vision';
+          return '';
+        })
+        .filter((type) => type !== '')
+        .join(' / '),
+      medicalEffectiveDate: member.medicalEffectiveDate,
+      dentalEffectiveDate: member.dentalEffectiveDate,
+      visionEffectiveDate: member.visionEffectiveDate,
+      isMinor: false,
+
+      address1: member.address1,
+      cityStateZip: member.address2,
+
+      primaryPhoneNumber: member.primaryPhoneNumber,
+      secondaryPhoneNumber: member.secondaryPhoneNumber,
+      memck: member.memCk,
+      loggedInMember: member.loggedInMember,
+    };
+  });
+
   const loggedInMember = onMyPlanDetails.find(
     (item) => item.loggedInMember == true,
   );
@@ -177,11 +183,14 @@ export const PlanDetailsSection = ({
               child={
                 <PlanContactInformationSection
                   title="Below is the phone number and mailing address associated with your plan."
-                  address={loggedInMember!.address}
+                  address1={loggedInMember?.address1 ?? 'N/A'}
+                  address2={loggedInMember?.cityStateZip ?? 'N/A'}
                   primaryPhoneNumber={
-                    loggedInMember!.primaryPhoneNumber ?? 'N/A'
+                    loggedInMember?.primaryPhoneNumber ?? 'N/A'
                   }
-                  secondaryPhoneNumber={loggedInMember!.secondaryPhoneNumber}
+                  secondaryPhoneNumber={
+                    loggedInMember?.secondaryPhoneNumber ?? 'N/A'
+                  }
                 />
               }
             ></Accordion>

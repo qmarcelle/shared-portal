@@ -82,10 +82,11 @@ const mockPlanData: AllMyPlanData<string>[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '1/1/2019',
     visionEffectiveDate: '1/1/2019',
-    address: '',
     primaryPhoneNumber: '7654387656',
     secondaryPhoneNumber: '',
     age: 15,
+    memCk: '',
+    address1: '11412 VALLEY VIEW LANDING LN ',
   },
   {
     memberName: 'KRISSY HALL',
@@ -132,9 +133,12 @@ const mockPlanData: AllMyPlanData<string>[] = [
     dentalEffectiveDate: '',
     visionEffectiveDate: '1/1/2019',
     address: '',
+    address1: '11412 VALLEY VIEW LANDING LN ',
+    address2: '',
     primaryPhoneNumber: '7674368634',
     secondaryPhoneNumber: '',
     age: 15,
+    memCk: '',
   },
   {
     memberName: 'CHRIS HALL',
@@ -192,10 +196,11 @@ const mockPlanData: AllMyPlanData<string>[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '11/1/2017',
     visionEffectiveDate: '1/1/2019',
-    address: '',
     primaryPhoneNumber: '7654387658',
     secondaryPhoneNumber: '',
     age: 65,
+    memCk: '',
+    address1: '11412 VALLEY VIEW LANDING LN ',
   },
 ];
 
