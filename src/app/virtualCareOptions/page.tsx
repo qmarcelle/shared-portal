@@ -1,11 +1,15 @@
 'use client';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { OtherBenefits } from './components/OtherBenefits';
+const urlRedirect =
+  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
 
 const VirtualCareOptions = () => {
   return (
@@ -16,10 +20,26 @@ const VirtualCareOptions = () => {
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <TextBox
-              className="body-1 mb-0"
-              text="The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool."
-            ></TextBox>
+            <RichText
+              className="w-[125%]"
+              spans={[
+                <>
+                  <span>
+                    The options below offer quick, high-quality care for a range
+                    of non-emergency needs. You can also search for in-network
+                    providers that offer in-person and virtual visits with
+                    our{' '}
+                  </span>
+                  <span className="link" key={1}>
+                    <a
+                      href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`}
+                    >
+                      Find Care tool.
+                    </a>
+                  </span>
+                </>,
+              ]}
+            />
             <Spacer size={16} />
             <TextBox
               className="body-2 mb-0"
@@ -35,11 +55,6 @@ const VirtualCareOptions = () => {
 
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow items-stretch">
-            <Spacer size={32} />
-            <TextBox
-              className="title-2"
-              text="Virtual Mental Health Care"
-            ></TextBox>
             <Spacer size={32} />
             <Row className="flex-grow items-stretch gap-4 flex-wrap">
               <VirtualMentalHealthCareSection
@@ -72,7 +87,7 @@ const VirtualCareOptions = () => {
                   },
                   {
                     healthcareType: 'Physical Therapy',
-                    icon: 'HingeHealthIcon',
+                    icon: 'HingeHealth',
                     healthCareName: 'Hinge Health Back & Joint Care',
                     description:
                       'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
@@ -156,33 +171,63 @@ const VirtualCareOptions = () => {
         <section className="flex-row items-start app-body">
           <OtherBenefits
             className="large-section"
+            cardClassName="myHealthCard"
             options={[
               {
                 id: '1',
-                title: 'Teladoc Health Second Opinion Advice & Support',
-                description:
-                  'Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. ',
-                url: 'null',
-              },
-              {
-                id: '2',
                 title: 'CareTN One-on-One Health Support ',
                 description:
                   'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                url: 'null',
+                url: `${urlRedirect}careTN`,
+              },
+              {
+                id: '2',
+                title: 'Healthy Maternity',
+                description:
+                  'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+                url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
               },
               {
                 id: '3',
-                title: 'Healthy Maternity',
+                title: 'Teladoc Health Blood Pressure Management Program',
                 description:
-                  'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. ',
-                url: 'null',
+                  'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
+                url: `${urlRedirect + HealthProgramType.TeladocBP}`,
               },
               {
                 id: '4',
-                title: 'Test',
-                description: 'THis is test card.',
-                url: 'null',
+                title: 'Teladoc Health Diabetes Management Program',
+                description:
+                  'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+                url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+              },
+              {
+                id: '5',
+                title: 'Teladoc Health Diabetes Prevention Program',
+                description:
+                  'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+                url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+              },
+              {
+                id: '6',
+                title: 'Teladoc Second Opinion Advice & Support',
+                description:
+                  'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+                url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+              },
+              {
+                id: '7',
+                title: 'QuestSelect™ Low-Cost Lab Testing',
+                description:
+                  'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+                url: `${urlRedirect + HealthProgramType.QuestSelect}`,
+              },
+              {
+                id: '8',
+                title: 'Silver&Fit Fitness Program',
+                description:
+                  'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+                url: `${urlRedirect + HealthProgramType.SilverFit}`,
               },
             ]}
           />

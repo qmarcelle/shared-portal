@@ -9,8 +9,8 @@ interface ListOrderProps {
 export const ListOrder = ({ title, itemData }: ListOrderProps) => {
   return (
     <div>
-      <TextBox className="body-1 m-4" text={title}></TextBox>
-      <ul className="list-disc m-8 mb-0 marker:text-[#5DC1FD]">
+      <TextBox className="body-1 m-4 mt-2 mb-0" text={title}></TextBox>
+      <ul className="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]">
         {itemData.map((item, index) => {
           return (
             <div key={index}>
