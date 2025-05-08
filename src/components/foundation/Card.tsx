@@ -4,6 +4,7 @@ interface CardProps extends IComponent {
   backgroundColor?: string;
   type?: 'main' | 'highlight' | 'neutral' | 'elevated' | 'info' | 'button';
   children: JSX.Element;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLDivElement>) => void;
   role?: string;
   'aria-label'?: string;
 }
@@ -15,6 +16,7 @@ export const Card = ({
   className,
   onClick,
   tabIndex,
+  onKeyDown,
   role,
   'aria-label': ariaLabel,
 }: CardProps) => {
@@ -22,10 +24,11 @@ export const Card = ({
     <div
       className={`card-${type} ${className}`}
       onClick={onClick}
+      onKeyDown={onKeyDown}
       style={{ ...(backgroundColor && { backgroundColor: backgroundColor }) }}
       {...(tabIndex !== undefined ? { tabIndex } : {})}
-      role={role}
-      aria-label={ariaLabel}
+      {...(role ? { role } : {})}
+      {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
     >
       {children}
     </div>

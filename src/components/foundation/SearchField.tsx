@@ -8,6 +8,7 @@ interface Props {
   classValue?: string;
   searchText?: string;
   autoFocus?: boolean;
+  'aria-label'?: string;
 }
 
 const SearchField: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const SearchField: React.FC<Props> = ({
   classValue,
   searchText,
   autoFocus,
+  'aria-label': ariaLabel,
 }) => {
   const [searchTerm, setSearchTerm] = useState(searchText ?? '');
 
@@ -60,6 +62,7 @@ const SearchField: React.FC<Props> = ({
         type="text"
         onKeyDown={_handleKeyDown}
         autoFocus={autoFocus}
+        aria-label={ariaLabel}
       />
       <div className="flex flex-col items-end">
         <button
@@ -68,8 +71,14 @@ const SearchField: React.FC<Props> = ({
           onClick={handleSubmit}
           onFocus={() => setFocusButton(true)}
           onBlur={() => setFocusButton(false)}
+          aria-label="Search"
         >
-          <Image src={SearchIcon} className="icon searchhover " alt="Search" />
+          <Image
+            src={SearchIcon}
+            className="icon searchhover "
+            alt=""
+            aria-hidden="true"
+          />
         </button>
       </div>
     </div>

@@ -120,25 +120,28 @@ exports[` 1`] = `
               Check all that apply:
             </p>
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  checked=""
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Chris Hall"
+                  class="checkbox   "
+                  id="checkbox-test-chris-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-chris-hall"
                 >
-                  <p>
-                    Chris Hall
-                  </p>
+                  Chris Hall
                 </label>
               </div>
             </div>
@@ -146,24 +149,28 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Maddison Hall"
+                  class="checkbox   "
+                  id="checkbox-test-maddison-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-maddison-hall"
                 >
-                  <p>
-                    Maddison Hall
-                  </p>
+                  Maddison Hall
                 </label>
               </div>
             </div>
@@ -171,24 +178,28 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Forrest Hall"
+                  class="checkbox   "
+                  id="checkbox-test-forrest-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-forrest-hall"
                 >
-                  <p>
-                    Forrest Hall
-                  </p>
+                  Forrest Hall
                 </label>
               </div>
             </div>
@@ -196,24 +207,28 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Corey Hall"
+                  class="checkbox   "
+                  id="checkbox-test-corey-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-corey-hall"
                 >
-                  <p>
-                    Corey Hall
-                  </p>
+                  Corey Hall
                 </label>
               </div>
             </div>
@@ -221,24 +236,28 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Telly Hall"
+                  class="checkbox   "
+                  id="checkbox-test-telly-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-telly-hall"
                 >
-                  <p>
-                    Telly Hall
-                  </p>
+                  Telly Hall
                 </label>
               </div>
             </div>
@@ -246,24 +265,28 @@ exports[` 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <div
-              class="flex flex-row gap-2 p-2   "
+              aria-checked="false"
+              aria-disabled="false"
+              aria-invalid="false"
+              aria-required="false"
+              class="flex flex-col "
+              role="checkbox"
             >
-              <label>
+              <div
+                class="flex flex-row items-center"
+                tabindex="0"
+              >
                 <input
-                  id="myCheckbox"
-                  name=""
+                  aria-label="Janie Hall"
+                  class="checkbox   "
+                  id="checkbox-test-janie-hall"
                   type="checkbox"
                 />
-              </label>
-              <div
-                class="flex flex-col"
-              >
                 <label
-                  for="myCheckbox"
+                  class="ml-2"
+                  for="checkbox-test-janie-hall"
                 >
-                  <p>
-                    Janie Hall
-                  </p>
+                  Janie Hall
                 </label>
               </div>
             </div>
@@ -391,25 +414,28 @@ exports[` 1`] = `
             Check all that apply:
           </p>
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                checked=""
-                id="myCheckbox"
-                name=""
+                aria-label="Chris Hall"
+                class="checkbox   "
+                id="checkbox-test-chris-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-chris-hall"
               >
-                <p>
-                  Chris Hall
-                </p>
+                Chris Hall
               </label>
             </div>
           </div>
@@ -417,24 +443,28 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Maddison Hall"
+                class="checkbox   "
+                id="checkbox-test-maddison-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-maddison-hall"
               >
-                <p>
-                  Maddison Hall
-                </p>
+                Maddison Hall
               </label>
             </div>
           </div>
@@ -442,24 +472,28 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Forrest Hall"
+                class="checkbox   "
+                id="checkbox-test-forrest-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-forrest-hall"
               >
-                <p>
-                  Forrest Hall
-                </p>
+                Forrest Hall
               </label>
             </div>
           </div>
@@ -467,24 +501,28 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Corey Hall"
+                class="checkbox   "
+                id="checkbox-test-corey-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-corey-hall"
               >
-                <p>
-                  Corey Hall
-                </p>
+                Corey Hall
               </label>
             </div>
           </div>
@@ -492,24 +530,28 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Telly Hall"
+                class="checkbox   "
+                id="checkbox-test-telly-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-telly-hall"
               >
-                <p>
-                  Telly Hall
-                </p>
+                Telly Hall
               </label>
             </div>
           </div>
@@ -517,24 +559,28 @@ exports[` 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <div
-            class="flex flex-row gap-2 p-2   "
+            aria-checked="false"
+            aria-disabled="false"
+            aria-invalid="false"
+            aria-required="false"
+            class="flex flex-col "
+            role="checkbox"
           >
-            <label>
+            <div
+              class="flex flex-row items-center"
+              tabindex="0"
+            >
               <input
-                id="myCheckbox"
-                name=""
+                aria-label="Janie Hall"
+                class="checkbox   "
+                id="checkbox-test-janie-hall"
                 type="checkbox"
               />
-            </label>
-            <div
-              class="flex flex-col"
-            >
               <label
-                for="myCheckbox"
+                class="ml-2"
+                for="checkbox-test-janie-hall"
               >
-                <p>
-                  Janie Hall
-                </p>
+                Janie Hall
               </label>
             </div>
           </div>

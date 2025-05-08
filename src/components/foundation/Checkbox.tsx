@@ -1,6 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { IComponent } from '../IComponent';
-import { Column } from './Column';
 
 export interface CheckboxProps extends IComponent {
   selected?: boolean;
@@ -12,83 +11,94 @@ export interface CheckboxProps extends IComponent {
   classProps?: string;
   checkProps?: string;
   body?: ReactNode;
+  disabled?: boolean;
+  checked?: boolean;
+  onChange?: (val: boolean) => void;
+  className?: string;
+  required?: boolean;
+  error?: boolean;
+  errorMessage?: string;
   id?: string;
-  ariaLabel?: string;
-  ariaDescribedBy?: string;
 }
 
 export const Checkbox = ({
   label,
-  body,
-  callback,
-  selected,
-  classProps,
-  className,
-  id = Math.random().toString(36).substring(2, 9),
-  ariaLabel,
-  ariaDescribedBy,
+  checked = false,
+  onChange,
+  disabled = false,
+  className = '',
+  required = false,
+  error = false,
+  errorMessage,
+  id,
 }: CheckboxProps) => {
-  const isDisabled = callback == null;
+  const [isChecked, setIsChecked] = useState(checked);
+  const checkboxId =
+    id ||
+    (process.env.NODE_ENV === 'test'
+      ? `checkbox-test-${label.toLowerCase().replace(/\s+/g, '-')}`
+      : `checkbox-${Math.random().toString(36).substr(2, 9)}`);
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
+  const handleChange = () => {
+    if (!disabled) {
+      setIsChecked(!isChecked);
+      onChange?.(!isChecked);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleChange();
+    }
+  };
 
   return (
     <div
-      className={`flex flex-row gap-2 p-2 ${isDisabled ? 'checkbox-disabled' : ''} ${className ?? ''}`}
+      className={`flex flex-col ${className}`}
       role="checkbox"
-      aria-checked={!!selected}
-      aria-label={ariaLabel || label}
-      aria-describedby={ariaDescribedBy}
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          callback?.(!selected);
-        }
-      }}
+      aria-checked={isChecked}
+      aria-disabled={disabled}
+      aria-invalid={error}
+      aria-required={required}
+      aria-describedby={error ? `${checkboxId}-error` : undefined}
     >
-      <input
-        type="checkbox"
-        name={id}
-        id={id}
-        onChange={callback}
-        checked={selected}
-        disabled={isDisabled}
-        aria-checked={!!selected}
-        aria-disabled={isDisabled}
-        aria-labelledby={`${id}-label`}
-        className="sr-only"
-      />
       <div
-        className={`w-5 h-5 border rounded ${
-          selected ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
-        } ${isDisabled ? 'opacity-50' : ''}`}
-        aria-hidden="true"
+        className="flex flex-row items-center"
+        tabIndex={disabled ? -1 : 0}
+        onKeyDown={handleKeyDown}
+        onClick={handleChange}
       >
-        {selected && (
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        )}
-      </div>
-      <Column>
-        <label
-          htmlFor={id}
-          id={`${id}-label`}
-          className={`cursor-pointer ${classProps || ''}`}
-        >
+        <input
+          type="checkbox"
+          id={checkboxId}
+          checked={isChecked}
+          onChange={handleChange}
+          disabled={disabled}
+          required={required}
+          className={`checkbox ${isChecked ? 'checked' : ''} ${
+            disabled ? 'disabled' : ''
+          } ${error ? 'error' : ''}`}
+          aria-label={label}
+        />
+        <label htmlFor={checkboxId} className="ml-2">
           {label}
+          {required && <span className="text-red-500 ml-1">*</span>}
         </label>
-        {body}
-      </Column>
+      </div>
+      {error && errorMessage && (
+        <div
+          id={`${checkboxId}-error`}
+          className="text-red-500 text-sm mt-1"
+          role="alert"
+        >
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };
