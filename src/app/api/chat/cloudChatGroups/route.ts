@@ -1,16 +1,18 @@
 'use server';
 
-import { getCloudChatGroups } from '@/utils/api/memberService';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
  * API Route handler for /api/chat/cloudChatGroups endpoint
  *
- * Calls the core MemberAPI endpoint: GET /members/chat/cloudChatGroups
- * from the server to retrieve all cloud-eligible chat groups.
+ * This proxies and centralizes calls to the member service chat/cloudChatGroups endpoint
+ * and ensures all member service API calls are made server-side only.
  *
- * @returns An object containing the chatGroupsMap with group mappings
+ * Core API: GET /members/chat/cloudChatGroups
+ *
+ * @returns List of group IDs that are eligible for cloud chat
  */
 export async function GET(request: NextRequest) {
   // Generate a correlation ID for tracing this request through logs
@@ -22,38 +24,40 @@ export async function GET(request: NextRequest) {
   });
 
   try {
+    const endpoint = `/api/member/v1/members/chat/cloudChatGroups`;
+    
     logger.info('[API:chat/cloudChatGroups] Calling memberService', {
       correlationId,
-      url: '/members/chat/cloudChatGroups',
+      endpoint,
     });
 
-    const response = await getCloudChatGroups();
+    const response = await memberService.get(endpoint, {
+      headers: {
+        'x-correlation-id': correlationId,
+      }
+    });
 
-    logger.info('[API:chat/cloudChatGroups] Response received', {
+    logger.info('[API:chat/cloudChatGroups] Response received from memberService', {
       correlationId,
       status: response.status,
-      groupCount: response.data?.chatGroupsMap
-        ? Object.keys(response.data.chatGroupsMap).length
-        : 0,
+      groupCount: Array.isArray(response.data) ? response.data.length : 0,
     });
 
-    // Return the chat groups data, typically a map of group IDs to names
-    return NextResponse.json({
-      chatGroupsMap: response.data?.chatGroupsMap || {},
-      groups: response.data?.groups || [],
-    });
-  } catch (error) {
-    // Detailed error logging
-    logger.error('[API:chat/cloudChatGroups] Error calling service', {
+    return NextResponse.json(response.data);
+  } catch (error: any) {
+    logger.error('[API:chat/cloudChatGroups] Error calling memberService', {
       correlationId,
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
+      response: error.response ? {
+        status: error.response.status,
+        data: error.response.data,
+      } : 'No response',
     });
 
-    // Return a proper error response to the client
-    return NextResponse.json(
-      { error: 'Failed to fetch cloud chat groups' },
-      { status: 500 },
-    );
+    const status = error.response?.status || 500;
+    const errorMessage = error.response?.data?.message || 'Failed to fetch cloud chat groups';
+
+    return NextResponse.json({ error: errorMessage }, { status });
   }
 }

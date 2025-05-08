@@ -27,19 +27,29 @@ export async function computeSessionUser(
       selectedUserId,
       planId,
     });
+
+    // Get the current user
     const currentUser = getCurrentUser(pbe, selectedUserId, planId);
     logger.info('[computeSessionUser] Current user determined', {
       currentUser,
     });
+
+    // Always determine the subscriber profile
+    const subscriberProfile = getSubscriberProfile(pbe);
+    logger.info('[computeSessionUser] Subscriber profile determined', {
+      subscriberId: subscriberProfile?.id,
+      isCurrentUserSubscriber: subscriberProfile?.id === currentUser?.id,
+    });
+
     if (currentUser) {
       const plans = currentUser.plans;
 
       if (planId) {
-        return computeTokenWithPlan(userId, currentUser, planId);
+        return computeTokenWithPlan(userId, currentUser, planId, subscriberProfile);
       } else {
         const selectedPlan = plans.length == 1 ? plans[0] : null;
         if (selectedPlan) {
-          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK);
+          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK, subscriberProfile);
         }
         return {
           id: userId,
@@ -49,26 +59,13 @@ export async function computeSessionUser(
             role: currentUser.type,
             plan: undefined,
           },
+          subscriberId: subscriberProfile?.id, // Always include subscriber ID
         };
       }
     } else {
       logger.error('User of given id not found');
       throw 'User Not Found';
     }
-    logger.info('[computeSessionUser] EXIT success', {
-      userId,
-      selectedUserId,
-      planId,
-    });
-    return {
-      id: userId,
-      currUsr: {
-        fhirId: currentUser.personFhirId,
-        umpi: currentUser.id,
-        role: currentUser.type,
-        plan: undefined,
-      },
-    };
   } catch (error) {
     logger.error('[computeSessionUser] ERROR', { error });
     throw error;
@@ -85,12 +82,52 @@ function getCurrentUser(
     selectedUserId,
     selectedPlanId,
   );
+
+  // For chat functionality, we need to ensure we're using the subscriber profile
+  // This will be used for subscriber ID determination in chat API calls
   if (selectedUserId) {
     const selectedProfile = userProfiles.find((item) => item.selected == true);
+    
+    // Log the selected profile and whether it's a subscriber
+    logger.info('[getCurrentUser] Selected profile', {
+      isSubscriber: selectedProfile?.relationshipType === 'Subscriber',
+      profileId: selectedProfile?.id,
+      relationshipType: selectedProfile?.relationshipType,
+    });
+    
     return selectedProfile!;
   } else {
+    // If no profile is specifically selected, prioritize returning the subscriber if available
+    const subscriberProfile = userProfiles.find(
+      (profile) => profile.type === 'MEM' && profile.relationshipType === 'Subscriber'
+    );
+    
+    if (subscriberProfile) {
+      logger.info('[getCurrentUser] No specific user selected, returning subscriber profile', {
+        subscriberId: subscriberProfile.id,
+      });
+      return subscriberProfile;
+    }
+    
+    logger.info('[getCurrentUser] No specific user selected and no subscriber found, returning first profile', {
+      profileId: userProfiles[0]?.id,
+      relationshipType: userProfiles[0]?.relationshipType,
+    });
+    
     return userProfiles[0];
   }
+}
+
+/**
+ * Get the subscriber profile from the PBE data
+ * The subscriber is always the primary policyholder
+ */
+function getSubscriberProfile(pbe: PBEData): UserProfile | undefined {
+  const userProfiles = computeUserProfilesFromPbe(pbe);
+  // Find the subscriber profile (type MEM with relationshipType "Subscriber")
+  return userProfiles.find(
+    (profile) => profile.type === 'MEM' && profile.relationshipType === 'Subscriber'
+  );
 }
 
 // Computes the session token with user and plan details added
@@ -98,9 +135,11 @@ async function computeTokenWithPlan(
   userId: string,
   currentUser: UserProfile,
   planId: string,
+  subscriberProfile?: UserProfile,
 ): Promise<SessionUser> {
   const loggedUserInfo = await getLoggedInUserInfo(planId, true, userId);
   const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
+  
   return {
     id: userId,
     currUsr: {
@@ -109,7 +148,7 @@ async function computeTokenWithPlan(
       role: currentUser.type,
       plan: {
         fhirId: currentUser.plans.find((item) => item.memCK == planId)!
-          .patientFhirId, //plan.patientFHIRID,
+          .patientFhirId,
         grgrCk: loggedUserInfo.groupData.groupCK,
         grpId: loggedUserInfo.groupData.groupID,
         memCk: planId,
@@ -119,5 +158,6 @@ async function computeTokenWithPlan(
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),
+    subscriberId: subscriberProfile?.id, // Always include the subscriber ID
   };
 }

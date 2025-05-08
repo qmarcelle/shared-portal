@@ -1,22 +1,24 @@
 'use server';
 
-import { isCloudChatEligible } from '@/utils/api/memberService';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
  * API Route handler for /api/chat/isCloudChatEligible endpoint
  *
- * Calls the core MemberAPI endpoint: GET /members/{type}/{id}/chat/isCloudChatEligible
- * from the server to determine if a member is eligible for cloud chat.
+ * This proxies and centralizes calls to the member service chat/isCloudChatEligible endpoint
+ * and ensures all member service API calls are made server-side only.
  *
- * @returns Boolean indicating if member is eligible for cloud chat
+ * Core API: GET /members/{type}/{id}/chat/isCloudChatEligible
+ *
+ * @returns Boolean indicating if the member's group is eligible for cloud chat
  */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const memberId = searchParams.get('memberId');
   const memberType = searchParams.get('memberType') || 'byMemberCk';
-  const groupId = searchParams.get('groupId'); // Optional: If checking by group
+  const planId = searchParams.get('planId');
 
   // Generate a correlation ID for tracing this request through logs
   const correlationId =
@@ -26,57 +28,64 @@ export async function GET(request: NextRequest) {
     correlationId,
     memberId,
     memberType,
-    groupId,
+    planId,
   });
 
-  if (!memberId && !groupId) {
-    logger.error('[API:chat/isCloudChatEligible] Missing required parameters', {
+  if (!memberId) {
+    logger.error('[API:chat/isCloudChatEligible] Missing memberId parameter', {
       correlationId,
     });
     return NextResponse.json(
-      { error: 'Missing required parameter: memberId or groupId' },
+      { error: 'Missing required parameter: memberId' },
       { status: 400 },
     );
   }
 
   try {
+    const endpoint = `/api/member/v1/members/${memberType}/${memberId}/chat/isCloudChatEligible`;
+    
     logger.info('[API:chat/isCloudChatEligible] Calling memberService', {
       correlationId,
       memberId,
       memberType,
-      url: `/members/${memberType}/${memberId}/chat/isCloudChatEligible`,
+      planId,
+      endpoint,
     });
 
-    // Call core service endpoint - ensure memberId is not null
-    if (!memberId) {
-      throw new Error('Missing required parameter: memberId');
-    }
+    const response = await memberService.get(endpoint, {
+      params: planId ? { planId } : undefined,
+      headers: {
+        'x-correlation-id': correlationId,
+      }
+    });
 
-    const response = await isCloudChatEligible(memberType, memberId.toString());
-
-    logger.info('[API:chat/isCloudChatEligible] Response received', {
+    logger.info('[API:chat/isCloudChatEligible] Response received from memberService', {
       correlationId,
       status: response.status,
-      isEligible: !!response.data,
+      data: response.data,
     });
 
-    return NextResponse.json({
-      cloudEligible: !!response.data,
-    });
-  } catch (error) {
-    // Detailed error logging
-    logger.error('[API:chat/isCloudChatEligible] Error calling service', {
+    // The backend returns a MessageResponse with the boolean as a string in the message
+    let isEligible = false;
+    if (response.data && response.data.message) {
+      isEligible = response.data.message.toLowerCase() === 'true';
+    }
+
+    return NextResponse.json({ isCloudChatEligible: isEligible });
+  } catch (error: any) {
+    logger.error('[API:chat/isCloudChatEligible] Error calling memberService', {
       correlationId,
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
-      memberId,
-      memberType,
+      response: error.response ? {
+        status: error.response.status,
+        data: error.response.data,
+      } : 'No response',
     });
 
-    // Return a proper error response to the client
-    return NextResponse.json(
-      { error: 'Failed to check cloud chat eligibility' },
-      { status: 500 },
-    );
+    const status = error.response?.status || 500;
+    const errorMessage = error.response?.data?.message || 'Failed to check cloud chat eligibility';
+
+    return NextResponse.json({ error: errorMessage }, { status });
   }
 }

@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { serverConfig } from '../env-config';
 import { logger } from '../logger';
 import { getServerSideUserId } from '../server_session';
 import { getAuthToken } from './getToken';
-import { serverConfig } from '../env-config';
 
 export const ES_TRANSACTION_ID = 'ES-transactionId';
 

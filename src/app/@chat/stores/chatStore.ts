@@ -217,8 +217,19 @@ export const useChatStore = create<ChatState>((set) => ({
     try {
       set({ isLoading: true, error: null });
 
+      // Ensure we have a valid memberId string for the API call
+      // Don't try to parse it to a number if it's already a string
+      const memberIdString = typeof memberId === 'string' 
+        ? memberId
+        : String(memberId);
+
+      // Check if we have a valid memberId before making the API call
+      if (!memberIdString || memberIdString === 'undefined' || memberIdString === 'null' || memberIdString === 'NaN') {
+        throw new Error('Invalid member ID');
+      }
+
       // SERVER-SIDE CALL: Use fetch to backend API route
-      const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
+      const apiUrl = `/api/chat/getChatInfo?memberId=${memberIdString}&memberType=${memberType}&planId=${planId}`;
       logger.info('[ChatStore] Sending API request for chat configuration', {
         requestId,
         url: apiUrl,
@@ -232,65 +243,130 @@ export const useChatStore = create<ChatState>((set) => ({
         },
       });
 
+      logger.info('[ChatStore] API response received', {
+        requestId,
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok,
+        contentType: response.headers.get('content-type'),
+      });
+
       if (!response.ok) {
+        const errorText = await response.text();
         logger.error('[ChatStore] API request failed', {
           requestId,
           status: response.status,
           statusText: response.statusText,
+          errorText: errorText.substring(0, 500),
         });
-        throw new Error('Failed to load chat configuration');
+        throw new Error(`Failed to load chat configuration: ${response.status} ${response.statusText}`);
       }
 
-      logger.info('[ChatStore] API response received', {
-        requestId,
-        status: response.status,
-      });
+      // Try to parse the JSON response
+      let info;
+      try {
+        const responseText = await response.text();
+        logger.info('[ChatStore] Raw API response', {
+          requestId,
+          responseText: responseText.substring(0, 200) + (responseText.length > 200 ? '...' : ''),
+        });
+        
+        info = JSON.parse(responseText);
+      } catch (parseError) {
+        logger.error('[ChatStore] Failed to parse JSON response', {
+          requestId,
+          error: parseError instanceof Error ? parseError.message : 'Unknown parsing error',
+        });
+        throw new Error('Invalid JSON response from chat configuration API');
+      }
 
-      const info = await response.json();
-      logger.info('[ChatStore] Parsed chat configuration data', {
+      // Log all available keys in the response
+      logger.info('[ChatStore] Parsed chat configuration data structure', {
         requestId,
+        availableKeys: Object.keys(info),
+        hasBusinessHours: !!info.businessHours,
+        businessHoursKeys: info.businessHours ? Object.keys(info.businessHours) : 'N/A',
         isEligible: info.isEligible,
         cloudChatEligible: info.cloudChatEligible,
         chatGroup: info.chatGroup,
-        businessHoursOpen: !!info.businessHours?.isOpen,
+      });
+
+      // Transform the response data to match the format expected by the UI
+      const adaptedInfo = {
+        ...info,
+        // If isEligible is not provided, assume true if chatGroup exists
+        isEligible: info.isEligible !== undefined ? info.isEligible : !!info.chatGroup,
+        // If businessHours is not provided, create it from workingHours
+        businessHours: info.businessHours || {
+          isOpen: info.workingHours === 'S_S_24' || info.workingHours?.includes('24'),
+          text: info.workingHours === 'S_S_24' ? '24 hours, 7 days a week' : info.workingHours || ''
+        },
+        // Ensure these fields have default values if not present
+        first_name: info.first_name || '',
+        last_name: info.last_name || '',
+        SERV_Type: info.SERV_Type || 'MemberChat',
+        GROUP_ID: info.GROUP_ID || '',
+        member_ck: info.member_ck || memberId,
+        Origin: info.Origin || 'Member',
+        Source: info.Source || 'Member Portal',
+        lob_group: info.lob_group || 'Member'
+      };
+
+      logger.info('[ChatStore] Adapted chat configuration', {
+        requestId,
+        isEligible: adaptedInfo.isEligible,
+        businessHoursOpen: adaptedInfo.businessHours.isOpen,
+        businessHoursText: adaptedInfo.businessHours.text,
+        chatGroup: adaptedInfo.chatGroup
+      });
+
+      // Log critical values that determine chat rendering
+      logger.info('[ChatStore] Critical chat configuration values', {
+        requestId,
+        isEligible: adaptedInfo.isEligible,
+        cloudChatEligible: adaptedInfo.cloudChatEligible,
+        businessHoursOpen: adaptedInfo.businessHours?.isOpen,
+        businessHoursText: adaptedInfo.businessHours?.text,
+        chatGroup: adaptedInfo.chatGroup,
+        RoutingChatbotInteractionId: adaptedInfo.RoutingChatbotInteractionId,
       });
 
       set({
-        eligibility: info,
-        isEligible: info.isEligible,
-        chatMode: info.cloudChatEligible ? 'cloud' : 'legacy',
-        chatGroup: info.chatGroup,
-        isOOO: !info.businessHours?.isOpen,
-        businessHoursText: info.businessHours?.text || '',
-        routingInteractionId: info.RoutingChatbotInteractionId,
+        eligibility: adaptedInfo,
+        isEligible: adaptedInfo.isEligible,
+        chatMode: adaptedInfo.cloudChatEligible ? 'cloud' : 'legacy',
+        chatGroup: adaptedInfo.chatGroup,
+        isOOO: !adaptedInfo.businessHours?.isOpen,
+        businessHoursText: adaptedInfo.businessHours?.text || '',
+        routingInteractionId: adaptedInfo.RoutingChatbotInteractionId,
         userData: {
-          SERV_Type: info.SERV_Type,
-          firstname: info.first_name,
-          lastname: info.last_name,
-          RoutingChatbotInteractionId: info.RoutingChatbotInteractionId,
+          SERV_Type: adaptedInfo.SERV_Type,
+          firstname: adaptedInfo.first_name,
+          lastname: adaptedInfo.last_name,
+          RoutingChatbotInteractionId: adaptedInfo.RoutingChatbotInteractionId,
           PLAN_ID: planId,
-          GROUP_ID: info.GROUP_ID,
-          IDCardBotName: info.IDCardBotName,
-          IsVisionEligible: String((info as any).IsVisionEligible),
-          MEMBER_ID: String(info.member_ck),
-          coverage_eligibility: info.coverage_eligibility,
-          INQ_TYPE: info.INQ_TYPE,
-          IsDentalEligible: String((info as any).IsDentalEligible),
-          MEMBER_DOB: info.MEMBER_DOB,
-          LOB: info.lob_group,
-          lob_group: info.lob_group,
-          IsMedicalEligibile: String((info as any).IsMedicalEligibile),
-          Origin: info.Origin,
-          Source: info.Source,
+          GROUP_ID: adaptedInfo.GROUP_ID,
+          IDCardBotName: adaptedInfo.IDCardBotName,
+          IsVisionEligible: String((adaptedInfo as any).IsVisionEligible),
+          MEMBER_ID: String(adaptedInfo.member_ck),
+          coverage_eligibility: adaptedInfo.coverage_eligibility,
+          INQ_TYPE: adaptedInfo.INQ_TYPE,
+          IsDentalEligible: String((adaptedInfo as any).IsDentalEligible),
+          MEMBER_DOB: adaptedInfo.MEMBER_DOB,
+          LOB: adaptedInfo.lob_group,
+          lob_group: adaptedInfo.lob_group,
+          IsMedicalEligibile: String((adaptedInfo as any).IsMedicalEligibile),
+          Origin: adaptedInfo.Origin,
+          Source: adaptedInfo.Source,
         },
         formInputs: [
-          { id: 'SERV_Type', value: info.SERV_Type },
-          { id: 'firstname', value: info.first_name },
-          { id: 'lastname', value: info.last_name },
+          { id: 'SERV_Type', value: adaptedInfo.SERV_Type },
+          { id: 'firstname', value: adaptedInfo.first_name },
+          { id: 'lastname', value: adaptedInfo.last_name },
           { id: 'PLAN_ID', value: planId },
-          { id: 'GROUP_ID', value: info.GROUP_ID },
-          { id: 'MEMBER_ID', value: String(info.member_ck) },
-          { id: 'LOB', value: info.lob_group },
+          { id: 'GROUP_ID', value: adaptedInfo.GROUP_ID },
+          { id: 'MEMBER_ID', value: String(adaptedInfo.member_ck) },
+          { id: 'LOB', value: adaptedInfo.lob_group },
           // ...add more as needed for all required fields...
         ],
         isLoading: false,
@@ -298,7 +374,8 @@ export const useChatStore = create<ChatState>((set) => ({
 
       logger.info('[ChatStore] Chat configuration loaded successfully', {
         requestId,
-        chatMode: info.cloudChatEligible ? 'cloud' : 'legacy',
+        chatMode: adaptedInfo.cloudChatEligible ? 'cloud' : 'legacy',
+        stateUpdated: true
       });
     } catch (err) {
       logger.error('[ChatStore] Error loading chat configuration', {

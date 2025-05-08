@@ -1,0 +1,75 @@
+.custom-chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 9999;
+}
+
+.custom-chat-button:hover {
+  background-color: #0055b3;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.custom-chat-button:active {
+  transform: translateY(0);
+}
+
+.chat-icon {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.chat-text {
+  white-space: nowrap;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .custom-chat-button {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Circular button variant */
+.custom-chat-button.circular {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.custom-chat-button.circular .chat-text {
+  display: none;
+}
+
+.custom-chat-button.circular .chat-icon {
+  margin-right: 0;
+}
+
+/* Animation for newly rendered button */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-chat-button {
+  animation: fadeIn 0.3s ease-out;
+}

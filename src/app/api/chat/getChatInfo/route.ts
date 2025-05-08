@@ -1,6 +1,6 @@
 'use server';
 
-import { getChatInfo } from '@/utils/api/memberService';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -49,35 +49,34 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    logger.info('[API:chat/getChatInfo] Calling memberService.getChatInfo', {
+    // Log the base URL and full endpoint URL for debugging
+    logger.info('[API:chat/getChatInfo] Member service configuration', {
+      correlationId,
+      baseURL: memberService.defaults.baseURL,
+    });
+
+    const endpoint = `/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo`;
+    
+    logger.info('[API:chat/getChatInfo] Calling memberService', {
       correlationId,
       memberId,
       memberType,
       planId,
-      url: `/members/${memberType}/${memberId}/chat/getChatInfo`,
+      endpoint,
     });
 
-    // Call the core MemberAPI endpoint with all required parameters
-    const response = await getChatInfo(memberType, memberId.toString());
-
-    // If planId is provided, we should pass it in the params
-    // const response = await memberService.get(
-    //   `/members/${memberType}/${memberId}/chat/getChatInfo`,
-    //   planId ? { params: { planId } } : undefined
-    // );
+    // Direct call using memberService
+    const response = await memberService.get(endpoint, {
+      params: planId ? { planId } : undefined,
+      headers: {
+        'x-correlation-id': correlationId,
+      }
+    });
 
     logger.info('[API:chat/getChatInfo] Response received from memberService', {
       correlationId,
       status: response.status,
-      data: {
-        isEligible: response.data.isEligible,
-        cloudChatEligible: response.data.cloudChatEligible,
-        chatGroup: response.data.chatGroup,
-        workingHours: response.data.workingHours,
-        chatBotEligibility: response.data.chatBotEligibility,
-        routingChatBotEligibility: response.data.routingChatBotEligibility,
-        hasBusinessHours: !!response.data.businessHours,
-      },
+      data: response.data,
     });
 
     // Transform the response if needed to match expected ChatInfo interface
@@ -93,21 +92,28 @@ export async function GET(request: NextRequest) {
     };
 
     return NextResponse.json(chatInfo);
-  } catch (error) {
-    // Detailed error logging
+  } catch (error: any) {
+    // Detailed error logging with additional context
     logger.error('[API:chat/getChatInfo] Error calling memberService', {
       correlationId,
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
+      response: error.response ? {
+        status: error.response.status,
+        data: error.response.data,
+        headers: error.response.headers,
+      } : 'No response',
+      request: error.request ? 'Request was made but no response received' : 'Request setup error',
       memberId,
       memberType,
       planId,
     });
 
+    // Return appropriate status code based on the error
+    const status = error.response?.status || 500;
+    const errorMessage = error.response?.data?.message || 'Failed to fetch chat info';
+
     // Return a proper error response to the client
-    return NextResponse.json(
-      { error: 'Failed to fetch chat info' },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: errorMessage }, { status });
   }
 }

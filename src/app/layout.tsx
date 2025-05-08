@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import '@/app/globals.css';
 import { auth } from '@/auth';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
@@ -10,10 +9,12 @@ import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHead
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import { SessionProvider } from 'next-auth/react';
+import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import ChatLoader from './@chat/components/ChatLoader';
+import { ChatErrorBoundary } from './@chat/components/ChatErrorBoundary';
+import ChatLoading from './@chat/loading';
 import ClientLayout from './ClientLayout';
 
 export default async function RootLayout({
@@ -24,10 +25,6 @@ export default async function RootLayout({
   chat: React.ReactNode;
 }) {
   const session = await auth();
-
-  // Only fetch userInfo if we have a session and memCk
-  const memCk = session?.user?.currUsr?.plan?.memCk;
-  const userInfo = memCk ? await getLoggedInUserInfo(memCk) : null;
 
   // Log server environment variables
   await logServerEnvironment();
@@ -41,13 +38,14 @@ export default async function RootLayout({
             <SiteHeaderServerWrapper />
             <ClientLayout>
               {children}
-              {session?.user?.currUsr?.plan &&
-                userInfo?.members[0].memberCk && (
-                  <ChatLoader
-                    memberId={userInfo?.members[0].memberCk}
-                    planId={session?.user?.currUsr?.plan?.grpId}
-                  />
-                )}
+              {/* Use the parallel route with Suspense and error boundary */}
+              {session?.user?.currUsr?.plan && (
+                <ChatErrorBoundary>
+                  <Suspense fallback={<ChatLoading />}>
+                    {chat}
+                  </Suspense>
+                </ChatErrorBoundary>
+              )}
             </ClientLayout>
             <Footer />
           </SessionProvider>

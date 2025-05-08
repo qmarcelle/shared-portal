@@ -15,7 +15,7 @@ export async function GET() {
   }
 
   return NextResponse.json({
-    memCk: session.user.currUsr.plan.memCk,
-    grpId: session.user.currUsr.plan.grpId,
+    memCk: session?.user.currUsr.plan.memCk,
+    grpId: session?.user.currUsr.plan.grpId,
   });
 }
