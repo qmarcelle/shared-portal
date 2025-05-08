@@ -89,7 +89,7 @@ export const getMenuNavigation = (
         description: 'This is Primary Care Options',
         category: 'Find Care',
         showOnMenu: isPrimaryCareMenuOption,
-        url: 'findcare/primaryCareOptions',
+        url: '/findcare/primaryCareOptions',
         external: false,
       },
       {
