@@ -2,6 +2,29 @@
 import { ChatDataPayload, ChatError } from '@/types/chat.types';
 import { ChatService, loadGenesysScript } from '../ChatService';
 
+// --- Chat Types (local stubs for test) ---
+type ChatDataPayload = {
+  PLAN_ID: string;
+  GROUP_ID: string;
+  LOB: string;
+  lob_group: string;
+  IsMedicalEligibile: boolean;
+  IsDentalEligible: boolean;
+  IsVisionEligible: boolean;
+  Origin: string;
+  Source: string;
+  [key: string]: any;
+};
+
+class ChatError extends Error {
+  code: string;
+  constructor(message: string, code: string) {
+    super(message);
+    this.name = 'ChatError';
+    this.code = code;
+  }
+}
+
 describe('ChatService', () => {
   let chatService: ChatService;
 

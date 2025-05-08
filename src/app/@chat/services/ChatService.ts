@@ -1,4 +1,5 @@
-import { ChatDataPayload, ChatError } from '@/types/chat.types';
+// import type { ChatDataPayload, ChatError } from '../../../global.d';
+import '../../../global.d.ts';
 
 // Define IChatService as a minimal interface if only used here
 export interface IChatService {
@@ -21,6 +22,29 @@ import {
 const GENESYS_SCRIPT_ID = 'genesys-web-messenger-script'; // Changed ID to avoid conflicts
 const MAX_RECONNECT_ATTEMPTS = 3;
 const RECONNECT_DELAY = 2000; // 2 seconds
+
+// --- Chat Types (local copy for ChatService) ---
+type ChatDataPayload = {
+  PLAN_ID: string;
+  GROUP_ID: string;
+  LOB: string;
+  lob_group: string;
+  IsMedicalEligibile: boolean;
+  IsDentalEligible: boolean;
+  IsVisionEligible: boolean;
+  Origin: string;
+  Source: string;
+  [key: string]: any;
+};
+
+class ChatError extends Error {
+  code: string;
+  constructor(message: string, code: string) {
+    super(message);
+    this.name = 'ChatError';
+    this.code = code;
+  }
+}
 
 /**
  * ChatService class implements the core chat functionality.

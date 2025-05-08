@@ -1,4 +1,4 @@
-import { ChatError } from '@/types/chat.types';
+// import { ChatError } from '@/types/chat.types';
 
 // Extend Window interface to include elementTag property
 declare global {
@@ -125,3 +125,13 @@ export const handleChatError = (error: unknown): ChatError => {
   console.error('Unknown error type converted to ChatError:', chatError);
   return chatError;
 };
+
+// --- Local ChatError definition ---
+class ChatError extends Error {
+  code: string;
+  constructor(message: string, code: string) {
+    super(message);
+    this.name = 'ChatError';
+    this.code = code;
+  }
+}

@@ -27,4 +27,5 @@ export type SessionUser = {
   };
   rules?: string;
   vRules?: VisibilityRules;
+  subscriberId?: string;
 };

@@ -42,7 +42,7 @@ declare global {
       routingchatbotEligible?: boolean;
       memberClientID?: string;
       isBlueEliteGroup?: string;
-      selfServiceLinks?: Array<{key: string, value: string}>;
+      selfServiceLinks?: Array<{ key: string; value: string }>;
       idCardChatBotName?: string;
     };
     startChat?: () => void;
@@ -58,5 +58,27 @@ declare global {
   }
 }
 
-export type { };
+// --- Chat Types (inferred from usage) ---
+export type ChatDataPayload = {
+  PLAN_ID: string;
+  GROUP_ID: string;
+  LOB: string;
+  lob_group: string;
+  IsMedicalEligibile: boolean;
+  IsDentalEligible: boolean;
+  IsVisionEligible: boolean;
+  Origin: string;
+  Source: string;
+  [key: string]: any; // Allow for additional dynamic fields
+};
 
+export class ChatError extends Error {
+  code: string;
+  constructor(message: string, code: string) {
+    super(message);
+    this.name = 'ChatError';
+    this.code = code;
+  }
+}
+
+export type {};

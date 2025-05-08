@@ -16,7 +16,6 @@ import Image from 'next/image';
 import { ResourceMiniCard } from '../support/components/ResourceMiniCard';
 import { AmplifyAdvisors } from './components/AmplifyAdvisors';
 import { AmplifyHealthAppInformation } from './components/AmplifyHealthAppInformation';
-import amplifyHealthAdvisorsGroup from '/assets/amplify_health_advisors_group.png';
 
 const AmplifyHealthSupport = () => {
   const getHeroBannerContent = () => {
@@ -44,7 +43,7 @@ const AmplifyHealthSupport = () => {
         <Spacer axis="horizontal" size={32}></Spacer>
         <Image
           className="min-h-[200px] self-end object-cover md:max-lg:mt-20 sm:self-auto basis-1/2 min-w-0"
-          src={amplifyHealthAdvisorsGroup}
+          src="/assets/amplify_health_advisors_group.png"
           alt="Amplify Health App"
         />
       </section>
