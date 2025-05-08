@@ -47,8 +47,10 @@ const getRewards = (
   const maxPoints: number = 100;
   let pointConversion: number = 0;
   const balances = response.accounts?.balance;
+  let isSelfFunded: boolean = true;
 
   if (session?.user.vRules?.fullyInsured || session?.user.vRules?.levelFunded) {
+    isSelfFunded = false;
     pointConversion = 1;
     (balances || []).forEach((balanceObj) => {
       if (balanceObj.rewardType === 'Fully Insured - Points') {
@@ -86,5 +88,6 @@ const getRewards = (
   memberRewards.quarterlyMaxPoints = maxPoints;
   memberRewards.totalAmountEarned = dollars;
   memberRewards.totalAmount = maxPoints * pointConversion;
+  memberRewards.isSelfFunded = isSelfFunded;
   return memberRewards;
 };

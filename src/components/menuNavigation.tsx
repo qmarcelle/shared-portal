@@ -12,6 +12,7 @@ import {
   isBiometricScreening,
   isBlueCareEligible,
   isBlueCareNotEligible,
+  isChipRewardsEligible,
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
@@ -367,7 +368,8 @@ export const getMenuNavigation = (
         title: 'Wellness Rewards',
         description: 'This is Wellness Rewards',
         category: 'Wellness',
-        showOnMenu: isNotWellnessQa,
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isChipRewardsEligible(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`,
         external: true,
       },
