@@ -5,9 +5,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import Link from 'next/link';
-import amplifyHealthGetCare from '/assets/amplify_health_app_get_care.png';
-import appleStoreLogo from '/assets/apple_store.svg';
-import playStoreLogo from '/assets/google_play.svg';
 
 export const AmplifyHealthAppInformation = () => {
   return (
@@ -17,7 +14,7 @@ export const AmplifyHealthAppInformation = () => {
         <Column>
           <Image
             className="min-h-[280px] self-center md:self-end object-cover sm:self-auto basis-1/2 min-w-0"
-            src={amplifyHealthGetCare}
+            src="/assets/amplify_health_app_get_care.png"
             alt="Amplify Health Get Care"
           />
         </Column>
@@ -30,8 +27,10 @@ export const AmplifyHealthAppInformation = () => {
           <Row className="justify-start">
             <Link href="https://apps.apple.com/us/app/amplifyhealth/id6444489335">
               <Image
-                src={appleStoreLogo}
-                alt="Download Amplify App from AppStore"
+                src="/assets/apple_store.svg"
+                alt="Download on the Apple App Store"
+                width={120}
+                height={40}
               />
             </Link>
             <Link
@@ -39,8 +38,10 @@ export const AmplifyHealthAppInformation = () => {
               href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
             >
               <Image
-                src={playStoreLogo}
-                alt="Download Amplify App from PlayStore"
+                src="/assets/google_play.svg"
+                alt="Get it on Google Play"
+                width={120}
+                height={40}
               />
             </Link>
           </Row>

@@ -6,7 +6,6 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import { ReactElement } from 'react';
-import editIcon from '/assets/edit.svg';
 
 export interface UpdateCommunicationProps extends IComponent {
   label: ReactElement;
@@ -20,7 +19,7 @@ export const UpdateCommunication = ({
   label,
   subLabel,
   methodName,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src="/assets/edit.svg" alt="link" />,
   divider = false,
   onClick,
 }: UpdateCommunicationProps) => {

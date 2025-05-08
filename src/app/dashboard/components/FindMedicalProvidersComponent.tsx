@@ -13,7 +13,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import FindCare from '/assets/find_care_map.svg';
 
 interface FindMedicalProvidersComponentProps extends IComponent {
   isButtonHorizontal?: boolean;
@@ -29,7 +28,11 @@ export const FindMedicalProvidersComponent = ({
     <Card className={`large-section ${className}`}>
       <section className="gap-8">
         <Row className="align-top items-center">
-          <Image src={FindCare} className="w-[40px] h-[40px]" alt="" />
+          <Image
+            src="/assets/find_care_map.svg"
+            className="w-[40px] h-[40px]"
+            alt=""
+          />
           <Spacer axis="horizontal" size={16} />
           <Header
             text="Find Medical Providers"

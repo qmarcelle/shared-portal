@@ -15,8 +15,6 @@ import { BenefitTypeDetail } from '../models/benefit_details';
 import { BenefitLevelDetails } from '../models/benefit_type_header_details';
 import { BenefitType } from '../models/benefitConsts';
 import { useBenefitsStore } from '../stores/benefitsStore';
-import estimateCost from '/assets/estimate_cost.svg';
-import servicesUsed from '/assets/services_used.svg';
 
 export const Details = ({
   balanceData,
@@ -100,13 +98,13 @@ export const Details = ({
               <InfoCard
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
-                icon={estimateCost}
+                icon="/assets/estimate_cost.svg"
                 link="findcare"
               />
               <InfoCard
                 label="Services Used"
                 body="View a list of common services, the maximum amount covered by your plan and how many you've used."
-                icon={servicesUsed}
+                icon="/assets/services_used.svg"
                 link="servicesused"
               />
               {/* Add Medical Balances Card */}

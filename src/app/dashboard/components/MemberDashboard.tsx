@@ -27,8 +27,6 @@ import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBa
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 import { DashboardData } from '../models/dashboardData';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
-import EstimateCost from '/assets/estimate_cost.svg';
-import FindCare from '/assets/find_care_search.svg';
 
 export type DashboardProps = {
   data: DashboardData;
@@ -221,7 +219,11 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               <PillBox
                 title="Looking for Care? Find A:"
                 icon={
-                  <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
+                  <Image
+                    src="/assets/find_care_search.svg"
+                    className="w-[50px] h-[50px]"
+                    alt=""
+                  />
                 }
                 pillObjects={[
                   {
@@ -268,7 +270,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               <InfoCard
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
-                icon={EstimateCost}
+                icon="/assets/estimate_cost.svg"
                 link={process.env.NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE ?? ''}
               ></InfoCard>
             )}
@@ -277,7 +279,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 title="Planning for a procedure? You can estimate costs for:"
                 icon={
                   <Image
-                    src={EstimateCost}
+                    src="/assets/estimate_cost.svg"
                     className="w-[50px] h-[50px]"
                     alt=""
                   />

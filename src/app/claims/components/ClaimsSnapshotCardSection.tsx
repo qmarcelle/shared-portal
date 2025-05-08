@@ -14,8 +14,6 @@ import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import downIcon from '/assets/down.svg';
-import DownloadIcon from '/assets/download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
@@ -118,7 +116,7 @@ export const ClaimsSnapshotCardSection = ({
           >
             {claims.length} Claims
             <Image
-              src={DownloadIcon}
+              src="/assets/download.svg"
               className="w-[20px] h-[20px] ml-2"
               alt=""
               aria-hidden="true"
@@ -135,7 +133,7 @@ export const ClaimsSnapshotCardSection = ({
                 <a className="link ml-2 flex" aria-labelledby="sort-label">
                   {val.label}{' '}
                   <Image
-                    src={downIcon}
+                    src="/assets/down.svg"
                     className="w-[20px] h-[20px] ml-2"
                     alt=""
                     aria-hidden="true"

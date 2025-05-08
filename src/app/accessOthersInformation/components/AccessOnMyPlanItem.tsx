@@ -12,7 +12,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import editIcon from '/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
   memberName: string;
@@ -30,7 +29,7 @@ export const AccessOnMyPlanItem = ({
   onClick,
   className,
   infoButton,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src="/assets/edit.svg" alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: AccessOnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
