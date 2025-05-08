@@ -1,22 +1,25 @@
 'use client';
 
+// ChatWidget is the main orchestrator for the chat experience.
+// It loads chat configuration, manages eligibility, and injects the Genesys script.
+// All state and side effects are logged for traceability and debugging.
+
 import { ReactNode, useEffect, useRef } from 'react';
 import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
 import { useChatStore } from '../stores/chatStore';
 import { GenesysScript } from './GenesysScript';
 
 interface ChatWidgetProps {
-  memberId: string | number;
-  planId: string;
-  planName?: string;
-  hasMultiplePlans?: boolean;
-  onLockPlanSwitcher?: (locked: boolean) => void;
-  onOpenPlanSwitcher?: () => void;
-  _onError?: (error: Error) => void;
-  memberType?: string;
-  children?: ReactNode; // Add support for children
-  // Add a new prop to force enable the chat (for development/testing)
-  forceEnable?: boolean;
+  memberId: string | number; // Unique member identifier (should always be a string)
+  planId: string; // Unique plan identifier
+  planName?: string; // Optional plan name for display
+  hasMultiplePlans?: boolean; // If true, enables plan switcher UI
+  onLockPlanSwitcher?: (locked: boolean) => void; // Callback to lock/unlock plan switcher
+  onOpenPlanSwitcher?: () => void; // Callback to open plan switcher
+  _onError?: (error: Error) => void; // Error handler
+  memberType?: string; // Member type for API
+  children?: ReactNode; // Optional children for extensibility
+  forceEnable?: boolean; // Force enable chat (for dev/testing)
 }
 
 export function ChatWidget({
@@ -28,9 +31,10 @@ export function ChatWidget({
   onOpenPlanSwitcher,
   _onError,
   memberType = 'byMemberCk',
-  children, // Add children to the parameter list
-  forceEnable = true, // Default to true to fix the issue
+  children,
+  forceEnable = true,
 }: ChatWidgetProps) {
+  // Zustand store for chat state and actions
   const {
     loadChatConfiguration,
     isLoading,
@@ -41,16 +45,18 @@ export function ChatWidget({
     isOOO,
   } = useChatStore();
 
+  // Ref to ensure chat config is only loaded once per mount
   const initializedRef = useRef(false);
 
-  // Handle plan switcher lock/unlock
+  // Lock/unlock plan switcher if multiple plans are present
   usePlanSwitcherLock(hasMultiplePlans);
 
-  // Add debugging for widget state
+  // Log all relevant state and prop changes for debugging
   useEffect(() => {
     console.log('[ChatWidget] Widget state:', {
       memberId,
       planId,
+      planName,
       isLoading,
       isEligible,
       isOOO,
@@ -62,6 +68,7 @@ export function ChatWidget({
   }, [
     memberId,
     planId,
+    planName,
     isLoading,
     isEligible,
     isOOO,
@@ -70,18 +77,15 @@ export function ChatWidget({
     forceEnable,
   ]);
 
-  // Initialize chat configuration
+  // Load chat configuration on first mount
   useEffect(() => {
     if (initializedRef.current) return;
-
-    // Set initializedRef to true IMMEDIATELY to prevent duplicate calls
     initializedRef.current = true;
 
     const loadConfig = async () => {
       try {
-        // Properly extract and validate memberId
+        // Validate and normalize memberId
         let validMemberId;
-
         if (typeof memberId === 'string') {
           validMemberId = memberId;
         } else if (typeof memberId === 'number') {
@@ -91,31 +95,29 @@ export function ChatWidget({
           typeof memberId === 'object' &&
           'memCk' in memberId
         ) {
-          // If memberId is an object with memCk property, extract that value
           validMemberId = (memberId as any).memCk;
           console.warn(
-            '[ChatWidget] memberId was passed as object, extracted memCk:',
+            '[ChatWidget] memberId was object, extracted memCk:',
             validMemberId,
           );
         } else {
           console.error('[ChatWidget] Invalid memberId format:', memberId);
-          return; // Exit early to prevent API calls with invalid data
+          return; // Prevent API call with invalid data
         }
 
-        // Validate planId too
+        // Validate planId
         if (!planId) {
           console.error('[ChatWidget] Missing planId');
           return;
         }
 
+        // Log configuration load attempt
         console.log('[ChatWidget] Loading chat configuration with:', {
           memberId: validMemberId,
-          planId: planId,
-          memberType: memberType,
+          planId,
+          memberType,
         });
-        //Verify that the memberId is a stringify that the memberId is a string
         await loadChatConfiguration(validMemberId, planId, memberType);
-
         console.log('[ChatWidget] Chat configuration loaded successfully');
       } catch (error) {
         console.error('[ChatWidget] Error loading chat configuration:', error);
@@ -126,22 +128,27 @@ export function ChatWidget({
     loadConfig();
   }, [loadChatConfiguration, memberId, planId, memberType, _onError]);
 
-  // Handle rendering based on state
+  // Show loading indicator if chat config is loading
   if (isLoading) {
     console.log('[ChatWidget] Showing loading state');
-    return null; // You might want to show a loading indicator here
+    return null; // Optionally, render a spinner or skeleton here
   }
 
   // If not eligible or error, don't render the widget
   if ((!isEligible && !forceEnable) || error) {
+    console.warn(
+      '[ChatWidget] Not eligible or error present, not rendering chat widget.',
+    );
     return null;
   }
 
   // If out of office hours and not forcing display, don't render
   if (isOOO && !forceEnable) {
+    console.log('[ChatWidget] Out of office hours, not rendering chat widget.');
     return null;
   }
 
+  // Log rendering of the chat widget container
   console.log(
     '[ChatWidget] Rendering chat widget container with chat mode:',
     chatMode,
@@ -159,6 +166,8 @@ export function ChatWidget({
           );
         }}
       />
+      {/* Render children if provided (for extensibility/testing) */}
+      {children}
     </>
   );
 }

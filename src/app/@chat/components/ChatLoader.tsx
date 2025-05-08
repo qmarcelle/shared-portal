@@ -1,4 +1,9 @@
 'use client';
+
+// ChatLoader is responsible for orchestrating the chat initialization flow.
+// It loads chat configuration, manages script loading, handles retries, and renders the appropriate chat UI.
+// All state changes, retries, and errors are logged for traceability and debugging.
+
 import { logger } from '@/utils/logger';
 import { useEffect, useState } from 'react';
 import { useChatStore } from '../stores/chatStore';
@@ -30,6 +35,7 @@ export default function ChatLoader({
   planId,
   memberType = 'byMemberCk',
 }: ChatLoaderProps) {
+  // Zustand store for chat state and actions
   const {
     loadChatConfiguration,
     isChatActive,
@@ -44,22 +50,28 @@ export default function ChatLoader({
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [initializing, setInitializing] = useState(true);
   const componentId = Math.random().toString(36).substring(2, 10);
-  
+
   // Add a state for handling load attempts
   const [loadAttempts, setLoadAttempts] = useState(0);
 
   // Log component rendering and state including raw props
   useEffect(() => {
-    // This will be visible in browser console with full details
-    console.log('[ChatLoader] Component rendered with props:', { 
+    console.log('[ChatLoader] Component rendered with props:', {
       rawMemberId: memberId,
-      rawPlanId: planId, 
+      rawPlanId: planId,
       rawMemberType: memberType,
       memberIdType: typeof memberId,
-      planIdType: typeof planId
+      planIdType: typeof planId,
+      initializing,
+      isLoading,
+      isEligible,
+      isOOO,
+      chatMode,
+      error,
+      scriptLoaded,
+      chatGroup,
+      loadAttempts,
     });
-    
-    // This will go to the logger (might not be visible in browser console)
     logger.info('[ChatLoader] Component rendered', {
       componentId,
       memberId,
@@ -75,53 +87,62 @@ export default function ChatLoader({
       chatGroup,
       loadAttempts,
     });
-  }, [memberId, planId, memberType, initializing, isLoading, isEligible, isOOO, chatMode, error, scriptLoaded, chatGroup, componentId, loadAttempts]);
+  }, [
+    memberId,
+    planId,
+    memberType,
+    initializing,
+    isLoading,
+    isEligible,
+    isOOO,
+    chatMode,
+    error,
+    scriptLoaded,
+    chatGroup,
+    componentId,
+    loadAttempts,
+  ]);
 
   // Detect when Genesys script is loaded
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
-    // Client-side console log for immediate visibility
+    // Log window global state for debug
     console.log('[ChatLoader] Window globals check:', {
       windowHasGenesys: typeof window.Genesys !== 'undefined',
       windowHasGenesysUnderscore: typeof window._genesys !== 'undefined',
-      globalKeys: Object.keys(window).filter(key => 
-        key.toLowerCase().includes('genesys') || 
-        key.toLowerCase().includes('chat') ||
-        key.toLowerCase().includes('widget')
-      )
+      globalKeys: Object.keys(window).filter(
+        (key) =>
+          key.toLowerCase().includes('genesys') ||
+          key.toLowerCase().includes('chat') ||
+          key.toLowerCase().includes('widget'),
+      ),
     });
-    
-    // Log window global state for debug
     logger.info('[ChatLoader] Window globals check', {
       componentId,
       windowHasGenesys: typeof window.Genesys !== 'undefined',
       windowHasGenesysUnderscore: typeof window._genesys !== 'undefined',
-      allGlobalKeys: Object.keys(window).filter(key => 
-        key.toLowerCase().includes('genesys') || 
-        key.toLowerCase().includes('chat') ||
-        key.toLowerCase().includes('widget')
-      )
+      allGlobalKeys: Object.keys(window).filter(
+        (key) =>
+          key.toLowerCase().includes('genesys') ||
+          key.toLowerCase().includes('chat') ||
+          key.toLowerCase().includes('widget'),
+      ),
     });
-    
     const checkGenesysLoaded = () => {
       // For legacy chat, we need to check if ANY of these globals exist
-      const legacyLoaded = typeof window._genesys !== 'undefined' || 
-                          typeof window.Genesys !== 'undefined' ||
-                          typeof window.GenesysWidget !== 'undefined' ||
-                          typeof window.ChatWidget !== 'undefined';
-      
+      const legacyLoaded =
+        typeof window._genesys !== 'undefined' ||
+        typeof window.Genesys !== 'undefined' ||
+        typeof window.GenesysWidget !== 'undefined' ||
+        typeof window.ChatWidget !== 'undefined';
       // For cloud chat, check for Genesys object
       const cloudLoaded = typeof window.Genesys !== 'undefined';
-      
-      // Client-side console log for immediate visibility
+      // Log what we're checking for
       console.log('[ChatLoader] Checking Genesys script status:', {
         chatMode,
         legacyLoaded,
         cloudLoaded,
       });
-      
-      // Log what we're checking for
       logger.info('[ChatLoader] Checking Genesys script status', {
         componentId,
         chatMode,
@@ -130,12 +151,13 @@ export default function ChatLoader({
         cloudScriptExists: typeof window.Genesys !== 'undefined',
         legacyScriptExists: typeof window._genesys !== 'undefined',
         genesysWidgetExists: typeof window.GenesysWidget !== 'undefined',
-        chatWidgetExists: typeof window.ChatWidget !== 'undefined'
+        chatWidgetExists: typeof window.ChatWidget !== 'undefined',
       });
-      
       // Check based on chat mode (cloud or legacy)
-      if ((chatMode === 'cloud' && cloudLoaded) || 
-          (chatMode === 'legacy' && legacyLoaded)) {
+      if (
+        (chatMode === 'cloud' && cloudLoaded) ||
+        (chatMode === 'legacy' && legacyLoaded)
+      ) {
         logger.info('[ChatLoader] Genesys script loaded successfully', {
           componentId,
           chatMode,
@@ -145,47 +167,39 @@ export default function ChatLoader({
       }
       return false;
     };
-    
     // Check immediately if already loaded
     if (checkGenesysLoaded()) return;
-    
     // Check periodically until loaded
     const interval = setInterval(() => {
       if (checkGenesysLoaded()) {
         clearInterval(interval);
       }
     }, 300);
-    
     return () => clearInterval(interval);
   }, [chatMode, componentId]);
 
-  // Load chat configuration on mount
+  // Load chat configuration on mount and handle retries
   useEffect(() => {
     const initializeChat = async () => {
-      // Client-side console log for immediate visibility
       console.log('[ChatLoader] Initializing chat configuration with:', {
         memberId,
         planId,
         memberType,
-        attemptNumber: loadAttempts + 1
+        attemptNumber: loadAttempts + 1,
       });
-      
       logger.info('[ChatLoader] Initializing chat configuration', {
         componentId,
         memberId,
         planId,
         memberType,
-        loadAttempt: loadAttempts + 1
+        loadAttempt: loadAttempts + 1,
       });
-      
       try {
-        // Convert memberId to number if it's a string to match the function parameter type
         await loadChatConfiguration(
           typeof memberId === 'string' ? parseInt(memberId, 10) : memberId,
           planId,
-          memberType
+          memberType,
         );
-        
         console.log('[ChatLoader] Chat configuration loaded successfully');
         logger.info('[ChatLoader] Chat configuration loaded', {
           componentId,
@@ -198,11 +212,8 @@ export default function ChatLoader({
           error: err instanceof Error ? err.message : 'Unknown error',
           errorStack: err instanceof Error ? err.stack : undefined,
         });
-        
-        // Increment load attempt counter for retry logic
-        setLoadAttempts(prev => prev + 1);
+        setLoadAttempts((prev) => prev + 1);
       } finally {
-        // Hide initialization state after config load attempt
         setTimeout(() => {
           console.log('[ChatLoader] Initialization complete');
           logger.info('[ChatLoader] Initialization complete', {
@@ -213,9 +224,15 @@ export default function ChatLoader({
         }, 500);
       }
     };
-    
     initializeChat();
-  }, [memberId, planId, memberType, loadChatConfiguration, componentId, loadAttempts]);
+  }, [
+    memberId,
+    planId,
+    memberType,
+    loadChatConfiguration,
+    componentId,
+    loadAttempts,
+  ]);
 
   // Show loading state until both our data is loaded and script is ready
   if (isLoading || initializing || (chatMode && !scriptLoaded)) {
@@ -225,17 +242,22 @@ export default function ChatLoader({
       chatMode,
       scriptLoaded,
     };
-    
     console.log('[ChatLoader] Showing loading state:', loadingState);
     logger.info('[ChatLoader] Showing loading state', {
       componentId,
       ...loadingState,
       showingLoader: true,
     });
-    
     return (
-      <div role="status" aria-live="polite" className="chat-loading-indicator flex items-center p-4">
-        <svg className="animate-spin h-5 w-5 mr-3 text-blue-600" viewBox="0 0 24 24">
+      <div
+        role="status"
+        aria-live="polite"
+        className="chat-loading-indicator flex items-center p-4"
+      >
+        <svg
+          className="animate-spin h-5 w-5 mr-3 text-blue-600"
+          viewBox="0 0 24 24"
+        >
           <circle
             className="opacity-25"
             cx="12"
@@ -251,7 +273,9 @@ export default function ChatLoader({
           ></path>
         </svg>
         {initializing ? 'Initializing chat...' : 'Loading chat...'}
-        <span className="ml-2 text-xs text-gray-500">({loadAttempts > 0 ? `Attempt ${loadAttempts+1}` : 'First attempt'})</span>
+        <span className="ml-2 text-xs text-gray-500">
+          ({loadAttempts > 0 ? `Attempt ${loadAttempts + 1}` : 'First attempt'})
+        </span>
       </div>
     );
   }
@@ -263,23 +287,26 @@ export default function ChatLoader({
       componentId,
       errorMessage: error?.message || 'Unknown error',
     });
-    
     return (
-      <div role="alert" aria-live="assertive" className="p-4 bg-gray-100 rounded-md">
+      <div
+        role="alert"
+        aria-live="assertive"
+        className="p-4 bg-gray-100 rounded-md"
+      >
         <p className="text-gray-700 mb-2">
           {typeof error === 'string'
             ? error
             : error?.message || 'An error occurred loading chat.'}
         </p>
-        <button 
+        <button
           className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
           onClick={() => {
             console.log('[ChatLoader] Retry button clicked');
-            setLoadAttempts(prev => prev + 1);
+            setLoadAttempts((prev) => prev + 1);
             loadChatConfiguration(
-              typeof memberId === 'string' ? parseInt(memberId, 10) : memberId, 
-              planId, 
-              memberType
+              typeof memberId === 'string' ? parseInt(memberId, 10) : memberId,
+              planId,
+              memberType,
             );
           }}
         >
@@ -296,7 +323,6 @@ export default function ChatLoader({
       componentId,
       isEligible,
     });
-    
     return (
       <div role="alert" aria-live="assertive" className="p-4 bg-gray-50">
         <p className="font-medium">Chat is not available for your plan.</p>
@@ -315,11 +341,12 @@ export default function ChatLoader({
       isOOO,
       businessHoursText,
     });
-    
     return (
       <div role="alert" aria-live="assertive" className="p-4 bg-gray-50">
         <p className="font-medium">Chat is currently closed.</p>
-        {businessHoursText && <p className="text-sm mt-1 text-gray-600">{businessHoursText}</p>}
+        {businessHoursText && (
+          <p className="text-sm mt-1 text-gray-600">{businessHoursText}</p>
+        )}
       </div>
     );
   }
@@ -328,9 +355,8 @@ export default function ChatLoader({
   console.log('[ChatLoader] Rendering chat UI:', {
     chatMode,
     isChatActive,
-    chatGroup
+    chatGroup,
   });
-  
   logger.info('[ChatLoader] Rendering chat UI', {
     componentId,
     chatMode,
@@ -339,9 +365,9 @@ export default function ChatLoader({
   });
 
   return (
-    <ChatWidget 
-      memberId={memberId} 
-      planId={planId} 
+    <ChatWidget
+      memberId={memberId}
+      planId={planId}
       memberType={memberType}
       forceEnable={true} // Force enable the chat widget regardless of eligibility or OOO status
     >
@@ -359,7 +385,9 @@ export default function ChatLoader({
       {/* Show debug info in development */}
       {process.env.NODE_ENV === 'development' && (
         <div className="bg-blue-50 p-2 text-xs">
-          <p>Debug: ChatMode={chatMode}, ChatGroup={chatGroup || 'none'}</p>
+          <p>
+            Debug: ChatMode={chatMode}, ChatGroup={chatGroup || 'none'}
+          </p>
         </div>
       )}
 

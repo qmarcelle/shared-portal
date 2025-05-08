@@ -6,6 +6,10 @@ import { useChatStore } from '../stores/chatStore';
 
 const INACTIVITY_TIMEOUT = 10 * 60_000; // 10min
 
+// ChatPersistence ensures chat state is preserved across navigation and browser events.
+// It warns on unload, auto-minimizes on route change, and handles inactivity timeouts.
+// All persistence events and state changes are logged for traceability and debugging.
+
 /**
  * Handles chat persistence across page navigation:
  * - Warns on browser unload when chat is active

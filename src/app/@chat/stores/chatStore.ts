@@ -4,6 +4,10 @@ import { create } from 'zustand';
 import { logger } from '@/utils/logger'; // Add logger import
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 
+// chatStore is the central Zustand store for chat state and actions.
+// It manages UI state, chat session state, API responses, and all chat-related actions.
+// All state changes, API calls, and errors are logged for traceability and debugging.
+
 export interface ChatState {
   // UI state
   isOpen: boolean;
@@ -219,12 +223,16 @@ export const useChatStore = create<ChatState>((set) => ({
 
       // Ensure we have a valid memberId string for the API call
       // Don't try to parse it to a number if it's already a string
-      const memberIdString = typeof memberId === 'string' 
-        ? memberId
-        : String(memberId);
+      const memberIdString =
+        typeof memberId === 'string' ? memberId : String(memberId);
 
       // Check if we have a valid memberId before making the API call
-      if (!memberIdString || memberIdString === 'undefined' || memberIdString === 'null' || memberIdString === 'NaN') {
+      if (
+        !memberIdString ||
+        memberIdString === 'undefined' ||
+        memberIdString === 'null' ||
+        memberIdString === 'NaN'
+      ) {
         throw new Error('Invalid member ID');
       }
 
@@ -259,7 +267,9 @@ export const useChatStore = create<ChatState>((set) => ({
           statusText: response.statusText,
           errorText: errorText.substring(0, 500),
         });
-        throw new Error(`Failed to load chat configuration: ${response.status} ${response.statusText}`);
+        throw new Error(
+          `Failed to load chat configuration: ${response.status} ${response.statusText}`,
+        );
       }
 
       // Try to parse the JSON response
@@ -268,14 +278,19 @@ export const useChatStore = create<ChatState>((set) => ({
         const responseText = await response.text();
         logger.info('[ChatStore] Raw API response', {
           requestId,
-          responseText: responseText.substring(0, 200) + (responseText.length > 200 ? '...' : ''),
+          responseText:
+            responseText.substring(0, 200) +
+            (responseText.length > 200 ? '...' : ''),
         });
-        
+
         info = JSON.parse(responseText);
       } catch (parseError) {
         logger.error('[ChatStore] Failed to parse JSON response', {
           requestId,
-          error: parseError instanceof Error ? parseError.message : 'Unknown parsing error',
+          error:
+            parseError instanceof Error
+              ? parseError.message
+              : 'Unknown parsing error',
         });
         throw new Error('Invalid JSON response from chat configuration API');
       }
@@ -285,7 +300,9 @@ export const useChatStore = create<ChatState>((set) => ({
         requestId,
         availableKeys: Object.keys(info),
         hasBusinessHours: !!info.businessHours,
-        businessHoursKeys: info.businessHours ? Object.keys(info.businessHours) : 'N/A',
+        businessHoursKeys: info.businessHours
+          ? Object.keys(info.businessHours)
+          : 'N/A',
         isEligible: info.isEligible,
         cloudChatEligible: info.cloudChatEligible,
         chatGroup: info.chatGroup,
@@ -295,11 +312,16 @@ export const useChatStore = create<ChatState>((set) => ({
       const adaptedInfo = {
         ...info,
         // If isEligible is not provided, assume true if chatGroup exists
-        isEligible: info.isEligible !== undefined ? info.isEligible : !!info.chatGroup,
+        isEligible:
+          info.isEligible !== undefined ? info.isEligible : !!info.chatGroup,
         // If businessHours is not provided, create it from workingHours
         businessHours: info.businessHours || {
-          isOpen: info.workingHours === 'S_S_24' || info.workingHours?.includes('24'),
-          text: info.workingHours === 'S_S_24' ? '24 hours, 7 days a week' : info.workingHours || ''
+          isOpen:
+            info.workingHours === 'S_S_24' || info.workingHours?.includes('24'),
+          text:
+            info.workingHours === 'S_S_24'
+              ? '24 hours, 7 days a week'
+              : info.workingHours || '',
         },
         // Ensure these fields have default values if not present
         first_name: info.first_name || '',
@@ -309,7 +331,7 @@ export const useChatStore = create<ChatState>((set) => ({
         member_ck: info.member_ck || memberId,
         Origin: info.Origin || 'Member',
         Source: info.Source || 'Member Portal',
-        lob_group: info.lob_group || 'Member'
+        lob_group: info.lob_group || 'Member',
       };
 
       logger.info('[ChatStore] Adapted chat configuration', {
@@ -317,7 +339,7 @@ export const useChatStore = create<ChatState>((set) => ({
         isEligible: adaptedInfo.isEligible,
         businessHoursOpen: adaptedInfo.businessHours.isOpen,
         businessHoursText: adaptedInfo.businessHours.text,
-        chatGroup: adaptedInfo.chatGroup
+        chatGroup: adaptedInfo.chatGroup,
       });
 
       // Log critical values that determine chat rendering
@@ -375,7 +397,7 @@ export const useChatStore = create<ChatState>((set) => ({
       logger.info('[ChatStore] Chat configuration loaded successfully', {
         requestId,
         chatMode: adaptedInfo.cloudChatEligible ? 'cloud' : 'legacy',
-        stateUpdated: true
+        stateUpdated: true,
       });
     } catch (err) {
       logger.error('[ChatStore] Error loading chat configuration', {

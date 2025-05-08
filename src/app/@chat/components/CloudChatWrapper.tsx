@@ -1,4 +1,8 @@
 'use client';
+
+// CloudChatWrapper injects the Genesys Cloud Messenger SDK and manages Messenger-specific events.
+// All script loading, Messenger events, and errors are logged for traceability and debugging.
+
 import { useChatStore } from '../stores/chatStore';
 import { GenesysScript } from './GenesysScript';
 

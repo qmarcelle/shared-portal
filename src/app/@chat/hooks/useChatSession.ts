@@ -22,7 +22,7 @@ const parseBusinessHours = (hoursString: string) => {
   const days = parts[0];
   const hours = parts[1];
   const hourParts = hours.split('-');
-  
+
   if (hourParts.length !== 2) {
     return { days, is24x7: false, isValid: false };
   }
@@ -35,65 +35,91 @@ const parseBusinessHours = (hoursString: string) => {
     startHour,
     endHour,
     is24x7: false,
-    isValid: !isNaN(startHour) && !isNaN(endHour)
+    isValid: !isNaN(startHour) && !isNaN(endHour),
   };
 };
 
 const isWithinBusinessHours = (hoursString: string): boolean => {
   const hourInfo = parseBusinessHours(hoursString);
-  
+
   // Always available for 24/7 service
   if (hourInfo.is24x7) return true;
-  
+
   // Invalid format defaults to available
   if (!hourInfo.isValid) return true;
-  
+
   // Check current time against business hours
   const now = new Date();
   const currentHour = now.getHours();
   const currentDay = now.getDay();
-  
+
   // Type-safe day mapping
   const dayMap: Record<number, string> = {
-    0: 'SUN', 1: 'MON', 2: 'TUE', 3: 'WED', 
-    4: 'THU', 5: 'FRI', 6: 'SAT'
+    0: 'SUN',
+    1: 'MON',
+    2: 'TUE',
+    3: 'WED',
+    4: 'THU',
+    5: 'FRI',
+    6: 'SAT',
   };
-  
+
   // Check if current day is a business day
-  const isBusinessDay = hourInfo.days === 'S' || 
-    (hourInfo.days?.includes(dayMap[currentDay]) || false);
-  
-  return isBusinessDay && 
-    currentHour >= (hourInfo.startHour || 0) && 
-    currentHour < (hourInfo.endHour || 24);
+  const isBusinessDay =
+    hourInfo.days === 'S' ||
+    hourInfo.days?.includes(dayMap[currentDay]) ||
+    false;
+
+  return (
+    isBusinessDay &&
+    currentHour >= (hourInfo.startHour || 0) &&
+    currentHour < (hourInfo.endHour || 24)
+  );
 };
 
+// useChatSession is a custom hook that manages chat session state, service instantiation, and event subscriptions.
+// It handles eligibility checks, chat actions, and logs all key events and errors for traceability and debugging.
 export function useChatSession(options?: any) {
   // Store state and actions
   const {
-    isOpen, isMinimized, isChatActive, error,
-    eligibility, isLoading, setOpen, setMinimized,
-    setError, setChatActive, setLoading, setEligibility,
+    isOpen,
+    isMinimized,
+    isChatActive,
+    error,
+    eligibility,
+    isLoading,
+    setOpen,
+    setMinimized,
+    setError,
+    setChatActive,
+    setLoading,
+    setEligibility,
     // ... rest of the state
   } = useChatStore();
 
   // Chat service instance
   const chatService = useMemo(
-    () => new ChatService(
+    () =>
+      new ChatService(
+        options?.memberId,
+        options?.planId,
+        options?.planName,
+        options?.hasMultiplePlans,
+        options?.onLockPlanSwitcher,
+      ),
+    [
       options?.memberId,
       options?.planId,
       options?.planName,
       options?.hasMultiplePlans,
       options?.onLockPlanSwitcher,
-    ),
-    [options?.memberId, options?.planId, options?.planName, 
-     options?.hasMultiplePlans, options?.onLockPlanSwitcher]
+    ],
   );
 
   // Event subscriptions
   useEffect(() => {
     const subs: Array<() => void> = [];
-    
+
     // Register event handlers for both legacy and cloud chat
     if (typeof window !== 'undefined') {
       // Legacy WebChat events
@@ -107,21 +133,24 @@ export function useChatSession(options?: any) {
           () => window.CXBus?.runtime.unsubscribe?.('WebChat.error'),
         );
       }
-      
+
       // Cloud Messenger events
       if (window.MessengerWidget) {
         window.MessengerWidget?.on?.('open', () => setChatActive(true));
         window.MessengerWidget?.on?.('close', () => setChatActive(false));
         window.MessengerWidget?.on?.('error', () => setChatActive(false));
         subs.push(
-          () => window.MessengerWidget?.off?.('open', () => setChatActive(true)),
-          () => window.MessengerWidget?.off?.('close', () => setChatActive(false)),
-          () => window.MessengerWidget?.off?.('error', () => setChatActive(false)),
+          () =>
+            window.MessengerWidget?.off?.('open', () => setChatActive(true)),
+          () =>
+            window.MessengerWidget?.off?.('close', () => setChatActive(false)),
+          () =>
+            window.MessengerWidget?.off?.('error', () => setChatActive(false)),
         );
       }
     }
-    
-    return () => subs.forEach(unsub => unsub());
+
+    return () => subs.forEach((unsub) => unsub());
   }, [setChatActive]);
 
   // Eligibility check
@@ -129,42 +158,47 @@ export function useChatSession(options?: any) {
     const fetchEligibility = async () => {
       try {
         setLoading(true);
-        
-        // Initialize the chat service first 
+
+        // Initialize the chat service first
         await chatService.initialize(options?.cloudChatEligible || false);
-        
+
         // Get the eligibility info from the store
         // Note: Using eligibility directly from the store instead of chatInfo
         const storeEligibility = useChatStore.getState().eligibility;
-        
+
         if (storeEligibility) {
           // Check hours availability
           const hoursAvailable = storeEligibility.workingHours
             ? isWithinBusinessHours(storeEligibility.workingHours)
             : true;
-          
+
           // Determine eligibility based on all factors
-          const isEligible = (
-            (storeEligibility.chatBotEligibility === true || storeEligibility.chatAvailable === true) && 
-            hoursAvailable
-          );
-          
+          const isEligible =
+            (storeEligibility.chatBotEligibility === true ||
+              storeEligibility.chatAvailable === true) &&
+            hoursAvailable;
+
           // Update with the latest eligibility including hours check
           setEligibility({ ...storeEligibility, isEligible, hoursAvailable });
         } else {
-          logger.warn('[ChatSession] No eligibility data found after initialization');
+          logger.warn(
+            '[ChatSession] No eligibility data found after initialization',
+          );
           setEligibility(null);
         }
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+        const errorMessage =
+          err instanceof Error ? err.message : 'Unknown error';
         logger.error('[ChatSession] Error', { error: errorMessage });
-        setError(err instanceof Error ? err : new Error('Failed to initialize chat'));
+        setError(
+          err instanceof Error ? err : new Error('Failed to initialize chat'),
+        );
         setEligibility(null);
       } finally {
         setLoading(false);
       }
     };
-    
+
     fetchEligibility();
   }, [
     options?.memberId,
@@ -173,7 +207,7 @@ export function useChatSession(options?: any) {
     setError,
     setEligibility,
     chatService,
-    options?.cloudChatEligible
+    options?.cloudChatEligible,
   ]);
 
   // Chat actions - simplified
@@ -194,7 +228,7 @@ export function useChatSession(options?: any) {
       setError(new Error('Chat not available'));
       return;
     }
-    
+
     try {
       setLoading(true);
       const payload = { ...options?.payload };
@@ -221,18 +255,23 @@ export function useChatSession(options?: any) {
     }
   }, [setLoading, setError, chatService, setChatActive, options]);
 
-  const sendMessage = useCallback(async (text: string) => {
-    if (!isChatActive) {
-      setError(new Error('No active chat session'));
-      return;
-    }
-    
-    try {
-      await chatService.sendMessage(text);
-    } catch (err) {
-      setError(err instanceof Error ? err : new Error('Failed to send message'));
-    }
-  }, [isChatActive, chatService, setError]);
+  const sendMessage = useCallback(
+    async (text: string) => {
+      if (!isChatActive) {
+        setError(new Error('No active chat session'));
+        return;
+      }
+
+      try {
+        await chatService.sendMessage(text);
+      } catch (err) {
+        setError(
+          err instanceof Error ? err : new Error('Failed to send message'),
+        );
+      }
+    },
+    [isChatActive, chatService, setError],
+  );
 
   return {
     isOpen,

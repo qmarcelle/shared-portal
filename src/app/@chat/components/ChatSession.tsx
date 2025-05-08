@@ -4,6 +4,10 @@ import { useChatStore } from '../stores/chatStore';
 
 const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10min
 
+// ChatSession manages the lifecycle of an active chat session.
+// It handles agent typing, inactivity timeouts, and session state.
+// All session events and state changes are logged for traceability and debugging.
+
 export default function ChatSession() {
   const { isChatActive, endChat } = useChatStore();
   const [lastActivity, setLastActivity] = useState(Date.now());
