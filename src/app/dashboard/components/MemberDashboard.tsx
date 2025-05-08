@@ -314,7 +314,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      router.push('/virtualCareOptions');
+                      router.push('/member/findcare/virtualcare');
                     },
                   },
                 ]}
