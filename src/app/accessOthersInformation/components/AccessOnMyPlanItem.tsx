@@ -6,16 +6,13 @@ import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
-import {
-  accessGranted,
-  inboxIcon,
-} from '@/components/foundation/Icons';
+import { accessGranted, inboxIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import editIcon from '../../../../public/assets/edit.svg';
+import editIcon from '/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
   memberName: string;

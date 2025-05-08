@@ -13,7 +13,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import FindCare from '../../../../public/assets/find_care_map.svg';
+import FindCare from '/assets/find_care_map.svg';
 
 interface FindMedicalProvidersComponentProps extends IComponent {
   isButtonHorizontal?: boolean;

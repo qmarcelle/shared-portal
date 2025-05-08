@@ -1,13 +1,13 @@
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
 import { Checkbox } from '@/components/foundation/Checkbox';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
+import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
 import Image from 'next/image';
-import infoIcon from '../../../../public/assets/info.svg';
 import { IComponent } from '../../../components/IComponent';
-import { Button } from '../../../components/foundation/Button';
-import { Card } from '../../../components/foundation/Card';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
-import { TextBox } from '../../../components/foundation/TextBox';
+import infoIcon from '/assets/info.svg';
 
 interface PayProviderProps extends IComponent {
   balanceAmount: number;

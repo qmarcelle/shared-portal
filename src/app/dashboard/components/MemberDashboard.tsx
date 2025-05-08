@@ -23,12 +23,12 @@ import {
   isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
-import EstimateCost from '../../../../public/assets/estimate_cost.svg';
-import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 import { DashboardData } from '../models/dashboardData';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
+import EstimateCost from '/assets/estimate_cost.svg';
+import FindCare from '/assets/find_care_search.svg';
 
 export type DashboardProps = {
   data: DashboardData;

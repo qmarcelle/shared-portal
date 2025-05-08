@@ -36,21 +36,6 @@ export const executeGenesysOverrides = (): void => {
 };
 
 /**
- * Forces the chat button to appear as a circular button.
- * This ensures consistent styling across implementations.
- */
-export const forceCircularChatButton = (): void => {
-  setTimeout(() => {
-    const chatButton = document.querySelector(
-      '.cx-widget.cx-webchat-chat-button',
-    );
-    if (chatButton) {
-      chatButton.classList.add('circular-chat-button');
-    }
-  }, 100);
-};
-
-/**
  * Hides the inquiry type dropdown in the legacy chat interface.
  * This simplifies the user experience for standard chat flows.
  */

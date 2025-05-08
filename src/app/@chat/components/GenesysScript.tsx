@@ -26,13 +26,13 @@ export function GenesysScript({
   onScriptLoaded,
 }: GenesysScriptProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   // Handle script loaded event
   const handleScriptLoaded = useCallback(() => {
     setIsLoaded(true);
     if (onScriptLoaded) onScriptLoaded();
     console.log('Genesys script loaded successfully');
-    
+
     // Initialize the chat button configuration
     setTimeout(() => {
       if (window._genesys && window._genesys.widgets) {
@@ -42,36 +42,37 @@ export function GenesysScript({
           openDelay: 100,
           effectDuration: 200,
           hideDuringInvite: false,
-          template: '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+          template:
+            '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
         };
-        
+
         // Configure button position and appearance
         window._genesys.widgets.webchat.position = {
           bottom: { px: 20 },
           right: { px: 20 },
           width: { pct: 50 },
-          height: { px: 400 }
+          height: { px: 400 },
         };
-        
+
         // Register commands with CXBus
         if (window.CXBus && typeof window.CXBus.registerPlugin === 'function') {
           console.log('Registering chat commands with CXBus');
           window.CXBus.registerPlugin('ChatButton', {
-            open: function() {
+            open: function () {
               console.log('Opening chat via CXBus command');
               if (window.CXBus && typeof window.CXBus.command === 'function') {
                 window.CXBus.command('WebChat.open');
               }
-            }
+            },
           });
         }
-        
+
         // Force button visibility
         setTimeout(() => {
           const chatButton = document.querySelector('.cx-webchat-chat-button');
           if (chatButton) {
-            (chatButton as HTMLElement).style.display = 'flex';
-            (chatButton as HTMLElement).style.opacity = '1';
+            // (chatButton as HTMLElement).style.display = 'flex';
+            // (chatButton as HTMLElement).style.opacity = '1';
             console.log('Enhanced chat button visibility');
           }
         }, 500);
@@ -82,25 +83,29 @@ export function GenesysScript({
   // Handle Genesys initialization and cleanup
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
+
     // Check if Genesys is already loaded
     if (window.Genesys) {
       setIsLoaded(true);
       if (onScriptLoaded) onScriptLoaded();
     }
-    
+
     // Create global function for manual triggering
-    window.openGenesysChat = function() {
+    window.openGenesysChat = function () {
       console.log('Manual chat open requested');
       if (window.CXBus && typeof window.CXBus.command === 'function') {
         window.CXBus.command('WebChat.open');
-      } else if (window._genesys && window._genesys.widgets && window._genesys.widgets.webchat) {
+      } else if (
+        window._genesys &&
+        window._genesys.widgets &&
+        window._genesys.widgets.webchat
+      ) {
         window._genesys.widgets.webchat.open();
       } else {
         console.error('CXBus not available for manual triggering');
       }
     };
-    
+
     const setupCustomData = () => {
       if (window.Genesys && Object.keys(userData).length > 0) {
         try {
@@ -113,36 +118,14 @@ export function GenesysScript({
         }
       }
     };
-    
+
     const handleMessengerReady = () => {
       handleScriptLoaded();
       setupCustomData();
     };
-    
+
     window.addEventListener('Genesys::Ready', handleMessengerReady);
-    
-    // Add click_to_chat.js script dynamically
-    const clickToChatScript = document.createElement('script');
-    clickToChatScript.async = true;
-    clickToChatScript.src = '/assets/genesys/click_to_chat.js';
-    clickToChatScript.onload = () => console.log('click_to_chat.js loaded');
-    clickToChatScript.onerror = (e) => console.error('Failed to load click_to_chat.js', e);
-    document.head.appendChild(clickToChatScript);
-    
-    // Load Genesys widgets script
-    const widgetsScript = document.createElement('script');
-    widgetsScript.async = true;
-    widgetsScript.src = '/assets/genesys/plugins/widgets.min.js';
-    widgetsScript.onload = () => console.log('Genesys widgets.min.js loaded');
-    widgetsScript.onerror = (e) => console.error('Failed to load Genesys widgets.min.js', e);
-    document.head.appendChild(widgetsScript);
-    
-    // Load the Genesys widgets CSS
-    const widgetsCss = document.createElement('link');
-    widgetsCss.rel = 'stylesheet';
-    widgetsCss.href = '/assets/genesys/plugins/widgets.min.css';
-    document.head.appendChild(widgetsCss);
-    
+
     return () => {
       window.removeEventListener('Genesys::Ready', handleMessengerReady);
       if (window.Genesys) {
@@ -159,12 +142,12 @@ export function GenesysScript({
     <>
       <Script
         id="genesys-bootstrap"
-        strategy="afterInteractive" 
+        strategy="afterInteractive"
         onLoad={() => {
-          console.log("Genesys script tag loaded");
+          console.log('Genesys script tag loaded');
         }}
         onError={(e) => {
-          console.error("Genesys script failed to load", e);
+          console.error('Genesys script failed to load', e);
         }}
         dangerouslySetInnerHTML={{
           __html: `

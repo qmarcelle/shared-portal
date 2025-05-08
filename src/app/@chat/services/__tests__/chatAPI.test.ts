@@ -1,10 +1,4 @@
-import {
-  BusinessHours,
-  ChatEligibility,
-  ChatMessage,
-  ChatSession,
-  CobrowseSession,
-} from '../../types/genesys';
+// @ts-nocheck
 import {
   checkChatEligibility,
   endChatSession,
@@ -13,7 +7,14 @@ import {
   sendChatMessage,
   startChatSession,
   startCobrowseSession,
-} from '../chatAPI';
+} from '../services/chatAPI';
+import type {
+  BusinessHours,
+  ChatEligibility,
+  ChatMessage,
+  ChatSession,
+  CobrowseSession,
+} from './global';
 
 // Mock fetch
 const mockFetch = jest.fn();

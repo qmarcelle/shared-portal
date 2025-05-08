@@ -3,7 +3,11 @@ import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { forceCircularChatButton, hideInquiryDropdown, injectNewMessageBadge, injectPlanSwitcher } from '../utils/chatDomUtils';
+import {
+  hideInquiryDropdown,
+  injectNewMessageBadge,
+  injectPlanSwitcher,
+} from '../utils/chatDomUtils';
 
 /**
  * Legacy chat implementation wrapper
@@ -11,7 +15,8 @@ import { forceCircularChatButton, hideInquiryDropdown, injectNewMessageBadge, in
  * Ensures proper integration with click_to_chat.js implementation
  */
 export default function LegacyChatWrapper() {
-  const { userData, formInputs, chatGroup, isPlanSwitcherLocked } = useChatStore();
+  const { userData, formInputs, chatGroup, isPlanSwitcherLocked } =
+    useChatStore();
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const componentId = Math.random().toString(36).substring(2, 10); // Unique ID for tracking this instance
 
@@ -37,19 +42,21 @@ export default function LegacyChatWrapper() {
   useEffect(() => {
     if (!scriptsLoaded) return;
 
-    logger.info('[LegacyChatWrapper] Scripts loaded, applying DOM customizations', {
-      componentId,
-      timestamp: new Date().toISOString(),
-    });
+    logger.info(
+      '[LegacyChatWrapper] Scripts loaded, applying DOM customizations',
+      {
+        componentId,
+        timestamp: new Date().toISOString(),
+      },
+    );
 
     // Apply chat DOM customizations
     const applyCustomizations = () => {
       try {
-        forceCircularChatButton();
         hideInquiryDropdown();
         injectNewMessageBadge();
         injectPlanSwitcher();
-        
+
         logger.info('[LegacyChatWrapper] Chat DOM customizations applied', {
           componentId,
           timestamp: new Date().toISOString(),
@@ -66,7 +73,7 @@ export default function LegacyChatWrapper() {
     // Apply immediately and then after a delay to ensure DOM elements are available
     applyCustomizations();
     const timer = setTimeout(applyCustomizations, 1000);
-    
+
     return () => clearTimeout(timer);
   }, [scriptsLoaded, componentId]);
 
@@ -94,24 +101,26 @@ export default function LegacyChatWrapper() {
         console.error('Error closing chat:', e);
       }
     }
-    
+
     // Log what we're about to do
     logger.info('[LegacyChatWrapper] Setting up chat settings', {
       componentId,
       hasUserData: !!userData,
       timestamp: new Date().toISOString(),
     });
-    
+
     // Create the settings object expected by click_to_chat.js
     window.chatSettings = {
       clickToChatToken: process.env.NEXT_PUBLIC_CHAT_TOKEN || '',
       clickToChatEndpoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '',
-      clickToChatDemoEndPoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_DEMO_URL || '',
+      clickToChatDemoEndPoint:
+        process.env.NEXT_PUBLIC_LEGACY_CHAT_DEMO_URL || '',
       coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
       opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
       opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
       isChatEligibleMember: 'true',
-      isDemoMember: process.env.NEXT_PUBLIC_IS_DEMO === 'true' ? 'true' : 'false',
+      isDemoMember:
+        process.env.NEXT_PUBLIC_IS_DEMO === 'true' ? 'true' : 'false',
       isAmplifyMem: toStringValue(userData?.isAmplify),
       formattedFirstName: userData?.firstName || '',
       memberLastName: userData?.lastName || '',
@@ -135,51 +144,56 @@ export default function LegacyChatWrapper() {
       routingchatbotEligible: toBooleanValue(userData?.routingChatbotEligible),
       memberClientID: userData?.clientId || '',
       isBlueEliteGroup: toStringValue(userData?.isBlueElite),
-      selfServiceLinks: Array.isArray(userData?.selfServiceLinks) ? userData?.selfServiceLinks : [],
-      idCardChatBotName: userData?.idCardChatBotName || ''
+      selfServiceLinks: Array.isArray(userData?.selfServiceLinks)
+        ? userData?.selfServiceLinks
+        : [],
+      idCardChatBotName: userData?.idCardChatBotName || '',
     };
-    
+
     logger.info('[LegacyChatWrapper] Chat settings initialized', {
       componentId,
       memberClientID: window.chatSettings?.memberClientID || '',
       isChatAvailable: window.chatSettings?.isChatAvailable || 'false',
       endpoint: window.chatSettings?.clickToChatEndpoint || 'N/A',
       hasSettings: !!window.chatSettings,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
 
     // Add required global functions for Terms and Conditions modal
-    window.OpenChatDisclaimer = function() {
-      logger.info('[LegacyChatWrapper] OpenChatDisclaimer called', { componentId });
+    window.OpenChatDisclaimer = function () {
+      logger.info('[LegacyChatWrapper] OpenChatDisclaimer called', {
+        componentId,
+      });
       if (window.CXBus && typeof window.CXBus.command === 'function') {
-        const disclaimerMessage = 'This information provided today is based on current eligibility and contract limitations. Final determination will be made upon the completion of the processing of your claim. For quality assurance your chat may be monitored and/or recorded.';
-        
+        const disclaimerMessage =
+          'This information provided today is based on current eligibility and contract limitations. Final determination will be made upon the completion of the processing of your claim. For quality assurance your chat may be monitored and/or recorded.';
+
         // Create the modal content with vanilla JS instead of jQuery
         const modalContainer = document.createElement('div');
         modalContainer.id = 'disclaimerId';
-        
+
         const modalContent = document.createElement('p');
         modalContent.className = 'termsNConditions';
-        
+
         const modalTitle = document.createElement('span');
         modalTitle.className = 'modalTitle';
         modalTitle.textContent = 'Terms and Conditions';
-        
+
         const buttonContainer = document.createElement('div');
         buttonContainer.style.paddingBottom = '10px';
         buttonContainer.style.backgroundColor = '#fff';
-        
+
         const closeButton = document.createElement('button');
         closeButton.type = 'button';
         closeButton.className = 'cx-btn cx-btn-primary buttonWide';
         closeButton.textContent = 'CLOSE';
         // Fix TypeScript error by using a proper event handler function
-        closeButton.onclick = function(event) {
+        closeButton.onclick = function (event) {
           if (typeof window.CloseChatDisclaimer === 'function') {
             window.CloseChatDisclaimer();
           }
         };
-        
+
         // Assemble the elements
         modalContent.appendChild(modalTitle);
         modalContent.appendChild(document.createElement('br'));
@@ -187,22 +201,24 @@ export default function LegacyChatWrapper() {
         modalContent.appendChild(document.createTextNode(disclaimerMessage));
         modalContainer.appendChild(modalContent);
         buttonContainer.appendChild(closeButton);
-        
+
         // Create a wrapper element to hold both parts
         const wrapper = document.createElement('div');
         wrapper.appendChild(modalContainer);
         wrapper.appendChild(buttonContainer);
-        
+
         // Show the overlay with our vanilla JS elements
         window.CXBus.command('WebChat.showOverlay', {
           html: wrapper,
-          hideFooter: true
+          hideFooter: true,
         });
       }
     };
 
-    window.CloseChatDisclaimer = function() {
-      logger.info('[LegacyChatWrapper] CloseChatDisclaimer called', { componentId });
+    window.CloseChatDisclaimer = function () {
+      logger.info('[LegacyChatWrapper] CloseChatDisclaimer called', {
+        componentId,
+      });
       if (window.CXBus && typeof window.CXBus.command === 'function') {
         window.CXBus.command('WebChat.hideOverlay');
       }
@@ -210,7 +226,7 @@ export default function LegacyChatWrapper() {
 
     // Expose window.startChat for debugging purposes
     if (typeof window.startChat !== 'function') {
-      window.startChat = function() {
+      window.startChat = function () {
         logger.info('[LegacyChatWrapper] Manual startChat called', {
           componentId,
           timestamp: new Date().toISOString(),
@@ -272,13 +288,19 @@ export default function LegacyChatWrapper() {
   return (
     <>
       {/* Load jQuery first (required by click_to_chat.js) */}
-      <Script 
+      <Script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         strategy="beforeInteractive"
-        onLoad={() => logger.info('[LegacyChatWrapper] jQuery loaded', { componentId })}
-        onError={() => logger.error('[LegacyChatWrapper] Failed to load jQuery', { componentId })}
+        onLoad={() =>
+          logger.info('[LegacyChatWrapper] jQuery loaded', { componentId })
+        }
+        onError={() =>
+          logger.error('[LegacyChatWrapper] Failed to load jQuery', {
+            componentId,
+          })
+        }
       />
-      
+
       {/* Load the main Genesys widgets script */}
       <Script
         src="/assets/genesys/plugins/widgets.min.js"
@@ -286,13 +308,21 @@ export default function LegacyChatWrapper() {
         onLoad={handleGenesysScriptLoad}
         onError={handleScriptError}
       />
-      
+
       {/* Load custom click_to_chat script which handles the legacy chat flow */}
       <Script
-        src="/assets/genesys/plugins/click_to_chat.js"
+        src="/assets/genesys/click_to_chat.js"
         strategy="afterInteractive"
-        onLoad={() => logger.info('[LegacyChatWrapper] click_to_chat.js loaded', { componentId })}
-        onError={() => logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js', { componentId })}
+        onLoad={() =>
+          logger.info('[LegacyChatWrapper] click_to_chat.js loaded', {
+            componentId,
+          })
+        }
+        onError={() =>
+          logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js', {
+            componentId,
+          })
+        }
       />
 
       {/* Initialization script to debug and trigger chat if needed */}
@@ -373,56 +403,120 @@ export default function LegacyChatWrapper() {
       />
 
       {/* Container div for the Genesys chat widget */}
-      <div id="genesys-chat-container" aria-label="Genesys Legacy Chat" className="genesys-chat-container" />
-      
+      <div
+        id="genesys-chat-container"
+        aria-label="Genesys Legacy Chat"
+        className="genesys-chat-container"
+      />
+
       {/* Required modal elements for co-browse functionality */}
-      <div id="cobrowse-sessionConfirm" className="modal fade" tabIndex={-1} role="dialog" style={{background: "rgba(50, 50, 50, 0.4)", position: "fixed", zIndex: 2147483647}}>
-        <div className="cobrowse-card" style={{width: "100%"}}>
-          <div style={{textAlign: "left", marginBottom: "5px"}}><b>Are you on the phone with us?</b></div>
+      <div
+        id="cobrowse-sessionConfirm"
+        className="modal fade"
+        tabIndex={-1}
+        role="dialog"
+        style={{
+          background: 'rgba(50, 50, 50, 0.4)',
+          position: 'fixed',
+          zIndex: 2147483647,
+        }}
+      >
+        <div className="cobrowse-card" style={{ width: '100%' }}>
+          <div style={{ textAlign: 'left', marginBottom: '5px' }}>
+            <b>Are you on the phone with us?</b>
+          </div>
           <div>We can help better if we can see your screen.</div>
-          <div style={{float: "left", marginTop: "10px", color: "rgb(0, 122, 255)"}}>
-            <button className="btn btn-secondary cobrowse-deny-button" onClick={() => {
-              logger.info('[LegacyChatWrapper] Co-browse No clicked', { componentId });
-              // Handle no action
-            }}>No</button>
-            <button className="btn btn-primary cobrowse-allow-button" style={{marginLeft: "10px"}} onClick={() => {
-              logger.info('[LegacyChatWrapper] Co-browse Yes clicked', { componentId });
-              // Handle yes action
-              if (typeof window.CobrowseIO?.createSessionCode === 'function') {
-                window.CobrowseIO.createSessionCode().then((code: string) => {
-                  const tokenElement = document.getElementById('cobrowse-sessionToken');
-                  if (tokenElement) tokenElement.textContent = code;
+          <div
+            style={{
+              float: 'left',
+              marginTop: '10px',
+              color: 'rgb(0, 122, 255)',
+            }}
+          >
+            <button
+              className="btn btn-secondary cobrowse-deny-button"
+              onClick={() => {
+                logger.info('[LegacyChatWrapper] Co-browse No clicked', {
+                  componentId,
                 });
-              }
-            }}>Yes</button>
+                // Handle no action
+              }}
+            >
+              No
+            </button>
+            <button
+              className="btn btn-primary cobrowse-allow-button"
+              style={{ marginLeft: '10px' }}
+              onClick={() => {
+                logger.info('[LegacyChatWrapper] Co-browse Yes clicked', {
+                  componentId,
+                });
+                // Handle yes action
+                if (
+                  typeof window.CobrowseIO?.createSessionCode === 'function'
+                ) {
+                  window.CobrowseIO.createSessionCode().then((code: string) => {
+                    const tokenElement = document.getElementById(
+                      'cobrowse-sessionToken',
+                    );
+                    if (tokenElement) tokenElement.textContent = code;
+                  });
+                }
+              }}
+            >
+              Yes
+            </button>
           </div>
         </div>
       </div>
 
-      <div className="modal fade" id="cobrowse-sessionYesModal" tabIndex={-1} role="dialog">
+      <div
+        className="modal fade"
+        id="cobrowse-sessionYesModal"
+        tabIndex={-1}
+        role="dialog"
+      >
         <div className="modal-dialog modal-dialog-bottom">
           <div className="modal-content sessionmodalcontent">
             <div className="modal-body">
-              <div className="scrSharingHead"> Your session ID is <span id="cobrowse-sessionToken" className="sessiontoken"></span></div>
-              <div className="scrSharingSubHead">Read this ID number to the representative you're speaking with when they ask for it.</div>
+              <div className="scrSharingHead">
+                {' '}
+                Your session ID is{' '}
+                <span
+                  id="cobrowse-sessionToken"
+                  className="sessiontoken"
+                ></span>
+              </div>
+              <div className="scrSharingSubHead">
+                Read this ID number to the representative you&apos;re speaking
+                with when they ask for it.
+              </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" style={{marginTop: "0px"}}
+              <button
+                type="button"
+                className="btn btn-secondary"
+                style={{ marginTop: '0px' }}
                 onClick={() => {
-                  logger.info('[LegacyChatWrapper] Co-browse Cancel clicked', { componentId });
+                  logger.info('[LegacyChatWrapper] Co-browse Cancel clicked', {
+                    componentId,
+                  });
                   if (typeof window.endCoBrowseCall === 'function') {
                     window.endCoBrowseCall();
                   }
-                }}>Cancel</button>
+                }}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Debug button to manually start chat - visible only in development */}
       {process.env.NODE_ENV === 'development' && (
-        <button 
-          style={{ 
+        <button
+          style={{
             position: 'fixed',
             bottom: '20px',
             right: '20px',
@@ -431,10 +525,12 @@ export default function LegacyChatWrapper() {
             color: 'white',
             padding: '8px 16px',
             border: 'none',
-            borderRadius: '4px'
+            borderRadius: '4px',
           }}
           onClick={() => {
-            logger.info('[LegacyChatWrapper] Debug button clicked', { componentId });
+            logger.info('[LegacyChatWrapper] Debug button clicked', {
+              componentId,
+            });
             if (window.CXBus && typeof window.CXBus.command === 'function') {
               window.CXBus.command('WebChat.open');
             } else if (typeof window.startChat === 'function') {

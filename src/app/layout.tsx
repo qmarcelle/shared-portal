@@ -7,6 +7,7 @@ import Footer from '@/components/foundation/Footer';
 import { logServerEnvironment } from '@/components/serverComponents/EnvLogger';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
+import '@/styles/genesys-overrides.css';
 import '@/styles/checkbox.css';
 import { SessionProvider } from 'next-auth/react';
 import { Suspense } from 'react';

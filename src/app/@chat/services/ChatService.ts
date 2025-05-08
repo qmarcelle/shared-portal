@@ -1,18 +1,4 @@
-// Define ChatError locally if not already defined
-export class ChatError extends Error {
-  constructor(
-    message: string,
-    public code?: string,
-  ) {
-    super(message);
-    this.name = 'ChatError';
-  }
-}
-
-// Define ChatDataPayload as a minimal type (customize as needed)
-export interface ChatDataPayload {
-  [key: string]: any;
-}
+import { ChatDataPayload, ChatError } from '@/types/chat.types';
 
 // Define IChatService as a minimal interface if only used here
 export interface IChatService {

@@ -3,8 +3,6 @@ import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
-import estimateCost from '../../../../public/assets/estimate_cost.svg';
-import servicesUsed from '../../../../public/assets/services_used.svg';
 import { BalanceSectionWrapper } from '../balances/components/BalanceSection';
 import {
   SpendingAccountSection,
@@ -17,6 +15,8 @@ import { BenefitTypeDetail } from '../models/benefit_details';
 import { BenefitLevelDetails } from '../models/benefit_type_header_details';
 import { BenefitType } from '../models/benefitConsts';
 import { useBenefitsStore } from '../stores/benefitsStore';
+import estimateCost from '/assets/estimate_cost.svg';
+import servicesUsed from '/assets/services_used.svg';
 
 export const Details = ({
   balanceData,

@@ -14,8 +14,8 @@ import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import downIcon from '../../../../public/assets/down.svg';
-import DownloadIcon from '../../../../public/assets/download.svg';
+import downIcon from '/assets/down.svg';
+import DownloadIcon from '/assets/download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];

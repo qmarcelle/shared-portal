@@ -4,16 +4,13 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
+import { Dropdown, SelectItem } from '@/components/foundation/Dropdown';
 import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ServicesUsedItem } from '@/models/app/servicesused_details';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { useState } from 'react';
-import {
-  Dropdown,
-  SelectItem,
-} from '../../../../components/foundation/Dropdown';
-import { Spacer } from '../../../../components/foundation/Spacer';
 import { ProductBalance } from '../models/app/balancesData';
 import { BalanceChart } from './BalanceChart';
 import { ServicesUsedChart } from './ServicesUsedChart';
@@ -219,7 +216,7 @@ export const BalanceSectionWrapper = ({
                 : item.value.toString(),
               limitAmount: service.isDollar
                 ? `${formatCurrency(service.maxValue) ?? ''}`
-                : service.maxValue?.toString() ?? '',
+                : (service.maxValue?.toString() ?? ''),
               serviceName: service.desc,
             };
           } else {

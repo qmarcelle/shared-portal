@@ -5,9 +5,9 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
 import Link from 'next/link';
-import amplifyHealthGetCare from '../../../../public/assets/amplify_health_app_get_care.png';
-import appleStoreLogo from '../../../../public/assets/apple_store.svg';
-import playStoreLogo from '../../../../public/assets/google_play.svg';
+import amplifyHealthGetCare from '/assets/amplify_health_app_get_care.png';
+import appleStoreLogo from '/assets/apple_store.svg';
+import playStoreLogo from '/assets/google_play.svg';
 
 export const AmplifyHealthAppInformation = () => {
   return (

@@ -5,7 +5,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import externalIcon from '../../../../public/assets/external.svg';
+import externalIcon from '/assets/external.svg';
 
 interface BenefitsProviderInfoCardProps
   extends IComponent,
