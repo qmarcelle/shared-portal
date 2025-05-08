@@ -20,9 +20,9 @@ export async function getEmployerProvidedBenefits(
           return item.carveOutInfo?.map((item) => ({
             providedBy: item.name,
             id: item.name,
-            contact: item.contactNumber?.split(',')[0]?.substring(1),
+            contact: item.contactNumber?.split(',')[0],
             url: item.contactNumber?.split(',')[1]
-              ? `https://${item.contactNumber.split(',')[1]!.substring(1)}`
+              ? `https://${item.contactNumber.split(',')[1]!}`
               : undefined,
           }));
         })
