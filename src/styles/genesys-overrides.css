@@ -1,15 +1,19 @@
 /* Override Genesys Cloud chat launcher */
-.cx-webchat-chat-button {
+.cx-webchat-chat-button, .polished-chat-button {
   position: fixed !important;
   bottom: 20px !important;
-  right: 20px !important;
+  right: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   background-color: #005eb9 !important;
   color: #ffffff !important;
   border-radius: 9999px !important;
-  padding: 12px 20px !important;
+  width: 64px !important;
+  height: 64px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+  align-items: center !important;
   font-family: 'Univers-45', sans-serif !important;
   font-weight: 500 !important;
   box-shadow:

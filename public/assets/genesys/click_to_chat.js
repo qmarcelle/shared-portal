@@ -720,7 +720,7 @@
       if (cfg.isAmplifyMem === 'true') {
         $('.cx-webchat').addClass('amplifyHealth');
         $('div.cx-icon, span.cx-icon').html(
-          '<img src="/wps/wcm/myconnect/member/029bc5b8-e440-485e-89f5-6bdc04a0325e/Chat-Icon-40x40.svg?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CVID=oe5Lict" alt="" style="width:45px;height:45px;padding-bottom:10px;padding-right:10px;">',
+          '<img src="/assets/chat.svg" alt="" style="width:45px;height:45px;padding-bottom:10px;padding-right:10px;">',
         );
       }
     }
@@ -829,15 +829,15 @@
           effectDuration: 200,
           hideDuringInvite: false,
           template:
-            '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+            '<div class="cx-widget cx-webchat-chat-button cx-side-button polished-chat-button">Chat Now</div>',
         };
 
         // Configure button position and appearance
         window._genesys.widgets.webchat.position = {
-          right: { px: 20 },
+          right: { px: 0 },
           bottom: { px: 20 },
-          width: { pct: 50 },
-          height: { px: 400 },
+          width: { px: 64 },
+          height: { px: 64 },
         };
 
         console.log('Chat button enabled and configured.');
@@ -1084,15 +1084,15 @@ function enableChatButton() {
       effectDuration: 200,
       hideDuringInvite: false,
       template:
-        '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+        '<div class="cx-widget cx-webchat-chat-button cx-side-button polished-chat-button">Chat Now</div>',
     };
 
     // Configure button position and appearance
     window._genesys.widgets.webchat.position = {
-      right: { px: 20 },
+      right: { px: 0 },
       bottom: { px: 20 },
-      width: { pct: 50 },
-      height: { px: 400 },
+      width: { px: 64 },
+      height: { px: 64 },
     };
 
     console.log('[Genesys] Chat button successfully configured');
