@@ -118,21 +118,21 @@ export default function LegacyChatWrapper() {
 
   // Inject chatSettings once for legacy mode
   useEffect(() => {
-    if (chatMode !== 'legacy' || settingsInjected) return;
-    window.chatSettings = {
-      ...userData,
-      clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
-      chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
-      coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
-      bootstrapUrl: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
-      widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
-      clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
-      opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
-      opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
-    };
-    setSettingsInjected(true);
-    console.log('[Legacy] chatSettings injected', window.chatSettings);
-  }, [chatMode, settingsInjected, userData]);
+    if (!settingsInjected) {
+      window.chatSettings = {
+        bootstrapUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_SCRIPT_URL!,
+        widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL!,
+        clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
+        clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT!,
+        chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT!,
+        coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT!,
+        opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE!,
+        opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS!,
+      };
+      console.log('[Legacy] chatSettings injected', window.chatSettings);
+      setSettingsInjected(true);
+    }
+  }, [settingsInjected]);
 
   // Setup chat settings and options
   useEffect(() => {
@@ -275,22 +275,28 @@ export default function LegacyChatWrapper() {
     return null;
   }
 
-  return (
+  return settingsInjected &&
+    typeof window !== 'undefined' &&
+    window.chatSettings ? (
     <>
-      {/* Inject Genesys widget CSS in the head before scripts */}
+      {/* ensure CSS link is actually in head */}
       <Script
         id="genesys-legacy-css"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
-          __html: `var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '${process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL?.replace(/\.js$/, '.css') || ''}';
-            document.head.appendChild(link);`,
+          __html: `
+            if (!document.querySelector('link[href="${(window.chatSettings as any)?.widgetUrl?.replace(/\.js$/, '.css') ?? ''}"]')) {
+              var l = document.createElement('link');
+              l.rel = 'stylesheet';
+              l.href = "${(window.chatSettings as any)?.widgetUrl?.replace(/\.js$/, '.css') ?? ''}";
+              document.head.appendChild(l);
+            }
+          `,
         }}
       />
-      {/* Load legacy click_to_chat.js with afterInteractive strategy */}
       <Script
-        src={process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS}
+        id="legacy-chat-js"
+        src={(window.chatSettings as any)?.clickToChatJs ?? ''}
         strategy="afterInteractive"
         onLoad={() => {
           console.log('[Legacy] click_to_chat.js loaded');
@@ -300,7 +306,10 @@ export default function LegacyChatWrapper() {
             console.error('[Legacy] initializeChatWidget not found');
           }
         }}
+        onError={(e) => {
+          console.error('[Legacy] failed to load click_to_chat.js', e);
+        }}
       />
     </>
-  );
+  ) : null;
 }
