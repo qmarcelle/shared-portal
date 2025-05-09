@@ -33,7 +33,7 @@ export class ChatErrorBoundary extends React.Component<
       return (
         <div className="chat-error-container p-4 bg-gray-100 rounded-md shadow-sm">
           <p className="text-gray-700 mb-3">Chat is currently unavailable.</p>
-          <button 
+          <button
             className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
             onClick={() => this.setState({ hasError: false, error: null })}
           >

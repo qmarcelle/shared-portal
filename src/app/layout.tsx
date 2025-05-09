@@ -10,6 +10,7 @@ import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import '@/styles/genesys-overrides.css';
 import { SessionProvider } from 'next-auth/react';
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -17,7 +18,9 @@ import 'slick-carousel/slick/slick.css';
 import { ChatErrorBoundary } from './@chat/components/ChatErrorBoundary';
 import ChatLoading from './@chat/loading';
 import ClientLayout from './ClientLayout';
-import QuickOpen from './components/QuickOpen';
+const QuickOpen = dynamic(() => import('@/app/components/QuickOpen'), {
+  ssr: false,
+});
 
 export default async function RootLayout({
   children,
@@ -46,8 +49,8 @@ export default async function RootLayout({
                   <Suspense fallback={<ChatLoading />}>{chat}</Suspense>
                 </ChatErrorBoundary>
               )}
+              <QuickOpen />
             </ClientLayout>
-            <QuickOpen />
             <Footer />
           </SessionProvider>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
