@@ -161,7 +161,6 @@ const Benefits = ({
       setMedicalBenefitsItems([]);
     }
     if (currentUserBenefitData.dentalBenefits) {
-      const denBenefits: ManageBenefitsItems[] = [];
       setDentalBenefitsItems(
         generateBenefitsItems(
           currentUserBenefitData.dentalBenefits,
@@ -170,8 +169,8 @@ const Benefits = ({
           BenefitType.DENTAL,
         ),
       );
-      setDentalBenefitsItems(denBenefits);
     }
+    else setDentalBenefitsItems([]);
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(
