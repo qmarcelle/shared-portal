@@ -20,7 +20,7 @@ const VirtualCareOptions = () => {
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RichText
-              className="w-[125%]"
+              className="sectionWidthVirtualCare"
               spans={[
                 <>
                   <span>
@@ -30,6 +30,7 @@ const VirtualCareOptions = () => {
                   </span>
                   <span className="link" key={1}>
                     <a
+                      className="body-bold"
                       href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`}
                     >
                       Find Care tool.
