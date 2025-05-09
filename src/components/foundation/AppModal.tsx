@@ -1,12 +1,10 @@
 import FocusTrap from 'focus-trap-react';
-import Image from 'next/image';
 import React, { ReactElement, createContext } from 'react';
 import { Modal } from 'react-responsive-modal';
 import { create } from 'zustand';
-import leftIcon from '../../../public/assets/left.svg';
 import { IComponent } from '../IComponent';
 import { Column } from './Column';
-import { bcbstSilhouletteLogo, closeIcon } from './Icons';
+import { bcbstSilhouletteLogo } from './Icons';
 import { Row } from './Row';
 import { Spacer } from './Spacer';
 import { TextBox } from './TextBox';
@@ -141,14 +139,14 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
           onClick={onBackPressed}
           className="items-center focus-icon"
         >
-          <Image src={leftIcon} className="modal-icon" alt="back" />
+          <img src="/assets/left.svg" className="modal-icon" alt="back" />
           <TextBox text="Back" className="primary-color underline" />
         </Row>
       ) : (
         <div tabIndex={1} />
       )}
 
-      <Image
+      <img
         src={bcbstSilhouletteLogo}
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
         alt="bcbst logo"
@@ -159,7 +157,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
         onKeyDown={handleKeyDown}
         onClick={onClose}
       >
-        <Image src={closeIcon} className="size-4" alt="close" />
+        <img src="/assets/close.svg" className="size-4" alt="close" />
       </div>
     </Row>
   );
@@ -168,11 +166,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
 const ModalFooter = () => {
   return (
     <Row className="justify-center modal-footer">
-      <Image
-        src={bcbstSilhouletteLogo}
-        className="modal-icon"
-        alt="bcbst logo"
-      />
+      <img src={bcbstSilhouletteLogo} className="modal-icon" alt="bcbst logo" />
     </Row>
   );
 };

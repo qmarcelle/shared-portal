@@ -5,14 +5,13 @@ import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
-import Image from 'next/image';
+import React from 'react';
 
 import {
   isBlueCareEligible,
   isManageMyPolicyEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import External from '../../../../public/assets/external.svg';
 
 export interface ManageMyPlanProps extends IComponent {
   visibilityRules?: VisibilityRules;
@@ -69,7 +68,7 @@ export const ManageMyPlan = ({
       },
       {
         title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
+        body: "All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.",
         externalLink: true,
         url: 'url',
       },
@@ -82,29 +81,26 @@ export const ManageMyPlan = ({
         <Column>
           {manageMyPlanDetails.map((items, index) =>
             items.externalLink ? (
-              <>
-                {' '}
+              <React.Fragment key={index}>
                 {/* for the external link image*/}
                 <Spacer size={16} />
                 <LinkRow
-                  key={index}
                   label={items.title}
                   description={
                     <div className="body-1 flex flex-row">{items.body}</div>
                   }
                   divider={false}
-                  icon={<img src={External} alt="link" />}
+                  icon={<img src="/assets/external.svg" alt="link" />}
                   onClick={() => {
                     window.location.href = items.url;
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}
-              </>
+              </React.Fragment>
             ) : (
-              <>
+              <React.Fragment key={index}>
                 <Spacer size={16} />
                 <LinkRow
-                  key={index}
                   label={items.title}
                   description={
                     <div className="body-1 flex flex-row">{items.body}</div>
@@ -115,7 +111,7 @@ export const ManageMyPlan = ({
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}
-              </>
+              </React.Fragment>
             ),
           )}
         </Column>

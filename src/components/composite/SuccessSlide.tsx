@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import { ReactElement } from 'react';
 import { Button } from '../foundation/Button';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
-import { successIcon } from '../foundation/Icons';
 import { Spacer } from '../foundation/Spacer';
 
 interface SuccessSlideProps {
@@ -23,7 +21,7 @@ export const SuccessSlide = ({
 }: SuccessSlideProps) => {
   return (
     <Column className="items-center">
-      <Image className="size-[80px]" src={successIcon} alt="success" />
+      <img src="/assets/success.svg" className="size-[80px]" alt="success" />
       <Spacer size={24} />
       <Header className="title-2" text={label} />
       <Spacer size={16} />

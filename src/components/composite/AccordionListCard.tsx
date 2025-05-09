@@ -1,7 +1,4 @@
 import { AccordionInfoItem } from '@/models/accordionInfoItem';
-import Image from 'next/image';
-import Down from '../../../public/assets/down.svg';
-import Up from '../../../public/assets/up.svg';
 import { IComponent } from '../IComponent';
 import { Accordion } from '../foundation/Accordion';
 import { Card } from '../foundation/Card';
@@ -40,14 +37,18 @@ export const AccordionListCard = ({
               initialOpen={false}
               type="card"
               openIcon={
-                <Image
+                <img
                   className="pl-2 w-6"
-                  src={Down}
+                  src="/assets/down.svg"
                   alt="Down Chevron"
-                ></Image>
+                />
               }
               closeIcon={
-                <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
+                <img
+                  className="pl-2 w-6"
+                  src="/assets/up.svg"
+                  alt="Up Chevron"
+                />
               }
             ></Accordion>
             {index !== information.length - 1 && <Divider />}

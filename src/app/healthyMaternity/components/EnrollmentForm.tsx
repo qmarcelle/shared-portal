@@ -10,9 +10,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { IComponent } from '@/components/IComponent';
-import Image from 'next/image';
 import { useState } from 'react';
-import { successIcon } from '../../../components/foundation/Icons';
 
 interface EnrollmentFormProps extends IComponent {
   accessCode: string;
@@ -122,7 +120,11 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           <TextBox text="3" className="stepRoundBlue" />
           <Spacer size={18} />
           <Column className="items-center">
-            <Image className="size-[80px]" src={successIcon} alt="success" />
+            <img
+              className="size-[80px]"
+              src="/assets/success.svg"
+              alt="success"
+            />
             <Spacer size={24} />
             <Header
               className="title-2"

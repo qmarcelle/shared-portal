@@ -1,10 +1,8 @@
-import Image from 'next/image';
 import { ReactElement } from 'react';
 import { IComponent } from '../IComponent';
 import { Button } from '../foundation/Button';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
-import { modalAlertIcon } from '../foundation/Icons';
 import { Spacer } from '../foundation/Spacer';
 
 interface ErrorDisplaySlideProps extends IComponent {
@@ -22,7 +20,7 @@ export const ErrorDisplaySlide = ({
 }: ErrorDisplaySlideProps) => {
   return (
     <Column className="items-center">
-      <Image className="size-[80px]" src={modalAlertIcon} alt="alert" />
+      <img src="/assets/modal_alert.svg" className="size-[80px]" alt="alert" />
       <Spacer size={24} />
       <Header className="title-2" text={label} />
       <Spacer size={16} />
