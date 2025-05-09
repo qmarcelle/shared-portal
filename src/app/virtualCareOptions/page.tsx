@@ -8,8 +8,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { OtherBenefits } from './components/OtherBenefits';
-const urlRedirect =
-  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
+const urlRedirect = '/member/myhealth/healthprograms/';
 
 const VirtualCareOptions = () => {
   return (
@@ -27,8 +26,7 @@ const VirtualCareOptions = () => {
                   <span>
                     The options below offer quick, high-quality care for a range
                     of non-emergency needs. You can also search for in-network
-                    providers that offer in-person and virtual visits with
-                    our{' '}
+                    providers that offer in-person and virtual visits with our{' '}
                   </span>
                   <span className="link" key={1}>
                     <a
@@ -73,6 +71,7 @@ const VirtualCareOptions = () => {
                       'Depression',
                       'Trauma and PTSD',
                     ],
+                    url: `${urlRedirect + HealthProgramType.TeladocMentalHealth}`,
                   },
                   {
                     healthcareType: 'Mental Health',
@@ -84,6 +83,7 @@ const VirtualCareOptions = () => {
                     link: 'Learn More About AbleTo',
                     itemDataTitle: 'Generally good for:',
                     itemData: ['Anxiety', 'Depression', 'Grief', 'Stress'],
+                    url: `${urlRedirect + HealthProgramType.AbleTo}`,
                   },
                   {
                     healthcareType: 'Physical Therapy',
@@ -99,6 +99,7 @@ const VirtualCareOptions = () => {
                       'Pelvic pain and incontinence',
                       'Neck and shoulder pain',
                     ],
+                    url: `${urlRedirect + HealthProgramType.HingeHealth}`,
                   },
                   {
                     healthcareType: 'Primary Care',
@@ -130,6 +131,7 @@ const VirtualCareOptions = () => {
                       'Lab orders and recommended screenings ',
                       'Referrals to in-network specialists ',
                     ],
+                    url: `${urlRedirect + HealthProgramType.TeladocPrimaryCareProvider}`,
                   },
                   {
                     healthcareType: 'Urgent Care',
@@ -145,6 +147,7 @@ const VirtualCareOptions = () => {
                       'Urinary tract infections',
                       'Constipation or diarrhea ',
                     ],
+                    url: `${urlRedirect + HealthProgramType.TeladocHealthGeneralUrgentCare}`,
                   },
                   {
                     healthcareType: 'Urgent Care',
@@ -159,6 +162,7 @@ const VirtualCareOptions = () => {
                       'Education and support on conditions or procedures',
                       'Help making decisions for surgery or other treatments ',
                     ],
+                    url: `${urlRedirect + HealthProgramType.TalkToNurse}`,
                   },
                 ]}
               />
