@@ -5,11 +5,13 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { TextBox } from '@/components/foundation/TextBox';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import {
   AccessStatus,
   ShareOutsideMyPlanDetails,
   SharePlanInformationDetails,
 } from '@/models/app/getSharePlanDetails';
+import { googleAnalytics } from '@/utils/analytics';
 import { ShareMyPlanComponent } from './components/ShareMyPlanComponent';
 import { ShareOutsideMyPlanComponent } from './components/ShareOutsideMyPlanComponent';
 
@@ -18,6 +20,19 @@ export type ShareMyInformationProps = {
 };
 
 const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
+  function trackShareMyInformationAccessAnalytics(clickText: string): void {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'accordion',
+      element_category: 'Understanding Sharing My Information',
+      action: 'expand',
+    };
+    googleAnalytics(analytics);
+  }
+
   const testMember: ShareOutsideMyPlanDetails[] = [
     {
       memberName: 'JILL VALENTINE',
@@ -48,6 +63,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('Full Sharing'),
                 },
                 {
                   title: 'Basic Sharing',
@@ -59,6 +76,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       prescriptions.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('Basic Sharing'),
                 },
                 {
                   title: 'None',
@@ -68,6 +87,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       account information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('None'),
                 },
               ]}
             ></AccordionListCard>
