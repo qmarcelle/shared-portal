@@ -6,6 +6,7 @@ import { ListOrder } from '@/components/foundation/ListOrder';
 import { Row } from '@/components/foundation/Row';
 import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { Session } from 'next-auth';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -25,6 +26,8 @@ interface HealthCareItemProps extends IComponent {
   healthCareInfo: VirtualHealthCareDetails;
   itemData: string[];
   itemDataTitle: string;
+  redirectLink?: (groupId: Session | null) => string;
+  sessionData?: Session | null;
   url?: string;
 }
 
@@ -33,7 +36,8 @@ export const HealthCareItem = ({
   onClick,
   itemDataTitle,
   itemData,
-  url,
+  redirectLink,
+  sessionData,
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);
@@ -96,7 +100,9 @@ export const HealthCareItem = ({
           <AppLink
             className="text-left"
             label={healthCareInfo.link}
-            url={healthCareInfo.url}
+            callback={() => {
+              window.location.href = redirectLink?.(sessionData!) ?? ' ';
+            }}
           />
         </Column>
       </Row>
@@ -134,7 +140,9 @@ export const HealthCareItem = ({
             <AppLink
               className="text-left"
               label={healthCareInfo.link}
-              url={url}
+              callback={() => {
+                window.location.href = redirectLink?.(sessionData!) ?? ' ';
+              }}
             />
           </Column>
         </Row>

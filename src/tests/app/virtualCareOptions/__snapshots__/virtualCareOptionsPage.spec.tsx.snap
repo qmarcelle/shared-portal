@@ -28,12 +28,23 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
             <div
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
-              <p
-                class="body-1 body-1 mb-0"
-                style="display: block;"
+              <span
+                class="rich-text body-1 w-[125%]"
               >
-                The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool.
-              </p>
+                <span>
+                  The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our
+                   
+                </span>
+                <span
+                  class="link"
+                >
+                  <a
+                    href="/sso/launch?PartnerSpId=undefined"
+                  >
+                    Find Care tool.
+                  </a>
+                </span>
+              </span>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
               />
@@ -62,15 +73,6 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
               />
-              <p
-                class="body-1 title-2"
-                style="display: block;"
-              >
-                Virtual Mental Health Care
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
               <div
                 class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
               >
@@ -84,7 +86,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Mental Health
@@ -127,13 +129,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -196,7 +198,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Mental Health
@@ -239,13 +241,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -308,18 +310,22 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Physical Therapy
                       </p>
                       <img
-                        alt="HingeHealthIcon"
+                        alt="HingeHealth"
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
-                        src=""
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                         style="color: transparent;"
+                        width="40"
                       />
                       <span
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -347,13 +353,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -416,7 +422,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Primary Care
@@ -426,8 +432,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
-                        src=""
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                         style="color: transparent;"
+                        width="40"
                       />
                       <span
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -455,13 +465,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -524,7 +534,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Primary Care
@@ -567,13 +577,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -636,7 +646,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Urgent Care
@@ -679,13 +689,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -748,7 +758,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="flex flex-row flex flex-col align-top m-4 mt-8"
                     >
                       <p
-                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                        class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                         style="display: block;"
                       >
                         Urgent Care
@@ -779,13 +789,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <div>
                           <p
-                            class="body-1 body-1 m-4"
+                            class="body-1 body-1 m-4 mt-2 mb-0"
                             style="display: block;"
                           >
                             Generally good for:
                           </p>
                           <ul
-                            class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                            class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                           >
                             <div>
                               <li>
@@ -905,48 +915,11 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                             >
                               <a
                                 class="p-4 block"
-                                href="null"
-                              >
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="font-bold primary-color"
-                                  >
-                                    Teladoc Health Second Opinion Advice & Support
-                                  </p>
-                                </div>
-                                <span
-                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                                />
-                                <p
-                                  class="body-1"
-                                  style="display: block;"
-                                >
-                                  Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
-                                </p>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          aria-hidden="false"
-                          class="slick-slide slick-active"
-                          data-index="1"
-                          style="outline: none; width: 0px;"
-                          tabindex="-1"
-                        >
-                          <div>
-                            <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
-                            >
-                              <a
-                                class="p-4 block"
-                                href="null"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                               >
                                 <div
                                   class="flex flex-row"
@@ -973,17 +946,17 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div
                           aria-hidden="false"
                           class="slick-slide slick-active"
-                          data-index="2"
+                          data-index="1"
                           style="outline: none; width: 0px;"
                           tabindex="-1"
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                             >
                               <a
                                 class="p-4 block"
-                                href="null"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1001,7 +974,44 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                                  This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active"
+                          data-index="2"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                            >
+                              <a
+                                class="p-4 block"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocBP"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health Blood Pressure Management Program
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                                 </p>
                               </a>
                             </div>
@@ -1016,11 +1026,11 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         >
                           <div>
                             <div
-                              class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                             >
                               <a
                                 class="p-4 block"
-                                href="null"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1028,7 +1038,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Test
+                                    Teladoc Health Diabetes Management Program
                                   </p>
                                 </div>
                                 <span
@@ -1038,7 +1048,155 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  THis is test card.
+                                  Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="4"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                            >
+                              <a
+                                class="p-4 block"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health Diabetes Prevention Program
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Get a personal action plan, health coaching and a smart scale at no extra cost.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="5"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                            >
+                              <a
+                                class="p-4 block"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Second Opinion Advice & Support
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="6"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                            >
+                              <a
+                                class="p-4 block"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    QuestSelect™ Low-Cost Lab Testing
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="7"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                            >
+                              <a
+                                class="p-4 block"
+                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Silver&Fit Fitness Program
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                                 </p>
                               </a>
                             </div>
@@ -1077,7 +1235,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <div
                       class="primary-bg-color h-1.5 rounded-full"
-                      style="width: 75%;"
+                      style="width: 38%;"
                     />
                   </div>
                 </div>
@@ -1133,12 +1291,23 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
           <div
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
-            <p
-              class="body-1 body-1 mb-0"
-              style="display: block;"
+            <span
+              class="rich-text body-1 w-[125%]"
             >
-              The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool.
-            </p>
+              <span>
+                The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our
+                 
+              </span>
+              <span
+                class="link"
+              >
+                <a
+                  href="/sso/launch?PartnerSpId=undefined"
+                >
+                  Find Care tool.
+                </a>
+              </span>
+            </span>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
@@ -1167,15 +1336,6 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <p
-              class="body-1 title-2"
-              style="display: block;"
-            >
-              Virtual Mental Health Care
-            </p>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
             <div
               class="flex flex-row flex-grow items-stretch gap-4 flex-wrap"
             >
@@ -1189,7 +1349,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Mental Health
@@ -1232,13 +1392,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1301,7 +1461,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Mental Health
@@ -1344,13 +1504,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1413,18 +1573,22 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Physical Therapy
                     </p>
                     <img
-                      alt="HingeHealthIcon"
+                      alt="HingeHealth"
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
-                      src=""
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                       style="color: transparent;"
+                      width="40"
                     />
                     <span
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -1452,13 +1616,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1521,7 +1685,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Primary Care
@@ -1531,8 +1695,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
-                      src=""
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                       style="color: transparent;"
+                      width="40"
                     />
                     <span
                       style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
@@ -1560,13 +1728,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1629,7 +1797,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Primary Care
@@ -1672,13 +1840,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1741,7 +1909,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Urgent Care
@@ -1784,13 +1952,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1853,7 +2021,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Urgent Care
@@ -1884,13 +2052,13 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -2010,48 +2178,11 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                           >
                             <a
                               class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Teladoc Health Second Opinion Advice & Support
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                                style="display: block;"
-                              >
-                                Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active"
-                        data-index="1"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                             >
                               <div
                                 class="flex flex-row"
@@ -2078,17 +2209,17 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div
                         aria-hidden="false"
                         class="slick-slide slick-active"
-                        data-index="2"
+                        data-index="1"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                             >
                               <div
                                 class="flex flex-row"
@@ -2106,7 +2237,44 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 class="body-1"
                                 style="display: block;"
                               >
-                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
+                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="2"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                          >
+                            <a
+                              class="p-4 block"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocBP"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health Blood Pressure Management Program
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                               </p>
                             </a>
                           </div>
@@ -2121,11 +2289,11 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <div>
                           <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 undefined"
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                             >
                               <div
                                 class="flex flex-row"
@@ -2133,7 +2301,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Test
+                                  Teladoc Health Diabetes Management Program
                                 </p>
                               </div>
                               <span
@@ -2143,7 +2311,155 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 class="body-1"
                                 style="display: block;"
                               >
-                                THis is test card.
+                                Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="4"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                          >
+                            <a
+                              class="p-4 block"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health Diabetes Prevention Program
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Get a personal action plan, health coaching and a smart scale at no extra cost.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="5"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                          >
+                            <a
+                              class="p-4 block"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Second Opinion Advice & Support
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="6"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                          >
+                            <a
+                              class="p-4 block"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  QuestSelect™ Low-Cost Lab Testing
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="7"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
+                          >
+                            <a
+                              class="p-4 block"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Silver&Fit Fitness Program
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                               </p>
                             </a>
                           </div>
@@ -2182,7 +2498,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 75%;"
+                    style="width: 38%;"
                   />
                 </div>
               </div>
