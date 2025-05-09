@@ -14,7 +14,6 @@ import {
   isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import EstimateCost from '../../../public/assets/estimate_cost.svg';
 import findCareIcon from '../../../public/assets/find_care_search.svg';
@@ -59,7 +58,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                 // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
                 title="Looking for care? Find a:"
                 icon={
-                  <Image
+                  <img
                     src={findCareIcon}
                     className="w-[40px] h-[40px]"
                     alt=""
@@ -116,11 +115,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
               //className="md:w-[480px] md:h-[164px] my-8 p-4 w-11/12"
               title="Planning for a procedure? Estimate costs for:"
               icon={
-                <Image
-                  src={EstimateCost}
-                  className="w-[40px] h-[40px]"
-                  alt=""
-                />
+                <img src={EstimateCost} className="w-[40px] h-[40px]" alt="" />
               }
               pillObjects={[
                 {
@@ -164,7 +159,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   description:
                     'Learn more about Primary Care Providers and view your options.',
                   image: (
-                    <Image
+                    <img
                       className="max-md:w-[80px] max-md:h-[80px]"
                       src={PrimaryCareIcon}
                       alt="Primary Care"
@@ -177,7 +172,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   description:
                     'Learn more about Mental Health Providers and view your options.',
                   image: (
-                    <Image
+                    <img
                       className="max-md:w-[80px] max-md:h-[80px]"
                       src={MentalCareIcon}
                       alt="Mental Care"

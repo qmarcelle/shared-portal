@@ -219,7 +219,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               <PillBox
                 title="Looking for Care? Find A:"
                 icon={
-                  <Image
+                  <img
                     src="/assets/find_care_search.svg"
                     className="w-[50px] h-[50px]"
                     alt=""

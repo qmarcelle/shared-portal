@@ -3,7 +3,6 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import Image from 'next/image';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import AlertIcon from '../../../../public/assets/alert_gray.svg';
@@ -64,11 +63,11 @@ export const ImageSlider = ({
       <Column>
         {svgFrontData == null && idCardErrorMessage()}
         {svgFrontData && (
-          <Image
+          <img
             src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgFrontData)}`}
             alt="FrontCard"
-            fill={true}
             className="!relative m-auto"
+            style={{ width: '100%', height: 'auto' }}
           />
         )}
       </Column>
@@ -80,11 +79,11 @@ export const ImageSlider = ({
       <Column>
         {svgBackData == null && idCardErrorMessage()}
         {svgBackData && (
-          <Image
+          <img
             src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgBackData)}`}
             alt="BackCard"
-            fill={true}
             className="!relative m-auto"
+            style={{ width: '100%', height: 'auto' }}
           />
         )}
       </Column>

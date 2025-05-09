@@ -28,7 +28,7 @@ export const AmplifyHealthAppInformation = () => {
           <Spacer size={32}></Spacer>
           <Row className="justify-start">
             <Link href="https://apps.apple.com/us/app/amplifyhealth/id6444489335">
-              <Image
+              <img
                 src="/assets/apple_store.svg"
                 alt="Download on the Apple App Store"
                 width={120}
@@ -39,7 +39,7 @@ export const AmplifyHealthAppInformation = () => {
               className="pl-[10px]"
               href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
             >
-              <Image
+              <img
                 src="/assets/google_play.svg"
                 alt="Get it on Google Play"
                 width={120}
