@@ -41,6 +41,7 @@ export const getMenuNavigation = (
   {
     id: 1,
     title: 'Find Care & Costs',
+    titleLink: 'Find All Care & Costs',
     description: 'This is Find Care & Costs',
     category: '',
     showOnMenu: isNotWellnessQa(rules) || isLifePointGrp(rules),
@@ -90,7 +91,7 @@ export const getMenuNavigation = (
         description: 'This is Primary Care Options',
         category: 'Find Care',
         showOnMenu: isPrimaryCareMenuOption,
-        url: '/findcare/primaryCareOptions',
+        url: '/member/findcare/virtualcare/primarycare',
         external: false,
       },
       {
@@ -170,6 +171,7 @@ export const getMenuNavigation = (
   {
     id: 2,
     title: 'My Plan',
+    titleLink: 'View All Plan Details',
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
@@ -340,6 +342,7 @@ export const getMenuNavigation = (
   {
     id: 3,
     title: 'My Health',
+    titleLink: 'View My Health Dashboard',
     description: 'This is My Health',
     category: '',
     showOnMenu: true,
@@ -453,6 +456,7 @@ export const getMenuNavigation = (
   {
     id: 4,
     title: 'Pharmacy',
+    titleLink: 'View All Pharmacy',
     description: 'This is Pharmacy',
     category: '',
     showOnMenu: isNotWellnessQa(rules),
@@ -554,6 +558,7 @@ export const getMenuNavigation = (
   {
     id: 5,
     title: 'Support',
+    titleLink: 'View All Support',
     description: 'This is Support',
     category: '',
     showOnMenu: true,
