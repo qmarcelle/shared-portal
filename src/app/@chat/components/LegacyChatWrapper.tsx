@@ -26,6 +26,28 @@ export default function LegacyChatWrapper() {
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const componentId = Math.random().toString(36).substring(2, 10); // Unique ID for tracking this instance
 
+  // Stage-based Genesys/chat initialization logging
+  let genesysInitStage = 0;
+  const stageNames = [
+    '',
+    'Scripts requested',
+    'jQuery loaded',
+    'Genesys widgets loaded',
+    'chatSettings set',
+    'click_to_chat.js loaded',
+    'Genesys/CXBus ready',
+    'Chat button injected',
+  ];
+  function logStage(stage: number, context: Record<string, any> = {}) {
+    if (genesysInitStage < stage) {
+      genesysInitStage = stage;
+      logger.info(
+        `[GenesysInit] Stage ${stage}: ${stageNames[stage]}`,
+        context,
+      );
+    }
+  }
+
   // Log when component is first rendered
   useEffect(() => {
     logger.info('[LegacyChatWrapper] Component mounted', {
@@ -283,41 +305,101 @@ export default function LegacyChatWrapper() {
         hasCommand: typeof window.CXBus?.command === 'function',
         timestamp: new Date().toISOString(),
       });
+      if (
+        typeof window.CXBus !== 'undefined' &&
+        typeof window.CXBus.command === 'function'
+      ) {
+        logStage(6);
+      }
     };
-
     checkCXBus();
     const interval = setInterval(checkCXBus, 5000); // Check every 5 seconds
-
     return () => clearInterval(interval);
   }, [componentId]);
 
-  useEffect(
-    () => {
-      if (typeof window === 'undefined') return;
-      if (window.__genesysInitialized) return;
-      window.__genesysInitialized = true;
-      // ...existing Genesys init code...
-      setTimeout(() => {
-        console.log(
-          '✅[Genesys] chat-button found?',
-          document.querySelector('.cx-webchat-chat-button'),
+  // Debug check for chat button
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Check if chat button is present after initialization
+    setTimeout(() => {
+      const button = document.querySelector('.cx-webchat-chat-button');
+      logger.info('[Genesys] Chat button found check:', !!button);
+    }, 500);
+  }, []);
+
+  // 1. Scripts requested
+  useEffect(() => {
+    logStage(1, { scripts: ['jQuery', 'widgets.min.js', 'click_to_chat.js'] });
+  }, []);
+
+  // 4. chatSettings set
+  useEffect(() => {
+    logStage(4, { chatSettings: window.chatSettings });
+  }, [userData, chatGroup, formInputs, componentId]);
+
+  // 6. Genesys/CXBus ready
+  useEffect(() => {
+    const checkCXBus = () => {
+      logger.info('[LegacyChatWrapper] Checking CXBus status', {
+        componentId,
+        hasCXBus: typeof window.CXBus !== 'undefined',
+        hasGenesys: typeof window._genesys !== 'undefined',
+        hasWebChat: typeof window._genesys?.widgets?.webchat !== 'undefined',
+        hasCommand: typeof window.CXBus?.command === 'function',
+        timestamp: new Date().toISOString(),
+      });
+      if (
+        typeof window.CXBus !== 'undefined' &&
+        typeof window.CXBus.command === 'function'
+      ) {
+        logStage(6);
+      }
+    };
+    checkCXBus();
+    const interval = setInterval(checkCXBus, 5000); // Check every 5 seconds
+    return () => clearInterval(interval);
+  }, [componentId]);
+
+  // 7. Chat button injected (by Genesys/click_to_chat.js)
+  useEffect(() => {
+    let found = false;
+    let attempts = 0;
+    const maxAttempts = 20; // 20 seconds
+    const checkChatButton = () => {
+      const btn = document.querySelector('.cx-webchat-chat-button');
+      if (btn && !found) {
+        found = true;
+        logger.info('[LegacyChatWrapper] Genesys chat button injected in DOM', {
+          componentId,
+          button: btn,
+        });
+        logStage(7);
+      } else if (!btn && attempts === maxAttempts) {
+        logger.warn(
+          '[LegacyChatWrapper] Genesys chat button NOT found after waiting',
+          {
+            componentId,
+          },
         );
-      }, 500);
-    },
-    [
-      /* dependencies */
-    ],
-  );
+      }
+      attempts++;
+    };
+    const interval = setInterval(checkChatButton, 1000);
+    setTimeout(() => clearInterval(interval), maxAttempts * 1000);
+    return () => clearInterval(interval);
+  }, [componentId]);
 
   return (
     <>
-      {/* Load jQuery first (required by click_to_chat.js) */}
+      {/* 2. jQuery loaded */}
       <Script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         strategy="beforeInteractive"
-        onLoad={() =>
-          logger.info('[LegacyChatWrapper] jQuery loaded', { componentId })
-        }
+        onLoad={() => {
+          logger.info('[LegacyChatWrapper] jQuery loaded', { componentId });
+          logStage(2);
+        }}
         onError={() =>
           logger.error('[LegacyChatWrapper] Failed to load jQuery', {
             componentId,
@@ -325,11 +407,14 @@ export default function LegacyChatWrapper() {
         }
       />
 
-      {/* Load the main Genesys widgets script */}
+      {/* 3. Genesys widgets loaded */}
       <Script
         src="/assets/genesys/plugins/widgets.min.js"
         strategy="beforeInteractive"
-        onLoad={handleGenesysScriptLoad}
+        onLoad={() => {
+          handleGenesysScriptLoad();
+          logStage(3);
+        }}
         onError={handleScriptError}
       />
 
@@ -342,23 +427,21 @@ export default function LegacyChatWrapper() {
             // Ensure jQuery is assigned to window.jQuery
             if (typeof jQuery !== 'undefined') {
               window.jQuery = jQuery;
-              console.log('jQuery successfully assigned to window.jQuery');
-            } else {
-              console.error('jQuery not available for global assignment');
             }
           `,
         }}
       />
 
-      {/* Load custom click_to_chat script which handles the legacy chat flow */}
+      {/* 5. click_to_chat.js loaded */}
       <Script
         src="/assets/genesys/click_to_chat.js"
         strategy="afterInteractive"
-        onLoad={() =>
+        onLoad={() => {
           logger.info('[LegacyChatWrapper] click_to_chat.js loaded', {
             componentId,
-          })
-        }
+          });
+          logStage(5);
+        }}
         onError={() =>
           logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js', {
             componentId,
@@ -373,23 +456,10 @@ export default function LegacyChatWrapper() {
         dangerouslySetInnerHTML={{
           __html: `
             // Debug and initialization
-            console.log('Legacy chat debug script running');
-            
-            // Log global objects
-            console.log('Chat globals check:', {
-              hasCXBus: typeof window.CXBus !== 'undefined',
-              hasGenesys: typeof window._genesys !== 'undefined',
-              hasWebChat: typeof window._genesys?.widgets?.webchat !== 'undefined',
-              hasSettings: !!window.chatSettings
-            });
-            
-            // Wait for Genesys to be ready
             if (window._genesys && !window._genesys._widgets) {
               try {
-                console.log('Initializing Genesys widgets');
                 if (typeof window.CXBus === 'undefined' && typeof window.genesys?.widgets?.bus === 'function') {
                   window.CXBus = window.genesys.widgets.bus;
-                  console.log('CXBus assigned from genesys.widgets.bus');
                 }
               } catch(e) {
                 console.error('Failed to initialize chat', e);
@@ -405,28 +475,17 @@ export default function LegacyChatWrapper() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            // Initialize Genesys widgets when everything is loaded
             (function initializeChat() {
-              // Check if we have all required components
               if (window._genesys && window.chatSettings && window.jQuery) {
-                console.log('All chat dependencies loaded, initializing chat');
-                
-                // Configure the widgets
                 if (!window._genesys._widgets) {
                   try {
-                    // Set up plugins path
                     if (window.CXBus && typeof window.CXBus.configure === 'function') {
                       window.CXBus.configure({ 
                         debug: true, 
                         pluginsPath: '/assets/genesys/plugins/' 
                       });
-                      console.log('CXBus configured with plugins path');
                     }
-                    
-                    // Trigger initialization by applying chatSettings
                     if (window.startChat) {
-                      console.log('Chat initialized and ready to use');
-                      
                       // Uncomment this line to automatically open chat for testing
                       // setTimeout(window.startChat, 1000);
                     }
@@ -435,7 +494,6 @@ export default function LegacyChatWrapper() {
                   }
                 }
               } else {
-                // Not all dependencies loaded yet, retry in 500ms
                 setTimeout(initializeChat, 500);
               }
             })();
@@ -480,7 +538,6 @@ export default function LegacyChatWrapper() {
                 logger.info('[LegacyChatWrapper] Co-browse No clicked', {
                   componentId,
                 });
-                // Handle no action
               }}
             >
               No
@@ -492,7 +549,6 @@ export default function LegacyChatWrapper() {
                 logger.info('[LegacyChatWrapper] Co-browse Yes clicked', {
                   componentId,
                 });
-                // Handle yes action
                 if (
                   typeof window.CobrowseIO?.createSessionCode === 'function'
                 ) {
@@ -553,35 +609,6 @@ export default function LegacyChatWrapper() {
           </div>
         </div>
       </div>
-
-      {/* Debug button to manually start chat - visible only in development */}
-      {process.env.NODE_ENV === 'development' && (
-        <button
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            zIndex: 1000,
-            background: '#0066cc',
-            color: 'white',
-            padding: '8px 16px',
-            border: 'none',
-            borderRadius: '4px',
-          }}
-          onClick={() => {
-            logger.info('[LegacyChatWrapper] Debug button clicked', {
-              componentId,
-            });
-            if (window.CXBus && typeof window.CXBus.command === 'function') {
-              window.CXBus.command('WebChat.open');
-            } else if (typeof window.startChat === 'function') {
-              window.startChat();
-            }
-          }}
-        >
-          Debug: Start Chat
-        </button>
-      )}
     </>
   );
 }

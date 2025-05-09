@@ -104,6 +104,19 @@ export class ChatService implements IChatService {
    */
   public async initialize(cloudChatEligible: boolean): Promise<void> {
     try {
+      // Initialize only once - central control point for Genesys initialization
+      if (typeof window !== 'undefined' && window.__genesysInitialized) {
+        logger.info('Genesys already initialized, skipping initialization', {
+          cloudChatEligible,
+          timestamp: new Date().toISOString(),
+        });
+        return;
+      }
+
+      if (typeof window !== 'undefined') {
+        window.__genesysInitialized = true;
+      }
+
       logger.info('Initializing chat service', {
         cloudChatEligible,
         memberId: this.memberId,
@@ -133,10 +146,8 @@ export class ChatService implements IChatService {
         );
       }
 
-      // Web Messenger script URL - use specific version for better stability
-      const scriptUrl = this.cloudChatEligible
-        ? `https://apps.mypurecloud.com/widgets/9.0/webmessenger.js`
-        : '/assets/genesys/widgets.min.js';
+      // Determine the script URL based on chat mode
+      const scriptUrl = this.determineScriptUrl();
 
       logger.info('Loading Genesys script', {
         scriptUrl,
@@ -252,9 +263,8 @@ export class ChatService implements IChatService {
         timestamp: new Date().toISOString(),
       });
 
+      // Log chat button status after a short delay
       if (typeof window !== 'undefined') {
-        if (window.__genesysInitialized) return;
-        window.__genesysInitialized = true;
         setTimeout(() => {
           console.log(
             '✅[Genesys] chat-button found?',
@@ -270,6 +280,21 @@ export class ChatService implements IChatService {
         timestamp: new Date().toISOString(),
       });
       throw error;
+    }
+  }
+
+  /**
+   * Determines the script URL based on the chat mode.
+   * @returns The URL for the appropriate Genesys script
+   */
+  private determineScriptUrl(): string {
+    if (this.cloudChatEligible) {
+      // For cloud mode, use the Genesys Cloud Web Messenger script
+      // Use a specific version for better stability
+      return `https://apps.mypurecloud.com/widgets/9.0/webmessenger.js`;
+    } else {
+      // For legacy mode, use the configured legacy chat URL
+      return '/assets/genesys/widgets.min.js';
     }
   }
 
@@ -348,6 +373,11 @@ export class ChatService implements IChatService {
             timestamp: new Date().toISOString(),
           });
         }
+      }
+
+      // Reset the initialization flag
+      if (typeof window !== 'undefined') {
+        window.__genesysInitialized = false;
       }
     } catch (error) {
       logger.error('Error during chat service cleanup', {
