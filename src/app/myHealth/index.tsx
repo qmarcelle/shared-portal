@@ -320,21 +320,25 @@ const MyHealth = ({ data }: MyHealthProps) => {
             </section>
           </>
         )}
-        <section>
-          <MyHealthOffsiteLinkCard
-            icon={wellTunedBlogIcon}
-            title="WellTuned Blog"
-            description="Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health."
-            url={process.env.NEXT_PUBLIC_WELLTUNED_BLOCK_URL ?? ''}
-          />
-        </section>
+        {!isBlueCareMember && (
+          <section>
+            <MyHealthOffsiteLinkCard
+              icon={wellTunedBlogIcon}
+              title="WellTuned Blog"
+              description="Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health."
+              url={process.env.NEXT_PUBLIC_WELLTUNED_BLOCK_URL ?? ''}
+            />
+          </section>
+        )}
         <section></section>
-        <section>
-          <HealthLibraryOptions
-            className="large-section"
-            options={healthLibraryDetails}
-          />
-        </section>
+        {!isBlueCareMember && (
+          <section>
+            <HealthLibraryOptions
+              className="large-section"
+              options={healthLibraryDetails}
+            />
+          </section>
+        )}
 
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
@@ -372,6 +376,14 @@ const MyHealth = ({ data }: MyHealthProps) => {
             )}
           </Column>
         </section>
+        {isBlueCareMember && (
+          <section>
+            <HealthLibraryOptions
+              className="large-section"
+              options={healthLibraryDetails}
+            />
+          </section>
+        )}
       </Column>
     </main>
   );
