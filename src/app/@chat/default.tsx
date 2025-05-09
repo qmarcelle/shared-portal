@@ -6,95 +6,79 @@
 // All logic is production-grade, with robust error handling, memoization, and logging for debugging.
 
 import { useChatStore } from '@/app/@chat/stores/chatStore';
+import { usePlanStore } from '@/userManagement/stores/planStore';
 import { useSession } from 'next-auth/react';
-import { useCallback, useMemo } from 'react';
+import { useEffect } from 'react';
 import { ChatWidget } from './components/ChatWidget';
 
 export default function ChatRoute() {
   // Get the current session and authentication status
   const { data: session, status } = useSession();
-  const chatStore = useChatStore();
-  const setIsPlanSwitcherLocked = chatStore?.setPlanSwitcherLocked;
+  const { userData, isLoading, isEligible, error, loadChatConfiguration } =
+    useChatStore();
 
-  // Memoize memberId as a string for stability and to avoid unnecessary re-renders
-  const memberId = useMemo(() => {
-    const raw = session?.user?.currUsr?.plan?.memCk;
-    if (!raw) {
-      console.warn(
-        '[ChatRoute] No memCk found in plan, using default: 220590751',
-      );
-      return '220590751';
+  // Get plans from the plan store
+  const plans = usePlanStore((s) => s.plans);
+  const hasMultiplePlans = Array.isArray(plans) && plans.length > 1;
+
+  // Extract real memberId and planId from the session (adjust these keys as needed for your app)
+  const memberId = session?.user?.currUsr?.plan?.memCk;
+  const planId = session?.user?.currUsr?.plan?.grpId;
+
+  // On mount or when session changes, trigger the chat config load if authenticated and IDs are present
+  useEffect(() => {
+    if (
+      status === 'authenticated' &&
+      memberId &&
+      planId &&
+      (!userData?.MEMBER_ID || !userData?.PLAN_ID)
+    ) {
+      loadChatConfiguration(Number(memberId), planId);
     }
-    if (typeof raw === 'object') {
-      console.warn('[ChatRoute] memCk is an object, using toString():', raw);
-      return String(raw);
-    }
-    return String(raw);
-  }, [session]);
+  }, [
+    status,
+    memberId,
+    planId,
+    loadChatConfiguration,
+    userData?.MEMBER_ID,
+    userData?.PLAN_ID,
+  ]);
 
-  // Memoize planId as a string for stability
-  const planId = useMemo(() => {
-    const raw = session?.user?.currUsr?.plan?.grpId;
-    if (!raw) {
-      console.warn('[ChatRoute] No grpId found in plan, using default: 82333');
-      return '82333';
-    }
-    return String(raw);
-  }, [session]);
-
-  // Memoize handler for locking/unlocking the plan switcher during chat
-  const handleLockPlanSwitcher = useCallback(
-    (locked: boolean) => {
-      if (setIsPlanSwitcherLocked) setIsPlanSwitcherLocked(locked);
-      console.log(`[ChatRoute] Plan switcher lock set to: ${locked}`);
-    },
-    [setIsPlanSwitcherLocked],
-  );
-
-  // Memoize handler for opening the plan switcher (extend as needed)
-  const handleOpenPlanSwitcher = useCallback(() => {
-    // Implement any production logic for opening the plan switcher here
-    console.log('[ChatRoute] Opening plan switcher');
-  }, []);
-
-  // Memoize error handler for chat errors
-  const handleError = useCallback((error: Error) => {
-    // Implement production error handling (e.g., log to monitoring service)
-    console.error('[ChatRoute] Chat error:', error);
-  }, []);
-
-  // Handle session loading state
-  if (status === 'loading') {
-    // This will show a loading indicator while the session is being fetched
-    console.log('[ChatRoute] Session is loading...');
+  // Show loading state while session or chat config is loading
+  if (status === 'loading' || isLoading) {
     return <div className="chat-loading">Loading chat session...</div>;
   }
 
-  // Handle unauthenticated or missing user data
-  if (status !== 'authenticated' || !session?.user || !session.user.currUsr) {
-    console.warn(
-      '[ChatRoute] Not authenticated or missing user data. Chat will not render.',
+  // Show error if chat config failed to load
+  if (error) {
+    return (
+      <div className="chat-error">Error loading chat: {error.message}</div>
     );
+  }
+
+  // If not authenticated or missing user data, do not render chat
+  if (status !== 'authenticated' || !session?.user || !session.user.currUsr) {
     return null;
   }
 
-  // Log the values being passed to ChatWidget for traceability
-  console.log('[ChatRoute] Rendering ChatWidget with:', {
-    memberId,
-    planId,
-    planName: session.user.currUsr.plan?.grgrCk || 'Default Plan',
-  });
+  // If not eligible, show a message
+  if (!isEligible) {
+    return <div className="chat-ineligible">Not eligible for chat.</div>;
+  }
 
-  // Render the ChatWidget with all required, memoized props
+  // If we don't have the required userData, show a loading state
+  if (!userData?.MEMBER_ID || !userData?.PLAN_ID) {
+    return <div className="chat-loading">Loading member data...</div>;
+  }
+
+  // Render the ChatWidget with real data from the store
   return (
     <ChatWidget
-      memberId={memberId}
-      planId={planId}
-      planName={session.user.currUsr.plan?.grgrCk || 'Default Plan'}
-      hasMultiplePlans={true}
-      onLockPlanSwitcher={handleLockPlanSwitcher}
-      onOpenPlanSwitcher={handleOpenPlanSwitcher}
-      _onError={handleError}
+      memberId={userData.MEMBER_ID}
+      planId={userData.PLAN_ID}
+      planName={userData.PLAN_NAME || 'Default Plan'}
+      hasMultiplePlans={hasMultiplePlans}
+      // ...other props as needed
     />
   );
 }
