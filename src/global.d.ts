@@ -44,6 +44,12 @@ declare global {
       isBlueEliteGroup?: string;
       selfServiceLinks?: Array<{ key: string; value: string }>;
       idCardChatBotName?: string;
+      chatGroup?: string;
+      isEligible?: boolean;
+      chatMode?: 'legacy' | 'cloud';
+      routingInteractionId?: string;
+      userData?: Record<string, string>;
+      config?: any;
     };
     startChat?: () => void;
     endChat?: () => void;
