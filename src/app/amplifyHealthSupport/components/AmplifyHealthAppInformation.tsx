@@ -16,6 +16,8 @@ export const AmplifyHealthAppInformation = () => {
             className="min-h-[280px] self-center md:self-end object-cover sm:self-auto basis-1/2 min-w-0"
             src="/assets/amplify_health_app_get_care.png"
             alt="Amplify Health Get Care"
+            fill
+            style={{ width: 'auto', height: 'auto' }}
           />
         </Column>
         <Spacer axis="horizontal" size={32} />

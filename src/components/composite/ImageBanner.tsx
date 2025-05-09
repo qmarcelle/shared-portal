@@ -21,7 +21,13 @@ export const ImageBanner = ({
       <section className="sm:flex sm:flex-row">
         {body}
         {imageSrc ? (
-          <Image className="size-10" src={imageSrc} alt={alt ?? 'image'} />
+          <Image
+            className="size-10"
+            src={imageSrc}
+            alt={alt ?? 'image'}
+            fill
+            style={{ width: 'auto', height: 'auto' }}
+          />
         ) : (
           image
         )}

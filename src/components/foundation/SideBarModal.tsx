@@ -1,5 +1,4 @@
 import FocusTrap from 'focus-trap-react';
-import Image from 'next/image';
 import React, { ReactElement, createContext } from 'react';
 import { Modal } from 'react-responsive-modal';
 import { create } from 'zustand';
@@ -120,13 +119,13 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
           onClick={onBackPressed}
           className="items-center focus-icon"
         >
-          <Image src={leftIcon} className="modal-icon" alt="back" />
+          <img src={leftIcon} className="modal-icon" alt="back" />
           <TextBox text="Back" className="primary-color underline" />
         </Row>
       ) : (
         <div tabIndex={1} />
       )}
-      <Image
+      <img
         src={bcbstSilhouletteLogo}
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
         alt="bcbst logo"
@@ -137,7 +136,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
         onKeyDown={handleKeyDown}
         onClick={onClose}
       >
-        <Image src={closeIcon} className="size-4" alt="close" />
+        <img src={closeIcon} className="size-4" alt="close" />
       </div>
     </Row>
   );

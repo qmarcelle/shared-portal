@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { forwardRef, RefObject, useState } from 'react';
 import { IComponent } from '../IComponent';
 import {
@@ -37,11 +36,11 @@ const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
       <div className="separator"></div>
       {obscure == true ? (
         <div>
-          <Image src={showPasswordIcon} className="icon" alt="Showpassword" />
+          <img src={showPasswordIcon} className="icon" alt="Showpassword" />
         </div>
       ) : (
         <div>
-          <Image
+          <img
             src={showPasswordSelectedIcon}
             className="icon"
             alt={'Showpassword'}
@@ -74,7 +73,7 @@ const Error = ({ errors }: { errors: string[] }) => {
       {errors.map((item) => (
         <Row key={item}>
           <div className="inline-flex">
-            <Image src={alertErrorIcon} className="icon" alt={'ErrorIcon'} />
+            <img src={alertErrorIcon} className="icon" alt={'ErrorIcon'} />
             <p className="ml-2">{item}</p>
           </div>
         </Row>

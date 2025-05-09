@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Column } from './Column';
@@ -89,7 +88,7 @@ const Footer: React.FC<FooterProps> = () => {
           {/* Download the App Section */}
           <Column className="md:ml-16 p-7 md:p-0 text-left">
             <Row className="md:block lg:flex">
-              <Image className="" src={bcbstnLogo} alt="" />
+              <img className="" src={bcbstnLogo} alt="" />
 
               <Column className="ml-4 md:ml-0 lg:ml-4 mt-1">
                 <h3 className="body-bold mb-2">Download the App</h3>
@@ -100,37 +99,37 @@ const Footer: React.FC<FooterProps> = () => {
             </Row>
             <Row className="flex mt-4 grid grid-cols-6 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 md:mb-2 mb-0 lg:mb-0 gap-x-2 gap-y-4">
               {/* Social Media Icons */}
-              <Image
+              <img
                 width={35}
                 height={35}
                 src={facebookLogo}
                 alt="Facebook Icon"
               />
-              <Image
+              <img
                 width={35}
                 height={35}
                 src={linkedinLogo}
                 alt="Linkedin Icon"
               />
-              <Image
+              <img
                 width={35}
                 height={35}
                 src={instagramLogo}
                 alt="Instagram Icon"
               />
-              <Image
+              <img
                 width={35}
                 height={35}
                 src={youtubeLogo}
                 alt="Youtube ICon"
               />
-              <Image
+              <img
                 width={35}
                 height={35}
                 src={pintrestLogo}
                 alt="Pintrest Icon"
               />
-              <Image width={35} height={35} src={xLogo} alt="X Icon" />
+              <img width={35} height={35} src={xLogo} alt="X Icon" />
             </Row>
           </Column>
         </Column>

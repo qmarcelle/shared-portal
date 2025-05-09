@@ -4,7 +4,6 @@ import {
   upGrayIcon,
   upIcon,
 } from '@/components/foundation/Icons';
-import Image from 'next/image';
 import { KeyboardEvent, useState } from 'react';
 import { IComponent } from '../IComponent';
 
@@ -87,17 +86,17 @@ export const StepUpDown = ({
           <div onClick={() => handleIncrement()}>
             {' '}
             {count >= maxValue ? (
-              <Image alt="Up Icon" src={upGrayIcon} />
+              <img alt="Up Icon" src={upGrayIcon} />
             ) : (
-              <Image alt="Up Icon" src={upIcon} />
+              <img alt="Up Icon" src={upIcon} />
             )}
           </div>
           <div onClick={() => handleDecrement()}>
             {' '}
             {count <= minValue ? (
-              <Image alt="Down Icon" src={downGrayIcon} />
+              <img alt="Down Icon" src={downGrayIcon} />
             ) : (
-              <Image alt="Down Icon" src={downIcon} />
+              <img alt="Down Icon" src={downIcon} />
             )}
           </div>
         </div>

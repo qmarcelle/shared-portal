@@ -3,7 +3,6 @@ import { Card } from '@/components/foundation/Card';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 import FindCare from '../../../../public/assets/find_care_search.svg';
 
@@ -11,7 +10,7 @@ interface FindInNetworkProviderSectionProps extends IComponent {
   icon?: ReactNode;
 }
 export const FindInNetworkProviderSection = ({
-  icon = <Image src={FindCare} className="w-[40px] h-[40px]" alt="FindCare" />,
+  icon = <img src={FindCare} className="w-[40px] h-[40px]" alt="FindCare" />,
 }: FindInNetworkProviderSectionProps) => {
   return (
     <Card className="large-section">

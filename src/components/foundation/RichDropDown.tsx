@@ -1,5 +1,4 @@
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
-import Image from 'next/image';
 import { ReactElement, ReactNode, useEffect, useRef, useState } from 'react';
 import { IComponent } from '../IComponent';
 import { Card } from './Card';
@@ -34,7 +33,7 @@ const DefaultDropDownHead = () => {
   return (
     <Row className="h-[72px] p-4 items-center divider-bottom">
       <Header className="grow" type="title-3" text="Switch to..." />
-      <Image alt="switch" className="size-5" src={switchFilterIcon} />
+      <img alt="switch" className="size-5" src={switchFilterIcon} />
     </Row>
   );
 };
@@ -120,7 +119,7 @@ export const RichDropDown = <T extends { id: string }>({
                     >
                       {isSelcted ? (
                         <div className="size-5 mr-2">
-                          <Image
+                          <img
                             alt="selcted"
                             className="size-5"
                             src={checkBlueIcon}

@@ -83,7 +83,8 @@ export const AccountSelectionComponent = ({
                   login credentials for{' '}
                 </span>,
                 <span key={2} className="font-bold">
-                  all my BlueCross BlueShield of Tennessee registered accounts{' '}
+                  all my BlueCross BlueShield of Tennessee registered
+                  accounts{' '}
                 </span>,
                 <span key={3}>moving forward. </span>,
               ]}

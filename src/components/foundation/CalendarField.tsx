@@ -1,5 +1,4 @@
 import { enUS } from 'date-fns/locale';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -59,7 +58,7 @@ export const CalendarField = ({
       <div className="flex flex-row items-center relative inline-block">
         <div className="separator"></div>
         <div>
-          <Image src={calenderIcon} className="icon" alt="calenderIcon" />
+          <img src={calenderIcon} className="icon" alt="calenderIcon" />
         </div>
       </div>
     );
@@ -208,7 +207,7 @@ export const CalendarField = ({
       {error && (
         <div className="text-red-500 mt-1">
           <Row>
-            <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+            <img src={alertErrorSvg} className="icon mt-1" alt="alert" />
             <TextBox className="body-1 pt-1.5 ml-2" text={error} />
           </Row>
         </div>

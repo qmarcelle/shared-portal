@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import rightIcon from '../../../public/assets/right.svg';
 
 export interface LinkRowProps {
@@ -12,7 +11,7 @@ export interface LinkRowProps {
 export const LinkRow = ({
   label,
   description,
-  icon = <Image src={rightIcon} alt="link" />,
+  icon = <img src={rightIcon} alt="link" />,
   divider = false,
   onClick,
 }: LinkRowProps) => {

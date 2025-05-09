@@ -15,7 +15,7 @@ const PreviousArrow = (props: any) => {
   return (
     <>
       <div className={className} onClick={onClick}>
-        <Image className="icon-sm" src={leftIcon} alt="scroll left" />
+        <img className="icon-sm" src={leftIcon} alt="scroll left" />
       </div>
     </>
   );
@@ -27,11 +27,7 @@ const NextArrow = (props: any) => {
     <>
       <>
         <div className={className} onClick={onClick}>
-          <Image
-            className="icon-sm ml-20px"
-            src={rightIcon}
-            alt="scroll left"
-          />
+          <img className="icon-sm ml-20px" src={rightIcon} alt="scroll left" />
         </div>
       </>
     </>
@@ -99,7 +95,7 @@ export const ImageSlider = ({
     return (
       <Column className="neutral container rounded-[0.5rem]">
         <Column className="items-center  p-4 m-[65px]">
-          <Image src={AlertIcon} className="w-[33px] h-[33px]" alt="alert" />
+          <img src={AlertIcon} className="w-[33px] h-[33px]" alt="alert" />
           <Spacer size={16} />
           <TextBox
             className="text-center"
