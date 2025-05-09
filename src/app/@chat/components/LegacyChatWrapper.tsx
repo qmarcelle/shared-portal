@@ -248,30 +248,6 @@ export default function LegacyChatWrapper() {
     }
   }, [genesysReady, chatMode]);
 
-  // Manually enable the chat button for testing
-  useEffect(() => {
-    if (!genesysReady || chatMode !== 'legacy') return;
-
-    const enableButton = () => {
-      const chatButton = document.querySelector('.cx-webchat-chat-button');
-      if (chatButton) {
-        const buttonEl = chatButton as HTMLElement;
-        buttonEl.style.display = 'flex';
-        buttonEl.style.opacity = '1';
-        buttonEl.removeAttribute('disabled');
-        // Optionally, add a click handler to open chat
-        buttonEl.onclick = () => {
-          if (window.openGenesysChat) window.openGenesysChat();
-        };
-        console.log('[Genesys Debug] Chat button manually enabled');
-      } else {
-        setTimeout(enableButton, 500);
-      }
-    };
-
-    enableButton();
-  }, [genesysReady, chatMode]);
-
   if (chatMode !== 'legacy') {
     return null;
   }
