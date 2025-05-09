@@ -393,6 +393,17 @@ export const useChatStore = create<ChatState>((set) => ({
             IsMedicalEligibile: String((adaptedInfo as any).IsMedicalEligibile),
             Origin: adaptedInfo.Origin,
             Source: adaptedInfo.Source,
+            opsPhone:
+              adaptedInfo.opsPhone ||
+              adaptedInfo.ops_phone ||
+              process.env.NEXT_PUBLIC_OPS_PHONE ||
+              '',
+            opsPhoneHours:
+              adaptedInfo.opsPhoneHours ||
+              adaptedInfo.ops_phone_hours ||
+              adaptedInfo.businessHours?.text ||
+              process.env.NEXT_PUBLIC_OPS_HOURS ||
+              '',
           },
           formInputs: [
             { id: 'SERV_Type', value: adaptedInfo.SERV_Type },
