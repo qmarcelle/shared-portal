@@ -49,6 +49,9 @@ export const AccordionListCard = ({
               closeIcon={
                 <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
               }
+              onOpenCallBack={() =>
+                info.onOpenCallBack && info.onOpenCallBack()
+              }
             ></Accordion>
             {index !== information.length - 1 && <Divider />}
           </>

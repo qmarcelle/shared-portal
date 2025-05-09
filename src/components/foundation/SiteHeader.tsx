@@ -5,6 +5,7 @@ import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { logger } from '@/utils/logger';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -35,6 +36,8 @@ type SiteHeaderProps = {
   selectedProfile: UserProfile;
   plans: PlanDetails[];
   selectedPlan: PlanDetails | undefined;
+  userId?: string;
+  groupId?: string;
 };
 
 export default function SiteHeader({
@@ -43,6 +46,8 @@ export default function SiteHeader({
   plans,
   selectedPlan,
   selectedProfile,
+  userId,
+  groupId,
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
@@ -52,6 +57,21 @@ export default function SiteHeader({
     state.resetToHome,
   ]);
   const sitePathName = usePathname();
+
+  useEffect(() => {
+    try {
+      (window?.dataLayer ?? []).push({
+        business_unit: 'member',
+        page_name: window.document.title,
+        page_type: undefined,
+        content_type: undefined,
+        user_id: userId,
+        group_id: groupId,
+      });
+    } catch (error) {
+      logger.error('googleAnalytics Site Navigation PageLevel Metadata', error);
+    }
+  }, [window.document.title]);
   useEffect(() => {
     setPathName(sitePathName);
   }, [sitePathName]);
@@ -256,7 +276,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
                     : []
                 }
               />

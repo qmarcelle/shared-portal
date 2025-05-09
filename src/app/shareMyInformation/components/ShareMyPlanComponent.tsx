@@ -40,6 +40,10 @@ export const ShareMyPlanComponent = ({
             sharingType={item.accessStatus}
             isMinor={item.isMinor}
             targetType={item.roleType}
+            isGATrackEligible={true}
+            analyticsEvent={'select_content'}
+            selectionType={'modal'}
+            elementCategory={'On My Plan'}
           />
         ))}
       </Column>
