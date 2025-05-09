@@ -8,6 +8,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
+import { AccessToOthersPlanComponent } from './components/AccessToOthersPlanComponent';
 
 export type AccessOtherInformationProps = {
   accessOtherInformationDetails?: SharePlanInformationDetails;
@@ -88,6 +89,95 @@ const AccessOthersInformation = ({
               />
             </Card>
           </Column>
+        </section>
+      </Column>
+
+      <Column className="app-content app-base-font-color">
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow page-section-36_67 items-stretch">
+            <AccordionListCard
+              header="Understanding Access to Others' Plans"
+              information={[
+                {
+                  title: 'How to Get Access to Others&apos; Plans',
+                  body: (
+                    <Column className="m-1">
+                      Access to view members&apos; plan information is by
+                      invitation only. You&apos;ll receive an email if
+                      you&apos;ve been given access to an individual&apos;s
+                      plan.
+                    </Column>
+                  ),
+                },
+                {
+                  title: 'How to View Others&apos; Plans',
+                  body: (
+                    <Column className="m-1">
+                      Once you&apos;ve been invited to view the information of
+                      another&apos;s health plan, you can switch to their plan
+                      anytime using the profile button in the top right corner.
+                    </Column>
+                  ),
+                },
+              ]}
+            ></AccordionListCard>
+          </Column>
+          {/* {accessOtherPlanDetails ? ( // uncomment while API Integration */}
+          <Column className="page-section-63_33 items-stretch">
+            <Card className="large-section">
+              <AccessToOthersPlanComponent
+                header={
+                  <Column>
+                    <Header type="title-2" text="Others' Plans" />
+                  </Column>
+                }
+                subHeader={
+                  <Column>
+                    <TextBox text="Below is the access granted to you to other member's plan information." />
+                  </Column>
+                }
+                infoIcon={false}
+                accessOtherPlanDetails={[
+                  {
+                    memberName: 'Ellie Williams',
+                    dob: '01/01/1993',
+                    otherPlanData: [
+                      {
+                        planName: 'BlueCross BlueShield of Tennessee',
+                        subscriber: 'Ellie Williams',
+                        id: 'ABC1234567890',
+                        policies: 'Medical, Vision, Dental',
+                      },
+                      {
+                        planName: 'Tennessee Valley Authority',
+                        subscriber: 'Ellie Williams',
+                        id: 'ABC1234555555',
+                        policies: 'Dental',
+                      },
+                    ],
+                  },
+                  {
+                    memberName: 'Jane Doe',
+                    dob: '01/01/1988',
+                    otherPlanData: [
+                      {
+                        planName: 'BlueCross BlueShield of Tennessee',
+                        subscriber: 'Ellie Williams',
+                        id: 'ABC1234567890',
+                        policies: 'Medical, Vision, Dental',
+                      },
+                    ],
+                  },
+                ]}
+              />
+            </Card>
+          </Column>
+          {/* ) : ( // Error Handling uncomment while API Integration */}
+          {/* <ErrorInfoCard
+              className="mt-4"
+              errorText="You have not been granted access to other member's plan information"
+            />
+          )} */}
         </section>
       </Column>
     </main>
