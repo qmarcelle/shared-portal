@@ -144,7 +144,7 @@ export const SearchNavigation = ({ className }: IComponent) => {
           <Image
             src={searchIcon}
             className="icon items-end ml-1"
-            alt="Search"
+            alt=""
           />
         </div>
       </div>
