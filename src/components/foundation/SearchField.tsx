@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 import SearchIcon from '../../../public/assets/search.svg';
 
@@ -73,7 +72,7 @@ const SearchField: React.FC<Props> = ({
           onBlur={() => setFocusButton(false)}
           aria-label="Search"
         >
-          <Image
+          <img
             src={SearchIcon}
             className="icon searchhover "
             alt=""

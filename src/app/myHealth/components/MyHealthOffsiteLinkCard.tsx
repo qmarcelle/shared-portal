@@ -8,8 +8,6 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 
-import Image from 'next/image';
-
 interface MyHealthOffsiteLinkCardProps extends IComponent {
   icon: string;
   title: string;
@@ -27,7 +25,7 @@ export const MyHealthOffsiteLinkCard = ({
     <Card className="large-section skip-underscore">
       <Column>
         <Row>
-          <Image className="size-10" src={icon} alt="link" />
+          <img className="size-10" src={icon} alt="link" />
           <section className="flex justify-start self-start my-health-link">
             <RichText
               spans={[
@@ -39,7 +37,7 @@ export const MyHealthOffsiteLinkCard = ({
                     label={title}
                     className="link hover:!underline caremark !flex pt-0 pl-0"
                     url={url}
-                    icon={<Image src={extrenalIcon} alt="external" />}
+                    icon={<img src={extrenalIcon} alt="external" />}
                   />
                 </Row>,
               ]}

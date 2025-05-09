@@ -5,7 +5,6 @@ import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 
 interface PayPremiumProps extends IComponent {
@@ -18,7 +17,7 @@ export const PayPremiumSection = ({
   dueDate,
   amountDue,
   className,
-  icon = <Image alt="external icon" src={externalOffsiteWhiteIcon} />,
+  icon = <img alt="external icon" src={externalOffsiteWhiteIcon} />,
 }: PayPremiumProps) => {
   return (
     <Card className={className}>

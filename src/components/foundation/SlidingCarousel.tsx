@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Image from 'next/image';
 import { useRef, useState } from 'react';
 import Slider, { Settings } from 'react-slick';
 import leftIcon from '../../../public/assets/left_white_slider.svg';
@@ -21,9 +20,7 @@ const PreviousBtn = (props: any) => {
             className="max-w-fit max-h-fit p-2 m-auto"
             type="elevated"
             callback={() => {}}
-            icon={
-              <Image className="icon-sm" src={leftIcon} alt="scroll left" />
-            }
+            icon={<img className="icon-sm" src={leftIcon} alt="scroll left" />}
           />
         </div>
       )}
@@ -41,7 +38,7 @@ const NextBtn = (props: any) => {
             type="elevated"
             callback={() => {}}
             icon={
-              <Image className="icon-sm" src={rightIcon} alt="scroll right" />
+              <img className="icon-sm" src={rightIcon} alt="scroll right" />
             }
           />
           ,

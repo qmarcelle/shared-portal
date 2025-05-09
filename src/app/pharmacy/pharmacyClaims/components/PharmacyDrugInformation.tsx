@@ -7,7 +7,6 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import Down from '../../../../../public/assets/down.svg';
 import Up from '../../../../../public/assets/up.svg';
 
@@ -40,10 +39,8 @@ const PharmacyDrugCollapsible = ({
             <span className="!font-bold title-3">{`${name} ${strengthMG}MG`}</span>
           }
           initialOpen={false}
-          openIcon={
-            <Image className="w-6" src={Down} alt="Down Chevron"></Image>
-          }
-          closeIcon={<Image className="w-6" src={Up} alt="Up Chevron"></Image>}
+          openIcon={<img className="w-6" src={Down} alt="Down Chevron" />}
+          closeIcon={<img className="w-6" src={Up} alt="Up Chevron" />}
           child={
             <>
               <Spacer size={16} />

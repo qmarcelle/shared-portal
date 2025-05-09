@@ -7,13 +7,12 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import editIcon from '@/public/assets/edit.svg';
-import Image from 'next/image';
 interface ProviderInfoItemProps extends IComponent {
   icon?: JSX.Element;
 }
 
 export const ProviderInfoItem = ({
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <img src={editIcon} alt="link" />,
 }: ProviderInfoItemProps) => {
   return (
     <Card className="card-main large-section">

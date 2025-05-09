@@ -4,7 +4,6 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import externalIcon from '../../../../public/assets/external_white.svg';
 
 export const SearchBanner = () => {
@@ -23,7 +22,7 @@ export const SearchBanner = () => {
           label="Get Started with Teladoc Health"
           className="searchBannerLink inline"
           displayStyle="inline-flex"
-          icon={<Image src={externalIcon} alt="external" />}
+          icon={<img src={externalIcon} alt="external" />}
         />
       </Column>
     </Card>

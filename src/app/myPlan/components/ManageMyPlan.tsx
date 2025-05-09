@@ -69,7 +69,7 @@ export const ManageMyPlan = ({
       },
       {
         title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
+        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
         externalLink: true,
         url: 'url',
       },
@@ -93,7 +93,7 @@ export const ManageMyPlan = ({
                     <div className="body-1 flex flex-row">{items.body}</div>
                   }
                   divider={false}
-                  icon={<Image src={External} alt="link" />}
+                  icon={<img src={External} alt="link" />}
                   onClick={() => {
                     window.location.href = items.url;
                   }}
