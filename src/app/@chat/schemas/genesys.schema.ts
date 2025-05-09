@@ -17,6 +17,11 @@ export const ChatConfigSchema = z.object({
 
   // Human-readable business hours string (e.g. "M-F 8am-5pm")
   workingHours: z.string().optional(),
+
+  // Added for legacy chat widget support
+  clickToChatToken: z.string().optional(),
+  clickToChatEndpoint: z.string().optional(),
+  coBrowseLicence: z.string().optional(),
 });
 
 export type ChatConfig = z.infer<typeof ChatConfigSchema>;
@@ -33,11 +38,19 @@ export function createGenesysConfig(data: {
   workingHours?: string;
   chatbotEligible?: boolean;
   routingchatbotEligible?: boolean;
+  // Added for legacy chat widget support
+  clickToChatToken?: string;
+  clickToChatEndpoint?: string;
+  coBrowseLicence?: string;
 }): ChatConfig {
   return ChatConfigSchema.parse({
     isChatAvailable: data.isChatAvailable,
     cloudChatEligible: data.cloudChatEligible,
     chatGroup: data.chatGroup,
     workingHours: data.workingHours,
+    // Added for legacy chat widget support
+    clickToChatToken: data.clickToChatToken,
+    clickToChatEndpoint: data.clickToChatEndpoint,
+    coBrowseLicence: data.coBrowseLicence,
   });
 }

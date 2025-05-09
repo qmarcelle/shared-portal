@@ -46,6 +46,11 @@ export function GenesysScript({
   const userDataFromStore = useChatStore((state) => state.userData);
   const config = useChatStore((state) => state.config);
 
+  // Extract legacy chat config values from the store config
+  const clickToChatToken = config?.clickToChatToken;
+  const clickToChatEndpoint = config?.clickToChatEndpoint;
+  const coBrowseLicence = config?.coBrowseLicence;
+
   // Set window.chatSettings when any relevant value changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -72,6 +77,32 @@ export function GenesysScript({
     userDataFromStore,
     config,
   ]);
+
+  // ─── Inject chatSettings for legacy mode before loading widget scripts ───
+  useEffect(() => {
+    if (chatMode === 'legacy' && typeof window !== 'undefined') {
+      window.chatSettings = {
+        clickToChatEndpoint,
+        clickToChatToken,
+        coBrowseLicence,
+        opsPhone,
+        opsPhoneHours,
+        // Add any other required fields here
+      };
+      console.log(
+        '[Genesys] chatSettings injected for legacy:',
+        window.chatSettings,
+      );
+    }
+  }, [
+    chatMode,
+    clickToChatEndpoint,
+    clickToChatToken,
+    coBrowseLicence,
+    opsPhone,
+    opsPhoneHours,
+  ]);
+  // ────────────────────────────────────────────────────────────────────────
 
   // Handle script loaded event
   const handleScriptLoaded = useCallback(() => {
@@ -204,36 +235,44 @@ export function GenesysScript({
 
   return (
     <>
-      <Script
-        id="genesys-bootstrap"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log('[Genesys] script tag loaded');
-        }}
-        onError={(e) => {
-          console.error('[Genesys] script failed to load', e);
-        }}
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(g,e,n,es,ys){g['_genesysJs']=e;g[e]=g[e]||function(){(g[e].q=g[e].q||[]).push(arguments)};g[e].t=1*new Date();g[e].c=es;ys=document.createElement('script');ys.async=1;ys.src=n;ys.charset='utf-8';document.head.appendChild(ys);
-            })(window,'Genesys','https://apps.${environment}.pure.cloud/genesys-bootstrap/genesys.min.js',{
-              environment:'${environment}',
-              deploymentId:'${deploymentId}',
-              orgId:'${orgId}'
-            });
-          `,
-        }}
-      />
-      <Script
-        src="/assets/genesys/plugins/widgets.min.js"
-        strategy="beforeInteractive"
-        onLoad={() => console.log('[Genesys] loaded widgets.min.js')}
-      />
-      <Script
-        src="/assets/genesys/click_to_chat.js"
-        strategy="afterInteractive"
-        onLoad={() => console.log('[Genesys] loaded click_to_chat.js')}
-      />
+      {/* Cloud Messenger mode: only load Genesys Cloud script */}
+      {chatMode === 'cloud' && (
+        <Script
+          id="genesys-bootstrap"
+          strategy="afterInteractive"
+          onLoad={() => {
+            console.log('[Genesys] script tag loaded');
+          }}
+          onError={(e) => {
+            console.error('[Genesys] script failed to load', e);
+          }}
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(g,e,n,es,ys){g['_genesysJs']=e;g[e]=g[e]||function(){(g[e].q=g[e].q||[]).push(arguments)};g[e].t=1*new Date();g[e].c=es;ys=document.createElement('script');ys.async=1;ys.src=n;ys.charset='utf-8';document.head.appendChild(ys);
+              })(window,'Genesys','https://apps.${environment}.pure.cloud/genesys-bootstrap/genesys.min.js',{
+                environment:'${environment}',
+                deploymentId:'${deploymentId}',
+                orgId:'${orgId}'
+              });
+            `,
+          }}
+        />
+      )}
+      {/* Legacy mode: only load legacy widget scripts after chatSettings is injected */}
+      {chatMode === 'legacy' && (
+        <>
+          <Script
+            src="/assets/genesys/plugins/widgets.min.js"
+            strategy="beforeInteractive"
+            onLoad={() => console.log('[Genesys] loaded widgets.min.js')}
+          />
+          <Script
+            src="/assets/genesys/click_to_chat.js"
+            strategy="afterInteractive"
+            onLoad={() => console.log('[Genesys] loaded click_to_chat.js')}
+          />
+        </>
+      )}
       {!isLoaded && <div id="genesys-loading-indicator" aria-hidden="true" />}
     </>
   );
