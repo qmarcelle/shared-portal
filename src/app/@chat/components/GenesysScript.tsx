@@ -9,6 +9,12 @@ declare global {
   }
 }
 
+declare global {
+  interface Window {
+    __genesysInitialized?: boolean;
+  }
+}
+
 /**
  * Props for the GenesysScript component
  */
@@ -69,12 +75,11 @@ export function GenesysScript({
           });
         }
         setTimeout(() => {
-          const chatButton = document.querySelector('.cx-webchat-chat-button');
-          if (chatButton) {
-            // (chatButton as HTMLElement).style.display = 'flex';
-            // (chatButton as HTMLElement).style.opacity = '1';
-            console.log('Enhanced chat button visibility');
-          }
+        const chatButton = document.querySelector('.cx-webchat-chat-button');
+        console.log('[Genesys] attempting to open chat button', chatButton);
+        if (chatButton) {
+        console.log('[Genesys] Enhanced chat button visibility');
+        }
         }, 500);
       }
     }, 1000);
@@ -173,10 +178,12 @@ export function GenesysScript({
       <Script
         src="/assets/genesys/plugins/widgets.min.js"
         strategy="beforeInteractive"
+        onLoad={() => console.log('[Genesys] loaded widgets.min.js')}
       />
       <Script
         src="/assets/genesys/click_to_chat.js"
         strategy="afterInteractive"
+        onLoad={() => console.log('[Genesys] loaded click_to_chat.js')}
       />
       {!isLoaded && <div id="genesys-loading-indicator" aria-hidden="true" />}
     </>
