@@ -62,6 +62,26 @@ export default function LegacyChatWrapper() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.chatSettings) {
+      console.log('[Chat] bootstrapUrl:', window.chatSettings.bootstrapUrl);
+      console.log('[Chat] widgetUrl:   ', window.chatSettings.widgetUrl);
+      console.log('[Chat] clickToChatJs:', window.chatSettings.clickToChatJs);
+      console.log(
+        '[Chat] clickToChatEndpoint:',
+        window.chatSettings.clickToChatEndpoint,
+      );
+      console.log(
+        '[Chat] chatTokenEndpoint:',
+        window.chatSettings.chatTokenEndpoint,
+      );
+      console.log(
+        '[Chat] coBrowseEndpoint:',
+        window.chatSettings.coBrowseEndpoint,
+      );
+    }
+  }, []);
+
   // Listen for the genesys-ready event from the main scripts
   useEffect(() => {
     const handleGenesysReady = () => {

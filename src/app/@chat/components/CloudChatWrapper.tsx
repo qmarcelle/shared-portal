@@ -23,18 +23,42 @@ export default function CloudChatWrapper() {
       ...userData,
     };
     console.debug('[CloudChatWrapper] chatSettings:', window.chatSettings);
+  }, [userData]);
 
-    // Load Genesys Cloud bootstrap script
+  useEffect(() => {
+    // Log all URLs being loaded
+    if (typeof window !== 'undefined' && window.chatSettings) {
+      console.log('[Chat] bootstrapUrl:', window.chatSettings.bootstrapUrl);
+      console.log('[Chat] widgetUrl:   ', window.chatSettings.widgetUrl);
+      console.log('[Chat] clickToChatJs:', window.chatSettings.clickToChatJs);
+      console.log(
+        '[Chat] clickToChatEndpoint:',
+        window.chatSettings.clickToChatEndpoint,
+      );
+      console.log(
+        '[Chat] chatTokenEndpoint:',
+        window.chatSettings.chatTokenEndpoint,
+      );
+      console.log(
+        '[Chat] coBrowseEndpoint:',
+        window.chatSettings.coBrowseEndpoint,
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    // Load Genesys Cloud bootstrap script from chatSettings
+    const bootstrapUrl = window.chatSettings?.bootstrapUrl || '';
+    const widgetUrl = window.chatSettings?.widgetUrl || '';
+    if (!bootstrapUrl) return;
     const bootstrapScript = document.createElement('script');
-    bootstrapScript.src = window.chatSettings.bootstrapUrl || '';
+    bootstrapScript.src = bootstrapUrl;
     bootstrapScript.async = true;
     bootstrapScript.onload = () => {
       console.debug('[CloudChatWrapper] Genesys bootstrap loaded');
-      // Load widgets script
+      if (!widgetUrl) return;
       const widgetScript = document.createElement('script');
-      widgetScript.src = window.chatSettings
-        ? window.chatSettings.widgetUrl || ''
-        : '';
+      widgetScript.src = widgetUrl;
       widgetScript.async = true;
       widgetScript.onload = () => {
         console.debug('[CloudChatWrapper] Genesys widgets loaded');
@@ -66,7 +90,6 @@ export default function CloudChatWrapper() {
     return () => {
       // Cleanup scripts and chatSettings
       document.body.removeChild(bootstrapScript);
-      const widgetUrl = window.chatSettings?.widgetUrl || '';
       if (widgetUrl) {
         const widgetScript = document.querySelector(
           'script[src="' + widgetUrl + '"]',
