@@ -243,19 +243,19 @@
       });
     })(window, 'script', 'CobrowseIO');
 
-    CobrowseIO.license = cfg.coBrowseLicence;
-    CobrowseIO.customData = {
-      user_id: cfg.memberClientID,
-      user_name: cfg.formattedFirstName,
-    };
-    CobrowseIO.capabilities = [
-      'cursor',
-      'keypress',
-      'laser',
-      'pointer',
-      'scroll',
-      'select',
-    ];
+    // CobrowseIO.license = cfg.coBrowseLicence;
+    // CobrowseIO.customData = {
+    //   user_id: cfg.memberClientID,
+    //   user_name: cfg.formattedFirstName,
+    // };
+    // CobrowseIO.capabilities = [
+    //   'cursor',
+    //   'keypress',
+    //   'laser',
+    //   'pointer',
+    //   'scroll',
+    //   'select',
+    // ];
 
     /* Consent & remoteConsent classes (verbatim HTML preserved) */
     function buildConsent(title, message) {

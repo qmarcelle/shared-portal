@@ -78,7 +78,8 @@ export function GenesysScript({
       window.chatSettings = {
         clickToChatEndpoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '',
         clickToChatToken: token || localToken || '',
-        coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
+        // TODO: Restore coBrowseLicence when a license is available
+        // coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
         opsPhone: opsPhone,
         opsPhoneHours: opsPhoneHours,
         // Add any other required fields from the store here
