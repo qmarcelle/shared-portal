@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/assets/genesys/plugins/widgets.min.js"></script>
+    <script src="/assets/genesys/click_to_chat.js"></script>
+    <script>
+      // Minimal Genesys init snippet (adapted from click_to_chat.js)
+      (function (g, e, n, es, ys) {
+        g['_genesysJs'] = e;
+        g[e] =
+          g[e] ||
+          function () {
+            (g[e].q = g[e].q || []).push(arguments);
+          };
+        g[e].t = 1 * new Date();
+        g[e].c = es;
+        ys = document.createElement('script');
+        ys.async = 1;
+        ys.src = n;
+        ys.charset = 'utf-8';
+        document.head.appendChild(ys);
+      })(
+        window,
+        'Genesys',
+        'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js',
+        {
+          environment: 'prod',
+          deploymentId: 'xxxxxx-xxxx-xxxx-xxxx-xxxxxx',
+        },
+      );
+      setTimeout(() => {
+        console.log(
+          '✅[Genesys] chat-button found?',
+          document.querySelector('.cx-webchat-chat-button'),
+        );
+      }, 500);
+    </script>
+  </head>
+  <body></body>
+</html>

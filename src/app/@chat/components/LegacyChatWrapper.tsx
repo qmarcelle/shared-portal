@@ -9,6 +9,12 @@ import {
   injectPlanSwitcher,
 } from '../utils/chatDomUtils';
 
+declare global {
+  interface Window {
+    __genesysInitialized?: boolean;
+  }
+}
+
 /**
  * Legacy chat implementation wrapper
  * Loads Genesys chat.js script with beforeInteractive strategy
@@ -284,6 +290,24 @@ export default function LegacyChatWrapper() {
 
     return () => clearInterval(interval);
   }, [componentId]);
+
+  useEffect(
+    () => {
+      if (typeof window === 'undefined') return;
+      if (window.__genesysInitialized) return;
+      window.__genesysInitialized = true;
+      // ...existing Genesys init code...
+      setTimeout(() => {
+        console.log(
+          '✅[Genesys] chat-button found?',
+          document.querySelector('.cx-webchat-chat-button'),
+        );
+      }, 500);
+    },
+    [
+      /* dependencies */
+    ],
+  );
 
   return (
     <>

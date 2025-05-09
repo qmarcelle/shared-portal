@@ -250,6 +250,17 @@ export class ChatService implements IChatService {
         initialized: this.initialized,
         timestamp: new Date().toISOString(),
       });
+
+      if (typeof window !== 'undefined') {
+        if (window.__genesysInitialized) return;
+        window.__genesysInitialized = true;
+        setTimeout(() => {
+          console.log(
+            '✅[Genesys] chat-button found?',
+            document.querySelector('.cx-webchat-chat-button'),
+          );
+        }, 500);
+      }
     } catch (error) {
       logger.error('Failed to initialize chat:', {
         error,

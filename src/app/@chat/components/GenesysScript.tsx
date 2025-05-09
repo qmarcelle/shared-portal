@@ -3,6 +3,12 @@
 import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
 
+declare global {
+  interface Window {
+    __genesysInitialized?: boolean;
+  }
+}
+
 /**
  * Props for the GenesysScript component
  */
@@ -45,16 +51,12 @@ export function GenesysScript({
           template:
             '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
         };
-
-        // Configure button position and appearance
         window._genesys.widgets.webchat.position = {
           bottom: { px: 20 },
           right: { px: 20 },
           width: { pct: 50 },
           height: { px: 400 },
         };
-
-        // Register commands with CXBus
         if (window.CXBus && typeof window.CXBus.registerPlugin === 'function') {
           console.log('Registering chat commands with CXBus');
           window.CXBus.registerPlugin('ChatButton', {
@@ -66,8 +68,6 @@ export function GenesysScript({
             },
           });
         }
-
-        // Force button visibility
         setTimeout(() => {
           const chatButton = document.querySelector('.cx-webchat-chat-button');
           if (chatButton) {
@@ -83,6 +83,9 @@ export function GenesysScript({
   // Handle Genesys initialization and cleanup
   useEffect(() => {
     if (typeof window === 'undefined') return;
+
+    if (window.__genesysInitialized) return;
+    window.__genesysInitialized = true;
 
     // Check if Genesys is already loaded
     if (window.Genesys) {
@@ -126,6 +129,13 @@ export function GenesysScript({
 
     window.addEventListener('Genesys::Ready', handleMessengerReady);
 
+    setTimeout(() => {
+      console.log(
+        '✅[Genesys] chat-button found?',
+        document.querySelector('.cx-webchat-chat-button'),
+      );
+    }, 500);
+
     return () => {
       window.removeEventListener('Genesys::Ready', handleMessengerReady);
       if (window.Genesys) {
@@ -159,6 +169,14 @@ export function GenesysScript({
             });
           `,
         }}
+      />
+      <Script
+        src="/assets/genesys/plugins/widgets.min.js"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="/assets/genesys/click_to_chat.js"
+        strategy="afterInteractive"
       />
       {!isLoaded && <div id="genesys-loading-indicator" aria-hidden="true" />}
     </>
