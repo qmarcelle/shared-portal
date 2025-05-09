@@ -1,3 +1,4 @@
+import { Session } from 'next-auth';
 export interface VirtualHealthCareDetails {
   healthcareType: string;
   icon?: string;
@@ -7,4 +8,6 @@ export interface VirtualHealthCareDetails {
   itemData: string[];
   itemDataTitle: string;
   url?: string;
+  redirectLink?: (groupId: Session | null) => string;
+  sessionData?: Session | null;
 }
