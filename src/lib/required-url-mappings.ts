@@ -76,6 +76,30 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/myhealth/healthprograms/caremanagement':
     '/myHealth/healthProgramsResources/myHealthPrograms/careTN',
 
+  '/member/myhealth/healthprograms/teladocBP':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocBP',
+  '/member/myhealth/healthprograms/silverFit':
+    '/myHealth/healthProgramsResources/myHealthPrograms/silverFit',
+  '/member/myhealth/healthprograms/hingeHealth':
+    '/myHealth/healthProgramsResources/myHealthPrograms/hingeHealth',
+  '/member/myhealth/healthprograms/teladocHealthDiabetesManagement':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocHealthDiabetesManagement',
+  '/member/myhealth/healthprograms/questSelect':
+    '/myHealth/healthProgramsResources/myHealthPrograms/questSelect',
+  '/member/myhealth/healthprograms/teladocMentalHealth':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocMentalHealth',
+  '/member/myhealth/healthprograms/teladocPrimaryCareProvider':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocPrimaryCareProvider',
+  '/member/myhealth/healthprograms/talkToNurse':
+    '/myHealth/healthProgramsResources/myHealthPrograms/talkToNurse',
+  '/member/myhealth/healthprograms/teladocHealthGeneralUrgentCare':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocHealthGeneralUrgentCare',
+  '/member/myhealth/healthprograms/teladocHealthDiabetesPrevention':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocHealthDiabetesPrevention',
+  '/member/myhealth/healthprograms/ableTo':
+    '/myHealth/healthProgramsResources/myHealthPrograms/ableTo',
+  '/member/myhealth/healthprograms/teladocSecondOption':
+    '/myHealth/healthProgramsResources/myHealthPrograms/teladocSecondOption',
   '/member/myhealth/healthprograms/healthymaternity':
     '/myHealth/healthProgramsResources/myHealthPrograms/HealthyMaternity',
 

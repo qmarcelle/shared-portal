@@ -25,6 +25,7 @@ interface HealthCareItemProps extends IComponent {
   healthCareInfo: VirtualHealthCareDetails;
   itemData: string[];
   itemDataTitle: string;
+  url?: string;
 }
 
 export const HealthCareItem = ({
@@ -32,6 +33,7 @@ export const HealthCareItem = ({
   onClick,
   itemDataTitle,
   itemData,
+  url,
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);
@@ -129,7 +131,11 @@ export const HealthCareItem = ({
             ></TextBox>
             <SpacerX size={8} />
             <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
-            <AppLink className="text-left" label={healthCareInfo.link} />
+            <AppLink
+              className="text-left"
+              label={healthCareInfo.link}
+              url={url}
+            />
           </Column>
         </Row>
       </Column>

@@ -49,8 +49,7 @@ import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
 import { WellnessRewards } from './components/WellnessRewards';
 import { HealthProgramType } from './healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { MyHealthData } from './models/app/my_health_data';
-const urlRedirect =
-  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
+const urlRedirect = '/member/myhealth/healthprograms/';
 
 const memberWellnessCenterDetails = [
   {
