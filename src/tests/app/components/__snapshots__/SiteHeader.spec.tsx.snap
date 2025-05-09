@@ -68,7 +68,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -89,7 +89,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -111,7 +111,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -170,7 +170,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -182,7 +182,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -218,7 +218,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -230,7 +230,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -266,7 +266,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -278,7 +278,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -314,7 +314,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -326,7 +326,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -362,7 +362,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -374,7 +374,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -415,7 +415,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -479,9 +479,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View My Health Dashboard
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -507,29 +505,6 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     >
                       Wellness
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Wellness Rewards
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=OnLife"
@@ -840,7 +815,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
             href="/member/inbox"
           >
             <img
-              alt="Inbox"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -861,7 +836,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
             href="/member/idcard"
           >
             <img
-              alt="ID Card"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -883,7 +858,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
             tabindex="0"
           >
             <img
-              alt="Profile Icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -942,7 +917,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     Find Care & Costs
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -954,7 +929,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -990,7 +965,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     My Plan
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -1002,7 +977,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -1038,7 +1013,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     My Health
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -1050,7 +1025,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -1086,7 +1061,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     Pharmacy
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -1098,7 +1073,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -1134,7 +1109,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     Support
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -1146,7 +1121,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -1187,7 +1162,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                     <img
-                      alt="Search"
+                      alt=""
                       class="icon items-end ml-1"
                       data-nimg="1"
                       decoding="async"
@@ -1253,9 +1228,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                  >
-                    View All Support
-                  </span>
+                  />
                   <img
                     alt="Parent Page Arrow"
                     data-nimg="1"
@@ -1543,7 +1516,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -1564,7 +1537,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -1586,7 +1559,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -1645,7 +1618,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -1657,7 +1630,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -1693,7 +1666,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -1705,7 +1678,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -1741,7 +1714,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -1753,7 +1726,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -1789,7 +1762,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -1801,7 +1774,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -1837,7 +1810,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -1849,7 +1822,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -1890,7 +1863,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -1953,9 +1926,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -3202,7 +3173,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -3223,7 +3194,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -3245,7 +3216,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -3304,7 +3275,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -3316,7 +3287,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -3352,7 +3323,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -3364,7 +3335,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -3400,7 +3371,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -3412,7 +3383,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -3448,7 +3419,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -3460,7 +3431,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -3496,7 +3467,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -3508,7 +3479,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -3549,7 +3520,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -3612,9 +3583,7 @@ exports[`SiteHeader And Navigation Menu should navigate my Plan - Manage my Plan
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -4045,7 +4014,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4066,7 +4035,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4088,7 +4057,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4147,7 +4116,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4159,7 +4128,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4195,7 +4164,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4207,7 +4176,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4243,7 +4212,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4255,7 +4224,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4291,7 +4260,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4303,7 +4272,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4339,7 +4308,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4351,7 +4320,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4392,7 +4361,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -4456,9 +4425,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View My Health Dashboard
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -4484,29 +4451,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                     >
                       Wellness
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Wellness Rewards
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=OnLife"
@@ -4814,7 +4758,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4835,7 +4779,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4857,7 +4801,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -4916,7 +4860,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4928,7 +4872,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -4964,7 +4908,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -4976,7 +4920,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5012,7 +4956,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5024,7 +4968,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5060,7 +5004,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5072,7 +5016,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5108,7 +5052,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5120,7 +5064,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5161,7 +5105,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -5223,9 +5167,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      Find All Care & Costs
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -5251,6 +5193,29 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     >
                       Find Care
                     </p>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Find a Medical Provider
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -5288,6 +5253,23 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                           class="link undefined"
                         >
                           Mental Health Options
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      aria-label="Virtual Care Options"
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          Virtual Care Options
                         </p>
                       </button>
                     </a>
@@ -5354,6 +5336,29 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -5554,7 +5559,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -5575,7 +5580,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -5597,7 +5602,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -5656,7 +5661,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5668,7 +5673,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5704,7 +5709,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5716,7 +5721,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5752,7 +5757,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5764,7 +5769,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5800,7 +5805,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5812,7 +5817,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5848,7 +5853,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -5860,7 +5865,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -5901,7 +5906,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -5963,9 +5968,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      Find All Care & Costs
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -5991,6 +5994,29 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                     >
                       Find Care
                     </p>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Find a Medical Provider
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -6028,6 +6054,23 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                           class="link undefined"
                         >
                           Mental Health Options
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      aria-label="Virtual Care Options"
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          Virtual Care Options
                         </p>
                       </button>
                     </a>
@@ -6094,6 +6137,29 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -6294,7 +6360,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -6315,7 +6381,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -6337,7 +6403,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -6396,7 +6462,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -6408,7 +6474,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -6444,7 +6510,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -6456,7 +6522,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -6492,7 +6558,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -6504,7 +6570,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -6540,7 +6606,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -6552,7 +6618,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -6588,7 +6654,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -6600,7 +6666,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -6641,7 +6707,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -6704,9 +6770,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -8300,7 +8364,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -8321,7 +8385,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -8343,7 +8407,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -8402,7 +8466,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -8414,7 +8478,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -8450,7 +8514,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -8462,7 +8526,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -8498,7 +8562,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -8510,7 +8574,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -8546,7 +8610,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -8558,7 +8622,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -8594,7 +8658,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -8606,7 +8670,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -8647,7 +8711,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -8709,9 +8773,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      Find All Care & Costs
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -8737,6 +8799,29 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                     >
                       Find Care
                     </p>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Find a Medical Provider
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -8823,6 +8908,29 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -9023,7 +9131,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9044,7 +9152,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9066,7 +9174,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9125,7 +9233,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9137,7 +9245,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9173,7 +9281,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9185,7 +9293,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9221,7 +9329,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9233,7 +9341,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9269,7 +9377,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9281,7 +9389,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9317,7 +9425,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9329,7 +9437,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9370,7 +9478,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -9432,9 +9540,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      Find All Care & Costs
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -9460,6 +9566,29 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                     >
                       Find Care
                     </p>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Find a Medical Provider
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -9546,6 +9675,29 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -9746,7 +9898,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9767,7 +9919,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9789,7 +9941,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -9848,7 +10000,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9860,7 +10012,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9896,7 +10048,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9908,7 +10060,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9944,7 +10096,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -9956,7 +10108,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -9992,7 +10144,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -10004,7 +10156,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -10040,7 +10192,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -10052,7 +10204,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -10093,7 +10245,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -10155,9 +10307,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      Find All Care & Costs
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -10183,6 +10333,29 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                     >
                       Find Care
                     </p>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=EMBOLD"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Find a Medical Provider
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -10220,6 +10393,23 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                           class="link undefined"
                         >
                           Primary Care Options
+                        </p>
+                      </button>
+                    </a>
+                    <a
+                      aria-label="Virtual Care Options"
+                      style="display: block;"
+                    >
+                      <button
+                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
+                        style="max-width: max-content; height: auto; display: block;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          Virtual Care Options
                         </p>
                       </button>
                     </a>
@@ -10286,6 +10476,29 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                       >
                         Price Vision Care
+                      </p>
+                      <img
+                        alt="External Link"
+                        class="pb-2"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                      href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                      target=""
+                    >
+                      <p
+                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                      >
+                        Price a Medication
                       </p>
                       <img
                         alt="External Link"
@@ -10483,7 +10696,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
             href="/member/inbox"
           >
             <img
-              alt="Inbox"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -10504,7 +10717,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
             href="/member/idcard"
           >
             <img
-              alt="ID Card"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -10526,7 +10739,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
             tabindex="0"
           >
             <img
-              alt="Profile Icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -10585,7 +10798,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     Find Care & Costs
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -10597,7 +10810,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -10633,7 +10846,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     My Plan
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -10645,7 +10858,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -10681,7 +10894,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     My Health
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -10693,7 +10906,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -10729,7 +10942,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     Pharmacy
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -10741,7 +10954,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -10777,7 +10990,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     Support
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -10789,7 +11002,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -10830,7 +11043,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                     <img
-                      alt="Search"
+                      alt=""
                       class="icon items-end ml-1"
                       data-nimg="1"
                       decoding="async"
@@ -10896,9 +11109,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                  >
-                    View All Support
-                  </span>
+                  />
                   <img
                     alt="Parent Page Arrow"
                     data-nimg="1"
@@ -11180,7 +11391,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -11201,7 +11412,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -11223,7 +11434,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -11282,7 +11493,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -11294,7 +11505,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -11330,7 +11541,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -11342,7 +11553,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -11378,7 +11589,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -11390,7 +11601,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -11426,7 +11637,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -11438,7 +11649,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -11474,7 +11685,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -11486,7 +11697,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -11527,7 +11738,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -11591,9 +11802,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View My Health Dashboard
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -11619,29 +11828,6 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                     >
                       Wellness
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Wellness Rewards
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=OnLife"
@@ -11932,7 +12118,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -11953,7 +12139,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -11975,7 +12161,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -12034,7 +12220,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -12046,7 +12232,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -12082,7 +12268,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -12094,7 +12280,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -12130,7 +12316,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -12142,7 +12328,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -12178,7 +12364,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -12190,7 +12376,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -12226,7 +12412,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -12238,7 +12424,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -12279,7 +12465,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -12342,9 +12528,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -12621,7 +12805,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                 href="/member/inbox"
               >
                 <img
-                  alt="Inbox"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -12642,7 +12826,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                 href="/member/idcard"
               >
                 <img
-                  alt="ID Card"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -12664,7 +12848,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                 tabindex="0"
               >
                 <img
-                  alt="Profile Icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -12723,7 +12907,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         Find Care & Costs
                       </span>
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         class="block lg:hidden ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -12735,7 +12919,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         width="40"
                       />
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         aria-expanded="false"
                         class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                         data-accordion-icon="true"
@@ -12771,7 +12955,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         My Plan
                       </span>
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         class="block lg:hidden ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -12783,7 +12967,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         width="40"
                       />
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         aria-expanded="false"
                         class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                         data-accordion-icon="true"
@@ -12819,7 +13003,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         My Health
                       </span>
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         class="block lg:hidden ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -12831,7 +13015,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         width="40"
                       />
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         aria-expanded="false"
                         class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                         data-accordion-icon="true"
@@ -12867,7 +13051,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         Pharmacy
                       </span>
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         class="block lg:hidden ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -12879,7 +13063,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         width="40"
                       />
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         aria-expanded="false"
                         class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                         data-accordion-icon="true"
@@ -12915,7 +13099,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         Support
                       </span>
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         class="block lg:hidden ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -12927,7 +13111,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         width="40"
                       />
                       <img
-                        alt="Chevron icon"
+                        alt=""
                         aria-expanded="false"
                         class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                         data-accordion-icon="true"
@@ -12968,7 +13152,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                           style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                         />
                         <img
-                          alt="Search"
+                          alt=""
                           class="icon items-end ml-1"
                           data-nimg="1"
                           decoding="async"
@@ -13032,9 +13216,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     >
                       <span
                         class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                      >
-                        View My Health Dashboard
-                      </span>
+                      />
                       <img
                         alt="Parent Page Arrow"
                         data-nimg="1"
@@ -13060,29 +13242,6 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       >
                         Wellness
                       </p>
-                      <a
-                        class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                        href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
-                        target=""
-                      >
-                        <p
-                          class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                        >
-                          Wellness Rewards
-                        </p>
-                        <img
-                          alt="External Link"
-                          class="pb-2"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </a>
                       <a
                         class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                         href="/sso/launch?PartnerSpId=OnLife"
@@ -13390,7 +13549,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -13411,7 +13570,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -13433,7 +13592,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -13492,7 +13651,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -13504,7 +13663,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -13540,7 +13699,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -13552,7 +13711,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -13588,7 +13747,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -13600,7 +13759,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -13636,7 +13795,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -13648,7 +13807,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -13684,7 +13843,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -13696,7 +13855,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -13737,7 +13896,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -13801,9 +13960,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View My Health Dashboard
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -13829,29 +13986,6 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     >
                       Wellness
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/sso/launch?PartnerSpId=sp_bluehealthrewards"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        Wellness Rewards
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                       href="/sso/launch?PartnerSpId=OnLife"
@@ -14213,7 +14347,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/inbox"
           >
             <img
-              alt="Inbox"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -14234,7 +14368,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/idcard"
           >
             <img
-              alt="ID Card"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -14256,7 +14390,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             tabindex="0"
           >
             <img
-              alt="Profile Icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -14315,7 +14449,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find Care & Costs
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -14327,7 +14461,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -14363,7 +14497,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Plan
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -14375,7 +14509,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -14411,7 +14545,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Health
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -14423,7 +14557,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -14459,7 +14593,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Pharmacy
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -14471,7 +14605,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -14507,7 +14641,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Support
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -14519,7 +14653,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -14560,7 +14694,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                     <img
-                      alt="Search"
+                      alt=""
                       class="icon items-end ml-1"
                       data-nimg="1"
                       decoding="async"
@@ -14622,9 +14756,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                  >
-                    Find All Care & Costs
-                  </span>
+                  />
                   <img
                     alt="Parent Page Arrow"
                     data-nimg="1"
@@ -14650,6 +14782,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   >
                     Find Care
                   </p>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Find a Medical Provider
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -14736,6 +14891,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
@@ -14932,7 +15110,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/inbox"
           >
             <img
-              alt="Inbox"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -14953,7 +15131,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/idcard"
           >
             <img
-              alt="ID Card"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -14975,7 +15153,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             tabindex="0"
           >
             <img
-              alt="Profile Icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -15034,7 +15212,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find Care & Costs
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15046,7 +15224,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15082,7 +15260,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Plan
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15094,7 +15272,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15130,7 +15308,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Health
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15142,7 +15320,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15178,7 +15356,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Pharmacy
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15190,7 +15368,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15226,7 +15404,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Support
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15238,7 +15416,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15279,7 +15457,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                     <img
-                      alt="Search"
+                      alt=""
                       class="icon items-end ml-1"
                       data-nimg="1"
                       decoding="async"
@@ -15341,9 +15519,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                  >
-                    Find All Care & Costs
-                  </span>
+                  />
                   <img
                     alt="Parent Page Arrow"
                     data-nimg="1"
@@ -15369,6 +15545,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   >
                     Find Care
                   </p>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Find a Medical Provider
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -15455,6 +15654,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
@@ -15651,7 +15873,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/inbox"
           >
             <img
-              alt="Inbox"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -15672,7 +15894,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/idcard"
           >
             <img
-              alt="ID Card"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -15694,7 +15916,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             tabindex="0"
           >
             <img
-              alt="Profile Icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -15753,7 +15975,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find Care & Costs
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15765,7 +15987,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15801,7 +16023,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Plan
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15813,7 +16035,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15849,7 +16071,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     My Health
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15861,7 +16083,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15897,7 +16119,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Pharmacy
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15909,7 +16131,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15945,7 +16167,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Support
                   </span>
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     class="block lg:hidden ml-auto"
                     data-nimg="1"
                     decoding="async"
@@ -15957,7 +16179,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     width="40"
                   />
                   <img
-                    alt="Chevron icon"
+                    alt=""
                     aria-expanded="false"
                     class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                     data-accordion-icon="true"
@@ -15998,7 +16220,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                     <img
-                      alt="Search"
+                      alt=""
                       class="icon items-end ml-1"
                       data-nimg="1"
                       decoding="async"
@@ -16060,9 +16282,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <span
                     class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                  >
-                    Find All Care & Costs
-                  </span>
+                  />
                   <img
                     alt="Parent Page Arrow"
                     data-nimg="1"
@@ -16088,6 +16308,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                   >
                     Find Care
                   </p>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=EMBOLD"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Find a Medical Provider
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
                   <a
                     class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
                     href="/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect"
@@ -16225,6 +16468,29 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
                     >
                       Price Vision Care
+                    </p>
+                    <img
+                      alt="External Link"
+                      class="pb-2"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </a>
+                  <a
+                    class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
+                    href="/sso/launch?PartnerSpId=CVS&TargetResource=https://caremark/drugSearchInit.do?newLogin=yes"
+                    target=""
+                  >
+                    <p
+                      class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
+                    >
+                      Price a Medication
                     </p>
                     <img
                       alt="External Link"
@@ -16422,7 +16688,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -16443,7 +16709,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -16465,7 +16731,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -16521,7 +16787,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -16533,7 +16799,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -16569,7 +16835,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -16581,7 +16847,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -16617,7 +16883,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -16629,7 +16895,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -16665,7 +16931,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -16677,7 +16943,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -16713,7 +16979,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -16725,7 +16991,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -16766,7 +17032,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -16914,7 +17180,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -16935,7 +17201,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -16957,7 +17223,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -17013,7 +17279,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17025,7 +17291,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17061,7 +17327,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17073,7 +17339,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17109,7 +17375,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17121,7 +17387,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17157,7 +17423,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17169,7 +17435,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17205,7 +17471,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17217,7 +17483,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17258,7 +17524,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -17662,7 +17928,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -17683,7 +17949,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -17705,7 +17971,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -17761,7 +18027,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17773,7 +18039,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17809,7 +18075,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17821,7 +18087,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17857,7 +18123,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17869,7 +18135,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17905,7 +18171,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17917,7 +18183,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -17953,7 +18219,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -17965,7 +18231,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18006,7 +18272,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -18236,7 +18502,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -18257,7 +18523,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -18279,7 +18545,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -18338,7 +18604,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -18350,7 +18616,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18386,7 +18652,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -18398,7 +18664,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18434,7 +18700,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -18446,7 +18712,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18482,7 +18748,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -18494,7 +18760,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18530,7 +18796,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -18542,7 +18808,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -18583,7 +18849,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -18646,9 +18912,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"
@@ -19073,7 +19337,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
               href="/member/inbox"
             >
               <img
-                alt="Inbox"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -19094,7 +19358,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
               href="/member/idcard"
             >
               <img
-                alt="ID Card"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -19116,7 +19380,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
               tabindex="0"
             >
               <img
-                alt="Profile Icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -19175,7 +19439,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       Find Care & Costs
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -19187,7 +19451,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -19223,7 +19487,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       My Plan
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -19235,7 +19499,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -19271,7 +19535,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       My Health
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -19283,7 +19547,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -19319,7 +19583,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       Pharmacy
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -19331,7 +19595,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -19367,7 +19631,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       Support
                     </span>
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       class="block lg:hidden ml-auto"
                       data-nimg="1"
                       decoding="async"
@@ -19379,7 +19643,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       width="40"
                     />
                     <img
-                      alt="Chevron icon"
+                      alt=""
                       aria-expanded="false"
                       class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                       data-accordion-icon="true"
@@ -19420,7 +19684,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                         style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                       />
                       <img
-                        alt="Search"
+                        alt=""
                         class="icon items-end ml-1"
                         data-nimg="1"
                         decoding="async"
@@ -19483,9 +19747,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   >
                     <span
                       class="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2"
-                    >
-                      View All Plan Details
-                    </span>
+                    />
                     <img
                       alt="Parent Page Arrow"
                       data-nimg="1"

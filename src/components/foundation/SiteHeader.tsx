@@ -175,7 +175,7 @@ export default function SiteHeader({
           </div>
           <SiteHeaderMenuSection
             profiles={profiles}
-            icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
+            icon={<Image src={profileWhiteIcon} alt=""></Image>}
             items={
               selectedPlan
                 ? selectedPlan.termedPlan
@@ -183,7 +183,7 @@ export default function SiteHeader({
                       {
                         title: 'Inbox',
                         label: 'inbox',
-                        icon: <Image src={inboxIcon} alt="Inbox" />,
+                        icon: <Image src={inboxIcon} alt="" />,
                         url: '/member/inbox',
                       },
                     ]
@@ -191,13 +191,13 @@ export default function SiteHeader({
                       {
                         title: 'Inbox',
                         label: 'inbox',
-                        icon: <Image src={inboxIcon} alt="Inbox" />,
+                        icon: <Image src={inboxIcon} alt="" />,
                         url: '/member/inbox',
                       },
                       {
                         title: 'ID Card',
                         label: 'id card',
-                        icon: <Image src={globalIdCardIcon} alt="ID Card" />,
+                        icon: <Image src={globalIdCardIcon} alt="" />,
                         url: '/member/idcard',
                       },
                     ]
