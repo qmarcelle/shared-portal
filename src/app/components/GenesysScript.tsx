@@ -60,10 +60,17 @@ export function GenesysScript({
     // Initialize chatSettings for legacy mode
     if (chatMode === 'legacy') {
       window.chatSettings = {
-        clickToChatEndpoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '',
+        clickToChatEndpoint:
+          process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
+        chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
+        coBrowseEndpoint:
+          process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
+        bootstrapUrl: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
+        widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
+        clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
+        opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
+        opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
         clickToChatToken: token || localToken || '',
-        opsPhone: opsPhone,
-        opsPhoneHours: opsPhoneHours,
         // Add any other required fields from the store here
       };
       console.log(
@@ -71,7 +78,7 @@ export function GenesysScript({
         window.chatSettings,
       );
     }
-  }, [chatMode, token, localToken, opsPhone, opsPhoneHours]);
+  }, [chatMode, token, localToken]);
 
   // Handle script loaded event
   const handleScriptLoaded = useCallback(() => {
@@ -243,52 +250,32 @@ export function GenesysScript({
     }
   }, [chatMode]);
 
+  if (chatMode !== 'cloud') {
+    return null;
+  }
   return (
     <>
-      {/* Cloud Messenger mode: only load Genesys Cloud script */}
-      {chatMode === 'cloud' && (
-        <Script
-          id="genesys-bootstrap"
-          strategy="afterInteractive"
-          onLoad={() => {
-            console.log('[Genesys] Cloud script tag loaded');
-            handleScriptLoaded();
-          }}
-          onError={(e) => {
-            console.error('[Genesys] Cloud script failed to load', e);
-          }}
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(g,e,n,es,ys){g['_genesysJs']=e;g[e]=g[e]||function(){(g[e].q=g[e].q||[]).push(arguments)};g[e].t=1*new Date();g[e].c=es;ys=document.createElement('script');ys.async=1;ys.src=n;ys.charset='utf-8';document.head.appendChild(ys);
-              })(window,'Genesys','https://apps.${environment}.pure.cloud/genesys-bootstrap/genesys.min.js',{
-                environment:'${environment}',
-                deploymentId:'${deploymentId}',
-                orgId:'${orgId}'
-              });
-            `,
-          }}
-        />
-      )}
-      {/* Legacy mode: only load legacy widget scripts after chatSettings is injected */}
-      {chatMode === 'legacy' && (
-        <>
-          <Script
-            id="genesys-widgets-script"
-            src="/assets/genesys/plugins/widgets.min.js"
-            strategy="beforeInteractive"
-            onLoad={() => console.log('[Genesys] Loaded widgets.min.js')}
-          />
-          <Script
-            id="genesys-clicktochat-script"
-            src="/assets/genesys/click_to_chat.js"
-            strategy="afterInteractive"
-            onLoad={() => {
-              console.log('[Genesys] Loaded click_to_chat.js');
-              handleScriptLoaded();
-            }}
-          />
-        </>
-      )}
+      <Script
+        id="genesys-bootstrap"
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log('[Genesys] Cloud script tag loaded');
+          handleScriptLoaded();
+        }}
+        onError={(e) => {
+          console.error('[Genesys] Cloud script failed to load', e);
+        }}
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(g,e,n,es,ys){g['_genesysJs']=e;g[e]=g[e]||function(){(g[e].q=g[e].q||[]).push(arguments)};g[e].t=1*new Date();g[e].c=es;ys=document.createElement('script');ys.async=1;ys.src=n;ys.charset='utf-8';document.head.appendChild(ys);
+            })(window,'Genesys','${process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL}',{
+              environment:'${environment}',
+              deploymentId:'${deploymentId}',
+              orgId:'${orgId}'
+            });
+          `,
+        }}
+      />
       {!isLoaded && <div id="genesys-loading-indicator" aria-hidden="true" />}
     </>
   );

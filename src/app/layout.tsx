@@ -57,6 +57,8 @@ export default async function RootLayout({
                   <Suspense fallback={<ChatLoading />}>{chat}</Suspense>
                 </ChatErrorBoundary>
               )}
+              {/* Overlay the chat slot using Next.js parallel routes */}
+              {chat}
               <QuickOpen />
             </ClientLayout>
             <Footer />

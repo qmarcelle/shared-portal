@@ -12,44 +12,15 @@ declare global {
     _pingOneSignalsReady: boolean;
     dataLayer: Record<string, unknown>[];
     chatSettings?: {
-      clickToChatToken?: string;
-      clickToChatEndpoint?: string;
-      clickToChatDemoEndPoint?: string;
-      coBrowseLicence?: string;
-      opsPhone?: string;
-      opsPhoneHours?: string;
-      isChatEligibleMember?: string;
-      isDemoMember?: string;
-      isAmplifyMem?: string;
-      formattedFirstName?: string;
-      memberLastName?: string;
-      groupId?: string;
-      subscriberID?: string;
-      sfx?: string;
-      memberDOB?: string;
-      memberMedicalPlanID?: string;
-      groupType?: string;
-      isMedical?: string;
-      isDental?: string;
-      isVision?: string;
-      isWellnessOnly?: string;
-      isCobraEligible?: string;
-      isIDCardEligible?: string;
-      isChatbotEligible?: string;
-      chatHours?: string;
-      rawChatHours?: string;
-      isChatAvailable?: string;
-      routingchatbotEligible?: boolean;
-      memberClientID?: string;
-      isBlueEliteGroup?: string;
-      selfServiceLinks?: Array<{ key: string; value: string }>;
-      idCardChatBotName?: string;
-      chatGroup?: string;
-      isEligible?: boolean;
-      chatMode?: 'legacy' | 'cloud';
-      routingInteractionId?: string;
-      userData?: Record<string, string>;
-      config?: any;
+      bootstrapUrl: string;
+      widgetUrl: string;
+      clickToChatJs: string;
+      clickToChatEndpoint: string;
+      chatTokenEndpoint: string;
+      coBrowseEndpoint: string;
+      opsPhone: string;
+      opsPhoneHours: string;
+      [key: string]: any;
     };
     startChat?: () => void;
     endChat?: () => void;
@@ -61,6 +32,7 @@ declare global {
     openGenesysChat?: () => void;
     GenesysWidget?: any;
     ChatWidget?: any;
+    __genesysInitialized?: boolean;
   }
 }
 
