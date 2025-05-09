@@ -8,7 +8,7 @@
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { usePlanStore } from '@/userManagement/stores/planStore';
 import { useSession } from 'next-auth/react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { ChatWidget } from './components/ChatWidget';
 
 export default function ChatRoute() {
@@ -25,24 +25,21 @@ export default function ChatRoute() {
   const memberId = session?.user?.currUsr?.plan?.memCk;
   const planId = session?.user?.currUsr?.plan?.grpId;
 
+  // Prevent repeated loading with a ref
+  const hasLoadedRef = useRef(false);
+
   // On mount or when session changes, trigger the chat config load if authenticated and IDs are present
   useEffect(() => {
     if (
       status === 'authenticated' &&
       memberId &&
       planId &&
-      (!userData?.MEMBER_ID || !userData?.PLAN_ID)
+      !hasLoadedRef.current
     ) {
+      hasLoadedRef.current = true;
       loadChatConfiguration(Number(memberId), planId);
     }
-  }, [
-    status,
-    memberId,
-    planId,
-    loadChatConfiguration,
-    userData?.MEMBER_ID,
-    userData?.PLAN_ID,
-  ]);
+  }, [status, memberId, planId, loadChatConfiguration]);
 
   // Show loading state while session or chat config is loading
   if (status === 'loading' || isLoading) {
@@ -78,7 +75,6 @@ export default function ChatRoute() {
       planId={userData.PLAN_ID}
       planName={userData.PLAN_NAME || 'Default Plan'}
       hasMultiplePlans={hasMultiplePlans}
-      // ...other props as needed
     />
   );
 }
