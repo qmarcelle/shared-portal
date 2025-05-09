@@ -40,12 +40,6 @@ export default async function RootLayout({
       <Head>
         <link
           rel="preload"
-          href="/assets/genesys/plugins/widgets.min.js"
-          as="script"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
           href="/assets/genesys/plugins/widgets.min.css"
           as="style"
         />
