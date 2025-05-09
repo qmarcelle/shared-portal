@@ -44,6 +44,10 @@
       console.error('chat-widget.js: window.chatSettings missing. Aborting.');
       return;
     }
+    if (Array.isArray(cfg) && !cfg[1]) {
+      console.warn('[Genesys] chatSettings[1] missing — skipping widget init');
+      return false;
+    }
 
     /* -------------------------------------------------------------
      * 1.  CONSTANTS / ENUMS
