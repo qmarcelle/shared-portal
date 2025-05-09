@@ -62,7 +62,8 @@
 }
 
 #blueback {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       ellipse farthest-corner at right top,
       #5dc1fd 0%,
       #0000 60%
@@ -300,4 +301,8 @@
   display: flex;
   height: 100%;
   padding: 10px;
+}
+
+.sectionWidthVirtualCare {
+  width: 112%;
 }
