@@ -20,6 +20,7 @@ interface ChatWidgetProps {
   memberType?: string; // Member type for API
   children?: ReactNode; // Optional children for extensibility
   forceEnable?: boolean; // Force enable chat (for dev/testing)
+  skipInitialLoad?: boolean; // Skip initial loading if configuration is loaded elsewhere
 }
 
 export function ChatWidget({
@@ -33,6 +34,7 @@ export function ChatWidget({
   memberType = 'byMemberCk',
   children,
   forceEnable = true,
+  skipInitialLoad = false,
 }: ChatWidgetProps) {
   // Zustand store for chat state and actions
   const {
@@ -79,7 +81,7 @@ export function ChatWidget({
 
   // Load chat configuration on first mount
   useEffect(() => {
-    if (initializedRef.current) return;
+    if (initializedRef.current || skipInitialLoad) return;
     initializedRef.current = true;
 
     const loadConfig = async () => {
@@ -126,7 +128,14 @@ export function ChatWidget({
     };
 
     loadConfig();
-  }, [loadChatConfiguration, memberId, planId, memberType, _onError]);
+  }, [
+    loadChatConfiguration,
+    memberId,
+    planId,
+    memberType,
+    _onError,
+    skipInitialLoad,
+  ]);
 
   // Show loading indicator if chat config is loading
   if (isLoading) {

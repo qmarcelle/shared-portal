@@ -8,7 +8,7 @@
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { usePlanStore } from '@/userManagement/stores/planStore';
 import { useSession } from 'next-auth/react';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { ChatWidget } from './components/ChatWidget';
 
 export default function ChatRoute() {
@@ -28,18 +28,48 @@ export default function ChatRoute() {
   // Prevent repeated loading with a ref
   const hasLoadedRef = useRef(false);
 
+  // Memoize the load function to prevent it from causing re-renders
+  const loadChatConfig = useCallback(
+    (memId: number | string, pId: string) => {
+      console.log('[ChatRoute] Calling memoized loadChatConfiguration');
+      return loadChatConfiguration(memId, pId);
+    },
+    [loadChatConfiguration],
+  );
+
   // On mount or when session changes, trigger the chat config load if authenticated and IDs are present
   useEffect(() => {
+    // Add console log to debug
+    console.log('[ChatRoute] useEffect running with:', {
+      status,
+      memberId,
+      planId,
+      hasLoaded: hasLoadedRef.current,
+      isLoading,
+    });
+
     if (
       status === 'authenticated' &&
       memberId &&
       planId &&
       !hasLoadedRef.current
     ) {
+      console.log(
+        '[ChatRoute] Setting hasLoadedRef to true and loading config',
+      );
       hasLoadedRef.current = true;
-      loadChatConfiguration(Number(memberId), planId);
+
+      // Load the configuration - make sure to cast memberId to a number only if needed
+      const memberIdValue = memberId ? Number(memberId) : undefined;
+      if (memberIdValue && !isNaN(memberIdValue)) {
+        loadChatConfig(memberIdValue, planId);
+      } else {
+        console.error('[ChatRoute] Invalid memberId:', memberId);
+      }
     }
-  }, [status, memberId, planId, loadChatConfiguration]);
+
+    // Important: DO NOT add 'isLoading' or 'userData' to the dependency array to avoid loops
+  }, [status, memberId, planId, loadChatConfig]);
 
   // Show loading state while session or chat config is loading
   if (status === 'loading' || isLoading) {
@@ -69,12 +99,14 @@ export default function ChatRoute() {
   }
 
   // Render the ChatWidget with real data from the store
+  // Pass skipInitialLoad=true to prevent ChatWidget from also loading the configuration
   return (
     <ChatWidget
       memberId={userData.MEMBER_ID}
       planId={userData.PLAN_ID}
       planName={userData.PLAN_NAME || 'Default Plan'}
       hasMultiplePlans={hasMultiplePlans}
+      skipInitialLoad={true} // Add this to prevent duplicate loading
     />
   );
 }
