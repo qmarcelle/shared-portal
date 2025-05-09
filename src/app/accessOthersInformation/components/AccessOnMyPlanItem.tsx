@@ -29,7 +29,7 @@ export const AccessOnMyPlanItem = ({
   onClick,
   className,
   infoButton,
-  icon = <Image src="/assets/edit.svg" alt="link" />,
+  icon = <img src="/assets/edit.svg" alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
 }: AccessOnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();

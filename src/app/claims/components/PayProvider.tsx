@@ -5,7 +5,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { formatCurrency } from '@/utils/currency_formatter';
-import Image from 'next/image';
 import { IComponent } from '../../../components/IComponent';
 
 interface PayProviderProps extends IComponent {
@@ -28,7 +27,7 @@ export const PayProvider = ({ balanceAmount, className }: PayProviderProps) => {
         <Spacer size={5} />
         <Row>
           <Checkbox label="Mark as Paid" />
-          <Image alt="info icon" src="/assets/info.svg" />
+          <img src="/assets/info.svg" alt="info icon" />
         </Row>
         <Spacer size={12} />
         <Button label="Pay This Provider" callback={() => null} />

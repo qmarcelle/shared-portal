@@ -4,7 +4,6 @@ import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import Image from 'next/image';
 
 interface BenefitsProviderInfoCardProps
   extends IComponent,
@@ -23,7 +22,7 @@ export const BenefitsProviderInfoCard = ({
           <Title
             className="body-bold primary-color"
             text={providedBy}
-            suffix={<Image src="/assets/external.svg" alt="external" />}
+            suffix={<img src="/assets/external.svg" alt="external" />}
           />
         ) : (
           <TextBox text={providedBy} className="body-1 body-bold" />

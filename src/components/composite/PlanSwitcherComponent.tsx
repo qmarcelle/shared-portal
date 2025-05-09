@@ -109,7 +109,13 @@ const PlanDropDownHead = ({
         type="title-3"
         text="Select plan view..."
       />
-      <Image alt="switch" className="size-5" src={switchFilterIcon} />
+      <Image
+        alt="switch"
+        className="size-5"
+        src={switchFilterIcon}
+        width={32}
+        height={32}
+      />
     </Row>
   );
 };
@@ -125,12 +131,12 @@ const PlanDropDownFooter = ({
     <Row className={`items-center ${isModalView ? 'py-4' : 'p-4'}`}>
       {isCurrentPlan ? (
         <>
-          <Image src={viewMoreIcon} alt="Maximize" />
+          <Image src={viewMoreIcon} alt="Maximize" width={32} height={32} />
           <TextBox className="mx-1" text="View Past Plans" />
         </>
       ) : (
         <>
-          <Image src={viewLessIcon} alt="Minimize" />
+          <Image src={viewLessIcon} alt="Minimize" width={32} height={32} />
           <TextBox className="mx-1" text="Hide Past Plans" />
         </>
       )}
