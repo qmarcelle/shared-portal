@@ -58,15 +58,7 @@ export default async function RootLayout({
       </Head>
 
       {/* Genesys Chat Scripts - moved to client component for event handlers */}
-      <GenesysScripts
-        clickToChatEndpoint={clickToChatEndpoint}
-        chatTokenEndpoint={chatTokenEndpoint}
-        coBrowseEndpoint={coBrowseEndpoint}
-        bootstrapUrl={bootstrapUrl}
-        widgetUrl={widgetUrl}
-        opsPhone={opsPhone}
-        opsPhoneHours={opsPhoneHours}
-      />
+      <GenesysScripts />
 
       <body>
         <ErrorBoundary>
