@@ -1,5 +1,6 @@
 'use client';
 
+import { getAuthToken } from '@/utils/api/getToken';
 import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -30,6 +31,35 @@ interface GenesysScriptProps {
  * GenesysScript component loads the Genesys Cloud Messenger widget
  * and configures it with the provided parameters.
  */
+// Ensure chatSettings exists and populate token dynamically
+(async () => {
+  if (typeof window !== 'undefined' && !window.chatSettings) {
+    const token = await getAuthToken();
+    // Fetch chat info from your API to get workingHours
+    let opsPhoneHours = process.env.NEXT_PUBLIC_OPS_HOURS || 'Mon–Fri 8 am–6 pm';
+    try {
+      const res = await fetch('/api/chat/getChatInfo?memberId=MEMBER_ID&memberType=byMemberCk');
+      if (res.ok) {
+        const chatInfo = await res.json();
+        opsPhoneHours = chatInfo.workingHours || chatInfo.businessHours?.text || opsPhoneHours;
+      }
+    } catch (e) {
+      console.error('Failed to fetch chat info for opsPhoneHours', e);
+    }
+    window.chatSettings = {
+      clickToChatToken: token,
+      clickToChatEndpoint:
+        process.env.NEXT_PUBLIC_LEGACY_CHAT_URL ||
+        'https://example.com/api/chat',
+      coBrowseLicence:
+        process.env.NEXT_PUBLIC_COBROWSE_LICENCE ||
+        'PLACEHOLDER_COBROWSE_LICENSE',
+      opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '1-800-000-0000',
+      opsPhoneHours,
+    };
+  }
+})();
+
 export function GenesysScript({
   environment = process.env.NEXT_PUBLIC_GENESYS_REGION!,
   deploymentId = process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID!,
@@ -75,11 +105,11 @@ export function GenesysScript({
           });
         }
         setTimeout(() => {
-        const chatButton = document.querySelector('.cx-webchat-chat-button');
-        console.log('[Genesys] attempting to open chat button', chatButton);
-        if (chatButton) {
-        console.log('[Genesys] Enhanced chat button visibility');
-        }
+          const chatButton = document.querySelector('.cx-webchat-chat-button');
+          console.log('[Genesys] attempting to open chat button', chatButton);
+          if (chatButton) {
+            console.log('[Genesys] Enhanced chat button visibility');
+          }
         }, 500);
       }
     }, 1000);
