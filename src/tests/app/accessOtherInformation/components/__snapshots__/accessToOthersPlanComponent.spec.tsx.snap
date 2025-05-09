@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessOnMyPlanComponent should render the UI correctly 1`] = `undefined`;
+
+exports[`AccessToOthersPlanComponent should render the UI correctly 1`] = `undefined`;
