@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
 import { ErrorBoundary } from '@/components/foundation/ErrorBoundary';
 import Footer from '@/components/foundation/Footer';
+import GenesysScripts from '@/components/GenesysScripts';
 import { logServerEnvironment } from '@/components/serverComponents/EnvLogger';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
@@ -12,7 +13,6 @@ import '@/styles/genesys-overrides.css';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import Script from 'next/script';
 import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -57,56 +57,15 @@ export default async function RootLayout({
         />
       </Head>
 
-      {/* Genesys Chat Scripts - Centralized for optimal loading order */}
-      <Script id="genesys-settings" strategy="afterInteractive">
-        {`
-          window._genesys = window._genesys || {};
-          window._genesys.widgets = {
-            main: {
-              theme: 'light',
-              lang: 'en',
-              debug: false
-            }
-          };
-          
-          // Initial chat settings
-          window.chatSettings = {
-            clickToChatEndpoint: '${clickToChatEndpoint}',
-            chatTokenEndpoint: '${chatTokenEndpoint}',
-            coBrowseEndpoint: '${coBrowseEndpoint}',
-            bootstrapUrl: '${bootstrapUrl}',
-            widgetUrl: '${widgetUrl}',
-            opsPhone: '${opsPhone}',
-            opsPhoneHours: '${opsPhoneHours}'
-          };
-          console.log('[Genesys] Settings initialized');
-        `}
-      </Script>
-
-      {/* Bootstrap script - loaded after settings */}
-      <Script
-        id="genesys-bootstrap"
-        src={bootstrapUrl}
-        strategy="afterInteractive"
-        onLoad={() => console.log('[Genesys] Bootstrap script loaded')}
-        onError={() =>
-          console.error('[Genesys] Bootstrap script failed to load')
-        }
-      />
-
-      {/* Widget script - loaded after bootstrap */}
-      <Script
-        id="genesys-widgets"
-        src={widgetUrl}
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log('[Genesys] Widgets script loaded');
-          // Dispatch a custom event when scripts are loaded
-          if (typeof window !== 'undefined') {
-            window.dispatchEvent(new Event('genesys-ready'));
-          }
-        }}
-        onError={() => console.error('[Genesys] Widgets script failed to load')}
+      {/* Genesys Chat Scripts - moved to client component for event handlers */}
+      <GenesysScripts
+        clickToChatEndpoint={clickToChatEndpoint}
+        chatTokenEndpoint={chatTokenEndpoint}
+        coBrowseEndpoint={coBrowseEndpoint}
+        bootstrapUrl={bootstrapUrl}
+        widgetUrl={widgetUrl}
+        opsPhone={opsPhone}
+        opsPhoneHours={opsPhoneHours}
       />
 
       <body>

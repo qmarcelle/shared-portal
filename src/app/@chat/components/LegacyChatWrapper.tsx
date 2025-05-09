@@ -14,6 +14,20 @@ declare global {
   }
 }
 
+// Define the expected type for chatSettings
+// All properties optional to match runtime reality
+type ChatSettings = {
+  [key: string]: any;
+  bootstrapUrl?: string;
+  widgetUrl?: string;
+  clickToChatJs?: string;
+  clickToChatEndpoint?: string;
+  chatTokenEndpoint?: string;
+  coBrowseEndpoint?: string;
+  opsPhone?: string;
+  opsPhoneHours?: string;
+};
+
 /**
  * Legacy chat implementation wrapper
  * Loads Genesys chat.js script with beforeInteractive strategy
@@ -114,11 +128,12 @@ export default function LegacyChatWrapper() {
       timestamp: new Date().toISOString(),
     });
 
-    // Update user-specific data in window.chatSettings
-    if (window.chatSettings) {
+    // Safely access and update chatSettings
+    if (typeof window !== 'undefined' && window.chatSettings) {
+      const chatSettings = window.chatSettings;
       window.chatSettings = {
-        ...(window.chatSettings as Record<string, any>), // preserve existing settings with type assertion
-        ...userData, // add user-specific data
+        ...chatSettings,
+        ...userData,
       };
 
       // Log current settings
@@ -136,7 +151,10 @@ export default function LegacyChatWrapper() {
       ];
 
       const missingFields = requiredFields.filter(
-        (key) => !window.chatSettings[key] || window.chatSettings[key] === '',
+        (key) =>
+          !window.chatSettings ||
+          !window.chatSettings[key] ||
+          window.chatSettings[key] === '',
       );
 
       if (missingFields.length > 0) {
