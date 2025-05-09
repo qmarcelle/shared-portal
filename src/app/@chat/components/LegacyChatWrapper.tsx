@@ -23,6 +23,7 @@ export default function LegacyChatWrapper() {
   const { userData, formInputs, chatGroup, isPlanSwitcherLocked } =
     useChatStore();
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
+  const [genesysReady, setGenesysReady] = useState(false);
   const componentId = Math.random().toString(36).substring(2, 10);
   const chatMode = useChatStore((state) => state.chatMode);
 
@@ -39,6 +40,29 @@ export default function LegacyChatWrapper() {
         componentId,
         timestamp: new Date().toISOString(),
       });
+    };
+  }, []);
+
+  // Listen for the genesys-ready event from the main scripts
+  useEffect(() => {
+    const handleGenesysReady = () => {
+      console.log('[Genesys Debug] Genesys scripts are fully loaded and ready');
+      setGenesysReady(true);
+      setScriptsLoaded(true);
+    };
+
+    // Register listener for the custom event
+    window.addEventListener('genesys-ready', handleGenesysReady);
+
+    // Backup: also check for existing _genesys.widgets object
+    if (window._genesys?.widgets) {
+      console.log('[Genesys Debug] _genesys.widgets already available');
+      setGenesysReady(true);
+      setScriptsLoaded(true);
+    }
+
+    return () => {
+      window.removeEventListener('genesys-ready', handleGenesysReady);
     };
   }, []);
 
@@ -73,37 +97,7 @@ export default function LegacyChatWrapper() {
     return () => clearTimeout(timer);
   }, [scriptsLoaded, componentId]);
 
-  // Centralized Genesys script injection: only run once on mount
-  useEffect(() => {
-    // Only inject the script if not already present
-    if (!document.getElementById('genesys-click-to-chat-js')) {
-      console.log(
-        '[Genesys Debug] Injecting /assets/genesys/click_to_chat.js ...',
-      );
-      const script = document.createElement('script');
-      script.id = 'genesys-click-to-chat-js';
-      script.src = '/assets/genesys/click_to_chat.js';
-      script.async = true;
-      script.onload = () => {
-        console.log('[Genesys Debug] click_to_chat.js script loaded!');
-        setScriptsLoaded(true);
-      };
-      script.onerror = (e) => {
-        console.error('[Genesys Debug] Failed to load click_to_chat.js', e);
-      };
-      document.body.appendChild(script);
-    } else {
-      console.log('[Genesys Debug] click_to_chat.js script already present.');
-      setScriptsLoaded(true);
-    }
-    // Do NOT remove the script on unmount (Genesys expects it to persist)
-    // Only clean up chatSettings and openGenesysChat
-    return () => {
-      if (window.chatSettings) delete window.chatSettings;
-      if (window.openGenesysChat) delete window.openGenesysChat;
-    };
-  }, []); // Only once on mount
-
+  // Setup chat settings and options
   useEffect(() => {
     if (chatMode !== 'legacy') return;
     // Defensive: close any previous chat session
@@ -119,33 +113,32 @@ export default function LegacyChatWrapper() {
       hasUserData: !!userData,
       timestamp: new Date().toISOString(),
     });
-    window.chatSettings = {
-      bootstrapUrl: '',
-      widgetUrl: '',
-      clickToChatJs: '',
-      clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
-      chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
-      coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
-      opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
-      opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
-      ...userData,
-    };
-    // --- LOGGING: Output chatSettings and check required fields ---
-    const chatSettings = window.chatSettings;
-    console.log(
-      '[Genesys Debug] window.chatSettings at script load:',
-      chatSettings,
-    );
-    const requiredFields = [
-      'clickToChatEndpoint',
-      'chatTokenEndpoint',
-      'opsPhone',
-      'opsPhoneHours',
-    ];
-    if (chatSettings) {
-      const missingFields = requiredFields.filter(
-        (key) => !chatSettings[key] || chatSettings[key] === '',
+
+    // Update user-specific data in window.chatSettings
+    if (window.chatSettings) {
+      window.chatSettings = {
+        ...(window.chatSettings as Record<string, any>), // preserve existing settings with type assertion
+        ...userData, // add user-specific data
+      };
+
+      // Log current settings
+      console.log(
+        '[Genesys Debug] Updated chatSettings with user data:',
+        window.chatSettings,
       );
+
+      // Check for required fields
+      const requiredFields = [
+        'clickToChatEndpoint',
+        'chatTokenEndpoint',
+        'opsPhone',
+        'opsPhoneHours',
+      ];
+
+      const missingFields = requiredFields.filter(
+        (key) => !window.chatSettings[key] || window.chatSettings[key] === '',
+      );
+
       if (missingFields.length > 0) {
         console.warn(
           '[Genesys Debug] Missing required chatSettings fields:',
@@ -159,7 +152,8 @@ export default function LegacyChatWrapper() {
     } else {
       console.warn('[Genesys Debug] window.chatSettings is undefined!');
     }
-    // Provide openGenesysChat logic
+
+    // Setup openGenesysChat helper function
     window.openGenesysChat = () => {
       if (window.CXBus && typeof window.CXBus.command === 'function') {
         try {
@@ -169,7 +163,72 @@ export default function LegacyChatWrapper() {
         }
       }
     };
-  }, [userData, componentId, chatMode]);
+
+    // If Genesys is ready, enable the chat button
+    if (genesysReady && window._genesys?.widgets?.webchat) {
+      console.log('[Genesys Debug] Enabling chat button');
+      window._genesys.widgets.webchat.chatButton = {
+        enabled: true,
+        openDelay: 100,
+        effectDuration: 200,
+        hideDuringInvite: false,
+        template:
+          '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+      };
+
+      window._genesys.widgets.webchat.position = {
+        bottom: { px: 20 },
+        right: { px: 20 },
+        width: { pct: 50 },
+        height: { px: 400 },
+      };
+    }
+
+    return () => {
+      // Only clean up our custom functions, not the scripts
+      if (window.openGenesysChat) delete window.openGenesysChat;
+    };
+  }, [userData, componentId, chatMode, genesysReady]);
+
+  // Effect to enable chat button whenever Genesys becomes ready
+  useEffect(() => {
+    if (!genesysReady || chatMode !== 'legacy') return;
+
+    console.log(
+      '[Genesys Debug] Genesys ready state changed to:',
+      genesysReady,
+    );
+
+    // Ensure the button is enabled when Genesys is ready
+    if (window._genesys?.widgets?.webchat) {
+      console.log(
+        '[Genesys Debug] Configuring chat button after ready state change',
+      );
+
+      window._genesys.widgets.webchat.chatButton = {
+        enabled: true,
+        openDelay: 100,
+        effectDuration: 200,
+        hideDuringInvite: false,
+        template:
+          '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+      };
+
+      // Wait a short time and check if the button is in the DOM
+      setTimeout(() => {
+        const chatButton = document.querySelector('.cx-webchat-chat-button');
+        console.log('[Genesys Debug] Chat button in DOM?', !!chatButton);
+
+        if (chatButton) {
+          // Type assertion to HTMLElement to safely access style property
+          const buttonEl = chatButton as HTMLElement;
+          buttonEl.style.display = 'flex';
+          buttonEl.style.opacity = '1';
+          console.log('[Genesys Debug] Enhanced chat button visibility');
+        }
+      }, 500);
+    }
+  }, [genesysReady, chatMode]);
 
   if (chatMode !== 'legacy') {
     return null;
