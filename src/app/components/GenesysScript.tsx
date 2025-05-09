@@ -83,6 +83,12 @@ export function GenesysScript({
     if (chatMode === 'legacy') {
       setTimeout(() => {
         if (window._genesys && window._genesys.widgets) {
+          // Ensure webchat object exists
+          if (!window._genesys.widgets.webchat) {
+            console.log('[Genesys] Creating webchat object');
+            window._genesys.widgets.webchat = {};
+          }
+
           console.log('[Genesys] Configuring chat button');
           window._genesys.widgets.webchat.chatButton = {
             enabled: true,
@@ -148,15 +154,31 @@ export function GenesysScript({
             '[Genesys] Opening chat via CXBus.command("WebChat.open")',
           );
           window.CXBus.command('WebChat.open');
-        } else if (
-          window._genesys &&
-          window._genesys.widgets &&
-          window._genesys.widgets.webchat
-        ) {
-          console.log(
-            '[Genesys] Opening chat via _genesys.widgets.webchat.open()',
-          );
-          window._genesys.widgets.webchat.open();
+        } else if (window._genesys && window._genesys.widgets) {
+          // Ensure webchat object exists
+          if (!window._genesys.widgets.webchat) {
+            console.log('[Genesys] Creating webchat object for manual open');
+            window._genesys.widgets.webchat = {
+              open: function () {
+                console.log('[Genesys] Fallback open method called');
+                if (
+                  window.CXBus &&
+                  typeof window.CXBus.command === 'function'
+                ) {
+                  window.CXBus.command('WebChat.open');
+                }
+              },
+            };
+          }
+
+          if (typeof window._genesys.widgets.webchat.open === 'function') {
+            console.log(
+              '[Genesys] Opening chat via _genesys.widgets.webchat.open()',
+            );
+            window._genesys.widgets.webchat.open();
+          } else {
+            console.error('[Genesys] webchat.open is not a function');
+          }
         } else {
           console.error('[Genesys] CXBus not available for manual triggering');
         }
@@ -204,6 +226,22 @@ export function GenesysScript({
       }
     };
   }, [userData, handleScriptLoaded, chatMode]);
+
+  // Runtime assertion: warn if the wrong Genesys global is present for the current mode
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      if (chatMode === 'cloud' && typeof window._genesys !== 'undefined') {
+        console.warn(
+          '[GenesysScript] WARNING: window._genesys is present in cloud mode. This may indicate a script loading/config issue.',
+        );
+      }
+      if (chatMode === 'legacy' && typeof window.Genesys !== 'undefined') {
+        console.warn(
+          '[GenesysScript] WARNING: window.Genesys is present in legacy mode. This may indicate a script loading/config issue.',
+        );
+      }
+    }
+  }, [chatMode]);
 
   return (
     <>

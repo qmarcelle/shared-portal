@@ -5,9 +5,9 @@
 // All state and side effects are logged for traceability and debugging.
 
 import { ReactNode, useEffect, useRef } from 'react';
+import { GenesysScript } from '../../components/GenesysScript';
 import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
 import { useChatStore } from '../stores/chatStore';
-import { GenesysScript } from './GenesysScript';
 
 interface ChatWidgetProps {
   memberId: string | number; // Unique member identifier (should always be a string)
