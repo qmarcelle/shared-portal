@@ -9,7 +9,6 @@ export interface IChatService {
   // Add other methods as needed
 }
 
-import { getAuthToken } from '@/utils/api/getToken';
 import { logger } from '@/utils/logger';
 import {
   executeGenesysOverrides,
@@ -113,7 +112,9 @@ export class ChatService implements IChatService {
       });
 
       // Get a fresh auth token before initializing
-      this.authToken = (await getAuthToken()) ?? null;
+      const res = await fetch('/api/chat/token');
+      const data = await res.json();
+      this.authToken = data.token || null;
 
       // Use the eligibility passed in
       this.cloudChatEligible = cloudChatEligible;
@@ -380,13 +381,15 @@ export class ChatService implements IChatService {
       }
 
       // Ensure we have a valid token
-      const token = await getAuthToken();
+      const res2 = await fetch('/api/chat/token');
+      const data2 = await res2.json();
+      const token = data2.token || null;
       if (token !== this.authToken) {
         logger.info('Updating auth token', {
           tokenChanged: true,
           timestamp: new Date().toISOString(),
         });
-        this.authToken = token ?? null;
+        this.authToken = token;
       }
 
       if (this.cloudChatEligible && window.Genesys) {

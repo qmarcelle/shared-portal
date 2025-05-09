@@ -1,7 +1,6 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
 // import { ChatError } from '../types/index'; // Commented out due to missing file
-import { getAuthToken } from '@/utils/api/getToken';
 import { logger } from '@/utils/logger'; // Add logger import
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 
@@ -226,7 +225,9 @@ export const useChatStore = create<ChatState>((set) => ({
       set({ isLoading: true, error: null });
 
       // Fetch the auth token and store it
-      const token = await getAuthToken();
+      const res = await fetch('/api/chat/token');
+      const data = await res.json();
+      const token = data.token || '';
       set({ token });
 
       // Ensure we have a valid memberId string for the API call

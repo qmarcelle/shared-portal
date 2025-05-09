@@ -1,6 +1,5 @@
 'use client';
 
-import { getAuthToken } from '@/utils/api/getToken';
 import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
 import { useChatStore } from '../stores/chatStore';
@@ -58,11 +57,12 @@ export function GenesysScript({
   useEffect(() => {
     async function fetchTokenIfNeeded() {
       if (chatMode === 'legacy' && !token) {
-        const fetchedToken = await getAuthToken();
-        setLocalToken(fetchedToken);
+        const res = await fetch('/api/chat/token');
+        const data = await res.json();
+        setLocalToken(data.token || '');
         console.log(
-          '[GenesysScript] Token fetched via getAuthToken:',
-          fetchedToken,
+          '[GenesysScript] Token fetched via /api/chat/token:',
+          data.token,
         );
       }
     }
