@@ -215,10 +215,10 @@
     })();
 
     // Chat audio alert
-    const webAlert = new Audio(
-      '/wps/wcm/myconnect/member/26d05c9c-2858-4ba9-ad5a-64c914a01f79/bell.mp3?MOD=AJPERES&attachment=true&id=1677782288070',
-    );
-    webAlert.muted = true;
+    // const webAlert = new Audio(
+    //   '/wps/wcm/myconnect/member/26d05c9c-2858-4ba9-ad5a-64c914a01f79/bell.mp3?MOD=AJPERES&attachment=true&id=1677782288070',
+    // );
+    // webAlert.muted = true;
 
     /* -------------------------------------------------------------
      * 4.  Load CobrowseIO script (promise)
@@ -665,8 +665,7 @@
       /* WebChat.messageAdded */
       localWidgetPlugin.subscribe('WebChat.messageAdded', function (e) {
         $('.cx-avatar.bot').find('svg').replaceWith(chatBotAvatar);
-        webAlert.muted = false;
-        if (e.data.message.type === 'Agent') webAlert.play();
+        // if (e.data.message.type === 'Agent') webAlert.play();
       });
 
       localWidgetPlugin.subscribe('WebChat.errors', OpenChatConnectionError);
@@ -815,7 +814,7 @@
 
     /* Ensure bell audio can play (Chrome policy) */
     $(document).on('click', '.cx-widget.cx-webchat-chat-button', () => {
-      if (webAlert.muted) webAlert.play();
+      // if (webAlert.muted) webAlert.play();
     });
 
     function enableChatButton() {
@@ -891,8 +890,8 @@
   };
 
   // Sound for chat notifications (adapt as needed)
-  window.webAlert = new Audio('/assets/sounds/bell.mp3');
-  window.webAlert.muted = true;
+  // window.webAlert = new Audio('/assets/sounds/bell.mp3');
+  // window.webAlert.muted = true;
 
   // Initialize Genesys chat once DOM is ready
   document.addEventListener('DOMContentLoaded', function () {
@@ -923,21 +922,21 @@
       window.CXBus.subscribe('WebChat.messageAdded', function (data) {
         genesysLogger.log('Message added:', data);
         // Play sound for new messages if from agent
-        if (
-          data &&
-          data.type === 'Message' &&
-          data.from &&
-          data.from.type !== 'Customer'
-        ) {
-          try {
-            webAlert.muted = false;
-            webAlert.play().catch(function (error) {
-              genesysLogger.error('Audio play failed:', error);
-            });
-          } catch (e) {
-            genesysLogger.error('Unable to play notification sound:', e);
-          }
-        }
+        // if (
+        //   data &&
+        //   data.type === 'Message' &&
+        //   data.from &&
+        //   data.from.type !== 'Customer'
+        // ) {
+        //   try {
+        //     webAlert.muted = false;
+        //     webAlert.play().catch(function (error) {
+        //       genesysLogger.error('Audio play failed:', error);
+        //     });
+        //   } catch (e) {
+        //     genesysLogger.error('Unable to play notification sound:', e);
+        //   }
+        // }
       });
 
       // Handle chat session ending
