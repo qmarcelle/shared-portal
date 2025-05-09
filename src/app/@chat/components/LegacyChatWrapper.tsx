@@ -1,6 +1,8 @@
 'use client';
+import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { logger } from '@/utils/logger';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import {
   hideInquiryDropdown,
@@ -11,6 +13,8 @@ import {
 declare global {
   interface Window {
     __genesysInitialized?: boolean;
+    initializeChatWidget?: (jQuery: any, chatSettings: any) => void;
+    jQuery?: any;
   }
 }
 
@@ -40,6 +44,7 @@ export default function LegacyChatWrapper() {
   const [genesysReady, setGenesysReady] = useState(false);
   const componentId = Math.random().toString(36).substring(2, 10);
   const chatMode = useChatStore((state) => state.chatMode);
+  const [settingsInjected, setSettingsInjected] = useState(false);
 
   useEffect(() => {
     logger.info('[LegacyChatWrapper] Component mounted', {
@@ -110,6 +115,24 @@ export default function LegacyChatWrapper() {
     const timer = setTimeout(applyCustomizations, 1000);
     return () => clearTimeout(timer);
   }, [scriptsLoaded, componentId]);
+
+  // Inject chatSettings once for legacy mode
+  useEffect(() => {
+    if (chatMode !== 'legacy' || settingsInjected) return;
+    window.chatSettings = {
+      ...userData,
+      clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
+      chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
+      coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
+      bootstrapUrl: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
+      widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
+      clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
+      opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
+      opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
+    };
+    setSettingsInjected(true);
+    console.log('[Legacy] chatSettings injected', window.chatSettings);
+  }, [chatMode, settingsInjected, userData]);
 
   // Setup chat settings and options
   useEffect(() => {
@@ -252,5 +275,32 @@ export default function LegacyChatWrapper() {
     return null;
   }
 
-  return null;
+  return (
+    <>
+      {/* Inject Genesys widget CSS in the head before scripts */}
+      <Script
+        id="genesys-legacy-css"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '${process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL?.replace(/\.js$/, '.css') || ''}';
+            document.head.appendChild(link);`,
+        }}
+      />
+      {/* Load legacy click_to_chat.js with afterInteractive strategy */}
+      <Script
+        src={process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS}
+        strategy="afterInteractive"
+        onLoad={() => {
+          console.log('[Legacy] click_to_chat.js loaded');
+          if (typeof window.initializeChatWidget === 'function') {
+            window.initializeChatWidget(window.jQuery, window.chatSettings);
+          } else {
+            console.error('[Legacy] initializeChatWidget not found');
+          }
+        }}
+      />
+    </>
+  );
 }
