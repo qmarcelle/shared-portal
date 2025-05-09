@@ -73,6 +73,37 @@ export default function LegacyChatWrapper() {
     return () => clearTimeout(timer);
   }, [scriptsLoaded, componentId]);
 
+  // Centralized Genesys script injection: only run once on mount
+  useEffect(() => {
+    // Only inject the script if not already present
+    if (!document.getElementById('genesys-click-to-chat-js')) {
+      console.log(
+        '[Genesys Debug] Injecting /assets/genesys/click_to_chat.js ...',
+      );
+      const script = document.createElement('script');
+      script.id = 'genesys-click-to-chat-js';
+      script.src = '/assets/genesys/click_to_chat.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('[Genesys Debug] click_to_chat.js script loaded!');
+        setScriptsLoaded(true);
+      };
+      script.onerror = (e) => {
+        console.error('[Genesys Debug] Failed to load click_to_chat.js', e);
+      };
+      document.body.appendChild(script);
+    } else {
+      console.log('[Genesys Debug] click_to_chat.js script already present.');
+      setScriptsLoaded(true);
+    }
+    // Do NOT remove the script on unmount (Genesys expects it to persist)
+    // Only clean up chatSettings and openGenesysChat
+    return () => {
+      if (window.chatSettings) delete window.chatSettings;
+      if (window.openGenesysChat) delete window.openGenesysChat;
+    };
+  }, []); // Only once on mount
+
   useEffect(() => {
     if (chatMode !== 'legacy') return;
     // Defensive: close any previous chat session
@@ -137,45 +168,6 @@ export default function LegacyChatWrapper() {
           console.error('[LegacyChatWrapper] Error opening legacy chat', e);
         }
       }
-    };
-    // --- PATCH: Dynamically load /assets/genesys/click_to_chat.js ---
-    if (!document.getElementById('genesys-click-to-chat-js')) {
-      console.log(
-        '[Genesys Debug] Injecting /assets/genesys/click_to_chat.js ...',
-      );
-      const script = document.createElement('script');
-      script.id = 'genesys-click-to-chat-js';
-      script.src = '/assets/genesys/click_to_chat.js';
-      script.async = true;
-      script.onload = () => {
-        logger.info('[LegacyChatWrapper] click_to_chat.js loaded', {
-          componentId,
-          timestamp: new Date().toISOString(),
-        });
-        console.log('[Genesys Debug] click_to_chat.js script loaded!');
-        setScriptsLoaded(true);
-      };
-      script.onerror = (e) => {
-        logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js', {
-          componentId,
-          error: e,
-          timestamp: new Date().toISOString(),
-        });
-        console.error('[Genesys Debug] Failed to load click_to_chat.js', e);
-      };
-      document.body.appendChild(script);
-    } else {
-      console.log('[Genesys Debug] click_to_chat.js script already present.');
-      setScriptsLoaded(true);
-    }
-    // Do NOT remove the script on unmount (Genesys expects it to persist)
-    return () => {
-      if (window.chatSettings) delete window.chatSettings;
-      if (window.openGenesysChat) delete window.openGenesysChat;
-      logger.info('[LegacyChatWrapper] Cleanup complete', {
-        componentId,
-        timestamp: new Date().toISOString(),
-      });
     };
   }, [userData, componentId, chatMode]);
 
