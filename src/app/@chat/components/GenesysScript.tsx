@@ -37,72 +37,42 @@ export function GenesysScript({
   // Get values from the chat store
   const opsPhoneHours = useChatStore((state) => state.businessHoursText);
   const opsPhone = process.env.NEXT_PUBLIC_OPS_PHONE || '1-800-000-0000';
-  const chatGroup = useChatStore((state) => state.chatGroup);
-  const isEligible = useChatStore((state) => state.isEligible);
+  const _chatGroup = useChatStore((state) => state.chatGroup);
+  const _isEligible = useChatStore((state) => state.isEligible);
   const chatMode = useChatStore((state) => state.chatMode);
-  const routingInteractionId = useChatStore(
+  const _routingInteractionId = useChatStore(
     (state) => state.routingInteractionId,
   );
-  const userDataFromStore = useChatStore((state) => state.userData);
-  const config = useChatStore((state) => state.config);
+  const _userData = useChatStore((state) => state.userData);
+  const _config = useChatStore((state) => state.config);
+  const token = useChatStore((state) => state.token);
 
-  // Extract legacy chat config values from the store config
-  const clickToChatToken = config?.clickToChatToken;
-  const clickToChatEndpoint = config?.clickToChatEndpoint;
-  const coBrowseLicence = config?.coBrowseLicence;
+  // Debug: Log chatMode on every render
+  useEffect(() => {
+    console.log('[GenesysScript] Render - chatMode:', chatMode);
+  }, [chatMode]);
 
   // Set window.chatSettings when any relevant value changes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.chatSettings = {
-        ...window.chatSettings,
-        opsPhoneHours,
-        opsPhone,
-        chatGroup,
-        isEligible,
-        chatMode,
-        routingInteractionId,
-        userData: userDataFromStore,
-        config,
-      };
-      console.log('[Genesys] chatSettings updated:', window.chatSettings);
-    }
-  }, [
-    opsPhoneHours,
-    opsPhone,
-    chatGroup,
-    isEligible,
-    chatMode,
-    routingInteractionId,
-    userDataFromStore,
-    config,
-  ]);
-
-  // ─── Inject chatSettings for legacy mode before loading widget scripts ───
-  useEffect(() => {
+    console.log(
+      '[GenesysScript] useEffect (chatSettings) - chatMode:',
+      chatMode,
+    );
     if (chatMode === 'legacy' && typeof window !== 'undefined') {
       window.chatSettings = {
-        clickToChatEndpoint,
-        clickToChatToken,
-        coBrowseLicence,
-        opsPhone,
-        opsPhoneHours,
-        // Add any other required fields here
+        clickToChatEndpoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '',
+        clickToChatToken: token || '',
+        coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
+        opsPhone: opsPhone,
+        opsPhoneHours: opsPhoneHours,
+        // Add any other required fields from the store here
       };
       console.log(
         '[Genesys] chatSettings injected for legacy:',
         window.chatSettings,
       );
     }
-  }, [
-    chatMode,
-    clickToChatEndpoint,
-    clickToChatToken,
-    coBrowseLicence,
-    opsPhone,
-    opsPhoneHours,
-  ]);
-  // ────────────────────────────────────────────────────────────────────────
+  }, [chatMode, token, opsPhone, opsPhoneHours]);
 
   // Handle script loaded event
   const handleScriptLoaded = useCallback(() => {
@@ -232,6 +202,14 @@ export function GenesysScript({
       }
     };
   }, [userData, handleScriptLoaded, onScriptLoaded]);
+
+  // Debug: Log which script block will render
+  if (chatMode === 'cloud') {
+    console.log('[GenesysScript] Rendering cloud script');
+  }
+  if (chatMode === 'legacy') {
+    console.log('[GenesysScript] Rendering legacy scripts');
+  }
 
   return (
     <>

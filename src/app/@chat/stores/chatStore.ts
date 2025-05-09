@@ -1,6 +1,7 @@
 // src/stores/chatStore.ts
 import { create } from 'zustand';
 // import { ChatError } from '../types/index'; // Commented out due to missing file
+import { getAuthToken } from '@/utils/api/getToken';
 import { logger } from '@/utils/logger'; // Add logger import
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 
@@ -65,6 +66,9 @@ export interface ChatState {
   ) => Promise<void>;
   startChat: () => void;
   endChat: () => void;
+
+  // New fields
+  token?: string;
 }
 
 export const useChatStore = create<ChatState>((set) => ({
@@ -220,6 +224,10 @@ export const useChatStore = create<ChatState>((set) => ({
 
     try {
       set({ isLoading: true, error: null });
+
+      // Fetch the auth token and store it
+      const token = await getAuthToken();
+      set({ token });
 
       // Ensure we have a valid memberId string for the API call
       // Don't try to parse it to a number if it's already a string
@@ -429,6 +437,9 @@ export const useChatStore = create<ChatState>((set) => ({
     logger.info('[ChatStore] Ending chat');
     set({ isChatActive: false });
   },
+
+  // New fields
+  token: undefined,
 }));
 
 /**
