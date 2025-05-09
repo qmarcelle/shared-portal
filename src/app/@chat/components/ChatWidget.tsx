@@ -128,14 +128,9 @@ export function ChatWidget({
     };
 
     loadConfig();
-  }, [
-    loadChatConfiguration,
-    memberId,
-    planId,
-    memberType,
-    _onError,
-    skipInitialLoad,
-  ]);
+    // Only depend on values that, when changed, should trigger a new config fetch
+    // Do NOT include loadChatConfiguration or any state that is updated by the fetch to avoid infinite loops
+  }, [memberId, planId, memberType, skipInitialLoad]);
 
   // Show loading indicator if chat config is loading
   if (isLoading) {
