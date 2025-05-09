@@ -11,6 +11,7 @@ import '@/styles/checkbox.css';
 import '@/styles/genesys-overrides.css';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -36,6 +37,19 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="preload"
+          href="/assets/genesys/plugins/widgets.min.js"
+          as="script"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/assets/genesys/plugins/widgets.min.css"
+          as="style"
+        />
+      </Head>
       <body>
         <ErrorBoundary>
           <SessionProvider session={session}>
