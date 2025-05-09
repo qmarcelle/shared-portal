@@ -282,6 +282,8 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                     src="/assets/estimate_cost.svg"
                     className="w-[50px] h-[50px]"
                     alt=""
+                    width={50}
+                    height={50}
                   />
                 }
                 pillObjects={[

@@ -333,6 +333,23 @@ export default function LegacyChatWrapper() {
         onError={handleScriptError}
       />
 
+      {/* Add jQuery as a global variable specifically for click_to_chat.js */}
+      <Script
+        id="jquery-global-assignment"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Ensure jQuery is assigned to window.jQuery
+            if (typeof jQuery !== 'undefined') {
+              window.jQuery = jQuery;
+              console.log('jQuery successfully assigned to window.jQuery');
+            } else {
+              console.error('jQuery not available for global assignment');
+            }
+          `,
+        }}
+      />
+
       {/* Load custom click_to_chat script which handles the legacy chat flow */}
       <Script
         src="/assets/genesys/click_to_chat.js"
