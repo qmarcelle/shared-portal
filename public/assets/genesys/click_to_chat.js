@@ -828,11 +828,39 @@
           openDelay: 100,
           effectDuration: 200,
           hideDuringInvite: false,
+          template:
+            '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+        };
+
+        // Configure button position and appearance
+        window._genesys.widgets.webchat.position = {
+          right: { px: 20 },
+          bottom: { px: 20 },
+          width: { pct: 50 },
+          height: { px: 400 },
         };
 
         console.log('Chat button enabled and configured.');
+
+        // Force button visibility if it hasn't appeared
+        setTimeout(function () {
+          // Add class to ensure button visibility
+          const chatButton = document.querySelector('.cx-webchat-chat-button');
+          if (chatButton) {
+            chatButton.style.display = 'flex';
+            chatButton.style.opacity = '1';
+            console.log('[Genesys] Enhanced chat button visibility');
+          } else {
+            console.log('[Genesys] Chat button not found in DOM');
+          }
+        }, 2000);
+
+        return true;
       } else {
-        console.error('Genesys widget is not initialized.');
+        console.warn(
+          '[Genesys] Genesys widgets not fully initialized, will retry...',
+        );
+        return false;
       }
     }
 
@@ -1061,8 +1089,8 @@ function enableChatButton() {
 
     // Configure button position and appearance
     window._genesys.widgets.webchat.position = {
-      bottom: { px: 20 },
       right: { px: 20 },
+      bottom: { px: 20 },
       width: { pct: 50 },
       height: { px: 400 },
     };

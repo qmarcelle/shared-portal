@@ -1,5 +1,6 @@
 'use client';
 
+import { getAuthToken } from '@/utils/api/getToken';
 import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
 import { useChatStore } from '../stores/chatStore';
@@ -33,6 +34,7 @@ export function GenesysScript({
   onScriptLoaded,
 }: GenesysScriptProps) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [localToken, setLocalToken] = useState<string | undefined>(undefined);
 
   // Get values from the chat store
   const opsPhoneHours = useChatStore((state) => state.businessHoursText);
@@ -54,6 +56,20 @@ export function GenesysScript({
 
   // Set window.chatSettings when any relevant value changes
   useEffect(() => {
+    async function fetchTokenIfNeeded() {
+      if (chatMode === 'legacy' && !token) {
+        const fetchedToken = await getAuthToken();
+        setLocalToken(fetchedToken);
+        console.log(
+          '[GenesysScript] Token fetched via getAuthToken:',
+          fetchedToken,
+        );
+      }
+    }
+    fetchTokenIfNeeded();
+  }, [chatMode, token]);
+
+  useEffect(() => {
     console.log(
       '[GenesysScript] useEffect (chatSettings) - chatMode:',
       chatMode,
@@ -61,7 +77,7 @@ export function GenesysScript({
     if (chatMode === 'legacy' && typeof window !== 'undefined') {
       window.chatSettings = {
         clickToChatEndpoint: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL || '',
-        clickToChatToken: token || '',
+        clickToChatToken: token || localToken || '',
         coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
         opsPhone: opsPhone,
         opsPhoneHours: opsPhoneHours,
@@ -72,7 +88,7 @@ export function GenesysScript({
         window.chatSettings,
       );
     }
-  }, [chatMode, token, opsPhone, opsPhoneHours]);
+  }, [chatMode, token, localToken, opsPhone, opsPhoneHours]);
 
   // Handle script loaded event
   const handleScriptLoaded = useCallback(() => {
