@@ -117,27 +117,32 @@ export default function LegacyChatWrapper() {
         }
       }
     };
-    // Load the legacy chat script
-    const legacyScript = document.createElement('script');
-    legacyScript.src = process.env.NEXT_PUBLIC_LEGACY_CHAT_SCRIPT_URL || '';
-    legacyScript.async = true;
-    legacyScript.onload = () => {
-      logger.info('[LegacyChatWrapper] Legacy chat script loaded', {
-        componentId,
-        timestamp: new Date().toISOString(),
-      });
+    // --- PATCH: Dynamically load /assets/genesys/click_to_chat.js ---
+    if (!document.getElementById('genesys-click-to-chat-js')) {
+      const script = document.createElement('script');
+      script.id = 'genesys-click-to-chat-js';
+      script.src = '/assets/genesys/click_to_chat.js';
+      script.async = true;
+      script.onload = () => {
+        logger.info('[LegacyChatWrapper] click_to_chat.js loaded', {
+          componentId,
+          timestamp: new Date().toISOString(),
+        });
+        setScriptsLoaded(true);
+      };
+      script.onerror = (e) => {
+        logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js', {
+          componentId,
+          error: e,
+          timestamp: new Date().toISOString(),
+        });
+      };
+      document.body.appendChild(script);
+    } else {
       setScriptsLoaded(true);
-    };
-    legacyScript.onerror = (e) => {
-      logger.error('[LegacyChatWrapper] Failed to load legacy chat script', {
-        componentId,
-        error: e,
-        timestamp: new Date().toISOString(),
-      });
-    };
-    document.body.appendChild(legacyScript);
+    }
+    // Do NOT remove the script on unmount (Genesys expects it to persist)
     return () => {
-      document.body.removeChild(legacyScript);
       if (window.chatSettings) delete window.chatSettings;
       if (window.openGenesysChat) delete window.openGenesysChat;
       logger.info('[LegacyChatWrapper] Cleanup complete', {
