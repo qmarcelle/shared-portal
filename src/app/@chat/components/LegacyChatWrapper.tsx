@@ -1,4 +1,5 @@
 'use client';
+console.log('[Genesys] 💥 Legacy wrapper mounted');
 import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { logger } from '@/utils/logger';

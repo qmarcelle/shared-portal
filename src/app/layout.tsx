@@ -13,6 +13,7 @@ import '@/styles/genesys-overrides.css';
 import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
+import { headers } from 'next/headers';
 import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -38,20 +39,40 @@ export default async function RootLayout({
   chat: React.ReactNode;
 }) {
   const session = await auth();
+  const pathname = headers().get('x-invoke-path') || '';
+
+  // Define routes where chat should never appear
+  const excludedPaths = [
+    '/login',
+    '/error',
+    '/auth/error',
+    '/sso/redirect',
+    '/embed/security',
+  ];
+
+  const shouldShowChat = () => {
+    // First check if we're on an excluded path
+    if (excludedPaths.some((path) => pathname.startsWith(path))) {
+      return false;
+    }
+
+    // Then check auth status and plan
+    return !!session?.user?.currUsr?.plan;
+  };
 
   // Log server environment variables
   await logServerEnvironment();
 
   // Get environment variables for Genesys scripts
-  const clickToChatEndpoint =
+  const _clickToChatEndpoint =
     process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '';
-  const chatTokenEndpoint = process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '';
-  const coBrowseEndpoint =
+  const _chatTokenEndpoint = process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '';
+  const _coBrowseEndpoint =
     process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '';
-  const bootstrapUrl = process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '';
-  const widgetUrl = process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '';
-  const opsPhone = process.env.NEXT_PUBLIC_OPS_PHONE || '';
-  const opsPhoneHours = process.env.NEXT_PUBLIC_OPS_HOURS || '';
+  const _bootstrapUrl = process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '';
+  const _widgetUrl = process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '';
+  const _opsPhone = process.env.NEXT_PUBLIC_OPS_PHONE || '';
+  const _opsPhoneHours = process.env.NEXT_PUBLIC_OPS_HOURS || '';
 
   return (
     <html lang="en">
@@ -73,11 +94,9 @@ export default async function RootLayout({
             <SiteHeaderServerWrapper />
             <ClientLayout>
               {children}
-              {/* Use the parallel route with Suspense and error boundary - ONLY RENDER CHAT ONCE */}
               <ChatErrorBoundary>
                 <Suspense fallback={<ChatLoading />}>
-                  {/* Only render chat if user is authenticated with a plan */}
-                  {session?.user?.currUsr?.plan ? chat : null}
+                  {shouldShowChat() ? chat : null}
                 </Suspense>
               </ChatErrorBoundary>
               <QuickOpen />
