@@ -10,9 +10,9 @@ import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHead
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
 import '@/styles/genesys-overrides.css';
+import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,9 +20,15 @@ import 'slick-carousel/slick/slick.css';
 import { ChatErrorBoundary } from './@chat/components/ChatErrorBoundary';
 import ChatLoading from './@chat/loading';
 import ClientLayout from './ClientLayout';
+
 const QuickOpen = dynamic(() => import('@/app/components/QuickOpen'), {
   ssr: false,
 });
+
+export const metadata: Metadata = {
+  title: 'Shared Portal',
+  description: 'Member portal application',
+};
 
 export default async function RootLayout({
   children,
@@ -49,13 +55,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <link
           rel="preload"
           href="/assets/genesys/plugins/widgets.min.css"
           as="style"
         />
-      </Head>
+      </head>
 
       {/* Genesys Chat Scripts - moved to client component for event handlers */}
       <GenesysScripts />
@@ -67,14 +73,13 @@ export default async function RootLayout({
             <SiteHeaderServerWrapper />
             <ClientLayout>
               {children}
-              {/* Use the parallel route with Suspense and error boundary */}
-              {session?.user?.currUsr?.plan && (
-                <ChatErrorBoundary>
-                  <Suspense fallback={<ChatLoading />}>{chat}</Suspense>
-                </ChatErrorBoundary>
-              )}
-              {/* Overlay the chat slot using Next.js parallel routes */}
-              {chat}
+              {/* Use the parallel route with Suspense and error boundary - ONLY RENDER CHAT ONCE */}
+              <ChatErrorBoundary>
+                <Suspense fallback={<ChatLoading />}>
+                  {/* Only render chat if user is authenticated with a plan */}
+                  {session?.user?.currUsr?.plan ? chat : null}
+                </Suspense>
+              </ChatErrorBoundary>
               <QuickOpen />
             </ClientLayout>
             <Footer />
