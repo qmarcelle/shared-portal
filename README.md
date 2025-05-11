@@ -173,3 +173,28 @@ Configuration options include:
 - Performance optimization
 - Enhanced error handling
 - Improved accessibility features
+
+## Chat Module Cleanup Plan
+
+### API Endpoint Consolidation
+
+The current chat implementation contains several redundant API endpoints that can be consolidated:
+
+1. **Redundant API Routes to Remove**:
+
+   - `/api/chat/isChatAvailable` - This functionality is now part of the consolidated `getChatInfo` endpoint
+   - `/api/chat/isCloudChatEligible` - This functionality is now part of the consolidated `getChatInfo` endpoint
+   - `/api/chat/cloudChatGroups` - This endpoint appears to be unused in the codebase
+
+2. **Retained API Routes**:
+   - `/api/chat/getChatInfo` - The main consolidated endpoint that provides all chat configuration data
+   - `/api/chat/token` - Used for authentication
+
+### Implementation Steps
+
+1. Verify no direct client calls are made to the redundant endpoints
+2. Update any schema or type references to point to the new consolidated data structure
+3. Remove the redundant API route files
+4. Update documentation to reflect the new API structure
+
+This consolidation will simplify the codebase, reduce maintenance overhead, and ensure a single source of truth for chat configuration data.
