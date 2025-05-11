@@ -12,7 +12,6 @@ import '@/styles/genesys-overrides.css';
 import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
-import { headers } from 'next/headers';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -29,33 +28,11 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  chat,
 }: {
   children: React.ReactNode;
-  chat: React.ReactNode;
 }) {
-  console.log('[RootLayout] Rendered. children:', children, 'chat:', chat);
+  console.log('[RootLayout] Rendered. children:', children);
   const session = await auth();
-  const pathname = headers().get('x-invoke-path') || '';
-
-  // Define routes where chat should never appear
-  const excludedPaths = [
-    '/login',
-    '/error',
-    '/auth/error',
-    '/sso/redirect',
-    '/embed/security',
-  ];
-
-  const shouldShowChat = () => {
-    // First check if we're on an excluded path
-    if (excludedPaths.some((path) => pathname.startsWith(path))) {
-      return false;
-    }
-
-    // Then check auth status and plan
-    return !!session?.user?.currUsr?.plan;
-  };
 
   // Log server environment variables
   await logServerEnvironment();
@@ -88,7 +65,6 @@ export default async function RootLayout({
             <SiteHeaderServerWrapper />
             <ClientLayout>
               {children}
-              {chat}
               <QuickOpen />
             </ClientLayout>
             <Footer />
