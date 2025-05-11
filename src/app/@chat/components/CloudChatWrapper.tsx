@@ -22,6 +22,14 @@ export default function CloudChatWrapper() {
       opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
       ...userData,
     };
+    // Log all config values to catch [object Object] issues
+    Object.entries(window.chatSettings).forEach(([key, value]) => {
+      if (typeof value === 'object') {
+        console.error(`[CloudChatWrapper] Config key '${key}' is an object:`, value);
+      } else {
+        console.debug(`[CloudChatWrapper] Config key '${key}':`, value);
+      }
+    });
     console.debug('[CloudChatWrapper] chatSettings:', window.chatSettings);
   }, [userData]);
 

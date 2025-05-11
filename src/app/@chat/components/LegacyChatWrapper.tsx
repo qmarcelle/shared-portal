@@ -128,6 +128,14 @@ export default function LegacyChatWrapper() {
         opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE!,
         opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS!,
       };
+      // Log all config values to catch [object Object] issues
+      Object.entries(window.chatSettings).forEach(([key, value]) => {
+        if (typeof value === 'object') {
+          console.error(`[LegacyChatWrapper] Config key '${key}' is an object:`, value);
+        } else {
+          console.debug(`[LegacyChatWrapper] Config key '${key}':`, value);
+        }
+      });
       console.log('[Legacy] chatSettings injected', window.chatSettings);
       setSettingsInjected(true);
     }
