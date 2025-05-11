@@ -6,18 +6,32 @@
 import { useEffect } from 'react';
 import { useChatStore } from '../stores/chatStore';
 
-export default function CloudChatWrapper() {
+// Accept chatSession as a prop
+export default function CloudChatWrapper({
+  chatSession,
+}: {
+  chatSession: any;
+}) {
   const { userData } = useChatStore();
 
   useEffect(() => {
-    console.log('[CloudChatWrapper] useEffect (env+userData) running. userData:', userData);
+    console.log(
+      '[CloudChatWrapper] useEffect (env+userData) running. userData:',
+      userData,
+    );
     console.log('[CloudChatWrapper] process.env:', {
-      NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL,
-      NEXT_PUBLIC_GENESYS_WIDGET_URL: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
-      NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
-      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
-      NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
-      NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+      NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL:
+        process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL,
+      NEXT_PUBLIC_GENESYS_WIDGET_URL:
+        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
+      NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS:
+        process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT:
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT:
+        process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+      NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT:
+        process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
       NEXT_PUBLIC_OPS_PHONE: process.env.NEXT_PUBLIC_OPS_PHONE,
       NEXT_PUBLIC_OPS_HOURS: process.env.NEXT_PUBLIC_OPS_HOURS,
     });
@@ -36,7 +50,10 @@ export default function CloudChatWrapper() {
     // Log all config values to catch [object Object] issues
     Object.entries(window.chatSettings).forEach(([key, value]) => {
       if (typeof value === 'object') {
-        console.error(`[CloudChatWrapper] Config key '${key}' is an object:`, value);
+        console.error(
+          `[CloudChatWrapper] Config key '${key}' is an object:`,
+          value,
+        );
       } else {
         console.debug(`[CloudChatWrapper] Config key '${key}':`, value);
       }
@@ -48,7 +65,12 @@ export default function CloudChatWrapper() {
     // Load Genesys Cloud bootstrap and widget scripts
     const bootstrapUrl = window.chatSettings?.bootstrapUrl || '';
     const widgetUrl = window.chatSettings?.widgetUrl || '';
-    console.log('[CloudChatWrapper] About to inject Genesys bootstrap script. bootstrapUrl:', bootstrapUrl, 'widgetUrl:', widgetUrl);
+    console.log(
+      '[CloudChatWrapper] About to inject Genesys bootstrap script. bootstrapUrl:',
+      bootstrapUrl,
+      'widgetUrl:',
+      widgetUrl,
+    );
     if (!bootstrapUrl) return;
     const bootstrapScript = document.createElement('script');
     bootstrapScript.src = bootstrapUrl;
@@ -101,5 +123,25 @@ export default function CloudChatWrapper() {
     };
   }, [userData]);
 
-  return null;
+  // Only render chat UI if chat is open
+  if (!chatSession.isOpen) return null;
+
+  // Example: Render a simple chat UI using chatSession state and methods
+  return (
+    <div className="cloud-chat-wrapper">
+      {chatSession.isChatActive ? (
+        <div>
+          <div>Chat is active (Cloud)</div>
+          <button onClick={chatSession.endChat}>End Chat</button>
+          {/* Add message input, send, etc. as needed */}
+        </div>
+      ) : (
+        <button onClick={chatSession.startChat}>Start Chat</button>
+      )}
+      {chatSession.isLoading && <div>Loading...</div>}
+      {chatSession.error && (
+        <div className="error">{chatSession.error.message}</div>
+      )}
+    </div>
+  );
 }

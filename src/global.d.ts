@@ -12,7 +12,6 @@ declare global {
     _pingOneSignalsReady: boolean;
     dataLayer: Record<string, unknown>[];
     chatSettings?: {
-      bootstrapUrl: string;
       widgetUrl: string;
       clickToChatJs: string;
       clickToChatEndpoint: string;

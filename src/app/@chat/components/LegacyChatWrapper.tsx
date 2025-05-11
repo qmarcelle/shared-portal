@@ -3,7 +3,6 @@ console.log('[Genesys] 💥 Legacy wrapper mounted');
 import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { logger } from '@/utils/logger';
-import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import {
   hideInquiryDropdown,
@@ -16,7 +15,11 @@ import {
  * Loads Genesys chat.js script with beforeInteractive strategy
  * Ensures proper integration with click_to_chat.js implementation
  */
-export default function LegacyChatWrapper() {
+export default function LegacyChatWrapper({
+  chatSession,
+}: {
+  chatSession: any;
+}) {
   const { userData, formInputs, chatGroup, isPlanSwitcherLocked } =
     useChatStore();
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
@@ -136,10 +139,10 @@ export default function LegacyChatWrapper() {
       NEXT_PUBLIC_OPS_PHONE: process.env.NEXT_PUBLIC_OPS_PHONE,
       NEXT_PUBLIC_OPS_HOURS: process.env.NEXT_PUBLIC_OPS_HOURS,
     });
+
     if (!settingsInjected) {
       window.chatSettings = {
-        bootstrapUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_SCRIPT_URL!,
-        widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL!,
+        widgetUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL!,
         clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
         clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT!,
         chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT!,
@@ -300,55 +303,25 @@ export default function LegacyChatWrapper() {
     }
   }, [genesysReady, chatMode]);
 
-  if (chatMode !== 'legacy') {
-    return null;
-  }
+  // Only render chat UI if chat is open
+  if (!chatSession.isOpen) return null;
 
-  return settingsInjected &&
-    typeof window !== 'undefined' &&
-    window.chatSettings ? (
-    <>
-      {/* ensure CSS link is actually in head */}
-      <Script
-        id="genesys-legacy-css"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            if (!document.querySelector('link[href="${(window.chatSettings as any)?.widgetUrl?.replace(/\.js$/, '.css') ?? ''}"]')) {
-              var l = document.createElement('link');
-              l.rel = 'stylesheet';
-              l.href = "${(window.chatSettings as any)?.widgetUrl?.replace(/\.js$/, '.css') ?? ''}";
-              document.head.appendChild(l);
-            }
-          `,
-        }}
-      />
-      <Script
-        id="legacy-chat-js"
-        src={process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!}
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log(
-            '[LegacyChatWrapper] About to inject legacy chat script. src:',
-            process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
-          );
-          console.log(
-            '[Legacy] click_to_chat.js loaded from',
-            process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
-          );
-          if (typeof (window as any).initializeChatWidget === 'function') {
-            (window as any).initializeChatWidget(
-              (window as any).jQuery,
-              window.chatSettings,
-            );
-          } else {
-            console.error('[Legacy] initializeChatWidget not found on window');
-          }
-        }}
-        onError={(e: any) => {
-          console.error('[Legacy] failed to load click_to_chat.js', e);
-        }}
-      />
-    </>
-  ) : null;
+  // Example: Render a simple chat UI using chatSession state and methods
+  return (
+    <div className="legacy-chat-wrapper">
+      {chatSession.isChatActive ? (
+        <div>
+          <div>Chat is active (Legacy)</div>
+          <button onClick={chatSession.endChat}>End Chat</button>
+          {/* Add message input, send, etc. as needed */}
+        </div>
+      ) : (
+        <button onClick={chatSession.startChat}>Start Chat</button>
+      )}
+      {chatSession.isLoading && <div>Loading...</div>}
+      {chatSession.error && (
+        <div className="error">{chatSession.error.message}</div>
+      )}
+    </div>
+  );
 }
