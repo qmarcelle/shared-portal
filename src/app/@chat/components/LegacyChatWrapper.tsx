@@ -295,20 +295,23 @@ export default function LegacyChatWrapper() {
       />
       <Script
         id="legacy-chat-js"
-        src={(window.chatSettings as any)?.clickToChatJs ?? ''}
+        src={process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!}
         strategy="afterInteractive"
         onLoad={() => {
-          console.log('[Legacy] click_to_chat.js loaded');
+          console.log(
+            '[Legacy] click_to_chat.js loaded from',
+            process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+          );
           if (typeof (window as any).initializeChatWidget === 'function') {
             (window as any).initializeChatWidget(
               (window as any).jQuery,
               window.chatSettings,
             );
           } else {
-            console.error('[Legacy] initializeChatWidget not found');
+            console.error('[Legacy] initializeChatWidget not found on window');
           }
         }}
-        onError={(e) => {
+        onError={(e: any) => {
           console.error('[Legacy] failed to load click_to_chat.js', e);
         }}
       />
