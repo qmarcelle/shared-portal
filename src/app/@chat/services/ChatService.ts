@@ -10,7 +10,6 @@ export interface IChatService {
 }
 
 import { getAuthToken as fetchAuthToken } from '@/utils/api/getToken';
-import { getChatInfo } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import {
   executeGenesysOverrides,
@@ -86,32 +85,18 @@ export class ChatService implements IChatService {
     public readonly planName: string,
     public readonly hasMultiplePlans: boolean,
     public readonly onLockPlanSwitcher: (locked: boolean) => void,
+    chatConfig: any, // Pass chatConfig from store
   ) {
+    this.chatConfig = chatConfig;
+    this.cloudChatEligible = chatConfig?.cloudChatEligible || false;
     logger.info('ChatService instantiated', {
       memberId,
       planId,
       planName,
       hasMultiplePlans,
+      cloudChatEligible: this.cloudChatEligible,
       timestamp: new Date().toISOString(),
     });
-  }
-
-  // Fetch chat config/eligibility from memberService and set local state
-  private async fetchAndSetChatConfig(): Promise<void> {
-    try {
-      const chatInfoResponse = await getChatInfo('byMemberCk', this.memberId);
-      const chatInfo = chatInfoResponse.data;
-      this.chatConfig = chatInfo;
-      this.cloudChatEligible = chatInfo.cloudChatEligible;
-      if (!chatInfo.isEligible) {
-        throw new ChatError(
-          'Chat is not available for this member/plan',
-          'NOT_ELIGIBLE',
-        );
-      }
-    } catch (error) {
-      throw new ChatError('Failed to fetch chat config', 'CONFIG_ERROR');
-    }
   }
 
   /**
@@ -125,11 +110,6 @@ export class ChatService implements IChatService {
    */
   public async initialize(cloudChatEligible: boolean): Promise<void> {
     try {
-      // 1. Fetch chat config/eligibility from memberService
-      await this.fetchAndSetChatConfig();
-      // 2. Use the result to set cloudChatEligible
-      cloudChatEligible = this.cloudChatEligible;
-
       // Initialize only once - central control point for Genesys initialization
       if (typeof window !== 'undefined' && window.__genesysInitialized) {
         logger.info('Genesys already initialized, skipping initialization', {

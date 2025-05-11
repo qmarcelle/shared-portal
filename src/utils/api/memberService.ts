@@ -96,17 +96,3 @@ memberService.interceptors.response?.use(
     return Promise.reject(error);
   },
 );
-
-export const getChatInfo = (memberType: string, memberId: string) =>
-  memberService.get(`/members/${memberType}/${memberId}/chat/getChatInfo`);
-
-export const isCloudChatEligible = (memberType: string, memberId: string) =>
-  memberService.get(
-    `/members/${memberType}/${memberId}/chat/isCloudChatEligible`,
-  );
-
-export const isChatAvailable = (memberType: string, memberId: string) =>
-  memberService.get(`/members/${memberType}/${memberId}/chat/isChatAvailable`);
-
-export const getCloudChatGroups = () =>
-  memberService.get(`/members/chat/cloudChatGroups`);
