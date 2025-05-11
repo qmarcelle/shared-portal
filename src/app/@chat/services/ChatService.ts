@@ -9,6 +9,8 @@ export interface IChatService {
   // Add other methods as needed
 }
 
+import { getAuthToken as fetchAuthToken } from '@/utils/api/getToken';
+import { getChatInfo } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import {
   executeGenesysOverrides,
@@ -62,6 +64,7 @@ export class ChatService implements IChatService {
   private isReconnecting: boolean = false;
   private reconnectAttempts: number = 0;
   private authToken: string | null = null;
+  private chatConfig: any = null;
 
   language?: string | undefined;
   onError?: ((error: Error) => void) | undefined;
@@ -93,6 +96,24 @@ export class ChatService implements IChatService {
     });
   }
 
+  // Fetch chat config/eligibility from memberService and set local state
+  private async fetchAndSetChatConfig(): Promise<void> {
+    try {
+      const chatInfoResponse = await getChatInfo('byMemberCk', this.memberId);
+      const chatInfo = chatInfoResponse.data;
+      this.chatConfig = chatInfo;
+      this.cloudChatEligible = chatInfo.cloudChatEligible;
+      if (!chatInfo.isEligible) {
+        throw new ChatError(
+          'Chat is not available for this member/plan',
+          'NOT_ELIGIBLE',
+        );
+      }
+    } catch (error) {
+      throw new ChatError('Failed to fetch chat config', 'CONFIG_ERROR');
+    }
+  }
+
   /**
    * Initializes the chat service by:
    * 1. Using configuration from GenesysScripts component
@@ -104,6 +125,11 @@ export class ChatService implements IChatService {
    */
   public async initialize(cloudChatEligible: boolean): Promise<void> {
     try {
+      // 1. Fetch chat config/eligibility from memberService
+      await this.fetchAndSetChatConfig();
+      // 2. Use the result to set cloudChatEligible
+      cloudChatEligible = this.cloudChatEligible;
+
       // Initialize only once - central control point for Genesys initialization
       if (typeof window !== 'undefined' && window.__genesysInitialized) {
         logger.info('Genesys already initialized, skipping initialization', {
@@ -128,9 +154,6 @@ export class ChatService implements IChatService {
       const res = await fetch('/api/chat/token');
       const data = await res.json();
       this.authToken = data.token || null;
-
-      // Use the eligibility passed in
-      this.cloudChatEligible = cloudChatEligible;
 
       // Check if GenesysScripts has already set up the config objects
       const isGenesysConfigured = this.cloudChatEligible
@@ -533,7 +556,15 @@ export class ChatService implements IChatService {
    * @throws {ChatError} If unable to retrieve token
    */
   async getAuthToken(): Promise<string> {
-    throw new Error('Method not implemented.');
+    // Use the shared getAuthToken utility
+    const token = await fetchAuthToken();
+    if (!token) {
+      throw new ChatError(
+        'Failed to fetch authentication token',
+        'TOKEN_ERROR',
+      );
+    }
+    return token;
   }
 }
 
