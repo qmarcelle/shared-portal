@@ -251,7 +251,57 @@ export function GenesysScript({
   }, [chatMode]);
 
   if (chatMode !== 'cloud') {
-    return null;
+    // Don't return null here, we need to render scripts for legacy mode too
+    // But we use a different script element for legacy mode
+    return (
+      <>
+        <Script
+          id="genesys-legacy-widgets"
+          src={process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || ''}
+          strategy="afterInteractive"
+          onLoad={() => {
+            console.log('[Genesys] Legacy bootstrap script loaded');
+
+            // Now load the widgets.min.js file
+            const widgetsScript = document.createElement('script');
+            widgetsScript.src =
+              process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '';
+            widgetsScript.onload = () => {
+              console.log('[Genesys] Legacy widgets script loaded');
+
+              // Finally load click_to_chat.js
+              const clickToChatScript = document.createElement('script');
+              clickToChatScript.src =
+                process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '';
+              clickToChatScript.onload = () => {
+                console.log('[Genesys] click_to_chat.js loaded');
+                // Dispatch a custom event when all scripts are loaded
+                const event = new CustomEvent('genesys-ready');
+                window.dispatchEvent(event);
+                handleScriptLoaded();
+              };
+              clickToChatScript.onerror = (e) => {
+                console.error('[Genesys] Failed to load click_to_chat.js', e);
+              };
+              document.body.appendChild(clickToChatScript);
+            };
+            widgetsScript.onerror = (e) => {
+              console.error('[Genesys] Failed to load widgets script', e);
+            };
+            document.body.appendChild(widgetsScript);
+          }}
+          onError={(e) => {
+            console.error(
+              '[Genesys] Legacy bootstrap script failed to load',
+              e,
+            );
+          }}
+        />
+        {!isLoaded && (
+          <div id="genesys-legacy-loading-indicator" aria-hidden="true" />
+        )}
+      </>
+    );
   }
   return (
     <>
