@@ -2,6 +2,7 @@
 console.log('[Genesys] 💥 Legacy wrapper mounted');
 import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/@chat/stores/chatStore';
+import { GenesysScript } from '@/app/components/GenesysScript';
 import { logger } from '@/utils/logger';
 import { useEffect, useState } from 'react';
 import {
@@ -306,26 +307,30 @@ export default function LegacyChatWrapper({
   // Only render chat UI if chat is open
   if (!chatSession.isOpen) return null;
 
-  // Example: Render a simple chat UI using chatSession state and methods
   return (
-    <div className="legacy-chat-wrapper">
-      {chatSession.isChatActive ? (
-        <div>
-          <div>Chat is active (Legacy)</div>
-          <button onClick={chatSession.endChat}>End Chat</button>
-          {/* Add message input, send, etc. as needed */}
-        </div>
-      ) : (
-        <button onClick={chatSession.startChat}>Start Chat</button>
-      )}
-      {chatSession.isLoading && <div>Loading...</div>}
-      {chatSession.error && (
-        <div className="error">
-          {typeof chatSession.error === 'string'
-            ? chatSession.error
-            : chatSession.error.message || JSON.stringify(chatSession.error)}
-        </div>
-      )}
-    </div>
+    <>
+      <GenesysScript
+        deploymentId={process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID || ''}
+      />
+      <div className="legacy-chat-wrapper">
+        {chatSession.isChatActive ? (
+          <div>
+            <div>Chat is active (Legacy)</div>
+            <button onClick={chatSession.endChat}>End Chat</button>
+            {/* Add message input, send, etc. as needed */}
+          </div>
+        ) : (
+          <button onClick={chatSession.startChat}>Start Chat</button>
+        )}
+        {chatSession.isLoading && <div>Loading...</div>}
+        {chatSession.error && (
+          <div className="error">
+            {typeof chatSession.error === 'string'
+              ? chatSession.error
+              : chatSession.error.message || JSON.stringify(chatSession.error)}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
