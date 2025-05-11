@@ -1,6 +1,6 @@
 'use client';
 // import TCs from '@/app/@chat/config/terms'; // { default: '…', lobA: '…', … }
-import { useChatStore } from '@/app/(chat)/stores/chatStore';
+import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { RichText } from '@/components/foundation/RichText';
 
 /**

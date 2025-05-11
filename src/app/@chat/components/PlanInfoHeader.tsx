@@ -1,5 +1,5 @@
 'use client';
-import { useChatStore } from '@/app/(chat)/stores/chatStore';
+import { useChatStore } from '@/app/@chat/stores/chatStore';
 import { Title } from '@/components/foundation/Title';
 
 /**

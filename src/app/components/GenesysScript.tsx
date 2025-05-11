@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import { useCallback, useEffect, useState } from 'react';
-import { useChatStore } from '../(chat)/stores/chatStore';
+import { useChatStore } from '../@chat/stores/chatStore';
 
 interface GenesysScriptProps {
   environment?: string;
