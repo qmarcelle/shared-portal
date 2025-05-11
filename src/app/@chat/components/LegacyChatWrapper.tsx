@@ -117,14 +117,22 @@ export default function LegacyChatWrapper() {
 
   // Inject chatSettings once for legacy mode
   useEffect(() => {
-    console.log('[LegacyChatWrapper] useEffect (env+userData) running. userData:', userData);
+    console.log(
+      '[LegacyChatWrapper] useEffect (env+userData) running. userData:',
+      userData,
+    );
     console.log('[LegacyChatWrapper] process.env:', {
-      NEXT_PUBLIC_LEGACY_CHAT_SCRIPT_URL: process.env.NEXT_PUBLIC_LEGACY_CHAT_SCRIPT_URL,
-      NEXT_PUBLIC_GENESYS_WIDGET_URL: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
-      NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
-      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
-      NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
-      NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+      NEXT_PUBLIC_LEGACY_CHAT_URL: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL,
+      NEXT_PUBLIC_GENESYS_WIDGET_URL:
+        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
+      NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS:
+        process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT:
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT:
+        process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+      NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT:
+        process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
       NEXT_PUBLIC_OPS_PHONE: process.env.NEXT_PUBLIC_OPS_PHONE,
       NEXT_PUBLIC_OPS_HOURS: process.env.NEXT_PUBLIC_OPS_HOURS,
     });
@@ -142,7 +150,10 @@ export default function LegacyChatWrapper() {
       // Log all config values to catch [object Object] issues
       Object.entries(window.chatSettings).forEach(([key, value]) => {
         if (typeof value === 'object') {
-          console.error(`[LegacyChatWrapper] Config key '${key}' is an object:`, value);
+          console.error(
+            `[LegacyChatWrapper] Config key '${key}' is an object:`,
+            value,
+          );
         } else {
           console.debug(`[LegacyChatWrapper] Config key '${key}':`, value);
         }
@@ -317,7 +328,10 @@ export default function LegacyChatWrapper() {
         src={process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!}
         strategy="afterInteractive"
         onLoad={() => {
-          console.log('[LegacyChatWrapper] About to inject legacy chat script. src:', process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!);
+          console.log(
+            '[LegacyChatWrapper] About to inject legacy chat script. src:',
+            process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
+          );
           console.log(
             '[Legacy] click_to_chat.js loaded from',
             process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
