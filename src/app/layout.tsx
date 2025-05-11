@@ -34,6 +34,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   chat: React.ReactNode;
 }) {
+  console.log('[RootLayout] Rendered. children:', children, 'chat:', chat);
   const session = await auth();
   const pathname = headers().get('x-invoke-path') || '';
 
