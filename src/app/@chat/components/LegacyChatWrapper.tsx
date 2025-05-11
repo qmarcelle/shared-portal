@@ -21,20 +21,31 @@ export default function LegacyChatWrapper({
 }: {
   chatSession: any;
 }) {
-  const { userData, formInputs, chatGroup, isPlanSwitcherLocked } =
-    useChatStore();
+  // Get chat store state with proper typing
+  const {
+    userData,
+    formInputs,
+    chatGroup,
+    isPlanSwitcherLocked,
+    isLoading,
+    eligibility,
+  } = useChatStore();
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const [genesysReady, setGenesysReady] = useState(false);
   const componentId = Math.random().toString(36).substring(2, 10);
   const chatMode = useChatStore((state) => state.chatMode);
   const [settingsInjected, setSettingsInjected] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
+  // Log component mounting with detailed state info
   useEffect(() => {
     logger.info('[LegacyChatWrapper] Component mounted', {
       componentId,
       hasUserData: !!userData,
       hasFormInputs: Array.isArray(formInputs) && formInputs.length > 0,
       chatGroup,
+      isLoading,
+      chatMode,
       timestamp: new Date().toISOString(),
     });
     return () => {
@@ -45,30 +56,31 @@ export default function LegacyChatWrapper({
     };
   }, []);
 
+  // Debug log for current values
   useEffect(() => {
     if (typeof window !== 'undefined' && window.chatSettings) {
-      console.log('[Chat] bootstrapUrl:', window.chatSettings.bootstrapUrl);
-      console.log('[Chat] widgetUrl:   ', window.chatSettings.widgetUrl);
-      console.log('[Chat] clickToChatJs:', window.chatSettings.clickToChatJs);
-      console.log(
-        '[Chat] clickToChatEndpoint:',
-        window.chatSettings.clickToChatEndpoint,
-      );
-      console.log(
-        '[Chat] chatTokenEndpoint:',
-        window.chatSettings.chatTokenEndpoint,
-      );
-      console.log(
-        '[Chat] coBrowseEndpoint:',
-        window.chatSettings.coBrowseEndpoint,
-      );
+      logger.info('[LegacyChatWrapper] Current chatSettings', {
+        bootstrapUrl: window.chatSettings.bootstrapUrl,
+        widgetUrl: window.chatSettings.widgetUrl,
+        clickToChatJs: window.chatSettings.clickToChatJs,
+        clickToChatEndpoint: window.chatSettings.clickToChatEndpoint,
+        chatTokenEndpoint: window.chatSettings.chatTokenEndpoint,
+        coBrowseEndpoint: window.chatSettings.coBrowseEndpoint,
+        timestamp: new Date().toISOString(),
+      });
     }
   }, []);
 
   // Listen for the genesys-ready event from the main scripts
   useEffect(() => {
     const handleGenesysReady = () => {
-      console.log('[Genesys Debug] Genesys scripts are fully loaded and ready');
+      logger.info(
+        '[LegacyChatWrapper] Genesys scripts fully loaded and ready',
+        {
+          componentId,
+          timestamp: new Date().toISOString(),
+        },
+      );
       setGenesysReady(true);
       setScriptsLoaded(true);
     };
@@ -78,7 +90,10 @@ export default function LegacyChatWrapper({
 
     // Backup: also check for existing _genesys.widgets object
     if (window._genesys?.widgets) {
-      console.log('[Genesys Debug] _genesys.widgets already available');
+      logger.info('[LegacyChatWrapper] _genesys.widgets already available', {
+        componentId,
+        timestamp: new Date().toISOString(),
+      });
       setGenesysReady(true);
       setScriptsLoaded(true);
     }
@@ -88,8 +103,10 @@ export default function LegacyChatWrapper({
     };
   }, []);
 
+  // Apply DOM customizations after scripts are loaded
   useEffect(() => {
     if (!scriptsLoaded) return;
+
     logger.info(
       '[LegacyChatWrapper] Scripts loaded, applying DOM customizations',
       {
@@ -97,6 +114,7 @@ export default function LegacyChatWrapper({
         timestamp: new Date().toISOString(),
       },
     );
+
     const applyCustomizations = () => {
       try {
         hideInquiryDropdown();
@@ -112,73 +130,117 @@ export default function LegacyChatWrapper({
           error,
           timestamp: new Date().toISOString(),
         });
+        setError(
+          error instanceof Error
+            ? error
+            : new Error('Failed to apply chat customizations'),
+        );
       }
     };
+
     applyCustomizations();
     const timer = setTimeout(applyCustomizations, 1000);
     return () => clearTimeout(timer);
   }, [scriptsLoaded, componentId]);
 
-  // Inject chatSettings once for legacy mode
+  // Inject chatSettings once for legacy mode - ONLY when userData is available
   useEffect(() => {
-    console.log(
-      '[LegacyChatWrapper] useEffect (env+userData) running. userData:',
-      userData,
-    );
-    console.log('[LegacyChatWrapper] process.env:', {
-      NEXT_PUBLIC_LEGACY_CHAT_URL: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL,
-      NEXT_PUBLIC_GENESYS_WIDGET_URL:
-        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
-      NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS:
-        process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
-      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT:
-        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
-      NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT:
-        process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
-      NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT:
-        process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
-      NEXT_PUBLIC_OPS_PHONE: process.env.NEXT_PUBLIC_OPS_PHONE,
-      NEXT_PUBLIC_OPS_HOURS: process.env.NEXT_PUBLIC_OPS_HOURS,
+    // Don't proceed if userData is not available
+    if (!userData || Object.keys(userData).length === 0) {
+      logger.info('[LegacyChatWrapper] Waiting for userData to be available', {
+        componentId,
+        timestamp: new Date().toISOString(),
+      });
+      return;
+    }
+
+    logger.info('[LegacyChatWrapper] userData is available, setting up chat', {
+      componentId,
+      userDataKeys: Object.keys(userData),
+      timestamp: new Date().toISOString(),
     });
 
     if (!settingsInjected) {
-      window.chatSettings = {
-        widgetUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL!,
-        clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
-        clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT!,
-        chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT!,
-        coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT!,
-        opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE!,
-        opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS!,
-      };
-      // Log all config values to catch [object Object] issues
-      Object.entries(window.chatSettings).forEach(([key, value]) => {
-        if (typeof value === 'object') {
-          console.error(
-            `[LegacyChatWrapper] Config key '${key}' is an object:`,
-            value,
-          );
-        } else {
-          console.debug(`[LegacyChatWrapper] Config key '${key}':`, value);
-        }
-      });
-      console.log('[Legacy] chatSettings injected', window.chatSettings);
-      setSettingsInjected(true);
-    }
-  }, [settingsInjected]);
+      try {
+        window.chatSettings = {
+          widgetUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL!,
+          clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
+          clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT!,
+          chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT!,
+          coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT!,
+          opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE!,
+          opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS!,
+        };
 
-  // Setup chat settings and options
+        // Log all config values to catch [object Object] issues
+        Object.entries(window.chatSettings).forEach(([key, value]) => {
+          if (typeof value === 'object') {
+            logger.error('[LegacyChatWrapper] Config key is an object', {
+              key,
+              value,
+              timestamp: new Date().toISOString(),
+            });
+          }
+        });
+
+        logger.info('[LegacyChatWrapper] chatSettings injected', {
+          componentId,
+          hasSettings: !!window.chatSettings,
+          timestamp: new Date().toISOString(),
+        });
+
+        setSettingsInjected(true);
+      } catch (error) {
+        logger.error('[LegacyChatWrapper] Error injecting chat settings', {
+          componentId,
+          error,
+          timestamp: new Date().toISOString(),
+        });
+        setError(
+          error instanceof Error
+            ? error
+            : new Error('Failed to inject chat settings'),
+        );
+      }
+    }
+  }, [userData, settingsInjected, componentId]);
+
+  // Setup chat settings and options - ONLY when userData and genesysReady are both available
   useEffect(() => {
+    // Skip if not in legacy mode or if still loading
     if (chatMode !== 'legacy') return;
+
+    // Skip if userData or genesys isn't ready
+    if (!userData || !genesysReady) {
+      logger.info(
+        '[LegacyChatWrapper] Waiting for userData and genesys to be ready',
+        {
+          componentId,
+          hasUserData: !!userData,
+          genesysReady,
+          timestamp: new Date().toISOString(),
+        },
+      );
+      return;
+    }
+
     // Defensive: close any previous chat session
     if (typeof window.CXBus?.command === 'function') {
       try {
         window.CXBus.command('WebChat.close');
       } catch (e) {
-        console.error('Error closing chat:', e);
+        logger.error(
+          '[LegacyChatWrapper] Error closing previous chat session',
+          {
+            componentId,
+            error: e,
+            timestamp: new Date().toISOString(),
+          },
+        );
       }
     }
-    logger.info('[LegacyChatWrapper] Setting up chat settings', {
+
+    logger.info('[LegacyChatWrapper] Setting up chat with userData', {
       componentId,
       hasUserData: !!userData,
       timestamp: new Date().toISOString(),
@@ -186,76 +248,106 @@ export default function LegacyChatWrapper({
 
     // Safely access and update chatSettings
     if (typeof window !== 'undefined' && window.chatSettings) {
-      const chatSettings = window.chatSettings;
-      window.chatSettings = {
-        ...chatSettings,
-        ...userData,
-      };
+      try {
+        const chatSettings = window.chatSettings;
+        window.chatSettings = {
+          ...chatSettings,
+          ...userData,
+        };
 
-      // Log current settings
-      console.log(
-        '[Genesys Debug] Updated chatSettings with user data:',
-        window.chatSettings,
-      );
+        // Check for required fields
+        const requiredFields = [
+          'clickToChatEndpoint',
+          'chatTokenEndpoint',
+          'opsPhone',
+          'opsPhoneHours',
+        ];
 
-      // Check for required fields
-      const requiredFields = [
-        'clickToChatEndpoint',
-        'chatTokenEndpoint',
-        'opsPhone',
-        'opsPhoneHours',
-      ];
-
-      const missingFields = requiredFields.filter(
-        (key) =>
-          !window.chatSettings ||
-          !window.chatSettings[key] ||
-          window.chatSettings[key] === '',
-      );
-
-      if (missingFields.length > 0) {
-        console.warn(
-          '[Genesys Debug] Missing required chatSettings fields:',
-          missingFields,
+        const missingFields = requiredFields.filter(
+          (key) =>
+            !window.chatSettings ||
+            !window.chatSettings[key] ||
+            window.chatSettings[key] === '',
         );
-      } else {
-        console.log(
-          '[Genesys Debug] All required chatSettings fields are present.',
+
+        if (missingFields.length > 0) {
+          logger.warn(
+            '[LegacyChatWrapper] Missing required chatSettings fields',
+            {
+              componentId,
+              missingFields,
+              timestamp: new Date().toISOString(),
+            },
+          );
+        } else {
+          logger.info(
+            '[LegacyChatWrapper] All required chatSettings fields are present',
+            {
+              componentId,
+              timestamp: new Date().toISOString(),
+            },
+          );
+        }
+
+        // Setup openGenesysChat helper function
+        window.openGenesysChat = () => {
+          if (window.CXBus && typeof window.CXBus.command === 'function') {
+            try {
+              window.CXBus.command('WebChat.open');
+              logger.info('[LegacyChatWrapper] WebChat.open command sent', {
+                componentId,
+                timestamp: new Date().toISOString(),
+              });
+            } catch (e) {
+              logger.error('[LegacyChatWrapper] Error opening legacy chat', {
+                componentId,
+                error: e,
+                timestamp: new Date().toISOString(),
+              });
+            }
+          }
+        };
+
+        // If Genesys is ready, enable the chat button
+        if (window._genesys?.widgets?.webchat) {
+          logger.info('[LegacyChatWrapper] Enabling chat button', {
+            componentId,
+            timestamp: new Date().toISOString(),
+          });
+
+          window._genesys.widgets.webchat.chatButton = {
+            enabled: true,
+            openDelay: 100,
+            effectDuration: 200,
+            hideDuringInvite: false,
+            template:
+              '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+          };
+
+          window._genesys.widgets.webchat.position = {
+            bottom: { px: 20 },
+            right: { px: 20 },
+            width: { pct: 50 },
+            height: { px: 400 },
+          };
+        }
+      } catch (error) {
+        logger.error('[LegacyChatWrapper] Error configuring chat settings', {
+          componentId,
+          error,
+          timestamp: new Date().toISOString(),
+        });
+        setError(
+          error instanceof Error
+            ? error
+            : new Error('Failed to configure chat settings'),
         );
       }
     } else {
-      console.warn('[Genesys Debug] window.chatSettings is undefined!');
-    }
-
-    // Setup openGenesysChat helper function
-    window.openGenesysChat = () => {
-      if (window.CXBus && typeof window.CXBus.command === 'function') {
-        try {
-          window.CXBus.command('WebChat.open');
-        } catch (e) {
-          console.error('[LegacyChatWrapper] Error opening legacy chat', e);
-        }
-      }
-    };
-
-    // If Genesys is ready, enable the chat button
-    if (genesysReady && window._genesys?.widgets?.webchat) {
-      console.log('[Genesys Debug] Enabling chat button');
-      window._genesys.widgets.webchat.chatButton = {
-        enabled: true,
-        openDelay: 100,
-        effectDuration: 200,
-        hideDuringInvite: false,
-        template:
-          '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
-      };
-
-      window._genesys.widgets.webchat.position = {
-        bottom: { px: 20 },
-        right: { px: 20 },
-        width: { pct: 50 },
-        height: { px: 400 },
-      };
+      logger.warn('[LegacyChatWrapper] window.chatSettings is undefined', {
+        componentId,
+        timestamp: new Date().toISOString(),
+      });
     }
 
     return () => {
@@ -264,48 +356,25 @@ export default function LegacyChatWrapper({
     };
   }, [userData, componentId, chatMode, genesysReady]);
 
-  // Effect to enable chat button whenever Genesys becomes ready
-  useEffect(() => {
-    if (!genesysReady || chatMode !== 'legacy') return;
+  // Handle loading states
+  if (isLoading) {
+    return <div>Loading chat configuration...</div>;
+  }
 
-    console.log(
-      '[Genesys Debug] Genesys ready state changed to:',
-      genesysReady,
-    );
+  // Handle error states
+  if (error) {
+    return <div>Chat error: {error.message}</div>;
+  }
 
-    // Ensure the button is enabled when Genesys is ready
-    if (window._genesys?.widgets?.webchat) {
-      console.log(
-        '[Genesys Debug] Configuring chat button after ready state change',
-      );
+  // Handle missing eligibility or user data
+  if (!eligibility || !userData) {
+    return <div>Chat configuration not available</div>;
+  }
 
-      window._genesys.widgets.webchat.chatButton = {
-        enabled: true,
-        openDelay: 100,
-        effectDuration: 200,
-        hideDuringInvite: false,
-        template:
-          '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
-      };
-
-      // Wait a short time and check if the button is in the DOM
-      setTimeout(() => {
-        const chatButton = document.querySelector('.cx-webchat-chat-button');
-        console.log('[Genesys Debug] Chat button in DOM?', !!chatButton);
-
-        if (chatButton) {
-          // Type assertion to HTMLElement to safely access style property
-          const buttonEl = chatButton as HTMLElement;
-          buttonEl.style.display = 'flex';
-          buttonEl.style.opacity = '1';
-          console.log('[Genesys Debug] Enhanced chat button visibility');
-        }
-      }, 500);
-    }
-  }, [genesysReady, chatMode]);
-
-  // Only render chat UI if chat is open
-  if (!chatSession.isOpen) return null;
+  // Don't render if chat is not open
+  if (!chatSession?.isOpen) {
+    return null;
+  }
 
   return (
     <>
