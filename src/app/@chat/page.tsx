@@ -1,15 +1,30 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import CloudChatWrapper from './components/CloudChatWrapper';
 import LegacyChatWrapper from './components/LegacyChatWrapper';
 import { useChatSession } from './hooks/useChatSession';
 import { useChatStore } from './stores/chatStore';
 
 export default function ChatEntry() {
+  const { data: session, status } = useSession();
   const mode = useChatStore((s) => s.chatMode);
+
+  // Extract memberId, planId, planName, hasMultiplePlans from session
+  const plan = session?.user?.currUsr?.plan;
+  const memberId = plan?.memCk || '';
+  const planId = plan?.grpId || plan?.subId || plan?.memCk || '';
+  const planName = plan?.grpId || plan?.subId || '';
+  // If you have a source for multiple plans, use it; otherwise default to false
+  const hasMultiplePlans = false;
+
   const chatSession = useChatSession({
-    // TODO: Pass required options such as memberId, planId, etc. if needed
+    memberId,
+    planId,
+    planName,
+    hasMultiplePlans,
+    // ...add other options as needed
   });
-  console.log('[ChatEntry] Rendered. chatMode:', mode);
+  console.log('[ChatEntry] Rendered. chatMode:', mode, 'session:', session);
   // Log all relevant env vars
   const envVars = {
     NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL:
