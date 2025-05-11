@@ -162,14 +162,38 @@ export default function LegacyChatWrapper({
 
     if (!settingsInjected) {
       try {
+        // Ensure all values are strings to prevent [object Object] URLs
+        const ensureString = (value: any): string => {
+          if (value === null || value === undefined) return '';
+          if (typeof value === 'object') {
+            logger.warn(
+              '[LegacyChatWrapper] Converting object to JSON string',
+              {
+                value,
+                timestamp: new Date().toISOString(),
+              },
+            );
+            return JSON.stringify(value);
+          }
+          return String(value);
+        };
+
         window.chatSettings = {
-          widgetUrl: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL!,
-          clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS!,
-          clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT!,
-          chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT!,
-          coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT!,
-          opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE!,
-          opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS!,
+          widgetUrl: ensureString(process.env.NEXT_PUBLIC_LEGACY_CHAT_URL),
+          clickToChatJs: ensureString(
+            process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+          ),
+          clickToChatEndpoint: ensureString(
+            process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+          ),
+          chatTokenEndpoint: ensureString(
+            process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+          ),
+          coBrowseEndpoint: ensureString(
+            process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+          ),
+          opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE),
+          opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS),
         };
 
         // Log all config values to catch [object Object] issues

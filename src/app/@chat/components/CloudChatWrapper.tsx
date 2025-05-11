@@ -55,20 +55,51 @@ export default function CloudChatWrapper({
     });
 
     try {
+      // Ensure all values are strings to prevent [object Object] URLs
+      const ensureString = (value: any): string => {
+        if (value === null || value === undefined) return '';
+        if (typeof value === 'object') {
+          logger.warn('[CloudChatWrapper] Converting object to JSON string', {
+            value,
+            timestamp: new Date().toISOString(),
+          });
+          return JSON.stringify(value);
+        }
+        return String(value);
+      };
+
       // Build chatSettings from env and userData
       window.chatSettings = {
-        bootstrapUrl: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
-        widgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
-        clickToChatJs: process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
-        clickToChatEndpoint:
+        bootstrapUrl: ensureString(
+          process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
+        ),
+        widgetUrl: ensureString(
+          process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
+        ),
+        clickToChatJs: ensureString(
+          process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
+        ),
+        clickToChatEndpoint: ensureString(
           process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
-        chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
-        coBrowseEndpoint:
+        ),
+        chatTokenEndpoint: ensureString(
+          process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
+        ),
+        coBrowseEndpoint: ensureString(
           process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
-        opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE || '',
-        opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS || '',
-        ...userData,
+        ),
+        opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE || ''),
+        opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS || ''),
       };
+
+      // Add userData values with string conversion
+      if (userData) {
+        Object.entries(userData).forEach(([key, value]) => {
+          if (window.chatSettings) {
+            window.chatSettings[key] = ensureString(value);
+          }
+        });
+      }
 
       // Log all config values to catch [object Object] issues
       Object.entries(window.chatSettings).forEach(([key, value]) => {
@@ -109,14 +140,22 @@ export default function CloudChatWrapper({
       return;
     }
 
-    const bootstrapUrl = window.chatSettings?.bootstrapUrl || '';
-    const widgetUrl = window.chatSettings?.widgetUrl || '';
+    const bootstrapUrl =
+      typeof window.chatSettings?.bootstrapUrl === 'string'
+        ? window.chatSettings.bootstrapUrl
+        : '';
+    const widgetUrl =
+      typeof window.chatSettings?.widgetUrl === 'string'
+        ? window.chatSettings.widgetUrl
+        : '';
 
     if (!bootstrapUrl || !widgetUrl) {
       logger.error('[CloudChatWrapper] Missing required URLs for scripts', {
         componentId,
         hasBootstrapUrl: !!bootstrapUrl,
         hasWidgetUrl: !!widgetUrl,
+        rawBootstrapUrl: window.chatSettings?.bootstrapUrl,
+        rawWidgetUrl: window.chatSettings?.widgetUrl,
         timestamp: new Date().toISOString(),
       });
       setError(new Error('Missing required script URLs'));
@@ -155,9 +194,12 @@ export default function CloudChatWrapper({
             logger.error('[CloudChatWrapper] Failed to load widgets script', {
               componentId,
               error: e,
+              url: widgetUrl,
               timestamp: new Date().toISOString(),
             });
-            setError(new Error('Failed to load Genesys widgets script'));
+            setError(
+              new Error(`Failed to load Genesys widgets script (${widgetUrl})`),
+            );
           };
           document.body.appendChild(widgetScript);
         } catch (err) {
@@ -177,9 +219,14 @@ export default function CloudChatWrapper({
         logger.error('[CloudChatWrapper] Failed to load bootstrap script', {
           componentId,
           error: e,
+          url: bootstrapUrl,
           timestamp: new Date().toISOString(),
         });
-        setError(new Error('Failed to load Genesys bootstrap script'));
+        setError(
+          new Error(
+            `Failed to load Genesys bootstrap script (${bootstrapUrl})`,
+          ),
+        );
       };
       document.body.appendChild(bootstrapScript);
 
