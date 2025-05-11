@@ -1,5 +1,7 @@
 'use client';
 
+import ChatWidget from '@/components/ChatWidget';
+
 export default function ClientLayout({
   children,
 }: {
@@ -9,5 +11,10 @@ export default function ClientLayout({
 
   // Don't render chat components while loading
 
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <ChatWidget />
+    </>
+  );
 }
