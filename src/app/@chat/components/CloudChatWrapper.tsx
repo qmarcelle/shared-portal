@@ -1,288 +1,41 @@
 'use client';
 
 // CloudChatWrapper injects the Genesys Cloud Messenger SDK and manages Messenger-specific events.
-// All script loading, Messenger events, and errors are logged for traceability and debugging.
+// Simplified using custom hooks and shared UI components
 
+import { GenesysScript } from '@/app/components/GenesysScript';
 import { logger } from '@/utils/logger';
-import { useEffect, useState } from 'react';
-import { useChatStore } from '../stores/chatStore';
+import { useEffect } from 'react';
+import { useChatSetup } from '../hooks/useChatSetup';
+import { ChatUI } from './ChatUI';
 
-// Accept chatSession as a prop
 export default function CloudChatWrapper({
   chatSession,
 }: {
   chatSession: any;
 }) {
-  const { userData, isLoading, eligibility } = useChatStore();
-  const [error, setError] = useState<Error | null>(null);
-  const [scriptsLoaded, setScriptsLoaded] = useState(false);
-  const [initialized, setInitialized] = useState(false);
-  const componentId = Math.random().toString(36).substring(2, 10);
+  // Use the shared setup hook for common functionality
+  const {
+    userData,
+    error,
+    scriptsLoaded,
+    setScriptsLoaded,
+    componentId,
+    chatData,
+    isLoading,
+  } = useChatSetup('cloud');
 
-  // Log component mounting
+  // Set up Genesys Messenger functionality after scripts are loaded
   useEffect(() => {
-    logger.info('[CloudChatWrapper] Component mounted', {
-      componentId,
-      hasUserData: !!userData,
-      isLoading,
-      hasEligibility: !!eligibility,
-      timestamp: new Date().toISOString(),
-    });
+    if (!scriptsLoaded) return;
 
-    return () => {
-      logger.info('[CloudChatWrapper] Component unmounting', {
-        componentId,
-        timestamp: new Date().toISOString(),
-      });
-    };
-  }, []);
-
-  // Only set up chat settings when userData is available
-  useEffect(() => {
-    // Don't proceed if userData is not available
-    if (!userData || Object.keys(userData).length === 0) {
-      logger.info('[CloudChatWrapper] Waiting for userData to be available', {
-        componentId,
-        timestamp: new Date().toISOString(),
-      });
-      return;
-    }
-
-    logger.info('[CloudChatWrapper] userData is available, setting up chat', {
-      componentId,
-      userDataKeys: Object.keys(userData),
-      timestamp: new Date().toISOString(),
-    });
-
-    try {
-      // Ensure all values are strings to prevent [object Object] URLs
-      const ensureString = (value: any): string => {
-        if (value === null || value === undefined) return '';
-        if (typeof value === 'object') {
-          logger.warn('[CloudChatWrapper] Converting object to JSON string', {
-            value,
-            timestamp: new Date().toISOString(),
-          });
-          return JSON.stringify(value);
-        }
-        return String(value);
-      };
-
-      // Build chatSettings from env and userData
-      window.chatSettings = {
-        bootstrapUrl: ensureString(
-          process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL || '',
-        ),
-        widgetUrl: ensureString(
-          process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL || '',
-        ),
-        clickToChatJs: ensureString(
-          process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS || '',
-        ),
-        clickToChatEndpoint: ensureString(
-          process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || '',
-        ),
-        chatTokenEndpoint: ensureString(
-          process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT || '',
-        ),
-        coBrowseEndpoint: ensureString(
-          process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT || '',
-        ),
-        opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE || ''),
-        opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS || ''),
-      };
-
-      // Add userData values with string conversion
-      if (userData) {
-        Object.entries(userData).forEach(([key, value]) => {
-          if (window.chatSettings) {
-            window.chatSettings[key] = ensureString(value);
-          }
-        });
-      }
-
-      // Log all config values to catch [object Object] issues
-      Object.entries(window.chatSettings).forEach(([key, value]) => {
-        if (typeof value === 'object') {
-          logger.error('[CloudChatWrapper] Config key is an object', {
-            key,
-            value,
-            timestamp: new Date().toISOString(),
-          });
-        }
-      });
-
-      logger.info('[CloudChatWrapper] chatSettings created', {
-        componentId,
-        hasSettings: !!window.chatSettings,
-        settingsKeys: Object.keys(window.chatSettings),
-        timestamp: new Date().toISOString(),
-      });
-
-      setInitialized(true);
-    } catch (err) {
-      logger.error('[CloudChatWrapper] Error setting up chat settings', {
-        componentId,
-        error: err,
-        timestamp: new Date().toISOString(),
-      });
-      setError(
-        err instanceof Error
-          ? err
-          : new Error('Failed to set up chat settings'),
-      );
-    }
-  }, [userData, componentId]);
-
-  // Load scripts only after settings are initialized
-  useEffect(() => {
-    if (!initialized) {
-      return;
-    }
-
-    const bootstrapUrl =
-      typeof window.chatSettings?.bootstrapUrl === 'string'
-        ? window.chatSettings.bootstrapUrl
-        : '';
-    const widgetUrl =
-      typeof window.chatSettings?.widgetUrl === 'string'
-        ? window.chatSettings.widgetUrl
-        : '';
-
-    if (!bootstrapUrl || !widgetUrl) {
-      logger.error('[CloudChatWrapper] Missing required URLs for scripts', {
-        componentId,
-        hasBootstrapUrl: !!bootstrapUrl,
-        hasWidgetUrl: !!widgetUrl,
-        rawBootstrapUrl: window.chatSettings?.bootstrapUrl,
-        rawWidgetUrl: window.chatSettings?.widgetUrl,
-        timestamp: new Date().toISOString(),
-      });
-      setError(new Error('Missing required script URLs'));
-      return;
-    }
-
-    logger.info('[CloudChatWrapper] Loading Genesys bootstrap script', {
-      componentId,
-      bootstrapUrl,
-      widgetUrl,
-      timestamp: new Date().toISOString(),
-    });
-
-    try {
-      const bootstrapScript = document.createElement('script');
-      bootstrapScript.src = bootstrapUrl;
-      bootstrapScript.async = true;
-      bootstrapScript.onload = () => {
-        logger.info('[CloudChatWrapper] Genesys bootstrap loaded', {
-          componentId,
-          timestamp: new Date().toISOString(),
-        });
-
-        try {
-          const widgetScript = document.createElement('script');
-          widgetScript.src = widgetUrl;
-          widgetScript.async = true;
-          widgetScript.onload = () => {
-            logger.info('[CloudChatWrapper] Genesys widgets loaded', {
-              componentId,
-              timestamp: new Date().toISOString(),
-            });
-            setScriptsLoaded(true);
-          };
-          widgetScript.onerror = (e) => {
-            logger.error('[CloudChatWrapper] Failed to load widgets script', {
-              componentId,
-              error: e,
-              url: widgetUrl,
-              timestamp: new Date().toISOString(),
-            });
-            setError(
-              new Error(`Failed to load Genesys widgets script (${widgetUrl})`),
-            );
-          };
-          document.body.appendChild(widgetScript);
-        } catch (err) {
-          logger.error('[CloudChatWrapper] Error loading widget script', {
-            componentId,
-            error: err,
-            timestamp: new Date().toISOString(),
-          });
-          setError(
-            err instanceof Error
-              ? err
-              : new Error('Failed to load widget script'),
-          );
-        }
-      };
-      bootstrapScript.onerror = (e) => {
-        logger.error('[CloudChatWrapper] Failed to load bootstrap script', {
-          componentId,
-          error: e,
-          url: bootstrapUrl,
-          timestamp: new Date().toISOString(),
-        });
-        setError(
-          new Error(
-            `Failed to load Genesys bootstrap script (${bootstrapUrl})`,
-          ),
-        );
-      };
-      document.body.appendChild(bootstrapScript);
-
-      // Clean up function to remove scripts
-      return () => {
-        try {
-          if (document.body.contains(bootstrapScript)) {
-            document.body.removeChild(bootstrapScript);
-          }
-
-          const widgetScriptEl = document.querySelector(
-            `script[src="${widgetUrl}"]`,
-          );
-          if (widgetScriptEl && document.body.contains(widgetScriptEl)) {
-            document.body.removeChild(widgetScriptEl);
-          }
-
-          logger.info('[CloudChatWrapper] Scripts cleaned up', {
-            componentId,
-            timestamp: new Date().toISOString(),
-          });
-        } catch (err) {
-          logger.error('[CloudChatWrapper] Error cleaning up scripts', {
-            componentId,
-            error: err,
-            timestamp: new Date().toISOString(),
-          });
-        }
-      };
-    } catch (err) {
-      logger.error('[CloudChatWrapper] Error creating script elements', {
-        componentId,
-        error: err,
-        timestamp: new Date().toISOString(),
-      });
-      setError(
-        err instanceof Error
-          ? err
-          : new Error('Failed to create script elements'),
-      );
-    }
-  }, [initialized, componentId]);
-
-  // Set up openGenesysChat helper after scripts are loaded
-  useEffect(() => {
-    if (!scriptsLoaded) {
-      return;
-    }
-
-    logger.info('[CloudChatWrapper] Scripts loaded, setting up helpers', {
+    logger.info('[CloudChatWrapper] Scripts loaded, setting up Messenger', {
       componentId,
       timestamp: new Date().toISOString(),
     });
 
     try {
-      // Provide openGenesysChat logic
+      // Configure Genesys Cloud Messenger
       window.openGenesysChat = () => {
         if (window.Genesys) {
           try {
@@ -306,7 +59,7 @@ export default function CloudChatWrapper({
         }
       };
     } catch (err) {
-      logger.error('[CloudChatWrapper] Error setting up helper functions', {
+      logger.error('[CloudChatWrapper] Error setting up Genesys Messenger', {
         componentId,
         error: err,
         timestamp: new Date().toISOString(),
@@ -318,52 +71,41 @@ export default function CloudChatWrapper({
       if (window.openGenesysChat) {
         delete window.openGenesysChat;
       }
-      if (window.chatSettings) {
-        delete window.chatSettings;
-      }
     };
   }, [scriptsLoaded, componentId]);
 
-  // Handle loading states
+  // Handle loading and error states with early returns
   if (isLoading) {
     return <div>Loading chat configuration...</div>;
   }
 
-  // Handle error states
   if (error) {
     return <div>Chat error: {error.message}</div>;
   }
 
-  // Handle missing eligibility or user data
-  if (!eligibility || !userData) {
+  if (!chatData) {
     return <div>Chat configuration not available</div>;
   }
 
-  // Don't render if chat is not open
-  if (!chatSession?.isOpen) {
-    return null;
-  }
-
-  // Example: Render a simple chat UI using chatSession state and methods
   return (
     <div className="cloud-chat-wrapper">
-      {chatSession.isChatActive ? (
-        <div>
-          <div>Chat is active (Cloud)</div>
-          <button onClick={chatSession.endChat}>End Chat</button>
-          {/* Add message input, send, etc. as needed */}
-        </div>
-      ) : (
-        <button onClick={chatSession.startChat}>Start Chat</button>
-      )}
-      {chatSession.isLoading && <div>Loading...</div>}
-      {chatSession.error && (
-        <div className="error">
-          {typeof chatSession.error === 'string'
-            ? chatSession.error
-            : chatSession.error.message || JSON.stringify(chatSession.error)}
-        </div>
-      )}
+      {/* Use GenesysScript to load necessary scripts */}
+      <GenesysScript
+        deploymentId={process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID || ''}
+        userData={userData || {}}
+        onScriptLoaded={() => {
+          logger.info(
+            '[CloudChatWrapper] GenesysScript onScriptLoaded callback fired',
+            {
+              componentId,
+              timestamp: new Date().toISOString(),
+            },
+          );
+          setScriptsLoaded(true);
+        }}
+      />
+
+      <ChatUI chatSession={chatSession} mode="cloud" />
     </div>
   );
 }

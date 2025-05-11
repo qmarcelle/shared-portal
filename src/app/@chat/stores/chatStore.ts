@@ -13,6 +13,20 @@ function makeStable<T extends (...args: any[]) => any>(fn: T): T {
   return fn;
 }
 
+// Define core chat data structure
+interface ChatData {
+  isEligible: boolean;
+  cloudChatEligible: boolean;
+  chatGroup?: string;
+  businessHours?: {
+    isOpen: boolean;
+    text: string;
+  };
+  routingInteractionId?: string;
+  userData: Record<string, string>;
+  formInputs: { id: string; value: string }[];
+}
+
 export interface ChatState {
   // UI state
   isOpen: boolean;
@@ -25,23 +39,10 @@ export interface ChatState {
   error: Error | null;
   messages: Array<{ id: string; content: string; sender: 'user' | 'agent' }>;
 
-  // API response
-  eligibility: any | null;
-
-  // Derived flags
-  isEligible: boolean;
-  chatMode: 'legacy' | 'cloud';
-  isOOO: boolean;
-  chatGroup?: string;
-  businessHoursText: string;
-  routingInteractionId?: string;
-  userData: Record<string, string>;
-  formInputs: { id: string; value: string }[];
-
-  // Zod-validated config
+  // Core data
+  chatData: ChatData | null;
   config?: ChatConfig;
-
-  // Plan switching
+  token?: string;
   isPlanSwitcherLocked: boolean;
   planSwitcherTooltip: string;
 
@@ -57,12 +58,9 @@ export interface ChatState {
   setLoading: (loading: boolean) => void;
   incrementMessageCount: () => void;
   resetMessageCount: () => void;
-  setEligibility: (info: any | null) => void;
   setPlanSwitcherLocked: (locked: boolean) => void;
   updateConfig: (cfg: Partial<ChatConfig>) => void;
   closeAndRedirect: () => void;
-
-  // New actions
   loadChatConfiguration: (
     memberId: number | string,
     planId: string,
@@ -70,12 +68,26 @@ export interface ChatState {
   ) => Promise<void>;
   startChat: () => void;
   endChat: () => void;
-
-  // New fields
-  token?: string;
 }
 
-export const useChatStore = create<ChatState>((set) => ({
+// Selectors for derived state - these don't cause re-renders when other state changes
+const chatSelectors = {
+  isEligible: (state: ChatState) => state.chatData?.isEligible || false,
+  chatMode: (state: ChatState) =>
+    state.chatData?.cloudChatEligible ? 'cloud' : 'legacy',
+  isOOO: (state: ChatState) =>
+    !(state.chatData?.businessHours?.isOpen || false),
+  chatGroup: (state: ChatState) => state.chatData?.chatGroup,
+  businessHoursText: (state: ChatState) =>
+    state.chatData?.businessHours?.text || '',
+  routingInteractionId: (state: ChatState) =>
+    state.chatData?.routingInteractionId,
+  userData: (state: ChatState) => state.chatData?.userData || {},
+  formInputs: (state: ChatState) => state.chatData?.formInputs || [],
+  eligibility: (state: ChatState) => state.chatData,
+};
+
+export const useChatStore = create<ChatState>((set, get) => ({
   // UI state
   isOpen: false,
   isMinimized: false,
@@ -87,23 +99,9 @@ export const useChatStore = create<ChatState>((set) => ({
   error: null,
   messages: [],
 
-  // API response
-  eligibility: null,
-
-  // Derived flags
-  isEligible: false,
-  chatMode: 'legacy',
-  isOOO: true,
-  chatGroup: undefined,
-  businessHoursText: '',
-  routingInteractionId: undefined,
-  userData: {},
-  formInputs: [],
-
-  // Config slice
+  // Core data
+  chatData: null,
   config: undefined,
-
-  // Plan switching
   isPlanSwitcherLocked: false,
   planSwitcherTooltip: '',
 
@@ -164,14 +162,6 @@ export const useChatStore = create<ChatState>((set) => ({
     logger.info('[ChatStore] Resetting message count to zero');
     set({ newMessageCount: 0 });
   },
-  setEligibility: (eligibility) => {
-    logger.info('[ChatStore] Setting eligibility data', {
-      isEligible: eligibility?.isEligible,
-      cloudChatEligible: eligibility?.cloudChatEligible,
-    });
-    set({ eligibility });
-  },
-
   setPlanSwitcherLocked: (locked) => {
     logger.info('[ChatStore] Setting plan switcher lock state', { locked });
     set({
@@ -212,7 +202,6 @@ export const useChatStore = create<ChatState>((set) => ({
     });
   },
 
-  // New actions
   loadChatConfiguration: makeStable(
     async (memberId, planId, memberType = 'byMemberCk') => {
       const requestId = Date.now().toString();
@@ -233,7 +222,6 @@ export const useChatStore = create<ChatState>((set) => ({
         set({ token });
 
         // Ensure we have a valid memberId string for the API call
-        // Don't try to parse it to a number if it's already a string
         const memberIdString =
           typeof memberId === 'string' ? memberId : String(memberId);
 
@@ -319,13 +307,54 @@ export const useChatStore = create<ChatState>((set) => ({
           chatGroup: info.chatGroup,
         });
 
-        // Transform the response data to match the format expected by the UI
-        const adaptedInfo = {
-          ...info,
-          // If isEligible is not provided, assume true if chatGroup exists
-          isEligible:
-            info.isEligible !== undefined ? info.isEligible : !!info.chatGroup,
-          // If businessHours is not provided, create it from workingHours
+        // Transform the API response to our ChatData structure
+        const formInputs = [
+          { id: 'SERV_Type', value: info.SERV_Type || 'MemberChat' },
+          { id: 'firstname', value: info.first_name || '' },
+          { id: 'lastname', value: info.last_name || '' },
+          { id: 'PLAN_ID', value: planId },
+          { id: 'GROUP_ID', value: info.GROUP_ID || '' },
+          { id: 'MEMBER_ID', value: String(info.member_ck || memberId) },
+          { id: 'LOB', value: info.lob_group || 'Member' },
+        ];
+
+        const userData = {
+          SERV_Type: info.SERV_Type || 'MemberChat',
+          firstname: info.first_name || '',
+          lastname: info.last_name || '',
+          RoutingChatbotInteractionId: info.RoutingChatbotInteractionId,
+          PLAN_ID: planId,
+          GROUP_ID: info.GROUP_ID || '',
+          IDCardBotName: info.IDCardBotName,
+          IsVisionEligible: String((info as any).IsVisionEligible),
+          MEMBER_ID: String(info.member_ck || memberId),
+          coverage_eligibility: info.coverage_eligibility,
+          INQ_TYPE: info.INQ_TYPE,
+          IsDentalEligible: String((info as any).IsDentalEligible),
+          MEMBER_DOB: info.MEMBER_DOB,
+          LOB: info.lob_group || 'Member',
+          lob_group: info.lob_group || 'Member',
+          IsMedicalEligibile: String((info as any).IsMedicalEligibile),
+          Origin: info.Origin || 'Member',
+          Source: info.Source || 'Member Portal',
+          opsPhone:
+            info.opsPhone ||
+            info.ops_phone ||
+            process.env.NEXT_PUBLIC_OPS_PHONE ||
+            '',
+          opsPhoneHours:
+            info.opsPhoneHours ||
+            info.ops_phone_hours ||
+            info.businessHours?.text ||
+            '' ||
+            process.env.NEXT_PUBLIC_OPS_HOURS ||
+            '',
+        };
+
+        const chatData: ChatData = {
+          isEligible: info.isEligible ?? !!info.chatGroup,
+          cloudChatEligible: info.cloudChatEligible || false,
+          chatGroup: info.chatGroup,
           businessHours: info.businessHours || {
             isOpen:
               info.workingHours === 'S_S_24' ||
@@ -335,92 +364,25 @@ export const useChatStore = create<ChatState>((set) => ({
                 ? '24 hours, 7 days a week'
                 : info.workingHours || '',
           },
-          // Ensure these fields have default values if not present
-          first_name: info.first_name || '',
-          last_name: info.last_name || '',
-          SERV_Type: info.SERV_Type || 'MemberChat',
-          GROUP_ID: info.GROUP_ID || '',
-          member_ck: info.member_ck || memberId,
-          Origin: info.Origin || 'Member',
-          Source: info.Source || 'Member Portal',
-          lob_group: info.lob_group || 'Member',
+          routingInteractionId: info.RoutingChatbotInteractionId,
+          userData,
+          formInputs,
         };
 
-        logger.info('[ChatStore] Adapted chat configuration', {
+        logger.info('[ChatStore] Created chat data structure', {
           requestId,
-          isEligible: adaptedInfo.isEligible,
-          businessHoursOpen: adaptedInfo.businessHours.isOpen,
-          businessHoursText: adaptedInfo.businessHours.text,
-          chatGroup: adaptedInfo.chatGroup,
-        });
-
-        // Log critical values that determine chat rendering
-        logger.info('[ChatStore] Critical chat configuration values', {
-          requestId,
-          isEligible: adaptedInfo.isEligible,
-          cloudChatEligible: adaptedInfo.cloudChatEligible,
-          businessHoursOpen: adaptedInfo.businessHours?.isOpen,
-          businessHoursText: adaptedInfo.businessHours?.text,
-          chatGroup: adaptedInfo.chatGroup,
-          RoutingChatbotInteractionId: adaptedInfo.RoutingChatbotInteractionId,
+          isEligible: chatData.isEligible,
+          chatMode: chatData.cloudChatEligible ? 'cloud' : 'legacy',
         });
 
         set({
-          eligibility: adaptedInfo,
-          isEligible: adaptedInfo.isEligible,
-          chatMode: adaptedInfo.cloudChatEligible ? 'cloud' : 'legacy',
-          chatGroup: adaptedInfo.chatGroup,
-          isOOO: !adaptedInfo.businessHours?.isOpen,
-          businessHoursText: adaptedInfo.businessHours?.text || '',
-          routingInteractionId: adaptedInfo.RoutingChatbotInteractionId,
-          userData: {
-            SERV_Type: adaptedInfo.SERV_Type,
-            firstname: adaptedInfo.first_name,
-            lastname: adaptedInfo.last_name,
-            RoutingChatbotInteractionId:
-              adaptedInfo.RoutingChatbotInteractionId,
-            PLAN_ID: planId,
-            GROUP_ID: adaptedInfo.GROUP_ID,
-            IDCardBotName: adaptedInfo.IDCardBotName,
-            IsVisionEligible: String((adaptedInfo as any).IsVisionEligible),
-            MEMBER_ID: String(adaptedInfo.member_ck),
-            coverage_eligibility: adaptedInfo.coverage_eligibility,
-            INQ_TYPE: adaptedInfo.INQ_TYPE,
-            IsDentalEligible: String((adaptedInfo as any).IsDentalEligible),
-            MEMBER_DOB: adaptedInfo.MEMBER_DOB,
-            LOB: adaptedInfo.lob_group,
-            lob_group: adaptedInfo.lob_group,
-            IsMedicalEligibile: String((adaptedInfo as any).IsMedicalEligibile),
-            Origin: adaptedInfo.Origin,
-            Source: adaptedInfo.Source,
-            opsPhone:
-              adaptedInfo.opsPhone ||
-              adaptedInfo.ops_phone ||
-              process.env.NEXT_PUBLIC_OPS_PHONE ||
-              '',
-            opsPhoneHours:
-              adaptedInfo.opsPhoneHours ||
-              adaptedInfo.ops_phone_hours ||
-              adaptedInfo.businessHours?.text ||
-              process.env.NEXT_PUBLIC_OPS_HOURS ||
-              '',
-          },
-          formInputs: [
-            { id: 'SERV_Type', value: adaptedInfo.SERV_Type },
-            { id: 'firstname', value: adaptedInfo.first_name },
-            { id: 'lastname', value: adaptedInfo.last_name },
-            { id: 'PLAN_ID', value: planId },
-            { id: 'GROUP_ID', value: adaptedInfo.GROUP_ID },
-            { id: 'MEMBER_ID', value: String(adaptedInfo.member_ck) },
-            { id: 'LOB', value: adaptedInfo.lob_group },
-            // ...add more as needed for all required fields...
-          ],
+          chatData,
           isLoading: false,
         });
 
         logger.info('[ChatStore] Chat configuration loaded successfully', {
           requestId,
-          chatMode: adaptedInfo.cloudChatEligible ? 'cloud' : 'legacy',
+          chatMode: chatData.cloudChatEligible ? 'cloud' : 'legacy',
           stateUpdated: true,
         });
       } catch (err) {
@@ -440,7 +402,6 @@ export const useChatStore = create<ChatState>((set) => ({
               ? err
               : new Error('Failed to load chat configuration'),
           isLoading: false,
-          isEligible: false,
         });
       }
     },
@@ -455,71 +416,41 @@ export const useChatStore = create<ChatState>((set) => ({
     set({ isChatActive: false });
   },
 
-  // New fields
+  // Token field
   token: undefined,
 }));
 
-/**
- * Determines the inquiry type based on client ID, matching the logic in click_to_chat.js
- */
-function _determineInquiryType(clientId: string): string {
-  const ClientIdConst = {
-    BlueCare: 'BC',
-    BlueCarePlus: 'DS',
-    CoverTN: 'CT',
-    CoverKids: 'CK',
-    SeniorCare: 'BA',
-    Individual: 'INDV',
-    BlueElite: 'INDVMX',
-  };
+// For backward compatibility, re-export the selectors as properties of useChatStore
+Object.defineProperties(useChatStore, {
+  // Deprecated: Add accessor for each selector to maintain backward compatibility
+  isEligible: {
+    get: () => chatSelectors.isEligible(useChatStore.getState()),
+  },
+  chatMode: {
+    get: () => chatSelectors.chatMode(useChatStore.getState()),
+  },
+  isOOO: {
+    get: () => chatSelectors.isOOO(useChatStore.getState()),
+  },
+  chatGroup: {
+    get: () => chatSelectors.chatGroup(useChatStore.getState()),
+  },
+  businessHoursText: {
+    get: () => chatSelectors.businessHoursText(useChatStore.getState()),
+  },
+  routingInteractionId: {
+    get: () => chatSelectors.routingInteractionId(useChatStore.getState()),
+  },
+  userData: {
+    get: () => chatSelectors.userData(useChatStore.getState()),
+  },
+  formInputs: {
+    get: () => chatSelectors.formInputs(useChatStore.getState()),
+  },
+  eligibility: {
+    get: () => chatSelectors.eligibility(useChatStore.getState()),
+  },
+});
 
-  const ChatTypeConst = {
-    BlueCareChat: 'BlueCare_Chat',
-    SeniorCareChat: 'SCD_Chat',
-    DefaultChat: 'MBAChat',
-  };
-
-  switch (clientId) {
-    case ClientIdConst.BlueCare:
-    case ClientIdConst.BlueCarePlus:
-    case ClientIdConst.CoverTN:
-    case ClientIdConst.CoverKids:
-      return ChatTypeConst.BlueCareChat;
-    case ClientIdConst.SeniorCare:
-    case ClientIdConst.BlueElite:
-      return ChatTypeConst.SeniorCareChat;
-    case ClientIdConst.Individual:
-    default:
-      return ChatTypeConst.DefaultChat;
-  }
-}
-
-/**
- * Determines the client ID based on plan details, matching the logic in click_to_chat.js
- */
-function _getClientId(plan: unknown): string {
-  const ClientIdConst = {
-    BlueCare: 'BC',
-    BlueCarePlus: 'DS',
-    CoverTN: 'CT',
-    CoverKids: 'CK',
-    SeniorCare: 'BA',
-    Individual: 'INDV',
-    BlueElite: 'INDVMX',
-  };
-
-  // Type guard to safely access properties on the unknown plan object
-  const typedPlan = plan as Record<string, any>;
-
-  // Following the pattern in click_to_chat.js for client ID determination
-  if (typedPlan && typedPlan.isBlueElite) {
-    return ClientIdConst.BlueElite;
-  }
-
-  if (typedPlan && typedPlan.groupType === 'INDV') {
-    return ClientIdConst.Individual;
-  }
-
-  // Default to memberClientID or 'Default' if not available
-  return (typedPlan && typedPlan.memberClientID) || 'Default';
-}
+// Export the selectors for components that need derived state
+export { chatSelectors };
