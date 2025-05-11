@@ -320,7 +320,11 @@ export default function LegacyChatWrapper({
       )}
       {chatSession.isLoading && <div>Loading...</div>}
       {chatSession.error && (
-        <div className="error">{chatSession.error.message}</div>
+        <div className="error">
+          {typeof chatSession.error === 'string'
+            ? chatSession.error
+            : chatSession.error.message || JSON.stringify(chatSession.error)}
+        </div>
       )}
     </div>
   );
