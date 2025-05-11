@@ -1,7 +1,7 @@
 'use client';
 console.log('[Genesys] 💥 Legacy wrapper mounted');
 import '@/../public/assets/genesys/plugins/widgets.min.css';
-import { useChatStore } from '@/app/@chat/stores/chatStore';
+import { useChatStore } from '@/app/(chat)/stores/chatStore';
 import { logger } from '@/utils/logger';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
@@ -10,28 +10,6 @@ import {
   injectNewMessageBadge,
   injectPlanSwitcher,
 } from '../utils/chatDomUtils';
-
-declare global {
-  interface Window {
-    __genesysInitialized?: boolean;
-    initializeChatWidget?: (jQuery: any, chatSettings: any) => void;
-    jQuery?: any;
-  }
-}
-
-// Define the expected type for chatSettings
-// All properties optional to match runtime reality
-type ChatSettings = {
-  [key: string]: any;
-  bootstrapUrl?: string;
-  widgetUrl?: string;
-  clickToChatJs?: string;
-  clickToChatEndpoint?: string;
-  chatTokenEndpoint?: string;
-  coBrowseEndpoint?: string;
-  opsPhone?: string;
-  opsPhoneHours?: string;
-};
 
 /**
  * Legacy chat implementation wrapper
@@ -321,8 +299,11 @@ export default function LegacyChatWrapper() {
         strategy="afterInteractive"
         onLoad={() => {
           console.log('[Legacy] click_to_chat.js loaded');
-          if (typeof window.initializeChatWidget === 'function') {
-            window.initializeChatWidget(window.jQuery, window.chatSettings);
+          if (typeof (window as any).initializeChatWidget === 'function') {
+            (window as any).initializeChatWidget(
+              (window as any).jQuery,
+              window.chatSettings,
+            );
           } else {
             console.error('[Legacy] initializeChatWidget not found');
           }

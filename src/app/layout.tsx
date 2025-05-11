@@ -4,7 +4,6 @@ import { auth } from '@/auth';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
 import { ErrorBoundary } from '@/components/foundation/ErrorBoundary';
 import Footer from '@/components/foundation/Footer';
-import GenesysScripts from '@/components/GenesysScripts';
 import { logServerEnvironment } from '@/components/serverComponents/EnvLogger';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
@@ -14,12 +13,9 @@ import type { Metadata } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import { headers } from 'next/headers';
-import { Suspense } from 'react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ChatErrorBoundary } from './@chat/components/ChatErrorBoundary';
-import ChatLoading from './@chat/loading';
 import ClientLayout from './ClientLayout';
 
 const QuickOpen = dynamic(() => import('@/app/components/QuickOpen'), {
@@ -84,9 +80,6 @@ export default async function RootLayout({
         />
       </head>
 
-      {/* Genesys Chat Scripts - moved to client component for event handlers */}
-      <GenesysScripts />
-
       <body>
         <ErrorBoundary>
           <SessionProvider session={session}>
@@ -94,11 +87,7 @@ export default async function RootLayout({
             <SiteHeaderServerWrapper />
             <ClientLayout>
               {children}
-              <ChatErrorBoundary>
-                <Suspense fallback={<ChatLoading />}>
-                  {shouldShowChat() ? chat : null}
-                </Suspense>
-              </ChatErrorBoundary>
+              {chat}
               <QuickOpen />
             </ClientLayout>
             <Footer />

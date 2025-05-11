@@ -1,5 +1,5 @@
 // import type { ChatDataPayload, ChatError } from '../../../global.d';
-import '../../../global.d.ts';
+import '../../../global.js';
 
 // Define IChatService as a minimal interface if only used here
 export interface IChatService {
@@ -13,7 +13,7 @@ import { logger } from '@/utils/logger';
 import {
   executeGenesysOverrides,
   registerGenesysOverride,
-} from '../utils/chatDomUtils';
+} from '../utils/chatDomUtils.js';
 
 /**
  * Constants for chat service configuration
