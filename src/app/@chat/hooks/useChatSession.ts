@@ -98,23 +98,30 @@ export function useChatSession(options?: any) {
   } = useChatStore();
 
   // Chat service instance
-  const chatService = useMemo(
-    () =>
-      new ChatService(
-        options?.memberId,
-        options?.planId,
-        options?.planName,
-        options?.hasMultiplePlans,
-        options?.onLockPlanSwitcher,
-      ),
-    [
-      options?.memberId,
-      options?.planId,
-      options?.planName,
-      options?.hasMultiplePlans,
-      options?.onLockPlanSwitcher,
-    ],
-  );
+  const chatService = useMemo(() => {
+    logger.info('[ChatSession] Creating ChatService instance', {
+      memberId: options?.memberId,
+      planId: options?.planId,
+      hasConfig: !!options?.chatConfig,
+    });
+
+    return new ChatService(
+      options?.memberId || '',
+      options?.planId || '',
+      options?.planName || '',
+      options?.hasMultiplePlans || false,
+      options?.onLockPlanSwitcher || (() => {}),
+      // Pass the chatConfig from options
+      options?.chatConfig || {},
+    );
+  }, [
+    options?.memberId,
+    options?.planId,
+    options?.planName,
+    options?.hasMultiplePlans,
+    options?.onLockPlanSwitcher,
+    options?.chatConfig, // Add chatConfig as a dependency
+  ]);
 
   // Event subscriptions
   useEffect(() => {

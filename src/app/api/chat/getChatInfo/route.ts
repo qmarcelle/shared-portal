@@ -1,6 +1,7 @@
 'use server';
 
-import { memberService } from '@/utils/api/memberService';
+import { getAuthToken } from '@/utils/api/getToken';
+import { serverConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -49,61 +50,93 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // Log the base URL and full endpoint URL for debugging
+    // Construct the base URL from serverConfig
+    const portalServicesUrl = serverConfig.PORTAL_SERVICES_URL || '';
+    const memberServiceContext = serverConfig.MEMBERSERVICE_CONTEXT_ROOT || '';
+    const baseURL = `${portalServicesUrl}${memberServiceContext}`;
+
     logger.info('[API:chat/getChatInfo] Member service configuration', {
       correlationId,
-      baseURL: memberService.defaults.baseURL,
+      baseURL,
+      portalServicesUrl,
+      memberServiceContext,
     });
 
+    // Get authentication token
+    const token = await getAuthToken();
+    if (!token) {
+      logger.error(
+        '[API:chat/getChatInfo] Failed to get authentication token',
+        {
+          correlationId,
+        },
+      );
+      return NextResponse.json(
+        { error: 'Authentication failed' },
+        { status: 401 },
+      );
+    }
+
+    // Construct the endpoint URL
     const endpoint = `/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo`;
-    
-    logger.info('[API:chat/getChatInfo] Calling memberService', {
+    const url = `${baseURL}${endpoint}${planId ? `?planId=${planId}` : ''}`;
+
+    logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
-      memberId,
-      memberType,
-      planId,
-      endpoint,
+      url,
     });
 
-    // Direct call using memberService
-    const response = await memberService.get(endpoint, {
-      params: planId ? { planId } : undefined,
+    // Make direct fetch request instead of using memberService
+    const response = await fetch(url, {
+      method: 'GET',
       headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
         'x-correlation-id': correlationId,
-      }
+      },
+      cache: 'no-store', // Ensures fresh data for each request
     });
 
-    logger.info('[API:chat/getChatInfo] Response received from memberService', {
-      correlationId,
-      status: response.status,
-      data: response.data,
-    });
+    if (!response.ok) {
+      throw new Error(`API responded with status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    logger.info(
+      '[API:chat/getChatInfo] Response received from member service',
+      {
+        correlationId,
+        status: response.status,
+        dataKeys: Object.keys(data),
+      },
+    );
 
     // Transform the response if needed to match expected ChatInfo interface
     const chatInfo = {
-      ...response.data,
+      ...data,
       // Ensure consistency with the ChatInfo interface
-      chatGroup: response.data.chatGroup,
-      workingHours:
-        response.data.workingHours || response.data.businessHours?.text,
+      chatGroup: data.chatGroup,
+      workingHours: data.workingHours || data.businessHours?.text,
       // Map existing fields to those expected in ChatInfo if necessary
-      chatAvailable: response.data.isChatAvailable || response.data.isEligible,
-      cloudEligibility: response.data.cloudChatEligible,
+      chatAvailable: data.isChatAvailable || data.isEligible,
+      cloudEligibility: data.cloudChatEligible,
     };
+
+    logger.info('[API:chat/getChatInfo] Returning transformed chat info', {
+      correlationId,
+      isEligible: chatInfo.isEligible,
+      cloudChatEligible: chatInfo.cloudChatEligible,
+      chatGroup: chatInfo.chatGroup,
+    });
 
     return NextResponse.json(chatInfo);
   } catch (error: any) {
     // Detailed error logging with additional context
-    logger.error('[API:chat/getChatInfo] Error calling memberService', {
+    logger.error('[API:chat/getChatInfo] Error calling member service', {
       correlationId,
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
-      response: error.response ? {
-        status: error.response.status,
-        data: error.response.data,
-        headers: error.response.headers,
-      } : 'No response',
-      request: error.request ? 'Request was made but no response received' : 'Request setup error',
       memberId,
       memberType,
       planId,
@@ -111,7 +144,8 @@ export async function GET(request: NextRequest) {
 
     // Return appropriate status code based on the error
     const status = error.response?.status || 500;
-    const errorMessage = error.response?.data?.message || 'Failed to fetch chat info';
+    const errorMessage =
+      error.response?.data?.message || 'Failed to fetch chat info';
 
     // Return a proper error response to the client
     return NextResponse.json({ error: errorMessage }, { status });
