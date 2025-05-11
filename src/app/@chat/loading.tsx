@@ -1,10 +1,32 @@
 'use client';
 
+import { logger } from '@/utils/logger';
+import { useEffect } from 'react';
+
+console.log('[ChatLoading] Loading component mounted');
+
+/**
+ * Loading state for the chat parallel route
+ * This displays while the chat is being loaded
+ */
 export default function ChatLoading() {
+  useEffect(() => {
+    logger.info('[ChatLoading] Chat loading state active', {
+      timestamp: new Date().toISOString(),
+    });
+  }, []);
+
   return (
-    <div className="chat-loading-container p-4" role="status" aria-live="polite">
+    <div
+      className="chat-loading-container p-4"
+      role="status"
+      aria-live="polite"
+    >
       <div className="chat-loading-indicator flex items-center">
-        <svg className="animate-spin h-5 w-5 mr-3 text-blue-600" viewBox="0 0 24 24">
+        <svg
+          className="animate-spin h-5 w-5 mr-3 text-blue-600"
+          viewBox="0 0 24 24"
+        >
           <circle
             className="opacity-25"
             cx="12"

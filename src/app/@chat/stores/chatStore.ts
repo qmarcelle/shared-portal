@@ -420,35 +420,95 @@ export const useChatStore = create<ChatState>((set, get) => ({
   token: undefined,
 }));
 
+/**
+ * DEPRECATED: The object properties below are maintained for backward compatibility
+ * but should not be used in new code. Use chatSelectors instead.
+ *
+ * @example
+ * // Old approach (deprecated):
+ * const isEligible = useChatStore.isEligible;
+ *
+ * // New approach (preferred):
+ * import { chatSelectors } from '@/app/@chat/stores/chatStore';
+ * const isEligible = chatSelectors.isEligible(useChatStore.getState());
+ *
+ * // Or within a component:
+ * const isEligible = chatSelectors.isEligible(useChatStore());
+ */
 // For backward compatibility, re-export the selectors as properties of useChatStore
 Object.defineProperties(useChatStore, {
   // Deprecated: Add accessor for each selector to maintain backward compatibility
   isEligible: {
-    get: () => chatSelectors.isEligible(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.isEligible is deprecated. Use chatSelectors.isEligible instead.',
+      );
+      return chatSelectors.isEligible(useChatStore.getState());
+    },
   },
   chatMode: {
-    get: () => chatSelectors.chatMode(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.chatMode is deprecated. Use chatSelectors.chatMode instead.',
+      );
+      return chatSelectors.chatMode(useChatStore.getState());
+    },
   },
   isOOO: {
-    get: () => chatSelectors.isOOO(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.isOOO is deprecated. Use chatSelectors.isOOO instead.',
+      );
+      return chatSelectors.isOOO(useChatStore.getState());
+    },
   },
   chatGroup: {
-    get: () => chatSelectors.chatGroup(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.chatGroup is deprecated. Use chatSelectors.chatGroup instead.',
+      );
+      return chatSelectors.chatGroup(useChatStore.getState());
+    },
   },
   businessHoursText: {
-    get: () => chatSelectors.businessHoursText(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.businessHoursText is deprecated. Use chatSelectors.businessHoursText instead.',
+      );
+      return chatSelectors.businessHoursText(useChatStore.getState());
+    },
   },
   routingInteractionId: {
-    get: () => chatSelectors.routingInteractionId(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.routingInteractionId is deprecated. Use chatSelectors.routingInteractionId instead.',
+      );
+      return chatSelectors.routingInteractionId(useChatStore.getState());
+    },
   },
   userData: {
-    get: () => chatSelectors.userData(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.userData is deprecated. Use chatSelectors.userData instead.',
+      );
+      return chatSelectors.userData(useChatStore.getState());
+    },
   },
   formInputs: {
-    get: () => chatSelectors.formInputs(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.formInputs is deprecated. Use chatSelectors.formInputs instead.',
+      );
+      return chatSelectors.formInputs(useChatStore.getState());
+    },
   },
   eligibility: {
-    get: () => chatSelectors.eligibility(useChatStore.getState()),
+    get: () => {
+      console.warn(
+        '[ChatStore] useChatStore.eligibility is deprecated. Use chatSelectors.eligibility instead.',
+      );
+      return chatSelectors.eligibility(useChatStore.getState());
+    },
   },
 });
 
