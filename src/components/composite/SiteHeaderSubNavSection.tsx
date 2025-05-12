@@ -47,7 +47,8 @@ export const SiteHeaderSubNavSection = ({
   closeSubMenu,
   visibilityRules,
 }: SiteHeaderSubNavProps) => {
-  const trackAnalytics = (title: string, url: string) => {
+  const closeMenuAndtrackAnalytics = (title: string, url: string) => {
+    closeSubMenu();
     const analytics: AnalyticsData = {
       event: 'navigation',
       click_text: title.toLowerCase(),
@@ -93,7 +94,7 @@ export const SiteHeaderSubNavSection = ({
         <Link
           className="flex text-2xl w-max focus:outline-none focus:text-primary focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 focus:p-1 focus-visible:p-1"
           href={url}
-          onClick={() => trackAnalytics(title, url)}
+          onClick={() => closeMenuAndtrackAnalytics(title, url)}
         >
           <span className="underline underline-offset-4 hover:no-underline hover:text-primary-focus focus:no-underline pr-2">
             {titleLink}

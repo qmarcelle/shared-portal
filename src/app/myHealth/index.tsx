@@ -261,7 +261,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
                     title: 'CareTN One-on-One Health Support ',
                     description:
                       'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                    url: `${urlRedirect}careTN`,
+                    url: `${urlRedirect}caremanagement`,
                   },
                   {
                     id: '2',

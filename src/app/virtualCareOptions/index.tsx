@@ -11,7 +11,7 @@ import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/co
 import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { OtherBenefits } from './components/OtherBenefits';
 const urlRedirect =
-  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
+  '/member/myhealth/healthprograms/';
 
 export type VirtualCareOptionsProps = { sessionData?: Session | null };
 
@@ -79,7 +79,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
                     ],
                     redirectLink: () => {
                       return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
-                    },
+                    },                    
                     sessionData: sessionData,
                   },
                   {
@@ -201,7 +201,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
                 title: 'CareTN One-on-One Health Support ',
                 description:
                   'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                url: `${urlRedirect}careTN`,
+                url: `${urlRedirect}caremanagement`,
               },
               {
                 id: '2',

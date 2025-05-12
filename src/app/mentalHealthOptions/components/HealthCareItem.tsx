@@ -38,6 +38,7 @@ export const HealthCareItem = ({
   itemData,
   redirectLink,
   sessionData,
+  url,
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);
@@ -103,6 +104,7 @@ export const HealthCareItem = ({
             callback={() => {
               window.location.href = redirectLink?.(sessionData!) ?? ' ';
             }}
+            url={healthCareInfo.url}
           />
         </Column>
       </Row>
@@ -143,6 +145,7 @@ export const HealthCareItem = ({
               callback={() => {
                 window.location.href = redirectLink?.(sessionData!) ?? ' ';
               }}
+              url={healthCareInfo.url}
             />
           </Column>
         </Row>
