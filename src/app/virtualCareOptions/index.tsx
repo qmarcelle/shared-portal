@@ -10,8 +10,7 @@ import { Session } from 'next-auth';
 import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { OtherBenefits } from './components/OtherBenefits';
-const urlRedirect =
-  '/member/myhealth/healthprograms/';
+const urlRedirect = '/member/myhealth/healthprograms/';
 
 export type VirtualCareOptionsProps = { sessionData?: Session | null };
 
@@ -25,7 +24,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RichText
-              className="w-[125%]"
+              className="sectionWidthVirtualCare"
               spans={[
                 <>
                   <span>
@@ -36,6 +35,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
                   </span>
                   <span className="link" key={1}>
                     <a
+                      className="body-bold"
                       href={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}`}
                     >
                       Find Care tool.
@@ -79,7 +79,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
                     ],
                     redirectLink: () => {
                       return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
-                    },                    
+                    },
                     sessionData: sessionData,
                   },
                   {
