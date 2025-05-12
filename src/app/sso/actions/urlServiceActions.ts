@@ -15,7 +15,7 @@ export async function generateDropOffSSOUrl(
 /**
  * Server action to build a direct SSO URL
  */
-export function buildDirectSSOUrl(searchParams: string): string {
+export async function buildDirectSSOUrl(searchParams: string): Promise<string> {
   return URLService.buildDirectSSOUrl(searchParams);
 }
 

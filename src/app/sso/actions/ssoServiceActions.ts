@@ -24,13 +24,17 @@ export async function generateSSOParameters(
 /**
  * Server action to check if a provider supports drop-off SSO
  */
-export function checkSSODropOffSupport(providerId: string): boolean {
+export async function checkSSODropOffSupport(
+  providerId: string,
+): Promise<boolean> {
   return SSOService.supportsDropOff(providerId);
 }
 
 /**
  * Server action to get provider display name
  */
-export function getProviderDisplayName(providerId: string): string {
+export async function getProviderDisplayName(
+  providerId: string,
+): Promise<string> {
   return SSOService.getProviderName(providerId);
 }
