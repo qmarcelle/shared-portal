@@ -638,11 +638,32 @@ export function LegacyChatWrapper() {
         createEmergencyChatButton();
       }
     }, 5000);
+
+    // Make directChatOpen available globally
+    if (typeof directChatOpen === 'function') {
+      (window as any).directChatOpen = directChatOpen;
+      console.log(
+        '[LegacyChatWrapper] Published directChatOpen function globally',
+      );
+    }
+
+    // Add a helper function to make directChatOpen global in case it's not available yet
+    (window as any)._makeDirectChatOpenGlobal = function () {
+      if (typeof directChatOpen === 'function') {
+        (window as any).directChatOpen = directChatOpen;
+        console.log(
+          '[LegacyChatWrapper] Made directChatOpen function globally available',
+        );
+        return true;
+      }
+      return false;
+    };
   }, []);
 
   return (
     <>
-      <div id="genesys-chat-container"></div>
+      {/* Add ID for component identification */}
+      <div id="legacy-chat-wrapper" style={{ display: 'none' }}></div>
       <ClientOnly>
         <ChatScriptLoader />
       </ClientOnly>
@@ -693,20 +714,20 @@ const setupChatDebugger = () => {
 // Near the bottom of the file, add a global helper function
 // Add this before the if (typeof window !== 'undefined') check
 function getChatDataURL() {
-  // This should be replaced with your actual Genesys URL
+  // Use Genesys Cloud production API URL
   return 'https://api.mypurecloud.com';
 }
 
 function getDeploymentKey() {
-  // This should be replaced with your actual deployment key
-  // Check your Genesys configuration for this value
-  return 'webchat_deployment_key';
+  // This should be your actual deployment key from Genesys Cloud
+  return (
+    process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_KEY || 'webchat_deployment_key'
+  );
 }
 
 function getOrgGuid() {
-  // This should be replaced with your actual org GUID
-  // Check your Genesys configuration for this value
-  return 'your_org_guid';
+  // This should be your actual org GUID from Genesys Cloud
+  return process.env.NEXT_PUBLIC_GENESYS_ORG_GUID || 'your_org_guid';
 }
 
 // This will be called when the chat button is clicked
@@ -721,56 +742,151 @@ function directChatOpen() {
   }
 
   try {
-    // Force a full configuration before opening
-    if (window._genesys?.widgets?.webchat) {
-      // Add/update transport configuration
-      window._genesys.widgets.webchat.transport = {
-        type: 'purecloud-v2-sockets',
-        dataURL: getChatDataURL(),
-        deploymentKey: getDeploymentKey(),
-        orgGuid: getOrgGuid(),
+    // Complete configuration - this is critical for the chat to open properly
+    if (window._genesys) {
+      // First ensure we have the main configuration
+      window._genesys.widgets = window._genesys.widgets || {};
+      window._genesys.widgets.main = window._genesys.widgets.main || {
+        theme: 'light',
+        lang: 'en',
+        i18n: {},
+        debug: true, // Set to true for debugging
+        preload: ['webchat'], // Preload webchat plugin
       };
 
-      // Force update chat button configuration
-      window._genesys.widgets.webchat.chatButton = {
-        enabled: true,
-        template:
-          '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
-        openDelay: 100,
-        effectDuration: 200,
-        hideDuringInvite: false,
-      };
-
-      // Remove any broken form configuration
-      if (window._genesys.widgets.webchat.form) {
-        console.log('[GLOBAL] Simplifying form configuration');
-        window._genesys.widgets.webchat.form = {
-          autoSubmit: true,
-          firstname: 'Member',
-          lastname: 'User',
+      // Configure webchat with proper transport and form
+      window._genesys.widgets.webchat = {
+        transport: {
+          type: 'purecloud-v2-sockets',
+          dataURL: getChatDataURL(),
+          deploymentKey: getDeploymentKey(),
+          orgGuid: getOrgGuid(),
+          interactionData: {
+            routing: {
+              targetType: 'QUEUE',
+              targetAddress: 'Customer_Support', // Replace with your queue name
+              priority: 2,
+            },
+          },
+        },
+        form: {
+          autoSubmit: true, // Automatically submit the form
+          firstName: 'Member', // Default value
+          lastName: 'User', // Default value
           email: '',
           subject: 'Chat Request',
-        };
-      }
+        },
+        // Explicitly enable chat features
+        uploadsEnabled: false,
+        allowedFileExtensions: '',
+        emojis: true,
+        cometD: {
+          enabled: false,
+        },
+      };
+
+      console.log('[GLOBAL] Updated Genesys configuration', {
+        hasMain: !!window._genesys.widgets.main,
+        hasWebchat: !!window._genesys.widgets.webchat,
+        hasTransport: !!window._genesys.widgets.webchat?.transport,
+        deploymentKey:
+          window._genesys.widgets.webchat?.transport?.deploymentKey?.substring(
+            0,
+            5,
+          ) + '...',
+        orgGuid:
+          window._genesys.widgets.webchat?.transport?.orgGuid?.substring(0, 5) +
+          '...',
+      });
+    } else {
+      console.error('[GLOBAL] _genesys not initialized');
     }
 
-    // Try to bootstrap the widget first
-    window.CXBus.command('WebChat.bootstrap');
+    // First bootstrap the widget to ensure all components are loaded
+    console.log('[GLOBAL] Bootstrapping WebChat');
+    window.CXBus.command('WebChat.bootstrap')
+      .done(function () {
+        console.log('[GLOBAL] WebChat.bootstrap succeeded');
 
-    // Now open the chat with a timeout
-    setTimeout(() => {
-      console.log('[GLOBAL] Attempting to open chat via CXBus command');
-      window.CXBus.command('WebChat.open')
-        .done(function (e) {
-          console.log('[GLOBAL] WebChat.open succeeded', e);
+        // Now configure the WebChat session
+        console.log('[GLOBAL] Configuring WebChat session');
+        window.CXBus.command('WebChat.configure', {
+          form: {
+            autoSubmit: true,
+            formData: {
+              firstName: 'Member',
+              lastName: 'User',
+            },
+          },
         })
-        .fail(function (e) {
-          console.error('[GLOBAL] WebChat.open failed', e);
-          alert('Chat service encountered an error. Please try again later.');
-        });
-    }, 500);
+          .done(function () {
+            console.log('[GLOBAL] WebChat.configure succeeded');
+
+            // Finally, open the chat with a complete configuration
+            console.log('[GLOBAL] Opening WebChat window');
+            window.CXBus.command('WebChat.open', {
+              form: {
+                autoSubmit: true,
+                formData: {
+                  firstName: 'Member',
+                  lastName: 'User',
+                  subject: 'Chat Request',
+                },
+              },
+            })
+              .done(function (e) {
+                console.log('[GLOBAL] WebChat.open succeeded', e);
+              })
+              .fail(function (e) {
+                console.error('[GLOBAL] WebChat.open failed', e);
+                fallbackChatOpen();
+              });
+          })
+          .fail(function (e) {
+            console.error('[GLOBAL] WebChat.configure failed', e);
+            fallbackChatOpen();
+          });
+      })
+      .fail(function (e) {
+        console.error('[GLOBAL] WebChat.bootstrap failed', e);
+        fallbackChatOpen();
+      });
   } catch (e) {
     console.error('[GLOBAL] Error in directChatOpen', e);
+    fallbackChatOpen();
+  }
+}
+
+// Fallback method to open chat if the normal flow fails
+function fallbackChatOpen() {
+  console.log('[GLOBAL] Using fallback chat open method');
+
+  try {
+    // Try more direct methods
+    if (window._genesys?.widgets?.webchat?.open) {
+      console.log('[GLOBAL] Using _genesys.widgets.webchat.open()');
+      window._genesys.widgets.webchat.open();
+      return;
+    }
+
+    // Try publishing directly to the CXBus
+    if (window.CXBus?.publish) {
+      console.log('[GLOBAL] Using CXBus.publish()');
+      window.CXBus.publish('WebChat.open');
+      return;
+    }
+
+    // Last resort - try a simple command without options
+    if (window.CXBus?.command) {
+      console.log('[GLOBAL] Using simple CXBus.command()');
+      window.CXBus.command('WebChat.open');
+      return;
+    }
+
+    console.error('[GLOBAL] All fallback methods failed');
+    alert('Unable to open chat. Please try again later or contact support.');
+  } catch (e) {
+    console.error('[GLOBAL] Error in fallbackChatOpen', e);
     alert('Chat service encountered an error. Please try again later.');
   }
 }

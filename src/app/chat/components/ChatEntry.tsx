@@ -14,68 +14,162 @@ function safeOpenChat() {
   try {
     logger.info('[ChatEntry] safeOpenChat called');
 
-    // Most robust approach: configure form prior to opening
-    if (window._genesys?.widgets?.webchat) {
-      logger.info('[ChatEntry] Configuring webchat form before opening');
+    // Check if the directChatOpen function exists from LegacyChatWrapper
+    if (typeof window.directChatOpen === 'function') {
+      logger.info('[ChatEntry] Using directChatOpen function');
+      return window.directChatOpen();
+    }
 
-      window._genesys.widgets.webchat.form =
-        window._genesys.widgets.webchat.form || {};
+    // Most robust approach: configure form prior to opening
+    if (window._genesys) {
+      logger.info('[ChatEntry] Configuring complete Genesys setup');
+
+      // Ensure we have the full configuration structure
+      window._genesys.widgets = window._genesys.widgets || {};
+      window._genesys.widgets.main = window._genesys.widgets.main || {
+        theme: 'light',
+        lang: 'en',
+        debug: true,
+        preload: ['webchat'],
+      };
+
+      window._genesys.widgets.webchat = window._genesys.widgets.webchat || {};
+
+      // Check if transport is missing - critical requirement
+      if (!window._genesys.widgets.webchat.transport) {
+        logger.warn(
+          '[ChatEntry] Transport configuration missing - this is required',
+        );
+
+        // Add default transport if missing
+        window._genesys.widgets.webchat.transport = {
+          type: 'purecloud-v2-sockets',
+          dataURL: 'https://api.mypurecloud.com',
+          deploymentKey:
+            process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_KEY ||
+            'webchat_deployment_key',
+          orgGuid: process.env.NEXT_PUBLIC_GENESYS_ORG_GUID || 'your_org_guid',
+          interactionData: {
+            routing: {
+              targetType: 'QUEUE',
+              targetAddress: 'Customer_Support',
+              priority: 2,
+            },
+          },
+        };
+      }
 
       // Simplify the form configuration to ensure it works
       window._genesys.widgets.webchat.form = {
         autoSubmit: true,
         formData: {
-          firstname: 'Member',
-          lastname: 'User',
+          firstName: 'Member',
+          lastName: 'User',
           subject: 'Chat Request',
+          email: '',
         },
       };
+
+      // Explicitly enable features
+      window._genesys.widgets.webchat.emojis = true;
+      window._genesys.widgets.webchat.uploadsEnabled = false;
+
+      logger.info('[ChatEntry] Configuration updated', {
+        hasMain: !!window._genesys.widgets.main,
+        hasWebchat: !!window._genesys.widgets.webchat,
+        hasTransport: !!window._genesys.widgets.webchat.transport,
+      });
     }
 
-    // First try to use CXBus command with type assertion to avoid TypeScript errors
-    if (window.CXBus) {
-      const bus = window.CXBus as any;
-      if (typeof bus.command === 'function') {
-        logger.info('[ChatEntry] Opening chat via CXBus.command');
-        return bus.command('WebChat.open', {
-          form: {
-            autoSubmit: true,
-            formData: {
-              nickname: 'Member',
-              subject: 'Chat Request',
+    // Use a chained approach for better reliability
+    if (window.CXBus && typeof window.CXBus.command === 'function') {
+      // First bootstrap
+      logger.info('[ChatEntry] Bootstrapping WebChat');
+
+      return window.CXBus.command('WebChat.bootstrap')
+        .done(function () {
+          logger.info('[ChatEntry] WebChat bootstrap successful');
+
+          // Then configure
+          window.CXBus.command('WebChat.configure', {
+            form: {
+              autoSubmit: true,
+              formData: {
+                firstName: 'Member',
+                lastName: 'User',
+              },
             },
-          },
+          })
+            .done(function () {
+              logger.info('[ChatEntry] WebChat configure successful');
+
+              // Finally open
+              window.CXBus.command('WebChat.open', {
+                form: {
+                  autoSubmit: true,
+                  formData: {
+                    firstName: 'Member',
+                    lastName: 'User',
+                    subject: 'Chat Request',
+                  },
+                },
+              })
+                .done(function (e) {
+                  logger.info('[ChatEntry] WebChat open successful', e);
+                })
+                .fail(function (e) {
+                  logger.error('[ChatEntry] WebChat open failed', e);
+                  tryFallbackMethods();
+                });
+            })
+            .fail(function (e) {
+              logger.error('[ChatEntry] WebChat configure failed', e);
+              tryFallbackMethods();
+            });
+        })
+        .fail(function (e) {
+          logger.error('[ChatEntry] WebChat bootstrap failed', e);
+          tryFallbackMethods();
         });
-      }
-      if (typeof bus.publish === 'function') {
-        logger.info('[ChatEntry] Opening chat via CXBus.publish');
-        return bus.publish('WebChat.open');
-      }
     }
 
-    // Look for click_to_chat.js specific functions
-    if (typeof window.startChat === 'function') {
-      logger.info('[ChatEntry] Using window.startChat from click_to_chat.js');
-      window.startChat();
-      return true;
-    }
-
-    // Fallback to direct _genesys access if available
-    if (window._genesys?.widgets?.webchat) {
-      // Try to access built-in methods
-      const webchat = window._genesys.widgets.webchat as any;
-      if (typeof webchat.open === 'function') {
-        logger.info('[ChatEntry] Using _genesys.widgets.webchat.open()');
-        return webchat.open();
-      }
-    }
-
-    logger.error('[ChatEntry] No chat opening method found');
-    return false;
+    // If we get here, try fallback methods
+    return tryFallbackMethods();
   } catch (e) {
     logger.error('[ChatEntry] Error opening chat:', e);
-    return false;
+    return tryFallbackMethods();
   }
+}
+
+function tryFallbackMethods() {
+  logger.info('[ChatEntry] Trying fallback methods');
+
+  // Fallback 1: Look for startChat from click_to_chat.js
+  if (typeof window.startChat === 'function') {
+    logger.info('[ChatEntry] Using window.startChat from click_to_chat.js');
+    window.startChat();
+    return true;
+  }
+
+  // Fallback 2: Direct publish to CXBus
+  if (window.CXBus && typeof window.CXBus.publish === 'function') {
+    logger.info('[ChatEntry] Using CXBus.publish');
+    window.CXBus.publish('WebChat.open');
+    return true;
+  }
+
+  // Fallback 3: Direct access to webchat.open
+  if (window._genesys?.widgets?.webchat) {
+    const webchat = window._genesys.widgets.webchat;
+    if (typeof webchat.open === 'function') {
+      logger.info('[ChatEntry] Using _genesys.widgets.webchat.open()');
+      webchat.open();
+      return true;
+    }
+  }
+
+  logger.error('[ChatEntry] All fallback methods failed');
+  return false;
 }
 
 /**
