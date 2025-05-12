@@ -37,7 +37,7 @@ function ChatScriptLoader() {
 
     console.log('ChatSettings from store:', {
       token: chatSettings?.token ? '✓ Present' : '✗ Missing',
-      serviceUrl: chatSettings?.serviceUrl,
+      clickToChatEndpoint: chatSettings?.clickToChatEndpoint,
       chatData: chatData
         ? {
             chatGroup: chatData.chatGroup,
@@ -49,16 +49,16 @@ function ChatScriptLoader() {
 
     // Check for potential URL issues
     if (
-      chatSettings?.serviceUrl &&
-      typeof chatSettings.serviceUrl === 'object'
+      chatSettings?.clickToChatEndpoint &&
+      typeof chatSettings.clickToChatEndpoint === 'object'
     ) {
       console.error(
-        'ERROR: serviceUrl is an object, not a string:',
-        chatSettings.serviceUrl,
+        'ERROR: clickToChatEndpoint is an object, not a string:',
+        chatSettings.clickToChatEndpoint,
       );
       setLoadingErrors((prev) => [
         ...prev,
-        'serviceUrl is an object instead of a string',
+        'clickToChatEndpoint is an object instead of a string',
       ]);
     }
   }, [chatSettings, chatData]);
@@ -131,14 +131,14 @@ function ChatScriptLoader() {
             : 'Default',
         formattedFirstName: 'Member',
         memberLastName: 'User',
-        // Ensure token and serviceUrl are strings
+        // Ensure token and clickToChatEndpoint are strings
         clickToChatToken:
           typeof chatSettings?.token === 'string' ? chatSettings.token : '',
         clickToChatEndpoint:
-          typeof chatSettings?.serviceUrl === 'string'
-            ? chatSettings.serviceUrl
-            : chatSettings?.serviceUrl
-              ? JSON.stringify(chatSettings.serviceUrl)
+          typeof chatSettings?.clickToChatEndpoint === 'string'
+            ? chatSettings.clickToChatEndpoint
+            : chatSettings?.clickToChatEndpoint
+              ? JSON.stringify(chatSettings.clickToChatEndpoint)
               : '',
         opsPhone: '1-800-123-4567',
         opsPhoneHours: '24/7',
