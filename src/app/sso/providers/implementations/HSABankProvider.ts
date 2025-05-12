@@ -1,5 +1,3 @@
-'use server';
-
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { getSubscriberSuffix } from '@/utils/member_utils';
 import { HSABankParameters } from '../../models/types';

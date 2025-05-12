@@ -1,5 +1,3 @@
-'use server';
-
 import { logger } from '@/utils/logger';
 import { SSOEnvironmentConfig } from '../config';
 import { SSOService } from './SSOService';

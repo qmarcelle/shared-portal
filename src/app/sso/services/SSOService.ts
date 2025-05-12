@@ -1,5 +1,3 @@
-'use server';
-
 import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { LoggedInMember } from '@/models/app/loggedin_member';

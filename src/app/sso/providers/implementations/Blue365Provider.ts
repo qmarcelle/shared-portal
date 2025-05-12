@@ -1,4 +1,4 @@
-'use server';
+
 
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { getPrefix } from '@/utils/member_utils';

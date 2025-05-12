@@ -16,12 +16,11 @@ This is the canonical reference for the Genesys chat integration in the Member P
 | **ChatLoader.tsx**          | Orchestrates initial config load, eligibility, and renders pre‑chat or in‑chat UI. |
 | **ChatPersistence.tsx**     | Persists chat state across reloads/unload warnings.                                |
 | **ChatSession.tsx**         | Manages session lifecycle, agent typing indicator, and inactivity timeouts.        |
-| **ChatWidget.tsx**          | Main entry: loads config, picks legacy/cloud mode, renders wrappers and UI.        |
+| **ChatProvider.tsx**        | Main entry point: wraps all chat functionality in a provider component.            |
 | **CloudChatWrapper.tsx**    | Client component that injects Genesys Cloud Messenger SDK only in **cloud** mode.  |
 | **GenesysScript.tsx**       | Loads and configures Genesys Cloud bootstrap script; now **only** cloud assets.    |
-| **GenesysScripts.tsx**      | (Legacy) utility for loading Genesys scripts—can be removed if unused.             |
 | **LegacyChatWrapper.tsx**   | Injects legacy `click_to_chat.js`, `widgets.min.js/.css`—only in **legacy** mode.  |
-| **PlanInfoHeader.tsx**      | Displays the selected plan’s name and metadata in pre‑chat/active UI.              |
+| **PlanInfoHeader.tsx**      | Displays the selected plan's name and metadata in pre‑chat/active UI.              |
 | **PlanSwitcherButton.tsx**  | "Switch Plan" button; disabled with tooltip during active chat.                    |
 | **PreChatWindow\.tsx**      | UI form/modal before chat start: plan info, T\&C, start button.                    |
 | **TermsAndConditions.tsx**  | Renders LOB‑specific T\&C text based on `userData.LOB`.                            |
@@ -59,66 +58,80 @@ This is the canonical reference for the Genesys chat integration in the Member P
 
 ## 2. End‑to‑End Integration Flow
 
-1. **Root Layout Injection** (`src/app/layout.tsx`)
+1. **Direct Component Integration** (`src/app/layout.tsx` or page components)
 
-   - Declares a parallel route slot for chat: `{chat}` alongside `{children}`.
-   - Wrapped in `<SessionProvider>` and `<ChatErrorBoundary>` with `<Suspense>`.
-   - Only renders if `session?.user?.plan` exists.
+   - Import `ChatProvider` from `@/app/chat/components/ChatProvider`
+   - Include `<ChatProvider />` in your layout or page components
+   - Preferably wrap with `<ChatErrorBoundary>` and `<Suspense>`
+   - Component renders itself only when session is authenticated and user has a plan
 
-2. **ClientLayout**
+2. **ChatProvider Usage**
 
-   - Renders app shell and includes chat slot as child for client context.
+   ```tsx
+   import { ChatProvider } from '@/app/chat/components/ChatProvider';
+   import { ChatErrorBoundary } from '@/app/chat/components/ChatErrorBoundary';
+   import { Suspense } from 'react';
 
-3. **Chat Parallel Route**
+   export default function Layout({ children }) {
+     return (
+       <>
+         {children}
+         <Suspense fallback={<div>Loading chat...</div>}>
+           <ChatErrorBoundary>
+             <ChatProvider />
+           </ChatErrorBoundary>
+         </Suspense>
+       </>
+     );
+   }
+   ```
 
-   - Resolves to `@chat/default.tsx`, a client component.
+3. **ChatProvider Initialization**
 
-4. **ChatWidget Initialization**
+   - `ChatProvider` calls `loadChatConfiguration(memberId, planId)` once on mount
+   - Populates store with eligibility, `userData`, `formInputs`
 
-   - `ChatWidget` calls `loadChatConfiguration(memberId, planId)` once on mount.
-   - Populates store with eligibility, `userData`, `formInputs`.
+4. **Mode Selection**
 
-5. **Mode Selection**
+   - `chatStore.chatMode` set to `'cloud'` or `'legacy'` based on API
+   - `ChatProvider` renders `<CloudChatWrapper />` or `<LegacyChatWrapper />` accordingly
 
-   - `chatStore.chatMode` set to `'cloud'` or `'legacy'` based on API.
-   - `ChatLoader` renders `<CloudChatWrapper />` or `<LegacyChatWrapper />` accordingly.
+5. **Asset Loading**
 
-6. **Asset Loading**
+   - **Legacy**: `LegacyChatWrapper` loads `/assets/genesys/plugins/widgets.min.js`, `.css`, and `click_to_chat.js`
+   - **Cloud**: `GenesysScript` loads only the Cloud bootstrap script via `<Script>` & `dangerouslySetInnerHTML`
 
-   - **Legacy**: `LegacyChatWrapper` loads `/assets/genesys/plugins/widgets.min.js`, `.css`, and `click_to_chat.js`.
-   - **Cloud**: `GenesysScript` loads only the Cloud bootstrap script via `<Script>` & `dangerouslySetInnerHTML`.
+6. **In‑Chat UX**
 
-7. **In‑Chat UX**
-
-   - `ChatControls`, `ChatSession`, `BusinessHoursBanner`, and persistence handle live session, inactivity, and unload.
+   - `ChatControls`, `ChatSession`, `BusinessHoursBanner`, and persistence handle live session, inactivity, and unload
 
 ---
 
 ## 3. Usage & Extension
 
-- **Add chat to any page:** Ensure your root layout includes the parallel route step above.
-- **Customize UI:** Edit or override CSS in `/public/assets/genesys/plugins/*.css` or use Tailwind scoped overrides targeting `.cx-` classes.
-- **Extend logic:** Update `ChatService.ts` or add new hooks in `hooks/`.
-- **Validate config:** Adjust `genesys.schema.ts` if backend payload changes.
+- **Add chat to any page:** Import and include `<ChatProvider />` in your layout or specific pages
+- **Customize UI:** Edit or override CSS in `/public/assets/genesys/plugins/*.css` or use Tailwind scoped overrides targeting `.cx-` classes
+- **Extend logic:** Update `ChatService.ts` or add new hooks in `hooks/`
+- **Validate config:** Adjust `genesys.schema.ts` if backend payload changes
 
 ---
 
 ## 4. Troubleshooting & Best Practices
 
-- **Script Mix‑ups:** Only legacy code loads legacy assets; cloud path now isolated.
-- **Plan Switching:** Use `usePlanSwitcherLock` to enforce lock / tooltip patterns.
-- **Eligibility & Hours:** Confirm API returns correct flags and schema matches.
-- **Styling Overrides:** Scope overrides in global CSS with `.cx-webchat, .cx-webchat-chat-button { @apply ... }` using `!important` sparingly.
+- **Script Mix‑ups:** Only legacy code loads legacy assets; cloud path now isolated
+- **Plan Switching:** Use `usePlanSwitcherLock` to enforce lock / tooltip patterns
+- **Eligibility & Hours:** Confirm API returns correct flags and schema matches
+- **Styling Overrides:** Scope overrides in global CSS with `.cx-webchat, .cx-webchat-chat-button { @apply ... }` using `!important` sparingly
 
 ---
 
 ## 5. Maintenance & CI/CD
 
-- Remove any deprecated `src/app/chat` directory and `GenesysScripts.tsx` if unused.
-- Keep Markdown docs under `/docs` or close to `/@chat` for discoverability.
-- Enforce linting on both TS and CSS overrides.
-- Include chat integration in your end‑to‑end test suites.
+- **Deprecated components:** The `ChatWidget.tsx` in `src/components/` directory is deprecated in favor of `ChatProvider.tsx`
+- Keep Markdown docs under `/docs` or close to `/chat` for discoverability
+- Enforce linting on both TS and CSS overrides
+- Include chat integration in your end‑to‑end test suites
 
 ---
 
-_Last updated: 2025‑05‑08_
+_Last updated: 2023-12-04_
