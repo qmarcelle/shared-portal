@@ -37,6 +37,7 @@ export const getCommunicationSettingsData = async (): Promise<
         dutyToWarn: response.dutyToWarn,
         visibilityRules: session?.user.vRules,
         tierOneDescriptions,
+        tierOne: response.tierOne,
         phoneNumber: phoneNumber,
       },
     };

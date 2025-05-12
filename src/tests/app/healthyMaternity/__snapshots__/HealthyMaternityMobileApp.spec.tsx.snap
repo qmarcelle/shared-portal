@@ -44,13 +44,13 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
             </p>
             <div>
               <p
-                class="body-1 body-1 m-4"
+                class="body-1 body-1 m-4 mt-2 mb-0"
                 style="display: block;"
               >
                 In the app you can:
               </p>
               <ul
-                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
               >
                 <div>
                   <li>
@@ -169,13 +169,13 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
           </p>
           <div>
             <p
-              class="body-1 body-1 m-4"
+              class="body-1 body-1 m-4 mt-2 mb-0"
               style="display: block;"
             >
               In the app you can:
             </p>
             <ul
-              class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+              class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
             >
               <div>
                 <li>

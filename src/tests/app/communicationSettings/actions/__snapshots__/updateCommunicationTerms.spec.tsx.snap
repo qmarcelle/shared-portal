@@ -110,7 +110,7 @@ exports[`communication Information API Integration communication Information Ema
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-baseline"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
@@ -302,7 +302,7 @@ exports[`communication Information API Integration communication Information sav
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-baseline"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input

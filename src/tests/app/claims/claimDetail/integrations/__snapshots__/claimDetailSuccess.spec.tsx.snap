@@ -615,7 +615,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                   role="checkbox"
                 >
                   <div
-                    class="flex flex-row items-baseline"
+                    class="flex flex-row"
                     tabindex="0"
                   >
                     <input

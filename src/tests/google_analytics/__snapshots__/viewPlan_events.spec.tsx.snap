@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlanSwitcher Component should render the UI correctly 1`] = `
+exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -157,7 +157,7 @@ exports[`PlanSwitcher Component should render the UI correctly 1`] = `
 }
 `;
 
-exports[`PlanSwitcher Component should render the UI correctly 2`] = `
+exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>

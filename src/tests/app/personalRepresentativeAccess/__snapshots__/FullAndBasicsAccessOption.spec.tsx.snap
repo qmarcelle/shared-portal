@@ -22,7 +22,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
             <span
               class="font-bold"
             >
-              Full Access +
+              Full Access
                
             </span>
             <span>
@@ -424,7 +424,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          aria-checked="true"
+          aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
           aria-label="Checkbox"
@@ -433,13 +433,12 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
               aria-label=""
-              checked=""
-              class="checkbox  checked checkbox--checked  "
+              class="checkbox    "
               id="checkbox-checkbox"
               type="checkbox"
             />
@@ -817,7 +816,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <div
-          aria-checked="true"
+          aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
           aria-label="Checkbox"
@@ -826,13 +825,12 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
               aria-label=""
-              checked=""
-              class="checkbox  checked checkbox--checked  "
+              class="checkbox    "
               id="checkbox-checkbox"
               type="checkbox"
             />

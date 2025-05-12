@@ -516,7 +516,7 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                     role="checkbox"
                   >
                     <div
-                      class="flex flex-row items-baseline"
+                      class="flex flex-row"
                       tabindex="0"
                     >
                       <input

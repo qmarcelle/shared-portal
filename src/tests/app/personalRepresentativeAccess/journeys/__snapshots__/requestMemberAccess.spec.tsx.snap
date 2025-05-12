@@ -266,65 +266,7 @@ exports[`Request Full Access to Member - requestMemberAccess should show plan me
               </div>
             </div>
           </div>
-          <div>
-            <div
-              class="card-main card-main large-section"
-            >
-              <div
-                class="flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                >
-                  Authorization Form
-                </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
-                />
-                <p
-                  class="body-1"
-                  style="display: block;"
-                >
-                  In some cases related to health information sharing, access and transfers, both parties must agree through an authorization form.
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
-                />
-                <a
-                  aria-label="Download Authorization Form"
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container !flex p-0"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      Download Authorization Form
-                    </p>
-                    <p
-                      class="ml-1"
-                    >
-                      <img
-                        alt="download form"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </p>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
+          <div />
         </div>
       </section>
     </div>

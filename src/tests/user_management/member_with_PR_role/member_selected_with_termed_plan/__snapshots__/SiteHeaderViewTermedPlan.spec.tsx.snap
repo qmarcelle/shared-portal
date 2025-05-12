@@ -64,7 +64,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
           href="/member/inbox"
         >
           <img
-            alt="Inbox"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -86,7 +86,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
           tabindex="0"
         >
           <img
-            alt="Profile Icon"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -142,7 +142,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   My Plan
                 </span>
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   class="block lg:hidden ml-auto"
                   data-nimg="1"
                   decoding="async"
@@ -154,7 +154,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   width="40"
                 />
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   aria-expanded="false"
                   class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                   data-accordion-icon="true"
@@ -190,7 +190,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   Support
                 </span>
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   class="block lg:hidden ml-auto"
                   data-nimg="1"
                   decoding="async"
@@ -202,7 +202,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   width="40"
                 />
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   aria-expanded="false"
                   class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                   data-accordion-icon="true"
@@ -243,7 +243,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
                   <img
-                    alt="Search"
+                    alt=""
                     class="icon items-end ml-1"
                     data-nimg="1"
                     decoding="async"
