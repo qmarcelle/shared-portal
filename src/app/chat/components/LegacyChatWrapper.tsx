@@ -43,6 +43,18 @@ function ChatScriptLoader() {
   const [loadingErrors, setLoadingErrors] = useState<string[]>([]);
   const chatConfig = getChatConfig();
 
+  // NEW: Add diagnostic effect for script paths
+  useEffect(() => {
+    console.log('[DIAGNOSTIC] Script paths:', {
+      widgetsPath: CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL,
+      clickToChatPath: CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL,
+      envWidgetUrl: process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL,
+      genesysBootstrapUrl: process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL,
+      dynamicPath: `${CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL}?cb=${Date.now()}`,
+      timestamp: new Date().toISOString(),
+    });
+  }, []);
+
   // Debug chat settings - VERY IMPORTANT
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -123,39 +135,62 @@ function ChatScriptLoader() {
     }
   }, [chatSettings, chatData, chatConfig]);
 
-  // Step 1: Load the core Genesys widgets script first
+  // Step 1: Load the core Genesys widgets script first - SIMPLIFIED DIRECT APPROACH
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    console.log('[ChatScriptLoader] Beginning script load sequence');
+    console.log(
+      '[ChatScriptLoader] Beginning script load sequence with direct path approach',
+    );
 
     try {
-      // Get the widgets script path from centralized config
-      const WIDGETS_SCRIPT_PATH = CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL;
-
-      // Create and load widgets.min.js directly in the document head
+      // Use direct path reference instead of dynamic configuration
       const widgetsScript = document.createElement('script');
-      widgetsScript.src = `${WIDGETS_SCRIPT_PATH}?cb=${Date.now()}`; // Add cache-busting
+      widgetsScript.src =
+        '/assets/genesys/plugins/widgets.min.js?cb=' + Date.now(); // Direct path with cache-busting
       widgetsScript.async = false; // Load this synchronously
       widgetsScript.id = 'genesys-widgets-script';
 
+      // Log more details for debugging
+      console.log('[ChatScriptLoader] Creating widgets script with:', {
+        src: widgetsScript.src,
+        async: widgetsScript.async,
+        id: widgetsScript.id,
+        timestamp: new Date().toISOString(),
+      });
+
       widgetsScript.onload = () => {
-        console.log('[ChatScriptLoader] widgets.min.js loaded successfully');
+        console.log(
+          '[ChatScriptLoader] widgets.min.js loaded successfully with direct path',
+        );
+        // Check if _genesys object was created as expected
+        console.log('[ChatScriptLoader] _genesys object status:', {
+          exists: typeof window._genesys !== 'undefined',
+          hasWidgets: typeof window._genesys?.widgets !== 'undefined',
+          timestamp: new Date().toISOString(),
+        });
         setWidgetsLoaded(true);
       };
 
       widgetsScript.onerror = (error) => {
-        const errorMsg = `Failed to load widgets.min.js from ${WIDGETS_SCRIPT_PATH}`;
+        const errorMsg = `Failed to load widgets.min.js from direct path - check file existence`;
         console.error('[ChatScriptLoader] ' + errorMsg, error);
         setLoadingErrors((prev) => [...prev, errorMsg]);
       };
 
-      // Add the script to the document
+      // Check if script already exists before adding
       if (!document.getElementById('genesys-widgets-script')) {
         document.head.appendChild(widgetsScript);
+        console.log(
+          '[ChatScriptLoader] widgets.min.js script tag added to document head',
+        );
+      } else {
+        console.log(
+          '[ChatScriptLoader] widgets.min.js script tag already exists, not adding duplicate',
+        );
       }
     } catch (error) {
-      const errorMsg = `Exception loading widgets.min.js: ${error}`;
+      const errorMsg = `Exception loading widgets.min.js with direct path: ${error}`;
       console.error('[ChatScriptLoader] ' + errorMsg);
       setLoadingErrors((prev) => [...prev, errorMsg]);
     }
@@ -173,11 +208,14 @@ function ChatScriptLoader() {
   useEffect(() => {
     if (!widgetsLoaded || typeof window === 'undefined') return;
 
-    console.log('[ChatScriptLoader] Loading click_to_chat.js');
+    console.log(
+      '[ChatScriptLoader] Loading click_to_chat.js with direct path approach',
+    );
 
     try {
-      // Get the script path from centralized config
-      const CLICK_TO_CHAT_PATH = CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL;
+      // Use direct path reference instead of dynamic configuration
+      const CLICK_TO_CHAT_PATH =
+        '/assets/genesys/click_to_chat.js?cb=' + Date.now();
 
       // First, initialize chat settings object BEFORE loading click_to_chat.js
       // Use string values for everything to avoid object serialization issues
@@ -256,23 +294,40 @@ function ChatScriptLoader() {
       clickToChatScript.async = false; // Load this synchronously too
       clickToChatScript.id = 'genesys-click-to-chat-script';
 
+      // Log more details for debugging
+      console.log('[ChatScriptLoader] Creating click_to_chat script with:', {
+        src: clickToChatScript.src,
+        async: clickToChatScript.async,
+        id: clickToChatScript.id,
+        timestamp: new Date().toISOString(),
+      });
+
       clickToChatScript.onload = () => {
-        console.log('[ChatScriptLoader] click_to_chat.js loaded successfully');
+        console.log(
+          '[ChatScriptLoader] click_to_chat.js loaded successfully with direct path',
+        );
         setClickToChatLoaded(true);
       };
 
       clickToChatScript.onerror = (error) => {
-        const errorMsg = `Failed to load click_to_chat.js from ${CLICK_TO_CHAT_PATH}`;
+        const errorMsg = `Failed to load click_to_chat.js from direct path`;
         console.error('[ChatScriptLoader] ' + errorMsg, error);
         setLoadingErrors((prev) => [...prev, errorMsg]);
       };
 
-      // Add the script to the document
+      // Check if script already exists before adding
       if (!document.getElementById('genesys-click-to-chat-script')) {
         document.head.appendChild(clickToChatScript);
+        console.log(
+          '[ChatScriptLoader] click_to_chat.js script tag added to document head',
+        );
+      } else {
+        console.log(
+          '[ChatScriptLoader] click_to_chat.js script tag already exists, not adding duplicate',
+        );
       }
     } catch (error) {
-      const errorMsg = `Exception loading click_to_chat.js: ${error}`;
+      const errorMsg = `Exception loading click_to_chat.js with direct path: ${error}`;
       console.error('[ChatScriptLoader] ' + errorMsg);
       setLoadingErrors((prev) => [...prev, errorMsg]);
     }
@@ -594,6 +649,12 @@ const setupChatDebugger = () => {
 // Run the setup immediately
 if (typeof window !== 'undefined') {
   setupChatDebugger();
+
+  // IMPORTANT: Force chat button to be available regardless of server settings
+  (window as any)._FORCE_CHAT_AVAILABLE = true;
+  console.log(
+    '[GLOBAL] Force enabled chat button with _FORCE_CHAT_AVAILABLE = true',
+  );
 
   // Get the chat endpoints properly using import instead of require
   let CHAT_ENDPOINT_PATHS = {
