@@ -1,10 +1,10 @@
 import { logger } from '@/utils/logger';
 import { createContext, useCallback, useEffect, useMemo } from 'react';
 import { ChatService } from '../services/ChatService';
-import { useChatStore } from '../stores/chatStore';
+import { chatSelectors, useChatStore } from '../stores/chatStore';
 
-// Context for ChatService (optional)
-const ChatServiceContext = createContext<ChatService | null>(null);
+// Context for ChatService (optional) - uncomment if needed
+// const ChatServiceContext = createContext<ChatService | null>(null);
 
 // Utility: Parse business hours string - simplified
 const parseBusinessHours = (hoursString: string) => {
@@ -79,23 +79,36 @@ const isWithinBusinessHours = (hoursString: string): boolean => {
 
 // useChatSession is a custom hook that manages chat session state, service instantiation, and event subscriptions.
 // It handles eligibility checks, chat actions, and logs all key events and errors for traceability and debugging.
-export function useChatSession(options?: any) {
+// Define proper options type for better type safety
+type ChatSessionOptions = {
+  memberId?: string | number;
+  planId?: string;
+  planName?: string;
+  hasMultiplePlans?: boolean;
+  onLockPlanSwitcher?: (locked: boolean) => void;
+  chatConfig?: Record<string, any>;
+  cloudChatEligible?: boolean;
+  payload?: Record<string, unknown>;
+};
+
+export function useChatSession(options?: ChatSessionOptions) {
   // Store state and actions
   const {
     isOpen,
     isMinimized,
     isChatActive,
     error,
-    eligibility,
     isLoading,
     setOpen,
     setMinimized,
     setError,
     setChatActive,
     setLoading,
-    setEligibility,
     // ... rest of the state
   } = useChatStore();
+  
+  // Get eligibility from selectors
+  const eligibility = chatSelectors.eligibility(useChatStore());
 
   // Chat service instance
   const chatService = useMemo(() => {
@@ -131,29 +144,90 @@ export function useChatSession(options?: any) {
     if (typeof window !== 'undefined') {
       // Legacy WebChat events
       if (window.CXBus) {
-        window.CXBus?.on?.('WebChat.opened', () => setChatActive(true));
-        window.CXBus?.on?.('WebChat.closed', () => setChatActive(false));
-        window.CXBus?.on?.('WebChat.error', () => setChatActive(false));
-        subs.push(
-          () => window.CXBus?.runtime.unsubscribe?.('WebChat.opened'),
-          () => window.CXBus?.runtime.unsubscribe?.('WebChat.closed'),
-          () => window.CXBus?.runtime.unsubscribe?.('WebChat.error'),
-        );
+        // Use CXBus.subscribe() if available, otherwise fall back to CXBus.on()
+        if (typeof window.CXBus.subscribe === 'function') {
+          window.CXBus.subscribe('WebChat.opened', () => setChatActive(true));
+          window.CXBus.subscribe('WebChat.closed', () => setChatActive(false));
+          window.CXBus.subscribe('WebChat.error', () => setChatActive(false));
+          
+          subs.push(
+            () => window.CXBus?.unsubscribe('WebChat.opened'),
+            () => window.CXBus?.unsubscribe('WebChat.closed'),
+            () => window.CXBus?.unsubscribe('WebChat.error')
+          );
+        } else if (window.CXBus && typeof window.CXBus === 'object' && 'on' in window.CXBus) {
+          // Use type assertions to help TypeScript understand the structure
+          const cxBus = window.CXBus as {
+            on: (event: string, callback: () => void) => void;
+            runtime?: {
+              unsubscribe: (event: string) => void;
+            };
+          };
+          
+          // Now use the properly typed variable
+          cxBus.on('WebChat.opened', () => setChatActive(true));
+          cxBus.on('WebChat.closed', () => setChatActive(false));
+          cxBus.on('WebChat.error', () => setChatActive(false));
+          
+          // Create cleanup functions
+          subs.push(
+            () => {
+              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+                cxBus.runtime.unsubscribe('WebChat.opened');
+              }
+            },
+            () => {
+              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+                cxBus.runtime.unsubscribe('WebChat.closed');
+              }
+            },
+            () => {
+              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+                cxBus.runtime.unsubscribe('WebChat.error');
+              }
+            }
+          );
+        }
       }
 
       // Cloud Messenger events
-      if (window.MessengerWidget) {
-        window.MessengerWidget?.on?.('open', () => setChatActive(true));
-        window.MessengerWidget?.on?.('close', () => setChatActive(false));
-        window.MessengerWidget?.on?.('error', () => setChatActive(false));
-        subs.push(
-          () =>
-            window.MessengerWidget?.off?.('open', () => setChatActive(true)),
-          () =>
-            window.MessengerWidget?.off?.('close', () => setChatActive(false)),
-          () =>
-            window.MessengerWidget?.off?.('error', () => setChatActive(false)),
-        );
+      if (window.MessengerWidget && typeof window.MessengerWidget === 'object') {
+        // Type assertion to help TypeScript understand the structure
+        const messenger = window.MessengerWidget as {
+          on?: (event: string, callback: () => void) => void;
+          off?: (event: string, callback: () => void) => void;
+        };
+        
+        if (messenger && typeof messenger.on === 'function') {
+          // Define handler functions first so they can be referenced for cleanup
+          const openHandler = () => setChatActive(true);
+          const closeHandler = () => setChatActive(false);
+          const errorHandler = () => setChatActive(false);
+          
+          // Register event handlers
+          messenger.on('open', openHandler);
+          messenger.on('close', closeHandler);
+          messenger.on('error', errorHandler);
+          
+          // Create cleanup functions
+          subs.push(
+            () => {
+              if (messenger && typeof messenger.off === 'function') {
+                messenger.off('open', openHandler);
+              }
+            },
+            () => {
+              if (messenger && typeof messenger.off === 'function') {
+                messenger.off('close', closeHandler);
+              }
+            },
+            () => {
+              if (messenger && typeof messenger.off === 'function') {
+                messenger.off('error', errorHandler);
+              }
+            }
+          );
+        }
       }
     }
 
@@ -169,29 +243,26 @@ export function useChatSession(options?: any) {
         // Initialize the chat service first
         await chatService.initialize(options?.cloudChatEligible || false);
 
-        // Get the eligibility info from the store
-        // Note: Using eligibility directly from the store instead of chatInfo
-        const storeEligibility = useChatStore.getState().eligibility;
+        // Get the eligibility info from the store using selectors
+        const storeEligibility = chatSelectors.eligibility(useChatStore.getState());
 
         if (storeEligibility) {
           // Check hours availability
-          const hoursAvailable = storeEligibility.workingHours
-            ? isWithinBusinessHours(storeEligibility.workingHours)
+          const hoursAvailable = storeEligibility.businessHours?.text
+            ? isWithinBusinessHours(storeEligibility.businessHours.text)
             : true;
 
-          // Determine eligibility based on all factors
-          const isEligible =
-            (storeEligibility.chatBotEligibility === true ||
-              storeEligibility.chatAvailable === true) &&
-            hoursAvailable;
-
-          // Update with the latest eligibility including hours check
-          setEligibility({ ...storeEligibility, isEligible, hoursAvailable });
+          // Log eligibility details
+          logger.info('[ChatSession] Chat eligibility check', {
+            businessHours: storeEligibility.businessHours,
+            hoursAvailable,
+            isEligible: storeEligibility.isEligible && hoursAvailable
+          });
+          // Note: We no longer directly update eligibility as it comes from the store
         } else {
           logger.warn(
             '[ChatSession] No eligibility data found after initialization',
           );
-          setEligibility(null);
         }
       } catch (err) {
         const errorMessage =
@@ -200,7 +271,7 @@ export function useChatSession(options?: any) {
         setError(
           err instanceof Error ? err : new Error('Failed to initialize chat'),
         );
-        setEligibility(null);
+        // No longer need to call setEligibility as we use selectors
       } finally {
         setLoading(false);
       }
@@ -212,7 +283,6 @@ export function useChatSession(options?: any) {
     options?.planId,
     setLoading,
     setError,
-    setEligibility,
     chatService,
     options?.cloudChatEligible,
   ]);
@@ -285,7 +355,7 @@ export function useChatSession(options?: any) {
     isMinimized,
     isChatActive,
     error,
-    eligibility,
+    eligibility: chatSelectors.eligibility(useChatStore()),
     isLoading,
     openChat,
     closeChat,

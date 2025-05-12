@@ -1,13 +1,13 @@
 import { ChatSettings } from './app/chat/types';
 import { OAuth } from './models/enterprise/oAuth';
 
-// Chat-specific global types
-interface CXBus {
-  command: (command: string, ...args: any[]) => any;
-  subscribe: (event: string, callback: (...args: any[]) => void) => void;
-  unsubscribe: (event: string) => void;
-  registerPlugin?: (name: string, config: any) => void;
+// PingOne integration types
+interface PingOneSignals {
+  ready?: boolean;
+  [key: string]: any;
 }
+
+// Chat-specific global types - moved into Window interface for better type inference
 
 interface GenesysWidgets {
   webchat: {
@@ -39,10 +39,31 @@ declare global {
   // eslint-disable-next-line no-var
   var accessToken: OAuth;
   interface Window {
-    Genesys?: (command: string, ...args: any[]) => any;
+    Genesys?: {
+      (command: string, ...args: any[]): any;
+      WebMessenger?: {
+        destroy: () => void;
+        [key: string]: any;
+      };
+      c?: any;
+    };
     _genesys?: GenesysGlobal;
-    CXBus?: CXBus;
-    MessengerWidget?: any;
+    CXBus?: {
+      command: (command: string, ...args: any[]) => any;
+      subscribe: (event: string, callback: (...args: any[]) => void) => void;
+      unsubscribe: (event: string) => void;
+      registerPlugin?: (name: string, config: any) => void;
+      on: (event: string, callback: (...args: any[]) => void) => void;
+      runtime: {
+        unsubscribe: (event: string) => void;
+        command: (command: string, ...args: any[]) => any;
+      };
+    };
+    MessengerWidget?: {
+      on?: (event: string, callback: (...args: any[]) => void) => void;
+      off?: (event: string, callback: (...args: any[]) => void) => void;
+      [key: string]: any;
+    };
     _pingOneSignals: PingOneSignals;
     _pingOneSignalsReady: boolean;
     dataLayer: Record<string, unknown>[];
@@ -87,13 +108,10 @@ export type ChatDataPayload = {
   [key: string]: any; // Allow for additional dynamic fields
 };
 
-export class ChatError extends Error {
+// Define the shape rather than implementation
+export interface ChatErrorShape extends Error {
   code: string;
-  constructor(message: string, code: string) {
-    super(message);
-    this.name = 'ChatError';
-    this.code = code;
-  }
+  name: 'ChatError';
 }
 
 export type {};
