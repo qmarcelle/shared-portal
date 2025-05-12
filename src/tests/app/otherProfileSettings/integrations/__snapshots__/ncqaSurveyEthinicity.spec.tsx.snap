@@ -197,7 +197,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -228,7 +228,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -259,7 +259,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -290,7 +290,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -321,7 +321,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -352,7 +352,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -383,7 +383,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                           role="checkbox"
                         >
                           <div
-                            class="flex flex-row items-baseline"
+                            class="flex flex-row"
                             tabindex="0"
                           >
                             <input
@@ -985,7 +985,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1016,7 +1016,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1047,7 +1047,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1078,7 +1078,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1109,7 +1109,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1140,7 +1140,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -1171,7 +1171,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Ethinicity Res
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input

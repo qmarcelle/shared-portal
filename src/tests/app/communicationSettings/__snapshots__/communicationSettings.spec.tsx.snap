@@ -185,7 +185,7 @@ exports[`Communication Settings should render communicationSettings if user role
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -195,30 +195,21 @@ exports[`Communication Settings should render communicationSettings if user role
                             type="checkbox"
                           />
                           <label
-<<<<<<< HEAD
-                            class="ml-2 font-bold cursor-pointer"
-=======
                             class="ml-2  cursor-pointer"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             for="checkbox-receive-text-alerts"
                           >
                             <p
-                              class="body-1 body-bold"
+                              class="body-1 body-bold mb-2"
                               style="display: block;"
                             >
                               Receive Text Alerts
                             </p>
-                             
                             <p
-                              class="body-1 mt-2"
+                              class="body-1"
                               style="display: block;"
                             >
                               Get text alerts with plan updates and personalized health notifications.
                             </p>
-<<<<<<< HEAD
-=======
-                             
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             <span
                               class="sr-only"
                             >
@@ -245,7 +236,7 @@ exports[`Communication Settings should render communicationSettings if user role
                         role="checkbox"
                       >
                         <div
-                          class="flex flex-row items-baseline"
+                          class="flex flex-row"
                           tabindex="0"
                         >
                           <input
@@ -255,30 +246,21 @@ exports[`Communication Settings should render communicationSettings if user role
                             type="checkbox"
                           />
                           <label
-<<<<<<< HEAD
-                            class="ml-2 font-bold cursor-pointer"
-=======
                             class="ml-2  cursor-pointer"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             for="checkbox-receive-email-alerts"
                           >
                             <p
-                              class="body-1 body-bold"
+                              class="body-1 body-bold mb-2"
                               style="display: block;"
                             >
                               Receive Email Alerts
                             </p>
-                             
                             <p
-                              class="body-1 mt-2"
+                              class="body-1"
                               style="display: block;"
                             >
                               Get important plan updates, claims information and/or health and wellness topics sent to your email.
                             </p>
-<<<<<<< HEAD
-=======
-                             
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                             <span
                               class="sr-only"
                             >
@@ -478,7 +460,7 @@ exports[`Communication Settings should render communicationSettings if user role
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-baseline"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
@@ -488,30 +470,21 @@ exports[`Communication Settings should render communicationSettings if user role
                           type="checkbox"
                         />
                         <label
-<<<<<<< HEAD
-                          class="ml-2 font-bold cursor-pointer"
-=======
                           class="ml-2  cursor-pointer"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           for="checkbox-receive-text-alerts"
                         >
                           <p
-                            class="body-1 body-bold"
+                            class="body-1 body-bold mb-2"
                             style="display: block;"
                           >
                             Receive Text Alerts
                           </p>
-                           
                           <p
-                            class="body-1 mt-2"
+                            class="body-1"
                             style="display: block;"
                           >
                             Get text alerts with plan updates and personalized health notifications.
                           </p>
-<<<<<<< HEAD
-=======
-                           
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           <span
                             class="sr-only"
                           >
@@ -538,7 +511,7 @@ exports[`Communication Settings should render communicationSettings if user role
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-baseline"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
@@ -548,30 +521,21 @@ exports[`Communication Settings should render communicationSettings if user role
                           type="checkbox"
                         />
                         <label
-<<<<<<< HEAD
-                          class="ml-2 font-bold cursor-pointer"
-=======
                           class="ml-2  cursor-pointer"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           for="checkbox-receive-email-alerts"
                         >
                           <p
-                            class="body-1 body-bold"
+                            class="body-1 body-bold mb-2"
                             style="display: block;"
                           >
                             Receive Email Alerts
                           </p>
-                           
                           <p
-                            class="body-1 mt-2"
+                            class="body-1"
                             style="display: block;"
                           >
                             Get important plan updates, claims information and/or health and wellness topics sent to your email.
                           </p>
-<<<<<<< HEAD
-=======
-                           
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
                           <span
                             class="sr-only"
                           >

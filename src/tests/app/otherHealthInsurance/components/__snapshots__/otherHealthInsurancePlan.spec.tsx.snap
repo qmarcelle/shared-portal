@@ -29,7 +29,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
@@ -59,7 +59,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
@@ -89,7 +89,7 @@ exports[`otherPlan should render the UI correctly 1`] = `
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input

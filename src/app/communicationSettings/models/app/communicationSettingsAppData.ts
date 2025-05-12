@@ -49,9 +49,6 @@ export interface ContactPreference {
 export enum AlertType {
   ReceiveTextAlerts = 'ReceiveTextAlerts',
   ReceiveEmailAlerts = 'ReceiveEmailAlerts',
-  ImportantPlanInformation = 'ImportantPlanInformation',
-  ClaimsInformation = 'ClaimsInformation',
-  HealthWellness = 'HealthWellness',
 }
 
 export interface Preferences {
@@ -62,12 +59,3 @@ export interface Preferences {
   method?: string;
   childCheckBox?: Map<AlertType, Preferences>;
 }
-
-export const PreferenceCommunication: Map<
-  AlertType,
-  { category: string; method: string }
-> = new Map([
-  [AlertType.ImportantPlanInformation, { category: 'PLIN', method: 'EML' }],
-  [AlertType.ClaimsInformation, { category: 'CLMS', method: 'EML' }],
-  [AlertType.HealthWellness, { category: 'HLTW', method: 'EML' }],
-]);

@@ -941,7 +941,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Mental Health
@@ -984,13 +984,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1028,7 +1028,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       </div>
                       <a
                         aria-label="Learn More About AbleTo"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=AbleTo"
                         style="display: block;"
                       >
                         <button
@@ -1119,7 +1118,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Mental Health
@@ -1162,13 +1161,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -1206,7 +1205,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     </div>
                     <a
                       aria-label="Learn More About AbleTo"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=AbleTo"
                       style="display: block;"
                     >
                       <button
@@ -1354,7 +1352,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Advice & Support
@@ -1397,13 +1395,13 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1441,7 +1439,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       </div>
                       <a
                         aria-label="Learn More About CareTN"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                         style="display: block;"
                       >
                         <button
@@ -1532,7 +1529,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Advice & Support
@@ -1575,13 +1572,13 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -1619,7 +1616,6 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     </div>
                     <a
                       aria-label="Learn More About CareTN"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                       style="display: block;"
                     >
                       <button
@@ -1767,7 +1763,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Physical Therapy
@@ -1810,13 +1806,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -1854,7 +1850,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       </div>
                       <a
                         aria-label="Learn More About Hinge Health"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HingeHealth"
                         style="display: block;"
                       >
                         <button
@@ -1945,7 +1940,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Physical Therapy
@@ -1988,13 +1983,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -2032,7 +2027,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     </div>
                     <a
                       aria-label="Learn More About Hinge Health"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HingeHealth"
                       style="display: block;"
                     >
                       <button
@@ -2365,7 +2359,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Urgent Care
@@ -2396,13 +2390,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -2440,7 +2434,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       </div>
                       <a
                         aria-label="Learn More About Nurseline"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TalkToNurse"
                         style="display: block;"
                       >
                         <button
@@ -2531,7 +2524,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Urgent Care
@@ -2562,13 +2555,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -2606,7 +2599,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     </div>
                     <a
                       aria-label="Learn More About Nurseline"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TalkToNurse"
                       style="display: block;"
                     >
                       <button
@@ -2751,7 +2743,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                 class="flex flex-row flex flex-col align-top m-4 mt-8"
               >
                 <p
-                  class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                  class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                   style="display: block;"
                 >
                   Blood Pressure
@@ -2794,13 +2786,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   />
                   <div>
                     <p
-                      class="body-1 body-1 m-4"
+                      class="body-1 body-1 m-4 mt-2 mb-0"
                       style="display: block;"
                     >
                       Generally good for:
                     </p>
                     <ul
-                      class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                      class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                     >
                       <div>
                         <li>
@@ -2830,7 +2822,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Blood 
                   </div>
                   <a
                     aria-label="Learn More About Blood Pressure Management"
-                    href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocBP"
                     style="display: block;"
                   >
                     <button
@@ -2926,7 +2917,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Diabetes
@@ -2969,13 +2960,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -3013,7 +3004,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Diabetes Management"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                         style="display: block;"
                       >
                         <button
@@ -3104,7 +3094,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Diabetes
@@ -3147,13 +3137,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -3191,7 +3181,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Diabetes Management"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                       style="display: block;"
                     >
                       <button
@@ -3339,7 +3328,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Diabetes
@@ -3382,13 +3371,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -3426,7 +3415,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Diabetes Prevention"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
                         style="display: block;"
                       >
                         <button
@@ -3517,7 +3505,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Diabetes
@@ -3560,13 +3548,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -3604,7 +3592,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Diabetes Prevention"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
                       style="display: block;"
                     >
                       <button
@@ -3752,7 +3739,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Primary Care
@@ -3795,13 +3782,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -3839,7 +3826,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Primary Care"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocPrimaryCareProvider "
                         style="display: block;"
                       >
                         <button
@@ -3930,7 +3916,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Primary Care
@@ -3973,13 +3959,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -4017,7 +4003,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Primary Care"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocPrimaryCareProvider "
                       style="display: block;"
                     >
                       <button
@@ -4165,7 +4150,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Mental Health
@@ -4208,13 +4193,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -4252,7 +4237,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Mental Health"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocMentalHealth"
                         style="display: block;"
                       >
                         <button
@@ -4343,7 +4327,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Mental Health
@@ -4386,13 +4370,13 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -4430,7 +4414,6 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Mental
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Mental Health"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocMentalHealth"
                       style="display: block;"
                     >
                       <button
@@ -4578,7 +4561,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Advice & Support
@@ -4621,13 +4604,13 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -4665,7 +4648,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                       </div>
                       <a
                         aria-label="Learn More About Second Opinion Advice & Support"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
                         style="display: block;"
                       >
                         <button
@@ -4756,7 +4738,7 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Advice & Support
@@ -4799,13 +4781,13 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -4843,7 +4825,6 @@ exports[`MyHealthProgramsResources should render UI correctly for TeladocSecondO
                     </div>
                     <a
                       aria-label="Learn More About Second Opinion Advice & Support"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
                       style="display: block;"
                     >
                       <button
@@ -4991,7 +4972,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Pregnancy
@@ -5034,13 +5015,13 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -5078,7 +5059,6 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       </div>
                       <a
                         aria-label="Learn More About Healthy Maternity"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                         style="display: block;"
                       >
                         <button
@@ -5169,7 +5149,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Pregnancy
@@ -5212,13 +5192,13 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -5256,7 +5236,6 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     </div>
                     <a
                       aria-label="Learn More About Healthy Maternity"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=HealthyMaternity"
                       style="display: block;"
                     >
                       <button
@@ -5404,7 +5383,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Lab Testing
@@ -5447,13 +5426,13 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -5491,7 +5470,6 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       </div>
                       <a
                         aria-label="Learn More About QuestSelect"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
                         style="display: block;"
                       >
                         <button
@@ -5582,7 +5560,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Lab Testing
@@ -5625,13 +5603,13 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -5669,7 +5647,6 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     </div>
                     <a
                       aria-label="Learn More About QuestSelect"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=QuestSelect"
                       style="display: block;"
                     >
                       <button
@@ -5817,7 +5794,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Fitness
@@ -5860,13 +5837,13 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -5904,7 +5881,6 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       </div>
                       <a
                         aria-label="Learn More About Silver&Fit"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
                         style="display: block;"
                       >
                         <button
@@ -5995,7 +5971,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Fitness
@@ -6038,13 +6014,13 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -6082,7 +6058,6 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     </div>
                     <a
                       aria-label="Learn More About Silver&Fit"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
                       style="display: block;"
                     >
                       <button
@@ -6230,7 +6205,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     class="flex flex-row flex flex-col align-top m-4 mt-8"
                   >
                     <p
-                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                      class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                       style="display: block;"
                     >
                       Urgent Care
@@ -6273,13 +6248,13 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       />
                       <div>
                         <p
-                          class="body-1 body-1 m-4"
+                          class="body-1 body-1 m-4 mt-2 mb-0"
                           style="display: block;"
                         >
                           Generally good for:
                         </p>
                         <ul
-                          class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                          class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                         >
                           <div>
                             <li>
@@ -6317,7 +6292,6 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Urgent Care"
-                        href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthGeneralUrgentCare"
                         style="display: block;"
                       >
                         <button
@@ -6408,7 +6382,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                   class="flex flex-row flex flex-col align-top m-4 mt-8"
                 >
                   <p
-                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+                    class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
                     style="display: block;"
                   >
                     Urgent Care
@@ -6451,13 +6425,13 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     />
                     <div>
                       <p
-                        class="body-1 body-1 m-4"
+                        class="body-1 body-1 m-4 mt-2 mb-0"
                         style="display: block;"
                       >
                         Generally good for:
                       </p>
                       <ul
-                        class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                       >
                         <div>
                           <li>
@@ -6495,7 +6469,6 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Urgent Care"
-                      href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthGeneralUrgentCare"
                       style="display: block;"
                     >
                       <button

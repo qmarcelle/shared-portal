@@ -88,7 +88,7 @@ exports[`Account selection Component should render all the required details 1`] 
           role="checkbox"
         >
           <div
-            class="flex flex-row items-baseline"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
@@ -307,7 +307,7 @@ exports[`Account selection Component should render all the required details 1`] 
         role="checkbox"
       >
         <div
-          class="flex flex-row items-baseline"
+          class="flex flex-row"
           tabindex="0"
         >
           <input

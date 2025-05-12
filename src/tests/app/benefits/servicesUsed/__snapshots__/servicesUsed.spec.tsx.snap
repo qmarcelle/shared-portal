@@ -8,9 +8,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
       <main
         class="flex flex-col justify-center items-center page"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <div
           class="flex flex-col app-content app-base-font-color"
         >
@@ -858,9 +855,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
     <main
       class="flex flex-col justify-center items-center page"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <div
         class="flex flex-col app-content app-base-font-color"
       >

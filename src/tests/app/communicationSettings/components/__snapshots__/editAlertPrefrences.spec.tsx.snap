@@ -27,17 +27,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
           />
           <div
-<<<<<<< HEAD
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-label="Receive Text Alerts"
-            aria-required="false"
-            class="flex flex-col   "
-            role="checkbox"
-=======
             class="card-main undefined"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
           >
             <div
               class="flex flex-col"
@@ -47,22 +37,12 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                 aria-disabled="false"
                 aria-invalid="false"
                 aria-label="Receive Text Alerts"
-<<<<<<< HEAD
-                class="checkbox    "
-                id="checkbox-receive-text-alerts"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 font-bold cursor-pointer"
-                for="checkbox-receive-text-alerts"
-=======
                 aria-required="false"
                 class="flex flex-col   "
                 role="checkbox"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
               >
                 <div
-                  class="flex flex-row items-baseline"
+                  class="flex flex-row"
                   tabindex="0"
                 >
                   <input
@@ -76,19 +56,17 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                     for="checkbox-receive-text-alerts"
                   >
                     <p
-                      class="body-1 body-bold"
+                      class="body-1 body-bold mb-2"
                       style="display: block;"
                     >
                       Receive Text Alerts
                     </p>
-                     
                     <p
-                      class="body-1 mt-2"
+                      class="body-1"
                       style="display: block;"
                     >
                       Get text alerts with plan updates and personalized health notifications.
                     </p>
-                     
                     <span
                       class="sr-only"
                     >
@@ -115,7 +93,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                 role="checkbox"
               >
                 <div
-                  class="flex flex-row items-baseline"
+                  class="flex flex-row"
                   tabindex="0"
                 >
                   <input
@@ -129,19 +107,17 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                     for="checkbox-receive-email-alerts"
                   >
                     <p
-                      class="body-1 body-bold"
+                      class="body-1 body-bold mb-2"
                       style="display: block;"
                     >
                       Receive Email Alerts
                     </p>
-                     
                     <p
-                      class="body-1 mt-2"
+                      class="body-1"
                       style="display: block;"
                     >
                       Get important plan updates, claims information and/or health and wellness topics sent to your email.
                     </p>
-                     
                     <span
                       class="sr-only"
                     >
@@ -170,17 +146,9 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                   Choose the emails you want to receive:
                 </p>
                 <span
-<<<<<<< HEAD
-                  class="sr-only"
-                >
-                  Receive Text Alerts
-                </span>
-              </label>
-=======
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
               </div>
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
             </div>
           </div>
           <div
@@ -234,17 +202,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
           class="card-main undefined"
         >
           <div
-<<<<<<< HEAD
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-label="Receive Email Alerts"
-            aria-required="false"
-            class="flex flex-col   "
-            role="checkbox"
-=======
             class="flex flex-col"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
           >
             <div
               aria-checked="false"
@@ -255,21 +213,9 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
               class="flex flex-col   "
               role="checkbox"
             >
-<<<<<<< HEAD
-              <input
-                aria-label="Receive Email Alerts"
-                class="checkbox    "
-                id="checkbox-receive-email-alerts"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 font-bold cursor-pointer"
-                for="checkbox-receive-email-alerts"
-=======
               <div
-                class="flex flex-row items-baseline"
+                class="flex flex-row"
                 tabindex="0"
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
               >
                 <input
                   aria-label="Receive Text Alerts"
@@ -281,30 +227,18 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                   class="ml-2  cursor-pointer"
                   for="checkbox-receive-text-alerts"
                 >
-<<<<<<< HEAD
-                  Get important plan updates, claims information and/or health and wellness topics sent to your email.
-                </p>
-                <span
-                  class="sr-only"
-                >
-                  Receive Email Alerts
-                </span>
-              </label>
-=======
                   <p
-                    class="body-1 body-bold"
+                    class="body-1 body-bold mb-2"
                     style="display: block;"
                   >
                     Receive Text Alerts
                   </p>
-                   
                   <p
-                    class="body-1 mt-2"
+                    class="body-1"
                     style="display: block;"
                   >
                     Get text alerts with plan updates and personalized health notifications.
                   </p>
-                   
                   <span
                     class="sr-only"
                   >
@@ -331,7 +265,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
               role="checkbox"
             >
               <div
-                class="flex flex-row items-baseline"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -345,19 +279,17 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                   for="checkbox-receive-email-alerts"
                 >
                   <p
-                    class="body-1 body-bold"
+                    class="body-1 body-bold mb-2"
                     style="display: block;"
                   >
                     Receive Email Alerts
                   </p>
-                   
                   <p
-                    class="body-1 mt-2"
+                    class="body-1"
                     style="display: block;"
                   >
                     Get important plan updates, claims information and/or health and wellness topics sent to your email.
                   </p>
-                   
                   <span
                     class="sr-only"
                   >
@@ -511,7 +443,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                 role="checkbox"
               >
                 <div
-                  class="flex flex-row items-baseline"
+                  class="flex flex-row"
                   tabindex="0"
                 >
                   <input
@@ -525,19 +457,17 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                     for="checkbox-receive-text-alerts"
                   >
                     <p
-                      class="body-1 body-bold"
+                      class="body-1 body-bold mb-2"
                       style="display: block;"
                     >
                       Receive Text Alerts
                     </p>
-                     
                     <p
-                      class="body-1 mt-2"
+                      class="body-1"
                       style="display: block;"
                     >
                       Get text alerts with plan updates and personalized health notifications.
                     </p>
-                     
                     <span
                       class="sr-only"
                     >
@@ -564,7 +494,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                 role="checkbox"
               >
                 <div
-                  class="flex flex-row items-baseline"
+                  class="flex flex-row"
                   tabindex="0"
                 >
                   <input
@@ -578,19 +508,17 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                     for="checkbox-receive-email-alerts"
                   >
                     <p
-                      class="body-1 body-bold"
+                      class="body-1 body-bold mb-2"
                       style="display: block;"
                     >
                       Receive Email Alerts
                     </p>
-                     
                     <p
-                      class="body-1 mt-2"
+                      class="body-1"
                       style="display: block;"
                     >
                       Get important plan updates, claims information and/or health and wellness topics sent to your email.
                     </p>
-                     
                     <span
                       class="sr-only"
                     >
@@ -599,7 +527,6 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                   </label>
                 </div>
               </div>
->>>>>>> 78086bcef70600146f4fa009101e67a1af28d37f
             </div>
           </div>
         </div>
@@ -644,7 +571,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
               role="checkbox"
             >
               <div
-                class="flex flex-row items-baseline"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -658,19 +585,17 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                   for="checkbox-receive-text-alerts"
                 >
                   <p
-                    class="body-1 body-bold"
+                    class="body-1 body-bold mb-2"
                     style="display: block;"
                   >
                     Receive Text Alerts
                   </p>
-                   
                   <p
-                    class="body-1 mt-2"
+                    class="body-1"
                     style="display: block;"
                   >
                     Get text alerts with plan updates and personalized health notifications.
                   </p>
-                   
                   <span
                     class="sr-only"
                   >
@@ -697,7 +622,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
               role="checkbox"
             >
               <div
-                class="flex flex-row items-baseline"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -711,19 +636,17 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                   for="checkbox-receive-email-alerts"
                 >
                   <p
-                    class="body-1 body-bold"
+                    class="body-1 body-bold mb-2"
                     style="display: block;"
                   >
                     Receive Email Alerts
                   </p>
-                   
                   <p
-                    class="body-1 mt-2"
+                    class="body-1"
                     style="display: block;"
                   >
                     Get important plan updates, claims information and/or health and wellness topics sent to your email.
                   </p>
-                   
                   <span
                     class="sr-only"
                   >

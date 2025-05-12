@@ -26,6 +26,17 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Your prescription and medical plan work together. CVS Caremark
+                <sup>
+                  TM
+                </sup>
+                 helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+              </span>
+            </span>
           </div>
         </div>
         <div
@@ -81,6 +92,17 @@ exports[`Pharmacy Page should not render the Prescription Payment Plan Options c
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div
@@ -193,6 +215,17 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Your prescription and medical plan work together. CVS Caremark
+                <sup>
+                  TM
+                </sup>
+                 helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+              </span>
+            </span>
           </div>
         </div>
         <div
@@ -1530,6 +1563,17 @@ exports[`Pharmacy Page should render the Prescription Payment Plan Options card 
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div

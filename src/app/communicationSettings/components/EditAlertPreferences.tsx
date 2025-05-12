@@ -16,7 +16,6 @@ import {
   AlertType,
   CommunicationSettingsAppData,
   ContactPreference,
-  PreferenceCommunication,
   Preferences,
 } from '../models/app/communicationSettingsAppData';
 
@@ -32,27 +31,50 @@ export const EditAlertPreferncesSection = ({
   alertPreferenceData,
 }: EditAlertPreferncesProps) => {
   const getDescriptions = (): Map<AlertType, Preferences> => {
+    const dynamicMap = new Map<
+      AlertType,
+      { category: string; method: string }
+    >();
+
+    alertPreferenceData.tierOne?.forEach((item) => {
+      const hText = item.description
+        .filter((desc) => desc.type === 'h')
+        .map((desc) => desc.texts)
+        .join('');
+
+      if (hText) {
+        const alertType = normalizeText(hText) as AlertType;
+        dynamicMap.set(alertType, {
+          category: item.communicationCategory,
+          method: item.communicationMethod,
+        });
+      }
+    });
+
     const pref: [AlertType, Preferences][] = (
       alertPreferenceData.tierOneDescriptions || []
     )
-      .filter(
-        (tierOneDescription) =>
-          normalizeText(tierOneDescription.hTexts.join('')) !== '',
-      )
-      .map((tierOneDescription) => [
-        normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-        {
-          hText: tierOneDescription.hTexts.join(' ').replace('&amp;', '&'),
-          pText: tierOneDescription.pTexts.join(' ').replace('&apos;', '′'),
-          selected: false,
-          category: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.category,
-          method: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.method,
-        },
-      ]);
+      .filter((tierOneDescription) => {
+        const hText = tierOneDescription.hTexts.join('');
+        return normalizeText(hText) !== '';
+      })
+      .map((tierOneDescription) => {
+        const alertType = normalizeText(
+          tierOneDescription.hTexts.join(''),
+        ) as AlertType;
+
+        return [
+          alertType,
+          {
+            hText: tierOneDescription.hTexts.join(' ').replace('&amp;', '&'),
+            pText: tierOneDescription.pTexts.join(' ').replace('&apos;', '′'),
+            selected: false,
+            category: dynamicMap.get(alertType)?.category,
+            method: dynamicMap.get(alertType)?.method,
+          },
+        ];
+      });
+
     return new Map(pref);
   };
 
