@@ -35,7 +35,31 @@ export function createChatSettings(
   userData: Record<string, any>,
   mode: 'legacy' | 'cloud',
 ): ChatSettings {
-  // Base settings from environment variables
+  // Debug all environment variables
+  logger.info('[ChatUtils] Environment variables for chat', {
+    NEXT_PUBLIC_LEGACY_CHAT_URL: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL,
+    NEXT_PUBLIC_LEGACY_CHAT_URL_TYPE:
+      typeof process.env.NEXT_PUBLIC_LEGACY_CHAT_URL,
+    NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL:
+      process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL,
+    NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL_TYPE:
+      typeof process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL,
+    NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS:
+      process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+    NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS_TYPE:
+      typeof process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+    NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT:
+      process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+    NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT_TYPE:
+      typeof process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+    mode,
+    timestamp: new Date().toISOString(),
+  });
+
+  // Use fallback values if environment variables are missing
+  const defaultEndpoint = 'https://api3.bcbst.com/stge/soa/api/cci/genesyschat';
+
+  // Base settings from environment variables with fallbacks
   const settings: ChatSettings = {
     widgetUrl: ensureString(process.env.NEXT_PUBLIC_LEGACY_CHAT_URL),
     bootstrapUrl: ensureString(process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL),
@@ -43,7 +67,7 @@ export function createChatSettings(
       process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
     ),
     clickToChatEndpoint: ensureString(
-      process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || defaultEndpoint,
     ),
     chatTokenEndpoint: ensureString(
       process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
@@ -54,6 +78,16 @@ export function createChatSettings(
     opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE),
     opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS),
   };
+
+  // Log the generated settings
+  logger.info('[ChatUtils] Generated chat settings', {
+    clickToChatEndpoint: settings.clickToChatEndpoint,
+    clickToChatEndpoint_exists: !!settings.clickToChatEndpoint,
+    bootstrapUrl_exists: !!settings.bootstrapUrl,
+    clickToChatJs_exists: !!settings.clickToChatJs,
+    mode,
+    timestamp: new Date().toISOString(),
+  });
 
   // Add user data with string conversion
   if (userData) {

@@ -1,6 +1,10 @@
 'use client';
 import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/chat/stores/chatStore';
+import {
+  logChatConfigDiagnostics,
+  validateChatConfig,
+} from '@/app/chat/utils/chatDebugger';
 import { useEffect, useState } from 'react';
 // ChatUI is deprecated and returns null anyway
 
@@ -34,6 +38,24 @@ function ChatScriptLoader() {
   // Debug chat settings - VERY IMPORTANT
   useEffect(() => {
     if (typeof window === 'undefined') return;
+
+    // Run comprehensive diagnostics on the chat configuration
+    if (chatSettings) {
+      logChatConfigDiagnostics(chatSettings);
+    } else {
+      logChatConfigDiagnostics(undefined, undefined, true);
+    }
+
+    // Debug environment variables directly
+    console.log('[ChatScriptLoader] Environment variables:', {
+      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT:
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT_TYPE:
+        typeof process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT_RAW: JSON.stringify(
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      ),
+    });
 
     console.log('ChatSettings from store:', {
       token: chatSettings?.token ? '✓ Present' : '✗ Missing',
@@ -121,6 +143,13 @@ function ChatScriptLoader() {
 
       // First, initialize chat settings object BEFORE loading click_to_chat.js
       // Use string values for everything to avoid object serialization issues
+      const endpoint =
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
+        chatSettings?.clickToChatEndpoint ||
+        'https://api3.bcbst.com/stge/soa/api/cci/genesyschat'; // Fallback value
+
+      console.log('[ChatScriptLoader] Using endpoint:', endpoint);
+
       (window as any).chatSettings = {
         isChatEligibleMember: 'true',
         isChatAvailable: 'true',
@@ -134,12 +163,7 @@ function ChatScriptLoader() {
         // Ensure token and clickToChatEndpoint are strings
         clickToChatToken:
           typeof chatSettings?.token === 'string' ? chatSettings.token : '',
-        clickToChatEndpoint:
-          typeof chatSettings?.clickToChatEndpoint === 'string'
-            ? chatSettings.clickToChatEndpoint
-            : chatSettings?.clickToChatEndpoint
-              ? JSON.stringify(chatSettings.clickToChatEndpoint)
-              : '',
+        clickToChatEndpoint: endpoint,
         opsPhone: '1-800-123-4567',
         opsPhoneHours: '24/7',
         chatHours: '24/7',
@@ -148,6 +172,24 @@ function ChatScriptLoader() {
         isDental: 'false',
         isVision: 'false',
       };
+
+      // Run validation on the window.chatSettings object
+      const validationResult = validateChatConfig(
+        chatSettings || undefined,
+        (window as any).chatSettings,
+      );
+
+      console.log(
+        '[ChatScriptLoader] Chat settings validation:',
+        validationResult,
+      );
+
+      if (!validationResult.isValid) {
+        console.warn('[ChatScriptLoader] Chat settings validation issues:', {
+          missingRequired: validationResult.missingRequired,
+          warnings: validationResult.warnings,
+        });
+      }
 
       console.log(
         '[ChatScriptLoader] Chat settings initialized:',
