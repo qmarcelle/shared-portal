@@ -38,7 +38,7 @@ export function ChatEntry() {
   useEffect(() => {
     if (session?.user?.currUsr?.plan?.memCk) {
       const memberId = session.user.currUsr.plan.memCk;
-      const planId = session.user.currUsr.plan.id;
+      const planId = session.user.currUsr.plan.grpId;
 
       logger.info('[ChatEntry] Loading chat configuration', {
         memberId,
@@ -56,7 +56,9 @@ export function ChatEntry() {
           if (store.chatData) {
             store.chatData.isEligible = true;
             store.chatData.cloudChatEligible = false;
-            store.chatData.chatAvailable = true;
+
+            // Use a type assertion to add the property
+            (store.chatData as any).chatAvailable = true;
 
             if (store.chatData.businessHours) {
               store.chatData.businessHours.isOpen = true;
@@ -96,3 +98,10 @@ export function ChatEntry() {
 
 // Also export as default for dynamic imports
 export default ChatEntry;
+
+declare global {
+  interface Window {
+    _FORCE_CHAT_AVAILABLE?: boolean;
+    _DEBUG_CHAT?: boolean;
+  }
+}
