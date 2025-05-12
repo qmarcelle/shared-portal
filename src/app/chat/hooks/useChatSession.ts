@@ -1,3 +1,4 @@
+import { ChatDataPayload } from '@/global';
 import { logger } from '@/utils/logger';
 import { useCallback, useEffect, useMemo } from 'react';
 import { ChatService } from '../services/ChatService';
@@ -106,7 +107,7 @@ export function useChatSession(options?: ChatSessionOptions) {
     setLoading,
     // ... rest of the state
   } = useChatStore();
-  
+
   // Get eligibility from selectors
   const eligibility = chatSelectors.eligibility(useChatStore());
 
@@ -119,8 +120,8 @@ export function useChatSession(options?: ChatSessionOptions) {
     });
 
     return new ChatService(
-      options?.memberId || '',
-      options?.planId || '',
+      options?.memberId?.toString() || '',
+      options?.planId?.toString() || '',
       options?.planName || '',
       options?.hasMultiplePlans || false,
       options?.onLockPlanSwitcher || (() => {}),
@@ -149,13 +150,17 @@ export function useChatSession(options?: ChatSessionOptions) {
           window.CXBus.subscribe('WebChat.opened', () => setChatActive(true));
           window.CXBus.subscribe('WebChat.closed', () => setChatActive(false));
           window.CXBus.subscribe('WebChat.error', () => setChatActive(false));
-          
+
           subs.push(
             () => window.CXBus?.unsubscribe('WebChat.opened'),
             () => window.CXBus?.unsubscribe('WebChat.closed'),
-            () => window.CXBus?.unsubscribe('WebChat.error')
+            () => window.CXBus?.unsubscribe('WebChat.error'),
           );
-        } else if (window.CXBus && typeof window.CXBus === 'object' && 'on' in window.CXBus) {
+        } else if (
+          window.CXBus &&
+          typeof window.CXBus === 'object' &&
+          'on' in window.CXBus
+        ) {
           // Use type assertions to help TypeScript understand the structure
           const cxBus = window.CXBus as {
             on: (event: string, callback: () => void) => void;
@@ -163,52 +168,64 @@ export function useChatSession(options?: ChatSessionOptions) {
               unsubscribe: (event: string) => void;
             };
           };
-          
+
           // Now use the properly typed variable
           cxBus.on('WebChat.opened', () => setChatActive(true));
           cxBus.on('WebChat.closed', () => setChatActive(false));
           cxBus.on('WebChat.error', () => setChatActive(false));
-          
+
           // Create cleanup functions
           subs.push(
             () => {
-              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+              if (
+                cxBus.runtime &&
+                typeof cxBus.runtime.unsubscribe === 'function'
+              ) {
                 cxBus.runtime.unsubscribe('WebChat.opened');
               }
             },
             () => {
-              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+              if (
+                cxBus.runtime &&
+                typeof cxBus.runtime.unsubscribe === 'function'
+              ) {
                 cxBus.runtime.unsubscribe('WebChat.closed');
               }
             },
             () => {
-              if (cxBus.runtime && typeof cxBus.runtime.unsubscribe === 'function') {
+              if (
+                cxBus.runtime &&
+                typeof cxBus.runtime.unsubscribe === 'function'
+              ) {
                 cxBus.runtime.unsubscribe('WebChat.error');
               }
-            }
+            },
           );
         }
       }
 
       // Cloud Messenger events
-      if (window.MessengerWidget && typeof window.MessengerWidget === 'object') {
+      if (
+        window.MessengerWidget &&
+        typeof window.MessengerWidget === 'object'
+      ) {
         // Type assertion to help TypeScript understand the structure
         const messenger = window.MessengerWidget as {
           on?: (event: string, callback: () => void) => void;
           off?: (event: string, callback: () => void) => void;
         };
-        
+
         if (messenger && typeof messenger.on === 'function') {
           // Define handler functions first so they can be referenced for cleanup
           const openHandler = () => setChatActive(true);
           const closeHandler = () => setChatActive(false);
           const errorHandler = () => setChatActive(false);
-          
+
           // Register event handlers
           messenger.on('open', openHandler);
           messenger.on('close', closeHandler);
           messenger.on('error', errorHandler);
-          
+
           // Create cleanup functions
           subs.push(
             () => {
@@ -225,7 +242,7 @@ export function useChatSession(options?: ChatSessionOptions) {
               if (messenger && typeof messenger.off === 'function') {
                 messenger.off('error', errorHandler);
               }
-            }
+            },
           );
         }
       }
@@ -244,7 +261,9 @@ export function useChatSession(options?: ChatSessionOptions) {
         await chatService.initialize(options?.cloudChatEligible || false);
 
         // Get the eligibility info from the store using selectors
-        const storeEligibility = chatSelectors.eligibility(useChatStore.getState());
+        const storeEligibility = chatSelectors.eligibility(
+          useChatStore.getState(),
+        );
 
         if (storeEligibility) {
           // Check hours availability
@@ -256,7 +275,7 @@ export function useChatSession(options?: ChatSessionOptions) {
           logger.info('[ChatSession] Chat eligibility check', {
             businessHours: storeEligibility.businessHours,
             hoursAvailable,
-            isEligible: storeEligibility.isEligible && hoursAvailable
+            isEligible: storeEligibility.isEligible && hoursAvailable,
           });
           // Note: We no longer directly update eligibility as it comes from the store
         } else {
@@ -309,7 +328,7 @@ export function useChatSession(options?: ChatSessionOptions) {
     try {
       setLoading(true);
       const payload = { ...options?.payload };
-      await chatService.startChat(payload);
+      await chatService.startChat(payload as ChatDataPayload);
       setChatActive(true);
       options?.onLockPlanSwitcher?.(true);
     } catch (err) {
