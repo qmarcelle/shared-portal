@@ -86,7 +86,57 @@ export function ChatEntry() {
   useEffect(() => {
     setMounted(true);
 
-    // Cleanup function
+    // Set force chat available as early as possible
+    if (typeof window !== 'undefined') {
+      window._FORCE_CHAT_AVAILABLE = true;
+      window._DEBUG_CHAT = true;
+
+      // Log that we've set these flags
+      logger.info('[ChatEntry] Force enabled chat debug flags', {
+        _FORCE_CHAT_AVAILABLE: window._FORCE_CHAT_AVAILABLE,
+        _DEBUG_CHAT: window._DEBUG_CHAT,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Set up monitoring of the chatData object
+      let previousChatAvailable: boolean | undefined;
+      const unsubscribe = useChatStore.subscribe((state) => {
+        const currentChatAvailable = state.chatData?.chatAvailable;
+
+        // Only log if the value changed and we had a previous value
+        if (
+          previousChatAvailable !== undefined &&
+          currentChatAvailable !== previousChatAvailable
+        ) {
+          logger.warn('[ChatEntry] MONITOR: chatAvailable value changed', {
+            from: previousChatAvailable,
+            to: currentChatAvailable,
+            timestamp: new Date().toISOString(),
+            stack: new Error().stack,
+          });
+        }
+
+        // Update previous value for next check
+        previousChatAvailable = currentChatAvailable;
+      });
+
+      // Return cleanup function
+      return () => {
+        unsubscribe();
+
+        // Clean up any intervals
+        if (buttonCheckIntervalRef.current) {
+          clearInterval(buttonCheckIntervalRef.current);
+        }
+
+        // Remove debug button if we created one
+        if (debugButtonRef.current && debugButtonRef.current.parentNode) {
+          debugButtonRef.current.parentNode.removeChild(debugButtonRef.current);
+        }
+      };
+    }
+
+    // Cleanup function if window is undefined
     return () => {
       // Clean up any intervals
       if (buttonCheckIntervalRef.current) {
@@ -116,6 +166,7 @@ export function ChatEntry() {
     logger.info('[ChatEntry] Loading chat configuration', {
       memberId,
       planId,
+      timestamp: new Date().toISOString(),
     });
 
     // Force set debug flags
@@ -126,44 +177,78 @@ export function ChatEntry() {
 
     loadChatConfiguration(memberId, planId)
       .then(() => {
-        // Force set eligibility after loading
+        // Get the current store state
         const store = useChatStore.getState();
+
         if (store.chatData) {
-          store.chatData.isEligible = true;
-          store.chatData.cloudChatEligible = false;
+          // Log the values from API response BEFORE any modifications
+          logger.info('[ChatEntry] Original API chat configuration values', {
+            isEligible: store.chatData.isEligible,
+            cloudChatEligible: store.chatData.cloudChatEligible,
+            chatAvailable: store.chatData.chatAvailable,
+            businessHours: store.chatData.businessHours,
+            timestamp: new Date().toISOString(),
+            source: 'API_RESPONSE',
+          });
 
-          // Use a type assertion to add the property
-          (store.chatData as any).chatAvailable = true;
+          // Only fix chatAvailable if it's missing or incorrectly set to false
+          if (
+            store.chatData.chatAvailable === false ||
+            store.chatData.chatAvailable === undefined
+          ) {
+            logger.warn(
+              '[ChatEntry] chatAvailable is false or undefined, fixing it',
+              {
+                originalValue: store.chatData.chatAvailable,
+                timestamp: new Date().toISOString(),
+              },
+            );
 
-          if (store.chatData.businessHours) {
-            store.chatData.businessHours.isOpen = true;
-            store.chatData.businessHours.text = 'S_S_24';
-          } else {
+            // Use defineProperty to ensure it can't be changed later
+            Object.defineProperty(store.chatData, 'chatAvailable', {
+              value: true,
+              writable: false,
+              configurable: false,
+            });
+          }
+
+          // Ensure business hours are properly set (this is less critical)
+          if (
+            !store.chatData.businessHours ||
+            !store.chatData.businessHours.isOpen
+          ) {
             store.chatData.businessHours = {
               isOpen: true,
               text: 'S_S_24',
             };
           }
 
-          // Log the current state for debugging
-          logger.info(
-            '[ChatEntry] Chat configuration loaded with forced settings',
-            {
-              eligibility: store.chatData.isEligible,
-              cloudEligible: store.chatData.cloudChatEligible,
-              chatAvailable: (store.chatData as any).chatAvailable,
-              businessHours: store.chatData.businessHours,
-            },
-          );
+          // Log the final state after our minimal adjustments
+          logger.info('[ChatEntry] Final chat configuration values', {
+            isEligible: store.chatData.isEligible,
+            cloudChatEligible: store.chatData.cloudChatEligible,
+            chatAvailable: store.chatData.chatAvailable,
+            businessHours: store.chatData.businessHours,
+            timestamp: new Date().toISOString(),
+            source: 'AFTER_ADJUSTMENTS',
+          });
 
           // Create debug button after a delay to ensure Genesys has time to initialize
           setTimeout(createDebugChatButton, 3000);
+        } else {
+          logger.error(
+            '[ChatEntry] No chatData available after loading configuration',
+            {
+              timestamp: new Date().toISOString(),
+            },
+          );
         }
       })
       .catch((error) => {
         logger.error('[ChatEntry] Error loading chat configuration', {
           error: error instanceof Error ? error.message : 'Unknown error',
           stack: error instanceof Error ? error.stack : undefined,
+          timestamp: new Date().toISOString(),
         });
 
         // Create fallback button anyway

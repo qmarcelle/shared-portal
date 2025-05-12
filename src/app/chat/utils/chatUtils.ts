@@ -1,4 +1,5 @@
 import { logger } from '@/utils/logger';
+import { CHAT_ENDPOINTS, getChatConfig } from '../config/endpoints';
 import { ChatSettings } from '../types/index';
 
 /**
@@ -56,24 +57,31 @@ export function createChatSettings(
     timestamp: new Date().toISOString(),
   });
 
-  // Use fallback values if environment variables are missing
-  const defaultEndpoint = 'https://api3.bcbst.com/stge/soa/api/cci/genesyschat';
+  // Get configuration from centralized config
+  const chatConfig = getChatConfig();
 
-  // Base settings from environment variables with fallbacks
+  // Use centralized endpoints with fallbacks to environment variables
   const settings: ChatSettings = {
-    widgetUrl: ensureString(process.env.NEXT_PUBLIC_LEGACY_CHAT_URL),
+    widgetUrl: ensureString(
+      process.env.NEXT_PUBLIC_LEGACY_CHAT_URL ||
+        CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL,
+    ),
     bootstrapUrl: ensureString(process.env.NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL),
     clickToChatJs: ensureString(
-      process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS,
+      process.env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS ||
+        CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL,
     ),
     clickToChatEndpoint: ensureString(
-      process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT || defaultEndpoint,
+      process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
+        chatConfig.CLICK_TO_CHAT_ENDPOINT,
     ),
     chatTokenEndpoint: ensureString(
-      process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+      process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT ||
+        chatConfig.CHAT_TOKEN_ENDPOINT,
     ),
     coBrowseEndpoint: ensureString(
-      process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+      process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT ||
+        chatConfig.COBROWSE_LICENSE_ENDPOINT,
     ),
     opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE),
     opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS),
@@ -87,6 +95,7 @@ export function createChatSettings(
     clickToChatJs_exists: !!settings.clickToChatJs,
     mode,
     timestamp: new Date().toISOString(),
+    environment: chatConfig.ENV_NAME,
   });
 
   // Add user data with string conversion

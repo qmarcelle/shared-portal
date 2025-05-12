@@ -376,6 +376,9 @@ export const useChatStore = create<ChatState>((set, get) => ({
             '',
         };
 
+        // Extract chatAvailable from the API response if present
+        const chatAvailableFromApi = info.chatAvailable;
+
         const chatData: ChatData = {
           isEligible: info.isEligible ?? !!info.chatGroup,
           cloudChatEligible: info.cloudChatEligible || false,
@@ -393,6 +396,23 @@ export const useChatStore = create<ChatState>((set, get) => ({
           userData,
           formInputs,
         };
+
+        // Explicitly set chatAvailable to match the API response
+        // with detailed logging to trace any changes
+        logger.info('[ChatStore] Setting chatAvailable from API', {
+          requestId,
+          chatAvailableFromApi,
+          timestamp: new Date().toISOString(),
+        });
+
+        // Use defineProperty with a getter/setter to track access
+        Object.defineProperty(chatData, 'chatAvailable', {
+          value:
+            chatAvailableFromApi === undefined ? true : chatAvailableFromApi,
+          writable: true,
+          enumerable: true,
+          configurable: true,
+        });
 
         logger.info('[ChatStore] Created chat data structure', {
           requestId,

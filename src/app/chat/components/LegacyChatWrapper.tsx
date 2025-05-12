@@ -1,5 +1,6 @@
 'use client';
 import '@/../public/assets/genesys/plugins/widgets.min.css';
+import { CHAT_ENDPOINTS, getChatConfig } from '@/app/chat/config/endpoints';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import {
   logChatConfigDiagnostics,
@@ -34,10 +35,27 @@ function ChatScriptLoader() {
   const [widgetsLoaded, setWidgetsLoaded] = useState(false);
   const [clickToChatLoaded, setClickToChatLoaded] = useState(false);
   const [loadingErrors, setLoadingErrors] = useState<string[]>([]);
+  const chatConfig = getChatConfig();
 
   // Debug chat settings - VERY IMPORTANT
   useEffect(() => {
     if (typeof window === 'undefined') return;
+
+    const timestamp = new Date().toISOString();
+
+    // Detailed inspection of chatData to track chatAvailable value
+    if (chatData) {
+      console.log('[ChatScriptLoader] DETAILED CHAT DATA INSPECTION', {
+        timestamp,
+        chatAvailable: chatData.chatAvailable,
+        chatAvailableType: typeof chatData.chatAvailable,
+        isEligible: chatData.isEligible,
+        cloudChatEligible: chatData.cloudChatEligible,
+        chatDataKeys: Object.keys(chatData),
+        chatDataDescriptors: Object.getOwnPropertyDescriptors(chatData),
+        source: 'LegacyChatWrapper_INITIAL',
+      });
+    }
 
     // Run comprehensive diagnostics on the chat configuration
     if (chatSettings) {
@@ -55,6 +73,13 @@ function ChatScriptLoader() {
       NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT_RAW: JSON.stringify(
         process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
       ),
+      ENVIRONMENT: chatConfig.ENV_NAME,
+      USING_ENDPOINTS: {
+        CHAT_SESSION: chatConfig.CLICK_TO_CHAT_ENDPOINT,
+        TOKEN: chatConfig.CHAT_TOKEN_ENDPOINT,
+        COBROWSE: chatConfig.COBROWSE_LICENSE_ENDPOINT,
+      },
+      timestamp,
     });
 
     console.log('ChatSettings from store:', {
@@ -70,6 +95,7 @@ function ChatScriptLoader() {
             // Add other properties as needed
           }
         : 'No chat data',
+      timestamp,
     });
 
     // Check for potential URL issues
@@ -86,7 +112,7 @@ function ChatScriptLoader() {
         'clickToChatEndpoint is an object instead of a string',
       ]);
     }
-  }, [chatSettings, chatData]);
+  }, [chatSettings, chatData, chatConfig]);
 
   // Step 1: Load the core Genesys widgets script first
   useEffect(() => {
@@ -95,8 +121,8 @@ function ChatScriptLoader() {
     console.log('[ChatScriptLoader] Beginning script load sequence');
 
     try {
-      // Hard-code script paths to avoid any issues with dynamic path construction
-      const WIDGETS_SCRIPT_PATH = '/assets/genesys/plugins/widgets.min.js';
+      // Get the widgets script path from centralized config
+      const WIDGETS_SCRIPT_PATH = CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL;
 
       // Create and load widgets.min.js directly in the document head
       const widgetsScript = document.createElement('script');
@@ -141,15 +167,15 @@ function ChatScriptLoader() {
     console.log('[ChatScriptLoader] Loading click_to_chat.js');
 
     try {
-      // Hard-code the script path
-      const CLICK_TO_CHAT_PATH = '/assets/genesys/click_to_chat.js';
+      // Get the script path from centralized config
+      const CLICK_TO_CHAT_PATH = CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL;
 
       // First, initialize chat settings object BEFORE loading click_to_chat.js
       // Use string values for everything to avoid object serialization issues
       const endpoint =
-        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
+        chatConfig.CLICK_TO_CHAT_ENDPOINT ||
         chatSettings?.clickToChatEndpoint ||
-        'https://api3.bcbst.com/stge/soa/api/cci/genesyschat'; // Fallback value
+        CHAT_ENDPOINTS.CHAT_SESSION_ENDPOINT;
 
       console.log('[ChatScriptLoader] Using endpoint:', endpoint);
 
@@ -159,16 +185,19 @@ function ChatScriptLoader() {
         chatData?.chatAvailable || chatData?.isEligible
       );
 
-      console.log('[ChatScriptLoader] Chat availability status:', {
+      // Double check all relevant properties
+      console.log('[ChatScriptLoader] Chat availability status (DETAILED):', {
         chatAvailable: chatData?.chatAvailable,
+        chatAvailableType: typeof chatData?.chatAvailable,
         isEligible: chatData?.isEligible,
         cloudChatEligible: chatData?.cloudChatEligible,
         finalDecision: isChatAvailable ? 'AVAILABLE' : 'NOT AVAILABLE',
+        chatData: JSON.stringify(chatData),
       });
 
       (window as any).chatSettings = {
-        isChatEligibleMember: isChatAvailable ? 'true' : 'false',
-        isChatAvailable: isChatAvailable ? 'true' : 'false',
+        isChatEligibleMember: isChatAvailable ? 'true' : 'false', // Use corrected eligibility check
+        isChatAvailable: isChatAvailable ? 'true' : 'false', // Use corrected eligibility check
         isDemoMember: 'true',
         chatGroup:
           typeof chatData?.chatGroup === 'string'
@@ -246,7 +275,7 @@ function ChatScriptLoader() {
         script.parentNode.removeChild(script);
       }
     };
-  }, [widgetsLoaded, chatData, chatSettings]);
+  }, [widgetsLoaded, chatData, chatSettings, chatConfig]);
 
   // Step 3: Create the chat button if needed
   useEffect(() => {
@@ -261,13 +290,16 @@ function ChatScriptLoader() {
         chatData?.chatAvailable || chatData?.isEligible
       );
 
-      console.log('[ChatScriptLoader] Should enable button?', {
+      console.log('[ChatScriptLoader] Should enable button? (DETAILED)', {
         chatAvailable: chatData?.chatAvailable,
+        chatAvailableType: typeof chatData?.chatAvailable,
         isEligible: chatData?.isEligible,
+        chatDataKeys: chatData ? Object.keys(chatData) : [],
+        forceEnabled: window._FORCE_CHAT_AVAILABLE,
         decision: shouldEnableButton ? 'YES' : 'NO',
       });
 
-      if (shouldEnableButton) {
+      if (shouldEnableButton || window._FORCE_CHAT_AVAILABLE) {
         if (typeof (window as any).enableChatButton === 'function') {
           try {
             console.log('[ChatScriptLoader] Calling enableChatButton()');
@@ -348,9 +380,9 @@ function ChatScriptLoader() {
  * Handles loading Genesys chat scripts and creating chat button
  */
 export function LegacyChatWrapper() {
+  // The stylesheet is imported at the top of the file, no need for link tag
   return (
     <>
-      <link rel="stylesheet" href="/assets/genesys/plugins/widgets.min.css" />
       <div id="genesys-chat-container"></div>
       <ClientOnly>
         <ChatScriptLoader />
