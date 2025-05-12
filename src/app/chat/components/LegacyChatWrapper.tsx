@@ -1,26 +1,227 @@
 'use client';
 import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { useChatStore } from '@/app/chat/stores/chatStore';
-import { logger } from '@/utils/logger';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 // ChatUI is deprecated and returns null anyway
 
+// Create a ClientOnly wrapper to prevent hydration issues
+function ClientOnly({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return <>{children}</>;
+}
+
 /**
- * Legacy chat implementation wrapper
- * Handles loading Genesys chat scripts and creating chat button
+ * ChatScriptLoader - Component that loads Genesys scripts
+ * This component handles the loading and initialization of the legacy chat
+ * scripts correctly.
  */
-export function LegacyChatWrapper() {
-  const scriptRef1 = useRef<HTMLScriptElement | null>(null);
-  const scriptRef2 = useRef<HTMLScriptElement | null>(null);
-  const [scriptsLoaded, setScriptsLoaded] = useState(false);
+function ChatScriptLoader() {
   const chatData = useChatStore((state) => state.chatData);
   const chatSettings = useChatStore((state) => state.chatSettings);
+  const [widgetsLoaded, setWidgetsLoaded] = useState(false);
+  const [clickToChatLoaded, setClickToChatLoaded] = useState(false);
+  const [loadingErrors, setLoadingErrors] = useState<string[]>([]);
 
-  // Function to create a button if the Genesys scripts fail to load
-  const createDebugButton = () => {
-    if (typeof document === 'undefined') return;
+  // Debug chat settings - VERY IMPORTANT
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
 
-    // Check if button already exists
+    console.log('ChatSettings from store:', {
+      token: chatSettings?.token ? '✓ Present' : '✗ Missing',
+      serviceUrl: chatSettings?.serviceUrl,
+      chatData: chatData
+        ? {
+            chatGroup: chatData.chatGroup,
+            isEligible: chatData.isEligible,
+            // Add other properties as needed
+          }
+        : 'No chat data',
+    });
+
+    // Check for potential URL issues
+    if (
+      chatSettings?.serviceUrl &&
+      typeof chatSettings.serviceUrl === 'object'
+    ) {
+      console.error(
+        'ERROR: serviceUrl is an object, not a string:',
+        chatSettings.serviceUrl,
+      );
+      setLoadingErrors((prev) => [
+        ...prev,
+        'serviceUrl is an object instead of a string',
+      ]);
+    }
+  }, [chatSettings, chatData]);
+
+  // Step 1: Load the core Genesys widgets script first
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    console.log('[ChatScriptLoader] Beginning script load sequence');
+
+    try {
+      // Hard-code script paths to avoid any issues with dynamic path construction
+      const WIDGETS_SCRIPT_PATH = '/assets/genesys/plugins/widgets.min.js';
+
+      // Create and load widgets.min.js directly in the document head
+      const widgetsScript = document.createElement('script');
+      widgetsScript.src = WIDGETS_SCRIPT_PATH;
+      widgetsScript.async = false; // Load this synchronously
+      widgetsScript.id = 'genesys-widgets-script';
+
+      widgetsScript.onload = () => {
+        console.log('[ChatScriptLoader] widgets.min.js loaded successfully');
+        setWidgetsLoaded(true);
+      };
+
+      widgetsScript.onerror = (error) => {
+        const errorMsg = `Failed to load widgets.min.js from ${WIDGETS_SCRIPT_PATH}`;
+        console.error('[ChatScriptLoader] ' + errorMsg, error);
+        setLoadingErrors((prev) => [...prev, errorMsg]);
+      };
+
+      // Add the script to the document
+      if (!document.getElementById('genesys-widgets-script')) {
+        document.head.appendChild(widgetsScript);
+      }
+    } catch (error) {
+      const errorMsg = `Exception loading widgets.min.js: ${error}`;
+      console.error('[ChatScriptLoader] ' + errorMsg);
+      setLoadingErrors((prev) => [...prev, errorMsg]);
+    }
+
+    // Clean up on unmount
+    return () => {
+      const script = document.getElementById('genesys-widgets-script');
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
+  // Step 2: Once widgets script is loaded, load the click_to_chat.js
+  useEffect(() => {
+    if (!widgetsLoaded || typeof window === 'undefined') return;
+
+    console.log('[ChatScriptLoader] Loading click_to_chat.js');
+
+    try {
+      // Hard-code the script path
+      const CLICK_TO_CHAT_PATH = '/assets/genesys/click_to_chat.js';
+
+      // First, initialize chat settings object BEFORE loading click_to_chat.js
+      // Use string values for everything to avoid object serialization issues
+      (window as any).chatSettings = {
+        isChatEligibleMember: 'true',
+        isChatAvailable: 'true',
+        isDemoMember: 'true',
+        chatGroup:
+          typeof chatData?.chatGroup === 'string'
+            ? chatData.chatGroup
+            : 'Default',
+        formattedFirstName: 'Member',
+        memberLastName: 'User',
+        // Ensure token and serviceUrl are strings
+        clickToChatToken:
+          typeof chatSettings?.token === 'string' ? chatSettings.token : '',
+        clickToChatEndpoint:
+          typeof chatSettings?.serviceUrl === 'string'
+            ? chatSettings.serviceUrl
+            : chatSettings?.serviceUrl
+              ? JSON.stringify(chatSettings.serviceUrl)
+              : '',
+        opsPhone: '1-800-123-4567',
+        opsPhoneHours: '24/7',
+        chatHours: '24/7',
+        rawChatHours: 'S_S_24',
+        isMedical: 'true',
+        isDental: 'false',
+        isVision: 'false',
+      };
+
+      console.log(
+        '[ChatScriptLoader] Chat settings initialized:',
+        (window as any).chatSettings,
+      );
+
+      // Now load the click_to_chat.js script
+      const clickToChatScript = document.createElement('script');
+      clickToChatScript.src = CLICK_TO_CHAT_PATH;
+      clickToChatScript.async = false; // Load this synchronously too
+      clickToChatScript.id = 'genesys-click-to-chat-script';
+
+      clickToChatScript.onload = () => {
+        console.log('[ChatScriptLoader] click_to_chat.js loaded successfully');
+        setClickToChatLoaded(true);
+      };
+
+      clickToChatScript.onerror = (error) => {
+        const errorMsg = `Failed to load click_to_chat.js from ${CLICK_TO_CHAT_PATH}`;
+        console.error('[ChatScriptLoader] ' + errorMsg, error);
+        setLoadingErrors((prev) => [...prev, errorMsg]);
+      };
+
+      // Add the script to the document
+      if (!document.getElementById('genesys-click-to-chat-script')) {
+        document.head.appendChild(clickToChatScript);
+      }
+    } catch (error) {
+      const errorMsg = `Exception loading click_to_chat.js: ${error}`;
+      console.error('[ChatScriptLoader] ' + errorMsg);
+      setLoadingErrors((prev) => [...prev, errorMsg]);
+    }
+
+    // Clean up on unmount
+    return () => {
+      const script = document.getElementById('genesys-click-to-chat-script');
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, [widgetsLoaded, chatData, chatSettings]);
+
+  // Step 3: Create the chat button if needed
+  useEffect(() => {
+    if (!clickToChatLoaded || typeof window === 'undefined') return;
+
+    console.log('[ChatScriptLoader] Initializing chat button');
+
+    // Give time for scripts to initialize
+    const timeoutId = setTimeout(() => {
+      // Force enable the chat button
+      if (typeof (window as any).enableChatButton === 'function') {
+        try {
+          console.log('[ChatScriptLoader] Calling enableChatButton()');
+          (window as any).enableChatButton();
+        } catch (error) {
+          console.error(
+            '[ChatScriptLoader] Error calling enableChatButton:',
+            error,
+          );
+          createFallbackButton();
+        }
+      } else {
+        console.warn('[ChatScriptLoader] enableChatButton function not found');
+        createFallbackButton();
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [clickToChatLoaded]);
+
+  // Function to create a fallback button if needed
+  function createFallbackButton() {
+    console.log('[ChatScriptLoader] Creating fallback button');
     if (document.querySelector('#debug-chat-btn')) return;
 
     const button = document.createElement('button');
@@ -41,122 +242,39 @@ export function LegacyChatWrapper() {
     };
 
     document.body.appendChild(button);
-  };
+    console.log('[ChatScriptLoader] Fallback button created');
+  }
 
-  // Load and initialize the chat scripts
-  useEffect(() => {
-    // Only run on client side
-    if (typeof window === 'undefined') return;
+  // Show loading errors if any
+  if (loadingErrors.length > 0) {
+    return (
+      <div style={{ display: 'none' }}>
+        {/* Hidden debugging div */}
+        <div
+          id="chat-loading-errors"
+          data-errors={JSON.stringify(loadingErrors)}
+        />
+      </div>
+    );
+  }
 
-    // Create the settings object to be used by the scripts
-    // Using type assertion to avoid TypeScript errors
-    (window as any).chatSettings = {
-      isChatEligibleMember: 'true',
-      isChatAvailable: 'true',
-      isDemoMember: 'true',
-      chatGroup: chatData?.chatGroup || 'Default',
-      formattedFirstName: 'Member',
-      memberLastName: 'User',
-      clickToChatToken: chatSettings?.token || '',
-      clickToChatEndpoint: chatSettings?.serviceUrl || '',
-      opsPhone: '1-800-123-4567',
-      opsPhoneHours: '24/7',
-      chatHours: '24/7',
-      rawChatHours: 'S_S_24',
-      isMedical: 'true',
-      isDental: 'false',
-      isVision: 'false',
-    };
+  return null; // This component doesn't render anything visible
+}
 
-    // Load widgets.min.js
-    if (!scriptRef1.current) {
-      const script1 = document.createElement('script');
-      script1.src = '/assets/genesys/plugins/widgets.min.js';
-      script1.async = true;
-      script1.onload = () => {
-        logger.info('[LegacyChatWrapper] widgets.min.js loaded');
-
-        // Only load second script after first one loads
-        if (!scriptRef2.current) {
-          const script2 = document.createElement('script');
-          script2.src = '/assets/genesys/click_to_chat.js';
-          script2.async = true;
-          script2.onload = () => {
-            logger.info('[LegacyChatWrapper] click_to_chat.js loaded');
-            setScriptsLoaded(true);
-          };
-          script2.onerror = () => {
-            logger.error('[LegacyChatWrapper] Failed to load click_to_chat.js');
-            createDebugButton();
-          };
-          document.body.appendChild(script2);
-          scriptRef2.current = script2;
-        }
-      };
-      script1.onerror = () => {
-        logger.error('[LegacyChatWrapper] Failed to load widgets.min.js');
-        createDebugButton();
-      };
-      document.body.appendChild(script1);
-      scriptRef1.current = script1;
-    }
-
-    // Cleanup function
-    return () => {
-      // Remove scripts when component unmounts
-      if (scriptRef1.current && scriptRef1.current.parentNode) {
-        scriptRef1.current.parentNode.removeChild(scriptRef1.current);
-        scriptRef1.current = null;
-      }
-      if (scriptRef2.current && scriptRef2.current.parentNode) {
-        scriptRef2.current.parentNode.removeChild(scriptRef2.current);
-        scriptRef2.current = null;
-      }
-    };
-  }, [chatData, chatSettings]);
-
-  // Force chat button to be shown
-  useEffect(() => {
-    if (!scriptsLoaded) return;
-
-    logger.info('[LegacyChatWrapper] Scripts loaded, checking for chat button');
-
-    // Create a timeout to ensure the scripts have time to initialize
-    const timeoutId = setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        // Try to find the button
-        const chatButton = document.querySelector('.cx-webchat-chat-button');
-
-        if (chatButton) {
-          logger.info('[LegacyChatWrapper] Chat button found, applying styles');
-          chatButton.setAttribute(
-            'style',
-            'display: flex; opacity: 1; visibility: visible; background-color: #0078d4; color: white; padding: 10px 20px; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); position: fixed; right: 20px; bottom: 20px; z-index: 9999;',
-          );
-
-          // Ensure button text is correct
-          if (chatButton.textContent?.includes('Debug:')) {
-            chatButton.textContent = 'Chat Now';
-          }
-        } else {
-          logger.warn(
-            '[LegacyChatWrapper] No chat button found, creating debug button',
-          );
-          createDebugButton();
-        }
-
-        // Try to use the enableChatButton function if it exists
-        if (typeof (window as any).enableChatButton === 'function') {
-          logger.info('[LegacyChatWrapper] Calling enableChatButton()');
-          (window as any).enableChatButton();
-        }
-      }
-    }, 2000);
-
-    return () => clearTimeout(timeoutId);
-  }, [scriptsLoaded]);
-
-  return <div id="genesys-chat-container"></div>;
+/**
+ * Legacy chat implementation wrapper
+ * Handles loading Genesys chat scripts and creating chat button
+ */
+export function LegacyChatWrapper() {
+  return (
+    <>
+      <link rel="stylesheet" href="/assets/genesys/plugins/widgets.min.css" />
+      <div id="genesys-chat-container"></div>
+      <ClientOnly>
+        <ChatScriptLoader />
+      </ClientOnly>
+    </>
+  );
 }
 
 export default LegacyChatWrapper;
