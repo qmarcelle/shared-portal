@@ -1,5 +1,6 @@
 'use client';
 
+import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { chatSelectors, useChatStore } from '../stores/chatStore';
@@ -39,8 +40,15 @@ export function ChatEntry() {
 
     setIsClientSide(true);
 
-    const memberId = session.user.currUsr.umpi || session.user.currUsr.fhirId;
+    // Fix: Use the correct property for member ID from the session
+    const memberId =
+      session.user.currUsr.plan.memCk || session.user.currUsr.umpi;
     const planId = session.user.currUsr.plan.grpId;
+
+    logger.info('[ChatEntry] Loading chat configuration', {
+      memberId,
+      planId,
+    });
 
     // Load chat configuration with user data
     loadChatConfiguration(memberId, planId)

@@ -140,14 +140,52 @@ export async function GET(request: NextRequest) {
       memberId,
       memberType,
       planId,
+      statusCode: error.response?.status,
+      responseData: error.response?.data,
     });
 
-    // Return appropriate status code based on the error
-    const status = error.response?.status || 500;
-    const errorMessage =
-      error.response?.data?.message || 'Failed to fetch chat info';
+    try {
+      // Attempt to capture more details about the error response
+      const errorDetails = {
+        message: error.message,
+        status: error.response?.status || 500,
+        statusText: error.response?.statusText || 'Internal Server Error',
+        headers: error.response?.headers
+          ? Object.fromEntries(Object.entries(error.response.headers))
+          : {},
+        data: error.response?.data || {},
+      };
 
-    // Return a proper error response to the client
-    return NextResponse.json({ error: errorMessage }, { status });
+      logger.error('[API:chat/getChatInfo] Detailed error information', {
+        correlationId,
+        errorDetails,
+      });
+
+      // Return a proper error response to the client with as much detail as possible
+      return NextResponse.json(
+        {
+          error: errorDetails.message || 'Failed to fetch chat info',
+          status: errorDetails.status,
+          details: errorDetails.data,
+        },
+        { status: errorDetails.status },
+      );
+    } catch (logError) {
+      // If enhanced error logging fails, fall back to basic error response
+      logger.error(
+        '[API:chat/getChatInfo] Error during enhanced error logging',
+        {
+          correlationId,
+          logError:
+            logError instanceof Error ? logError.message : 'Unknown error',
+        },
+      );
+
+      // Return a basic error response
+      return NextResponse.json(
+        { error: 'Failed to fetch chat info' },
+        { status: 500 },
+      );
+    }
   }
 }
