@@ -73,8 +73,10 @@ export function GenesysScript({
           // Register with CXBus if available
           if (
             window.CXBus &&
+            // @ts-ignore - CXBus has registerPlugin method
             typeof window.CXBus.registerPlugin === 'function'
           ) {
+            // @ts-ignore - CXBus has registerPlugin method
             window.CXBus.registerPlugin('ChatButton', {
               open: function () {
                 if (

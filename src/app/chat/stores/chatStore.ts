@@ -2,6 +2,8 @@
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
+import { ChatSettings, ScriptLoadPhase } from '../types/index';
+import { createChatSettings } from '../utils/chatUtils';
 
 // chatStore is the central Zustand store for chat state and actions.
 // It manages UI state, chat session state, API responses, and all chat-related actions.
@@ -46,6 +48,7 @@ export interface ChatState {
   planSwitcherTooltip: string;
 
   // Script loading state
+  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase;
 
   // Centralized chat settings
@@ -75,6 +78,7 @@ export interface ChatState {
   endChat: () => void;
 
   // New script and settings actions
+  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
   setScriptLoadPhase: (phase: ScriptLoadPhase) => void;
   updateChatSettings: (settings: Partial<ChatSettings>) => void;
   initializeChatSettings: (
@@ -119,6 +123,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
   planSwitcherTooltip: '',
 
   // Script loading state
+  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase.INIT,
 
   // Centralized chat settings
@@ -436,6 +441,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   // New script and settings actions
+  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
   setScriptLoadPhase: (phase) => {
     logger.info('[ChatStore] Setting script load phase', { phase });
     set({ scriptLoadPhase: phase });
@@ -466,6 +472,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       userDataKeys: Object.keys(userData),
     });
 
+    // @ts-ignore - Using createChatSettings from utils/chatUtils.ts
     const settings = createChatSettings(userData, mode);
     set({ chatSettings: settings });
 

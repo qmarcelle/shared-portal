@@ -1,3 +1,4 @@
+import { ChatSettings } from './app/chat/types';
 import { OAuth } from './models/enterprise/oAuth';
 
 declare global {
@@ -11,16 +12,7 @@ declare global {
     _pingOneSignals: PingOneSignals;
     _pingOneSignalsReady: boolean;
     dataLayer: Record<string, unknown>[];
-    chatSettings?: {
-      widgetUrl: string;
-      clickToChatJs: string;
-      clickToChatEndpoint: string;
-      chatTokenEndpoint: string;
-      coBrowseEndpoint: string;
-      opsPhone: string;
-      opsPhoneHours: string;
-      [key: string]: any;
-    };
+    chatSettings?: ChatSettings;
     startChat?: () => void;
     endChat?: () => void;
     startCoBrowseCall?: () => void;
