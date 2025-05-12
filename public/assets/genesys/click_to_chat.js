@@ -836,6 +836,11 @@
           hideDuringInvite: false,
         };
 
+        // Debug mode fixes - override default behavior that shows Debug:Open Chat
+        if (window._genesys.widgets.main) {
+          window._genesys.widgets.main.debug = false; // Disable debug mode
+        }
+
         // Configure button position and appearance
         window._genesys.widgets.webchat.position = {
           right: { px: 20 },
@@ -846,7 +851,7 @@
 
         console.log('[Genesys] DEBUG: Chat button force-enabled');
 
-        // Force button visibility
+        // Force button visibility and override any debug styling
         setTimeout(function () {
           const chatButton = document.querySelector('.cx-webchat-chat-button');
           if (chatButton) {
@@ -860,6 +865,12 @@
             chatButton.style.cursor = 'pointer';
             chatButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
             chatButton.style.zIndex = '9999';
+
+            // Override the debug text if present
+            if (chatButton.textContent.includes('Debug:')) {
+              chatButton.textContent = 'Chat Now';
+            }
+
             console.log(
               '[Genesys] Enhanced chat button visibility and styling',
             );
@@ -1109,44 +1120,88 @@
 
 // Configuration function for the Genesys chat button
 function enableChatButton() {
-  console.log('[Genesys] Attempting to configure chat button...');
+  console.log('[Genesys] Forcing chat button enablement - DEBUG MODE');
 
-  // Check if Genesys widgets are available
-  if (
-    window._genesys &&
-    window._genesys.widgets &&
-    window._genesys.widgets.webchat
-  ) {
-    // Configure the chat button
+  if (window._genesys && window._genesys.widgets) {
+    // FORCE ENABLE - override any server-side eligibility settings
+    if (!window._genesys.widgets.webchat) {
+      window._genesys.widgets.webchat = {};
+    }
+
+    // Force enable the chat button regardless of server settings
     window._genesys.widgets.webchat.chatButton = {
-      enabled: true,
+      enabled: true, // Force to true
+      template:
+        '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
       openDelay: 100,
       effectDuration: 200,
       hideDuringInvite: false,
-      template:
-        '<div class="cx-widget cx-webchat-chat-button cx-side-button polished-chat-button">Chat Now</div>',
     };
+
+    // Debug mode fixes - override default behavior that shows Debug:Open Chat
+    if (window._genesys.widgets.main) {
+      window._genesys.widgets.main.debug = false; // Disable debug mode
+    }
 
     // Configure button position and appearance
     window._genesys.widgets.webchat.position = {
-      right: { px: 0 },
+      right: { px: 20 },
       bottom: { px: 20 },
-      width: { px: 64 },
-      height: { px: 64 },
+      width: { px: 'auto' },
+      height: { px: 'auto' },
     };
 
-    console.log('Chat button enabled and configured.');
+    console.log('[Genesys] DEBUG: Chat button force-enabled');
 
-    // Force button visibility if it hasn't appeared
+    // Force button visibility and override any debug styling
     setTimeout(function () {
-      // Add class to ensure button visibility
       const chatButton = document.querySelector('.cx-webchat-chat-button');
       if (chatButton) {
         chatButton.style.display = 'flex';
         chatButton.style.opacity = '1';
-        console.log('[Genesys] Enhanced chat button visibility');
+        chatButton.style.visibility = 'visible';
+        chatButton.style.backgroundColor = '#0078d4';
+        chatButton.style.color = 'white';
+        chatButton.style.padding = '10px 20px';
+        chatButton.style.borderRadius = '4px';
+        chatButton.style.cursor = 'pointer';
+        chatButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+        chatButton.style.zIndex = '9999';
+
+        // Override the debug text if present
+        if (chatButton.textContent.includes('Debug:')) {
+          chatButton.textContent = 'Chat Now';
+        }
+
+        console.log('[Genesys] Enhanced chat button visibility and styling');
       } else {
-        console.log('[Genesys] Chat button not found in DOM');
+        console.log(
+          '[Genesys] Chat button not found in DOM, manually creating it',
+        );
+        // Create the button if it doesn't exist
+        const newButton = document.createElement('div');
+        newButton.className = 'cx-widget cx-webchat-chat-button cx-side-button';
+        newButton.textContent = 'Chat Now';
+        newButton.style.position = 'fixed';
+        newButton.style.right = '20px';
+        newButton.style.bottom = '20px';
+        newButton.style.backgroundColor = '#0078d4';
+        newButton.style.color = 'white';
+        newButton.style.padding = '10px 20px';
+        newButton.style.borderRadius = '4px';
+        newButton.style.cursor = 'pointer';
+        newButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+        newButton.style.zIndex = '9999';
+
+        newButton.onclick = function () {
+          if (window.CXBus && typeof window.CXBus.command === 'function') {
+            window.CXBus.command('WebChat.open');
+          } else if (window.openGenesysChat) {
+            window.openGenesysChat();
+          }
+        };
+
+        document.body.appendChild(newButton);
       }
     }, 2000);
 
@@ -1159,8 +1214,6 @@ function enableChatButton() {
   }
 }
 
-// Track retry count to prevent infinite loops
-let retryCount = 0;
 const MAX_RETRIES = 10;
 
 // Function to initialize chat when the page loads
