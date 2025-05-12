@@ -1244,8 +1244,6 @@ function enableChatButton() {
         document.body.appendChild(newButton);
       }
     }, 2000);
-
-    return true;
   } else {
     console.warn(
       '[Genesys] Genesys widgets not fully initialized, will retry...',
@@ -1319,13 +1317,166 @@ window._genesysCXBusRetryCount = 0;
 
 // Expose global functions for manual triggering if needed
 window.openGenesysChat = function () {
-  console.log('[Genesys] Manual chat open requested');
+  console.log('[GenesysChat] Opening chat window...');
 
+  // Make sure CXBus is available
   if (window.CXBus && typeof window.CXBus.command === 'function') {
-    window.CXBus.command('WebChat.open');
+    try {
+      // First try to bootstrap the WebChat
+      console.log('[GenesysChat] Bootstrapping WebChat...');
+      window.CXBus.command('WebChat.bootstrap')
+        .done(function () {
+          console.log(
+            '[GenesysChat] Bootstrap succeeded, configuring WebChat...',
+          );
+
+          // Then configure WebChat
+          window.CXBus.command('WebChat.configure', {
+            form: {
+              autoSubmit: true,
+              formData: {
+                firstName: 'Member',
+                lastName: 'User',
+              },
+            },
+          })
+            .done(function () {
+              console.log(
+                '[GenesysChat] Configure succeeded, opening WebChat...',
+              );
+
+              // Finally open WebChat
+              window.CXBus.command('WebChat.open', {
+                form: {
+                  autoSubmit: true,
+                  formData: {
+                    firstName: 'Member',
+                    lastName: 'User',
+                    subject: 'Chat Request',
+                  },
+                },
+              })
+                .done(function (e) {
+                  console.log('[GenesysChat] WebChat.open succeeded', e);
+                })
+                .fail(function (e) {
+                  console.error('[GenesysChat] WebChat.open failed', e);
+                  fallbackOpenChat();
+                });
+            })
+            .fail(function (e) {
+              console.error('[GenesysChat] WebChat.configure failed', e);
+              fallbackOpenChat();
+            });
+        })
+        .fail(function (e) {
+          console.error('[GenesysChat] WebChat.bootstrap failed', e);
+          fallbackOpenChat();
+        });
+    } catch (e) {
+      console.error('[GenesysChat] Error opening chat:', e);
+      fallbackOpenChat();
+    }
   } else {
-    console.error('[Genesys] CXBus not available for manual triggering');
+    console.error('[GenesysChat] CXBus or command function not available');
+    alert('Chat service is not available. Please try again later.');
   }
+};
+
+// Fallback method to open chat
+function fallbackOpenChat() {
+  console.log('[GenesysChat] Using fallback methods to open chat');
+
+  // Try different approaches to open the chat
+  try {
+    // Try CXBus publish
+    if (window.CXBus && typeof window.CXBus.publish === 'function') {
+      console.log('[GenesysChat] Using CXBus.publish');
+      window.CXBus.publish('WebChat.open');
+      return;
+    }
+
+    // Try direct _genesys access
+    if (
+      window._genesys &&
+      window._genesys.widgets &&
+      window._genesys.widgets.webchat
+    ) {
+      console.log('[GenesysChat] Using _genesys.widgets.webchat.open');
+      window._genesys.widgets.webchat.open();
+      return;
+    }
+
+    // Last resort - try to manually create and trigger a chat button
+    console.log('[GenesysChat] Creating emergency chat button');
+    const button = document.createElement('div');
+    button.className = 'cx-widget cx-webchat-chat-button cx-side-button';
+    button.style.cssText = [
+      'display: block !important',
+      'visibility: visible !important',
+      'position: fixed !important',
+      'right: 20px !important',
+      'bottom: 20px !important',
+      'background-color: #0078d4 !important',
+      'color: white !important',
+      'padding: 10px 20px !important',
+      'border-radius: 4px !important',
+      'cursor: pointer !important',
+      'z-index: 99999 !important',
+      'font-family: sans-serif !important',
+      'box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important',
+    ].join(';');
+    button.textContent = 'Chat Now';
+    document.body.appendChild(button);
+
+    console.log(
+      '[GenesysChat] All fallback methods failed, added emergency button',
+    );
+  } catch (e) {
+    console.error('[GenesysChat] Fallback methods failed:', e);
+  }
+}
+
+// Debug function to help troubleshoot
+window.debugGenesysChat = function () {
+  console.log('=== GENESYS CHAT DEBUG ===');
+  console.log('CXBus available:', typeof window.CXBus !== 'undefined');
+  console.log('_genesys object:', window._genesys);
+  console.log('chatSettings:', window.chatSettings);
+  console.log('GenesysWebChat:', typeof window.GenesysWebChat);
+
+  if (window.CXBus && typeof window.CXBus.subscribe === 'function') {
+    // Register for all events to see what's happening
+    window.CXBus.subscribe('*', function (event) {
+      console.log('CXBus Event:', event);
+    });
+  }
+
+  // Try to manually force the widget to initialize
+  if (window.CXBus && typeof window.CXBus.command === 'function') {
+    try {
+      window.CXBus.command('WebChat.renderPopup', {});
+      console.log('Attempted to render popup');
+    } catch (e) {
+      console.error('Error rendering popup:', e);
+    }
+  }
+
+  // Check DOM for critical elements
+  const chatButton = document.querySelector('.cx-webchat-chat-button');
+  const chatWindow = document.querySelector('.cx-widget.cx-webchat');
+
+  console.log('Chat button in DOM:', !!chatButton);
+  console.log('Chat window in DOM:', !!chatWindow);
+
+  // Return a diagnostic summary
+  return {
+    cxBusAvailable: typeof window.CXBus !== 'undefined',
+    genesysConfigured: !!window._genesys?.widgets?.webchat,
+    chatSettingsPresent: !!window.chatSettings,
+    chatButtonInDOM: !!chatButton,
+    chatWindowInDOM: !!chatWindow,
+  };
 };
 
 // Single event listener function that we can add/remove
