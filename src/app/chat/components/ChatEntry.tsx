@@ -98,6 +98,94 @@ export function ChatEntry() {
         timestamp: new Date().toISOString(),
       });
 
+      // DIRECT SCRIPT LOADING - Ensure chat scripts are loaded directly
+      logger.info(
+        '[ChatEntry] Directly loading Genesys scripts from ChatEntry',
+      );
+
+      // Step 1: Load the CSS first
+      try {
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href =
+          '/assets/genesys/plugins/widgets.min.css?cb=' + Date.now();
+        cssLink.id = 'genesys-widgets-css';
+
+        if (!document.getElementById('genesys-widgets-css')) {
+          document.head.appendChild(cssLink);
+          logger.info('[ChatEntry] Genesys CSS added to document head');
+        }
+      } catch (cssError) {
+        logger.error('[ChatEntry] Error loading Genesys CSS:', cssError);
+      }
+
+      // Step 2: Load widgets.min.js directly
+      try {
+        const widgetsScript = document.createElement('script');
+        widgetsScript.src =
+          '/assets/genesys/plugins/widgets.min.js?cb=' + Date.now();
+        widgetsScript.async = false;
+        widgetsScript.id = 'genesys-widgets-script';
+
+        if (!document.getElementById('genesys-widgets-script')) {
+          document.head.appendChild(widgetsScript);
+          logger.info(
+            '[ChatEntry] widgets.min.js script added to document head',
+          );
+
+          // Step 3: Load click_to_chat.js after widgets.min.js
+          widgetsScript.onload = () => {
+            try {
+              // Initialize chat settings before loading click_to_chat.js
+              // Use 'any' type assertion to bypass the type checking
+              (window as any).chatSettings = {
+                isChatEligibleMember: 'true',
+                isChatAvailable: 'true',
+                isDemoMember: 'true',
+                chatGroup: 'Default',
+                formattedFirstName: 'Member',
+                memberLastName: 'User',
+                clickToChatToken: '',
+                clickToChatEndpoint: '/api/chat/message',
+                opsPhone: '1-800-123-4567',
+                opsPhoneHours: '24/7',
+                chatHours: '24/7',
+                rawChatHours: 'S_S_24',
+                isMedical: 'true',
+                isDental: 'false',
+                isVision: 'false',
+                // Add the required fields from ChatSettings to satisfy TypeScript
+                widgetUrl: '/assets/genesys/plugins/widgets.min.js',
+                bootstrapUrl: '',
+                clickToChatJs: '/assets/genesys/click_to_chat.js',
+                chatTokenEndpoint: '/api/chat/token',
+                coBrowseEndpoint: '',
+              };
+
+              const clickToChatScript = document.createElement('script');
+              clickToChatScript.src =
+                '/assets/genesys/click_to_chat.js?cb=' + Date.now();
+              clickToChatScript.async = false;
+              clickToChatScript.id = 'genesys-click-to-chat-script';
+
+              if (!document.getElementById('genesys-click-to-chat-script')) {
+                document.head.appendChild(clickToChatScript);
+                logger.info(
+                  '[ChatEntry] click_to_chat.js script added to document head',
+                );
+              }
+            } catch (clickToChatError) {
+              logger.error(
+                '[ChatEntry] Error loading click_to_chat.js:',
+                clickToChatError,
+              );
+            }
+          };
+        }
+      } catch (widgetsError) {
+        logger.error('[ChatEntry] Error loading widgets.min.js:', widgetsError);
+      }
+
       // Set up monitoring of the chatData object
       let previousChatAvailable: boolean | undefined;
       const unsubscribe = useChatStore.subscribe((state) => {
