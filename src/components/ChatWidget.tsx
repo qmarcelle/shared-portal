@@ -1,8 +1,14 @@
 'use client';
 
-import CloudChatWrapper from '@/app/@chat/components/CloudChatWrapper';
-import LegacyChatWrapper from '@/app/@chat/components/LegacyChatWrapper';
-import { chatSelectors, useChatStore } from '@/app/@chat/stores/chatStore';
+/**
+ * @deprecated This component is deprecated in favor of the new ChatProvider.
+ * Please use the ChatProvider component from '@/app/chat/components/ChatProvider' instead.
+ * 
+ * The new implementation avoids reload issues and ensures proper script loading sequence.
+ */
+
+// Importing just for types, the actual implementation is deprecated
+import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
@@ -69,13 +75,7 @@ export default function ChatWidget() {
   // Don't render anything if chat is not open
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out">
-      {chatMode === 'cloud' ? (
-        <CloudChatWrapper chatSession={chatSession} />
-      ) : (
-        <LegacyChatWrapper chatSession={chatSession} />
-      )}
-    </div>
-  );
+  // This component is deprecated. Use ChatProvider instead.
+  logger.warn('[ChatWidget] This component is deprecated. Use ChatProvider from @/app/chat/components/ChatProvider');
+  return null;
 }

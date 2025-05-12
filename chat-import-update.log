@@ -1,7 +1,35 @@
-Chat Import Update Log - 2025-05-06T01:10:59.519Z
+Chat Import Path Update Log
 
-Starting chat import path update...
-Updated import paths in 0 files.
-Focusing on test files specifically...
-Found 334 test files to process
-Updated 0 test files specifically
+Started at: 2025-05-12T10:32:18.692Z
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/src/app/chat/CHAT_INTEGRATION.md
+  - Line 3: # Genesys Chat System – `src/app/@chat/` Directory Documentation -> # Genesys Chat System – `src/app/chat/` Directory Documentation
+  - Line 5: This document is the canonical reference for the Genesys chat integration in the Member Portal, as implemented in the `src/app/@chat/` directory. It covers architecture, directory structure, key files, integration flows (legacy and cloud), extensibility, troubleshooting, and the full injection path from root layout to UI, including script/style loading from Genesys assets. -> This document is the canonical reference for the Genesys chat integration in the Member Portal, as implemented in the `src/app/chat/` directory. It covers architecture, directory structure, key files, integration flows (legacy and cloud), extensibility, troubleshooting, and the full injection path from root layout to UI, including script/style loading from Genesys assets.
+  - Line 162: • All future dev/bugfix/support belongs in src/app/@chat/. -> • All future dev/bugfix/support belongs in src/app/chat/.
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/src/app/chat/CHAT_MODULE.md
+  - Line 50: import { chatSelectors, useChatStore } from '@/app/@chat/stores/chatStore'; -> import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
+  - Line 72: import { useChatSetup } from '@/app/@chat/hooks/useChatSetup'; -> import { useChatSetup } from '@/app/chat/hooks/useChatSetup';
+  - Line 93: import { ChatUI } from '@/app/@chat/components/ChatUI'; -> import { ChatUI } from '@/app/chat/components/ChatUI';
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/src/app/chat/README.md
+  - Line 1: # Genesys Chat System – `src/app/@chat/` Directory Documentation -> # Genesys Chat System – `src/app/chat/` Directory Documentation
+  - Line 9: ### 1.1 Components (`src/app/@chat/components`) -> ### 1.1 Components (`src/app/chat/components`)
+  - Line 41: ### 1.3 Hooks (`src/app/@chat/hooks`) -> ### 1.3 Hooks (`src/app/chat/hooks`)
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/src/app/chat/components/TermsAndConditions.tsx
+  - Line 2: // import TCs from '@/app/@chat/config/terms'; // { default: '…', lobA: '…', … } -> // import TCs from '@/app/chat/config/terms'; // { default: '…', lobA: '…', … }
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/src/app/chat/stores/chatStore.ts
+  - Line 432:  * import { chatSelectors } from '@/app/@chat/stores/chatStore'; ->  * import { chatSelectors } from '@/app/chat/stores/chatStore';
+
+Updated: /Users/user1/Documents/my_workspace/shared-portal/new_portal/docs/SERVICE_INTEGRATION_MAP.md
+  - Line 14: | chatAPI            | /api/chat/getChatInfo, /api/chat/token                  | GET          | ChatInfoResponse              | src/app/@chat/services/**tests**/chatAPI.test.ts      | –                                    | Used by chatStore, GenesysScript, etc.               | -> | chatAPI            | /api/chat/getChatInfo, /api/chat/token                  | GET          | ChatInfoResponse              | src/app/chat/services/**tests**/chatAPI.test.ts      | –                                    | Used by chatStore, GenesysScript, etc.               |
+
+Directory not found: /Users/user1/Documents/my_workspace/shared-portal/tests
+
+Summary:
+Total files processed: 1320
+Files updated: 6
+
+Completed at: 2025-05-12T10:32:18.826Z

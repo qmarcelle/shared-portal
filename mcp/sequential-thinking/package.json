@@ -1,0 +1,7 @@
+{
+  "name": "sequential-thinking",
+  "version": "1.0.0",
+  "description": "Sequential thinking module",
+  "main": "index.js",
+  "private": true
+}

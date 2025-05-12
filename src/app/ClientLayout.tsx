@@ -1,6 +1,6 @@
 'use client';
 
-import ChatWidget from '@/components/ChatWidget';
+import { ChatProvider } from './chat/components/ChatProvider';
 
 export default function ClientLayout({
   children,
@@ -14,7 +14,7 @@ export default function ClientLayout({
   return (
     <>
       {children}
-      <ChatWidget />
+      <ChatProvider />
     </>
   );
 }

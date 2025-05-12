@@ -1,34 +1,20 @@
 'use server';
-import { getLoggedInMember } from '@/actions/memberDetails';
-import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
-import { challengeDropOffToPing } from '../actions/pingDropOff';
+import { SSOService } from '../services/SSOService';
 
 export default async function ssoDropOffToPing(
-  ssoImpl: string,
+  providerId: string,
 ): Promise<string> {
-  console.log('ssoDropOffToPing !!!');
+  try {
+    logger.info(`Initiating SSO drop-off for provider: ${providerId}`);
 
-  const session = await auth();
-  // const userName = session.user.id;
-  const memberDetails = await getLoggedInMember(session);
-  const handlerModule = await import(`../ssoImpl/${ssoImpl}`);
-  console.log('SSO HANDLER ', handlerModule);
-  console.log('SSO HANDLER Default ', handlerModule.default);
-  const ssoParamMap: Map<string, string> =
-    await handlerModule.default(memberDetails);
-  console.log('SSO PARAM MAP DATA Is --', ssoParamMap);
-  logger.info('TEST DATA MAP -- ', ssoParamMap);
-  // Initiate Ping flow with myDataMap;
+    // Use the SSOService to perform drop-off SSO
+    const referenceId = await SSOService.performDropOffSSO(providerId);
 
-  // ping api call to get the referenceId
-  const ref = await challengeDropOffToPing(ssoParamMap);
-  console.log('ssoToPing -> REF :: ' + ref);
-
-  if (ref == null || ref == undefined) {
-    throw new Error('Ref Id is null');
+    logger.info(`Successfully generated referenceId for ${providerId}`);
+    return referenceId;
+  } catch (error) {
+    logger.error('Error in ssoDropOffToPing', error);
+    throw error;
   }
-
-  // build the redirect url and do the redirect
-  return ref;
 }

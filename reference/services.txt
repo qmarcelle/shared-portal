@@ -1,0 +1,58 @@
+MemberService (with multiple interfaces)
+
+LoggedInUserService
+PaymentService
+MemberCOBService
+MemberHealthCareService
+MemberAddressService
+HRAInfoService
+hipaa-service-client
+PharmacyEligibility
+GroupInquiry
+BenefitService
+claimsInquiryService
+COB Service
+OtherPayerService
+
+
+MemberService V2
+MemberLimitService and MemberLimitService V2
+PHSManagementService
+BenefitChangeService
+IDCardService
+EmployerBrokerService
+MemberSearchService
+CostEstimatorservice
+ProviderPayService
+FormService
+Pharmacysearch
+Drugsearch-cache
+ConsumerPreference
+MemberDataService
+AuditService
+ProviderDirectory
+SettingsManagement
+MemberManagement
+DocumentService
+HandshakeManagement
+UserManagement and UserManagement-SH
+GenesisService
+GenesisCoBrowse
+FaWsvcInpMembershipMaintenance_v18
+HealthAccountService
+MemberPriorAuthDetailsService
+searchPharmacyClaims
+getRecentSearchDetails
+searchDrugDetails
+searchDrugPriceQuoteDetails
+memberContactPreference
+memberEmailAddress
+unsubscribeConsumerPreference
+documentCenter
+recommendedProviders
+smartSearch
+BrokerContextService
+Click to Chat
+PayerList Service
+Import Plan Service
+IndBrokerContext

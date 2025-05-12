@@ -2,36 +2,48 @@
 import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
-import dropOffToPing from '../actions/pingDropOff';
+import { SSOService } from '../services/SSOService';
+import dropOffToPing from './pingDropOff';
 
+/**
+ * Server action for posting to Ping to get a reference ID
+ */
 export default async function ssoToPing(
-  ssoImpl: string,
+  providerId: string,
   searchParams: { [k: string]: string },
 ): Promise<string> {
-  console.log('ssoToPing !!!');
+  try {
+    logger.info(`Initiating SSO to Ping for provider: ${providerId}`);
 
-  const session = await auth();
-  // const userName = session.user.id;
-  const memberDetails = await getLoggedInMember(session);
-  const handlerModule = await import(`../ssoImpl/${ssoImpl}`);
-  console.log('SSO HANDLER ', handlerModule);
-  console.log('SSO HANDLER Default ', handlerModule.default);
-  const ssoParamMap: Map<string, string> = await handlerModule.default(
-    memberDetails,
-    searchParams,
-  );
-  console.log('SSO PARAM MAP DATA Is --', ssoParamMap);
-  logger.info('TEST DATA MAP -- ', ssoParamMap);
-  // Initiate Ping flow with myDataMap;
+    const session = await auth();
+    const memberDetails = await getLoggedInMember(session);
 
-  // ping api call to get the referenceId
-  const ref = await dropOffToPing(ssoParamMap);
-  console.log('ssoToPing -> REF :: ' + ref);
+    if (!memberDetails) {
+      throw new Error('Member details not available');
+    }
 
-  if (ref == null || ref == undefined) {
-    throw new Error('Ref Id is null');
+    // Generate SSO parameters using the SSOService
+    const ssoParamMap = await SSOService.generateParameters(
+      providerId,
+      memberDetails,
+      searchParams,
+    );
+
+    logger.info('Generated SSO parameters for provider', {
+      providerId,
+      paramCount: ssoParamMap.size,
+    });
+
+    // Call Ping API to get the reference ID
+    const ref = await dropOffToPing(ssoParamMap);
+
+    if (!ref) {
+      throw new Error('Reference ID not returned from Ping');
+    }
+
+    return ref;
+  } catch (error) {
+    logger.error('Error in ssoToPing', { providerId, error });
+    throw error;
   }
-
-  // build the redirect url and do the redirect
-  return ref;
 }
