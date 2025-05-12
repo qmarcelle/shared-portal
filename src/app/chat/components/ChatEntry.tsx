@@ -12,15 +12,52 @@ import { LegacyChatWrapper } from './LegacyChatWrapper';
 // Add this helper function at the top of the file, outside the component
 function safeOpenChat() {
   try {
+    logger.info('[ChatEntry] safeOpenChat called');
+
+    // Most robust approach: configure form prior to opening
+    if (window._genesys?.widgets?.webchat) {
+      logger.info('[ChatEntry] Configuring webchat form before opening');
+
+      window._genesys.widgets.webchat.form =
+        window._genesys.widgets.webchat.form || {};
+
+      // Simplify the form configuration to ensure it works
+      window._genesys.widgets.webchat.form = {
+        autoSubmit: true,
+        formData: {
+          firstname: 'Member',
+          lastname: 'User',
+          subject: 'Chat Request',
+        },
+      };
+    }
+
     // First try to use CXBus command with type assertion to avoid TypeScript errors
     if (window.CXBus) {
       const bus = window.CXBus as any;
       if (typeof bus.command === 'function') {
-        return bus.command('WebChat.open');
+        logger.info('[ChatEntry] Opening chat via CXBus.command');
+        return bus.command('WebChat.open', {
+          form: {
+            autoSubmit: true,
+            formData: {
+              nickname: 'Member',
+              subject: 'Chat Request',
+            },
+          },
+        });
       }
       if (typeof bus.publish === 'function') {
+        logger.info('[ChatEntry] Opening chat via CXBus.publish');
         return bus.publish('WebChat.open');
       }
+    }
+
+    // Look for click_to_chat.js specific functions
+    if (typeof window.startChat === 'function') {
+      logger.info('[ChatEntry] Using window.startChat from click_to_chat.js');
+      window.startChat();
+      return true;
     }
 
     // Fallback to direct _genesys access if available
@@ -28,13 +65,15 @@ function safeOpenChat() {
       // Try to access built-in methods
       const webchat = window._genesys.widgets.webchat as any;
       if (typeof webchat.open === 'function') {
+        logger.info('[ChatEntry] Using _genesys.widgets.webchat.open()');
         return webchat.open();
       }
     }
 
+    logger.error('[ChatEntry] No chat opening method found');
     return false;
   } catch (e) {
-    console.error('Error opening chat:', e);
+    logger.error('[ChatEntry] Error opening chat:', e);
     return false;
   }
 }
@@ -139,6 +178,41 @@ export function ChatEntry() {
     // Set force chat available as early as possible
     if (typeof window !== 'undefined') {
       window._FORCE_CHAT_AVAILABLE = true;
+      window._DEBUG_CHAT = true;
+
+      // Add specific debug handler for CXBus events
+      setTimeout(() => {
+        if (window.CXBus) {
+          try {
+            logger.info('[ChatEntry] Setting up CXBus event listeners');
+
+            window.CXBus.subscribe('WebChat.opened', function (data) {
+              logger.info('[ChatEntry] CXBus WebChat.opened event', data);
+            });
+
+            window.CXBus.subscribe('WebChat.closed', function (data) {
+              logger.info('[ChatEntry] CXBus WebChat.closed event', data);
+            });
+
+            window.CXBus.subscribe('WebChat.ready', function (data) {
+              logger.info('[ChatEntry] CXBus WebChat.ready event', data);
+            });
+
+            window.CXBus.subscribe('WebChat.error', function (data) {
+              logger.error('[ChatEntry] CXBus WebChat.error event', data);
+            });
+          } catch (e) {
+            logger.error('[ChatEntry] Error setting up CXBus listeners', e);
+          }
+        }
+      }, 2000);
+
+      // Log that we've set these flags
+      logger.info('[ChatEntry] Force enabled chat debug flags', {
+        _FORCE_CHAT_AVAILABLE: window._FORCE_CHAT_AVAILABLE,
+        _DEBUG_CHAT: window._DEBUG_CHAT,
+        timestamp: new Date().toISOString(),
+      });
 
       // DIRECT SCRIPT LOADING - Ensure chat scripts are loaded directly
       logger.info(

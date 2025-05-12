@@ -7,6 +7,10 @@
 //   jQuery (alias $)                // loaded globally
 //   CXBus (Genesys) & CobrowseIO loaders will run here
 
+// Define retry variables at the top level
+var retryCount = 0;
+var MAX_RETRIES = 10;
+
 // Safety wrapper to ensure jQuery is available
 (function (window, document) {
   'use strict';
@@ -841,7 +845,7 @@
           window._genesys.widgets.main.debug = false; // Disable debug mode
         }
 
-        // Configure button position and appearance
+        // Configure button position and appearance - FIX POSITION TO BOTTOM RIGHT
         window._genesys.widgets.webchat.position = {
           right: { px: 20 },
           bottom: { px: 20 },
@@ -865,11 +869,29 @@
             chatButton.style.cursor = 'pointer';
             chatButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
             chatButton.style.zIndex = '9999';
+            // FIX POSITION
+            chatButton.style.position = 'fixed';
+            chatButton.style.right = '20px';
+            chatButton.style.bottom = '20px';
 
             // Override the debug text if present
             if (chatButton.textContent.includes('Debug:')) {
               chatButton.textContent = 'Chat Now';
             }
+
+            // Add a direct click handler to ensure it works
+            chatButton.onclick = function () {
+              console.log('[Genesys] Chat button clicked directly');
+              if (window.CXBus && typeof window.CXBus.command === 'function') {
+                window.CXBus.command('WebChat.open', {
+                  form: {
+                    autoSubmit: true,
+                  },
+                });
+              } else if (window.openGenesysChat) {
+                window.openGenesysChat();
+              }
+            };
 
             console.log(
               '[Genesys] Enhanced chat button visibility and styling',
@@ -1143,7 +1165,7 @@ function enableChatButton() {
       window._genesys.widgets.main.debug = false; // Disable debug mode
     }
 
-    // Configure button position and appearance
+    // Configure button position and appearance - FIX POSITION TO BOTTOM RIGHT
     window._genesys.widgets.webchat.position = {
       right: { px: 20 },
       bottom: { px: 20 },
@@ -1167,11 +1189,29 @@ function enableChatButton() {
         chatButton.style.cursor = 'pointer';
         chatButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
         chatButton.style.zIndex = '9999';
+        // FIX POSITION
+        chatButton.style.position = 'fixed';
+        chatButton.style.right = '20px';
+        chatButton.style.bottom = '20px';
 
         // Override the debug text if present
         if (chatButton.textContent.includes('Debug:')) {
           chatButton.textContent = 'Chat Now';
         }
+
+        // Add a direct click handler to ensure it works
+        chatButton.onclick = function () {
+          console.log('[Genesys] Chat button clicked directly');
+          if (window.CXBus && typeof window.CXBus.command === 'function') {
+            window.CXBus.command('WebChat.open', {
+              form: {
+                autoSubmit: true,
+              },
+            });
+          } else if (window.openGenesysChat) {
+            window.openGenesysChat();
+          }
+        };
 
         console.log('[Genesys] Enhanced chat button visibility and styling');
       } else {
@@ -1213,8 +1253,6 @@ function enableChatButton() {
     return false;
   }
 }
-
-const MAX_RETRIES = 10;
 
 // Function to initialize chat when the page loads
 function initializeChatButton() {
