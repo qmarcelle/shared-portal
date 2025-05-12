@@ -1,12 +1,10 @@
 'use client';
 
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
-import { InfoCard } from '@/components/composite/InfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import {
   downloadIcon,
-  envelopeIcon,
   externalIcon,
   prescriptionIcon,
   searchCareLogo,
@@ -58,18 +56,6 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
 
         {(isBenefitBooklet || data?.visibilityRules?.medicare) && (
           <>
-            {isBenefitBooklet && (
-              <>
-                <Spacer size={16} />
-                <InfoCard
-                  icon={envelopeIcon}
-                  label={'Request Printed Material'}
-                  body={'Ask us to mail your plan documents to you.'}
-                  link={''}
-                />
-              </>
-            )}
-
             <section>
               <Spacer size={32} />
               <Row className="justify-between">
