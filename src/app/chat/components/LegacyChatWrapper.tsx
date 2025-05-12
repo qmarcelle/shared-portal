@@ -327,36 +327,172 @@ function ChatScriptLoader() {
     return () => clearTimeout(timeoutId);
   }, [clickToChatLoaded, chatData]);
 
+  // NEW: Additional delayed DOM check to ensure button visibility - using staggered timeouts
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Define the check function
+    const checkAndFixButton = () => {
+      // Look for Genesys chat button
+      const genesysButton = document.querySelector('.cx-webchat-chat-button');
+      const debugButton = document.querySelector('#debug-chat-button');
+
+      console.log('[ChatScriptLoader] DOM Check: Looking for chat buttons', {
+        genesysButtonFound: !!genesysButton,
+        debugButtonFound: !!debugButton,
+        chatAvailable: chatData?.chatAvailable,
+        forceEnabled: window._FORCE_CHAT_AVAILABLE,
+        timestamp: new Date().toISOString(),
+      });
+
+      if (genesysButton) {
+        console.log(
+          '[ChatScriptLoader] DOM Check: Found Genesys button, ensuring visibility',
+        );
+        genesysButton.setAttribute(
+          'style',
+          'display: flex !important; opacity: 1 !important; visibility: visible !important; background-color: #0078d4; color: white; padding: 10px 20px; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); position: fixed; right: 20px; bottom: 20px; z-index: 9999;',
+        );
+        return true;
+      } else if (debugButton) {
+        console.log(
+          '[ChatScriptLoader] DOM Check: Found debug button, ensuring visibility',
+        );
+        debugButton.setAttribute(
+          'style',
+          'display: block !important; opacity: 1 !important; visibility: visible !important; position: fixed; right: 20px; bottom: 20px; background-color: #0078d4; color: white; padding: 10px 20px; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 9999;',
+        );
+        return true;
+      }
+
+      return false;
+    };
+
+    // Run multiple checks with increasing timeouts
+    const checkTimes = [2000, 5000, 10000]; // Check at 2s, 5s, and 10s
+    const timeoutIds: NodeJS.Timeout[] = [];
+
+    checkTimes.forEach((delay) => {
+      const timeoutId = setTimeout(() => {
+        console.log(
+          `[ChatScriptLoader] DOM Check: Running at ${delay}ms delay`,
+        );
+        const found = checkAndFixButton();
+
+        // If this is the final check and we still don't have a button, create one
+        if (!found && delay === checkTimes[checkTimes.length - 1]) {
+          console.warn(
+            '[ChatScriptLoader] DOM Check: No button found after all checks, creating fallback',
+          );
+          createFallbackButton();
+        }
+      }, delay);
+
+      timeoutIds.push(timeoutId);
+    });
+
+    // Clean up all timeouts on unmount
+    return () => {
+      timeoutIds.forEach((id) => clearTimeout(id));
+    };
+  }, [chatData, clickToChatLoaded]);
+
   // Function to create a fallback button if needed
   function createFallbackButton() {
     console.log('[ChatScriptLoader] Creating fallback button');
-    if (document.querySelector('#debug-chat-btn')) return;
+
+    // Check if a debug button already exists with any of our possible IDs
+    if (document.querySelector('#debug-chat-btn, #debug-chat-button')) {
+      console.log(
+        '[ChatScriptLoader] Debug button already exists, ensuring visibility',
+      );
+      const existingButton = document.querySelector(
+        '#debug-chat-btn, #debug-chat-button',
+      ) as HTMLElement;
+      if (existingButton) {
+        // Force button to be visible with !important styles
+        existingButton.style.cssText = [
+          'display: block !important',
+          'opacity: 1 !important',
+          'visibility: visible !important',
+          'position: fixed !important',
+          'right: 20px !important',
+          'bottom: 20px !important',
+          'background-color: #0078d4 !important',
+          'color: white !important',
+          'padding: 10px 20px !important',
+          'border-radius: 4px !important',
+          'cursor: pointer !important',
+          'box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important',
+          'z-index: 99999 !important', // Extra high z-index
+        ].join('; ');
+        return;
+      }
+    }
+
+    // Create a new button with a unique container to isolate it from CSS
+    const buttonContainer = document.createElement('div');
+    buttonContainer.id = 'chat-button-container';
+
+    // Apply isolation styles to the container
+    buttonContainer.style.cssText = [
+      'position: static !important',
+      'display: block !important',
+      'contain: content !important', // CSS containment to prevent inheritance
+      'z-index: 99999 !important', // Ensure it's above everything
+    ].join('; ');
 
     const button = document.createElement('button');
     button.id = 'debug-chat-btn';
     button.textContent = 'Chat Now';
-    button.style.position = 'fixed';
-    button.style.right = '20px';
-    button.style.bottom = '20px';
-    button.style.backgroundColor = '#0078d4';
-    button.style.color = 'white';
-    button.style.padding = '10px 20px';
-    button.style.borderRadius = '4px';
-    button.style.cursor = 'pointer';
-    button.style.zIndex = '9999';
 
-    button.onclick = function () {
+    // Apply comprehensive styles with !important to prevent overrides
+    button.style.cssText = [
+      'display: block !important',
+      'opacity: 1 !important',
+      'visibility: visible !important',
+      'position: fixed !important',
+      'right: 20px !important',
+      'bottom: 20px !important',
+      'background-color: #0078d4 !important',
+      'color: white !important',
+      'padding: 10px 20px !important',
+      'border-radius: 4px !important',
+      'cursor: pointer !important',
+      'box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important',
+      'font-family: sans-serif !important',
+      'font-size: 16px !important',
+      'font-weight: bold !important',
+      'border: none !important',
+      'z-index: 99999 !important', // Extra high z-index
+      'pointer-events: auto !important', // Ensure clicks work
+    ].join('; ');
+
+    button.onclick = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('[ChatScriptLoader] Debug button clicked');
+
       if (typeof (window as any).openGenesysChat === 'function') {
+        console.log('[ChatScriptLoader] Calling openGenesysChat()');
         (window as any).openGenesysChat();
+      } else if (window.CXBus && typeof window.CXBus.command === 'function') {
+        console.log('[ChatScriptLoader] Calling CXBus.command("WebChat.open")');
+        window.CXBus.command('WebChat.open');
       } else {
+        console.warn('[ChatScriptLoader] No chat open function found');
         alert(
           'Chat service is being configured. Please try again in a moment.',
         );
       }
+      return false;
     };
 
-    document.body.appendChild(button);
-    console.log('[ChatScriptLoader] Fallback button created');
+    buttonContainer.appendChild(button);
+    document.body.appendChild(buttonContainer);
+    console.log(
+      '[ChatScriptLoader] Fallback button created and appended to body',
+    );
   }
 
   // Show loading errors if any
@@ -392,3 +528,82 @@ export function LegacyChatWrapper() {
 }
 
 export default LegacyChatWrapper;
+
+// Instead of declaring global types (which causes conflicts), add debug utility
+// immediately after component definition
+const setupChatDebugger = () => {
+  if (typeof window === 'undefined') return;
+
+  // Add a global debug function that can be called from browser console
+  (window as any).debugChatButton = function () {
+    console.log('[GLOBAL] Chat debug information:', {
+      genesysButton: document.querySelector('.cx-webchat-chat-button')
+        ? 'Found'
+        : 'Not found',
+      debugButton: document.querySelector('#debug-chat-btn')
+        ? 'Found'
+        : 'Not found',
+      _genesys: !!window._genesys,
+      hasWebchatModule: !!(window as any)._genesys?.widgets?.webchat,
+      CXBus: !!(window as any).CXBus,
+      CXBusCommand: typeof (window as any).CXBus?.command === 'function',
+      openGenesysChat: typeof (window as any).openGenesysChat === 'function',
+      _FORCE_CHAT_AVAILABLE: (window as any)._FORCE_CHAT_AVAILABLE,
+      chatSettings: (window as any).chatSettings ? 'Present' : 'Missing',
+      enableChatButton: typeof (window as any).enableChatButton === 'function',
+      timestamp: new Date().toISOString(),
+    });
+
+    return 'Debug information logged to console. Check for DOM button presence and JS functions.';
+  };
+
+  // Also create a function to force show the chat button
+  (window as any).forceShowChatButton = function () {
+    const createButton =
+      (window as any).createFallbackButton ||
+      function () {
+        const btn = document.createElement('button');
+        btn.id = 'manual-debug-chat-btn';
+        btn.innerHTML = 'FORCE CHAT';
+        btn.style.cssText = [
+          'position: fixed',
+          'bottom: 20px',
+          'right: 20px',
+          'z-index: 999999',
+          'background: red',
+          'color: white',
+          'padding: 10px 20px',
+          'font-weight: bold',
+          'border-radius: 4px',
+          'cursor: pointer',
+        ].join(';');
+
+        btn.onclick = function () {
+          if (typeof (window as any).openGenesysChat === 'function') {
+            (window as any).openGenesysChat();
+          } else if (
+            (window as any).CXBus &&
+            typeof (window as any).CXBus.command === 'function'
+          ) {
+            (window as any).CXBus.command('WebChat.open');
+          } else {
+            alert('No chat functions available');
+          }
+        };
+
+        document.body.appendChild(btn);
+        return 'Emergency button added';
+      };
+
+    return createButton();
+  };
+
+  console.log(
+    '[ChatDebugger] Debug utilities added to window. Try window.debugChatButton() or window.forceShowChatButton()',
+  );
+};
+
+// Run the setup immediately
+if (typeof window !== 'undefined') {
+  setupChatDebugger();
+}
