@@ -18,6 +18,7 @@ function makeStable<T extends (...args: any[]) => any>(fn: T): T {
 interface ChatData {
   isEligible: boolean;
   cloudChatEligible: boolean;
+  chatAvailable?: boolean;
   chatGroup?: string;
   businessHours?: {
     isOpen: boolean;

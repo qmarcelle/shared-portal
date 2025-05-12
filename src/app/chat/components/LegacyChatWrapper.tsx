@@ -64,6 +64,9 @@ function ChatScriptLoader() {
         ? {
             chatGroup: chatData.chatGroup,
             isEligible: chatData.isEligible,
+            chatAvailable: chatData.chatAvailable,
+            cloudChatEligible: chatData.cloudChatEligible,
+            businessHours: chatData.businessHours,
             // Add other properties as needed
           }
         : 'No chat data',
@@ -150,9 +153,22 @@ function ChatScriptLoader() {
 
       console.log('[ChatScriptLoader] Using endpoint:', endpoint);
 
+      // IMPORTANT: Check chatAvailable instead of cloudChatEligible for button eligibility
+      // Check both chatData.chatAvailable and chatData.isEligible
+      const isChatAvailable = !!(
+        chatData?.chatAvailable || chatData?.isEligible
+      );
+
+      console.log('[ChatScriptLoader] Chat availability status:', {
+        chatAvailable: chatData?.chatAvailable,
+        isEligible: chatData?.isEligible,
+        cloudChatEligible: chatData?.cloudChatEligible,
+        finalDecision: isChatAvailable ? 'AVAILABLE' : 'NOT AVAILABLE',
+      });
+
       (window as any).chatSettings = {
-        isChatEligibleMember: 'true',
-        isChatAvailable: 'true',
+        isChatEligibleMember: isChatAvailable ? 'true' : 'false',
+        isChatAvailable: isChatAvailable ? 'true' : 'false',
         isDemoMember: 'true',
         chatGroup:
           typeof chatData?.chatGroup === 'string'
@@ -240,26 +256,44 @@ function ChatScriptLoader() {
 
     // Give time for scripts to initialize
     const timeoutId = setTimeout(() => {
-      // Force enable the chat button
-      if (typeof (window as any).enableChatButton === 'function') {
-        try {
-          console.log('[ChatScriptLoader] Calling enableChatButton()');
-          (window as any).enableChatButton();
-        } catch (error) {
-          console.error(
-            '[ChatScriptLoader] Error calling enableChatButton:',
-            error,
+      // Force enable the chat button if chatAvailable is true (not cloudChatEligible)
+      const shouldEnableButton = !!(
+        chatData?.chatAvailable || chatData?.isEligible
+      );
+
+      console.log('[ChatScriptLoader] Should enable button?', {
+        chatAvailable: chatData?.chatAvailable,
+        isEligible: chatData?.isEligible,
+        decision: shouldEnableButton ? 'YES' : 'NO',
+      });
+
+      if (shouldEnableButton) {
+        if (typeof (window as any).enableChatButton === 'function') {
+          try {
+            console.log('[ChatScriptLoader] Calling enableChatButton()');
+            (window as any).enableChatButton();
+          } catch (error) {
+            console.error(
+              '[ChatScriptLoader] Error calling enableChatButton:',
+              error,
+            );
+            createFallbackButton();
+          }
+        } else {
+          console.warn(
+            '[ChatScriptLoader] enableChatButton function not found',
           );
           createFallbackButton();
         }
       } else {
-        console.warn('[ChatScriptLoader] enableChatButton function not found');
-        createFallbackButton();
+        console.log(
+          '[ChatScriptLoader] Chat is not available, not enabling button',
+        );
       }
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [clickToChatLoaded]);
+  }, [clickToChatLoaded, chatData]);
 
   // Function to create a fallback button if needed
   function createFallbackButton() {
@@ -280,7 +314,13 @@ function ChatScriptLoader() {
     button.style.zIndex = '9999';
 
     button.onclick = function () {
-      alert('Chat service is being configured. Please try again in a moment.');
+      if (typeof (window as any).openGenesysChat === 'function') {
+        (window as any).openGenesysChat();
+      } else {
+        alert(
+          'Chat service is being configured. Please try again in a moment.',
+        );
+      }
     };
 
     document.body.appendChild(button);
