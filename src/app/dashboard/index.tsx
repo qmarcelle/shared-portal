@@ -41,7 +41,88 @@ const Dashboard = ({ data }: DashboardProps) => {
     NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE:
       process.env.NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE,
   };
-  console.log('[Dashboard] Genesys Env Vars:', genesysEnvVars);
+
+  // Environment detection helper
+  const detectEnvironmentMismatch = () => {
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const envName = isDevelopment ? 'STAGING' : 'PRODUCTION';
+
+    // Check if any production URLs are used in development
+    const hasProdUrlsInDev =
+      isDevelopment &&
+      (process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT?.includes(
+        'api.bcbst.com/prod',
+      ) ||
+        process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT?.includes(
+          'api.bcbst.com/prod',
+        ) ||
+        process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT?.includes(
+          'api.bcbst.com/prod',
+        ));
+
+    // Check if any staging URLs are used in production
+    const hasStageUrlsInProd =
+      !isDevelopment &&
+      (process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT?.includes(
+        'api3.bcbst.com/stge',
+      ) ||
+        process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT?.includes(
+          'api3.bcbst.com/stge',
+        ) ||
+        process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT?.includes(
+          'api3.bcbst.com/stge',
+        ));
+
+    // Show warning for environment mismatches
+    if (hasProdUrlsInDev) {
+      console.error(
+        '%c⚠️ ENVIRONMENT MISMATCH! ⚠️\n' +
+          '%cYou are in DEVELOPMENT but using PRODUCTION endpoints.\n' +
+          'This is likely causing your chat issues!',
+        'font-size: 18px; color: red; font-weight: bold',
+        'font-size: 14px; color: red',
+      );
+    }
+
+    if (hasStageUrlsInProd) {
+      console.error(
+        '%c⚠️ ENVIRONMENT MISMATCH! ⚠️\n' +
+          '%cYou are in PRODUCTION but using STAGING endpoints.',
+        'font-size: 18px; color: red; font-weight: bold',
+        'font-size: 14px; color: red',
+      );
+    }
+
+    // Log environment info in a visually clear way
+    console.log(
+      `%c ENVIRONMENT: ${envName} %c NODE_ENV: ${process.env.NODE_ENV} `,
+      `font-size: 14px; background-color: ${isDevelopment ? '#2563eb' : '#16a34a'}; color: white; padding: 3px 6px; border-radius: 3px 0 0 3px; font-weight: bold`,
+      `font-size: 14px; background-color: #1e293b; color: white; padding: 3px 6px; border-radius: 0 3px 3px 0`,
+    );
+
+    return {
+      isDevelopment,
+      envName,
+      hasMismatch: hasProdUrlsInDev || hasStageUrlsInProd,
+      mismatchType: hasProdUrlsInDev
+        ? 'PROD_URLS_IN_DEV'
+        : hasStageUrlsInProd
+          ? 'STAGE_URLS_IN_PROD'
+          : null,
+    };
+  };
+
+  // Call the detector
+  const envInfo = detectEnvironmentMismatch();
+
+  // Add environment info to the existing console log
+  console.log('[Dashboard] Genesys Env Vars:', {
+    ...genesysEnvVars,
+    environment: envInfo.envName,
+    hasMismatch: envInfo.hasMismatch,
+    mismatchType: envInfo.mismatchType,
+  });
+
   function getWelcomeText() {
     if ([UserRole.MEMBER, UserRole.NON_MEM].includes(data.role!)) {
       return 'Welcome, ';

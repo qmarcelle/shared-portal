@@ -11,12 +11,80 @@ interface GenesysScriptProps {
   onScriptLoaded?: () => void;
 }
 
+/**
+ * Detects environment mismatches in Genesys configuration
+ * Used to identify when API endpoints are mixed between staging and production
+ */
+function detectEnvironmentMismatch() {
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const envName = isDevelopment ? 'staging' : 'production';
+
+  // Check for production URLs in development environment
+  if (isDevelopment) {
+    const endpoints = [
+      {
+        name: 'NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT',
+        value: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      },
+      {
+        name: 'NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT',
+        value: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+      },
+      {
+        name: 'NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT',
+        value: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+      },
+    ];
+
+    const productionEndpoints = endpoints.filter(
+      (ep) =>
+        ep.value &&
+        (ep.value.includes('api.bcbst.com/prod') ||
+          ep.value.includes('000H6aM187VE5P28')),
+    );
+
+    if (productionEndpoints.length > 0) {
+      console.error('[GenesysScript] ENVIRONMENT MISMATCH DETECTED', {
+        currentEnvironment: envName,
+        productionEndpointsInDevelopment: productionEndpoints.map(
+          (ep) => ep.name,
+        ),
+        timestamp: new Date().toISOString(),
+      });
+
+      console.warn(
+        '[GenesysScript] Using production endpoints in development environment may cause chat issues. Check your .env configuration.',
+      );
+    }
+  }
+
+  return { isDevelopment, envName };
+}
+
 export function GenesysScript({
   environment = process.env.NEXT_PUBLIC_GENESYS_REGION!,
   deploymentId = process.env.NEXT_PUBLIC_GENESYS_DEPLOYMENT_ID!,
   orgId = process.env.NEXT_PUBLIC_GENESYS_ORG_ID!,
   onScriptLoaded,
 }: GenesysScriptProps) {
+  // Check for environment mismatches
+  const { isDevelopment, envName } = detectEnvironmentMismatch();
+
+  // Log detailed environment information
+  useEffect(() => {
+    console.log('[GenesysScript] Environment Configuration:', {
+      nodeEnv: process.env.NODE_ENV,
+      genesysRegion: environment,
+      deploymentId,
+      isDevelopment,
+      envName,
+      clickToChatEndpoint: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT,
+      chatTokenEndpoint: process.env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT,
+      coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT,
+      timestamp: new Date().toISOString(),
+    });
+  }, [environment, deploymentId, isDevelopment, envName]);
+
   // Get values from the chat store
   const chatMode = chatSelectors.chatMode(useChatStore());
   const chatSettings = useChatStore((state) => state.chatSettings);
