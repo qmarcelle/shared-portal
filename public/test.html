@@ -1,40 +1,152 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <script src="/assets/genesys/plugins/widgets.min.js"></script>
-    <script src="/assets/genesys/click_to_chat.js"></script>
-    <script>
-      // Minimal Genesys init snippet (adapted from click_to_chat.js)
-      (function (g, e, n, es, ys) {
-        g['_genesysJs'] = e;
-        g[e] =
-          g[e] ||
-          function () {
-            (g[e].q = g[e].q || []).push(arguments);
-          };
-        g[e].t = 1 * new Date();
-        g[e].c = es;
-        ys = document.createElement('script');
-        ys.async = 1;
-        ys.src = n;
-        ys.charset = 'utf-8';
-        document.head.appendChild(ys);
-      })(
-        window,
-        'Genesys',
-        'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js',
-        {
-          environment: 'prod',
-          deploymentId: 'xxxxxx-xxxx-xxxx-xxxx-xxxxxx',
-        },
-      );
-      setTimeout(() => {
-        console.log(
-          '✅[Genesys] chat-button found?',
-          document.querySelector('.cx-webchat-chat-button'),
-        );
-      }, 500);
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesys Chat Test</title>
+    <link rel="stylesheet" href="/assets/genesys/plugins/widgets.min.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      button {
+        background-color: #0078d4;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        margin: 10px 5px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1>Genesys Chat Testing Page</h1>
+    <p>
+      This page tests the loading of Genesys chat components independent of the
+      Next.js application.
+    </p>
+
+    <div>
+      <button id="load-css">1. Load CSS</button>
+      <button id="load-widgets">2. Load Widgets Script</button>
+      <button id="load-chat-script">3. Load Click-to-Chat Script</button>
+      <button id="open-chat">4. Open Chat</button>
+      <button id="emergency-button">Create Emergency Button</button>
+    </div>
+
+    <div
+      id="status"
+      style="margin-top: 20px; padding: 10px; background-color: #f0f0f0"
+    ></div>
+
+    <script>
+      const status = document.getElementById('status');
+
+      // Log function
+      function log(message) {
+        const time = new Date().toISOString().substring(11, 19);
+        status.innerHTML += `<p>[${time}] ${message}</p>`;
+        console.log(`[${time}] ${message}`);
+      }
+
+      // Load CSS
+      document
+        .getElementById('load-css')
+        .addEventListener('click', function () {
+          log('Loading CSS...');
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href =
+            '/assets/genesys/plugins/widgets.min.css?cb=' + Date.now();
+          link.onload = () => log('CSS loaded successfully');
+          link.onerror = () => log('ERROR: Failed to load CSS');
+          document.head.appendChild(link);
+        });
+
+      // Load Widgets
+      document
+        .getElementById('load-widgets')
+        .addEventListener('click', function () {
+          log('Loading widgets.min.js...');
+          const script = document.createElement('script');
+          script.src =
+            '/assets/genesys/plugins/widgets.min.js?cb=' + Date.now();
+          script.onload = () => log('Widgets script loaded successfully');
+          script.onerror = () => log('ERROR: Failed to load widgets script');
+          document.head.appendChild(script);
+        });
+
+      // Load Chat Script
+      document
+        .getElementById('load-chat-script')
+        .addEventListener('click', function () {
+          log('Loading click_to_chat.js...');
+          const script = document.createElement('script');
+          script.src = '/assets/genesys/click_to_chat.js?cb=' + Date.now();
+          script.onload = () => log('Click-to-chat script loaded successfully');
+          script.onerror = () =>
+            log('ERROR: Failed to load click-to-chat script');
+          document.head.appendChild(script);
+        });
+
+      // Open Chat
+      document
+        .getElementById('open-chat')
+        .addEventListener('click', function () {
+          log('Attempting to open chat...');
+          if (window.CXBus && typeof window.CXBus.command === 'function') {
+            log('Using CXBus.command("WebChat.open")');
+            window.CXBus.command('WebChat.open');
+          } else if (window._genesys?.widgets?.webchat?.open) {
+            log('Using _genesys.widgets.webchat.open()');
+            window._genesys.widgets.webchat.open();
+          } else if (window.Genesys) {
+            log('Using Genesys Cloud Messenger API');
+            window.Genesys('command', 'Messenger.open');
+          } else {
+            log('ERROR: No chat APIs available');
+          }
+        });
+
+      // Emergency Button
+      document
+        .getElementById('emergency-button')
+        .addEventListener('click', function () {
+          log('Creating emergency chat button...');
+          const button = document.createElement('button');
+          button.textContent = 'CHAT NOW';
+          button.style.cssText = `
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 99999;
+        background-color: #0078d4;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      `;
+          button.onclick = function () {
+            if (window.CXBus && typeof window.CXBus.command === 'function') {
+              window.CXBus.command('WebChat.open');
+            } else if (window._genesys?.widgets?.webchat?.open) {
+              window._genesys.widgets.webchat.open();
+            } else {
+              alert('No chat functions available');
+            }
+          };
+          document.body.appendChild(button);
+          log('Emergency button created');
+        });
+
+      // Page loaded
+      log(
+        'Test page loaded. Click buttons in sequence to test Genesys chat loading.',
+      );
+    </script>
+  </body>
 </html>

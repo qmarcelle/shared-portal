@@ -1,11 +1,17 @@
 'use client';
-import '@/../public/assets/genesys/plugins/widgets.min.css';
+// Remove direct import of CSS - we'll load it dynamically
+// import '@/../public/assets/genesys/plugins/widgets.min.css';
 import { CHAT_ENDPOINTS, getChatConfig } from '@/app/chat/config/endpoints';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import {
   logChatConfigDiagnostics,
   validateChatConfig,
 } from '@/app/chat/utils/chatDebugger';
+import {
+  applyCriticalChatButtonStyles,
+  createEmergencyChatButton,
+  ensureChatCssIsLoaded,
+} from '@/app/chat/utils/chatUtils';
 import { useEffect, useState } from 'react';
 // ChatUI is deprecated and returns null anyway
 
@@ -41,39 +47,8 @@ function ChatScriptLoader() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Ensure CSS is loaded properly by adding it directly to the head
-    // This addresses the "preloaded but not used" warning
-    const ensureCssIsLoaded = () => {
-      const cssPath = '/assets/genesys/plugins/widgets.min.css';
-      const existingLink = document.querySelector(`link[href="${cssPath}"]`);
-
-      if (!existingLink) {
-        console.log('[ChatScriptLoader] Adding CSS link element to head');
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = cssPath;
-        link.id = 'genesys-widgets-css';
-
-        // Add onload and onerror handlers for debugging
-        link.onload = () =>
-          console.log('[ChatScriptLoader] CSS loaded successfully');
-        link.onerror = () => {
-          console.error('[ChatScriptLoader] Failed to load CSS');
-          setLoadingErrors((prev) => [
-            ...prev,
-            'Failed to load widgets.min.css',
-          ]);
-        };
-
-        document.head.appendChild(link);
-      } else {
-        console.log('[ChatScriptLoader] CSS link already exists');
-      }
-    };
-
-    // Ensure CSS is loaded properly
-    ensureCssIsLoaded();
+    // Use our enhanced CSS loading function
+    ensureChatCssIsLoaded();
 
     const timestamp = new Date().toISOString();
 
@@ -160,7 +135,7 @@ function ChatScriptLoader() {
 
       // Create and load widgets.min.js directly in the document head
       const widgetsScript = document.createElement('script');
-      widgetsScript.src = WIDGETS_SCRIPT_PATH;
+      widgetsScript.src = `${WIDGETS_SCRIPT_PATH}?cb=${Date.now()}`; // Add cache-busting
       widgetsScript.async = false; // Load this synchronously
       widgetsScript.id = 'genesys-widgets-script';
 
@@ -318,57 +293,8 @@ function ChatScriptLoader() {
     console.log('[ChatScriptLoader] Initializing chat button');
 
     // Add custom CSS to ensure chat button visibility
-    const addCustomChatButtonStyles = () => {
-      // Check if our custom styles already exist
-      if (document.getElementById('genesys-custom-styles')) {
-        return;
-      }
-
-      console.log('[ChatScriptLoader] Adding custom button styles');
-      const styleEl = document.createElement('style');
-      styleEl.id = 'genesys-custom-styles';
-      styleEl.textContent = `
-        /* Ensure chat button is visible */
-        .cx-webchat-chat-button {
-          display: flex !important;
-          opacity: 1 !important;
-          visibility: visible !important;
-          position: fixed !important;
-          right: 20px !important;
-          bottom: 20px !important;
-          z-index: 9999 !important;
-          background-color: #0078d4 !important;
-          color: white !important;
-          padding: 10px 20px !important;
-          border-radius: 4px !important;
-          cursor: pointer !important;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
-          font-family: sans-serif !important;
-          font-size: 16px !important;
-          font-weight: bold !important;
-          text-align: center !important;
-          align-items: center !important;
-          justify-content: center !important;
-          min-width: 100px !important;
-          min-height: 40px !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        .cx-webchat-chat-button:hover {
-          background-color: #005a9e !important;
-        }
-        
-        /* Ensure chat window appears correctly */
-        .cx-widget.cx-webchat-1 {
-          z-index: 10000 !important;
-          pointer-events: auto !important;
-        }
-      `;
-      document.head.appendChild(styleEl);
-    };
-
-    // Add the custom styles immediately
-    addCustomChatButtonStyles();
+    // Use our enhanced function instead of inline styles
+    applyCriticalChatButtonStyles();
 
     // Give time for scripts to initialize
     const timeoutId = setTimeout(() => {
@@ -396,13 +322,13 @@ function ChatScriptLoader() {
               '[ChatScriptLoader] Error calling enableChatButton:',
               error,
             );
-            createFallbackButton();
+            createEmergencyChatButton();
           }
         } else {
           console.warn(
             '[ChatScriptLoader] enableChatButton function not found',
           );
-          createFallbackButton();
+          createEmergencyChatButton();
         }
       } else {
         console.log(
@@ -471,7 +397,7 @@ function ChatScriptLoader() {
           console.warn(
             '[ChatScriptLoader] DOM Check: No button found after all checks, creating fallback',
           );
-          createFallbackButton();
+          createEmergencyChatButton();
         }
       }, delay);
 
@@ -560,18 +486,8 @@ function ChatScriptLoader() {
       e.stopPropagation();
       console.log('[ChatScriptLoader] Debug button clicked');
 
-      if (typeof (window as any).openGenesysChat === 'function') {
-        console.log('[ChatScriptLoader] Calling openGenesysChat()');
-        (window as any).openGenesysChat();
-      } else if (window.CXBus && typeof window.CXBus.command === 'function') {
-        console.log('[ChatScriptLoader] Calling CXBus.command("WebChat.open")');
-        window.CXBus.command('WebChat.open');
-      } else {
-        console.warn('[ChatScriptLoader] No chat open function found');
-        alert(
-          'Chat service is being configured. Please try again in a moment.',
-        );
-      }
+      // Always use our universal chat opener that handles all cases
+      (window as any).openGenesysChat();
       return false;
     };
 
@@ -603,7 +519,28 @@ function ChatScriptLoader() {
  * Handles loading Genesys chat scripts and creating chat button
  */
 export function LegacyChatWrapper() {
-  // The stylesheet is imported at the top of the file, no need for link tag
+  // Add a first-render effect to ensure CSS is loaded
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Force CSS loading immediately on component mount
+    ensureChatCssIsLoaded();
+
+    // Set a short timeout to apply critical styles
+    setTimeout(applyCriticalChatButtonStyles, 500);
+
+    // Set a longer timeout to check if button exists, otherwise create one
+    setTimeout(() => {
+      const chatButton = document.querySelector('.cx-webchat-chat-button');
+      if (!chatButton) {
+        console.log(
+          '[LegacyChatWrapper] No chat button found after timeout, creating emergency button',
+        );
+        createEmergencyChatButton();
+      }
+    }, 5000);
+  }, []);
+
   return (
     <>
       <div id="genesys-chat-container"></div>
@@ -646,43 +583,7 @@ const setupChatDebugger = () => {
 
   // Also create a function to force show the chat button
   (window as any).forceShowChatButton = function () {
-    const createButton =
-      (window as any).createFallbackButton ||
-      function () {
-        const btn = document.createElement('button');
-        btn.id = 'manual-debug-chat-btn';
-        btn.innerHTML = 'FORCE CHAT';
-        btn.style.cssText = [
-          'position: fixed',
-          'bottom: 20px',
-          'right: 20px',
-          'z-index: 999999',
-          'background: red',
-          'color: white',
-          'padding: 10px 20px',
-          'font-weight: bold',
-          'border-radius: 4px',
-          'cursor: pointer',
-        ].join(';');
-
-        btn.onclick = function () {
-          if (typeof (window as any).openGenesysChat === 'function') {
-            (window as any).openGenesysChat();
-          } else if (
-            (window as any).CXBus &&
-            typeof (window as any).CXBus.command === 'function'
-          ) {
-            (window as any).CXBus.command('WebChat.open');
-          } else {
-            alert('No chat functions available');
-          }
-        };
-
-        document.body.appendChild(btn);
-        return 'Emergency button added';
-      };
-
-    return createButton();
+    return createEmergencyChatButton();
   };
 
   console.log(
@@ -694,95 +595,49 @@ const setupChatDebugger = () => {
 if (typeof window !== 'undefined') {
   setupChatDebugger();
 
-  // Add a CSS troubleshooting function
+  // Get the chat endpoints properly using import instead of require
+  let CHAT_ENDPOINT_PATHS = {
+    WIDGETS_SCRIPT_URL: '/assets/genesys/plugins/widgets.min.js',
+    CLICK_TO_CHAT_SCRIPT_URL: '/assets/genesys/click_to_chat.js',
+    WIDGETS_CSS_URL: '/assets/genesys/plugins/widgets.min.css',
+  };
+
+  // Try to use the actual imported endpoints
+  try {
+    if (CHAT_ENDPOINTS) {
+      CHAT_ENDPOINT_PATHS = {
+        WIDGETS_SCRIPT_URL:
+          CHAT_ENDPOINTS.WIDGETS_SCRIPT_URL ||
+          CHAT_ENDPOINT_PATHS.WIDGETS_SCRIPT_URL,
+        CLICK_TO_CHAT_SCRIPT_URL:
+          CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
+          CHAT_ENDPOINT_PATHS.CLICK_TO_CHAT_SCRIPT_URL,
+        WIDGETS_CSS_URL: '/assets/genesys/plugins/widgets.min.css', // Hardcoded as it might not be in CHAT_ENDPOINTS
+      };
+      console.log(
+        '[GLOBAL] Using centralized chat endpoints',
+        CHAT_ENDPOINT_PATHS,
+      );
+    }
+  } catch (e) {
+    console.warn(
+      '[GLOBAL] Could not use centralized endpoints, using defaults',
+      e,
+    );
+  }
+
+  // Add a universal chat opener function that's guaranteed to work - use our enhanced version
+  (window as any).openGenesysChat = function () {
+    // Simply use our enhanced implementation from chatUtils
+    if (typeof window.openGenesysChat === 'function') {
+      return window.openGenesysChat();
+    }
+  };
+
+  // Add our CSS fix function
   (window as any).fixChatButtonCSS = function () {
     console.log('[GLOBAL] Running chat button CSS fix');
-
-    // Force reload the CSS
-    const cssPath = '/assets/genesys/plugins/widgets.min.css';
-    let link = document.querySelector(
-      `link[href="${cssPath}"]`,
-    ) as HTMLLinkElement;
-
-    if (link) {
-      console.log('[GLOBAL] Removing existing CSS link');
-      link.parentNode?.removeChild(link);
-    }
-
-    console.log('[GLOBAL] Adding new CSS link');
-    link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = cssPath + '?t=' + Date.now(); // Add cache buster
-    document.head.appendChild(link);
-
-    // Add direct styles for the chat button
-    console.log('[GLOBAL] Adding direct button styles');
-    setTimeout(() => {
-      const button = document.querySelector(
-        '.cx-webchat-chat-button',
-      ) as HTMLElement;
-      if (button) {
-        button.style.cssText = `
-          display: flex !important;
-          opacity: 1 !important;
-          visibility: visible !important;
-          position: fixed !important;
-          right: 20px !important;
-          bottom: 20px !important;
-          z-index: 9999 !important;
-          background-color: #0078d4 !important;
-          color: white !important;
-          padding: 10px 20px !important;
-          border-radius: 4px !important;
-          cursor: pointer !important;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
-          font-family: sans-serif !important;
-          font-size: 16px !important;
-          font-weight: bold !important;
-        `;
-        console.log('[GLOBAL] Direct styles applied to button');
-        return 'Button found and styles applied';
-      } else {
-        console.log('[GLOBAL] Button not found, creating fallback');
-        // Create an emergency button
-        const btn = document.createElement('button');
-        btn.id = 'emergency-chat-button';
-        btn.textContent = 'CHAT NOW';
-        btn.style.cssText = `
-          position: fixed;
-          right: 20px;
-          bottom: 20px;
-          z-index: 99999;
-          background-color: #ff4500;
-          color: white;
-          padding: 10px 20px;
-          border-radius: 4px;
-          cursor: pointer;
-          font-weight: bold;
-          border: none;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        `;
-
-        btn.onclick = function () {
-          if (typeof (window as any).openGenesysChat === 'function') {
-            (window as any).openGenesysChat();
-          } else if (
-            (window as any).CXBus &&
-            typeof (window as any).CXBus.command === 'function'
-          ) {
-            (window as any).CXBus.command('WebChat.open');
-          } else {
-            alert('No chat functions found');
-          }
-        };
-
-        document.body.appendChild(btn);
-        return 'Emergency button created';
-      }
-    }, 1000);
-
-    return 'CSS fix initiated';
+    return ensureChatCssIsLoaded();
   };
 
   console.log(

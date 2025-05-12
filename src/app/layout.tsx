@@ -52,9 +52,9 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <link
-          rel="preload"
+          rel="stylesheet"
           href="/assets/genesys/plugins/widgets.min.css"
-          as="style"
+          id="genesys-widgets-css-main"
         />
       </head>
 
