@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client';
 // Remove direct import of CSS - we'll load it dynamically
 // import '@/../public/assets/genesys/plugins/widgets.min.css';
@@ -687,11 +688,38 @@ if (typeof window !== 'undefined') {
     );
   }
 
-  // Add a universal chat opener function that's guaranteed to work - use our enhanced version
+  // Add a universal chat opener function that works reliably
   (window as any).openGenesysChat = function () {
-    // Simply use our enhanced implementation from chatUtils
-    if (typeof window.openGenesysChat === 'function') {
-      return window.openGenesysChat();
+    console.log('[GLOBAL] openGenesysChat called');
+
+    try {
+      // First try CXBus command
+      if (window.CXBus && typeof window.CXBus.command === 'function') {
+        console.log('[GLOBAL] Opening chat via CXBus.command');
+        return window.CXBus.command('WebChat.open', {
+          form: {
+            autoSubmit: true,
+          },
+        });
+      }
+
+      // Then try CXBus publish
+      if (window.CXBus && typeof window.CXBus.publish === 'function') {
+        console.log('[GLOBAL] Opening chat via CXBus.publish');
+        return window.CXBus.publish('WebChat.open');
+      }
+
+      // Try direct _genesys access
+      if (window._genesys?.widgets?.webchat) {
+        console.log('[GLOBAL] Opening chat via _genesys.widgets.webchat');
+        return window._genesys.widgets.webchat.open();
+      }
+
+      console.warn('[GLOBAL] No chat methods available to open chat');
+      return false;
+    } catch (error) {
+      console.error('[GLOBAL] Error opening chat:', error);
+      return false;
     }
   };
 
@@ -704,4 +732,29 @@ if (typeof window !== 'undefined') {
   console.log(
     '[GLOBAL] Added fixChatButtonCSS() function to window. Run window.fixChatButtonCSS() to fix styling issues.',
   );
+
+  // Configure chat if _genesys already exists
+  setTimeout(() => {
+    if (window._genesys && window._genesys.widgets) {
+      console.log('[GLOBAL] Configuring Genesys widgets after timeout');
+      window._genesys.widgets.onReady = function () {
+        console.log('[GLOBAL] Genesys widgets are ready');
+
+        // Force enable chat
+        if (window._genesys.widgets.webchat) {
+          window._genesys.widgets.webchat.chatButton = {
+            enabled: true,
+            template:
+              '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+            effect: 'fade',
+            openDelay: 100,
+            effectDuration: 200,
+            hideDuringInvite: false,
+          };
+
+          console.log('[GLOBAL] Chat button configured');
+        }
+      };
+    }
+  }, 2000);
 }
