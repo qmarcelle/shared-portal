@@ -1,5 +1,5 @@
 import { logger } from '@/utils/logger';
-import { createContext, useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { ChatService } from '../services/ChatService';
 import { chatSelectors, useChatStore } from '../stores/chatStore';
 
@@ -86,7 +86,7 @@ type ChatSessionOptions = {
   planName?: string;
   hasMultiplePlans?: boolean;
   onLockPlanSwitcher?: (locked: boolean) => void;
-  chatConfig?: Record<string, any>;
+  chatConfig?: Record<string, unknown>;
   cloudChatEligible?: boolean;
   payload?: Record<string, unknown>;
 };
