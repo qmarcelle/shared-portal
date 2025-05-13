@@ -1,14 +1,14 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { useChatStore, chatSelectors } from '../stores/chatStore';
+import { render, screen } from '@testing-library/react';
 import { useSession } from 'next-auth/react';
-import { ChatProvider } from '../components/ChatProvider';
+import { ChatClientEntry } from '../../components/ChatClientEntry';
+import { chatSelectors, useChatStore } from '../stores/chatStore';
 
 // Mock dependencies
 jest.mock('../stores/chatStore');
 jest.mock('next-auth/react');
 jest.mock('../components/ChatEntry', () => ({
   __esModule: true,
-  default: () => <div data-testid="chat-entry">Mocked Chat Entry</div>
+  default: () => <div data-testid="chat-entry">Mocked Chat Entry</div>,
 }));
 
 // Mock the logger to avoid console noise during tests
@@ -33,14 +33,14 @@ jest.mock('../components/StatusComponents', () => ({
     ChatLoading: () => <div data-testid="chat-loading">Loading...</div>,
     ChatError: ({ error }: { error: Error }) => (
       <div data-testid="chat-error">{error.message}</div>
-    )
-  }
+    ),
+  },
 }));
 
 describe('ChatUI', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    
+
     // Setup session mock
     (useSession as jest.Mock).mockReturnValue({
       data: {
@@ -49,15 +49,16 @@ describe('ChatUI', () => {
             plan: {
               memCk: '12345',
               grpId: 'GROUP123',
-              planName: 'Test Health Plan'
-            }
-          }
-        }
+              planName: 'Test Health Plan',
+            },
+          },
+        },
       },
-      status: 'authenticated'
+      status: 'authenticated',
     });
-    
+
     // Setup chat store mock
+    // @ts-ignore
     (useChatStore as jest.Mock).mockImplementation(() => ({
       isOpen: true,
       isMinimized: false,
@@ -66,14 +67,14 @@ describe('ChatUI', () => {
       chatData: {
         isEligible: true,
         cloudChatEligible: true,
-        businessHours: { isOpen: true, text: 'Monday - Friday, 8 AM - 5 PM' }
+        businessHours: { isOpen: true, text: 'Monday - Friday, 8 AM - 5 PM' },
       },
       isLoading: false,
       messages: [],
       config: { enabled: true },
       isPlanSwitcherLocked: false,
       planSwitcherTooltip: '',
-      
+
       // Actions
       setOpen: jest.fn(),
       setMinimized: jest.fn(),
@@ -84,68 +85,66 @@ describe('ChatUI', () => {
       clearMessages: jest.fn(),
       setChatActive: jest.fn(),
       setLoading: jest.fn(),
-      loadChatConfiguration: jest.fn().mockResolvedValue(undefined)
+      loadChatConfiguration: jest.fn().mockResolvedValue(undefined),
     }));
-    
+
     // Setup selector mocks
     (chatSelectors.isEligible as jest.Mock).mockReturnValue(true);
     (chatSelectors.chatMode as jest.Mock).mockReturnValue('cloud');
     (chatSelectors.isOOO as jest.Mock).mockReturnValue(false);
-    (chatSelectors.businessHoursText as jest.Mock).mockReturnValue('Monday - Friday, 8 AM - 5 PM');
+    (chatSelectors.businessHoursText as jest.Mock).mockReturnValue(
+      'Monday - Friday, 8 AM - 5 PM',
+    );
   });
-  
-  it('should render ChatProvider when authenticated with a plan', () => {
-    render(<ChatProvider />);
-    // We can only test that the render doesn't crash 
-    // Dynamic import mocking is complex in this environment
+
+  it('should render ChatClientEntry when authenticated with a plan', () => {
+    render(<ChatClientEntry />);
   });
-  
+
   it('should render loading component', () => {
     render(<ChatLoading />);
     expect(screen.getByTestId('chat-loading')).toBeInTheDocument();
   });
-  
+
   it('should render error component', () => {
     const errorMessage = 'Test error message';
     render(<ChatError error={new Error(errorMessage)} />);
-    
+
     expect(screen.getByTestId('chat-error')).toBeInTheDocument();
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
-  
-  it('should not render ChatProvider when not authenticated', () => {
+
+  it('should not render ChatClientEntry when not authenticated', () => {
     (useSession as jest.Mock).mockReturnValue({
       data: null,
-      status: 'unauthenticated'
+      status: 'unauthenticated',
     });
-    
-    const { container } = render(<ChatProvider />);
+    const { container } = render(<ChatClientEntry />);
     expect(container.firstChild).toBeNull();
   });
-  
-  it('should not render ChatProvider when user has no plan', () => {
+
+  it('should not render ChatClientEntry when user has no plan', () => {
     (useSession as jest.Mock).mockReturnValue({
       data: {
         user: {
-          currUsr: {} // No plan
-        }
+          currUsr: {}, // No plan
+        },
       },
-      status: 'authenticated'
+      status: 'authenticated',
     });
-    
-    const { container } = render(<ChatProvider />);
+    const { container } = render(<ChatClientEntry />);
     expect(container.firstChild).toBeNull();
   });
-  
+
   it('should handle business hours display', () => {
     // Mock out-of-hours
     (chatSelectors.isOOO as jest.Mock).mockReturnValue(true);
-    
+
     // Create a simple component to test the business hours text
     const BusinessHoursTest = () => {
       const businessHoursText = chatSelectors.businessHoursText(useChatStore());
       const isOOO = chatSelectors.isOOO(useChatStore());
-      
+
       return (
         <div>
           <div data-testid="is-ooo">{isOOO ? 'Out of hours' : 'In hours'}</div>
@@ -153,21 +152,23 @@ describe('ChatUI', () => {
         </div>
       );
     };
-    
+
     render(<BusinessHoursTest />);
-    
+
     expect(screen.getByTestId('is-ooo')).toHaveTextContent('Out of hours');
-    expect(screen.getByTestId('hours-text')).toHaveTextContent('Monday - Friday, 8 AM - 5 PM');
+    expect(screen.getByTestId('hours-text')).toHaveTextContent(
+      'Monday - Friday, 8 AM - 5 PM',
+    );
   });
-  
+
   it('should respect eligibility rules', () => {
     // Mock ineligible chat
     (chatSelectors.isEligible as jest.Mock).mockReturnValue(false);
-    
+
     // Create a simple component to test eligibility
     const EligibilityTest = () => {
       const isEligible = chatSelectors.isEligible(useChatStore());
-      
+
       return (
         <div>
           <div data-testid="is-eligible">
@@ -176,9 +177,11 @@ describe('ChatUI', () => {
         </div>
       );
     };
-    
+
     render(<EligibilityTest />);
-    
-    expect(screen.getByTestId('is-eligible')).toHaveTextContent('Not eligible for chat');
+
+    expect(screen.getByTestId('is-eligible')).toHaveTextContent(
+      'Not eligible for chat',
+    );
   });
 });

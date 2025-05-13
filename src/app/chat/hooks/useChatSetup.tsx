@@ -1,7 +1,6 @@
 import { logger } from '@/utils/logger';
 import { useEffect, useId, useState } from 'react';
 import { chatSelectors, useChatStore } from '../stores/chatStore';
-import { createChatSettings } from '../utils/chatUtils';
 
 type ChatMode = 'legacy' | 'cloud';
 
@@ -54,13 +53,13 @@ export function useChatSetup(chatMode: ChatMode) {
     });
 
     try {
-      // Use utility function to create settings
-      window.chatSettings = createChatSettings(userData, chatMode);
+      // Use Zustand store action to create and sync settings
+      useChatStore.getState().initializeChatSettings(userData, chatMode);
 
       logger.info(`[useChatSetup] chatSettings injected`, {
         componentId,
         hasSettings: !!window.chatSettings,
-        settingsKeys: Object.keys(window.chatSettings),
+        settingsKeys: Object.keys(window.chatSettings || {}),
         timestamp: new Date().toISOString(),
       });
 

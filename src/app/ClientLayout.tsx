@@ -1,7 +1,8 @@
 'use client';
 
+import ChatWidget from '@/components/ChatWidget';
 import { useEffect, useState } from 'react';
-import { ChatProvider } from './chat/components/ChatProvider';
+import { useChatStore } from './chat/stores/chatStore';
 
 export default function ClientLayout({
   children,
@@ -10,6 +11,7 @@ export default function ClientLayout({
 }) {
   // Add loading state to prevent rendering before data is ready
   const [isClientReady, setIsClientReady] = useState(false);
+  const chatSettings = useChatStore((state) => state.chatSettings);
 
   // Only run on client-side
   useEffect(() => {
@@ -17,35 +19,8 @@ export default function ClientLayout({
     const timer = setTimeout(() => {
       setIsClientReady(true);
       console.log(
-        '[ClientLayout] Client ready, ChatProvider can now be rendered',
+        '[ClientLayout] Client ready, ChatWidget can now be rendered',
       );
-
-      // Make directChatOpen globally available if it's defined in LegacyChatWrapper
-      if (typeof window !== 'undefined') {
-        // Check periodically until the function is available (it may be loaded asynchronously)
-        const checkInterval = setInterval(() => {
-          const legacyWrapper = document.getElementById('legacy-chat-wrapper');
-          if (
-            legacyWrapper &&
-            typeof (window as any).directChatOpen === 'function'
-          ) {
-            console.log(
-              '[ClientLayout] directChatOpen function is available globally',
-            );
-            clearInterval(checkInterval);
-          } else if (
-            typeof (window as any)._makeDirectChatOpenGlobal === 'function'
-          ) {
-            (window as any)._makeDirectChatOpenGlobal();
-            console.log(
-              '[ClientLayout] Attempted to make directChatOpen available globally',
-            );
-          }
-        }, 1000);
-
-        // Clean up interval on unmount
-        return () => clearInterval(checkInterval);
-      }
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -58,7 +33,7 @@ export default function ClientLayout({
 
   return (
     <>
-      <ChatProvider />
+      <ChatWidget chatSettings={chatSettings} />
       {children}
     </>
   );

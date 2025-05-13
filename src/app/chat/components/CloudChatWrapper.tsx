@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useChatSetup } from '../hooks/useChatSetup';
 // ChatUI is deprecated and returns null anyway
 
-export function CloudChatWrapper({}) {
+export function CloudChatWrapper() {
   // Use the shared setup hook for common functionality
   const {
     userData,
@@ -81,3 +81,5 @@ export function CloudChatWrapper({}) {
     </div>
   );
 }
+
+export default CloudChatWrapper;

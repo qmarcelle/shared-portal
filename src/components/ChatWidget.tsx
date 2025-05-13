@@ -3,7 +3,7 @@
 /**
  * @deprecated This component is deprecated in favor of the new ChatProvider.
  * Please use the ChatProvider component from '@/app/chat/components/ChatProvider' instead.
- * 
+ *
  * The new implementation avoids reload issues and ensures proper script loading sequence.
  */
 
@@ -12,9 +12,15 @@ import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 import { useEffect } from 'react';
 
-export default function ChatWidget() {
+// Accept any shape for chatSettings, as it is aggregated server-side
+export interface ChatWidgetProps {
+  chatSettings: any;
+}
+
+export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
   const { isOpen, isChatActive, isLoading, error, loadChatConfiguration } =
@@ -64,6 +70,12 @@ export default function ChatWidget() {
     });
   }, [chatMode, isOpen, isChatActive]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.chatSettings = chatSettings;
+    }
+  }, [chatSettings]);
+
   // Don't render chat on excluded paths or if user isn't authenticated with a plan
   if (
     excludedPaths.some((path) => pathname.startsWith(path)) ||
@@ -76,6 +88,25 @@ export default function ChatWidget() {
   if (!isOpen) return null;
 
   // This component is deprecated. Use ChatProvider instead.
-  logger.warn('[ChatWidget] This component is deprecated. Use ChatProvider from @/app/chat/components/ChatProvider');
-  return null;
+  logger.warn(
+    '[ChatWidget] This component is deprecated. Use ChatProvider from @/app/chat/components/ChatProvider',
+  );
+  return (
+    <>
+      <Script
+        src="/assets/genesys/click_to_chat.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          // Optionally, you can add debug logs here
+          if (window.chatSettings) {
+            // eslint-disable-next-line no-console
+            console.log(
+              '[ChatWidget] click_to_chat.js loaded with settings',
+              window.chatSettings,
+            );
+          }
+        }}
+      />
+    </>
+  );
 }
