@@ -1,6 +1,7 @@
 'use client';
 
 import ChatWidget from '@/components/ChatWidget';
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useChatStore } from './chat/stores/chatStore';
 
@@ -20,11 +21,36 @@ export default function ClientLayout({
       setIsClientReady(true);
       console.log(
         '[ClientLayout] Client ready, ChatWidget can now be rendered',
+        {
+          hasChatSettings: !!chatSettings,
+          chatSettingsKeys: chatSettings ? Object.keys(chatSettings) : [],
+        },
       );
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [chatSettings]);
+
+  // Get session data
+  const { data: session } = useSession();
+
+  // Log session data for debugging
+  useEffect(() => {
+    console.log('[ClientLayout] Session data:', {
+      isAuthenticated: !!session,
+      user: session?.user ? 'exists' : 'null',
+      plan: session?.user?.currUsr?.plan
+        ? {
+            memCk: session?.user?.currUsr?.plan?.memCk,
+            grpId: session?.user?.currUsr?.plan?.grpId,
+          }
+        : 'null',
+      timestamp: new Date().toISOString(),
+    });
+  }, [session]);
+
+  const isChatSettingsReady =
+    !!chatSettings && Object.keys(chatSettings).length > 0;
 
   // Log when chatSettings changes for debugging
   useEffect(() => {

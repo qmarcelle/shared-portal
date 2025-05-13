@@ -18,6 +18,16 @@ export async function GET(request: NextRequest) {
   const correlationId =
     request.headers.get('x-correlation-id') || Date.now().toString();
 
+  console.log('⭐ [API:chat/getChatInfo] Endpoint CALLED ⭐', {
+    correlationId,
+    memberId,
+    memberType,
+    planId,
+    timestamp: new Date().toISOString(),
+    url: request.url,
+    headers: Object.fromEntries(request.headers.entries()),
+  });
+
   logger.info('[API:chat/getChatInfo] Incoming request', {
     correlationId,
     memberId,

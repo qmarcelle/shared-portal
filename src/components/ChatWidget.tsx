@@ -23,11 +23,6 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { isOpen, isChatActive, isLoading, error, chatData } = useChatStore();
   const { loadChatConfiguration } = useChatStore();
 
-  // Use a fallback for chatMode if cloudChatEligible is undefined
-  const chatMode = chatData?.cloudChatEligible === true ? 'cloud' : 'legacy';
-
-  useChatSetup(chatMode);
-
   // Define routes where chat should never appear
   const excludedPaths = [
     '/login',
@@ -36,6 +31,22 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     '/sso/redirect',
     '/embed/security',
   ];
+
+  // Immediately log session data when component first renders
+  useEffect(() => {
+    console.log('[ChatWidget] Initial render session data:', {
+      session: session ? 'exists' : 'null',
+      user: session?.user ? 'exists' : 'null',
+      plan: session?.user?.currUsr?.plan ? 'exists' : 'null',
+      pathname,
+      isExcludedPath: excludedPaths.some((path) => pathname.startsWith(path)),
+    });
+  }, [pathname, session, excludedPaths]);
+
+  // Use a fallback for chatMode if cloudChatEligible is undefined
+  const chatMode = chatData?.cloudChatEligible === true ? 'cloud' : 'legacy';
+
+  useChatSetup(chatMode);
 
   // Chat session for passing to wrappers
   const chatSession = {
@@ -60,6 +71,58 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         fullPlan: plan,
       });
 
+      // Added direct test fetch to verify API endpoint is accessible
+      // This is a temporary debug measure
+      const debugRequestId = Date.now().toString();
+      if (memCk && planId) {
+        console.log('[ChatWidget] TEST: Direct fetch to API endpoint with:', {
+          memCk,
+          planId,
+          debugRequestId,
+        });
+
+        fetch(
+          `/api/chat/getChatInfo?memberId=${memCk}&memberType=byMemberCk&planId=${planId}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-correlation-id': debugRequestId,
+            },
+          },
+        )
+          .then(async (response) => {
+            console.log('[ChatWidget] TEST: Direct API response:', {
+              status: response.status,
+              ok: response.ok,
+              contentType: response.headers.get('content-type'),
+            });
+
+            if (response.ok) {
+              const text = await response.text();
+              console.log(
+                '[ChatWidget] TEST: API response text:',
+                text.substring(0, 500),
+              );
+              try {
+                const data = JSON.parse(text);
+                console.log(
+                  '[ChatWidget] TEST: Parsed API response data:',
+                  data,
+                );
+              } catch (e) {
+                console.error(
+                  '[ChatWidget] TEST: Failed to parse API response:',
+                  e,
+                );
+              }
+            }
+          })
+          .catch((err) => {
+            console.error('[ChatWidget] TEST: Direct API call failed:', err);
+          });
+      }
+
       if (memCk && planId) {
         console.log('[ChatWidget] Calling loadChatConfiguration with:', {
           memCk,
@@ -72,6 +135,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
             console.log('[ChatWidget] Chat configuration loaded successfully', {
               timestamp: new Date().toISOString(),
               hasChatData: !!useChatStore.getState().chatData,
+              chatData: useChatStore.getState().chatData,
             });
           })
           .catch((err) => {
@@ -91,6 +155,13 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         hasChatData: !!chatData,
         hasSessionUser: !!session?.user,
         hasSessionUserPlan: !!session?.user?.currUsr?.plan,
+        sessionUser: session?.user ? 'exists' : null,
+        sessionPlan: session?.user?.currUsr?.plan
+          ? {
+              memCk: session?.user?.currUsr?.plan?.memCk,
+              grpId: session?.user?.currUsr?.plan?.grpId,
+            }
+          : null,
       });
     }
   }, [chatData, isLoading, session, loadChatConfiguration]);

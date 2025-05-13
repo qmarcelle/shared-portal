@@ -237,6 +237,14 @@ export const useChatStore = create<ChatState>((set, get) => ({
         memberType,
       });
 
+      console.log('⭐ [ChatStore] loadChatConfiguration CALLED ⭐', {
+        requestId,
+        memberId,
+        planId,
+        memberType,
+        timestamp: new Date().toISOString(),
+      });
+
       try {
         set({ isLoading: true, error: null });
 
