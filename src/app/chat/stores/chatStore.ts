@@ -414,10 +414,19 @@ export const useChatStore = create<ChatState>((set, get) => ({
           configurable: true,
         });
 
-        logger.info('[ChatStore] Created chat data structure', {
-          requestId,
-          isEligible: chatData.isEligible,
+        logger.info('[ChatStore] API response for chat config', {
+          availableKeys: Object.keys(info),
+          cloudChatEligible: info.cloudChatEligible,
+          isEligible: info.isEligible,
+          chatGroup: info.chatGroup,
+          businessHours: info.businessHours,
+          timestamp: new Date().toISOString(),
+        });
+
+        logger.info('[ChatStore] Setting chatData and chatMode', {
           chatMode: chatData.cloudChatEligible ? 'cloud' : 'legacy',
+          chatData,
+          timestamp: new Date().toISOString(),
         });
 
         set({
@@ -491,6 +500,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
     logger.info('[ChatStore] Initializing chat settings', {
       mode,
       userDataKeys: Object.keys(userData),
+      timestamp: new Date().toISOString(),
     });
 
     // @ts-ignore - Using createChatSettings from utils/chatUtils.ts
@@ -501,6 +511,11 @@ export const useChatStore = create<ChatState>((set, get) => ({
     if (typeof window !== 'undefined') {
       window.chatSettings = settings;
     }
+
+    logger.info('[ChatStore] Chat settings initialized', {
+      settings,
+      timestamp: new Date().toISOString(),
+    });
 
     return settings;
   },

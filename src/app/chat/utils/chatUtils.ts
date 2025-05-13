@@ -36,6 +36,7 @@ export function createChatSettings(
   userData: Record<string, any>,
   mode: 'legacy' | 'cloud',
 ): ChatSettings {
+  logger.info('[ChatUtils] Creating chat settings', { mode, userData });
   // Debug all environment variables
   logger.info('[ChatUtils] Environment variables for chat', {
     NEXT_PUBLIC_LEGACY_CHAT_URL: process.env.NEXT_PUBLIC_LEGACY_CHAT_URL,
@@ -88,15 +89,7 @@ export function createChatSettings(
   };
 
   // Log the generated settings
-  logger.info('[ChatUtils] Generated chat settings', {
-    clickToChatEndpoint: settings.clickToChatEndpoint,
-    clickToChatEndpoint_exists: !!settings.clickToChatEndpoint,
-    bootstrapUrl_exists: !!settings.bootstrapUrl,
-    clickToChatJs_exists: !!settings.clickToChatJs,
-    mode,
-    timestamp: new Date().toISOString(),
-    environment: chatConfig.ENV_NAME,
-  });
+  logger.info('[ChatUtils] Final chat settings', settings);
 
   // Add user data with string conversion
   if (userData) {
@@ -321,6 +314,7 @@ export function createEmergencyChatButton(): HTMLElement {
 export function openGenesysChat(): void {
   const timestamp = new Date().toISOString();
   const chatMode = window._genesys ? 'legacy' : 'cloud';
+  logger.info('[ChatUtils] openGenesysChat called', { chatMode, timestamp });
 
   logger.info('[chatUtils] Opening Genesys chat', {
     mode: chatMode,
@@ -339,16 +333,14 @@ export function openGenesysChat(): void {
   if (window.CXBus && typeof window.CXBus.command === 'function') {
     try {
       logger.info(
-        '[chatUtils] Opening chat via CXBus.command("WebChat.open")',
-        {
-          timestamp,
-        },
+        '[ChatUtils] Opening chat via CXBus.command("WebChat.open")',
+        { timestamp },
       );
       window.CXBus.command('WebChat.open');
       success = true;
       return;
     } catch (e) {
-      logger.error('[chatUtils] Error using CXBus.command:', {
+      logger.error('[ChatUtils] Error using CXBus.command', {
         error: e,
         timestamp,
       });
@@ -360,16 +352,14 @@ export function openGenesysChat(): void {
     if (typeof window._genesys.widgets.webchat.open === 'function') {
       try {
         logger.info(
-          '[chatUtils] Opening chat via _genesys.widgets.webchat.open()',
-          {
-            timestamp,
-          },
+          '[ChatUtils] Opening chat via _genesys.widgets.webchat.open()',
+          { timestamp },
         );
         window._genesys.widgets.webchat.open();
         success = true;
         return;
       } catch (e) {
-        logger.error('[chatUtils] Error using _genesys.widgets.webchat.open:', {
+        logger.error('[ChatUtils] Error using _genesys.widgets.webchat.open', {
           error: e,
           timestamp,
         });
@@ -380,14 +370,14 @@ export function openGenesysChat(): void {
   // Method 3: Cloud Messenger API
   if (chatMode === 'cloud' && window.Genesys) {
     try {
-      logger.info('[chatUtils] Opening chat via Genesys Cloud Messenger', {
+      logger.info('[ChatUtils] Opening chat via Genesys Cloud Messenger', {
         timestamp,
       });
       window.Genesys('command', 'Messenger.open');
       success = true;
       return;
     } catch (e) {
-      logger.error('[chatUtils] Error opening Genesys Cloud Messenger:', {
+      logger.error('[ChatUtils] Error opening Genesys Cloud Messenger', {
         error: e,
         timestamp,
       });
@@ -401,16 +391,14 @@ export function openGenesysChat(): void {
   if (chatButton) {
     try {
       logger.info(
-        '[chatUtils] Found chat button in DOM, clicking it directly',
-        {
-          timestamp,
-        },
+        '[ChatUtils] Found chat button in DOM, clicking it directly',
+        { timestamp },
       );
       chatButton.click();
       success = true;
       return;
     } catch (e) {
-      logger.error('[chatUtils] Error clicking chat button:', {
+      logger.error('[ChatUtils] Error clicking chat button', {
         error: e,
         timestamp,
       });
@@ -420,10 +408,8 @@ export function openGenesysChat(): void {
   // If all methods failed, try emergency approach
   if (!success) {
     logger.error(
-      '[chatUtils] All standard methods failed, attempting recovery',
-      {
-        timestamp,
-      },
+      '[ChatUtils] All standard methods failed, attempting recovery',
+      { timestamp },
     );
 
     // Try to reload scripts and create emergency button

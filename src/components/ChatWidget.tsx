@@ -68,11 +68,20 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       isOpen,
       isChatActive,
     });
+    // eslint-disable-next-line no-console
+    console.log('[ChatWidget] Chat component mounted', {
+      chatMode,
+      isOpen,
+      isChatActive,
+    });
   }, [chatMode, isOpen, isChatActive]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.chatSettings = chatSettings;
+      logger.info('[ChatWidget] window.chatSettings set', { chatSettings });
+      // eslint-disable-next-line no-console
+      console.log('[ChatWidget] window.chatSettings set', window.chatSettings);
     }
   }, [chatSettings]);
 
@@ -99,7 +108,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         onLoad={() => {
           if (typeof window !== 'undefined') {
             window.chatSettings = chatSettings;
-            // Optionally, you can add debug logs here
+            logger.info(
+              '[ChatWidget] click_to_chat.js loaded with settings',
+              window.chatSettings,
+            );
             // eslint-disable-next-line no-console
             console.log(
               '[ChatWidget] click_to_chat.js loaded with settings',

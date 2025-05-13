@@ -24,6 +24,13 @@ export async function GET(request: NextRequest) {
     memberType,
     planId,
   });
+  // eslint-disable-next-line no-console
+  console.log('[API:chat/getChatInfo] Incoming request', {
+    correlationId,
+    memberId,
+    memberType,
+    planId,
+  });
 
   if (!memberId || !memberType) {
     return NextResponse.json(
@@ -45,11 +52,23 @@ export async function GET(request: NextRequest) {
       portalServicesUrl: serverConfig.PORTAL_SERVICES_URL,
       memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
     });
+    // eslint-disable-next-line no-console
+    console.log('[API:chat/getChatInfo] Member service configuration', {
+      correlationId,
+      baseURL,
+      portalServicesUrl: serverConfig.PORTAL_SERVICES_URL,
+      memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
+    });
 
     // Build the URL
     const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
+      correlationId,
+      url,
+    });
+    // eslint-disable-next-line no-console
+    console.log('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
     });
@@ -66,6 +85,15 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
 
     logger.info(
+      '[API:chat/getChatInfo] Response received from member service',
+      {
+        correlationId,
+        status: response.status,
+        dataKeys: data ? Object.keys(data) : [],
+      },
+    );
+    // eslint-disable-next-line no-console
+    console.log(
       '[API:chat/getChatInfo] Response received from member service',
       {
         correlationId,
@@ -93,11 +121,29 @@ export async function GET(request: NextRequest) {
       chatGroup: transformedData.chatGroup,
       chatAvailable: transformedData.chatAvailable,
     });
+    // eslint-disable-next-line no-console
+    console.log('[API:chat/getChatInfo] Returning transformed chat info', {
+      correlationId,
+      cloudChatEligible: transformedData.cloudChatEligible,
+      chatGroup: transformedData.chatGroup,
+      chatAvailable: transformedData.chatAvailable,
+    });
 
     return NextResponse.json(transformedData);
   } catch (error: any) {
     // Detailed error logging with additional context
     logger.error('[API:chat/getChatInfo] Error calling member service', {
+      correlationId,
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      memberId,
+      memberType,
+      planId,
+      statusCode: error.response?.status,
+      responseData: error.response?.data,
+    });
+    // eslint-disable-next-line no-console
+    console.error('[API:chat/getChatInfo] Error calling member service', {
       correlationId,
       error: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
@@ -122,6 +168,11 @@ export async function GET(request: NextRequest) {
         correlationId,
         errorDetails,
       });
+      // eslint-disable-next-line no-console
+      console.error('[API:chat/getChatInfo] Detailed error information', {
+        correlationId,
+        errorDetails,
+      });
 
       return NextResponse.json(
         { message: 'Error calling member service', errorDetails },
@@ -129,6 +180,11 @@ export async function GET(request: NextRequest) {
       );
     } catch (logError) {
       logger.error('[API:chat/getChatInfo] Error logging failure', {
+        correlationId,
+        logError,
+      });
+      // eslint-disable-next-line no-console
+      console.error('[API:chat/getChatInfo] Error logging failure', {
         correlationId,
         logError,
       });
