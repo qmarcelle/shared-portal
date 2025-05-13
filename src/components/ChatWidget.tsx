@@ -370,6 +370,17 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
 
       {configReady && (
         <>
+          {/* Load custom CSS */}
+          <link
+            rel="stylesheet"
+            href="/assets/genesys/styles/bcbst-custom.css"
+            id="genesys-custom-css"
+          />
+          <link
+            rel="stylesheet"
+            href="/assets/genesys/plugins/widgets.min.css"
+            id="genesys-widgets-css"
+          />
           <Script
             id="genesys-config-script"
             src="/assets/genesys/click_to_chat.js"
