@@ -164,7 +164,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      router.push('/virtualCareOptions');
+                      router.push('/member/findcare/virtualcare');
                     },
                   },
                 ]}

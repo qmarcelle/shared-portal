@@ -17,7 +17,6 @@ export type VirtualCareOptionsProps = { sessionData?: Session | null };
 const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className="mb-0 title-1" text="Virtual Care Options" />
         <Spacer size={16} />
