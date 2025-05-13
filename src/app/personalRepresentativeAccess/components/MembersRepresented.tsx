@@ -19,6 +19,7 @@ interface MembersRepresentedProps extends IComponent {
   isRepresentative: boolean | undefined;
   isRegistered: boolean;
   visibilityRules?: VisibilityRules;
+  allowUpdates?: boolean;
 }
 
 export const MembersRepresented = ({
@@ -26,6 +27,7 @@ export const MembersRepresented = ({
   isRepresentative,
   isRegistered,
   visibilityRules,
+  allowUpdates = true,
 }: MembersRepresentedProps) => {
   const [memberInviteState, setMemberInviteState] =
     useState(representativesData);
@@ -78,6 +80,7 @@ export const MembersRepresented = ({
               fullAccess={item.fullAccess}
               isRepresentative={isRepresentative}
               visibilityRules={visibilityRules}
+              allowUpdates={allowUpdates}
               accessStatus={item.accessStatus!}
               accessStatusIsPending={item.accessStatusIsPending!}
               inviteStatus={item.inviteStatus!}

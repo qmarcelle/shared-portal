@@ -7,7 +7,7 @@ export const publicRoutes = ['/embed/logout'];
  * Routes that are used for authentication.
  * The routes will redirect logged-in users to /settings.
  */
-export const authRoutes = ['/login', '/embed/dxAuth'];
+export const authRoutes = ['/login', '/embed/dxAuth', '/sso/impersonate'];
 
 /**
  * Context root for API authentication routes.
@@ -16,9 +16,12 @@ export const apiAuthPrefix = '/api';
 
 /**
  * Mapping of inbound SSO authentication paths to the portal page they redirect to upon successful sign-in
+ * (Unless a TargetResource parameter is specified)
  */
 export const inboundSSORoutes = new Map<string, string>([
   ['/embed/dxAuth', '/embed/security'],
+  ['/sso/impersonate', '/dashboard'],
+  ['/sso/auth', '/dashboard'],
   ['/sso', '/sso'],
 ]);
 
@@ -30,6 +33,8 @@ export const noHeaderAndFooterRoutes = [
   '/embed/security',
   '/embed/logout',
   '/',
+  '/sso/auth',
+  '/sso/impersonate',
 ];
 
 export const SECURITY_SETTINGS_PATH = '/security';

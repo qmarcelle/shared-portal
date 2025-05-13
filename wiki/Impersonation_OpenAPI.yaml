@@ -1,0 +1,53 @@
+openapi: 3.0.1
+info:
+  title: Impersonation
+  description: 'Web services related to Member Impersonation'
+  contact:
+    name: Consumer Portals
+    email: IS_ConsumerPortals_SupportTeam@bcbst.com
+  version: '1.0'
+servers:
+  - url: my.bcbst.com
+    variables: {}
+tags:
+  - name: Impersonation
+    description: Impersonation
+paths:
+  /impersonationToken:
+    get:
+      tags:
+      - Impersonation
+      summary: Get Token
+      operationId: impersonationToken
+      parameters:
+      - name: admin
+        in: query
+        description: NTID of User Requesting Impersonation Access
+        required: true
+        schema:
+          type: string
+        example: A12356B
+      - name: user
+        in: query
+        description: UserId of the member that should be impersonated.
+        required: true
+        schema:
+          type: string
+        example: cbhall
+      responses:
+        '200':
+          description: Successfully retrieved impersonation token.
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Redirect url to be authenticated into portal
+        '400':
+          description: Bad request. Either the `user` or `admin` query parameter is missing.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Must specify user or Must specify admin
+        '500':
+          description: Internal server error.

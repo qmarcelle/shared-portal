@@ -28,6 +28,7 @@ interface OnMyPlanItemProps extends IComponent {
   dentalEffectiveDate?: string;
   visionEffectiveDate?: string;
   isLoggedInMember?: string;
+  allowUpdates?: boolean;
   isGATrackEligible?: boolean;
   analyticsEvent?: string;
   selectionType?: string;
@@ -47,6 +48,7 @@ export const OnMyPlanItem = ({
   medicalEffectiveDate,
   dentalEffectiveDate,
   visionEffectiveDate,
+  allowUpdates = true,
   isGATrackEligible,
   analyticsEvent,
   selectionType,
@@ -163,6 +165,7 @@ export const OnMyPlanItem = ({
                         memberName={memberName}
                         targetType={targetType ?? ''}
                         isMaturedMinor={isMinor}
+                        disableSubmit={!allowUpdates}
                       />
                     ),
                   });
@@ -180,7 +183,9 @@ export const OnMyPlanItem = ({
     <Card
       className={`cursor-pointer ${className}`}
       type="elevated"
-      onClick={onClick}
+      onClick={() => {
+        if (allowUpdates && onClick) onClick();
+      }}
     >
       <Column className="m-4">
         <Spacer size={16} />

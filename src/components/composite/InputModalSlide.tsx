@@ -21,6 +21,7 @@ interface InputModalSlideProps extends IComponent {
   // TODO: Find the correct model and type it here
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cancelCallback: () => any;
+  disableSubmit?: boolean;
 }
 
 export const InputModalSlide = ({
@@ -30,6 +31,7 @@ export const InputModalSlide = ({
   actionArea,
   nextCallback,
   cancelCallback,
+  disableSubmit = false,
 }: InputModalSlideProps) => {
   const inputModalAnalytics = (buttonLabelVal: string, labelVal: string) => {
     const analytics: AnalyticsData = {
@@ -63,6 +65,7 @@ export const InputModalSlide = ({
           className="font-bold active"
           label={buttonLabel}
           type="primary"
+          disable={disableSubmit}
           callback={
             nextCallback
               ? () => {

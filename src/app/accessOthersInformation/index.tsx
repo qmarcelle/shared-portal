@@ -12,10 +12,12 @@ import { AccessToOthersPlanComponent } from './components/AccessToOthersPlanComp
 
 export type AccessOtherInformationProps = {
   accessOtherInformationDetails?: SharePlanInformationDetails;
+  isImpersonated?: boolean;
 };
 
 const AccessOthersInformation = ({
   accessOtherInformationDetails,
+  isImpersonated = false,
 }: AccessOtherInformationProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -69,6 +71,7 @@ const AccessOthersInformation = ({
           <Column className="page-section-63_33 items-stretch">
             <Card className="large-section">
               <AccessOnMyPlanComponent
+                allowUpdates={!isImpersonated}
                 header={
                   <Column>
                     <Header type="title-2" text="On My Plan" />

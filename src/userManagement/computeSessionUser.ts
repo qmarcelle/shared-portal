@@ -13,6 +13,7 @@ export async function computeSessionUser(
   userId: string,
   selectedUserId?: string,
   planId?: string,
+  impersonator?: string,
 ): Promise<SessionUser> {
   try {
     logger.info('Calling computeSessionUser');
@@ -31,11 +32,16 @@ export async function computeSessionUser(
       const plans = currentUser.plans;
 
       if (planId) {
-        return computeTokenWithPlan(userId, currentUser, planId);
+        return computeTokenWithPlan(userId, currentUser, planId, impersonator);
       } else {
         const selectedPlan = plans.length == 1 ? plans[0] : null;
         if (selectedPlan) {
-          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK);
+          return computeTokenWithPlan(
+            userId,
+            currentUser,
+            selectedPlan.memCK,
+            impersonator,
+          );
         }
         return {
           id: userId,
@@ -45,6 +51,8 @@ export async function computeSessionUser(
             role: currentUser.type,
             plan: undefined,
           },
+          impersonated: !!impersonator,
+          impersonator,
         };
       }
     } else {
@@ -80,6 +88,7 @@ async function computeTokenWithPlan(
   userId: string,
   currentUser: UserProfile,
   planId: string,
+  impersonator?: string,
 ): Promise<SessionUser> {
   const loggedUserInfo = await getLoggedInUserInfo(planId, true, userId);
   const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
@@ -102,5 +111,7 @@ async function computeTokenWithPlan(
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),
+    impersonated: !!impersonator,
+    impersonator: impersonator,
   };
 }

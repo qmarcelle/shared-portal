@@ -43,6 +43,7 @@ export const {
           token.sub!,
           session.userId,
           session.planId,
+          session.impersonator,
         );
 
         return {

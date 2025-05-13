@@ -47,6 +47,7 @@ interface MembersRepresentativeItemProps extends IComponent {
   onRequestSuccessCallBack: () => void;
   onInviteSuccessCallBack: () => void;
   pendingIcon?: JSX.Element;
+  allowUpdates?: boolean;
 }
 
 export const MembersRepresentativeItem = ({
@@ -75,6 +76,7 @@ export const MembersRepresentativeItem = ({
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
   pendingIcon = <Image src={pendingLogo} alt="link" />,
+  allowUpdates = true,
 }: MembersRepresentativeItemProps) => {
   const { showAppModal } = useAppModalStore();
   const currentDate: string = formatDateToLocale(new Date());
@@ -102,7 +104,7 @@ export const MembersRepresentativeItem = ({
                 className="!flex pl-0"
                 label="Invite to Register"
                 icon={icon1}
-                callback={() =>
+                callback={() => {
                   showAppModal({
                     content: (
                       <InviteToRegister
@@ -113,8 +115,8 @@ export const MembersRepresentativeItem = ({
                         onRequestSuccessCallBack={onInviteSuccessCallBack}
                       />
                     ),
-                  })
-                }
+                  });
+                }}
               />
             ) : (
               <div className="flex flex-row">
@@ -156,13 +158,14 @@ export const MembersRepresentativeItem = ({
                   className="font-bold primary-color ml-2"
                   text="Update"
                   suffix={icon}
-                  callback={() =>
+                  callback={() => {
                     showAppModal({
                       content: (
                         <EditLevelOfAccess
                           memberName={memberName}
                           isMaturedMinor={isMatureMinor}
                           currentAccessType="basic"
+                          disableSubmit={!allowUpdates}
                           id={id}
                           policyId={policyId}
                           expiresOn={expiresOn}
@@ -171,8 +174,8 @@ export const MembersRepresentativeItem = ({
                           lastName={lastName}
                         />
                       ),
-                    })
-                  }
+                    });
+                  }}
                 />
               </Row>
             )}

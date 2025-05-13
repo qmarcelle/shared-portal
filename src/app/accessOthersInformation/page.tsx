@@ -19,6 +19,7 @@ const AccessOthersInformationPage = async () => {
     return (
       <AccessOthersInformation
         accessOtherInformationDetails={accessOtherInformationData.data}
+        isImpersonated={session!.user.impersonated}
       />
     );
   }

@@ -670,6 +670,6 @@ describe('Log In of User whose Email Id is not registered yet', () => {
     expect(screen.queryByLabelText(/Confirming/i)).not.toBeInTheDocument();
 
     // Assert the user user is taken to dashboard
-    expect(mockReplace).toHaveBeenCalledWith('/security');
+    expect(mockReplace).toHaveBeenCalledWith('/dashboard');
   });
 });

@@ -11,9 +11,13 @@ import { MFAInfoComponent } from './MFAInfoComponent';
 
 interface SecuritySettingsProps {
   username: string;
+  isImpersonated?: boolean;
 }
 
-export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
+export const SecuritySettings = ({
+  username,
+  isImpersonated = false,
+}: SecuritySettingsProps) => {
   const { mfaDevices, loadMfaDevices } = useSecuritySettingsStore();
 
   const initialized = useRef(false);
@@ -36,13 +40,19 @@ export const SecuritySettings = ({ username }: SecuritySettingsProps) => {
         <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
-            <LoginInfoComponent username={username} />
+            <LoginInfoComponent
+              username={username}
+              isImpersonated={!isImpersonated}
+            />
             {/* Commenting out for 10/16 release. 
             To Do: Enable it for 12/16 release
             <IdentityProtectionServiceCard />*/}
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <MFAInfoComponent mfaDevices={mfaDevices} />
+            <MFAInfoComponent
+              mfaDevices={mfaDevices}
+              allowUpdates={!isImpersonated}
+            />
           </Column>
         </section>
       </Body>

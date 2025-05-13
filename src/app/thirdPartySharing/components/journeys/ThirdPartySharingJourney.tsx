@@ -10,15 +10,18 @@ import { ThirdPartySharingInputslide } from '../ThirdPartySharingInputslide';
 
 interface ThirdPartySharingJourneyProps {
   appName: string;
+  disableSubmit?: boolean;
 }
 
 export const ThirdPartySharingJourney = ({
   changePage,
   pageIndex,
   appName,
+  disableSubmit = false,
 }: ModalChildProps & ThirdPartySharingJourneyProps) => {
   const { dismissModal } = useAppModalStore();
   const confirmStopSharing = async () => {
+    if (disableSubmit) return;
     changePage?.(1, true);
   };
 
