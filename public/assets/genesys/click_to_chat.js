@@ -1419,6 +1419,9 @@
       // Always ensure the widget CSS is loaded regardless of mode
       ensureCssLoaded('/assets/genesys/plugins/widgets.min.css');
 
+      // Ensure our custom CSS overrides are loaded
+      ensureCssLoaded('/assets/genesys/styles/bcbst-custom.css');
+
       if (mode === 'cloud') {
         // Genesys Cloud Messenger
         var environment = window.chatSettings.environment || 'usw2.pure.cloud';

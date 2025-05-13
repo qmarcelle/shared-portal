@@ -240,98 +240,15 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         strategy="lazyOnload"
         onLoad={() => {
           if (typeof window !== 'undefined') {
-            // Re-apply latest settings when script loads
-            const combinedSettings = {
-              ...chatSettings,
-              ...(chatData && {
-                cloudChatEligible: chatData.cloudChatEligible,
-              }),
-              chatMode: chatMode,
-              // Add debug information to track initialization
-              debug: true,
+            // Log successful load but don't modify settings again - click_to_chat.js handles this
+            logger.info('[ChatWidget] click_to_chat.js loaded successfully', {
               timestamp: new Date().toISOString(),
-              loadedFromComponent: 'ChatWidget',
-            };
-
-            // Log before setting to see what we're about to apply
-            console.log(
-              '[ChatWidget] Before applying settings to window.chatSettings:',
-              {
-                currentWindowSettings: window.chatSettings
-                  ? Object.keys(window.chatSettings)
-                  : 'none',
-                willApply: combinedSettings,
-                hasRequiredFields: {
-                  chatMode: !!combinedSettings.chatMode,
-                  isChatEligibleMember: !!combinedSettings.isChatEligibleMember,
-                  isChatAvailable:
-                    combinedSettings.isChatAvailable !== undefined,
-                },
-              },
-            );
-
-            window.chatSettings = combinedSettings;
-
-            // Force refresh _genesys widgets config if it exists
-            if (window._genesys && window._genesys.widgets) {
-              console.log(
-                '[ChatWidget] Found _genesys.widgets, attempting to refresh config',
-              );
-              try {
-                // Try to refresh the chat button via Genesys command bus if available
-                if (
-                  window.CXBus &&
-                  typeof window.CXBus.command === 'function'
-                ) {
-                  console.log(
-                    '[ChatWidget] Calling CXBus to refresh chat button',
-                  );
-                  window.CXBus.command(
-                    'WebChat.refreshSettings',
-                    combinedSettings,
-                  );
-                }
-              } catch (e) {
-                console.error(
-                  '[ChatWidget] Error refreshing Genesys settings:',
-                  e,
-                );
-              }
-            }
-
-            logger.info(
-              '[ChatWidget] click_to_chat.js loaded with settings',
-              window.chatSettings,
-            );
-
-            console.log(
-              '[ChatWidget] click_to_chat.js loaded with complete settings:',
-              window.chatSettings,
-            );
+            });
+            console.log('[ChatWidget] click_to_chat.js loaded successfully');
           }
         }}
       />
-      {/* Custom CSS overrides for Genesys chat widget styling */}
-      <Script
-        id="chat-custom-css"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            /* Load our custom CSS after the Genesys widget styles */
-            (function() {
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = '/assets/genesys/styles/bcbst-custom.css';
-              link.type = 'text/css';
-              
-              /* Ensure this loads after Genesys styles */
-              document.head.appendChild(link);
-              
-              console.log('[ChatWidget] Custom CSS loaded');
-            })();
-          `,
-        }}
-      />
+      {/* We no longer need the custom CSS script since click_to_chat.js loads it */}
     </>
   );
 
