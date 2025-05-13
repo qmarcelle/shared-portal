@@ -12,6 +12,9 @@ import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+// We'll use any to avoid type conflicts with other declarations
+// in the codebase that we can't see
+
 // Accept any shape for chatSettings, as it is aggregated server-side
 export interface ChatWidgetProps {
   chatSettings: any;
@@ -141,71 +144,46 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     });
   }, [chatMode, isOpen, isChatActive, chatData, chatSettings]);
 
-  // Fallback method to load Genesys widgets directly
-  const loadGenesysWidgetsDirectly = () => {
-    console.log('[ChatWidget] Attempting direct script injection fallback');
-
-    // Only attempt if not already loaded
+  // Create a reusable fallback button
+  const createFallbackButton = () => {
     if (
       typeof window !== 'undefined' &&
-      !document.getElementById('genesys-widgets-script-direct')
+      document.querySelector('.fallback-chat-button') === null
     ) {
-      try {
-        // First ensure CSS is loaded
-        const cssLink = document.createElement('link');
-        cssLink.rel = 'stylesheet';
-        cssLink.href = '/assets/genesys/plugins/widgets.min.css';
-        cssLink.id = 'genesys-widgets-css-direct';
-        document.head.appendChild(cssLink);
+      console.log('[ChatWidget] Creating fallback chat button');
 
-        // Then load the JS
-        const script = document.createElement('script');
-        script.src = '/assets/genesys/plugins/widgets.min.js';
-        script.id = 'genesys-widgets-script-direct';
-        script.async = true;
+      const fallbackBtn = document.createElement('div');
+      fallbackBtn.className = 'fallback-chat-button';
+      fallbackBtn.innerText = 'Chat Now';
+      Object.assign(fallbackBtn.style, {
+        display: 'flex',
+        position: 'fixed',
+        right: '20px',
+        bottom: '20px',
+        backgroundColor: '#0078d4',
+        color: 'white',
+        padding: '15px 25px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+        zIndex: '9999',
+        fontWeight: 'bold',
+        fontSize: '16px',
+      });
 
-        script.onload = () => {
-          console.log('[ChatWidget] Direct script injection successful');
-
-          // Then load click_to_chat
-          const clickToChatScript = document.createElement('script');
-          clickToChatScript.src = '/assets/genesys/click_to_chat.js';
-          clickToChatScript.id = 'click-to-chat-script-direct';
-          clickToChatScript.async = true;
-
-          clickToChatScript.onload = () => {
-            console.log(
-              '[ChatWidget] click_to_chat.js direct injection successful',
-            );
-            setScriptLoaded(true);
-          };
-
-          clickToChatScript.onerror = (err) => {
-            console.error(
-              '[ChatWidget] click_to_chat.js direct injection failed',
-              err,
-            );
-            setScriptError('Failed to load click_to_chat.js directly');
-          };
-
-          document.head.appendChild(clickToChatScript);
-        };
-
-        script.onerror = (err) => {
-          console.error(
-            '[ChatWidget] Direct widgets.min.js injection failed',
-            err,
+      fallbackBtn.onclick = () => {
+        if (typeof window !== 'undefined' && (window as any).CXBus) {
+          (window as any).CXBus.command('WebChat.open');
+        } else {
+          alert(
+            'Chat system is not fully loaded. Please try again in a moment.',
           );
-          setScriptError('Failed to load widgets.min.js directly');
-        };
+        }
+      };
 
-        document.head.appendChild(script);
-      } catch (err) {
-        console.error('[ChatWidget] Error during direct script injection', err);
-        setScriptError(
-          'Error during script injection: ' + (err as Error).message,
-        );
-      }
+      document.body.appendChild(fallbackBtn);
+      setChatButtonExists(true);
+      console.log('[ChatWidget] Created fallback chat button');
     }
   };
 
@@ -243,25 +221,31 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   }, [scriptLoaded, chatButtonExists]);
 
-  // Effect to manually force chat button display if needed
+  // Set window.chatSettings and prepare config for Genesys
   useEffect(() => {
-    if (scriptLoaded && typeof window !== 'undefined') {
-      // Attempt to force-enable the chat button after script has loaded
-      const enableChatButton = () => {
-        console.log('[ChatWidget] Forcing chat button visibility');
+    if (typeof window !== 'undefined') {
+      // Initialize _genesys structure with proper type safety
+      (window as any)._genesys = (window as any)._genesys || { widgets: {} };
 
-        if (window._genesys && window._genesys.widgets) {
-          // Configure button properties
-          window._genesys.widgets.webchat =
-            window._genesys.widgets.webchat || {};
-          window._genesys.widgets.webchat.chatButton = {
-            enabled: true,
-            template:
-              '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
-            openDelay: 100,
-            effectDuration: 200,
-            hideDuringInvite: false,
-          };
+      // Register onReady callback before scripts load
+      if ((window as any)._genesys && (window as any)._genesys.widgets) {
+        (window as any)._genesys.widgets.onReady = function (bus: any) {
+          console.log('[ChatWidget] Genesys widgets ready!');
+
+          // Ensure chat button is configured
+          if ((window as any)._genesys && (window as any)._genesys.widgets) {
+            (window as any)._genesys.widgets.webchat =
+              (window as any)._genesys.widgets.webchat || {};
+
+            (window as any)._genesys.widgets.webchat.chatButton = {
+              enabled: true,
+              template:
+                '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+              openDelay: 100,
+              effectDuration: 200,
+              hideDuringInvite: false,
+            };
+          }
 
           // Find and style the button
           setTimeout(() => {
@@ -291,98 +275,17 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               if (btn.textContent && btn.textContent.includes('Debug:'))
                 btn.textContent = 'Chat Now';
 
-              // Ensure click handler
-              btn.onclick = () =>
-                window.CXBus && window.CXBus.command('WebChat.open');
-
               console.log('[ChatWidget] Chat button styled and enabled');
             } else {
               console.warn('[ChatWidget] Chat button element not found');
-
-              // Create a fallback button directly if none exists
-              if (document.querySelector('.fallback-chat-button') === null) {
-                createFallbackButton();
-              }
-            }
-          }, 2000);
-        } else {
-          console.warn('[ChatWidget] Genesys widgets not initialized yet');
-          // Try loading scripts directly as fallback
-          if (scriptLoadAttempts.current < 3) {
-            scriptLoadAttempts.current += 1;
-            console.log(
-              `[ChatWidget] Attempting fallback script load (try ${scriptLoadAttempts.current})`,
-            );
-            loadGenesysWidgetsDirectly();
-          } else {
-            // After 3 attempts, create fallback button
-            createFallbackButton();
-          }
-        }
-      };
-
-      // Create a fallback button when we can't get the official Genesys button to show
-      const createFallbackButton = () => {
-        console.log('[ChatWidget] Creating fallback chat button');
-
-        if (document.querySelector('.fallback-chat-button') === null) {
-          const fallbackBtn = document.createElement('div');
-          fallbackBtn.className = 'fallback-chat-button';
-          fallbackBtn.innerText = 'Chat Now';
-          Object.assign(fallbackBtn.style, {
-            display: 'flex',
-            position: 'fixed',
-            right: '20px',
-            bottom: '20px',
-            backgroundColor: '#0078d4',
-            color: 'white',
-            padding: '15px 25px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-            zIndex: '9999',
-            fontWeight: 'bold',
-            fontSize: '16px',
-          });
-
-          fallbackBtn.onclick = () => {
-            if (window.CXBus) {
-              window.CXBus.command('WebChat.open');
-            } else {
-              alert(
-                'Chat system is not fully loaded. Please try again in a moment.',
-              );
-            }
-          };
-
-          document.body.appendChild(fallbackBtn);
-          setChatButtonExists(true);
-          console.log('[ChatWidget] Created fallback chat button');
-        }
-      };
-
-      // Call immediately and also after delays to ensure it works
-      enableChatButton();
-
-      // Try multiple times with increasing delays
-      const delays = [3000, 6000, 9000];
-      delays.forEach((delay, index) => {
-        setTimeout(() => {
-          if (!checkForChatButton()) {
-            enableChatButton();
-            // On the last attempt, create a fallback button if needed
-            if (index === delays.length - 1) {
+              // Create a fallback button as last resort
               createFallbackButton();
             }
-          }
-        }, delay);
-      });
-    }
-  }, [scriptLoaded]);
+          }, 2000);
+        };
+      }
 
-  // Set window.chatSettings and mark config as ready
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
+      // Combine and set chatSettings
       const combinedSettings = {
         ...chatSettings,
         // Override cloudChatEligible with the value from chatData if available
@@ -395,53 +298,47 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         isChatAvailable: 'true',
       };
 
-      window.chatSettings = combinedSettings;
+      (window as any).chatSettings = combinedSettings;
 
       logger.info('[ChatWidget] window.chatSettings set', { combinedSettings });
-      console.log('[ChatWidget] window.chatSettings set', window.chatSettings);
+      console.log(
+        '[ChatWidget] window.chatSettings set',
+        (window as any).chatSettings,
+      );
 
       // Mark config as ready after settings are applied
       setConfigReady(true);
     }
   }, [chatSettings, chatData, chatMode]);
 
-  // Add a useEffect to log just before rendering the Script tag
+  // Run diagnostics on chatSettings and window.chatSettings
   useEffect(() => {
-    if (typeof window !== 'undefined' && configReady) {
-      // Only log if chatSettings is present and config is ready
-      console.log(
-        '[ChatWidget] Ready to load click_to_chat.js with settings:',
-        window.chatSettings,
-      );
-    }
-  }, [configReady]);
-
-  // Fallback if script hasn't loaded after 10 seconds
-  useEffect(() => {
-    if (configReady && !scriptLoaded) {
-      const timer = setTimeout(() => {
-        console.log(
-          '[ChatWidget] Script load timeout - trying direct injection',
-        );
-        loadGenesysWidgetsDirectly();
-      }, 10000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [configReady, scriptLoaded]);
-
-  useEffect(() => {
-    // Run diagnostics on chatSettings and window.chatSettings
     logChatConfigDiagnostics(
       chatSettings,
-      typeof window !== 'undefined' ? window.chatSettings : undefined,
+      typeof window !== 'undefined' ? (window as any).chatSettings : undefined,
       true,
     );
     validateChatConfig(
       chatSettings,
-      typeof window !== 'undefined' ? window.chatSettings : undefined,
+      typeof window !== 'undefined' ? (window as any).chatSettings : undefined,
     );
   }, [chatSettings]);
+
+  // Last resort fallback timer
+  useEffect(() => {
+    if (configReady) {
+      const lastResortTimer = setTimeout(() => {
+        if (!checkForChatButton()) {
+          console.log(
+            '[ChatWidget] Last resort timer - creating fallback button',
+          );
+          createFallbackButton();
+        }
+      }, 20000);
+
+      return () => clearTimeout(lastResortTimer);
+    }
+  }, [configReady]);
 
   // Don't render chat on excluded paths or if user isn't authenticated with a plan
   if (
@@ -451,68 +348,52 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     return null;
   }
 
-  // Create a debug status display
-  const renderDebugStatus = () => {
-    if (!configReady) return 'Waiting for config...';
-    if (scriptError) return `Error: ${scriptError}`;
-    if (!scriptLoaded) return 'Loading script...';
-    return 'Script loaded, waiting for button...';
-  };
-
-  // Only load the script after window.chatSettings is ready
   return (
-    <>
-      {configReady && (
-        <Script
-          src="/assets/genesys/click_to_chat.js"
-          strategy="lazyOnload"
-          onLoad={() => {
-            if (typeof window !== 'undefined') {
-              // Log successful load but don't modify settings again - click_to_chat.js handles this
-              logger.info('[ChatWidget] click_to_chat.js loaded successfully', {
-                timestamp: new Date().toISOString(),
-              });
-              console.log('[ChatWidget] click_to_chat.js loaded successfully');
-              setScriptLoaded(true);
-
-              // Check if button already exists after successful load
-              setTimeout(checkForChatButton, 1000);
-            }
-          }}
-          onError={(e) => {
-            console.error('[ChatWidget] Script load error:', e);
-            setScriptError('Failed to load script via Next.js');
-            // Try direct injection as fallback
-            loadGenesysWidgetsDirectly();
-          }}
-        />
-      )}
-
-      {/* Debug indicator - only show in development and if button doesn't exist yet */}
-      {process.env.NODE_ENV === 'development' && !chatButtonExists && (
+    <div>
+      {process.env.NODE_ENV !== 'production' && (
         <div
           style={{
             position: 'fixed',
-            right: '200px',
-            bottom: '20px',
-            padding: '0.5rem 1rem',
-            backgroundColor: '#f0f0f0',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
+            top: '10px',
+            left: '10px',
             fontSize: '12px',
-            color: '#333',
-            zIndex: 9998,
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            background: '#eee',
+            padding: '5px',
+            zIndex: 9999,
           }}
         >
-          {renderDebugStatus()}
+          Chat status: {configReady ? 'Config ready' : 'Config loading'} |{' '}
+          {scriptLoaded ? 'Scripts loaded' : 'Scripts loading'} |{' '}
+          {chatButtonExists ? 'Button exists' : 'No button yet'}
         </div>
       )}
 
-      {/* Create a manual button if needed */}
-      {configReady && scriptLoaded && typeof window !== 'undefined' && (
-        <div id="chat-button-container"></div>
+      {configReady && (
+        <>
+          <Script
+            id="genesys-config-script"
+            src="/assets/genesys/click_to_chat.js"
+            strategy="beforeInteractive"
+            onLoad={() => console.log('[ChatWidget] Config script loaded')}
+            onError={(e) =>
+              console.error('[ChatWidget] Config script error', e)
+            }
+          />
+          <Script
+            id="genesys-widgets-script"
+            src="/assets/genesys/plugins/widgets.min.js"
+            strategy="afterInteractive"
+            onLoad={() => {
+              console.log('[ChatWidget] Widgets script loaded');
+              setScriptLoaded(true);
+            }}
+            onError={() => {
+              console.error('[ChatWidget] Widgets script failed to load');
+              setTimeout(createFallbackButton, 5000);
+            }}
+          />
+        </>
       )}
-    </>
+    </div>
   );
 }
