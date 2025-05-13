@@ -2,6 +2,10 @@
 
 import { useChatSetup } from '@/app/chat/hooks/useChatSetup';
 import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
+import {
+  logChatConfigDiagnostics,
+  validateChatConfig,
+} from '@/app/chat/utils/chatDebugger';
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
@@ -71,6 +75,19 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         window.chatSettings,
       );
     }
+  }, [chatSettings]);
+
+  useEffect(() => {
+    // Run diagnostics on chatSettings and window.chatSettings
+    logChatConfigDiagnostics(
+      chatSettings,
+      typeof window !== 'undefined' ? window.chatSettings : undefined,
+      true,
+    );
+    validateChatConfig(
+      chatSettings,
+      typeof window !== 'undefined' ? window.chatSettings : undefined,
+    );
   }, [chatSettings]);
 
   // Don't render chat on excluded paths or if user isn't authenticated with a plan
