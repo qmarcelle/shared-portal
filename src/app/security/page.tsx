@@ -14,7 +14,14 @@ const SecurityPage = async () => {
   if (userRole && !checkPersonalRepAccess(userRole)) {
     redirect('/dashboard');
   } else {
-    return session?.user && <SecuritySettings username={session.user.id} />; //TODO this needs to check for visibility by PZN once implemented.
+    return (
+      session?.user && (
+        <SecuritySettings
+          username={session.user.id}
+          isImpersonated={session.user.impersonated}
+        />
+      )
+    ); //TODO this needs to check for visibility by PZN once implemented.
   }
 };
 

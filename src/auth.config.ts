@@ -23,6 +23,7 @@ export default {
     Credentials({
       credentials: {
         userId: { label: 'User ID' },
+        impersonator: { label: 'Impersonator' },
       },
       async authorize(credentials): Promise<SessionUser> {
         const username = credentials.userId?.toString();
@@ -33,7 +34,12 @@ export default {
           throw new AuthError();
         }
         try {
-          const user = await computeSessionUser(username);
+          const user = await computeSessionUser(
+            username,
+            undefined,
+            undefined,
+            credentials.impersonator?.toString(),
+          );
           return user;
         } catch (err) {
           console.log(`computeSessionUser failure username=${username}`);

@@ -117,6 +117,7 @@ export async function callLogin(
       //signIn calls redirect() so it must be done in the finally block.
       await signIn('credentials', {
         userId: authUser,
+        impersonator: null,
         redirect: false,
       });
     }

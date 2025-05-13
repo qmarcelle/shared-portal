@@ -133,6 +133,7 @@ export async function callSubmitMfaOtp(
     if (authUser) {
       await signIn('credentials', {
         userId: authUser,
+        impersonator: null,
         redirect: false,
       });
     }

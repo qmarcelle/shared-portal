@@ -27,6 +27,7 @@ interface InviteToRegisterProps {
   targetType?: string;
   currentAccessType: string;
   isMaturedMinor?: boolean;
+  disableSubmit?: boolean;
   id?: string;
   policyId?: string;
   expiresOn?: string;
@@ -42,6 +43,7 @@ export const EditLevelOfAccess = ({
   targetType = '',
   currentAccessType,
   isMaturedMinor,
+  disableSubmit = false,
   id,
   policyId,
   expiresOn,
@@ -146,7 +148,13 @@ export const EditLevelOfAccess = ({
       }
       changeAuthButton={undefined}
       buttonLabel="Next"
-      nextCallback={() => changePage?.(selectedData !== 'none' ? 1 : 2)}
+      nextCallback={() => {
+        // If we're disabling submit prevent the call from happening when none is selected.
+        // If Full/Basic is selected submit is disable on final slide of modal.
+        if (selectedData == 'none') {
+          if (!disableSubmit) changePage?.(2);
+        } else changePage?.(1);
+      }}
       bottomNote={<TextBox className="body-2" text={bottomNote} />}
       cancelCallback={() => dismissModal()}
     />,
@@ -164,6 +172,7 @@ export const EditLevelOfAccess = ({
       buttonLabel="Save Permissions"
       nextCallback={() => handleNext()}
       cancelCallback={() => dismissModal()}
+      disableSubmit={disableSubmit}
     />,
     <SuccessSlide
       key={3}

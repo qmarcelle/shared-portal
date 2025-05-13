@@ -18,12 +18,14 @@ interface InviteToRegisterProps {
   requesteeFHRID: string;
   isMaturedMinor?: boolean;
   onRequestSuccessCallBack: () => void;
+  disableSubmit?: boolean;
 }
 
 export const InviteToRegister = ({
   changePage,
   pageIndex,
   memberName,
+  disableSubmit = false,
   isMaturedMinor,
   memeCk,
   requesteeFHRID,
@@ -40,6 +42,7 @@ export const InviteToRegister = ({
         inputValue,
       );
       if (response.isEmailSent === 'true') {
+        if (disableSubmit) return;
         changePage!(1, false);
         onRequestSuccessCallBack();
       }

@@ -84,6 +84,7 @@ export async function callResetPassword(
 export async function redirectToDashboard(userId: string) {
   await signIn('credentials', {
     userId: userId,
+    impersonator: null,
     redirect: false,
   });
 }

@@ -17,6 +17,7 @@ import { ShareOutsideMyPlanComponent } from './components/ShareOutsideMyPlanComp
 
 export type ShareMyInformationProps = {
   data?: SharePlanInformationDetails;
+  isImpersonated?: boolean;
 };
 
 const ShareMyInformation = ({ data }: ShareMyInformationProps) => {

@@ -57,6 +57,7 @@ export default function LogIn() {
 
   const router = useRouter();
   const queryParams = useSearchParams();
+
   function renderComp() {
     if (unhandledErrors == true) {
       return <LoginGenericErrorcomponent />;

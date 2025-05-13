@@ -11,7 +11,11 @@ import Image from 'next/image';
 import deleteIcon from '../../../../public/assets/delete.svg';
 import { ThirdPartySharingJourney } from './journeys/ThirdPartySharingJourney';
 
-export const ThirdPartySharingInfo = () => {
+export const ThirdPartySharingInfo = ({
+  isImpersonated,
+}: {
+  isImpersonated: boolean;
+}) => {
   const thirdPartyAppList = [
     {
       appName: 'MyFHR App',
@@ -23,6 +27,7 @@ export const ThirdPartySharingInfo = () => {
     },
   ];
   const { showAppModal } = useAppModalStore();
+
   return (
     <Card className="large-section ">
       <Column>
@@ -48,13 +53,16 @@ export const ThirdPartySharingInfo = () => {
           thirdPartyAppList.map((item, index) => (
             <Column key={index}>
               <UpdateRowWithStatus
-                onClick={() =>
+                onClick={() => {
                   showAppModal({
                     content: (
-                      <ThirdPartySharingJourney appName={item.appName} />
+                      <ThirdPartySharingJourney
+                        appName={item.appName}
+                        disableSubmit={isImpersonated}
+                      />
                     ),
-                  })
-                }
+                  });
+                }}
                 label={<TextBox className="font-bold" text={item.appName} />}
                 subLabel={'Connected On ' + item.connectedDate}
                 methodName="Remove"

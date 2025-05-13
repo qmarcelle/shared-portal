@@ -11,6 +11,7 @@ interface AccessOnMyPlanDropDownProps extends IComponent {
   header?: ReactElement;
   subHeader?: ReactElement;
   infoIcon: boolean;
+  allowUpdates?: boolean;
 }
 
 export const AccessOnMyPlanComponent = ({
@@ -19,6 +20,7 @@ export const AccessOnMyPlanComponent = ({
   subHeader,
   loggedInMemberType,
   infoIcon,
+  allowUpdates = true,
 }: AccessOnMyPlanDropDownProps) => {
   const [memberAccessList, setMemberAccessList] = useState(
     accessOnMyPlanDetails,
