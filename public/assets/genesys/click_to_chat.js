@@ -856,88 +856,64 @@
 
       // Helper function to fix layout issues and ensure custom CSS is working
       function fixChatWidgetLayout() {
-        console.log('[Genesys] Applying layout fixes');
+        console.log('[Genesys] Applying chat layout fixes');
 
-        // Check if our custom CSS is loaded
-        let customCssLoaded = false;
-        document.querySelectorAll('link').forEach((link) => {
-          if (link.href && link.href.includes('bcbst-custom.css')) {
-            customCssLoaded = true;
-          }
-        });
-
-        // If custom CSS isn't loaded yet, load it
-        if (!customCssLoaded) {
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = '/assets/genesys/styles/bcbst-custom.css';
-          link.type = 'text/css';
-          document.head.appendChild(link);
-        }
-
-        // Fix widget container
-        const widgetContainer = document.querySelector('.cx-widget.cx-webchat');
-        if (widgetContainer) {
-          Object.assign(widgetContainer.style, {
-            position: 'fixed',
-            right: '20px',
-            bottom: '20px',
-            maxWidth: '400px',
-            maxHeight: '600px',
-            width: '400px',
-            height: 'auto',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        // Apply unified styling to chat window for consistent appearance
+        const chatWindow = document.querySelector('.cx-widget.cx-webchat');
+        if (chatWindow) {
+          Object.assign(chatWindow.style, {
             borderRadius: '8px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
             overflow: 'hidden',
-            zIndex: '999999',
           });
         }
 
-        // Fix header and control buttons
-        const titleBar = document.querySelector(
-          '.cx-widget.cx-webchat .cx-titlebar',
+        // Fix the minimize/close button container position
+        const headerButtons = document.querySelector(
+          '.cx-widget.cx-webchat .cx-titlebar .cx-buttons',
         );
-        if (titleBar) {
-          Object.assign(titleBar.style, {
+        if (headerButtons) {
+          Object.assign(headerButtons.style, {
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '12px 15px',
-            backgroundColor: '#0056B3',
-            color: 'white',
-            height: 'auto',
-            minHeight: '50px',
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            padding: '8px 10px',
+            gap: '8px',
           });
 
-          // Fix buttons container
-          const buttonsContainer = titleBar.querySelector('.cx-buttons');
-          if (buttonsContainer) {
-            Object.assign(buttonsContainer.style, {
+          // Ensure buttons are visible and working
+          const allButtons = headerButtons.querySelectorAll('button');
+          allButtons.forEach((button) => {
+            Object.assign(button.style, {
+              background: 'transparent',
+              color: 'white',
+              margin: '0 3px',
               display: 'flex',
               alignItems: 'center',
-              gap: '10px',
+              justifyContent: 'center',
+              width: '24px',
+              height: '24px',
+              cursor: 'pointer',
+              color: 'white',
+              opacity: '0.85',
               position: 'relative',
-              right: '0',
-              top: '0',
+              transform: 'none',
+              padding: '5px',
+              border: 'none',
+              outline: 'none',
             });
 
-            // Ensure buttons are visible and properly styled
-            const buttons = buttonsContainer.querySelectorAll('.cx-icon');
-            buttons.forEach((button) => {
-              Object.assign(button.style, {
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '24px',
-                height: '24px',
-                cursor: 'pointer',
-                color: 'white',
-                opacity: '0.85',
-                position: 'relative',
-                transform: 'none',
-              });
+            // Add hover effect
+            button.addEventListener('mouseover', () => {
+              button.style.opacity = '1';
             });
-          }
+            button.addEventListener('mouseout', () => {
+              button.style.opacity = '0.85';
+            });
+          });
         }
 
         // Style the record indicator to show message count
@@ -949,23 +925,28 @@
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: '20px',
-            height: '20px',
+            width: '22px',
+            height: '22px',
             borderRadius: '50%',
             backgroundColor: '#e74c3c',
             color: 'white',
             fontWeight: 'bold',
             fontSize: '12px',
             position: 'absolute',
-            top: '5px',
-            right: '5px',
+            top: '-5px',
+            right: '-5px',
             zIndex: '1000',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+            border: '2px solid white',
           });
 
           // Initialize with message count if not already set
           if (!recordIndicator.getAttribute('data-message-count')) {
             recordIndicator.setAttribute('data-message-count', '0');
             recordIndicator.textContent = '0';
+
+            // Initially hide until we have messages
+            recordIndicator.style.display = 'none';
           }
         }
 
@@ -1059,20 +1040,46 @@
           });
         }
 
-        // Reset notification counter when minimizing
+        // Make sure notification indicator is visible if there are messages
         const recordIndicator = document.querySelector(
           '.cx-widget.cx-webchat .cx-record-indicator',
         );
         if (recordIndicator) {
-          // Keep the indicator visible but reset the counter
-          recordIndicator.setAttribute('data-message-count', '0');
-          recordIndicator.textContent = '0';
+          // Get current count
+          const currentCount = parseInt(
+            recordIndicator.getAttribute('data-message-count') || '0',
+          );
+
+          // Only show if we have messages
+          if (currentCount > 0) {
+            Object.assign(recordIndicator.style, {
+              display: 'flex',
+              visibility: 'visible',
+              opacity: '1',
+            });
+          }
         }
       });
 
       // Apply fixes when maximizing
       localWidgetPlugin.subscribe('WebChat.maximized', () => {
         console.log('[Genesys] Chat maximized');
+
+        // Reset message notification counter when maximizing
+        const recordIndicator = document.querySelector(
+          '.cx-widget.cx-webchat .cx-record-indicator',
+        );
+        if (recordIndicator) {
+          recordIndicator.setAttribute('data-message-count', '0');
+          recordIndicator.textContent = '0';
+
+          // Hide the indicator
+          Object.assign(recordIndicator.style, {
+            display: 'none',
+            visibility: 'hidden',
+          });
+        }
+
         // Re-apply layout fixes when maximized
         setTimeout(fixChatWidgetLayout, 100);
       });
@@ -1139,6 +1146,58 @@
 
       // Apply fixes when widget UI is ready
       setTimeout(fixChatWidgetLayout, 1000);
+
+      // Handle when chat ends
+      localWidgetPlugin.subscribe('WebChat.ended', () => {
+        console.log('[Genesys] Chat ended');
+
+        // Ensure the confirmation dialog is visible for proper time
+        setTimeout(() => {
+          // Check for end chat confirmation modal
+          const endChatModal = document.querySelector(
+            '.cx-widget.cx-webchat .cx-dialog[data-message="ChatEndQuestion"]',
+          );
+
+          if (endChatModal) {
+            // Make sure it's fully visible
+            Object.assign(endChatModal.style, {
+              display: 'block',
+              opacity: '1',
+              visibility: 'visible',
+              zIndex: '999999',
+            });
+
+            // Style the buttons for better visibility
+            const buttons = endChatModal.querySelectorAll('button');
+            buttons.forEach((button) => {
+              Object.assign(button.style, {
+                display: 'inline-block',
+                padding: '8px 16px',
+                margin: '8px',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+              });
+
+              // Style primary button differently
+              if (button.getAttribute('data-message') === 'ChatEndConfirm') {
+                Object.assign(button.style, {
+                  backgroundColor: '#0056B3',
+                  color: 'white',
+                  border: 'none',
+                });
+              } else {
+                Object.assign(button.style, {
+                  backgroundColor: 'white',
+                  color: '#0056B3',
+                  border: '1px solid #0056B3',
+                });
+              }
+            });
+          }
+        }, 300);
+      });
     };
 
     // === 8) Helpers for modals & disclaimers ===
