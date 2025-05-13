@@ -60,7 +60,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
 
   // Trigger loadChatConfiguration if needed and we have a session with plan
   useEffect(() => {
-    if (!isLoading && !chatData && session?.user?.currUsr?.plan) {
+    if (!chatData && session?.user?.currUsr?.plan) {
       const plan = session.user.currUsr.plan;
       const memCk = plan.memCk;
       const planId = plan.grpId; // Use grpId instead of non-existent planId
