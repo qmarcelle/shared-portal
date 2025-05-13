@@ -85,6 +85,17 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   }, [chatSettings]);
 
+  // Add a useEffect to log just before rendering the Script tag
+  useEffect(() => {
+    if (typeof window !== 'undefined' && chatSettings) {
+      // Only log if chatSettings is present
+      console.log(
+        '[ChatWidget] About to render click_to_chat.js',
+        window.chatSettings,
+      );
+    }
+  }, [chatSettings]);
+
   // Don't render chat on excluded paths or if user isn't authenticated with a plan
   if (
     excludedPaths.some((path) => pathname.startsWith(path)) ||
