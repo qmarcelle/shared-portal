@@ -32,6 +32,7 @@ import {
   isTeladocPrimary360Eligible,
   isWellnessOnlyBenefitsQV,
   isWellnessQa,
+  payMyPremiumMedicareEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -290,7 +291,9 @@ export const getMenuNavigation = (
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules) &&
+          payMyPremiumMedicareEligible(rules),
         url: '/balances',
         external: true,
       },

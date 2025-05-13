@@ -371,7 +371,8 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         </section>
         <section>
           {!isBlueCareEligible(visibilityRules) &&
-            !isQuantumHealthEligible(visibilityRules) && <AmplifyHealthCard />}
+            !isQuantumHealthEligible(visibilityRules) &&
+            isAHAdvisorpage(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
           {data.employerProvidedBenefits != undefined &&
