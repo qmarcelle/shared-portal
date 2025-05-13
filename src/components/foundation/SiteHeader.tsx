@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { SessionIdleTimer } from '../clientComponents/IdleTimer';
 import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
@@ -31,6 +32,7 @@ import {
 } from './Icons';
 
 type SiteHeaderProps = {
+  isLoggedIn: boolean;
   visibilityRules: VisibilityRules;
   profiles: UserProfile[];
   selectedProfile: UserProfile;
@@ -41,6 +43,7 @@ type SiteHeaderProps = {
 };
 
 export default function SiteHeader({
+  isLoggedIn,
   visibilityRules,
   profiles,
   plans,
@@ -311,6 +314,8 @@ export default function SiteHeader({
           </div>
         </div>
       )}
+      {/* Session idle timer */}
+      {isLoggedIn && <SessionIdleTimer />}
     </>
   );
 }

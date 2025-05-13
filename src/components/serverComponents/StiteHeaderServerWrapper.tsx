@@ -35,6 +35,7 @@ export const SiteHeaderServerWrapper = async () => {
 
       return (
         <SiteHeader
+          isLoggedIn={!!session?.user.id}
           visibilityRules={visibityRules}
           profiles={profiles}
           plans={plans}
