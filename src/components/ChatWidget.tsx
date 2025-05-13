@@ -187,11 +187,86 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   };
 
+  // Create a direct button without requiring Genesys - this is a guaranteed button
+  const createDirectButton = () => {
+    if (
+      typeof window !== 'undefined' &&
+      document.querySelector('.direct-chat-button') === null
+    ) {
+      console.log('[ChatWidget] Creating direct chat button');
+
+      const directBtn = document.createElement('div');
+      directBtn.className = 'direct-chat-button';
+      directBtn.innerText = 'Chat Now';
+      Object.assign(directBtn.style, {
+        display: 'flex',
+        position: 'fixed',
+        right: '20px',
+        bottom: '20px',
+        backgroundColor: '#0056B3',
+        color: 'white',
+        padding: '15px 25px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+        zIndex: '9999',
+        fontWeight: 'bold',
+        fontSize: '16px',
+      });
+
+      // Set up the onClick handler for the direct button
+      directBtn.onclick = () => {
+        // This should open the chat using CXBus if available
+        if (typeof window !== 'undefined' && (window as any).CXBus) {
+          try {
+            console.log('[ChatWidget] Opening chat with CXBus');
+            (window as any).CXBus.command('WebChat.open');
+          } catch (err) {
+            console.error('[ChatWidget] Error opening chat with CXBus', err);
+            alert('Unable to open chat. Please try again or contact support.');
+          }
+        }
+        // If no CXBus, try direct bootstrap
+        else if (
+          typeof window !== 'undefined' &&
+          (window as any)._genesys?.widgets
+        ) {
+          try {
+            console.log('[ChatWidget] Trying direct bootstrap of chat');
+            const bootstrap = document.createElement('script');
+            bootstrap.innerHTML = `
+              window._genesys.widgets.main.startChat({
+                userData: {
+                  customerId: '${session?.user?.currUsr?.plan?.memCk || 'unknown'}',
+                  groupId: '${session?.user?.currUsr?.plan?.grpId || 'unknown'}'
+                }
+              });
+            `;
+            document.head.appendChild(bootstrap);
+          } catch (err) {
+            console.error('[ChatWidget] Error with direct bootstrap', err);
+            alert('Unable to start chat. Please try again later.');
+          }
+        }
+        // Ultimate fallback
+        else {
+          alert(
+            'Chat system is not available. Please try again later or contact support.',
+          );
+        }
+      };
+
+      document.body.appendChild(directBtn);
+      setChatButtonExists(true);
+      console.log('[ChatWidget] Created direct chat button');
+    }
+  };
+
   // Check if the chat button exists in the DOM
   const checkForChatButton = () => {
     if (typeof window !== 'undefined') {
-      const button = document.querySelector('.cx-webchat-chat-button');
-      if (button) {
+      const genesysButton = document.querySelector('.cx-webchat-chat-button');
+      if (genesysButton) {
         setChatButtonExists(true);
         return true;
       }
@@ -199,6 +274,13 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       // Also check for the fallback button
       const fallbackButton = document.querySelector('.fallback-chat-button');
       if (fallbackButton) {
+        setChatButtonExists(true);
+        return true;
+      }
+
+      // Or our direct button
+      const directButton = document.querySelector('.direct-chat-button');
+      if (directButton) {
         setChatButtonExists(true);
         return true;
       }
@@ -224,15 +306,32 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   // Set window.chatSettings and prepare config for Genesys
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      console.log('[ChatWidget] Setting up Genesys configuration');
+
       // Initialize _genesys structure with proper type safety
       (window as any)._genesys = (window as any)._genesys || { widgets: {} };
 
       // Register onReady callback before scripts load
       if ((window as any)._genesys && (window as any)._genesys.widgets) {
+        console.log('[ChatWidget] Registering onReady handler');
+
+        // Force webchat button configuration immediately - don't wait for onReady
+        (window as any)._genesys.widgets.webchat =
+          (window as any)._genesys.widgets.webchat || {};
+        (window as any)._genesys.widgets.webchat.chatButton = {
+          enabled: true,
+          template:
+            '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+          openDelay: 100,
+          effectDuration: 200,
+          hideDuringInvite: false,
+        };
+
+        // Also set up the onReady handler for when Genesys loads
         (window as any)._genesys.widgets.onReady = function (bus: any) {
           console.log('[ChatWidget] Genesys widgets ready!');
 
-          // Ensure chat button is configured
+          // Ensure chat button is configured again inside onReady
           if ((window as any)._genesys && (window as any)._genesys.widgets) {
             (window as any)._genesys.widgets.webchat =
               (window as any)._genesys.widgets.webchat || {};
@@ -309,7 +408,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       // Mark config as ready after settings are applied
       setConfigReady(true);
     }
-  }, [chatSettings, chatData, chatMode]);
+  }, [chatSettings, chatData, chatMode, session?.user?.currUsr?.plan]);
 
   // Run diagnostics on chatSettings and window.chatSettings
   useEffect(() => {
@@ -324,21 +423,72 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     );
   }, [chatSettings]);
 
-  // Last resort fallback timer
+  // More aggressive fallback timer system
   useEffect(() => {
+    // First fallback - try quickly after configReady
     if (configReady) {
-      const lastResortTimer = setTimeout(() => {
+      // Start checking earlier - after 5 seconds
+      setTimeout(() => {
+        console.log('[ChatWidget] First fallback check');
         if (!checkForChatButton()) {
-          console.log(
-            '[ChatWidget] Last resort timer - creating fallback button',
-          );
+          console.log('[ChatWidget] First fallback - creating button');
           createFallbackButton();
         }
-      }, 20000);
+      }, 5000);
+
+      // Second fallback - try again after script loads
+      if (scriptLoaded) {
+        setTimeout(() => {
+          console.log(
+            '[ChatWidget] Second fallback check - after script loaded',
+          );
+          if (!checkForChatButton()) {
+            console.log('[ChatWidget] Second fallback - creating button');
+            createFallbackButton();
+          }
+        }, 3000);
+      }
+
+      // Last resort fallback - try one more time after a longer delay
+      const lastResortTimer = setTimeout(() => {
+        console.log('[ChatWidget] Last resort check');
+        if (!checkForChatButton()) {
+          console.log('[ChatWidget] Last resort - creating fallback button');
+          createFallbackButton();
+        }
+      }, 15000);
 
       return () => clearTimeout(lastResortTimer);
     }
-  }, [configReady]);
+  }, [configReady, scriptLoaded]);
+
+  // Emergency button - created regardless of other conditions
+  useEffect(() => {
+    // Force a button to appear no matter what after page load
+    const emergencyTimer = setTimeout(() => {
+      console.log('[ChatWidget] Emergency button check');
+      if (!checkForChatButton()) {
+        console.log('[ChatWidget] Creating emergency button');
+        createFallbackButton();
+      }
+    }, 10000);
+
+    return () => clearTimeout(emergencyTimer);
+  }, []);
+
+  // Ultimate direct button - guaranteed to show up if everything else fails
+  useEffect(() => {
+    // Final resort - create our own direct button that doesn't rely on Genesys
+    const directButtonTimer = setTimeout(() => {
+      console.log('[ChatWidget] Checking if we need a direct button');
+      if (!checkForChatButton()) {
+        console.log('[ChatWidget] Creating direct button - last resort');
+        createDirectButton();
+      }
+    }, 12000);
+
+    return () => clearTimeout(directButtonTimer);
+  }, []);
 
   // Don't render chat on excluded paths or if user isn't authenticated with a plan
   if (
