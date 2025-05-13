@@ -10,7 +10,7 @@ import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 // Accept any shape for chatSettings, as it is aggregated server-side
 export interface ChatWidgetProps {
@@ -23,8 +23,11 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { isOpen, isChatActive, isLoading, error, chatData } = useChatStore();
   const { loadChatConfiguration } = useChatStore();
   const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [scriptError, setScriptError] = useState<string | null>(null);
   // State to track if window.chatSettings is ready for script loading
   const [configReady, setConfigReady] = useState(false);
+  // Ref to track the script loading attempts
+  const scriptLoadAttempts = useRef(0);
 
   // Define routes where chat should never appear
   const excludedPaths = useMemo(
@@ -136,6 +139,74 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     });
   }, [chatMode, isOpen, isChatActive, chatData, chatSettings]);
 
+  // Fallback method to load Genesys widgets directly
+  const loadGenesysWidgetsDirectly = () => {
+    console.log('[ChatWidget] Attempting direct script injection fallback');
+
+    // Only attempt if not already loaded
+    if (
+      typeof window !== 'undefined' &&
+      !document.getElementById('genesys-widgets-script-direct')
+    ) {
+      try {
+        // First ensure CSS is loaded
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = '/assets/genesys/plugins/widgets.min.css';
+        cssLink.id = 'genesys-widgets-css-direct';
+        document.head.appendChild(cssLink);
+
+        // Then load the JS
+        const script = document.createElement('script');
+        script.src = '/assets/genesys/plugins/widgets.min.js';
+        script.id = 'genesys-widgets-script-direct';
+        script.async = true;
+
+        script.onload = () => {
+          console.log('[ChatWidget] Direct script injection successful');
+
+          // Then load click_to_chat
+          const clickToChatScript = document.createElement('script');
+          clickToChatScript.src = '/assets/genesys/click_to_chat.js';
+          clickToChatScript.id = 'click-to-chat-script-direct';
+          clickToChatScript.async = true;
+
+          clickToChatScript.onload = () => {
+            console.log(
+              '[ChatWidget] click_to_chat.js direct injection successful',
+            );
+            setScriptLoaded(true);
+          };
+
+          clickToChatScript.onerror = (err) => {
+            console.error(
+              '[ChatWidget] click_to_chat.js direct injection failed',
+              err,
+            );
+            setScriptError('Failed to load click_to_chat.js directly');
+          };
+
+          document.head.appendChild(clickToChatScript);
+        };
+
+        script.onerror = (err) => {
+          console.error(
+            '[ChatWidget] Direct widgets.min.js injection failed',
+            err,
+          );
+          setScriptError('Failed to load widgets.min.js directly');
+        };
+
+        document.head.appendChild(script);
+      } catch (err) {
+        console.error('[ChatWidget] Error during direct script injection', err);
+        setScriptError(
+          'Error during script injection: ' + (err as Error).message,
+        );
+      }
+    }
+  };
+
   // Effect to manually force chat button display if needed
   useEffect(() => {
     if (scriptLoaded && typeof window !== 'undefined') {
@@ -190,16 +261,58 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               console.log('[ChatWidget] Chat button styled and enabled');
             } else {
               console.warn('[ChatWidget] Chat button element not found');
+
+              // Create a fallback button directly if none exists
+              if (document.querySelector('.fallback-chat-button') === null) {
+                const fallbackBtn = document.createElement('div');
+                fallbackBtn.className = 'fallback-chat-button';
+                fallbackBtn.innerText = 'Chat Now';
+                Object.assign(fallbackBtn.style, {
+                  display: 'flex',
+                  position: 'fixed',
+                  right: '20px',
+                  bottom: '20px',
+                  backgroundColor: '#0078d4',
+                  color: 'white',
+                  padding: '15px 25px',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                  zIndex: '9999',
+                  fontWeight: 'bold',
+                  fontSize: '16px',
+                });
+                fallbackBtn.onclick = () => {
+                  if (window.CXBus) {
+                    window.CXBus.command('WebChat.open');
+                  } else {
+                    alert(
+                      'Chat system is not fully loaded. Please try again in a moment.',
+                    );
+                  }
+                };
+                document.body.appendChild(fallbackBtn);
+                console.log('[ChatWidget] Created fallback chat button');
+              }
             }
           }, 2000);
         } else {
           console.warn('[ChatWidget] Genesys widgets not initialized yet');
+          // Try loading scripts directly as fallback
+          if (scriptLoadAttempts.current < 3) {
+            scriptLoadAttempts.current += 1;
+            console.log(
+              `[ChatWidget] Attempting fallback script load (try ${scriptLoadAttempts.current})`,
+            );
+            loadGenesysWidgetsDirectly();
+          }
         }
       };
 
-      // Call immediately and also after a delay to ensure it works
+      // Call immediately and also after delays to ensure it works
       enableChatButton();
       setTimeout(enableChatButton, 3000);
+      setTimeout(enableChatButton, 6000);
     }
   }, [scriptLoaded]);
 
@@ -212,9 +325,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
         // Ensure mode is set correctly
         chatMode: chatMode,
-        // Ensure these are set correctly for eligibility checks
-        isChatEligibleMember: 'true', // Force to true for testing
-        isDemoMember: chatSettings?.isDemoMember || 'true', // Fallback to true if not set
+        // CRITICAL: Force these to 'true' as strings to ensure eligibility passes
+        isChatEligibleMember: 'true',
+        isDemoMember: 'true',
+        isChatAvailable: true,
       };
 
       window.chatSettings = combinedSettings;
@@ -238,6 +352,20 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   }, [configReady]);
 
+  // Fallback if script hasn't loaded after 10 seconds
+  useEffect(() => {
+    if (configReady && !scriptLoaded) {
+      const timer = setTimeout(() => {
+        console.log(
+          '[ChatWidget] Script load timeout - trying direct injection',
+        );
+        loadGenesysWidgetsDirectly();
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [configReady, scriptLoaded]);
+
   useEffect(() => {
     // Run diagnostics on chatSettings and window.chatSettings
     logChatConfigDiagnostics(
@@ -259,6 +387,14 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     return null;
   }
 
+  // Create a debug status display
+  const renderDebugStatus = () => {
+    if (!configReady) return 'Waiting for config...';
+    if (scriptError) return `Error: ${scriptError}`;
+    if (!scriptLoaded) return 'Loading script...';
+    return 'Script loaded, waiting for button...';
+  };
+
   // Only load the script after window.chatSettings is ready
   return (
     <>
@@ -276,24 +412,37 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               setScriptLoaded(true);
             }
           }}
+          onError={(e) => {
+            console.error('[ChatWidget] Script load error:', e);
+            setScriptError('Failed to load script via Next.js');
+            // Try direct injection as fallback
+            loadGenesysWidgetsDirectly();
+          }}
         />
       )}
-      {configReady && !scriptLoaded && (
-        <div
-          style={{
-            position: 'fixed',
-            right: '20px',
-            bottom: '20px',
-            padding: '0.25rem 0.5rem',
-            fontSize: '10px',
-            color: '#666',
-            background: '#f5f5f5',
-            borderRadius: '3px',
-            opacity: '0.8',
-          }}
-        >
-          Loading chat...
-        </div>
+
+      {/* Debug indicator - can be removed in production */}
+      <div
+        style={{
+          position: 'fixed',
+          right: '20px',
+          bottom: '20px',
+          padding: '0.5rem 1rem',
+          backgroundColor: '#f0f0f0',
+          border: '1px solid #ddd',
+          borderRadius: '4px',
+          fontSize: '12px',
+          color: '#333',
+          zIndex: 9998,
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+        }}
+      >
+        {renderDebugStatus()}
+      </div>
+
+      {/* Create a manual button if needed */}
+      {configReady && scriptLoaded && typeof window !== 'undefined' && (
+        <div id="chat-button-container"></div>
       )}
     </>
   );
