@@ -97,8 +97,9 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         src="/assets/genesys/click_to_chat.js"
         strategy="lazyOnload"
         onLoad={() => {
-          // Optionally, you can add debug logs here
-          if (window.chatSettings) {
+          if (typeof window !== 'undefined') {
+            window.chatSettings = chatSettings;
+            // Optionally, you can add debug logs here
             // eslint-disable-next-line no-console
             console.log(
               '[ChatWidget] click_to_chat.js loaded with settings',

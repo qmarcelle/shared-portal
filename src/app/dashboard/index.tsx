@@ -1,5 +1,6 @@
 'use client';
 
+import ChatWidget from '@/components/ChatWidget';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -14,9 +15,10 @@ import { DashboardData } from './models/dashboardData';
 
 export type DashboardProps = {
   data: DashboardData;
+  chatSettings?: any;
 };
 
-const Dashboard = ({ data }: DashboardProps) => {
+const Dashboard = ({ data, chatSettings }: DashboardProps) => {
   // Log Genesys env vars for debugging
   const genesysEnvVars = {
     NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL:
@@ -191,6 +193,7 @@ const Dashboard = ({ data }: DashboardProps) => {
       ) : (
         <NonMemberDashboard profiles={data.profiles!} />
       )}
+      {chatSettings && <ChatWidget chatSettings={chatSettings} />}
     </div>
   );
 };
