@@ -1470,64 +1470,43 @@
         console.log('[Genesys] Cloud script element added to document');
       } else {
         // Legacy mode: ensure widgets.min.js is loaded
-        console.log(
-          '[Genesys] Using legacy mode, checking for _genesys object',
-        );
+        console.log('[Genesys] Using legacy mode');
 
-        if (!window._genesys) {
-          console.log('[Genesys] _genesys not found, loading widgets.min.js');
+        // Replace the conditional logic with a direct script loading function
+        function loadGenesysWidgetsScript() {
+          if (!document.getElementById('genesys-widgets-script')) {
+            const script = document.createElement('script');
+            script.id = 'genesys-widgets-script';
+            script.src = '/assets/genesys/plugins/widgets.min.js';
+            script.async = true;
+            script.onload = () =>
+              console.log('[Genesys] widgets.min.js loaded successfully');
+            script.onerror = (e) => {
+              console.error('[Genesys] Failed to load widgets.min.js', e);
 
-          // Force load widgets.min.js in legacy mode
-          var legacyScript = document.createElement('script');
-          legacyScript.async = true;
-          legacyScript.src = '/assets/genesys/plugins/widgets.min.js';
-          legacyScript.id = 'genesys-widgets-script';
-
-          legacyScript.onload = function () {
-            console.log('[Genesys] Legacy widgets.min.js loaded successfully');
-
-            // Check if the widget initialized properly
-            if (window._genesys && window._genesys.widgets) {
-              console.log('[Genesys] Legacy widgets detected in global scope');
-
-              // Double-check that the chat button config is set correctly
-              if (window._genesys.widgets.webchat) {
-                console.log('[Genesys] Ensuring chat button is enabled');
-                window._genesys.widgets.webchat.chatButton =
-                  window._genesys.widgets.webchat.chatButton || {};
-                window._genesys.widgets.webchat.chatButton.enabled = true;
-              }
-            } else {
-              console.error(
-                '[Genesys] Legacy widgets not initialized after script load',
-              );
-            }
-          };
-
-          legacyScript.onerror = function (error) {
-            console.error(
-              '[Genesys] Failed to load legacy widgets script:',
-              error,
-            );
-
-            // Try alternative loading method as fallback
-            console.log('[Genesys] Trying alternative loading method');
-            var fallbackScript = document.createElement('script');
-            fallbackScript.async = true;
-            fallbackScript.src =
-              '/assets/genesys/plugins/widgets.min.js?t=' +
-              new Date().getTime();
-            fallbackScript.id = 'genesys-widgets-script-fallback';
-            document.head.appendChild(fallbackScript);
-          };
-
-          document.head.appendChild(legacyScript);
-          console.log('[Genesys] Legacy script element added to document');
-        } else {
-          console.log(
-            '[Genesys] _genesys already exists, skipping script load',
-          );
+              // Try alternative loading method as fallback
+              console.log('[Genesys] Trying alternative loading method');
+              var fallbackScript = document.createElement('script');
+              fallbackScript.async = true;
+              fallbackScript.src =
+                '/assets/genesys/plugins/widgets.min.js?t=' +
+                new Date().getTime();
+              fallbackScript.id = 'genesys-widgets-script-fallback';
+              fallbackScript.onload = () =>
+                console.log(
+                  '[Genesys] Fallback widgets.min.js loaded successfully',
+                );
+              document.head.appendChild(fallbackScript);
+            };
+            document.head.appendChild(script);
+            console.log('[Genesys] Legacy script element added to document');
+          } else {
+            console.log('[Genesys] widgets.min.js script tag already exists');
+          }
         }
+
+        // Always call this without any conditional gate
+        loadGenesysWidgetsScript();
       }
     }, 300); // Reduced delay to let other initialization complete first
   })();
