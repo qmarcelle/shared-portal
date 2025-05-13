@@ -26,22 +26,32 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, []);
 
-  const isChatSettingsReady =
-    !!chatSettings && Object.keys(chatSettings).length > 0;
+  // Log when chatSettings changes for debugging
+  useEffect(() => {
+    console.log(
+      '[ClientLayout] chatSettings updated:',
+      chatSettings ? Object.keys(chatSettings).length : 0,
+      'keys',
+    );
+  }, [chatSettings]);
 
-  // Don't render chat components while loading
-  if (!isClientReady || !isChatSettingsReady) {
+  // Don't render any client components while not ready
+  if (!isClientReady) {
     return <>{children}</>;
   }
 
+  // IMPORTANT: Always render ChatWidget once the client is ready,
+  // even if chatSettings isn't available yet.
+  // This allows ChatWidget to make the API call to load the chat configuration,
+  // which will in turn populate chatSettings.
   console.log(
-    '[ClientLayout] Rendering ChatWidget with chatSettings:',
-    chatSettings,
+    '[ClientLayout] Rendering ChatWidget with or without chatSettings',
+    chatSettings ? Object.keys(chatSettings) : 'none',
   );
 
   return (
     <>
-      <ChatWidget chatSettings={chatSettings} />
+      <ChatWidget chatSettings={chatSettings || {}} />
       {children}
     </>
   );

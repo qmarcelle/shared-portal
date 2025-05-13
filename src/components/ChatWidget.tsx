@@ -20,14 +20,12 @@ export interface ChatWidgetProps {
 export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const { isOpen, isChatActive, isLoading, error } = useChatStore();
+  const { isOpen, isChatActive, isLoading, error, chatData } = useChatStore();
+  const { loadChatConfiguration } = useChatStore();
+
   // Use a fallback for chatMode if cloudChatEligible is undefined
-  const chatMode =
-    chatSettings && typeof chatSettings.cloudChatEligible !== 'undefined'
-      ? chatSettings.cloudChatEligible
-        ? 'cloud'
-        : 'legacy'
-      : 'legacy';
+  const chatMode = chatData?.cloudChatEligible === true ? 'cloud' : 'legacy';
+
   useChatSetup(chatMode);
 
   // Define routes where chat should never appear
@@ -49,6 +47,54 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     endChat: useChatStore((state) => state.endChat),
   };
 
+  // Trigger loadChatConfiguration if needed and we have a session with plan
+  useEffect(() => {
+    if (!isLoading && !chatData && session?.user?.currUsr?.plan) {
+      const plan = session.user.currUsr.plan;
+      const memCk = plan.memCk;
+      const planId = plan.grpId; // Use grpId instead of non-existent planId
+
+      console.log('[ChatWidget] Session plan data:', {
+        memCk,
+        planId,
+        fullPlan: plan,
+      });
+
+      if (memCk && planId) {
+        console.log('[ChatWidget] Calling loadChatConfiguration with:', {
+          memCk,
+          planId,
+          timestamp: new Date().toISOString(),
+        });
+
+        loadChatConfiguration(memCk, planId)
+          .then(() => {
+            console.log('[ChatWidget] Chat configuration loaded successfully', {
+              timestamp: new Date().toISOString(),
+              hasChatData: !!useChatStore.getState().chatData,
+            });
+          })
+          .catch((err) => {
+            console.error(
+              '[ChatWidget] Failed to load chat configuration',
+              err,
+            );
+          });
+      } else {
+        console.warn(
+          '[ChatWidget] Cannot load chat configuration - missing memCk or planId',
+        );
+      }
+    } else {
+      console.log('[ChatWidget] Not loading chat configuration:', {
+        isLoading,
+        hasChatData: !!chatData,
+        hasSessionUser: !!session?.user,
+        hasSessionUserPlan: !!session?.user?.currUsr?.plan,
+      });
+    }
+  }, [chatData, isLoading, session, loadChatConfiguration]);
+
   useEffect(() => {
     logger.info('[ChatWidget] Chat component mounted', {
       chatMode,
@@ -60,17 +106,28 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       chatMode,
       isOpen,
       isChatActive,
+      chatData,
+      chatSettings,
     });
-  }, [chatMode, isOpen, isChatActive]);
+  }, [chatMode, isOpen, isChatActive, chatData, chatSettings]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.chatSettings = chatSettings;
-      logger.info('[ChatWidget] window.chatSettings set', { chatSettings });
+      const combinedSettings = {
+        ...chatSettings,
+        // Override cloudChatEligible with the value from chatData if available
+        ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
+        // Ensure mode is set correctly
+        chatMode: chatMode,
+      };
+
+      window.chatSettings = combinedSettings;
+
+      logger.info('[ChatWidget] window.chatSettings set', { combinedSettings });
       // eslint-disable-next-line no-console
       console.log('[ChatWidget] window.chatSettings set', window.chatSettings);
     }
-  }, [chatSettings]);
+  }, [chatSettings, chatData, chatMode]);
 
   // Add a useEffect to log just before rendering the Script tag
   useEffect(() => {
@@ -111,7 +168,15 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       strategy="lazyOnload"
       onLoad={() => {
         if (typeof window !== 'undefined') {
-          window.chatSettings = chatSettings;
+          // Re-apply latest settings when script loads
+          const combinedSettings = {
+            ...chatSettings,
+            ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
+            chatMode: chatMode,
+          };
+
+          window.chatSettings = combinedSettings;
+
           logger.info(
             '[ChatWidget] click_to_chat.js loaded with settings',
             window.chatSettings,

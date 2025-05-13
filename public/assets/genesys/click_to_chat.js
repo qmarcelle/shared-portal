@@ -37,6 +37,9 @@
 
   // === 2) Inject JSPF modals ===
   function injectModals() {
+    // TODO: Temporarily commented out cobrowse modals to focus on chat implementation
+    // Will be re-enabled once chat functionality is working properly
+    /*
     const wrapper = document.createElement('div');
     wrapper.innerHTML = `
 <div id="cobrowse-sessionConfirm" class="modal" style="background:rgba(50,50,50,0.4);position:fixed;inset:0;z-index:2147483647">
@@ -98,6 +101,7 @@
 </div>
 `;
     document.body.appendChild(wrapper);
+    */
   }
   injectModals();
 
@@ -139,6 +143,9 @@
       document.body.appendChild(el);
     });
   }
+
+  // TODO: Temporarily commented out Cobrowse functionality
+  /*
   window.CobrowseIO = window.CobrowseIO || {};
   CobrowseIO.confirmSession = () =>
     buildConsent(
@@ -147,6 +154,7 @@
     );
   CobrowseIO.confirmRemoteControl = () =>
     buildConsent("We'd like control", 'We can click to help you. OK?');
+  */
 
   // === 5) Next: jQuery loader & main init ===
   function isJQ() {
@@ -164,6 +172,8 @@
     : new Promise((res) => loadJQ(res))
   ).then(($) => {
     // === 5a) CoBrowse license & session code (JSPF parity) ===
+    // TODO: Temporarily commented out Cobrowse functionality
+    /*
     $(document).ready(() => {
       CobrowseIO.license = cfg.coBrowseLicence;
       CobrowseIO.customData = {
@@ -186,6 +196,7 @@
         });
       });
     });
+    */
 
     // === 5b) Main init ===
     initializeChatWidget($, cfg);

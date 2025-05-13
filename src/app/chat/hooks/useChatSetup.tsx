@@ -21,8 +21,20 @@ export function useChatSetup(chatMode: ChatMode) {
     logger.info(`[useChatSetup] ${chatMode} chat setup initialized`, {
       componentId,
       hasUserData: !!userData && Object.keys(userData).length > 0,
+      userDataKeys: userData ? Object.keys(userData) : [],
+      chatMode,
       isLoading,
       timestamp: new Date().toISOString(),
+    });
+
+    // Debug log to console for visibility during development
+    console.log(`[useChatSetup] ${chatMode} chat setup initialized`, {
+      componentId,
+      hasUserData: !!userData && Object.keys(userData).length > 0,
+      userDataKeys: userData ? Object.keys(userData) : [],
+      chatMode,
+      chatData,
+      isLoading,
     });
 
     return () => {
@@ -31,7 +43,7 @@ export function useChatSetup(chatMode: ChatMode) {
         timestamp: new Date().toISOString(),
       });
     };
-  }, [chatMode, componentId, isLoading, userData]);
+  }, [chatMode, componentId, isLoading, userData, chatData]);
 
   // Initialize chat settings based on userData
   useEffect(() => {
@@ -40,6 +52,21 @@ export function useChatSetup(chatMode: ChatMode) {
         componentId,
         timestamp: new Date().toISOString(),
       });
+
+      console.log(`[useChatSetup] Waiting for userData to be available`, {
+        componentId,
+        chatData,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Check if we need to load chat configuration
+      if (!isLoading && !chatData) {
+        console.log(
+          '[useChatSetup] Need to load chat configuration - chatData not available',
+        );
+        // We could trigger loadChatConfiguration here if needed
+      }
+
       return;
     }
 
@@ -52,15 +79,41 @@ export function useChatSetup(chatMode: ChatMode) {
       timestamp: new Date().toISOString(),
     });
 
+    console.log(`[useChatSetup] userData is available, setting up chat`, {
+      componentId,
+      chatMode,
+      userDataKeys: Object.keys(userData),
+      chatData,
+    });
+
     try {
+      // Override chatMode if chatData indicates differently
+      const effectiveChatMode =
+        chatData?.cloudChatEligible === true ? 'cloud' : 'legacy';
+
+      if (effectiveChatMode !== chatMode) {
+        console.log(
+          `[useChatSetup] Overriding chat mode from ${chatMode} to ${effectiveChatMode} based on chatData`,
+        );
+      }
+
       // Use Zustand store action to create and sync settings
-      useChatStore.getState().initializeChatSettings(userData, chatMode);
+      const settings = useChatStore
+        .getState()
+        .initializeChatSettings(userData, effectiveChatMode);
 
       logger.info(`[useChatSetup] chatSettings injected`, {
         componentId,
         hasSettings: !!window.chatSettings,
         settingsKeys: Object.keys(window.chatSettings || {}),
         timestamp: new Date().toISOString(),
+      });
+
+      console.log(`[useChatSetup] chatSettings injected`, {
+        componentId,
+        hasSettings: !!window.chatSettings,
+        settingsKeys: Object.keys(window.chatSettings || {}),
+        settings,
       });
 
       setSettingsInjected(true);
@@ -70,13 +123,19 @@ export function useChatSetup(chatMode: ChatMode) {
         error: err,
         timestamp: new Date().toISOString(),
       });
+
+      console.error(`[useChatSetup] Error injecting chat settings`, {
+        componentId,
+        error: err,
+      });
+
       setError(
         err instanceof Error
           ? err
           : new Error('Failed to inject chat settings'),
       );
     }
-  }, [userData, componentId, chatMode, settingsInjected]);
+  }, [userData, componentId, chatMode, settingsInjected, chatData, isLoading]);
 
   return {
     userData,
