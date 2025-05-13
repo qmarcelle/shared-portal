@@ -1336,32 +1336,51 @@
           hideDuringInvite: false,
         };
         window._genesys.widgets.main.debug = false;
-        setTimeout(() => {
+
+        // Apply styles immediately and also on a delay to ensure it takes effect
+        const styleButton = () => {
           const btn = document.querySelector('.cx-webchat-chat-button');
           if (btn) {
+            console.log('[Genesys] Found chat button, applying styles');
             Object.assign(btn.style, {
               display: 'flex',
               opacity: '1',
               visibility: 'visible',
               backgroundColor: '#0078d4',
               color: 'white',
-              padding: '10px 20px',
-              borderRadius: '4px',
+              padding: '15px 25px',
+              borderRadius: '5px',
               cursor: 'pointer',
               boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
               position: 'fixed',
               right: '20px',
               bottom: '20px',
               zIndex: '9999',
+              fontWeight: 'bold',
+              fontSize: '16px',
             });
             if (btn.textContent.includes('Debug:'))
               btn.textContent = 'Chat Now';
             btn.onclick = () =>
               window.CXBus && window.CXBus.command('WebChat.open');
+
+            console.log('[Genesys] Chat button styled successfully');
+          } else {
+            console.log('[Genesys] Chat button not found in DOM yet');
           }
-        }, 2000);
+        };
+
+        // Try immediately
+        styleButton();
+
+        // Also try after short delays with multiple attempts
+        [500, 1000, 2000, 3000].forEach((delay) => {
+          setTimeout(styleButton, delay);
+        });
       } else {
         console.warn('[Genesys] Widgets not ready, skipping force-enable');
+        // Try again after a short delay if widgets aren't ready
+        setTimeout(enableChatButton, 1000);
       }
     }
     enableChatButton();
@@ -1472,15 +1491,36 @@
         // Legacy mode: ensure widgets.min.js is loaded
         console.log('[Genesys] Using legacy mode');
 
-        // Replace the conditional logic with a direct script loading function
+        // Always load the widgets.min.js script unconditionally
         function loadGenesysWidgetsScript() {
+          // First, check if the script tag already exists to avoid duplicates
           if (!document.getElementById('genesys-widgets-script')) {
             const script = document.createElement('script');
             script.id = 'genesys-widgets-script';
             script.src = '/assets/genesys/plugins/widgets.min.js';
             script.async = true;
-            script.onload = () =>
+            script.onload = () => {
               console.log('[Genesys] widgets.min.js loaded successfully');
+              // After script loads, force enable the chat button
+              setTimeout(() => {
+                if (window._genesys && window._genesys.widgets) {
+                  console.log(
+                    '[Genesys] Ensuring chat button is enabled after script load',
+                  );
+                  // Configure webchat button
+                  window._genesys.widgets.webchat =
+                    window._genesys.widgets.webchat || {};
+                  window._genesys.widgets.webchat.chatButton = {
+                    enabled: true,
+                    template:
+                      '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+                    openDelay: 100,
+                    effectDuration: 200,
+                    hideDuringInvite: false,
+                  };
+                }
+              }, 500);
+            };
             script.onerror = (e) => {
               console.error('[Genesys] Failed to load widgets.min.js', e);
 

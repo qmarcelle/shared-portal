@@ -10,7 +10,7 @@ import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 // Accept any shape for chatSettings, as it is aggregated server-side
 export interface ChatWidgetProps {
@@ -22,15 +22,19 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const pathname = usePathname();
   const { isOpen, isChatActive, isLoading, error, chatData } = useChatStore();
   const { loadChatConfiguration } = useChatStore();
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   // Define routes where chat should never appear
-  const excludedPaths = [
-    '/login',
-    '/error',
-    '/auth/error',
-    '/sso/redirect',
-    '/embed/security',
-  ];
+  const excludedPaths = useMemo(
+    () => [
+      '/login',
+      '/error',
+      '/auth/error',
+      '/sso/redirect',
+      '/embed/security',
+    ],
+    [],
+  );
 
   // Immediately log session data when component first renders
   useEffect(() => {
@@ -70,58 +74,6 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         planId,
         fullPlan: plan,
       });
-
-      // Added direct test fetch to verify API endpoint is accessible
-      // This is a temporary debug measure
-      const debugRequestId = Date.now().toString();
-      if (memCk && planId) {
-        console.log('[ChatWidget] TEST: Direct fetch to API endpoint with:', {
-          memCk,
-          planId,
-          debugRequestId,
-        });
-
-        fetch(
-          `/api/chat/getChatInfo?memberId=${memCk}&memberType=byMemberCk&planId=${planId}`,
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'x-correlation-id': debugRequestId,
-            },
-          },
-        )
-          .then(async (response) => {
-            console.log('[ChatWidget] TEST: Direct API response:', {
-              status: response.status,
-              ok: response.ok,
-              contentType: response.headers.get('content-type'),
-            });
-
-            if (response.ok) {
-              const text = await response.text();
-              console.log(
-                '[ChatWidget] TEST: API response text:',
-                text.substring(0, 500),
-              );
-              try {
-                const data = JSON.parse(text);
-                console.log(
-                  '[ChatWidget] TEST: Parsed API response data:',
-                  data,
-                );
-              } catch (e) {
-                console.error(
-                  '[ChatWidget] TEST: Failed to parse API response:',
-                  e,
-                );
-              }
-            }
-          })
-          .catch((err) => {
-            console.error('[ChatWidget] TEST: Direct API call failed:', err);
-          });
-      }
 
       if (memCk && planId) {
         console.log('[ChatWidget] Calling loadChatConfiguration with:', {
@@ -181,6 +133,73 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       chatSettings,
     });
   }, [chatMode, isOpen, isChatActive, chatData, chatSettings]);
+
+  // Effect to manually force chat button display if needed
+  useEffect(() => {
+    if (scriptLoaded && typeof window !== 'undefined') {
+      // Attempt to force-enable the chat button after script has loaded
+      const enableChatButton = () => {
+        console.log('[ChatWidget] Forcing chat button visibility');
+
+        if (window._genesys && window._genesys.widgets) {
+          // Configure button properties
+          window._genesys.widgets.webchat =
+            window._genesys.widgets.webchat || {};
+          window._genesys.widgets.webchat.chatButton = {
+            enabled: true,
+            template:
+              '<div class="cx-widget cx-webchat-chat-button cx-side-button">Chat Now</div>',
+            openDelay: 100,
+            effectDuration: 200,
+            hideDuringInvite: false,
+          };
+
+          // Find and style the button
+          setTimeout(() => {
+            const btn = document.querySelector(
+              '.cx-webchat-chat-button',
+            ) as HTMLDivElement;
+            if (btn) {
+              Object.assign(btn.style, {
+                display: 'flex',
+                opacity: '1',
+                visibility: 'visible',
+                backgroundColor: '#0078d4',
+                color: 'white',
+                padding: '15px 25px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+                position: 'fixed',
+                right: '20px',
+                bottom: '20px',
+                zIndex: '9999',
+                fontWeight: 'bold',
+                fontSize: '16px',
+              });
+
+              if (btn.textContent && btn.textContent.includes('Debug:'))
+                btn.textContent = 'Chat Now';
+
+              // Ensure click handler
+              btn.onclick = () =>
+                window.CXBus && window.CXBus.command('WebChat.open');
+
+              console.log('[ChatWidget] Chat button styled and enabled');
+            } else {
+              console.warn('[ChatWidget] Chat button element not found');
+            }
+          }, 2000);
+        } else {
+          console.warn('[ChatWidget] Genesys widgets not initialized yet');
+        }
+      };
+
+      // Call immediately and also after a delay to ensure it works
+      enableChatButton();
+      setTimeout(enableChatButton, 3000);
+    }
+  }, [scriptLoaded]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -245,6 +264,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               timestamp: new Date().toISOString(),
             });
             console.log('[ChatWidget] click_to_chat.js loaded successfully');
+            setScriptLoaded(true);
           }
         }}
       />
