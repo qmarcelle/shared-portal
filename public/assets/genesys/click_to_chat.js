@@ -940,12 +940,33 @@
           }
         }
 
-        // Fix the record indicator showing improperly
+        // Style the record indicator to show message count
         const recordIndicator = document.querySelector(
           '.cx-widget.cx-webchat .cx-record-indicator',
         );
         if (recordIndicator) {
-          recordIndicator.style.display = 'none';
+          Object.assign(recordIndicator.style, {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '20px',
+            height: '20px',
+            borderRadius: '50%',
+            backgroundColor: '#e74c3c',
+            color: 'white',
+            fontWeight: 'bold',
+            fontSize: '12px',
+            position: 'absolute',
+            top: '5px',
+            right: '5px',
+            zIndex: '1000',
+          });
+
+          // Initialize with message count if not already set
+          if (!recordIndicator.getAttribute('data-message-count')) {
+            recordIndicator.setAttribute('data-message-count', '0');
+            recordIndicator.textContent = '0';
+          }
         }
 
         // Prevent multiple modals from showing at once
@@ -1038,12 +1059,14 @@
           });
         }
 
-        // Hide any record indicators
+        // Reset notification counter when minimizing
         const recordIndicator = document.querySelector(
           '.cx-widget.cx-webchat .cx-record-indicator',
         );
         if (recordIndicator) {
-          recordIndicator.style.display = 'none';
+          // Keep the indicator visible but reset the counter
+          recordIndicator.setAttribute('data-message-count', '0');
+          recordIndicator.textContent = '0';
         }
       });
 
@@ -1056,7 +1079,42 @@
 
       localWidgetPlugin.subscribe('WebChat.messageAdded', (e) => {
         $('.cx-avatar.bot').find('svg').replaceWith(chatBotAvatar);
-        if (e.data.message.type === 'Agent') webAlert.play();
+
+        // Play audio notification for agent messages
+        if (e.data.message.type === 'Agent') {
+          webAlert.play();
+
+          // Increment message counter if chat is minimized
+          const isMinimized =
+            document.querySelector('.cx-widget.cx-webchat-chat-button') !==
+            null;
+          if (isMinimized) {
+            const recordIndicator = document.querySelector(
+              '.cx-widget.cx-webchat .cx-record-indicator',
+            );
+            if (recordIndicator) {
+              // Get current count and increment it
+              const currentCount = parseInt(
+                recordIndicator.getAttribute('data-message-count') || '0',
+              );
+              const newCount = currentCount + 1;
+
+              // Update the counter
+              recordIndicator.setAttribute(
+                'data-message-count',
+                newCount.toString(),
+              );
+              recordIndicator.textContent = newCount.toString();
+
+              // Make sure it's visible
+              Object.assign(recordIndicator.style, {
+                display: 'flex',
+                visibility: 'visible',
+                opacity: '1',
+              });
+            }
+          }
+        }
       });
 
       localWidgetPlugin.subscribe('WebChat.errors', OpenChatConnectionError);

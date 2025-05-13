@@ -84,6 +84,21 @@ export function createChatSettings(
       process.env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT ||
         chatConfig.COBROWSE_LICENSE_ENDPOINT,
     ),
+    chatServiceId: ensureString(
+      process.env.NEXT_PUBLIC_CHAT_SERVICE_ID || chatConfig.CHAT_SERVICE_ID,
+    ),
+    chatSendMessageEndpoint: ensureString(
+      process.env.NEXT_PUBLIC_CHAT_SEND_MESSAGE_ENDPOINT ||
+        chatConfig.CHAT_SEND_MESSAGE_ENDPOINT,
+    ),
+    chatRefreshEndpoint: ensureString(
+      process.env.NEXT_PUBLIC_CHAT_REFRESH_ENDPOINT ||
+        chatConfig.CHAT_REFRESH_ENDPOINT,
+    ),
+    chatTypingEndpoint: ensureString(
+      process.env.NEXT_PUBLIC_CHAT_TYPING_ENDPOINT ||
+        chatConfig.CHAT_TYPING_ENDPOINT,
+    ),
     opsPhone: ensureString(process.env.NEXT_PUBLIC_OPS_PHONE),
     opsPhoneHours: ensureString(process.env.NEXT_PUBLIC_OPS_HOURS),
   };
@@ -435,4 +450,18 @@ export function openGenesysChat(): void {
       }
     }, 1000);
   }
+}
+
+// Get centralized chat configuration
+export function getChatConfig() {
+  return {
+    // Default endpoint values
+    CLICK_TO_CHAT_ENDPOINT: CHAT_ENDPOINTS.CLICK_TO_CHAT_ENDPOINT,
+    CHAT_TOKEN_ENDPOINT: CHAT_ENDPOINTS.CHAT_TOKEN_ENDPOINT,
+    COBROWSE_LICENSE_ENDPOINT: CHAT_ENDPOINTS.COBROWSE_LICENSE_ENDPOINT,
+    CHAT_SERVICE_ID: CHAT_ENDPOINTS.CHAT_SERVICE_ID,
+    CHAT_SEND_MESSAGE_ENDPOINT: CHAT_ENDPOINTS.CHAT_SEND_MESSAGE_ENDPOINT,
+    CHAT_REFRESH_ENDPOINT: CHAT_ENDPOINTS.CHAT_REFRESH_ENDPOINT,
+    CHAT_TYPING_ENDPOINT: CHAT_ENDPOINTS.CHAT_TYPING_ENDPOINT,
+  };
 }
