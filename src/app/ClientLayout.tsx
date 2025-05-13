@@ -26,10 +26,18 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, []);
 
+  const isChatSettingsReady =
+    !!chatSettings && Object.keys(chatSettings).length > 0;
+
   // Don't render chat components while loading
-  if (!isClientReady) {
+  if (!isClientReady || !isChatSettingsReady) {
     return <>{children}</>;
   }
+
+  console.log(
+    '[ClientLayout] Rendering ChatWidget with chatSettings:',
+    chatSettings,
+  );
 
   return (
     <>
