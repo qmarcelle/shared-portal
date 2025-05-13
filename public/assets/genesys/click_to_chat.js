@@ -1379,10 +1379,30 @@
       ? { ...window.chatSettings }
       : null;
 
+    // Function to ensure CSS is loaded
+    function ensureCssLoaded(url) {
+      // Check if it's already loaded
+      const existingLinks = document.querySelectorAll('link[rel="stylesheet"]');
+      for (let i = 0; i < existingLinks.length; i++) {
+        if (existingLinks[i].href.includes(url)) {
+          console.log('[Genesys] CSS already loaded:', url);
+          return;
+        }
+      }
+
+      // Not loaded, add it
+      console.log('[Genesys] Loading CSS:', url);
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = url;
+      link.type = 'text/css';
+      document.head.appendChild(link);
+    }
+
     var mode =
       (window.chatSettings && window.chatSettings.chatMode) || 'legacy';
 
-    // Increase delay to ensure dashboard is fully initialized first
+    // Reduce delay for faster initialization
     setTimeout(() => {
       console.log('[Genesys] Script loader initializing with mode:', mode);
 
@@ -1395,6 +1415,9 @@
           }
         }
       }
+
+      // Always ensure the widget CSS is loaded regardless of mode
+      ensureCssLoaded('/assets/genesys/plugins/widgets.min.css');
 
       if (mode === 'cloud') {
         // Genesys Cloud Messenger
@@ -1450,9 +1473,12 @@
 
         if (!window._genesys) {
           console.log('[Genesys] _genesys not found, loading widgets.min.js');
+
+          // Force load widgets.min.js in legacy mode
           var legacyScript = document.createElement('script');
           legacyScript.async = true;
           legacyScript.src = '/assets/genesys/plugins/widgets.min.js';
+          legacyScript.id = 'genesys-widgets-script';
 
           legacyScript.onload = function () {
             console.log('[Genesys] Legacy widgets.min.js loaded successfully');
@@ -1460,6 +1486,14 @@
             // Check if the widget initialized properly
             if (window._genesys && window._genesys.widgets) {
               console.log('[Genesys] Legacy widgets detected in global scope');
+
+              // Double-check that the chat button config is set correctly
+              if (window._genesys.widgets.webchat) {
+                console.log('[Genesys] Ensuring chat button is enabled');
+                window._genesys.widgets.webchat.chatButton =
+                  window._genesys.widgets.webchat.chatButton || {};
+                window._genesys.widgets.webchat.chatButton.enabled = true;
+              }
             } else {
               console.error(
                 '[Genesys] Legacy widgets not initialized after script load',
@@ -1472,6 +1506,16 @@
               '[Genesys] Failed to load legacy widgets script:',
               error,
             );
+
+            // Try alternative loading method as fallback
+            console.log('[Genesys] Trying alternative loading method');
+            var fallbackScript = document.createElement('script');
+            fallbackScript.async = true;
+            fallbackScript.src =
+              '/assets/genesys/plugins/widgets.min.js?t=' +
+              new Date().getTime();
+            fallbackScript.id = 'genesys-widgets-script-fallback';
+            document.head.appendChild(fallbackScript);
           };
 
           document.head.appendChild(legacyScript);
@@ -1482,6 +1526,6 @@
           );
         }
       }
-    }, 500); // Increased delay to let other initialization complete first
+    }, 300); // Reduced delay to let other initialization complete first
   })();
 })(window, document);

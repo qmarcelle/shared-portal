@@ -317,14 +317,14 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            // Load our custom CSS after the Genesys widget styles
+            /* Load our custom CSS after the Genesys widget styles */
             (function() {
               const link = document.createElement('link');
               link.rel = 'stylesheet';
               link.href = '/assets/genesys/styles/bcbst-custom.css';
               link.type = 'text/css';
               
-              // Ensure this loads after Genesys styles
+              /* Ensure this loads after Genesys styles */
               document.head.appendChild(link);
               
               console.log('[ChatWidget] Custom CSS loaded');
