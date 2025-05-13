@@ -1,7 +1,7 @@
 'use client';
 
 import { useChatSetup } from '@/app/chat/hooks/useChatSetup';
-import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
+import { useChatStore } from '@/app/chat/stores/chatStore';
 import {
   logChatConfigDiagnostics,
   validateChatConfig,
@@ -21,7 +21,13 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
   const { isOpen, isChatActive, isLoading, error } = useChatStore();
-  const chatMode = chatSelectors.chatMode(useChatStore());
+  // Use a fallback for chatMode if cloudChatEligible is undefined
+  const chatMode =
+    chatSettings && typeof chatSettings.cloudChatEligible !== 'undefined'
+      ? chatSettings.cloudChatEligible
+        ? 'cloud'
+        : 'legacy'
+      : 'legacy';
   useChatSetup(chatMode);
 
   // Define routes where chat should never appear
