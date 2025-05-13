@@ -1,13 +1,6 @@
 'use client';
 
-/**
- * @deprecated This component is deprecated in favor of the new ChatProvider.
- * Please use the ChatProvider component from '@/app/chat/components/ChatProvider' instead.
- *
- * The new implementation avoids reload issues and ensures proper script loading sequence.
- */
-
-// Importing just for types, the actual implementation is deprecated
+import { useChatSetup } from '@/app/chat/hooks/useChatSetup';
 import { chatSelectors, useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
@@ -23,9 +16,9 @@ export interface ChatWidgetProps {
 export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
-  const { isOpen, isChatActive, isLoading, error, loadChatConfiguration } =
-    useChatStore();
+  const { isOpen, isChatActive, isLoading, error } = useChatStore();
   const chatMode = chatSelectors.chatMode(useChatStore());
+  useChatSetup(chatMode);
 
   // Define routes where chat should never appear
   const excludedPaths = [
@@ -45,22 +38,6 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     startChat: useChatStore((state) => state.startChat),
     endChat: useChatStore((state) => state.endChat),
   };
-
-  // Load chat configuration when the component mounts if the user is logged in with a plan
-  useEffect(() => {
-    if (session?.user?.currUsr?.plan) {
-      const { memCk, grpId } = session.user.currUsr.plan;
-
-      if (memCk && grpId) {
-        logger.info('[ChatWidget] Loading chat configuration', {
-          memberId: memCk,
-          planId: grpId,
-        });
-
-        loadChatConfiguration(memCk, grpId);
-      }
-    }
-  }, [session, loadChatConfiguration]);
 
   useEffect(() => {
     logger.info('[ChatWidget] Chat component mounted', {
@@ -107,10 +84,6 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   // Don't render anything if chat is not open
   if (!isOpen) return null;
 
-  // This component is deprecated. Use ChatProvider instead.
-  logger.warn(
-    '[ChatWidget] This component is deprecated. Use ChatProvider from @/app/chat/components/ChatProvider',
-  );
   return (
     <>
       <Script
