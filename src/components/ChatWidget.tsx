@@ -1,5 +1,18 @@
 'use client';
 
+/**
+ * ChatWidget Component
+ *
+ * This component handles the integration with Genesys chat widget system.
+ * It includes multiple strategies to ensure the chat button appears reliably:
+ * 1. Properly sequenced CSS and script loading
+ * 2. Configuration setup before script loading
+ * 3. Multiple fallback mechanisms to guarantee button creation
+ *
+ * The component has been simplified from a complex implementation with many
+ * overlapping fallbacks to a more streamlined approach.
+ */
+
 import { useChatSetup } from '@/app/chat/hooks/useChatSetup';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
@@ -17,6 +30,7 @@ export interface ChatWidgetProps {
 }
 
 export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
+  // --- STATE AND HOOKS ---
   const { data: session } = useSession();
   const pathname = usePathname();
   const { isOpen, isChatActive, isLoading, error, chatData } = useChatStore();
@@ -39,9 +53,14 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   // Use a fallback for chatMode if cloudChatEligible is undefined
   const chatMode = chatData?.cloudChatEligible === true ? 'cloud' : 'legacy';
 
+  // Initialize chat with appropriate mode
   useChatSetup(chatMode);
 
-  // Function to force create and style the chat button
+  /**
+   * Force create and style the chat button when automatic creation fails
+   * This is our most robust fallback that ensures a button always appears
+   * regardless of script or CSS loading issues.
+   */
   const forceCreateChatButton = () => {
     if (typeof window === 'undefined') return;
     console.log('[ChatWidget] Forcing chat button creation');
@@ -58,6 +77,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     chatButton.innerText = 'Chat Now';
 
     // Apply inline styles directly from bcbst-custom.css
+    // This ensures the button has proper styling even if CSS files fail to load
     Object.assign(chatButton.style, {
       display: 'flex',
       position: 'fixed',
@@ -77,7 +97,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       visibility: 'visible',
     });
 
-    // Set up click handler
+    // Set up click handler with multiple fallback options
     chatButton.onclick = () => {
       if (typeof window !== 'undefined' && (window as any).CXBus) {
         try {
@@ -112,7 +132,26 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     console.log('[ChatWidget] Force-created chat button');
   };
 
-  // Trigger loadChatConfiguration if needed and we have a session with plan
+  /**
+   * Check if the chat button exists in the DOM
+   * This is used to prevent creating duplicate buttons
+   */
+  const checkForChatButton = () => {
+    if (typeof window === 'undefined') return false;
+
+    const genesysButton = document.querySelector('.cx-webchat-chat-button');
+    if (genesysButton) {
+      setChatButtonExists(true);
+      return true;
+    }
+
+    return false;
+  };
+
+  /**
+   * Load chat configuration from API when user session is available
+   * This provides necessary data for the chat widget
+   */
   useEffect(() => {
     if (!chatData && session?.user?.currUsr?.plan) {
       const plan = session.user.currUsr.plan;
@@ -129,7 +168,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   }, [chatData, session, loadChatConfiguration]);
 
-  // Setup Genesys config
+  /**
+   * Set up Genesys configuration as soon as possible
+   * This ensures configuration is ready before scripts are loaded
+   */
   useEffect(() => {
     if (typeof window === 'undefined' || !session?.user?.currUsr?.plan) return;
 
@@ -139,11 +181,12 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     // Initialize _genesys object
     (window as any)._genesys = (window as any)._genesys || { widgets: {} };
 
-    // Configure chat
+    // Configure chat with combined settings from props and store
     const combinedSettings = {
       ...chatSettings,
       ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
       chatMode: chatMode,
+      // Force these values to ensure eligibility passes
       isChatEligibleMember: 'true',
       isDemoMember: 'true',
       isChatAvailable: 'true',
@@ -152,7 +195,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     // Set the chat settings for the Genesys scripts to use
     (window as any).chatSettings = combinedSettings;
 
-    // Configure the chat button immediately
+    // Configure the chat button immediately - don't wait for script callback
     (window as any)._genesys.widgets.webchat = {
       chatButton: {
         enabled: true,
@@ -164,7 +207,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
       },
     };
 
-    // Setup onReady handler
+    // Setup onReady handler for when Genesys finishes loading
     (window as any)._genesys.widgets.onReady = function () {
       console.log('[ChatWidget] Genesys widgets ready');
       // Check for button after a delay
@@ -174,33 +217,21 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     logger.info('[ChatWidget] Genesys configuration complete');
   }, [chatSettings, chatData, chatMode, session?.user?.currUsr?.plan]);
 
-  // Using forceCreateChatButton instead of this method
-
-  // Check if the chat button exists
-  const checkForChatButton = () => {
-    if (typeof window === 'undefined') return false;
-
-    const genesysButton = document.querySelector('.cx-webchat-chat-button');
-    if (genesysButton) {
-      setChatButtonExists(true);
-      return true;
-    }
-
-    return false;
-  };
-
-  // Single fallback check if scripts are loaded but no button
+  /**
+   * Fallback system #1: Check for button after scripts load
+   * This creates a button if the widget script loads but fails to create one
+   */
   useEffect(() => {
     if (!scriptsLoaded) return;
 
-    // Check for button after scripts load
+    // Check for button periodically after scripts load
     const checkInterval = setInterval(() => {
       if (checkForChatButton()) {
         clearInterval(checkInterval);
       }
     }, 1000);
 
-    // Use our force-create method after 3 seconds if no button
+    // Use our force-create method after 3 seconds if no button appears
     const fallbackTimer = setTimeout(() => {
       if (!checkForChatButton()) {
         forceCreateChatButton();
@@ -214,7 +245,11 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     };
   }, [scriptsLoaded]);
 
-  // Extra safety - create button after 5 seconds regardless of script status
+  /**
+   * Fallback system #2: Final safety net
+   * Create button after 5 seconds regardless of script status
+   * This ensures a button appears even if script loading completely fails
+   */
   useEffect(() => {
     const finalFallbackTimer = setTimeout(() => {
       if (!checkForChatButton()) {
@@ -235,6 +270,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
 
   return (
     <div>
+      {/* Debug status display - only shown in non-production */}
       {process.env.NODE_ENV !== 'production' && (
         <div
           style={{
@@ -252,7 +288,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         </div>
       )}
 
-      {/* Load CSS files first in head to ensure they're available */}
+      {/* 
+        Load CSS files first in the head 
+        This ensures styles are available before any button creation happens
+      */}
       <link
         rel="stylesheet"
         href="/assets/genesys/plugins/widgets.min.css"
@@ -264,7 +303,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         id="genesys-custom-css"
       />
 
-      {/* Load config script first with beforeInteractive strategy */}
+      {/* 
+        Load config script first with beforeInteractive strategy
+        This ensures config is loaded early in the page lifecycle
+      */}
       <Script
         id="genesys-config-script"
         src="/assets/genesys/click_to_chat.js"
@@ -272,7 +314,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         onLoad={() => console.log('[ChatWidget] Config script loaded')}
       />
 
-      {/* Load widgets script after with afterInteractive strategy */}
+      {/* 
+        Load widgets script after config script with afterInteractive strategy  
+        This ensures proper sequence: config first, then widgets
+      */}
       <Script
         id="genesys-widgets-script"
         src="/assets/genesys/plugins/widgets.min.js"
@@ -291,7 +336,10 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         }}
       />
 
-      {/* Inline style to ensure chat button is visible regardless of CSS loading */}
+      {/* 
+        Inline style to ensure chat button is visible regardless of CSS loading
+        This is a final safety net to make sure button styling works
+      */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
