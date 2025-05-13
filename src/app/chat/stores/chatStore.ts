@@ -513,19 +513,50 @@ export const useChatStore = create<ChatState>((set, get) => ({
       timestamp: new Date().toISOString(),
     });
 
+    // Capture existing window settings before we do anything
+    const existingWindowSettings =
+      typeof window !== 'undefined' && window.chatSettings
+        ? { ...window.chatSettings }
+        : null;
+
+    logger.info('[ChatStore] Existing window chat settings before update', {
+      hasExistingSettings: !!existingWindowSettings,
+      existingKeys: existingWindowSettings
+        ? Object.keys(existingWindowSettings)
+        : [],
+      timestamp: new Date().toISOString(),
+    });
+
     // @ts-ignore - Using createChatSettings from utils/chatUtils.ts
     const settings = createChatSettings(userData, mode);
     set({ chatSettings: settings });
 
     // Set window.chatSettings for backward compatibility
     if (typeof window !== 'undefined') {
-      // Merge with existing settings instead of replacing them
-      window.chatSettings = window.chatSettings
-        ? { ...window.chatSettings, ...settings }
-        : settings;
+      // Carefully merge with existing settings instead of replacing them
+      if (existingWindowSettings) {
+        // First, preserve the new chat-specific settings
+        const mergedSettings = { ...existingWindowSettings };
 
-      logger.info('[ChatStore] Window chat settings updated/initialized', {
-        existingProperties: window.chatSettings
+        // Then add new chat settings, but don't overwrite any critical properties
+        // that might be needed by other components
+        Object.keys(settings).forEach((key) => {
+          // Skip certain properties that might be needed by other components
+          if (!existingWindowSettings[key]) {
+            mergedSettings[key] = settings[key];
+          }
+        });
+
+        window.chatSettings = mergedSettings;
+      } else {
+        window.chatSettings = settings;
+      }
+
+      logger.info('[ChatStore] Window chat settings updated/merged', {
+        keysBeforeUpdate: existingWindowSettings
+          ? Object.keys(existingWindowSettings).length
+          : 0,
+        keysAfterUpdate: window.chatSettings
           ? Object.keys(window.chatSettings).length
           : 0,
         timestamp: new Date().toISOString(),

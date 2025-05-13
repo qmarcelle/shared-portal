@@ -19,6 +19,21 @@ export type DashboardProps = {
 };
 
 const Dashboard = ({ data, chatSettings }: DashboardProps) => {
+  // Debug logging for data structure
+  console.log('[Dashboard Debug] Data structure:', {
+    hasData: !!data,
+    hasRole: !!data?.role,
+    role: data?.role,
+    hasMemberDetails: !!data?.memberDetails,
+    memberDetailsKeys: data?.memberDetails
+      ? Object.keys(data.memberDetails)
+      : 'N/A',
+    hasPlans: !!data?.memberDetails?.plans,
+    plansLength: data?.memberDetails?.plans?.length,
+    planName: data?.memberDetails?.planName,
+    timestamp: new Date().toISOString(),
+  });
+
   // Log Genesys env vars for debugging
   const genesysEnvVars = {
     NEXT_PUBLIC_GENESYS_BOOTSTRAP_URL:
@@ -133,8 +148,18 @@ const Dashboard = ({ data, chatSettings }: DashboardProps) => {
     }
   }
 
-  if (data.role != UserRole.NON_MEM && data.memberDetails?.planName == null) {
-    return <PlanSelector plans={data.memberDetails!.plans!} />;
+  // Add safe null checks to prevent error
+  if (
+    data.role != UserRole.NON_MEM &&
+    data.memberDetails?.planName == null &&
+    data.memberDetails?.plans &&
+    data.memberDetails.plans.length > 0
+  ) {
+    console.log(
+      '[Dashboard Debug] Rendering PlanSelector with plans:',
+      data.memberDetails.plans,
+    );
+    return <PlanSelector plans={data.memberDetails.plans} />;
   }
 
   return (

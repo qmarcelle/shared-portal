@@ -1374,12 +1374,27 @@
 
   // === Genesys script loader (cloud/legacy) ===
   (function () {
+    // Capture the original chatSettings at the start
+    var originalChatSettings = window.chatSettings
+      ? { ...window.chatSettings }
+      : null;
+
     var mode =
       (window.chatSettings && window.chatSettings.chatMode) || 'legacy';
 
-    // Add a small delay to ensure dashboard is fully initialized first
+    // Increase delay to ensure dashboard is fully initialized first
     setTimeout(() => {
       console.log('[Genesys] Script loader initializing with mode:', mode);
+
+      // Ensure we preserve any dashboard-related properties
+      if (originalChatSettings && window.chatSettings) {
+        // Make sure we don't lose any properties that might have been added by the dashboard
+        for (var key in originalChatSettings) {
+          if (!window.chatSettings.hasOwnProperty(key)) {
+            window.chatSettings[key] = originalChatSettings[key];
+          }
+        }
+      }
 
       if (mode === 'cloud') {
         // Genesys Cloud Messenger
@@ -1467,6 +1482,6 @@
           );
         }
       }
-    }, 100); // Small delay to let other initialization complete first
+    }, 500); // Increased delay to let other initialization complete first
   })();
 })(window, document);
