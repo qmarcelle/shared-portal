@@ -4,7 +4,6 @@ import { PriorAuthorizationCardSection } from '@/app/priorAuthorization/componen
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
-import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
@@ -24,22 +23,19 @@ const PriorAuthorization = ({
 }: PriorAuthorizationProps) => {
   const [filters, setFilters] = useState(initialFilters);
 
-  function onFilterSelect(index: number, filter: FilterItem[]) {
+  /*function onFilterSelect(index: number, filter: FilterItem[]) {
     setFilters(filter);
-  }
+  }*/
 
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Header
-          text="Prior Authorization"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
-        />
+        <Header text="Prior Authorization" type="title-1" />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
               <Row
-                className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
+                className="body-1 flex-grow align-top mt-4 md:!flex !block"
                 key={1}
               >
                 Need more than two years of prior authorizations?{' '}
@@ -50,7 +46,7 @@ const PriorAuthorization = ({
                 or call us at [{data.phoneNumber}].
               </Row>,
               <Row
-                className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
+                className="body-1 flex-grow align-top mt-4 md:!flex !block"
                 key={2}
               >
                 Looking for a prescription drug pre-approval? Go to your{' '}
@@ -63,7 +59,7 @@ const PriorAuthorization = ({
             ]}
           />
         </section>
-        {data.claimDetails == null && (
+        {data.priorAuthDetails == null && (
           <>
             <Column>
               <section className="flex justify-start self-start p-4">
@@ -72,12 +68,14 @@ const PriorAuthorization = ({
             </Column>
           </>
         )}
-        {data.claimDetails && (
+        {data.priorAuthDetails && (
           <section
             className="flex flex-row items-start app-body mt-2"
             id="Filter"
           >
-            <Column className=" flex-grow page-section-36_67 items-stretch">
+            {' '}
+            {/*
+             <Column className=" flex-grow page-section-36_67 items-stretch">
               <Filter
                 className="large-section px-0 m-0"
                 filterHeading="Filter Prior Authorizations"
@@ -86,8 +84,7 @@ const PriorAuthorization = ({
                 onSelectCallback={onFilterSelect}
                 filterItems={filters}
               />
-            </Column>
-
+            </Column> */}
             <Column className="flex-grow page-section-63_33 items-stretch">
               {data && (
                 <PriorAuthorizationCardSection
@@ -109,7 +106,7 @@ const PriorAuthorization = ({
                     value: '43',
                     id: '1',
                   }}
-                  claims={data.claimDetails}
+                  priorAuthDetails={data.priorAuthDetails}
                 />
               )}
               <section className="flex justify-center self-center">

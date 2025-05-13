@@ -1,6 +1,6 @@
-import { ClaimDetails } from '@/models/claim_details';
+import { PriorAuthDetails } from '../priorAuthDetails';
 
 export interface PriorAuthData {
-  claimDetails: ClaimDetails | null;
+  priorAuthDetails: PriorAuthDetails | null;
   phoneNumber: string;
 }

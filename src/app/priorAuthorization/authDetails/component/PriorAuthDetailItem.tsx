@@ -1,28 +1,27 @@
+import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
+import { formatPhone } from '@/utils/phone_formatter';
 import Image from 'next/image';
+import { PriorAuthorizationHelp } from '../../../../components/composite/PriorAuthorizationHelp';
+import { Card } from '../../../../components/foundation/Card';
+import { Column } from '../../../../components/foundation/Column';
+import { Divider } from '../../../../components/foundation/Divider';
+import { Header } from '../../../../components/foundation/Header';
+import { Row } from '../../../../components/foundation/Row';
+import { Spacer } from '../../../../components/foundation/Spacer';
+import { StatusLabel } from '../../../../components/foundation/StatusLabel';
+import { TextBox } from '../../../../components/foundation/TextBox';
+import { IComponent } from '../../../../components/IComponent';
 import AlertIcon from '../../../public/assets/alert_gray.svg';
-import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
-import PharmacyIcon from '../../../public/assets/pharmacy.svg';
-import VisionIcon from '../../../public/assets/vision.svg';
-import { PriorAuthorizationHelp } from '../composite/PriorAuthorizationHelp';
-import { Card } from '../foundation/Card';
-import { Column } from '../foundation/Column';
-import { Divider } from '../foundation/Divider';
-import { Header } from '../foundation/Header';
-import { Row } from '../foundation/Row';
-import { Spacer } from '../foundation/Spacer';
-import { StatusLabel } from '../foundation/StatusLabel';
-import { TextBox } from '../foundation/TextBox';
-import { IComponent } from '../IComponent';
 
 interface priorAuthDetailProps extends IComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  authInfo: any;
+  authInfo: MemberPriorAuthDetail;
 }
 
-export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
+export const PriorAuthDetailItem = ({ authInfo }: priorAuthDetailProps) => {
   function getSuccessStatus() {
-    switch (authInfo.priorAuthDetailStatus) {
+    switch (authInfo.statusDescription) {
       case 'Processed':
         return 'success';
       case 'Denied':
@@ -38,16 +37,8 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
     }
   }
 
-  function getClaimIcon() {
-    if (authInfo.priorAuthDetailType == 'Medical') {
-      return MedicalIcon;
-    } else if (authInfo.priorAuthDetailType == 'Dental') {
-      return DentalIcon;
-    } else if (authInfo.priorAuthDetailType == 'Vision') {
-      return VisionIcon;
-    } else {
-      return PharmacyIcon;
-    }
+  function getPriorAuthIcon() {
+    return MedicalIcon;
   }
 
   return (
@@ -56,44 +47,44 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
       <Column className={'app-content app-base-font-color m-5'}>
         <Row className="md:max-my-8">
           <Image
-            src={getClaimIcon()}
+            src={getPriorAuthIcon()}
             className="icon !w-10 !h-10 w-fit"
-            alt={authInfo.priorAuthDetailType}
+            alt="Medical"
           />
           <Spacer axis="horizontal" size={8} />
           <Header
             type="title-3"
-            text={authInfo.priorAuthDetailName}
+            text={authInfo.serviceGroupDescription ?? ''}
             className="md:text-3xl !font-light ml-5 w-3/5 mb-4"
           />
         </Row>
         <Column className="statusDetail">
           <StatusLabel
-            label={authInfo.priorAuthDetailStatus}
+            label={authInfo.statusDescription ?? ''}
             status={getSuccessStatus()}
           />
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'Visited on ' + authInfo.dateOfVisit}
+            text={'Visited on ' + authInfo.fromDate.replaceAll('-', '/')}
           ></TextBox>
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'For ' + authInfo.member}
+            text={'For ' + authInfo.memberName}
           ></TextBox>
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'Reference ID : ' + authInfo.PriorAuthReferenceId}
+            text={'Reference ID : ' + authInfo.referenceId}
           ></TextBox>
         </Column>
       </Column>
       <Column className="app-content app-base-font-color">
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {(authInfo.priorAuthDetailStatus === 'PartialApproval' ||
-              authInfo.priorAuthDetailStatus === 'Denied') && (
+            {(authInfo.statusDescription === 'PartialApproval' ||
+              authInfo.statusDescription === 'Denied') && (
               <Card className="neutral container mb-4">
                 <Column className="flex flex-row align-top m-4">
                   <Row>
@@ -130,8 +121,8 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                 <Column className="mb-8 md:flex-row">
                   <Column className="mr-7">
                     <Header type="title-3" text="Referred By:" />
-                    {(authInfo.priorAuthDetailStatus === 'PartialApproval' ||
-                      authInfo.priorAuthDetailStatus === 'Approved') && (
+                    {(authInfo.statusDescription === 'PartialApproval' ||
+                      authInfo.statusDescription === 'Approved') && (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
@@ -142,13 +133,13 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         </Row>
                       </Card>
                     )}
-                    {(authInfo.priorAuthDetailStatus === 'Denied' ||
-                      authInfo.priorAuthDetailStatus === 'Pending') && (
+                    {(authInfo.statusDescription === 'Denied' ||
+                      authInfo.statusDescription === 'Pending') && (
                       <Column className="w-52">
                         <TextBox
                           type="body-1"
                           className="font-bold mt-4"
-                          text={authInfo.referredName}
+                          text={authInfo.getProviderReferredBy.name}
                         ></TextBox>
                         <TextBox
                           type="body-2"
@@ -158,7 +149,7 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text="123 Street Address Road City Town, TN 12345"
+                          text={authInfo.getProviderReferredBy.streetAddress1}
                         ></TextBox>
 
                         <TextBox
@@ -169,15 +160,17 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text="(123) 456-7890"
+                          text={formatPhone(
+                            authInfo.getProviderReferredBy.phoneNumber,
+                          )}
                         ></TextBox>
                       </Column>
                     )}
                   </Column>
                   <Column>
                     <Header type="title-3" text="Referred To:" />
-                    {(authInfo.priorAuthDetailStatus === 'Denied' ||
-                      authInfo.priorAuthDetailStatus === 'Approved') && (
+                    {(authInfo.statusDescription === 'Denied' ||
+                      authInfo.statusDescription === 'Approved') && (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
@@ -188,13 +181,13 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         </Row>
                       </Card>
                     )}
-                    {(authInfo.priorAuthDetailStatus === 'PartialApproval' ||
-                      authInfo.priorAuthDetailStatus === 'Pending') && (
+                    {(authInfo.statusDescription === 'PartialApproval' ||
+                      authInfo.statusDescription === 'Pending') && (
                       <Column className="w-52">
                         <TextBox
                           type="body-1"
                           className="font-bold mt-4"
-                          text={authInfo.referredName}
+                          text={authInfo.getProviderReferredTo.name}
                         ></TextBox>
                         <TextBox
                           type="body-2"
@@ -204,7 +197,7 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text="123 Street Address Road City Town, TN 12345"
+                          text={authInfo.getProviderReferredTo.streetAddress1}
                         ></TextBox>
 
                         <TextBox
@@ -215,7 +208,9 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text="(123) 456-7890"
+                          text={formatPhone(
+                            authInfo.getProviderReferredTo.phoneNumber,
+                          )}
                         ></TextBox>
                       </Column>
                     )}
@@ -223,19 +218,19 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                 </Column>
                 <Divider />
                 <Row>
-                  {(authInfo.priorAuthDetailStatus === 'PartialApproval' ||
-                    authInfo.priorAuthDetailStatus === 'Approved' ||
-                    authInfo.priorAuthDetailStatus === 'Denied') && (
+                  {(authInfo.statusDescription === 'PartialApproval' ||
+                    authInfo.statusDescription === 'Approved' ||
+                    authInfo.statusDescription === 'Denied') && (
                     <Column className="w-52">
                       <Header
                         type="title-3"
-                        text="Provider Facility"
+                        text="Provider Facility:"
                         className="my-8"
                       />
                       <TextBox
                         type="body-1"
                         className="font-bold"
-                        text="Local Care Hospital"
+                        text={authInfo.getProviderFacilityId?.name ?? ''}
                       ></TextBox>
                       <TextBox
                         type="body-2"
@@ -245,7 +240,9 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                       <TextBox
                         type="body-1"
                         className="mt-4"
-                        text="123 Street Address Road City Town, TN 12345"
+                        text={
+                          authInfo.getProviderFacilityId?.streetAddress1 ?? ''
+                        }
                       ></TextBox>
 
                       <TextBox
@@ -256,12 +253,16 @@ export const AuthItem = ({ authInfo }: priorAuthDetailProps) => {
                       <TextBox
                         type="body-1"
                         className="mt-4"
-                        text="(123) 456-7890"
+                        text={
+                          formatPhone(
+                            authInfo.getProviderFacilityId?.phoneNumber,
+                          ) ?? ''
+                        }
                       ></TextBox>
                     </Column>
                   )}
                   <Column>
-                    {authInfo.priorAuthDetailStatus === 'Pending' && (
+                    {authInfo.statusDescription === 'Pending' && (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox

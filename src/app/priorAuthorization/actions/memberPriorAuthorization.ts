@@ -1,11 +1,11 @@
 'use server';
 import { getMemberDetails } from '@/actions/memberDetails';
-import { ClaimDetails } from '@/models/claim_details';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
 import { MemberPriorAuthDetail } from '../models/priorAuthData';
+import { PriorAuthDetails } from '../models/priorAuthDetails';
 
-export async function invokeSortData(): Promise<ClaimDetails> {
+export async function invokeSortData(): Promise<PriorAuthDetails> {
   try {
     const memberDetails = await getMemberDetails();
     let priorAuthresponse;
@@ -21,7 +21,7 @@ export async function invokeSortData(): Promise<ClaimDetails> {
           (item: MemberPriorAuthDetail) => ({
             issuer: item['serviceGroupDescription'],
             claimStatus: item['statusDescription'],
-            serviceDate: item['fromDate'],
+            serviceDate: item['fromDate'].replaceAll('-', '/'),
             memberName: item['firstName'],
             columns: [
               {
@@ -39,6 +39,31 @@ export async function invokeSortData(): Promise<ClaimDetails> {
         );
     }
     return priorAuthresponse;
+  } catch (error) {
+    logger.error('Error Response from  memberPriorAuthDetails', error);
+    throw error;
+  }
+}
+
+export async function populatePriorAuthDetails(
+  referenceId: string,
+): Promise<MemberPriorAuthDetail> {
+  try {
+    const memberDetails = await getMemberDetails();
+    let priorAuthDetail;
+    const apiResponse = await esApi.get(
+      `/memberPriorAuthDetails?memberKey=${memberDetails.member_ck}&fromDate=12/06/2022&toDate=08/06/2023`, // froDate and toDate is dependant on filter integration
+    );
+    if (
+      apiResponse?.data?.data?.memberPriorAuthDetails?.memberPriorAuthDetail !=
+      null
+    ) {
+      priorAuthDetail =
+        apiResponse?.data?.data?.memberPriorAuthDetails?.memberPriorAuthDetail.find(
+          (item: { referenceId: string }) => item.referenceId === referenceId,
+        );
+    }
+    return priorAuthDetail;
   } catch (error) {
     logger.error('Error Response from  memberPriorAuthDetails', error);
     throw error;
