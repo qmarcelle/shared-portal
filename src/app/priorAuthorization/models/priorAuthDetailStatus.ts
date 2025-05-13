@@ -1,5 +1,5 @@
-import { ClaimStatus } from '@/app/authDetail/models/claim-status';
-import { ClaimType } from '@/app/authDetail/models/claim-type';
+import { ClaimType } from '@/app/priorAuthorization/models/claim-type';
+import { ClaimStatus } from './claim-status';
 
 export interface PriorAuthDetailsStatus {
   priorAuthDetailType: ClaimType;

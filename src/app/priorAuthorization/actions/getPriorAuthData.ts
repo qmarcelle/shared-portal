@@ -10,15 +10,15 @@ export const getPriorAuthData = async (): Promise<
 > => {
   const phoneNumber = await invokePhoneNumberAction();
   try {
-    const priorAuthData = await invokeSortData();
+    const priorAuthDetails = await invokeSortData();
     return {
       status: 200,
-      data: { claimDetails: priorAuthData, phoneNumber: phoneNumber },
+      data: { priorAuthDetails: priorAuthDetails, phoneNumber: phoneNumber },
     };
   } catch (error) {
     return {
       status: 400,
-      data: { claimDetails: null, phoneNumber: phoneNumber },
+      data: { priorAuthDetails: null, phoneNumber: phoneNumber },
     };
   }
 };

@@ -91,7 +91,7 @@ export const appPaths: Map<string, AppPath> = new Map([
   [
     'priorauthorizations',
     {
-      label: 'Authorizations',
+      label: 'Prior Authorization',
       path: '/priorAuthorization',
     },
   ],
