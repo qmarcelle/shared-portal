@@ -251,8 +251,8 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     return null;
   }
 
-  // ALWAYS load the script, but conditionally render additional chat UI
-  const scriptComponent = (
+  // ALWAYS load the script and show the button
+  return (
     <>
       <Script
         src="/assets/genesys/click_to_chat.js"
@@ -269,19 +269,6 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         }}
       />
       {/* We no longer need the custom CSS script since click_to_chat.js loads it */}
-    </>
-  );
-
-  // If chat is not open, just return the script without the UI
-  if (!isOpen) {
-    return scriptComponent;
-  }
-
-  // If chat is open, render both the script and any additional UI components
-  return (
-    <>
-      {scriptComponent}
-      {/* Additional chat UI components can be added here when needed */}
     </>
   );
 }
