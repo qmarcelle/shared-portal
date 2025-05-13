@@ -1,0 +1,349 @@
+/* bcbst-custom.css */
+
+/* Main container when chat is maximized */
+.cx-widget.cx-webchat {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  width: 400px !important;
+  height: auto !important;
+  max-height: 600px !important;
+  bottom: 20px;
+  right: 20px;
+  overflow: hidden !important;
+}
+
+/* Chat button (collapsed state) */
+.cx-widget.cx-webchat-chat-button {
+  background-color: #0056B3 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 10px 20px !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 500 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+}
+
+.cx-widget.cx-webchat-chat-button .cx-icon {
+  margin-right: 8px !important;
+}
+
+.cx-widget.cx-webchat-chat-button:hover {
+  background-color: #0074e0 !important;
+}
+
+/* Chat header */
+.cx-widget.cx-webchat .cx-titlebar {
+  background-color: #0056B3 !important;
+  color: white !important;
+  padding: 15px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  height: auto !important;
+  min-height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Plan information display in header */
+.cx-widget.cx-webchat .cx-titlebar .cx-custom-titlebar-text {
+  font-size: 14px !important;
+  font-weight: normal !important;
+  opacity: 0.9 !important;
+  margin-top: 5px !important;
+}
+
+/* Header buttons (minimize, close) */
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.cx-widget.cx-webchat .cx-titlebar .cx-icon {
+  color: white !important;
+  opacity: 0.8 !important;
+  cursor: pointer !important;
+  padding: 5px !important;
+}
+
+.cx-widget.cx-webchat .cx-titlebar .cx-icon:hover {
+  opacity: 1 !important;
+}
+
+/* Chat transcript area */
+.cx-widget.cx-webchat .cx-transcript {
+  background-color: #f7f9fa !important;
+  padding: 16px !important;
+  height: calc(100% - 120px) !important;
+}
+
+/* System messages (transfers, wait time) */
+.cx-widget.cx-webchat .cx-system-message {
+  background-color: #e6ebf0 !important;
+  color: #475465 !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+  margin: 8px auto !important;
+  font-size: 14px !important;
+  max-width: 85% !important;
+  text-align: center !important;
+}
+
+/* Message bubbles - Customer */
+.cx-widget.cx-webchat .cx-message.cx-you {
+  background-color: #e1effd !important;
+  border-radius: 18px 18px 4px 18px !important;
+  padding: 12px 16px !important;
+  margin: 8px 8px 12px auto !important;
+  max-width: 80% !important;
+  color: #202124 !important;
+  position: relative !important;
+  word-wrap: break-word !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Message bubbles - Agent */
+.cx-widget.cx-webchat .cx-message.cx-them {
+  background-color: white !important;
+  border-radius: 18px 18px 18px 4px !important;
+  padding: 12px 16px !important;
+  margin: 8px auto 12px 8px !important;
+  max-width: 80% !important;
+  color: #202124 !important;
+  position: relative !important;
+  word-wrap: break-word !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Message sender name */
+.cx-widget.cx-webchat .cx-message .cx-name {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin-bottom: 4px !important;
+  color: #5f6368 !important;
+}
+
+/* Agent is typing indicator */
+.cx-widget.cx-webchat .cx-typing-indicator {
+  font-size: 13px !important;
+  font-style: italic !important;
+  color: #5f6368 !important;
+  margin: 4px 0 8px 15px !important;
+}
+
+/* Chat footer with input box */
+.cx-widget.cx-webchat .cx-input-container {
+  background-color: white !important;
+  border-top: 1px solid #e0e0e0 !important;
+  padding: 10px 15px !important;
+}
+
+/* Chat text input */
+.cx-widget.cx-webchat .cx-message-input {
+  border: 1px solid #dadce0 !important;
+  border-radius: 20px !important;
+  padding: 10px 15px !important;
+  font-size: 14px !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  width: calc(100% - 45px) !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.cx-widget.cx-webchat .cx-message-input:focus {
+  border-color: #0056B3 !important;
+  outline: none !important;
+}
+
+/* Send button */
+.cx-widget.cx-webchat .cx-send {
+  background-color: #0056B3 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin-left: 8px !important;
+}
+
+.cx-widget.cx-webchat .cx-send:hover {
+  background-color: #0074e0 !important;
+}
+
+/* Pre-chat form styles */
+.cx-widget.cx-webchat .cx-form {
+  padding: 20px !important;
+  background-color: white !important;
+}
+
+.cx-widget.cx-webchat .cx-form h2 {
+  color: #202124 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+
+.cx-widget.cx-webchat .cx-form-inputs {
+  color: #5f6368 !important;
+  font-size: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Plan information in pre-chat */
+.cx-widget.cx-webchat .cx-plan-info {
+  background-color: #f8f9fa !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.cx-widget.cx-webchat .cx-plan-info-text {
+  font-weight: 500 !important;
+  color: #202124 !important;
+}
+
+/* Start chat button */
+.cx-widget.cx-webchat .cx-btn-primary,
+.cx-widget.cx-webchat .cx-submit {
+  background-color: #0056B3 !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 10px 20px !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+}
+
+.cx-widget.cx-webchat .cx-btn-primary:hover,
+.cx-widget.cx-webchat .cx-submit:hover {
+  background-color: #0074e0 !important;
+}
+
+/* Terms and conditions text */
+.cx-widget.cx-webchat .cx-terms-text {
+  font-size: 12px !important;
+  color: #5f6368 !important;
+  text-align: center !important;
+  margin-top: 10px !important;
+}
+
+.cx-widget.cx-webchat .cx-terms-text a {
+  color: #0056B3 !important;
+  text-decoration: none !important;
+}
+
+.cx-widget.cx-webchat .cx-terms-text a:hover {
+  text-decoration: underline !important;
+}
+
+/* Wait time message */
+.cx-widget.cx-webchat .cx-wait-time {
+  background-color: #f1f3f4 !important;
+  color: #202124 !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+  margin: 10px auto !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  max-width: 90% !important;
+}
+
+/* Close/End chat confirmation */
+.cx-widget.cx-webchat .cx-alert .cx-wrapper {
+  background-color: white !important;
+  padding: 20px !important;
+  text-align: center !important;
+  height: auto !important;
+}
+
+.cx-widget.cx-webchat .cx-alert .cx-wrapper h2 {
+  color: #202124 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin-bottom: 5px !important;
+}
+
+.cx-widget.cx-webchat .cx-alert .cx-wrapper p {
+  color: #5f6368 !important;
+  font-size: 14px !important;
+  margin-bottom: 20px !important;
+}
+
+.cx-widget.cx-webchat .cx-btn-default {
+  background-color: white !important;
+  border: 1px solid #dadce0 !important;
+  color: #202124 !important;
+  margin-right: 10px !important;
+}
+
+.cx-widget.cx-webchat .cx-btn-default:hover {
+  background-color: #f1f3f4 !important;
+}
+
+/* Error message styling */
+.cx-widget.cx-webchat .cx-error {
+  color: #d93025 !important;
+  background-color: #fce8e6 !important;
+  padding: 10px 15px !important;
+  border-radius: 4px !important;
+  margin: 10px 0 !important;
+  font-size: 14px !important;
+}
+
+/* Agent avatar */
+.cx-widget.cx-webchat .cx-avatar-wrapper {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.cx-widget.cx-webchat .cx-avatar {
+  border-radius: 50% !important;
+  background-color: #0056B3 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hide "Powered by Genesys" text */
+.cx-widget .cx-footer .cx-powered-by {
+  display: none !important;
+}
+
+/* Fix for potential layout issues */
+.cx-widget.cx-webchat .cx-bubble:after,
+.cx-widget.cx-webchat .cx-bubble:before {
+  display: none !important;
+}
+
+/* Minimized chat indicator with notification */
+.cx-widget.cx-webchat.cx-minimized {
+  height: auto !important;
+  width: auto !important;
+}
+
+.cx-widget.cx-webchat.cx-minimized .cx-webchat-counter {
+  background-color: #e94235 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}

@@ -848,9 +848,30 @@
     window._genesys.widgets.onReady = function (CXBus) {
       localWidgetPlugin = CXBus.registerPlugin('LocalCustomization');
 
-      // Helper function to fix layout issues
+      // Helper function to fix layout issues and ensure custom CSS is working
       function fixChatWidgetLayout() {
         console.log('[Genesys] Applying layout fixes');
+
+        // Check if our custom CSS is loaded
+        let customCssLoaded = false;
+        document.querySelectorAll('link').forEach((link) => {
+          if (link.href && link.href.includes('bcbst-custom.css')) {
+            customCssLoaded = true;
+            console.log('[Genesys] Custom CSS already loaded');
+          }
+        });
+
+        // If custom CSS isn't loaded yet, load it
+        if (!customCssLoaded) {
+          console.log('[Genesys] Loading custom CSS from click_to_chat.js');
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = '/assets/genesys/styles/bcbst-custom.css';
+          link.type = 'text/css';
+          document.head.appendChild(link);
+        }
+
+        // Additional layout fixes as backup if CSS doesn't fully apply
 
         // Fix widget container
         const widgetContainer = document.querySelector('.cx-widget.cx-webchat');
@@ -863,41 +884,28 @@
             maxHeight: '600px',
             width: '400px',
             height: 'auto',
-            boxShadow: '0 0 10px rgba(0,0,0,0.2)',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             borderRadius: '8px',
             overflow: 'hidden',
           });
         }
 
-        // Fix chat button
-        const chatButton = document.querySelector(
-          '.cx-widget.cx-webchat-chat-button',
-        );
-        if (chatButton) {
-          Object.assign(chatButton.style, {
-            position: 'fixed',
-            right: '20px',
-            bottom: '20px',
-            backgroundColor: '#0078d4',
-            color: 'white',
-            padding: '15px 25px',
-            borderRadius: '5px',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            zIndex: '9999',
-            cursor: 'pointer',
-          });
-        }
+        // Hide "Powered by Genesys" in footer (multiple selectors for all possible locations)
+        const footerSelectors = [
+          '.cx-widget .cx-footer .cx-powered-by',
+          '.cx-widget .cx-footer span',
+          '.cx-widget .cx-footer-container span',
+          '.cx-widget .cx-footer .cx-icon svg',
+          '.cx-widget .cx-branding',
+        ];
 
-        // Hide "Powered by Genesys" in footer
-        const footerElements = document.querySelectorAll(
-          '.cx-widget .cx-footer span, .cx-widget .cx-footer-container span',
-        );
-        footerElements.forEach((el) => {
-          if (el && el.textContent && el.textContent.includes('Genesys')) {
-            el.style.display = 'none';
-          }
+        footerSelectors.forEach((selector) => {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach((el) => {
+            if (el && (!el.textContent || el.textContent.includes('Genesys'))) {
+              el.style.display = 'none';
+            }
+          });
         });
       }
 

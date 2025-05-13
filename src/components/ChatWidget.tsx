@@ -234,76 +234,105 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
 
   // ALWAYS load the script, but conditionally render additional chat UI
   const scriptComponent = (
-    <Script
-      src="/assets/genesys/click_to_chat.js"
-      strategy="lazyOnload"
-      onLoad={() => {
-        if (typeof window !== 'undefined') {
-          // Re-apply latest settings when script loads
-          const combinedSettings = {
-            ...chatSettings,
-            ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
-            chatMode: chatMode,
-            // Add debug information to track initialization
-            debug: true,
-            timestamp: new Date().toISOString(),
-            loadedFromComponent: 'ChatWidget',
-          };
+    <>
+      <Script
+        src="/assets/genesys/click_to_chat.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          if (typeof window !== 'undefined') {
+            // Re-apply latest settings when script loads
+            const combinedSettings = {
+              ...chatSettings,
+              ...(chatData && {
+                cloudChatEligible: chatData.cloudChatEligible,
+              }),
+              chatMode: chatMode,
+              // Add debug information to track initialization
+              debug: true,
+              timestamp: new Date().toISOString(),
+              loadedFromComponent: 'ChatWidget',
+            };
 
-          // Log before setting to see what we're about to apply
-          console.log(
-            '[ChatWidget] Before applying settings to window.chatSettings:',
-            {
-              currentWindowSettings: window.chatSettings
-                ? Object.keys(window.chatSettings)
-                : 'none',
-              willApply: combinedSettings,
-              hasRequiredFields: {
-                chatMode: !!combinedSettings.chatMode,
-                isChatEligibleMember: !!combinedSettings.isChatEligibleMember,
-                isChatAvailable: combinedSettings.isChatAvailable !== undefined,
-              },
-            },
-          );
-
-          window.chatSettings = combinedSettings;
-
-          // Force refresh _genesys widgets config if it exists
-          if (window._genesys && window._genesys.widgets) {
+            // Log before setting to see what we're about to apply
             console.log(
-              '[ChatWidget] Found _genesys.widgets, attempting to refresh config',
+              '[ChatWidget] Before applying settings to window.chatSettings:',
+              {
+                currentWindowSettings: window.chatSettings
+                  ? Object.keys(window.chatSettings)
+                  : 'none',
+                willApply: combinedSettings,
+                hasRequiredFields: {
+                  chatMode: !!combinedSettings.chatMode,
+                  isChatEligibleMember: !!combinedSettings.isChatEligibleMember,
+                  isChatAvailable:
+                    combinedSettings.isChatAvailable !== undefined,
+                },
+              },
             );
-            try {
-              // Try to refresh the chat button via Genesys command bus if available
-              if (window.CXBus && typeof window.CXBus.command === 'function') {
-                console.log(
-                  '[ChatWidget] Calling CXBus to refresh chat button',
-                );
-                window.CXBus.command(
-                  'WebChat.refreshSettings',
-                  combinedSettings,
+
+            window.chatSettings = combinedSettings;
+
+            // Force refresh _genesys widgets config if it exists
+            if (window._genesys && window._genesys.widgets) {
+              console.log(
+                '[ChatWidget] Found _genesys.widgets, attempting to refresh config',
+              );
+              try {
+                // Try to refresh the chat button via Genesys command bus if available
+                if (
+                  window.CXBus &&
+                  typeof window.CXBus.command === 'function'
+                ) {
+                  console.log(
+                    '[ChatWidget] Calling CXBus to refresh chat button',
+                  );
+                  window.CXBus.command(
+                    'WebChat.refreshSettings',
+                    combinedSettings,
+                  );
+                }
+              } catch (e) {
+                console.error(
+                  '[ChatWidget] Error refreshing Genesys settings:',
+                  e,
                 );
               }
-            } catch (e) {
-              console.error(
-                '[ChatWidget] Error refreshing Genesys settings:',
-                e,
-              );
             }
+
+            logger.info(
+              '[ChatWidget] click_to_chat.js loaded with settings',
+              window.chatSettings,
+            );
+
+            console.log(
+              '[ChatWidget] click_to_chat.js loaded with complete settings:',
+              window.chatSettings,
+            );
           }
-
-          logger.info(
-            '[ChatWidget] click_to_chat.js loaded with settings',
-            window.chatSettings,
-          );
-
-          console.log(
-            '[ChatWidget] click_to_chat.js loaded with complete settings:',
-            window.chatSettings,
-          );
-        }
-      }}
-    />
+        }}
+      />
+      {/* Custom CSS overrides for Genesys chat widget styling */}
+      <Script
+        id="chat-custom-css"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Load our custom CSS after the Genesys widget styles
+            (function() {
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = '/assets/genesys/styles/bcbst-custom.css';
+              link.type = 'text/css';
+              
+              // Ensure this loads after Genesys styles
+              document.head.appendChild(link);
+              
+              console.log('[ChatWidget] Custom CSS loaded');
+            })();
+          `,
+        }}
+      />
+    </>
   );
 
   // If chat is not open, just return the script without the UI
