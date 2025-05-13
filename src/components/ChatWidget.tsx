@@ -28,6 +28,8 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
   const [configReady, setConfigReady] = useState(false);
   // Ref to track the script loading attempts
   const scriptLoadAttempts = useRef(0);
+  // Track if the chat button is in the DOM
+  const [chatButtonExists, setChatButtonExists] = useState(false);
 
   // Define routes where chat should never appear
   const excludedPaths = useMemo(
@@ -207,6 +209,40 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     }
   };
 
+  // Check if the chat button exists in the DOM
+  const checkForChatButton = () => {
+    if (typeof window !== 'undefined') {
+      const button = document.querySelector('.cx-webchat-chat-button');
+      if (button) {
+        setChatButtonExists(true);
+        return true;
+      }
+
+      // Also check for the fallback button
+      const fallbackButton = document.querySelector('.fallback-chat-button');
+      if (fallbackButton) {
+        setChatButtonExists(true);
+        return true;
+      }
+
+      return false;
+    }
+    return false;
+  };
+
+  // Effect to periodically check for chat button
+  useEffect(() => {
+    if (scriptLoaded && typeof window !== 'undefined' && !chatButtonExists) {
+      const intervalId = setInterval(() => {
+        if (checkForChatButton()) {
+          clearInterval(intervalId);
+        }
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [scriptLoaded, chatButtonExists]);
+
   // Effect to manually force chat button display if needed
   useEffect(() => {
     if (scriptLoaded && typeof window !== 'undefined') {
@@ -233,6 +269,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               '.cx-webchat-chat-button',
             ) as HTMLDivElement;
             if (btn) {
+              setChatButtonExists(true);
               Object.assign(btn.style, {
                 display: 'flex',
                 opacity: '1',
@@ -264,35 +301,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
 
               // Create a fallback button directly if none exists
               if (document.querySelector('.fallback-chat-button') === null) {
-                const fallbackBtn = document.createElement('div');
-                fallbackBtn.className = 'fallback-chat-button';
-                fallbackBtn.innerText = 'Chat Now';
-                Object.assign(fallbackBtn.style, {
-                  display: 'flex',
-                  position: 'fixed',
-                  right: '20px',
-                  bottom: '20px',
-                  backgroundColor: '#0078d4',
-                  color: 'white',
-                  padding: '15px 25px',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-                  zIndex: '9999',
-                  fontWeight: 'bold',
-                  fontSize: '16px',
-                });
-                fallbackBtn.onclick = () => {
-                  if (window.CXBus) {
-                    window.CXBus.command('WebChat.open');
-                  } else {
-                    alert(
-                      'Chat system is not fully loaded. Please try again in a moment.',
-                    );
-                  }
-                };
-                document.body.appendChild(fallbackBtn);
-                console.log('[ChatWidget] Created fallback chat button');
+                createFallbackButton();
               }
             }
           }, 2000);
@@ -305,14 +314,69 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               `[ChatWidget] Attempting fallback script load (try ${scriptLoadAttempts.current})`,
             );
             loadGenesysWidgetsDirectly();
+          } else {
+            // After 3 attempts, create fallback button
+            createFallbackButton();
           }
+        }
+      };
+
+      // Create a fallback button when we can't get the official Genesys button to show
+      const createFallbackButton = () => {
+        console.log('[ChatWidget] Creating fallback chat button');
+
+        if (document.querySelector('.fallback-chat-button') === null) {
+          const fallbackBtn = document.createElement('div');
+          fallbackBtn.className = 'fallback-chat-button';
+          fallbackBtn.innerText = 'Chat Now';
+          Object.assign(fallbackBtn.style, {
+            display: 'flex',
+            position: 'fixed',
+            right: '20px',
+            bottom: '20px',
+            backgroundColor: '#0078d4',
+            color: 'white',
+            padding: '15px 25px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+            zIndex: '9999',
+            fontWeight: 'bold',
+            fontSize: '16px',
+          });
+
+          fallbackBtn.onclick = () => {
+            if (window.CXBus) {
+              window.CXBus.command('WebChat.open');
+            } else {
+              alert(
+                'Chat system is not fully loaded. Please try again in a moment.',
+              );
+            }
+          };
+
+          document.body.appendChild(fallbackBtn);
+          setChatButtonExists(true);
+          console.log('[ChatWidget] Created fallback chat button');
         }
       };
 
       // Call immediately and also after delays to ensure it works
       enableChatButton();
-      setTimeout(enableChatButton, 3000);
-      setTimeout(enableChatButton, 6000);
+
+      // Try multiple times with increasing delays
+      const delays = [3000, 6000, 9000];
+      delays.forEach((delay, index) => {
+        setTimeout(() => {
+          if (!checkForChatButton()) {
+            enableChatButton();
+            // On the last attempt, create a fallback button if needed
+            if (index === delays.length - 1) {
+              createFallbackButton();
+            }
+          }
+        }, delay);
+      });
     }
   }, [scriptLoaded]);
 
@@ -328,7 +392,7 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         // CRITICAL: Force these to 'true' as strings to ensure eligibility passes
         isChatEligibleMember: 'true',
         isDemoMember: 'true',
-        isChatAvailable: true,
+        isChatAvailable: 'true',
       };
 
       window.chatSettings = combinedSettings;
@@ -410,6 +474,9 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
               });
               console.log('[ChatWidget] click_to_chat.js loaded successfully');
               setScriptLoaded(true);
+
+              // Check if button already exists after successful load
+              setTimeout(checkForChatButton, 1000);
             }
           }}
           onError={(e) => {
@@ -421,24 +488,26 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
         />
       )}
 
-      {/* Debug indicator - can be removed in production */}
-      <div
-        style={{
-          position: 'fixed',
-          right: '20px',
-          bottom: '20px',
-          padding: '0.5rem 1rem',
-          backgroundColor: '#f0f0f0',
-          border: '1px solid #ddd',
-          borderRadius: '4px',
-          fontSize: '12px',
-          color: '#333',
-          zIndex: 9998,
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-        }}
-      >
-        {renderDebugStatus()}
-      </div>
+      {/* Debug indicator - only show in development and if button doesn't exist yet */}
+      {process.env.NODE_ENV === 'development' && !chatButtonExists && (
+        <div
+          style={{
+            position: 'fixed',
+            right: '200px',
+            bottom: '20px',
+            padding: '0.5rem 1rem',
+            backgroundColor: '#f0f0f0',
+            border: '1px solid #ddd',
+            borderRadius: '4px',
+            fontSize: '12px',
+            color: '#333',
+            zIndex: 9998,
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          }}
+        >
+          {renderDebugStatus()}
+        </div>
+      )}
 
       {/* Create a manual button if needed */}
       {configReady && scriptLoaded && typeof window !== 'undefined' && (
