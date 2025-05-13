@@ -5,15 +5,14 @@
   // === 0) Grab config ===
   const cfg = window.chatSettings || {};
 
-  // Add detailed logging of available configuration
-  console.log('[Genesys] Initializing with configuration:', {
-    chatSettingsAvailable: !!window.chatSettings,
-    configKeys: Object.keys(cfg),
+  // Simplified logging focused on critical chat configuration
+  console.log('[Genesys] Initializing chat widget', {
     chatMode: cfg.chatMode || 'legacy',
-    cloudChatEligible: cfg.cloudChatEligible,
-    isChatEligibleMember: cfg.isChatEligibleMember,
-    isDemoMember: cfg.isDemoMember,
-    isChatAvailable: cfg.isChatAvailable,
+    userInfo: {
+      firstname: cfg.firstname || cfg.formattedFirstName || '',
+      lastname: cfg.lastname || cfg.memberLastName || '',
+    },
+    chatAvailable: cfg.isChatAvailable !== false,
     timestamp: new Date().toISOString(),
   });
 
@@ -510,13 +509,20 @@
         {
           id: 'firstName_field',
           name: 'firstname',
-          value: cfg.formattedFirstName,
+          // Fall back to alternative property names for first name
+          value:
+            cfg.formattedFirstName || cfg.firstname || cfg.first_name || '',
         },
-        { id: 'lastname_field', name: 'lastname', value: cfg.memberLastName },
+        {
+          id: 'lastname_field',
+          name: 'lastname',
+          // Fall back to alternative property names for last name
+          value: cfg.memberLastName || cfg.lastname || cfg.last_name || '',
+        },
         {
           id: 'memberId_field',
           name: 'MEMBER_ID',
-          value: `${cfg.subscriberID}-${cfg.sfx}`,
+          value: cfg.MEMBER_ID || `${cfg.subscriberID || ''}-${cfg.sfx || ''}`,
         },
         { id: 'groupId_field', name: 'GROUP_ID', value: cfg.groupId },
         { id: 'planId_field', name: 'PLAN_ID', value: cfg.memberMedicalPlanID },
@@ -857,21 +863,17 @@
         document.querySelectorAll('link').forEach((link) => {
           if (link.href && link.href.includes('bcbst-custom.css')) {
             customCssLoaded = true;
-            console.log('[Genesys] Custom CSS already loaded');
           }
         });
 
         // If custom CSS isn't loaded yet, load it
         if (!customCssLoaded) {
-          console.log('[Genesys] Loading custom CSS from click_to_chat.js');
           const link = document.createElement('link');
           link.rel = 'stylesheet';
           link.href = '/assets/genesys/styles/bcbst-custom.css';
           link.type = 'text/css';
           document.head.appendChild(link);
         }
-
-        // Additional layout fixes as backup if CSS doesn't fully apply
 
         // Fix widget container
         const widgetContainer = document.querySelector('.cx-widget.cx-webchat');
@@ -887,6 +889,93 @@
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             borderRadius: '8px',
             overflow: 'hidden',
+            zIndex: '999999',
+          });
+        }
+
+        // Fix header and control buttons
+        const titleBar = document.querySelector(
+          '.cx-widget.cx-webchat .cx-titlebar',
+        );
+        if (titleBar) {
+          Object.assign(titleBar.style, {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '12px 15px',
+            backgroundColor: '#0056B3',
+            color: 'white',
+            height: 'auto',
+            minHeight: '50px',
+          });
+
+          // Fix buttons container
+          const buttonsContainer = titleBar.querySelector('.cx-buttons');
+          if (buttonsContainer) {
+            Object.assign(buttonsContainer.style, {
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              position: 'relative',
+              right: '0',
+              top: '0',
+            });
+
+            // Ensure buttons are visible and properly styled
+            const buttons = buttonsContainer.querySelectorAll('.cx-icon');
+            buttons.forEach((button) => {
+              Object.assign(button.style, {
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '24px',
+                height: '24px',
+                cursor: 'pointer',
+                color: 'white',
+                opacity: '0.85',
+                position: 'relative',
+                transform: 'none',
+              });
+            });
+          }
+        }
+
+        // Fix the record indicator showing improperly
+        const recordIndicator = document.querySelector(
+          '.cx-widget.cx-webchat .cx-record-indicator',
+        );
+        if (recordIndicator) {
+          recordIndicator.style.display = 'none';
+        }
+
+        // Prevent multiple modals from showing at once
+        const modals = document.querySelectorAll(
+          '.cx-widget.cx-webchat .cx-dialog:not([style*="display: none"])',
+        );
+        if (modals && modals.length > 1) {
+          // Keep only the first visible modal
+          for (let i = 1; i < modals.length; i++) {
+            modals[i].style.display = 'none';
+          }
+        }
+
+        // Fix start chat button visibility
+        const startChatBtn = document.querySelector(
+          'button[data-message="ChatFormSubmit"]',
+        );
+        if (startChatBtn) {
+          Object.assign(startChatBtn.style, {
+            display: 'block',
+            width: '100%',
+            maxWidth: '300px',
+            margin: '10px auto',
+            padding: '10px 20px',
+            backgroundColor: '#0056B3',
+            color: 'white',
+            borderRadius: '4px',
+            border: 'none',
+            fontWeight: 'bold',
+            cursor: 'pointer',
           });
         }
 
@@ -915,17 +1004,75 @@
         setTimeout(fixChatWidgetLayout, 500);
       });
 
+      // Fix chat minimize/maximize behavior
+      localWidgetPlugin.subscribe('WebChat.minimized', () => {
+        console.log('[Genesys] Chat minimized');
+
+        // Check if we have multiple dialogs showing
+        const modals = document.querySelectorAll(
+          '.cx-widget.cx-webchat .cx-dialog:not([style*="display: none"])',
+        );
+        if (modals && modals.length > 0) {
+          // Hide all dialogs when minimizing
+          modals.forEach((modal) => {
+            modal.style.display = 'none';
+          });
+        }
+
+        // Ensure the chat button is styled correctly in minimized state
+        const chatButton = document.querySelector(
+          '.cx-widget.cx-webchat-chat-button',
+        );
+        if (chatButton) {
+          Object.assign(chatButton.style, {
+            display: 'flex',
+            position: 'fixed',
+            right: '20px',
+            bottom: '20px',
+            backgroundColor: '#0056B3',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            zIndex: '9999',
+          });
+        }
+
+        // Hide any record indicators
+        const recordIndicator = document.querySelector(
+          '.cx-widget.cx-webchat .cx-record-indicator',
+        );
+        if (recordIndicator) {
+          recordIndicator.style.display = 'none';
+        }
+      });
+
+      // Apply fixes when maximizing
+      localWidgetPlugin.subscribe('WebChat.maximized', () => {
+        console.log('[Genesys] Chat maximized');
+        // Re-apply layout fixes when maximized
+        setTimeout(fixChatWidgetLayout, 100);
+      });
+
       localWidgetPlugin.subscribe('WebChat.messageAdded', (e) => {
         $('.cx-avatar.bot').find('svg').replaceWith(chatBotAvatar);
         if (e.data.message.type === 'Agent') webAlert.play();
       });
 
       localWidgetPlugin.subscribe('WebChat.errors', OpenChatConnectionError);
+
       localWidgetPlugin.subscribe('WebChat.submitted', () => {
         applyMessageScaler();
         customizeAmplify();
         // Apply layout fixes after form submit
         setTimeout(fixChatWidgetLayout, 500);
+      });
+
+      // Fix dialogs to prevent multiple from showing
+      localWidgetPlugin.subscribe('WebChat.dialogOpened', () => {
+        console.log('[Genesys] Dialog opened');
+        // Wait a moment to allow the dialog to render, then fix multiple dialog issue
+        setTimeout(fixChatWidgetLayout, 50);
       });
 
       localWidgetPlugin.subscribe('CallUs.opened', () => {
@@ -996,20 +1143,42 @@
     window.CloseChatDisclaimer = function () {
       localWidgetPlugin.command('WebChat.hideOverlay').done(() => {
         $('button[data-message="ChatFormSubmit"]').show();
+        // Ensure layout is fixed after closing overlay
+        setTimeout(fixChatWidgetLayout, 100);
       });
+    };
+
+    // Improved handling to prevent multiple dialogs from appearing
+    window.handleDialogClose = function (dialogElement) {
+      if (dialogElement) {
+        dialogElement.style.display = 'none';
+      }
+
+      // Fix any remaining layout issues
+      setTimeout(fixChatWidgetLayout, 100);
+
+      // Prevent event bubbling
+      return false;
     };
 
     // Error overlays
     function OpenChatConnectionError() {
-      localWidgetPlugin.command('WebChat.showOverlay', {
-        html: $(
-          "<div><p class='termsNConditions'><span class='modalTitle'>Error Connecting to Chat Server</span><br><br>We're sorry for the inconvenience, please logout and log back in.</p></div><div style='padding-bottom:10px;background-color:#fff;'><button class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatConnectionError()'>CLOSE</button></div>",
-        ),
-        hideFooter: false,
+      // Before showing a new error, ensure existing overlays are hidden
+      localWidgetPlugin.command('WebChat.hideOverlay').done(() => {
+        localWidgetPlugin.command('WebChat.showOverlay', {
+          html: $(
+            "<div><p class='termsNConditions'><span class='modalTitle'>Error Connecting to Chat Server</span><br><br>We're sorry for the inconvenience, please logout and log back in.</p></div><div style='padding-bottom:10px;background-color:#fff;'><button class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatConnectionError()'>CLOSE</button></div>",
+          ),
+          hideFooter: false,
+        });
       });
     }
+
     window.CloseChatConnectionError = function () {
-      localWidgetPlugin.command('WebChat.hideOverlay');
+      localWidgetPlugin.command('WebChat.hideOverlay').done(() => {
+        // Ensure layout is fixed after closing error
+        setTimeout(fixChatWidgetLayout, 100);
+      });
     };
 
     // === 9) Visual tweaks & debug override ===

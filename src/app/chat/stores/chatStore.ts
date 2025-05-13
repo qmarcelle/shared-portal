@@ -355,6 +355,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
           SERV_Type: info.SERV_Type || 'MemberChat',
           firstname: info.first_name || '',
           lastname: info.last_name || '',
+          formattedFirstName: info.first_name || '',
+          memberLastName: info.last_name || '',
           RoutingChatbotInteractionId: info.RoutingChatbotInteractionId,
           PLAN_ID: planId,
           GROUP_ID: info.GROUP_ID || '',
