@@ -26,7 +26,6 @@ const CareTNProgramLanding = ({
   }
   return (
     <Column className="app-content app-base-font-color md:pr-0 md:pl-0 pl-7 pr-7">
-      <Spacer size={64} />
       <CareTNHeaderCard callBackCareTNSteps={() => callCareTNSteps()} />
       <Spacer size={32} />
       <CareTNProgramBenefits />
