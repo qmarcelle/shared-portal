@@ -104,29 +104,38 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
     return null;
   }
 
-  // Don't render anything if chat is not open
-  if (!isOpen) return null;
+  // ALWAYS load the script, but conditionally render additional chat UI
+  const scriptComponent = (
+    <Script
+      src="/assets/genesys/click_to_chat.js"
+      strategy="lazyOnload"
+      onLoad={() => {
+        if (typeof window !== 'undefined') {
+          window.chatSettings = chatSettings;
+          logger.info(
+            '[ChatWidget] click_to_chat.js loaded with settings',
+            window.chatSettings,
+          );
+          // eslint-disable-next-line no-console
+          console.log(
+            '[ChatWidget] click_to_chat.js loaded with settings',
+            window.chatSettings,
+          );
+        }
+      }}
+    />
+  );
 
+  // If chat is not open, just return the script without the UI
+  if (!isOpen) {
+    return scriptComponent;
+  }
+
+  // If chat is open, render both the script and any additional UI components
   return (
     <>
-      <Script
-        src="/assets/genesys/click_to_chat.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          if (typeof window !== 'undefined') {
-            window.chatSettings = chatSettings;
-            logger.info(
-              '[ChatWidget] click_to_chat.js loaded with settings',
-              window.chatSettings,
-            );
-            // eslint-disable-next-line no-console
-            console.log(
-              '[ChatWidget] click_to_chat.js loaded with settings',
-              window.chatSettings,
-            );
-          }
-        }}
-      />
+      {scriptComponent}
+      {/* Additional chat UI components can be added here when needed */}
     </>
   );
 }
