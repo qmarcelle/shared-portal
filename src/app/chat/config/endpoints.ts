@@ -30,6 +30,9 @@ export const CHAT_ENDPOINTS = {
   CHAT_TOKEN_ENDPOINT: `${BASE_URL}/genesystoken`,
   COBROWSE_LICENSE_ENDPOINT: `${BASE_URL}/cobrowselicense`,
 
+  // Backward compatibility alias
+  CLICK_TO_CHAT_ENDPOINT: `${BASE_URL}/genesyschat`, // Alias for CHAT_SESSION_ENDPOINT
+
   // Chat interaction endpoints
   CHAT_SERVICE_ID: BOT_ID,
   CHAT_SEND_MESSAGE_ENDPOINT: `${PRODUCTION_BASE_URL}/chatbot/${BOT_ID}/send`,

@@ -452,16 +452,4 @@ export function openGenesysChat(): void {
   }
 }
 
-// Get centralized chat configuration
-export function getChatConfig() {
-  return {
-    // Default endpoint values
-    CLICK_TO_CHAT_ENDPOINT: CHAT_ENDPOINTS.CLICK_TO_CHAT_ENDPOINT,
-    CHAT_TOKEN_ENDPOINT: CHAT_ENDPOINTS.CHAT_TOKEN_ENDPOINT,
-    COBROWSE_LICENSE_ENDPOINT: CHAT_ENDPOINTS.COBROWSE_LICENSE_ENDPOINT,
-    CHAT_SERVICE_ID: CHAT_ENDPOINTS.CHAT_SERVICE_ID,
-    CHAT_SEND_MESSAGE_ENDPOINT: CHAT_ENDPOINTS.CHAT_SEND_MESSAGE_ENDPOINT,
-    CHAT_REFRESH_ENDPOINT: CHAT_ENDPOINTS.CHAT_REFRESH_ENDPOINT,
-    CHAT_TYPING_ENDPOINT: CHAT_ENDPOINTS.CHAT_TYPING_ENDPOINT,
-  };
-}
+// We're using getChatConfig imported from '../config/endpoints' - no need for a local implementation
