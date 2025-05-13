@@ -244,17 +244,61 @@ export default function ChatWidget({ chatSettings }: ChatWidgetProps) {
             ...chatSettings,
             ...(chatData && { cloudChatEligible: chatData.cloudChatEligible }),
             chatMode: chatMode,
+            // Add debug information to track initialization
+            debug: true,
+            timestamp: new Date().toISOString(),
+            loadedFromComponent: 'ChatWidget',
           };
 
+          // Log before setting to see what we're about to apply
+          console.log(
+            '[ChatWidget] Before applying settings to window.chatSettings:',
+            {
+              currentWindowSettings: window.chatSettings
+                ? Object.keys(window.chatSettings)
+                : 'none',
+              willApply: combinedSettings,
+              hasRequiredFields: {
+                chatMode: !!combinedSettings.chatMode,
+                isChatEligibleMember: !!combinedSettings.isChatEligibleMember,
+                isChatAvailable: combinedSettings.isChatAvailable !== undefined,
+              },
+            },
+          );
+
           window.chatSettings = combinedSettings;
+
+          // Force refresh _genesys widgets config if it exists
+          if (window._genesys && window._genesys.widgets) {
+            console.log(
+              '[ChatWidget] Found _genesys.widgets, attempting to refresh config',
+            );
+            try {
+              // Try to refresh the chat button via Genesys command bus if available
+              if (window.CXBus && typeof window.CXBus.command === 'function') {
+                console.log(
+                  '[ChatWidget] Calling CXBus to refresh chat button',
+                );
+                window.CXBus.command(
+                  'WebChat.refreshSettings',
+                  combinedSettings,
+                );
+              }
+            } catch (e) {
+              console.error(
+                '[ChatWidget] Error refreshing Genesys settings:',
+                e,
+              );
+            }
+          }
 
           logger.info(
             '[ChatWidget] click_to_chat.js loaded with settings',
             window.chatSettings,
           );
-          // eslint-disable-next-line no-console
+
           console.log(
-            '[ChatWidget] click_to_chat.js loaded with settings',
+            '[ChatWidget] click_to_chat.js loaded with complete settings:',
             window.chatSettings,
           );
         }

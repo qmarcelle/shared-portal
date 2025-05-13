@@ -5,6 +5,35 @@
   // === 0) Grab config ===
   const cfg = window.chatSettings || {};
 
+  // Add detailed logging of available configuration
+  console.log('[Genesys] Initializing with configuration:', {
+    chatSettingsAvailable: !!window.chatSettings,
+    configKeys: Object.keys(cfg),
+    chatMode: cfg.chatMode || 'legacy',
+    cloudChatEligible: cfg.cloudChatEligible,
+    isChatEligibleMember: cfg.isChatEligibleMember,
+    isDemoMember: cfg.isDemoMember,
+    isChatAvailable: cfg.isChatAvailable,
+    timestamp: new Date().toISOString(),
+  });
+
+  // Validate critical settings
+  if (!cfg.chatMode) {
+    console.warn(
+      '[Genesys] No chatMode specified in config, defaulting to legacy',
+    );
+  }
+
+  if (cfg.chatMode === 'cloud' && (!cfg.deploymentId || !cfg.orgId)) {
+    console.error(
+      '[Genesys] Cloud chat mode requires deploymentId and orgId:',
+      {
+        deploymentId: cfg.deploymentId,
+        orgId: cfg.orgId,
+      },
+    );
+  }
+
   // === 1) Inject JSPF CSS ===
   const css = `
 .cobrowse-card{color:#333;position:fixed;padding:25px;background:white;border-radius:10px;z-index:2147483647;top:50px;left:50%;max-width:496px;transform:translateX(-50%);box-shadow:0 0 15px #33333322;font-family:Roboto,Helvetica,sans-serif;}
@@ -106,10 +135,39 @@
   injectModals();
 
   // === 3) Audio alert ===
-  const webAlert = new Audio(
-    '/wps/wcm/myconnect/member/26d05c9c-2858-4ba9-ad5a-64c914a01f79/bell.mp3?MOD=AJPERES&attachment=true&id=1677782288070',
-  );
-  webAlert.muted = true;
+  const webAlert = new Audio();
+  try {
+    // Log audio initialization
+    console.log('[Genesys] Setting up audio notification');
+
+    // Use a simpler relative path that's more likely to work
+    const audioPath = '/assets/genesys/sounds/bell.mp3';
+    console.log('[Genesys] Using audio path:', audioPath);
+
+    webAlert.src = audioPath;
+    webAlert.muted = true;
+
+    // Add error handling for the audio element
+    webAlert.addEventListener('error', function (e) {
+      console.error('[Genesys] Audio error:', {
+        error: e.error,
+        message: 'Could not load audio notification',
+        src: webAlert.src,
+        errorCode: webAlert.error ? webAlert.error.code : 'unknown',
+      });
+    });
+
+    // Allow audio to be unmuted during first user interaction
+    webAlert.addEventListener('canplaythrough', function () {
+      console.log('[Genesys] Audio file loaded successfully and can play');
+    });
+  } catch (err) {
+    console.error('[Genesys] Error setting up audio:', err);
+    // Provide a dummy audio object that won't cause errors if called
+    webAlert.play = function () {
+      console.log('[Genesys] Audio play called but audio not available');
+    };
+  }
 
   // === 4) Utility & CoBrowseIO boot-strap ===
   function buildConsent(title, message) {
@@ -479,16 +537,139 @@
       window._gt = window._gt || [];
       window._genesys.widgets = window._genesys.widgets || {};
 
+      // Add combined custom CSS for both theming and layout
+      const customCSS = document.createElement('style');
+      customCSS.innerHTML = `
+        /* Light theme customization based on Genesys documentation */
+        .cx-widget.cx-theme-light {
+          color: #333 !important;
+          background: #FFFFFF !important;
+        }
+        
+        .cx-widget.cx-theme-light .cx-titlebar {
+          background: #0078d4 !important;
+          color: #FFFFFF !important;
+        }
+        
+        .cx-widget.cx-theme-light .cx-message.cx-system {
+          background-color: #F2F2F2 !important;
+          color: #333 !important;
+        }
+        
+        .cx-widget.cx-theme-light .cx-message.cx-user {
+          background-color: #0078d4 !important;
+          color: #FFFFFF !important;
+        }
+        
+        .cx-widget.cx-theme-light .cx-message.cx-agent {
+          background-color: #FFFFFF !important;
+          border: 1px solid #E0E0E0 !important;
+          color: #333 !important;
+        }
+        
+        .cx-widget.cx-theme-light button.cx-btn-primary {
+          background-color: #0078d4 !important;
+          color: #FFFFFF !important;
+        }
+        
+        .cx-widget.cx-theme-light button.cx-btn-default {
+          background-color: #F2F2F2 !important;
+          color: #333 !important;
+        }
+        
+        .cx-widget.cx-theme-light .cx-input {
+          background-color: #FFFFFF !important;
+          border: 1px solid #E0E0E0 !important;
+          color: #333 !important;
+        }
+        
+        /* Chat button styling */
+        .cx-widget.cx-theme-light.cx-webchat-chat-button, 
+        .cx-widget.cx-theme-light .cx-webchat-chat-button {
+          background-color: #0078d4 !important;
+          color: #FFFFFF !important;
+        }
+        
+        /* === Layout and positioning fixes === */
+        
+        /* Fix widget positioning */
+        .cx-widget.cx-webchat {
+          position: fixed !important;
+          right: 20px !important;
+          bottom: 20px !important;
+          max-width: 400px !important;
+          max-height: 600px !important;
+          width: 100% !important;
+          height: auto !important;
+          box-shadow: 0 0 10px rgba(0,0,0,0.2) !important;
+          border-radius: 8px !important;
+          overflow: hidden !important;
+        }
+        
+        /* Hide the "Powered by Genesys" text */
+        .cx-widget .cx-footer span,
+        .cx-widget .cx-footer-container span {
+          display: none !important;
+        }
+        
+        /* Fix chat button positioning */
+        .cx-widget.cx-webchat-chat-button {
+          position: fixed !important;
+          right: 20px !important;
+          bottom: 20px !important;
+          width: auto !important;
+          height: auto !important;
+          padding: 15px 25px !important;
+          border-radius: 5px !important;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+          font-size: 16px !important;
+          font-weight: bold !important;
+          z-index: 999 !important;
+        }
+        
+        /* Ensure proper icon sizes */
+        .cx-widget.cx-webchat .cx-icon {
+          width: 24px !important;
+          height: 24px !important;
+        }
+        
+        /* Fix close button positioning */
+        .cx-widget.cx-webchat .cx-titlebar .cx-icon {
+          position: absolute !important;
+          right: 10px !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+        }
+      `;
+      document.head.appendChild(customCSS);
+
       // Main config
       window._genesys.widgets.main = {
         debug: false,
-        theme: 'light',
+        theme: 'light', // Use light theme
         lang: 'en',
         mobileMode: 'auto',
         downloadGoogleFont: false,
         plugins: [],
         i18n: { en: {} },
         header: { Authorization: `Bearer ${cfg.clickToChatToken}` },
+        // Control the dimensions of the widget
+        size: {
+          width: 400, // standard widget width
+          height: 600, // standard widget height
+          minWidth: 400,
+          minHeight: 600,
+          windowWidth: '400px', // Use fixed width rather than percentage
+          windowHeight: '600px', // Use fixed height rather than percentage
+        },
+        // Hide the Genesys logo
+        showPoweredBy: false,
+        // Additional customization callbacks
+        customStylesheetID: 'genesys-widgets-custom',
+        preload: ['webchat'], // Preload the webchat plugin
+        actionsBar: {
+          showPoweredBy: false, // Hide powered by in actions bar
+        },
       };
 
       // CallUs text
@@ -580,6 +761,17 @@
             openDelay: 100,
             effectDuration: 100,
             hideDuringInvite: true,
+            template:
+              '<div class="cx-widget cx-webchat-chat-button cx-side-button" style="position:fixed; right:20px; bottom:20px; background-color:#0078d4; color:white; padding:15px 25px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.2); font-size:16px; font-weight:bold; z-index:9999; cursor:pointer;">Chat Now</div>',
+            width: 'auto',
+            height: 'auto',
+            position: {
+              bottom: '20px',
+              right: '20px',
+            },
+          },
+          composerFooter: {
+            showPoweredBy: false, // Hide powered by Genesys footer
           },
         };
         if (cfg.isChatAvailable === 'false') {
@@ -596,6 +788,9 @@
                 },
               ],
             },
+            composerFooter: {
+              showPoweredBy: false,
+            },
           };
         } else {
           window._genesys.widgets.webchat = {
@@ -605,9 +800,45 @@
               lastname: cfg.memberLastName,
             },
             form: { inputs: buildActiveChatInputs() },
+            composerFooter: {
+              showPoweredBy: false,
+            },
           };
         }
       }
+
+      // Add additional CSS specifically to hide "Powered by Genesys" text
+      const poweredByFix = document.createElement('style');
+      poweredByFix.innerHTML = `
+        /* Hide all "Powered by Genesys" text */
+        .cx-widget .cx-footer span,
+        .cx-widget .cx-footer-container span,
+        .cx-widget.cx-webchat .cx-menu .cx-powered-by,
+        .cx-widget.cx-webchat .cx-powered-by,
+        .cx-widget .cx-powered-by,
+        .cx-powered-by,
+        [class*="-powered-by"],
+        [class*="powered-by"],
+        [class*="poweredby"] {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          height: 0 !important;
+          width: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+        }
+        
+        /* Ensure the footer still looks nice without the text */
+        .cx-widget .cx-footer,
+        .cx-widget .cx-footer-container {
+          height: auto !important;
+          min-height: 10px !important;
+          padding: 5px !important;
+        }
+      `;
+      document.head.appendChild(poweredByFix);
     }
 
     initLocalWidgetConfiguration();
@@ -617,10 +848,63 @@
     window._genesys.widgets.onReady = function (CXBus) {
       localWidgetPlugin = CXBus.registerPlugin('LocalCustomization');
 
+      // Helper function to fix layout issues
+      function fixChatWidgetLayout() {
+        console.log('[Genesys] Applying layout fixes');
+
+        // Fix widget container
+        const widgetContainer = document.querySelector('.cx-widget.cx-webchat');
+        if (widgetContainer) {
+          Object.assign(widgetContainer.style, {
+            position: 'fixed',
+            right: '20px',
+            bottom: '20px',
+            maxWidth: '400px',
+            maxHeight: '600px',
+            width: '400px',
+            height: 'auto',
+            boxShadow: '0 0 10px rgba(0,0,0,0.2)',
+            borderRadius: '8px',
+            overflow: 'hidden',
+          });
+        }
+
+        // Fix chat button
+        const chatButton = document.querySelector(
+          '.cx-widget.cx-webchat-chat-button',
+        );
+        if (chatButton) {
+          Object.assign(chatButton.style, {
+            position: 'fixed',
+            right: '20px',
+            bottom: '20px',
+            backgroundColor: '#0078d4',
+            color: 'white',
+            padding: '15px 25px',
+            borderRadius: '5px',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            zIndex: '9999',
+            cursor: 'pointer',
+          });
+        }
+
+        // Hide "Powered by Genesys" in footer
+        const footerElements = document.querySelectorAll(
+          '.cx-widget .cx-footer span, .cx-widget .cx-footer-container span',
+        );
+        footerElements.forEach((el) => {
+          if (el && el.textContent && el.textContent.includes('Genesys')) {
+            el.style.display = 'none';
+          }
+        });
+      }
+
       localWidgetPlugin.subscribe('WebChat.opened', () => {
         customizeAmplify();
-        // after-hours injection (same logic as JSPF) …
-        // senior-care override (same as JSPF) …
+        // Apply layout fixes when chat is opened
+        setTimeout(fixChatWidgetLayout, 500);
       });
 
       localWidgetPlugin.subscribe('WebChat.messageAdded', (e) => {
@@ -632,11 +916,16 @@
       localWidgetPlugin.subscribe('WebChat.submitted', () => {
         applyMessageScaler();
         customizeAmplify();
+        // Apply layout fixes after form submit
+        setTimeout(fixChatWidgetLayout, 500);
       });
 
       localWidgetPlugin.subscribe('CallUs.opened', () => {
         // same call-us UI tweaks as JSPF…
       });
+
+      // Apply fixes when widget UI is ready
+      setTimeout(fixChatWidgetLayout, 1000);
     };
 
     // === 8) Helpers for modals & disclaimers ===
@@ -794,39 +1083,88 @@
     var mode =
       (window.chatSettings && window.chatSettings.chatMode) || 'legacy';
 
+    console.log('[Genesys] Script loader initializing with mode:', mode);
+
     if (mode === 'cloud') {
       // Genesys Cloud Messenger
       var environment = window.chatSettings.environment || 'usw2.pure.cloud';
       var deploymentId = window.chatSettings.deploymentId || '';
       var orgId = window.chatSettings.orgId || '';
+
+      console.log('[Genesys] Cloud mode configuration:', {
+        environment,
+        deploymentId,
+        orgId,
+        hasRequiredParams: !!(deploymentId && orgId),
+      });
+
       var script = document.createElement('script');
       script.async = true;
       script.charset = 'utf-8';
       script.src =
         'https://apps.' + environment + '/genesys-bootstrap/genesys.min.js';
+
+      console.log('[Genesys] Loading cloud script from:', script.src);
+
       script.onload = function () {
+        console.log('[Genesys] Cloud Messenger script loaded successfully');
         // Messenger bootstrap config (optional, can be handled by window.chatSettings)
         if (window.Genesys) {
+          console.log('[Genesys] Genesys global object available');
           window.Genesys('subscribe', 'Messenger.ready', function () {
+            console.log('[Genesys] Messenger ready event received');
             // Optionally set custom attributes or perform additional setup here
-            // Example: window.Genesys('command', 'Messenger.updateCustomAttributes', { customAttributes: { ... } });
           });
+        } else {
+          console.error(
+            '[Genesys] Genesys global object not available after script load',
+          );
         }
-        if (window.console)
-          console.log('[Genesys] Cloud Messenger script loaded');
       };
+
+      script.onerror = function (error) {
+        console.error(
+          '[Genesys] Failed to load Cloud Messenger script:',
+          error,
+        );
+      };
+
       document.head.appendChild(script);
+      console.log('[Genesys] Cloud script element added to document');
     } else {
       // Legacy mode: ensure widgets.min.js is loaded
+      console.log('[Genesys] Using legacy mode, checking for _genesys object');
+
       if (!window._genesys) {
+        console.log('[Genesys] _genesys not found, loading widgets.min.js');
         var legacyScript = document.createElement('script');
         legacyScript.async = true;
         legacyScript.src = '/assets/genesys/plugins/widgets.min.js';
+
         legacyScript.onload = function () {
-          if (window.console)
-            console.log('[Genesys] Legacy widgets.min.js loaded');
+          console.log('[Genesys] Legacy widgets.min.js loaded successfully');
+
+          // Check if the widget initialized properly
+          if (window._genesys && window._genesys.widgets) {
+            console.log('[Genesys] Legacy widgets detected in global scope');
+          } else {
+            console.error(
+              '[Genesys] Legacy widgets not initialized after script load',
+            );
+          }
         };
+
+        legacyScript.onerror = function (error) {
+          console.error(
+            '[Genesys] Failed to load legacy widgets script:',
+            error,
+          );
+        };
+
         document.head.appendChild(legacyScript);
+        console.log('[Genesys] Legacy script element added to document');
+      } else {
+        console.log('[Genesys] _genesys already exists, skipping script load');
       }
     }
   })();
