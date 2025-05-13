@@ -1377,89 +1377,96 @@
     var mode =
       (window.chatSettings && window.chatSettings.chatMode) || 'legacy';
 
-    console.log('[Genesys] Script loader initializing with mode:', mode);
+    // Add a small delay to ensure dashboard is fully initialized first
+    setTimeout(() => {
+      console.log('[Genesys] Script loader initializing with mode:', mode);
 
-    if (mode === 'cloud') {
-      // Genesys Cloud Messenger
-      var environment = window.chatSettings.environment || 'usw2.pure.cloud';
-      var deploymentId = window.chatSettings.deploymentId || '';
-      var orgId = window.chatSettings.orgId || '';
+      if (mode === 'cloud') {
+        // Genesys Cloud Messenger
+        var environment = window.chatSettings.environment || 'usw2.pure.cloud';
+        var deploymentId = window.chatSettings.deploymentId || '';
+        var orgId = window.chatSettings.orgId || '';
 
-      console.log('[Genesys] Cloud mode configuration:', {
-        environment,
-        deploymentId,
-        orgId,
-        hasRequiredParams: !!(deploymentId && orgId),
-      });
+        console.log('[Genesys] Cloud mode configuration:', {
+          environment,
+          deploymentId,
+          orgId,
+          hasRequiredParams: !!(deploymentId && orgId),
+        });
 
-      var script = document.createElement('script');
-      script.async = true;
-      script.charset = 'utf-8';
-      script.src =
-        'https://apps.' + environment + '/genesys-bootstrap/genesys.min.js';
+        var script = document.createElement('script');
+        script.async = true;
+        script.charset = 'utf-8';
+        script.src =
+          'https://apps.' + environment + '/genesys-bootstrap/genesys.min.js';
 
-      console.log('[Genesys] Loading cloud script from:', script.src);
+        console.log('[Genesys] Loading cloud script from:', script.src);
 
-      script.onload = function () {
-        console.log('[Genesys] Cloud Messenger script loaded successfully');
-        // Messenger bootstrap config (optional, can be handled by window.chatSettings)
-        if (window.Genesys) {
-          console.log('[Genesys] Genesys global object available');
-          window.Genesys('subscribe', 'Messenger.ready', function () {
-            console.log('[Genesys] Messenger ready event received');
-            // Optionally set custom attributes or perform additional setup here
-          });
-        } else {
-          console.error(
-            '[Genesys] Genesys global object not available after script load',
-          );
-        }
-      };
-
-      script.onerror = function (error) {
-        console.error(
-          '[Genesys] Failed to load Cloud Messenger script:',
-          error,
-        );
-      };
-
-      document.head.appendChild(script);
-      console.log('[Genesys] Cloud script element added to document');
-    } else {
-      // Legacy mode: ensure widgets.min.js is loaded
-      console.log('[Genesys] Using legacy mode, checking for _genesys object');
-
-      if (!window._genesys) {
-        console.log('[Genesys] _genesys not found, loading widgets.min.js');
-        var legacyScript = document.createElement('script');
-        legacyScript.async = true;
-        legacyScript.src = '/assets/genesys/plugins/widgets.min.js';
-
-        legacyScript.onload = function () {
-          console.log('[Genesys] Legacy widgets.min.js loaded successfully');
-
-          // Check if the widget initialized properly
-          if (window._genesys && window._genesys.widgets) {
-            console.log('[Genesys] Legacy widgets detected in global scope');
+        script.onload = function () {
+          console.log('[Genesys] Cloud Messenger script loaded successfully');
+          // Messenger bootstrap config (optional, can be handled by window.chatSettings)
+          if (window.Genesys) {
+            console.log('[Genesys] Genesys global object available');
+            window.Genesys('subscribe', 'Messenger.ready', function () {
+              console.log('[Genesys] Messenger ready event received');
+              // Optionally set custom attributes or perform additional setup here
+            });
           } else {
             console.error(
-              '[Genesys] Legacy widgets not initialized after script load',
+              '[Genesys] Genesys global object not available after script load',
             );
           }
         };
 
-        legacyScript.onerror = function (error) {
+        script.onerror = function (error) {
           console.error(
-            '[Genesys] Failed to load legacy widgets script:',
+            '[Genesys] Failed to load Cloud Messenger script:',
             error,
           );
         };
 
-        document.head.appendChild(legacyScript);
-        console.log('[Genesys] Legacy script element added to document');
+        document.head.appendChild(script);
+        console.log('[Genesys] Cloud script element added to document');
       } else {
-        console.log('[Genesys] _genesys already exists, skipping script load');
+        // Legacy mode: ensure widgets.min.js is loaded
+        console.log(
+          '[Genesys] Using legacy mode, checking for _genesys object',
+        );
+
+        if (!window._genesys) {
+          console.log('[Genesys] _genesys not found, loading widgets.min.js');
+          var legacyScript = document.createElement('script');
+          legacyScript.async = true;
+          legacyScript.src = '/assets/genesys/plugins/widgets.min.js';
+
+          legacyScript.onload = function () {
+            console.log('[Genesys] Legacy widgets.min.js loaded successfully');
+
+            // Check if the widget initialized properly
+            if (window._genesys && window._genesys.widgets) {
+              console.log('[Genesys] Legacy widgets detected in global scope');
+            } else {
+              console.error(
+                '[Genesys] Legacy widgets not initialized after script load',
+              );
+            }
+          };
+
+          legacyScript.onerror = function (error) {
+            console.error(
+              '[Genesys] Failed to load legacy widgets script:',
+              error,
+            );
+          };
+
+          document.head.appendChild(legacyScript);
+          console.log('[Genesys] Legacy script element added to document');
+        } else {
+          console.log(
+            '[Genesys] _genesys already exists, skipping script load',
+          );
+        }
       }
-    }
+    }, 100); // Small delay to let other initialization complete first
   })();
 })(window, document);

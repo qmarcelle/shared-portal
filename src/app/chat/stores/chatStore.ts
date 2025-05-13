@@ -519,7 +519,17 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
     // Set window.chatSettings for backward compatibility
     if (typeof window !== 'undefined') {
-      window.chatSettings = settings;
+      // Merge with existing settings instead of replacing them
+      window.chatSettings = window.chatSettings
+        ? { ...window.chatSettings, ...settings }
+        : settings;
+
+      logger.info('[ChatStore] Window chat settings updated/initialized', {
+        existingProperties: window.chatSettings
+          ? Object.keys(window.chatSettings).length
+          : 0,
+        timestamp: new Date().toISOString(),
+      });
     }
 
     logger.info('[ChatStore] Chat settings initialized', {
