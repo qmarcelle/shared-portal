@@ -119,6 +119,63 @@ export default function GenesysScriptLoader({
             'GenesysScriptLoader: Dispatching genesys:create-button event',
           );
           document.dispatchEvent(new CustomEvent('genesys:create-button'));
+
+          // Check if widgets.min.js loaded
+          console.log(
+            'GenesysScriptLoader: Checking if widgets.min.js loaded',
+            {
+              CXBus: !!(window as any).CXBus,
+              _genesys: !!(window as any)._genesys,
+              _gt: !!(window as any)._gt,
+            },
+          );
+
+          // Create a guaranteed backup button if all else fails
+          setTimeout(() => {
+            const existingButton = document.querySelector(
+              '.cx-widget.cx-webchat-chat-button',
+            );
+            if (!existingButton) {
+              console.log(
+                'GenesysScriptLoader: Creating last-resort backup button',
+              );
+              const backupButton = document.createElement('div');
+              backupButton.style.cssText =
+                'position:fixed;bottom:20px;right:20px;background:#0078d4;color:white;padding:12px 20px;border-radius:5px;z-index:9999;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.3);font-family:sans-serif;';
+              backupButton.textContent = 'Chat with Us';
+              backupButton.onclick = () => {
+                try {
+                  if ((window as any).CXBus && (window as any).CXBus.command) {
+                    (window as any).CXBus.command('WebChat.open');
+                  } else if (
+                    (window as any)._genesys &&
+                    (window as any)._genesys.widgets
+                  ) {
+                    console.log('Attempting to open chat via _genesys.widgets');
+                    // Try multiple approaches
+                    if ((window as any)._genesys.widgets.webchat?.open) {
+                      (window as any)._genesys.widgets.webchat.open();
+                    } else if (
+                      (window as any)._genesys.widgets.main?.startChat
+                    ) {
+                      (window as any)._genesys.widgets.main.startChat();
+                    } else {
+                      alert(
+                        'Chat service is initializing. Please try again in a moment.',
+                      );
+                    }
+                  } else {
+                    alert(
+                      'Chat service is currently unavailable. Please try again later.',
+                    );
+                  }
+                } catch (err) {
+                  console.error('Error opening chat:', err);
+                }
+              };
+              document.body.appendChild(backupButton);
+            }
+          }, 3000);
         }, 1000);
 
         setStatus('loaded');
