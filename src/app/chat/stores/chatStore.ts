@@ -207,14 +207,35 @@ export const useChatStore = create<ChatState>((set, _get) => ({
   },
   loadChatConfiguration: makeStable(
     async (memberId, planId, memberType = 'byMemberCk') => {
-      logger.info('[ChatStore] loadChatConfiguration called', {
+      logger.info('[ChatStore:CONFIG] loadChatConfiguration started', {
         memberId,
         planId,
         memberType,
+        timestamp: new Date().toISOString(),
       });
+
+      // Validate required parameters
+      if (!memberId) {
+        const error = new Error('Member ID is required for chat configuration');
+        logger.error('[ChatStore:CONFIG] Missing memberId parameter', {
+          error,
+        });
+        set({ isLoading: false, error });
+        return;
+      }
+
+      if (!planId) {
+        const error = new Error('Plan ID is required for chat configuration');
+        logger.error('[ChatStore:CONFIG] Missing planId parameter', { error });
+        set({ isLoading: false, error });
+        return;
+      }
+
       set({ isLoading: true, error: null });
+
       try {
         // 1. Load user/plan context (simulate or fetch as needed)
+        logger.info('[ChatStore:CONFIG] Building user context', { memberId });
         const user = {
           userID: String(memberId),
           memberFirstname: '',
@@ -223,6 +244,8 @@ export const useChatStore = create<ChatState>((set, _get) => ({
           subscriberID: '',
           sfx: '',
         };
+
+        logger.info('[ChatStore:CONFIG] Building plan context', { planId });
         const plan = {
           memberMedicalPlanID: String(planId),
           groupId: '',
@@ -230,25 +253,87 @@ export const useChatStore = create<ChatState>((set, _get) => ({
           groupType: '',
           memberDOB: '',
         };
-        logger.info('[ChatStore] User and plan context built', { user, plan });
+        logger.info(
+          '[ChatStore:CONFIG] User and plan context built successfully',
+          {
+            user,
+            plan,
+            timestamp: new Date().toISOString(),
+          },
+        );
+
         // 2. Fetch chat token
-        logger.info('[ChatStore] Fetching chat token');
+        logger.info('[ChatStore:CONFIG] Fetching chat token', {
+          endpoint: '/api/chat/token',
+          timestamp: new Date().toISOString(),
+        });
         const tokenRes = await fetch('/api/chat/token');
-        if (!tokenRes.ok) throw new Error('Failed to fetch chat token');
+
+        if (!tokenRes.ok) {
+          const errorMsg = `Failed to fetch chat token: ${tokenRes.status} ${tokenRes.statusText}`;
+          logger.error('[ChatStore:CONFIG] Token fetch failed', {
+            status: tokenRes.status,
+            statusText: tokenRes.statusText,
+          });
+          throw new Error(errorMsg);
+        }
+
         const tokenData = await tokenRes.json();
-        const token = tokenData.token || '';
-        logger.info('[ChatStore] Chat token fetched', { token });
+
+        if (!tokenData || !tokenData.token) {
+          logger.error(
+            '[ChatStore:CONFIG] Token response missing token field',
+            { tokenData },
+          );
+          throw new Error('Chat token response invalid - missing token field');
+        }
+
+        const token = tokenData.token;
+        logger.info('[ChatStore:CONFIG] Chat token fetched successfully', {
+          tokenFirstChars: token.substring(0, 5) + '...',
+          tokenLength: token.length,
+          timestamp: new Date().toISOString(),
+        });
+
         // 3. Fetch chat info
         const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
-        logger.info('[ChatStore] Fetching chat info', { apiUrl });
+        logger.info('[ChatStore:CONFIG] Fetching chat info', {
+          apiUrl,
+          timestamp: new Date().toISOString(),
+        });
+
         const infoRes = await fetch(apiUrl, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
-        if (!infoRes.ok) throw new Error('Failed to fetch chat info');
+
+        if (!infoRes.ok) {
+          const errorMsg = `Failed to fetch chat info: ${infoRes.status} ${infoRes.statusText}`;
+          logger.error('[ChatStore:CONFIG] Chat info fetch failed', {
+            status: infoRes.status,
+            statusText: infoRes.statusText,
+          });
+          throw new Error(errorMsg);
+        }
+
         const info = await infoRes.json();
-        logger.info('[ChatStore] Chat info fetched', { info });
+
+        if (!info) {
+          logger.error(
+            '[ChatStore:CONFIG] Chat info response invalid or empty',
+          );
+          throw new Error('Chat info response invalid or empty');
+        }
+
+        logger.info('[ChatStore:CONFIG] Chat info fetched successfully', {
+          infoKeys: Object.keys(info),
+          eligibility: info.isChatEligibleMember,
+          cloudEligible: info.cloudChatEligible,
+          timestamp: new Date().toISOString(),
+        });
+
         // 4. Gather static config
+        logger.info('[ChatStore:CONFIG] Gathering static configuration');
         const staticConfig = {
           coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE,
           cobrowseSource: process.env.NEXT_PUBLIC_COBROWSE_SOURCE,
@@ -258,25 +343,89 @@ export const useChatStore = create<ChatState>((set, _get) => ({
           chatHours: process.env.NEXT_PUBLIC_CHAT_HOURS,
           rawChatHrs: process.env.NEXT_PUBLIC_RAW_CHAT_HRS,
         };
-        logger.info('[ChatStore] Static config gathered', { staticConfig });
+
+        // Validate critical env variables
+        if (!staticConfig.coBrowseLicence || !staticConfig.cobrowseURL) {
+          logger.warn(
+            '[ChatStore:CONFIG] Missing critical static config values',
+            {
+              hasCoBrowseLicence: !!staticConfig.coBrowseLicence,
+              hasCobrowseURL: !!staticConfig.cobrowseURL,
+            },
+          );
+        }
+
+        logger.info('[ChatStore:CONFIG] Static config gathered successfully', {
+          staticConfigKeys: Object.keys(staticConfig),
+          timestamp: new Date().toISOString(),
+        });
+
         // 5. Build GenesysChatConfig
+        logger.info('[ChatStore:CONFIG] Building GenesysChatConfig');
         const genesysChatConfig = buildGenesysChatConfig({
           user,
           plan,
           apiConfig: { ...info, token },
           staticConfig,
         });
-        logger.info('[ChatStore] GenesysChatConfig built', {
-          genesysChatConfig,
+
+        if (!genesysChatConfig) {
+          logger.error('[ChatStore:CONFIG] Failed to build GenesysChatConfig');
+          throw new Error('Failed to build GenesysChatConfig');
+        }
+
+        // Validate critical fields in the generated config
+        if (!genesysChatConfig.clickToChatToken) {
+          logger.warn('[ChatStore:CONFIG] Missing clickToChatToken in config');
+        }
+
+        if (!genesysChatConfig.clickToChatEndpoint) {
+          logger.warn(
+            '[ChatStore:CONFIG] Missing clickToChatEndpoint in config',
+          );
+        }
+
+        if (!genesysChatConfig.gmsChatUrl) {
+          logger.warn('[ChatStore:CONFIG] Missing gmsChatUrl in config');
+        }
+
+        if (!genesysChatConfig.widgetUrl) {
+          logger.warn('[ChatStore:CONFIG] Missing widgetUrl in config');
+        }
+
+        if (!genesysChatConfig.clickToChatJs) {
+          logger.warn('[ChatStore:CONFIG] Missing clickToChatJs in config');
+        }
+
+        logger.info('[ChatStore:CONFIG] GenesysChatConfig built successfully', {
+          configKeys: Object.keys(genesysChatConfig),
+          chatMode: genesysChatConfig.chatMode,
+          isCloud: genesysChatConfig.chatMode === 'cloud',
+          hasToken: !!genesysChatConfig.clickToChatToken,
+          hasEndpoint: !!genesysChatConfig.clickToChatEndpoint,
+          timestamp: new Date().toISOString(),
         });
+
         set({
           genesysChatConfig,
           isLoading: false,
           error: null,
         });
+
+        logger.info(
+          '[ChatStore:CONFIG] Chat configuration loaded successfully',
+          {
+            timestamp: new Date().toISOString(),
+          },
+        );
       } catch (err: any) {
-        logger.error('[ChatStore] Error loading chat configuration', err);
-        set({ isLoading: false, error: err });
+        const errorObj = err instanceof Error ? err : new Error(String(err));
+        logger.error('[ChatStore:CONFIG] Error loading chat configuration', {
+          error: errorObj.message,
+          stack: errorObj.stack,
+          timestamp: new Date().toISOString(),
+        });
+        set({ isLoading: false, error: errorObj });
       }
     },
   ),

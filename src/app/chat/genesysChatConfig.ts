@@ -133,6 +133,46 @@ interface ApiConfig {
 import { logger } from '@/utils/logger';
 
 /**
+ * Required fields for GenesysChatConfig
+ * These fields MUST be present for the widget to function properly
+ */
+const REQUIRED_CONFIG_FIELDS = [
+  'clickToChatToken',
+  'clickToChatEndpoint',
+  'coBrowseLicence',
+  'cobrowseSource',
+  'cobrowseURL',
+  'userID',
+  'memberMedicalPlanID',
+  'isChatEligibleMember',
+  'isChatAvailable',
+  'chatHours',
+  'rawChatHrs',
+  'widgetUrl',
+  'clickToChatJs',
+  'gmsChatUrl',
+];
+
+/**
+ * Validate that a GenesysChatConfig has all required fields
+ * @param config The config to validate
+ * @returns An object with isValid flag and any missing fields
+ */
+function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
+  isValid: boolean;
+  missingFields: string[];
+} {
+  const missingFields = REQUIRED_CONFIG_FIELDS.filter(
+    (field) => !config[field as keyof GenesysChatConfig],
+  );
+
+  return {
+    isValid: missingFields.length === 0,
+    missingFields,
+  };
+}
+
+/**
  * Build a GenesysChatConfig from user/session, plan/group, and API/static config sources.
  * @param user - user/session context (from auth/session)
  * @param plan - plan/group context (from plan store or API)
@@ -150,12 +190,63 @@ export function buildGenesysChatConfig({
   apiConfig: ApiConfig;
   staticConfig?: Partial<GenesysChatConfig>;
 }): GenesysChatConfig {
-  logger.info('[buildGenesysChatConfig] called', {
-    user,
-    plan,
-    apiConfig,
-    staticConfig,
-  });
+  // Validate input parameters
+  if (!user) {
+    const error = new Error(
+      'User context is required for building chat config',
+    );
+    logger.error('[buildGenesysChatConfig] Missing user context', { error });
+    throw error;
+  }
+
+  if (!user.userID) {
+    const error = new Error('User ID is required in user context');
+    logger.error('[buildGenesysChatConfig] Missing userID in user context', {
+      error,
+    });
+    throw error;
+  }
+
+  if (!plan) {
+    const error = new Error(
+      'Plan context is required for building chat config',
+    );
+    logger.error('[buildGenesysChatConfig] Missing plan context', { error });
+    throw error;
+  }
+
+  if (!plan.memberMedicalPlanID) {
+    const error = new Error(
+      'Member medical plan ID is required in plan context',
+    );
+    logger.error(
+      '[buildGenesysChatConfig] Missing memberMedicalPlanID in plan context',
+      { error },
+    );
+    throw error;
+  }
+
+  if (!apiConfig) {
+    const error = new Error('API config is required for building chat config');
+    logger.error('[buildGenesysChatConfig] Missing API config', { error });
+    throw error;
+  }
+
+  logger.info(
+    '[buildGenesysChatConfig] Building chat config with validated inputs',
+    {
+      hasUser: !!user,
+      hasPlan: !!plan,
+      hasApiConfig: !!apiConfig,
+      userID: user.userID,
+      planID: plan.memberMedicalPlanID,
+      apiConfigKeys: Object.keys(apiConfig),
+      staticConfigKeys: Object.keys(staticConfig || {}),
+      timestamp: new Date().toISOString(),
+    },
+  );
+
+  // Build the configuration with all available data
   const config: GenesysChatConfig = {
     clickToChatToken: apiConfig.clickToChatToken as string,
     clickToChatEndpoint: apiConfig.clickToChatEndpoint as string,
@@ -228,7 +319,48 @@ export function buildGenesysChatConfig({
     audioAlertPath: staticConfig.audioAlertPath,
     // ...add any other custom fields as needed
   };
-  logger.info('[buildGenesysChatConfig] returning config', config);
+
+  // Validate that all required fields are present
+  const validation = validateGenesysChatConfig(config);
+
+  if (!validation.isValid) {
+    logger.warn('[buildGenesysChatConfig] Config missing required fields', {
+      missingFields: validation.missingFields,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Apply fallbacks for critical fields where possible
+    if (!config.clickToChatJs && typeof window !== 'undefined') {
+      config.clickToChatJs = '/assets/genesys/click_to_chat.js';
+      logger.info(
+        '[buildGenesysChatConfig] Applied fallback for clickToChatJs',
+      );
+    }
+
+    if (!config.widgetUrl && typeof window !== 'undefined') {
+      config.widgetUrl = '/assets/genesys/plugins/widgets.min.css';
+      logger.info('[buildGenesysChatConfig] Applied fallback for widgetUrl');
+    }
+
+    if (!config.chatMode) {
+      // Default to legacy mode if not specified and cloud flags not set
+      config.chatMode = 'legacy';
+      logger.info('[buildGenesysChatConfig] Applied fallback chatMode: legacy');
+    }
+  }
+
+  // Log the final configuration for tracing
+  logger.info('[buildGenesysChatConfig] Returning final config', {
+    configKeys: Object.keys(config),
+    userID: config.userID,
+    memberMedicalPlanID: config.memberMedicalPlanID,
+    chatMode: config.chatMode,
+    isChatEligible: config.isChatEligibleMember,
+    isChatAvailable: config.isChatAvailable,
+    hasToken: !!config.clickToChatToken,
+    timestamp: new Date().toISOString(),
+  });
+
   return config;
 }
 

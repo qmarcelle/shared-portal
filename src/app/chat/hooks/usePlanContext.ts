@@ -31,14 +31,34 @@ interface ExtendedSession {
   };
 }
 
-export function usePlanContext() {
+interface PlanContextReturn {
+  planContext: PlanContext | null;
+  error: Error | null;
+  isPlanContextLoading: boolean;
+}
+
+export function usePlanContext(): PlanContextReturn {
   // Cast the session to our extended type
-  const { data: session } = useSession() as { data: ExtendedSession | null };
+  const { data: session, status } = useSession() as {
+    data: ExtendedSession | null;
+    status: 'loading' | 'authenticated' | 'unauthenticated';
+  };
   const [planContext, setPlanContext] = useState<PlanContext | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    // Reset error on new effect call
+    setError(null);
+
     try {
+      // Only process when session is fully authenticated
+      if (status !== 'authenticated' || !session) {
+        logger.info('[usePlanContext] Session not authenticated yet', {
+          status,
+        });
+        return;
+      }
+
       // Check if session and necessary nested properties exist
       if (!session?.user?.currUsr?.plan?.grpId) {
         logger.warn('[usePlanContext] No plan data found in session', {
@@ -46,6 +66,7 @@ export function usePlanContext() {
           userExists: !!session?.user,
           currUserExists: !!session?.user?.currUsr,
           planExists: !!session?.user?.currUsr?.plan,
+          grpIdExists: !!session?.user?.currUsr?.plan?.grpId,
         });
         setPlanContext(null);
         return;
@@ -53,6 +74,13 @@ export function usePlanContext() {
 
       // Access plan data from the correct nested structure
       const planData = session.user.currUsr.plan;
+
+      // Validate critical fields
+      if (!planData.grpId) {
+        logger.warn('[usePlanContext] grpId is required but missing');
+        setPlanContext(null);
+        return;
+      }
 
       const context: PlanContext = {
         planId: planData.grpId, // Group ID is the plan ID
@@ -67,13 +95,19 @@ export function usePlanContext() {
 
       setPlanContext(context);
     } catch (err) {
-      const error =
+      const errorObj =
         err instanceof Error ? err : new Error('Failed to get plan context');
-      logger.error('[usePlanContext] Error getting plan context', error);
-      setError(error);
+      logger.error('[usePlanContext] Error getting plan context', errorObj);
+      setError(errorObj);
       setPlanContext(null);
     }
-  }, [session]);
+  }, [session, status]);
 
-  return { planContext, error };
+  // Consider loading if:
+  // 1. Session is still loading OR
+  // 2. Session is authenticated but context isn't set yet (critical data not available)
+  const isPlanContextLoading =
+    status === 'loading' || (status === 'authenticated' && !planContext);
+
+  return { planContext, error, isPlanContextLoading };
 }
