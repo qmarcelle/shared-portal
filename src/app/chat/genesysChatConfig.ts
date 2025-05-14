@@ -107,6 +107,8 @@ export interface GenesysChatConfig {
   MEMBER_ID?: string;
   /** Path to audio alert sound */
   audioAlertPath?: string;
+  /** Timestamp for debugging and tracing */
+  timestamp?: string;
   // ...any other custom fields from JSP mapping
 }
 
@@ -131,6 +133,7 @@ interface ApiConfig {
 }
 
 import { logger } from '@/utils/logger';
+import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
 
 /**
  * Required fields for GenesysChatConfig
@@ -246,18 +249,33 @@ export function buildGenesysChatConfig({
     },
   );
 
-  // Build the configuration with all available data
+  // Fallback helpers
+  const env: NodeJS.ProcessEnv =
+    typeof process !== 'undefined' ? process.env : ({} as NodeJS.ProcessEnv);
+  const endpoints = getChatConfig();
+
+  // Build the configuration with all available data and robust fallbacks
   const config: GenesysChatConfig = {
-    clickToChatToken: apiConfig.clickToChatToken as string,
-    clickToChatEndpoint: apiConfig.clickToChatEndpoint as string,
-    clickToChatDemoEndPoint: apiConfig.clickToChatDemoEndPoint as
-      | string
-      | undefined,
-    coBrowseLicence: staticConfig.coBrowseLicence!,
-    cobrowseSource: staticConfig.cobrowseSource!,
-    cobrowseURL: staticConfig.cobrowseURL!,
-    opsPhone: staticConfig.opsPhone!,
-    opsPhoneHours: staticConfig.opsPhoneHours!,
+    clickToChatToken:
+      (apiConfig.clickToChatToken as string) ||
+      (apiConfig.token as string) ||
+      env.NEXT_PUBLIC_DEFAULT_CHAT_TOKEN ||
+      '',
+    clickToChatEndpoint:
+      (apiConfig.clickToChatEndpoint as string) ||
+      endpoints.CLICK_TO_CHAT_ENDPOINT ||
+      env.NEXT_PUBLIC_CHAT_ENDPOINT ||
+      '',
+    clickToChatDemoEndPoint:
+      (apiConfig.clickToChatDemoEndPoint as string) || undefined,
+    coBrowseLicence:
+      staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
+    cobrowseSource:
+      staticConfig.cobrowseSource || env.NEXT_PUBLIC_COBROWSE_SOURCE || '',
+    cobrowseURL: staticConfig.cobrowseURL || env.NEXT_PUBLIC_COBROWSE_URL || '',
+    opsPhone: staticConfig.opsPhone || env.NEXT_PUBLIC_OPS_PHONE || '',
+    opsPhoneHours:
+      staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
     routingchatbotEligible: apiConfig.routingchatbotEligible as
       | boolean
       | string
@@ -299,16 +317,32 @@ export function buildGenesysChatConfig({
       | boolean
       | string
       | undefined,
-    chatHours: staticConfig.chatHours!,
-    rawChatHrs: staticConfig.rawChatHrs!,
+    chatHours: staticConfig.chatHours || env.NEXT_PUBLIC_CHAT_HOURS || '',
+    rawChatHrs: staticConfig.rawChatHrs || env.NEXT_PUBLIC_RAW_CHAT_HRS || '',
     selfServiceLinks: staticConfig.selfServiceLinks,
-    idCardChatBotName: staticConfig.idCardChatBotName!,
-    widgetUrl: staticConfig.widgetUrl!,
-    clickToChatJs: staticConfig.clickToChatJs!,
-    chatTokenEndpoint: staticConfig.chatTokenEndpoint!,
-    coBrowseEndpoint: staticConfig.coBrowseEndpoint!,
-    gmsChatUrl: staticConfig.gmsChatUrl!,
-    chatMode: staticConfig.chatMode,
+    idCardChatBotName: staticConfig.idCardChatBotName || '',
+    widgetUrl:
+      staticConfig.widgetUrl ||
+      CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
+      '/assets/genesys/plugins/widgets.min.css',
+    clickToChatJs:
+      staticConfig.clickToChatJs ||
+      CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
+      '/assets/genesys/click_to_chat.js',
+    chatTokenEndpoint:
+      staticConfig.chatTokenEndpoint || endpoints.CHAT_TOKEN_ENDPOINT || '',
+    coBrowseEndpoint:
+      staticConfig.coBrowseEndpoint ||
+      endpoints.COBROWSE_LICENSE_ENDPOINT ||
+      '',
+    gmsChatUrl:
+      staticConfig.gmsChatUrl ||
+      env.NEXT_PUBLIC_GMS_CHAT_URL ||
+      endpoints.CLICK_TO_CHAT_ENDPOINT ||
+      '',
+    chatMode:
+      staticConfig.chatMode ||
+      (apiConfig.cloudChatEligible ? 'cloud' : 'legacy'),
     deploymentId: staticConfig.deploymentId,
     orgId: staticConfig.orgId,
     genesysWidgetUrl: staticConfig.genesysWidgetUrl,
@@ -317,7 +351,8 @@ export function buildGenesysChatConfig({
     LOB: staticConfig.LOB,
     MEMBER_ID: staticConfig.MEMBER_ID,
     audioAlertPath: staticConfig.audioAlertPath,
-    // ...add any other custom fields as needed
+    // Add timestamp for debugging
+    timestamp: new Date().toISOString(),
   };
 
   // Validate that all required fields are present
@@ -328,25 +363,6 @@ export function buildGenesysChatConfig({
       missingFields: validation.missingFields,
       timestamp: new Date().toISOString(),
     });
-
-    // Apply fallbacks for critical fields where possible
-    if (!config.clickToChatJs && typeof window !== 'undefined') {
-      config.clickToChatJs = '/assets/genesys/click_to_chat.js';
-      logger.info(
-        '[buildGenesysChatConfig] Applied fallback for clickToChatJs',
-      );
-    }
-
-    if (!config.widgetUrl && typeof window !== 'undefined') {
-      config.widgetUrl = '/assets/genesys/plugins/widgets.min.css';
-      logger.info('[buildGenesysChatConfig] Applied fallback for widgetUrl');
-    }
-
-    if (!config.chatMode) {
-      // Default to legacy mode if not specified and cloud flags not set
-      config.chatMode = 'legacy';
-      logger.info('[buildGenesysChatConfig] Applied fallback chatMode: legacy');
-    }
   }
 
   // Log the final configuration for tracing
@@ -358,7 +374,7 @@ export function buildGenesysChatConfig({
     isChatEligible: config.isChatEligibleMember,
     isChatAvailable: config.isChatAvailable,
     hasToken: !!config.clickToChatToken,
-    timestamp: new Date().toISOString(),
+    timestamp: config.timestamp,
   });
 
   return config;
