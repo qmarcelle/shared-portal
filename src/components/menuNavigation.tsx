@@ -222,7 +222,7 @@ export const getMenuNavigation = (
           isBlueCareEligible(rules) ||
           isWellnessQa(rules) ||
           isWellnessOnlyBenefitsQV(rules),
-        url: '/assets/pdf/Member_Wellness_Plan_Brochure.pdf',
+        url: process.env.NEXT_PUBLIC_BLUECARE_FIND_FORM_URL ?? '',
         external: true,
         openInNewWindow: true,
       },
