@@ -6,6 +6,7 @@ import {
   GenesysChatConfig,
 } from '../genesysChatConfig';
 import { ChatConfig } from '../schemas/genesys.schema';
+import { ScriptLoadPhase } from '../types/ScriptLoadPhase';
 
 // chatStore is the central Zustand store for chat state and actions.
 // It manages UI state, chat session state, API responses, and all chat-related actions.
@@ -51,14 +52,12 @@ export interface ChatState {
   planSwitcherTooltip: string;
 
   // Script loading state
-  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase;
 
   // Centralized chat settings
   chatSettings: ChatSettings | null;
 
   // New script and settings actions
-  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
   setScriptLoadPhase: (phase: ScriptLoadPhase) => void;
 
   // New GenesysChatConfig
@@ -123,7 +122,6 @@ export const useChatStore = create<ChatState>((set, _get) => ({
   planSwitcherTooltip: '',
 
   // Script loading state
-  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase.INIT,
 
   // Centralized chat settings
