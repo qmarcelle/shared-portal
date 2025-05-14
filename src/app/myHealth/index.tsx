@@ -23,6 +23,7 @@ import {
   isBiometricScreening,
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
+  isBlueCareNotEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
@@ -319,7 +320,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
             </section>
           </>
         )}
-        {!isBlueCareMember && (
+        {isBlueCareNotEligible(data.visibilityRules) && (
           <section>
             <MyHealthOffsiteLinkCard
               icon={wellTunedBlogIcon}
