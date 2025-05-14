@@ -19,8 +19,28 @@ import { useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import { useEffect, useState } from 'react';
 
-export default function ChatWidget() {
-  logger.info('[ChatWidget] Component render start');
+// Define a type that allows any chat settings structure
+// This is more forgiving than trying to enforce a specific structure
+interface ChatWidgetProps {
+  chatSettings?: Record<string, any>;
+}
+
+// Use type assertion to handle the window.chatSettings assignment
+declare global {
+  interface Window {
+    chatSettings?: Record<string, any>;
+    gmsServicesConfig?: {
+      GMSChatURL: () => string;
+    };
+  }
+}
+
+export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
+  logger.info('[ChatWidget] Component render start', {
+    hasChatSettings: !!chatSettings,
+    chatSettingsKeys: Object.keys(chatSettings),
+  });
+
   const { genesysChatConfig, isLoading, error, loadChatConfiguration } =
     useChatStore();
   const [scriptError, setScriptError] = useState(false);
@@ -35,6 +55,7 @@ export default function ChatWidget() {
     userContext,
     planContext,
     planError,
+    hasChatSettings: !!chatSettings,
   });
 
   // Load chat configuration when contexts are available
@@ -42,7 +63,18 @@ export default function ChatWidget() {
     logger.info('[ChatWidget] Checking contexts for configuration', {
       userContext,
       planContext,
+      hasChatSettings: !!chatSettings && Object.keys(chatSettings).length > 0,
     });
+
+    // If we already have chat settings from props, use them
+    if (chatSettings && Object.keys(chatSettings).length > 0) {
+      logger.info('[ChatWidget] Using chat settings from props', {
+        chatSettingsKeys: Object.keys(chatSettings),
+      });
+      // You would typically update the store here with the props
+      // Example: setChatSettings(chatSettings);
+      return;
+    }
 
     if (!userContext?.memberId) {
       logger.warn('[ChatWidget] No user context available');
@@ -60,28 +92,44 @@ export default function ChatWidget() {
         logger.error('[ChatWidget] Failed to load chat configuration', err);
       },
     );
-  }, [userContext?.memberId, planContext?.planId, loadChatConfiguration]);
+  }, [
+    userContext?.memberId,
+    planContext?.planId,
+    loadChatConfiguration,
+    chatSettings,
+  ]);
 
   // Handle script and config loading
   useEffect(() => {
-    logger.info('[ChatWidget] useEffect triggered', { genesysChatConfig });
-    if (!genesysChatConfig) {
-      logger.warn(
-        '[ChatWidget] useEffect: No genesysChatConfig present, returning early',
-      );
+    const effectiveConfig =
+      chatSettings && Object.keys(chatSettings).length > 0
+        ? chatSettings
+        : genesysChatConfig;
+
+    logger.info('[ChatWidget] useEffect triggered for script loading', {
+      hasEffectiveConfig: !!effectiveConfig,
+      configSource:
+        chatSettings && Object.keys(chatSettings).length > 0
+          ? 'props'
+          : 'store',
+    });
+
+    if (!effectiveConfig) {
+      logger.warn('[ChatWidget] useEffect: No config present, returning early');
       return;
     }
+
     try {
       // Set config globals before loading scripts
-      window.chatSettings = genesysChatConfig;
+      window.chatSettings = effectiveConfig;
       window.gmsServicesConfig = {
-        GMSChatURL: () => genesysChatConfig.gmsChatUrl,
+        GMSChatURL: () => effectiveConfig.gmsChatUrl,
       };
       logger.info(
         '[ChatWidget] Set window.chatSettings and window.gmsServicesConfig',
         {
-          chatSettings: window.chatSettings,
-          gmsServicesConfig: window.gmsServicesConfig,
+          chatSettings: !!window.chatSettings,
+          gmsServicesConfig: !!window.gmsServicesConfig,
         },
       );
 
@@ -89,11 +137,11 @@ export default function ChatWidget() {
       if (!document.querySelector('link[data-genesys-widget]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = genesysChatConfig.widgetUrl;
+        link.href = effectiveConfig.widgetUrl;
         link.setAttribute('data-genesys-widget', 'true');
         document.head.appendChild(link);
         logger.info('[ChatWidget] Injected Genesys widget CSS', {
-          href: genesysChatConfig.widgetUrl,
+          href: effectiveConfig.widgetUrl,
         });
       } else {
         logger.info('[ChatWidget] Genesys widget CSS already present');
@@ -102,7 +150,7 @@ export default function ChatWidget() {
       // Inject JS if not already present
       if (!document.querySelector('script[data-genesys-widget]')) {
         const script = document.createElement('script');
-        script.src = genesysChatConfig.clickToChatJs;
+        script.src = effectiveConfig.clickToChatJs;
         script.async = true;
         script.setAttribute('data-genesys-widget', 'true');
         script.onload = () =>
@@ -113,7 +161,7 @@ export default function ChatWidget() {
         };
         document.body.appendChild(script);
         logger.info('[ChatWidget] Injected Genesys widget JS', {
-          src: genesysChatConfig.clickToChatJs,
+          src: effectiveConfig.clickToChatJs,
         });
       } else {
         logger.info('[ChatWidget] Genesys widget JS already present');
@@ -125,9 +173,13 @@ export default function ChatWidget() {
     return () => {
       logger.info('[ChatWidget] Cleanup on unmount');
     };
-  }, [genesysChatConfig]);
+  }, [genesysChatConfig, chatSettings]);
 
   // Early returns for missing dependencies
+  const hasEffectiveConfig =
+    (chatSettings && Object.keys(chatSettings).length > 0) ||
+    !!genesysChatConfig;
+
   if (!userContext) {
     logger.warn('[ChatWidget] No user context available, returning early');
     return null;
@@ -140,8 +192,10 @@ export default function ChatWidget() {
     ) : null;
   }
 
-  if (!genesysChatConfig) {
-    logger.warn('[ChatWidget] No genesysChatConfig present, returning early');
+  if (!hasEffectiveConfig) {
+    logger.warn(
+      '[ChatWidget] No chat configuration available, returning early',
+    );
     return null;
   }
 
