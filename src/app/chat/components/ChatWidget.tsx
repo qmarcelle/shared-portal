@@ -17,7 +17,7 @@ import { usePlanContext } from '@/app/chat/hooks/usePlanContext';
 import { useUserContext } from '@/app/chat/hooks/useUserContext';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Define a type that allows any chat settings structure
 // This is more forgiving than trying to enforce a specific structure
@@ -28,7 +28,7 @@ interface ChatWidgetProps {
 // Use type assertion to handle the window.chatSettings assignment
 declare global {
   interface Window {
-    chatSettings?: Record<string, any>;
+    chatSettings?: any;
     gmsServicesConfig?: {
       GMSChatURL: () => string;
     };
@@ -40,6 +40,9 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     hasChatSettings: !!chatSettings,
     chatSettingsKeys: Object.keys(chatSettings),
   });
+
+  // Prevent multiple configuration loads
+  const didInitialize = useRef(false);
 
   const { genesysChatConfig, isLoading, error, loadChatConfiguration } =
     useChatStore();
@@ -56,33 +59,16 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     planContext,
     planError,
     hasChatSettings: !!chatSettings,
+    didInitialize: didInitialize.current,
   });
 
-  // Load chat configuration when contexts are available
-  useEffect(() => {
-    logger.info('[ChatWidget] Checking contexts for configuration', {
-      userContext,
-      planContext,
-      hasChatSettings: !!chatSettings && Object.keys(chatSettings).length > 0,
-    });
-
-    // If we already have chat settings from props, use them
-    if (chatSettings && Object.keys(chatSettings).length > 0) {
-      logger.info('[ChatWidget] Using chat settings from props', {
-        chatSettingsKeys: Object.keys(chatSettings),
+  // Memoize the loadChatConfiguration function to prevent dependency changes
+  const initializeChat = useCallback(() => {
+    if (!userContext?.memberId || !planContext?.planId) {
+      logger.warn('[ChatWidget] Missing required context for initialization', {
+        hasMemberId: !!userContext?.memberId,
+        hasPlanId: !!planContext?.planId,
       });
-      // You would typically update the store here with the props
-      // Example: setChatSettings(chatSettings);
-      return;
-    }
-
-    if (!userContext?.memberId) {
-      logger.warn('[ChatWidget] No user context available');
-      return;
-    }
-
-    if (!planContext?.planId) {
-      logger.warn('[ChatWidget] No plan context available');
       return;
     }
 
@@ -92,21 +78,48 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
         logger.error('[ChatWidget] Failed to load chat configuration', err);
       },
     );
-  }, [
-    userContext?.memberId,
-    planContext?.planId,
-    loadChatConfiguration,
-    chatSettings,
-  ]);
+  }, [userContext?.memberId, planContext?.planId, loadChatConfiguration]);
 
-  // Handle script and config loading
+  // Load chat configuration when contexts are available, but only once
+  useEffect(() => {
+    logger.info('[ChatWidget] Checking if initialization is needed', {
+      didInitialize: didInitialize.current,
+      hasChatSettings: !!chatSettings && Object.keys(chatSettings).length > 0,
+    });
+
+    // If we already have chat settings from props, use them
+    if (chatSettings && Object.keys(chatSettings).length > 0) {
+      logger.info('[ChatWidget] Using chat settings from props', {
+        chatSettingsKeys: Object.keys(chatSettings),
+      });
+      // No need to initialize again since we have settings
+      return;
+    }
+
+    // Only load config once - prevent infinite loop
+    if (didInitialize.current) {
+      logger.info('[ChatWidget] Already initialized, skipping');
+      return;
+    }
+
+    if (!userContext?.memberId || !planContext?.planId) {
+      logger.warn('[ChatWidget] No context available, waiting for context');
+      return;
+    }
+
+    // Mark as initialized and load configuration
+    didInitialize.current = true;
+    initializeChat();
+  }, [userContext, planContext, chatSettings, initializeChat]);
+
+  // Handle script and config loading - this runs when genesysChatConfig changes
   useEffect(() => {
     const effectiveConfig =
       chatSettings && Object.keys(chatSettings).length > 0
         ? chatSettings
         : genesysChatConfig;
 
-    logger.info('[ChatWidget] useEffect triggered for script loading', {
+    logger.info('[ChatWidget] Script load effect triggered', {
       hasEffectiveConfig: !!effectiveConfig,
       configSource:
         chatSettings && Object.keys(chatSettings).length > 0
@@ -115,13 +128,13 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     });
 
     if (!effectiveConfig) {
-      logger.warn('[ChatWidget] useEffect: No config present, returning early');
+      logger.warn('[ChatWidget] No config present, returning early');
       return;
     }
 
     try {
       // Set config globals before loading scripts
-      window.chatSettings = effectiveConfig;
+      window.chatSettings = effectiveConfig as any;
       window.gmsServicesConfig = {
         GMSChatURL: () => effectiveConfig.gmsChatUrl,
       };

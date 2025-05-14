@@ -35,12 +35,6 @@ interface ExtendedSession {
   };
 }
 
-declare global {
-  interface Window {
-    __APP_SESSION__?: AppSession;
-  }
-}
-
 export function useUserContext(): UserContext | null {
   // Cast the session to our extended type
   const { data: session } = useSession() as { data: ExtendedSession | null };
