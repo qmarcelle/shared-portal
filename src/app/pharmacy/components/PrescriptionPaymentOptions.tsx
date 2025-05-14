@@ -55,7 +55,7 @@ export const PrescriptionPaymentsOptions = ({
         className="pl-0"
         icon={icon}
         displayStyle="flex"
-        url="/pharmacy/medicalPrescriptionPaymentPlan"
+        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_M3P}`}
         callback={
           trackLinkAnalytics(
             'Medicare Prescription Payment Plan Sign-up',

@@ -4,7 +4,10 @@ import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { MyHealthData } from '../models/app/my_health_data';
-import { getMemberWellnessRewards } from './getMemberWellnessRewards';
+import {
+  getMemberWellnessRewards,
+  memRelation,
+} from './getMemberWellnessRewards';
 
 export const getMyHealthData = async (): Promise<
   ActionResponse<number, MyHealthData>
@@ -29,6 +32,7 @@ export const getMyHealthData = async (): Promise<
             ? memberRewardsResp.value
             : null,
         visibilityRules: session?.user.vRules,
+        isMemRelation: await memRelation(session),
       },
     };
   } catch (error) {
@@ -38,6 +42,7 @@ export const getMyHealthData = async (): Promise<
         primaryCareProvider: null,
         memberRewards: null,
         visibilityRules: session?.user.vRules,
+        isMemRelation: '',
       },
     };
   }

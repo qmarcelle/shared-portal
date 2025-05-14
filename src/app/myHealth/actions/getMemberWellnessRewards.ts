@@ -30,6 +30,7 @@ export const getMemberWellnessRewards = async (
     )?.data;
     if (!response?.data?.accounts?.balance?.length) throw 'No Response';
     memberRewards = getRewards(response?.data, session);
+    logger.info('memberRewards', memberRewards);
     return memberRewards;
   } catch (error) {
     logger.error('Error Response from Member Wellness Rewards', error);
@@ -90,4 +91,19 @@ const getRewards = (
   memberRewards.totalAmount = maxPoints * pointConversion;
   memberRewards.isSelfFunded = isSelfFunded;
   return memberRewards;
+};
+
+export const memRelation = async (session: Session | null): Promise<string> => {
+  const loggedInMember = await getLoggedInMember(session);
+
+  if (loggedInMember.memRelation === 'M') {
+    return 'member';
+  } else if (
+    loggedInMember.memRelation === 'H' ||
+    loggedInMember.memRelation === 'W'
+  ) {
+    return 'spouse';
+  } else {
+    return '';
+  }
 };

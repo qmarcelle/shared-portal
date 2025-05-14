@@ -565,3 +565,13 @@ export function isWellnessOnlyBenefitsQV(rules: VisibilityRules | undefined) {
 export function isLifePointGrp(rules: VisibilityRules | undefined) {
   return rules?.isLifePointGrp || false;
 }
+export const isChipRewardsINTEligible = (
+  rules: VisibilityRules | undefined,
+) => {
+  return (
+    !isSelfCommercial(rules) &&
+    isActiveAndNotFSAOnly(rules) &&
+    isLobCommercial(rules) &&
+    !rules?.individual
+  );
+};
