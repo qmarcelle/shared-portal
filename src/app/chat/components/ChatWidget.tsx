@@ -114,14 +114,18 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     console.log(
       '[ChatWidget] Configuration ready, proceeding with script loading',
     );
+    console.log('[ChatWidget] genesysChatConfig:', genesysChatConfig);
+
     // Mark scripts as loaded before async operations to prevent race conditions
     didScriptsLoad.current = true;
+
     // Set up window objects
     window.chatSettings = genesysChatConfig;
     window.gmsServicesConfig = {
       GMSChatURL: () => genesysChatConfig.gmsChatUrl,
     };
-    // Load scripts/styles (existing logic)
+
+    // Load scripts/styles (always load widgets.min.js in legacy mode, or if in doubt)
     const loadAllScripts = async () => {
       try {
         await loadStylesheet(
@@ -136,12 +140,11 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
           '/assets/genesys/click_to_chat.js',
           'genesys-click-to-chat',
         );
-        if (genesysChatConfig.chatMode === 'legacy') {
-          await loadScript(
-            '/assets/genesys/plugins/widgets.min.js',
-            'genesys-widgets',
-          );
-        }
+        // Always load widgets.min.js for legacy or if in doubt
+        await loadScript(
+          '/assets/genesys/plugins/widgets.min.js',
+          'genesys-widgets',
+        );
         console.log('[ChatWidget] All Genesys scripts/styles loaded');
       } catch (err) {
         console.error('[ChatWidget] Error loading Genesys scripts/styles', err);
@@ -149,6 +152,7 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       }
     };
     loadAllScripts();
+
     // No Cobrowse triggers here! Only user actions should call Cobrowse functions.
     return () => {
       // No script/style removal to avoid breaking other widgets
