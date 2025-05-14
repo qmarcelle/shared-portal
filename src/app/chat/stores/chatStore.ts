@@ -362,7 +362,6 @@ export const useChatStore = create<ChatState>((set, _get) => ({
         logger.info('[ChatStore:CONFIG] Building GenesysChatConfig');
         const genesysChatConfig = buildGenesysChatConfig({
           user,
-          plan,
           apiConfig: { ...info, token },
           staticConfig,
         });
