@@ -4,13 +4,14 @@
  * ChatWidget Component
  *
  * This component handles the integration with Genesys chat widget system.
- * It includes multiple strategies to ensure the chat button appears reliably:
- * 1. Properly sequenced CSS and script loading
- * 2. Configuration setup before script loading
- * 3. Multiple fallback mechanisms to guarantee button creation
+ * It ensures proper configuration is loaded before attempting to render the chat widget,
+ * preventing initialization loops and configuration errors.
  *
- * The component has been simplified from a complex implementation with many
- * overlapping fallbacks to a more streamlined approach.
+ * Key improvements:
+ * 1. Stable configuration loading that waits for both user and plan contexts
+ * 2. Clear loading states with informative messages
+ * 3. Proper initialization sequencing with error handling
+ * 4. Explicit Genesys SDK initialization after config is ready
  */
 
 import { usePlanContext } from '@/app/chat/hooks/usePlanContext';
@@ -20,7 +21,6 @@ import { logger } from '@/utils/logger';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Define a type that allows any chat settings structure
-// This is more forgiving than trying to enforce a specific structure
 interface ChatWidgetProps {
   chatSettings?: Record<string, any>;
 }
@@ -31,137 +31,131 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     chatSettingsKeys: Object.keys(chatSettings),
   });
 
-  // Initialization and script loading refs
-  const initSequence = useRef(0);
-  const MAX_INIT_ATTEMPTS = 5;
+  // Track component state
+  const [hasConfigLoaded, setHasConfigLoaded] = useState(false);
+  const [scriptLoadFailed, setScriptLoadFailed] = useState(false);
+  const retryTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const didInitialize = useRef(false);
-  const didScriptsLoad = useRef(false);
-  const mountCount = useRef(0);
 
+  // Get chat configuration from store
   const { genesysChatConfig, isLoading, error, loadChatConfiguration } =
     useChatStore();
-  const [scriptError, setScriptError] = useState(false);
-  const lastConfig = useRef<any>(null);
+
+  // Get user and plan contexts
   const { userContext, isUserContextLoading } = useUserContext();
   const {
     planContext,
-    error: planError,
     isPlanContextLoading,
+    error: planError,
   } = usePlanContext();
 
-  // --- Component Lifecycle Tracking ---
-  useEffect(() => {
-    console.log('[ChatWidget] Component mounted');
-    mountCount.current++;
-    return () => {
-      console.log('[ChatWidget] Component unmounted - cleaning up');
-      // Reset refs on unmount to handle potential remounts
-      initSequence.current = 0;
-      didInitialize.current = false;
-      didScriptsLoad.current = false;
-    };
-  }, []);
+  // Extract member and plan IDs for configuration loading
+  const memberId = userContext?.memberId;
+  const planId = planContext?.planId;
 
-  // --- Initialization Effect ---
-  useEffect(() => {
-    // Guard against excessive initialization attempts
-    initSequence.current += 1;
-    console.log(
-      `[ChatWidget] Initialization sequence ${initSequence.current}/${MAX_INIT_ATTEMPTS}`,
-    );
-    if (initSequence.current > MAX_INIT_ATTEMPTS) {
-      console.error(
-        '[ChatWidget] Exceeded maximum initialization attempts, breaking potential loop',
-      );
-      return;
+  // Initialize chat configuration
+  const initializeChat = useCallback(() => {
+    if (
+      memberId &&
+      planId &&
+      !genesysChatConfig &&
+      !isLoading &&
+      !error &&
+      !didInitialize.current
+    ) {
+      logger.info('[ChatWidget] Initializing chat configuration', {
+        memberId,
+        planId,
+        timestamp: new Date().toISOString(),
+      });
+      didInitialize.current = true;
+      loadChatConfiguration(memberId, planId);
     }
-    if (didInitialize.current) {
-      console.log(
-        '[ChatWidget] Already initialized, skipping redundant initialization',
-      );
-      return;
-    }
-    if (isUserContextLoading || isPlanContextLoading) {
-      console.log(
-        '[ChatWidget] Contexts still loading, deferring initialization',
-      );
-      return;
-    }
-    if (!userContext?.memberId || !planContext?.planId) {
-      console.warn(
-        '[ChatWidget] Missing required context data for initialization',
-      );
-      return;
-    }
-    // Mark as initialized to prevent further attempts
-    didInitialize.current = true;
-    console.log('[ChatWidget] Proceeding with chat initialization');
-    loadChatConfiguration(userContext.memberId, planContext.planId);
   }, [
-    userContext,
-    planContext,
-    isUserContextLoading,
-    isPlanContextLoading,
     loadChatConfiguration,
+    memberId,
+    planId,
+    genesysChatConfig,
+    isLoading,
+    error,
   ]);
 
-  // --- Script Loading Effect ---
-  useEffect(() => {
-    // Only load scripts when config is ready and not already loaded
-    if (!genesysChatConfig || didScriptsLoad.current) {
-      return;
-    }
-    console.log(
-      '[ChatWidget] Configuration ready, proceeding with script loading',
-    );
-    console.log('[ChatWidget] genesysChatConfig:', genesysChatConfig);
+  // Initialize Genesys SDK when configuration is ready
+  const initializeGenesysSDK = useCallback(() => {
+    if (!genesysChatConfig || !window) return;
 
-    // Mark scripts as loaded before async operations to prevent race conditions
-    didScriptsLoad.current = true;
+    logger.info('[ChatWidget] Initializing Genesys SDK', {
+      configKeys: Object.keys(genesysChatConfig),
+      timestamp: new Date().toISOString(),
+    });
 
     // Set up window objects
     window.chatSettings = genesysChatConfig;
-    window.gmsServicesConfig = {
-      GMSChatURL: () => genesysChatConfig.gmsChatUrl,
-    };
 
-    // Only load click_to_chat.js; let Genesys handle widgets.min.js internally
-    // This avoids double-loading and potential race conditions
-    const loadAllScripts = async () => {
-      try {
-        await loadStylesheet(
-          '/assets/genesys/plugins/widgets.min.css',
-          'genesys-widgets-css',
-        );
-        await loadStylesheet(
-          '/assets/genesys/styles/bcbst-custom.css',
-          'bcbst-custom-css',
-        );
-        await loadScript(
-          '/assets/genesys/click_to_chat.js',
-          'genesys-click-to-chat',
-        );
-        // Do NOT load widgets.min.js directly; click_to_chat.js will handle it
-        console.log('[ChatWidget] All Genesys scripts/styles loaded');
-      } catch (err) {
-        console.error('[ChatWidget] Error loading Genesys scripts/styles', err);
-        setScriptError(true);
-      }
-    };
-    loadAllScripts();
-
-    // No Cobrowse triggers here! Only user actions should call Cobrowse functions.
-    return () => {
-      // No script/style removal to avoid breaking other widgets
-    };
+    // Load necessary scripts and styles
+    loadAllScripts()
+      .then(() => {
+        logger.info('[ChatWidget] Genesys scripts loaded successfully');
+      })
+      .catch((err) => {
+        logger.error('[ChatWidget] Failed to load Genesys scripts', {
+          error: err,
+        });
+        setScriptLoadFailed(true);
+      });
   }, [genesysChatConfig]);
 
-  // --- Utility functions (memoized) ---
+  // Load chat configuration when contexts are ready
+  useEffect(() => {
+    if (memberId && planId) {
+      initializeChat();
+    }
+  }, [memberId, planId, initializeChat]);
+
+  // Initialize SDK when configuration is loaded
+  useEffect(() => {
+    if (genesysChatConfig) {
+      logger.info('[ChatWidget] Genesys chat config loaded', {
+        configKeys: Object.keys(genesysChatConfig),
+        timestamp: new Date().toISOString(),
+      });
+      setHasConfigLoaded(true);
+      initializeGenesysSDK();
+    }
+  }, [genesysChatConfig, initializeGenesysSDK]);
+
+  // Retry mechanism for error recovery
+  useEffect(() => {
+    if (error && memberId && planId) {
+      logger.warn(
+        '[ChatWidget] Error loading configuration, scheduling retry',
+        {
+          error: error.message,
+          timestamp: new Date().toISOString(),
+        },
+      );
+
+      retryTimeoutRef.current = setTimeout(() => {
+        logger.info('[ChatWidget] Retrying chat configuration load');
+        didInitialize.current = false;
+        loadChatConfiguration(memberId, planId);
+      }, 5000);
+    }
+
+    return () => {
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+      }
+    };
+  }, [error, memberId, planId, loadChatConfiguration]);
+
+  // Script loading utilities
   const scriptLoadTracker = useRef(new Set<string>());
+
   const loadScript = useCallback((src: string, id: string) => {
     return new Promise<void>((resolve, reject) => {
       if (document.getElementById(id) || scriptLoadTracker.current.has(id)) {
-        console.log(`[ChatWidget] Script ${id} already loaded, skipping`);
+        logger.info(`[ChatWidget] Script ${id} already loaded, skipping`);
         resolve();
         return;
       }
@@ -171,12 +165,12 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       script.async = true;
       script.onload = () => {
         scriptLoadTracker.current.add(id);
-        console.log(`[ChatWidget] Script ${id} loaded`);
+        logger.info(`[ChatWidget] Script ${id} loaded`);
         resolve();
       };
       script.onerror = (err) => {
-        console.error(`[ChatWidget] Script ${id} failed to load`, err);
-        reject();
+        logger.error(`[ChatWidget] Script ${id} failed to load`, err);
+        reject(err);
       };
       document.head.appendChild(script);
     });
@@ -185,7 +179,7 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
   const loadStylesheet = useCallback((href: string, id: string) => {
     return new Promise<void>((resolve, reject) => {
       if (document.getElementById(id)) {
-        console.log(`[ChatWidget] Stylesheet ${id} already loaded, skipping`);
+        logger.info(`[ChatWidget] Stylesheet ${id} already loaded, skipping`);
         resolve();
         return;
       }
@@ -194,47 +188,75 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       link.rel = 'stylesheet';
       link.href = href;
       link.onload = () => {
-        console.log(`[ChatWidget] Stylesheet ${id} loaded`);
+        logger.info(`[ChatWidget] Stylesheet ${id} loaded`);
         resolve();
       };
       link.onerror = (err) => {
-        console.error(`[ChatWidget] Stylesheet ${id} failed to load`, err);
-        reject();
+        logger.error(`[ChatWidget] Stylesheet ${id} failed to load`, err);
+        reject(err);
       };
       document.head.appendChild(link);
     });
   }, []);
 
-  // --- Render logic (unchanged) ---
-  const hasEffectiveConfig = !!genesysChatConfig;
+  const loadAllScripts = useCallback(async () => {
+    try {
+      await loadStylesheet(
+        '/assets/genesys/plugins/widgets.min.css',
+        'genesys-widgets-css',
+      );
+      await loadStylesheet(
+        '/assets/genesys/styles/bcbst-custom.css',
+        'bcbst-custom-css',
+      );
+      await loadScript(
+        '/assets/genesys/click_to_chat.js',
+        'genesys-click-to-chat',
+      );
+      logger.info('[ChatWidget] All Genesys scripts/styles loaded');
+      return true;
+    } catch (err) {
+      logger.error('[ChatWidget] Error loading Genesys scripts/styles', err);
+      setScriptLoadFailed(true);
+      return false;
+    }
+  }, [loadScript, loadStylesheet]);
+
+  // Render logic with clear loading states
   if (isUserContextLoading || isPlanContextLoading) {
-    logger.info('[ChatWidget] Contexts still loading');
-    return <div>Loading chat configuration...</div>;
+    return (
+      <div className="chat-widget-loading">Loading user information...</div>
+    );
   }
-  if (!userContext) {
-    logger.warn('[ChatWidget] No user context available');
-    return null;
+
+  if (!memberId || !planId) {
+    return (
+      <div className="chat-widget-error">Missing user or plan information</div>
+    );
   }
-  if (!planContext) {
-    logger.warn('[ChatWidget] No plan context available');
-    return planError ? (
-      <div>Error loading chat: {planError.message}</div>
-    ) : null;
+
+  if (isLoading) {
+    return (
+      <div className="chat-widget-loading">Loading chat configuration...</div>
+    );
   }
-  if (!hasEffectiveConfig) {
-    logger.warn('[ChatWidget] No chat configuration available');
-    return null;
+
+  if (error) {
+    return (
+      <div className="chat-widget-error">
+        Error loading chat: {error.message}
+      </div>
+    );
   }
-  if (scriptError) {
-    logger.error('[ChatWidget] Script error state, returning error UI');
-    return <div>Failed to load chat widget.</div>;
+
+  if (scriptLoadFailed) {
+    return <div className="chat-widget-error">Failed to load chat widget</div>;
   }
-  logger.info('[ChatWidget] Render complete, returning widget UI');
-  if (isLoading) return <div>Loading chat...</div>;
-  if (error) return <div>Chat unavailable: {error.message}</div>;
-  return (
+
+  // Only render the chat container when configuration is properly loaded
+  return hasConfigLoaded ? (
     <div id="genesys-chat-widget-container">
-      {/* Chat widget UI goes here */}
+      {/* Chat widget will be mounted here by the Genesys script */}
     </div>
-  );
+  ) : null;
 }
