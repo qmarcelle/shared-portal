@@ -446,9 +446,7 @@ export const getMenuNavigation = (
         title: 'WellTuned Blog',
         description: 'This is WellTuned Blog',
         category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: 'https://bcbstwelltuned.com/',
         external: true,
       },
