@@ -5,6 +5,7 @@ import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
@@ -31,38 +32,73 @@ const AccessOthersInformation = ({
               header="Understanding Access On My Plan"
               information={[
                 {
-                  title: 'Access Granted',
+                  title: 'Full Access',
                   body: (
                     <div className="m-1">
-                      Indicates that you can access other members&apos;
-                      information on your plan. You will be able see their
-                      information on your account. On pages such as claims,
-                      documents, prior authorizations and more, you&apos;ll be
-                      able to filter for members on your plan that have granted
-                      you access to their information.
+                      The information we will disclose may reveal very sensitive
+                      health information about the Member, including information
+                      about treatment or care for reproductive health (including
+                      family planning, contraception, miscarriage, abortion,
+                      maternity and infertility), substance use disorders
+                      (including drugs and alcohol), Mental or behavioral health
+                      disorders, communicable diseases (including HIV/AIDS and
+                      sexually transmitted diseases/infections (STDs/STIs)),
+                      developmental or intellectual disabilities, genetic
+                      disorders (including genetic testing for such disorders
+                      and genetic history), abuse (including sexual, physical or
+                      mental), brain or other sensitive information.
                     </div>
                   ),
                 },
                 {
-                  title: 'Request Access',
+                  title: 'Basic Access',
                   body: (
                     <div className="m-1">
-                      You can request access to other members&apos; information
-                      on your plan.
+                      By choosing this option, we will disclose limited
+                      information about the Member such as benefits and
+                      coverage, claims and doctor visits, pharmacy and
+                      prescriptions.
+                    </div>
+                  ),
+                },
+                {
+                  title: 'No Access',
+                  body: (
+                    <div className="m-1">
+                      By choosing this option, we will disclose no access to the
+                      Member such as benefits and coverage, claims and doctor
+                      visits, pharmacy and prescriptions
                     </div>
                   ),
                 },
                 {
                   title: 'Special Permissions',
                   body: (
-                    <div className="m-1">
-                      In some cases, you may need to become a personal
-                      representative of an individual before gaining access to
-                      their information. A personal representative is an
-                      individual with the legal authority to make decisions for
-                      others, such as a minor dependent. You can learn more
-                      about personal representive status here.
-                    </div>
+                    <Column>
+                      <RichText
+                        spans={[
+                          <span key={0}>
+                            In some cases, you may need to become a personal
+                            representative of an individual before gaining
+                            access to their information.
+                          </span>,
+                          <span key={1}>
+                            <Spacer size={16}></Spacer>
+                          </span>,
+                          <span key={2}>
+                            A personal representative is an individual with the
+                            legal authority to make healthcare decisions for
+                            others, such as a minor dependent.You can{' '}
+                          </span>,
+                          <span className="link" key={3}>
+                            <a>
+                              learn more about personal representative status
+                              here.
+                            </a>
+                          </span>,
+                        ]}
+                      />
+                    </Column>
                   ),
                 },
               ]}

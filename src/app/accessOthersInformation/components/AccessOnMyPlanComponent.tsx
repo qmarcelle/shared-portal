@@ -47,17 +47,20 @@ export const AccessOnMyPlanComponent = ({
       )}
       <Column className="flex flex-col">
         {memberAccessList?.map((item, index) => (
-          <AccessOnMyPlanItem
-            onRequestSuccessCallBack={() =>
-              updateMemberAccessToPending(item.memberCk)
-            }
-            key={index}
-            memberDetails={item}
-            isOnline={item.isOnline}
-            infoButton={infoIcon}
-            loggedInMemberType={loggedInMemberType}
-            inviteStatus={item.accessStatusIsPending!}
-          />
+          <>
+            <AccessOnMyPlanItem
+              onRequestSuccessCallBack={() =>
+                updateMemberAccessToPending(item.memberCk)
+              }
+              key={index}
+              memberDetails={item}
+              isOnline={item.isOnline}
+              infoButton={infoIcon}
+              loggedInMemberType={loggedInMemberType}
+              inviteStatus={item.accessStatusIsPending!}
+            />
+            <Spacer size={16} />
+          </>
         ))}
       </Column>
     </Column>
