@@ -7,7 +7,7 @@
  * with a clear visual indicator and error reporting.
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface GenesysScriptLoaderProps {
   scriptUrl?: string;
@@ -25,9 +25,47 @@ export default function GenesysScriptLoader({
     'idle',
   );
   const [error, setError] = useState<string | null>(null);
+  // Use a ref to prevent multiple script loads
+  const initialized = useRef(false);
 
   useEffect(() => {
+    // Add CSS to fix Genesys overlay issues
+    const fixOverlayStyle = document.createElement('style');
+    fixOverlayStyle.textContent = `
+      /* Ensure Genesys elements are visible with proper z-index */
+      .cx-widget.cx-webchat-chat-button {
+        z-index: 9999 !important;
+        display: flex !important;
+        position: fixed !important;
+        right: 20px !important;
+        bottom: 20px !important;
+      }
+      
+      /* Ensure our custom button is always visible as fallback */
+      .genesys-custom-chat-button {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        background: #0078d4 !important;
+        color: white !important;
+        padding: 12px 20px !important;
+        border-radius: 5px !important;
+        z-index: 9998 !important; /* Just below Genesys elements */
+        cursor: pointer !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+        font-family: sans-serif !important;
+      }
+    `;
+    document.head.appendChild(fixOverlayStyle);
+
     const loadScript = async () => {
+      // Don't run again if already initialized
+      if (initialized.current) {
+        console.log('GenesysScriptLoader: Already initialized, skipping');
+        return;
+      }
+      initialized.current = true;
+
       try {
         setStatus('loading');
         console.log('GenesysScriptLoader: Starting load sequence');
@@ -77,6 +115,7 @@ export default function GenesysScriptLoader({
           const script = document.createElement('script');
           script.src = scriptUrlWithTimestamp;
           script.async = false;
+          script.id = 'genesys-chat-script'; // Add ID to prevent duplicates
 
           script.onload = () => {
             console.log(
@@ -94,6 +133,13 @@ export default function GenesysScriptLoader({
               new Error(`Script failed to load: ${scriptUrlWithTimestamp}`),
             );
           };
+
+          // Remove any existing script first to prevent duplicates
+          const existingScript = document.getElementById('genesys-chat-script');
+          if (existingScript) {
+            console.log('GenesysScriptLoader: Removing existing script');
+            existingScript.remove();
+          }
 
           document.body.appendChild(script);
           console.log(
@@ -132,6 +178,14 @@ export default function GenesysScriptLoader({
 
           // Create a guaranteed backup button if all else fails
           setTimeout(() => {
+            // Remove any existing backup button first
+            const existingBackupButton = document.querySelector(
+              '.genesys-custom-chat-button',
+            );
+            if (existingBackupButton) {
+              existingBackupButton.remove();
+            }
+
             const existingButton = document.querySelector(
               '.cx-widget.cx-webchat-chat-button',
             );
@@ -140,8 +194,7 @@ export default function GenesysScriptLoader({
                 'GenesysScriptLoader: Creating last-resort backup button',
               );
               const backupButton = document.createElement('div');
-              backupButton.style.cssText =
-                'position:fixed;bottom:20px;right:20px;background:#0078d4;color:white;padding:12px 20px;border-radius:5px;z-index:9999;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.3);font-family:sans-serif;';
+              backupButton.className = 'genesys-custom-chat-button';
               backupButton.textContent = 'Chat with Us';
               backupButton.onclick = () => {
                 try {
@@ -191,13 +244,14 @@ export default function GenesysScriptLoader({
     // Cleanup function
     return () => {
       console.log('GenesysScriptLoader: Component unmounting');
+      // We do NOT set initialized.current = false here to prevent reinitialization
     };
-  }, [scriptUrl, cssUrls]);
+  }, []); // Empty dependency array - only run once
 
   // Render a status indicator
   return (
     <div
-      style={{ position: 'fixed', bottom: '10px', left: '10px', zIndex: 9999 }}
+      style={{ position: 'fixed', bottom: '60px', left: '10px', zIndex: 9999 }}
     >
       <div
         style={{
