@@ -11,7 +11,8 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getCommunicationSettingsData } from '../actions/getCommunicationSettingsData';
 import {
   AlertType,
   CommunicationSettingsAppData,
@@ -30,6 +31,44 @@ export const EditAlertPreferncesSection = ({
   className,
   alertPreferenceData,
 }: EditAlertPreferncesProps) => {
+  useEffect(() => {
+    const fetchSavedPreferences = async () => {
+      try {
+        const response = await getCommunicationSettingsData();
+        const savedPreferences: ContactPreference[] =
+          response.data?.contactPreferences ?? [];
+        const updatedMap = new Map(initialEditAlertMap);
+        savedPreferences.forEach((pref) => {
+          for (const [, value] of updatedMap.entries()) {
+            if (
+              value.category === pref.communicationCategory &&
+              value.method === pref.communicationMethod
+            ) {
+              value.selected = pref.optOut === 'I';
+            }
+
+            if (value.childCheckBox) {
+              for (const [, childValue] of value.childCheckBox.entries()) {
+                if (
+                  childValue.category === pref.communicationCategory &&
+                  childValue.method === pref.communicationMethod
+                ) {
+                  childValue.selected = pref.optOut === 'I';
+                }
+              }
+            }
+          }
+        });
+
+        setEditAlertMap(updatedMap);
+      } catch (error) {
+        console.error('Failed to load saved preferences:', error);
+      }
+    };
+
+    fetchSavedPreferences();
+  }, []);
+
   const getDescriptions = (): Map<AlertType, Preferences> => {
     const dynamicMap = new Map<
       AlertType,

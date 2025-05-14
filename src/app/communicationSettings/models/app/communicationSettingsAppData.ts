@@ -4,6 +4,11 @@ export type CommunicationSettingsAppData = {
   emailAddress: string;
   mobileNumber: string;
   visibilityRules?: VisibilityRules;
+  contactPreferences?: {
+    optOut: string;
+    communicationCategory: string;
+    communicationMethod: string;
+  }[];
   tierOne?: {
     communicationCategory: string;
     communicationMethod: string;
