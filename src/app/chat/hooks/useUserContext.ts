@@ -1,5 +1,4 @@
 import { logger } from '@/utils/logger';
-import { DefaultSession, useSession } from 'next-auth/react';
 
 interface UserContext {
   memberId: string;
@@ -9,41 +8,44 @@ interface UserContext {
   suffix?: string;
 }
 
-// Extend the Session type to include our custom fields
-declare module 'next-auth' {
-  interface Session {
-    user: {
-      memberId: string;
-      firstName?: string;
-      lastName?: string;
-      subscriberId?: string;
-      suffix?: string;
-    } & DefaultSession['user'];
+interface AppSession {
+  isAuthenticated: boolean;
+  user: string;
+  plan: {
+    memCk: string;
+    grpId: string;
+  };
+  timestamp: string;
+}
+
+declare global {
+  interface Window {
+    __APP_SESSION__?: AppSession;
   }
 }
 
 export function useUserContext(): UserContext | null {
-  const { data: session } = useSession();
-
   try {
-    if (!session?.user) {
-      logger.warn('[useUserContext] No session found');
+    // Get session data from global state
+    const session =
+      typeof window !== 'undefined' ? window.__APP_SESSION__ : undefined;
+
+    if (!session?.isAuthenticated || !session?.plan?.memCk) {
+      logger.warn('[useUserContext] No valid session or member ID found', {
+        session,
+      });
       return null;
     }
 
-    // Extract user data from session
+    // Use the member check ID as the member ID
     const context: UserContext = {
-      memberId: session.user.memberId,
-      firstName: session.user.firstName,
-      lastName: session.user.lastName,
-      subscriberId: session.user.subscriberId,
-      suffix: session.user.suffix,
+      memberId: session.plan.memCk,
+      // We don't have these fields in the current session, but the API might provide them
+      firstName: undefined,
+      lastName: undefined,
+      subscriberId: undefined,
+      suffix: undefined,
     };
-
-    if (!context.memberId) {
-      logger.warn('[useUserContext] No member ID found in session');
-      return null;
-    }
 
     return context;
   } catch (error) {
