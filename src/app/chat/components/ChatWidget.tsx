@@ -11,15 +11,13 @@
  * 1. Stable configuration loading that waits for both user and plan contexts
  * 2. Clear loading states with informative messages
  * 3. Proper initialization sequencing with error handling
- * 4. Using Next.js Script component for proper script loading
- * 5. Direct DOM manipulation for CSS loading (required in App Router)
+ * 4. Direct DOM manipulation for both CSS and JavaScript loading (required in App Router)
  */
 
 import { usePlanContext } from '@/app/chat/hooks/usePlanContext';
 import { useUserContext } from '@/app/chat/hooks/useUserContext';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
-import Script from 'next/script';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Define Genesys-specific properties for typechecking
@@ -49,6 +47,7 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
   const [cssLoadFailed, setCssLoadFailed] = useState(false);
   const didInitialize = useRef(false);
   const cssLoaded = useRef(false);
+  const scriptLoaded = useRef(false);
 
   // Get chat configuration from store
   const { genesysChatConfig, isLoading, error, loadChatConfiguration } =
@@ -198,45 +197,74 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     }
   }, []);
 
-  // Handle script load success
-  const handleScriptLoad = useCallback(() => {
-    logger.info('[ChatWidget] Genesys script loaded successfully');
-
-    // Trigger button creation
-    logger.info('[ChatWidget] Triggering button creation');
+  /**
+   * Load JavaScript file using direct DOM manipulation
+   * This mirrors our CSS loading approach rather than using the Script component
+   */
+  const loadJavaScriptFile = useCallback(() => {
+    if (scriptLoaded.current || !hasConfigLoaded || cssLoadFailed) return;
 
     try {
-      // Method 1: Try event dispatch
-      document.dispatchEvent(new CustomEvent('genesys:create-button'));
+      logger.info('[ChatWidget] Loading Genesys script');
 
-      // Method 2: Try direct function call if available
-      const genesysWindow = window as unknown as GenesysWindow;
-      if (
-        genesysWindow._forceChatButtonCreate &&
-        typeof genesysWindow._forceChatButtonCreate === 'function'
-      ) {
-        genesysWindow._forceChatButtonCreate();
+      // Skip if already loaded
+      if (document.getElementById('genesys-click-to-chat')) {
+        logger.info(`[ChatWidget] Script already loaded`);
+        scriptLoaded.current = true;
+        return;
       }
 
-      // Method 3: Try CXBus if available
-      if (
-        genesysWindow.CXBus &&
-        typeof genesysWindow.CXBus.command === 'function'
-      ) {
-        genesysWindow.CXBus.command('WebChat.open');
-      }
+      const script = document.createElement('script');
+      script.src = 'assets/genesys/click_to_chat.js';
+      script.id = 'genesys-click-to-chat';
+      script.async = true;
+
+      // Set up load and error handlers
+      script.onload = () => {
+        logger.info('[ChatWidget] Genesys script loaded successfully');
+        scriptLoaded.current = true;
+
+        // Trigger button creation
+        try {
+          // Method 1: Try event dispatch
+          document.dispatchEvent(new CustomEvent('genesys:create-button'));
+
+          // Method 2: Try direct function call if available
+          const genesysWindow = window as unknown as GenesysWindow;
+          if (
+            genesysWindow._forceChatButtonCreate &&
+            typeof genesysWindow._forceChatButtonCreate === 'function'
+          ) {
+            genesysWindow._forceChatButtonCreate();
+          }
+
+          // Method 3: Try CXBus if available
+          if (
+            genesysWindow.CXBus &&
+            typeof genesysWindow.CXBus.command === 'function'
+          ) {
+            genesysWindow.CXBus.command('WebChat.open');
+          }
+        } catch (err) {
+          logger.error('[ChatWidget] Error initializing chat button', {
+            error: err instanceof Error ? err.message : String(err),
+          });
+        }
+      };
+
+      script.onerror = () => {
+        logger.error('[ChatWidget] Failed to load Genesys script');
+        setScriptLoadFailed(true);
+      };
+
+      document.body.appendChild(script);
     } catch (err) {
-      logger.error('[ChatWidget] Error initializing chat button', {
+      logger.error('[ChatWidget] Error loading script', {
         error: err instanceof Error ? err.message : String(err),
       });
+      setScriptLoadFailed(true);
     }
-  }, []);
-
-  // Handle script load error
-  const handleScriptError = useCallback(() => {
-    logger.error('[ChatWidget] Failed to load Genesys script');
-    setScriptLoadFailed(true);
-  }, []);
+  }, [hasConfigLoaded, cssLoadFailed]);
 
   // Load chat configuration when contexts are ready
   useEffect(() => {
@@ -256,6 +284,13 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       setupGenesysConfig();
     }
   }, [genesysChatConfig, setupGenesysConfig]);
+
+  // Load script when configuration is ready
+  useEffect(() => {
+    if (hasConfigLoaded && !cssLoadFailed && !scriptLoaded.current) {
+      loadJavaScriptFile();
+    }
+  }, [hasConfigLoaded, cssLoadFailed, loadJavaScriptFile]);
 
   // Render logic with clear loading states
   const renderContent = () => {
@@ -317,20 +352,5 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     return <div id="genesys-chat-container" />;
   };
 
-  return (
-    <>
-      {/* Load Genesys script when configuration is ready */}
-      {hasConfigLoaded && !cssLoadFailed && (
-        <Script
-          id="genesys-click-to-chat"
-          src="assets/genesys/click_to_chat.js"
-          strategy="afterInteractive"
-          onLoad={handleScriptLoad}
-          onError={handleScriptError}
-        />
-      )}
-
-      {renderContent()}
-    </>
-  );
+  return renderContent();
 }
