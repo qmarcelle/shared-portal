@@ -119,7 +119,10 @@ export async function GET(request: NextRequest) {
       chatGroup: data.chatGroup || '',
       chatAvailable: data.chatAvailable ?? true,
       isEligible: data.isEligible ?? true,
-      workingHours: data.workingHours || 'S_S_24',
+      workingHours:
+        data.workingHours ||
+        process.env.NEXT_PUBLIC_CHAT_HOURS ||
+        'M-F 8am-5pm',
       chatIDChatBotName: data.chatIDChatBotName || '',
       // Ensure chatBotEligibility is set to isEligible
       chatBotEligibility: data.isEligible ?? true,
@@ -130,7 +133,9 @@ export async function GET(request: NextRequest) {
         data.isChatEligibleMember ?? data.isEligible ?? true,
       isChatAvailable: data.isChatAvailable ?? data.chatAvailable ?? true,
       chatHours:
-        data.chatHours || process.env.NEXT_PUBLIC_CHAT_HOURS || 'M-F 8am-5pm',
+        data.workingHours ||
+        process.env.NEXT_PUBLIC_CHAT_HOURS ||
+        'M-F 8am-5pm',
       rawChatHrs:
         data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
     };

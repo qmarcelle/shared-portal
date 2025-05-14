@@ -198,6 +198,9 @@
   }
 
   // === 4) Utility & CobrowseIO boot-strap ===
+  // TODO: Cobrowse integration temporarily disabled for troubleshooting.
+  // Commented out CobrowseIO boot-strap and modal logic. Revisit and fix later.
+  /*
   function buildConsent(title, message) {
     return new Promise((resolve) => {
       const el = document.createElement('div');
@@ -238,6 +241,7 @@
     );
   CobrowseIO.confirmRemoteControl = () =>
     buildConsent("We'd like control", 'We can click to help. OK?');
+  */
 
   // === 5) jQuery loader & main init ===
   const loadJQ = (cb) => {
@@ -741,22 +745,22 @@
       $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
     };
 
-// Gate CobrowseIO.client behind explicit user action
-defineCobrowseStarter();
-function defineCobrowseStarter() {
-  window.startCobrowse = function() {
-    console.log('Cobrowse initialization requested by user action');
-    CobrowseIO.client().then((c) =>
-      c
-        .createSessionCode()
-        .then(
-          (code) =>
-            (document.getElementById('cobrowse-sessionToken').textContent =
-              code.match(/.{1,3}/g).join('-')),
-        ),
-    );
-  };
-}
+    // Gate CobrowseIO.client behind explicit user action
+    defineCobrowseStarter();
+    function defineCobrowseStarter() {
+      window.startCobrowse = function () {
+        console.log('Cobrowse initialization requested by user action');
+        CobrowseIO.client().then((c) =>
+          c
+            .createSessionCode()
+            .then(
+              (code) =>
+                (document.getElementById('cobrowse-sessionToken').textContent =
+                  code.match(/.{1,3}/g).join('-')),
+            ),
+        );
+      };
+    }
     window.showCobrowseContactUsModal = () => {
       $('#cobrowse-sessionConfirm').modal('hide');
       $('#cobrowse-contactUsScreen1').modal({ backdrop: 'static' });
