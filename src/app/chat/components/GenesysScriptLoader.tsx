@@ -101,11 +101,26 @@ export default function GenesysScriptLoader({
           chatMode: 'legacy',
           genesysWidgetUrl: '/assets/genesys/plugins/widgets.min.js',
           isChatAvailable: 'true',
+          // Explicitly disable cobrowse
+          isCobrowseActive: 'false',
+          coBrowseLicence: '',
+          cobrowseSource: '',
+          cobrowseURL: '',
         };
         console.log(
           'GenesysScriptLoader: Set window.chatSettings',
           (window as any).chatSettings,
         );
+
+        // Disable cobrowse function if it exists
+        (window as any).startCoBrowseCall = () => {
+          console.log('GenesysScriptLoader: Cobrowse disabled');
+          return false;
+        };
+        (window as any).showCobrowseModal = () => {
+          console.log('GenesysScriptLoader: Cobrowse modal disabled');
+          return false;
+        };
 
         // 3. Add the script with cache busting
         const timestamp = new Date().getTime();
