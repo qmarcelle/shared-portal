@@ -1,13 +1,13 @@
 'use server';
 
-import { memberService } from '@/utils/api/memberService';
+import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { Network } from '../models/network';
 
 export async function getNetworks(): Promise<Network[]> {
   try {
-    const response = await memberService.get(
-      '/providers/networksByProviderType/providerType="DNTL"',
+    const response = await portalSvcsApi.get(
+      '/CostEstimatorService/providers/networksByProviderType?providerType=DNTL',
     );
     logger.info('Get Networks Data', response?.data);
     return response?.data;

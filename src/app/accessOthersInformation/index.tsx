@@ -23,9 +23,8 @@ const AccessOthersInformation = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Spacer size={32} />
         <Header type="title-1" text="Access Others' Information" />
-        <Spacer size={32} />
+        <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <AccordionListCard

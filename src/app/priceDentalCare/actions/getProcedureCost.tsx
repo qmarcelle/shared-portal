@@ -1,6 +1,6 @@
 'use server';
 
-import { memberService } from '@/utils/api/memberService';
+import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { ProcedureCostResponse } from '../models/procedureCostResponse';
 
@@ -10,7 +10,7 @@ export async function getProcedureCost(
   networkCode: string,
 ): Promise<ProcedureCostResponse> {
   try {
-    const response = await memberService.get(
+    const response = await portalSvcsApi.get(
       `/CostEstimatorService/CostEstimate?zipCode=${zipCode}&procedureCode=${procedureCode}&networkCode=${networkCode}&networkPrefix=DENG&consumer=member`,
     );
     logger.info('Get Procedure Cost Data', response?.data);
