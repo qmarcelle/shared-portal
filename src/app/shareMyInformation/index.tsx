@@ -4,6 +4,7 @@ import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import {
@@ -44,6 +45,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
+        <Header type="title-1" text="Share My Information" />
+        <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <AccordionListCard
