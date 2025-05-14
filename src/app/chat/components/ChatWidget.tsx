@@ -74,8 +74,11 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
         return;
       }
 
-      // Ensure we have the correct path (relative or absolute)
-      const scriptSrc = src.startsWith('/') ? src : `/${src}`;
+      // Ensure path is correctly formatted for Next.js static assets
+      // Note: Next.js serves files from /public at the root URL path
+      const scriptSrc = src.startsWith('/')
+        ? src.substring(1) // Remove leading slash if present
+        : src;
 
       logger.info(`[ChatWidget] Loading script from: ${scriptSrc}`);
 
@@ -105,8 +108,11 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
         return;
       }
 
-      // Ensure we have the correct path (relative or absolute)
-      const stylesheetHref = href.startsWith('/') ? href : `/${href}`;
+      // Ensure path is correctly formatted for Next.js static assets
+      // Note: Next.js serves files from /public at the root URL path
+      const stylesheetHref = href.startsWith('/')
+        ? href.substring(1) // Remove leading slash if present
+        : href;
 
       logger.info(`[ChatWidget] Loading stylesheet from: ${stylesheetHref}`);
 
@@ -136,20 +142,20 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       // First load the CSS files
       logger.info('[ChatWidget] Loading widgets.min.css');
       await loadStylesheet(
-        '/assets/genesys/plugins/widgets.min.css',
+        'assets/genesys/plugins/widgets.min.css',
         'genesys-widgets-css',
       );
 
       logger.info('[ChatWidget] Loading bcbst-custom.css');
       await loadStylesheet(
-        '/assets/genesys/styles/bcbst-custom.css',
+        'assets/genesys/styles/bcbst-custom.css',
         'bcbst-custom-css',
       );
 
       // Then load the JS file
       logger.info('[ChatWidget] Loading click_to_chat.js');
       await loadScript(
-        '/assets/genesys/click_to_chat.js',
+        'assets/genesys/click_to_chat.js',
         'genesys-click-to-chat',
       );
 
@@ -220,11 +226,28 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       timestamp: new Date().toISOString(),
     });
 
-    // Set up window objects
-    (window as unknown as GenesysWindow).chatSettings = genesysChatConfig;
-    (window as unknown as GenesysWindow).gmsServicesConfig = {
-      GMSChatURL: () => genesysChatConfig.gmsChatUrl,
+    // Set up window objects with complete configuration
+    const genesysWindow = window as unknown as GenesysWindow;
+
+    // Assign the full config object to window.chatSettings
+    genesysWindow.chatSettings = genesysChatConfig;
+
+    // Set up service configuration
+    genesysWindow.gmsServicesConfig = {
+      GMSChatURL: () =>
+        genesysChatConfig.gmsChatUrl ||
+        genesysChatConfig.clickToChatEndpoint ||
+        '',
     };
+
+    // Log the current window config for debugging
+    logger.info('[ChatWidget] Window configuration set', {
+      chatSettings: !!genesysWindow.chatSettings,
+      gmsServicesConfig: !!genesysWindow.gmsServicesConfig,
+      settingsKeys: genesysWindow.chatSettings
+        ? Object.keys(genesysWindow.chatSettings)
+        : [],
+    });
 
     // Check if scripts are already loaded in the DOM (could be from a previous initialization)
     const areScriptsAlreadyLoaded = () => {
@@ -240,7 +263,6 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
         '[ChatWidget] Genesys scripts already loaded in DOM, skipping load',
       );
       // If scripts are already loaded, we might need to trigger initialization manually
-      const genesysWindow = window as unknown as GenesysWindow;
       if (
         genesysWindow._forceChatButtonCreate &&
         typeof genesysWindow._forceChatButtonCreate === 'function'
@@ -258,7 +280,6 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
 
         // After scripts are loaded, check if we need to force create the chat button
         setTimeout(() => {
-          const genesysWindow = window as unknown as GenesysWindow;
           if (
             genesysWindow._forceChatButtonCreate &&
             typeof genesysWindow._forceChatButtonCreate === 'function'
@@ -266,6 +287,10 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
             logger.info('[ChatWidget] Forcing chat button creation after load');
             genesysWindow._forceChatButtonCreate();
           }
+
+          // Also dispatch an event that the click_to_chat.js script listens for
+          const event = new CustomEvent('genesys:create-button');
+          document.dispatchEvent(event);
         }, 1000);
       })
       .catch((err) => {
@@ -292,6 +317,32 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       });
       setHasConfigLoaded(true);
       initializeGenesysSDK();
+
+      // Add debug function to window for direct script loading test
+      if (process.env.NODE_ENV === 'development') {
+        (window as any).debugGenesysLoading = () => {
+          logger.info('[ChatWidget] Manual debug loading triggered');
+          // Set config
+          (window as any).chatSettings = genesysChatConfig;
+          // Try loading scripts directly
+          const widgetsCSS = document.createElement('link');
+          widgetsCSS.rel = 'stylesheet';
+          widgetsCSS.href = 'assets/genesys/plugins/widgets.min.css';
+          document.head.appendChild(widgetsCSS);
+
+          const customCSS = document.createElement('link');
+          customCSS.rel = 'stylesheet';
+          customCSS.href = 'assets/genesys/styles/bcbst-custom.css';
+          document.head.appendChild(customCSS);
+
+          const clickToChat = document.createElement('script');
+          clickToChat.src = 'assets/genesys/click_to_chat.js';
+          document.head.appendChild(clickToChat);
+
+          logger.info('[ChatWidget] Debug loading complete');
+          return 'Debug loading triggered';
+        };
+      }
     }
   }, [genesysChatConfig, initializeGenesysSDK]);
 
@@ -301,7 +352,7 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       logger.warn(
         '[ChatWidget] Error loading configuration, scheduling retry',
         {
-          error: error.message,
+          error: error.toString(),
           timestamp: new Date().toISOString(),
         },
       );
@@ -320,41 +371,124 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
     };
   }, [error, memberId, planId, loadChatConfiguration]);
 
+  // Add direct script loading on component mount
+  useEffect(() => {
+    if (!hasConfigLoaded || !genesysChatConfig) return;
+
+    const loadScriptsDirectly = () => {
+      logger.info('[ChatWidget] Attempting direct script loading as fallback');
+
+      // Try a different approach with <script> tags in sequence
+      // 1. Load CSS files
+      const widgetsCSS = document.createElement('link');
+      widgetsCSS.rel = 'stylesheet';
+      widgetsCSS.href = 'assets/genesys/plugins/widgets.min.css';
+      widgetsCSS.id = 'genesys-widgets-css-direct';
+      document.head.appendChild(widgetsCSS);
+
+      const customCSS = document.createElement('link');
+      customCSS.rel = 'stylesheet';
+      customCSS.href = 'assets/genesys/styles/bcbst-custom.css';
+      customCSS.id = 'bcbst-custom-css-direct';
+      document.head.appendChild(customCSS);
+
+      // 2. Load main script last
+      const clickToChat = document.createElement('script');
+      clickToChat.src = 'assets/genesys/click_to_chat.js';
+      clickToChat.id = 'genesys-click-to-chat-direct';
+      clickToChat.onload = () => {
+        logger.info('[ChatWidget] Direct script loading complete');
+
+        // Try to create the chat button after script loads
+        setTimeout(() => {
+          const event = new CustomEvent('genesys:create-button');
+          document.dispatchEvent(event);
+        }, 500);
+      };
+      document.head.appendChild(clickToChat);
+    };
+
+    // Try direct loading a few seconds after initialization
+    // This serves as a fallback if the async loading approach fails
+    setTimeout(loadScriptsDirectly, 3000);
+  }, [hasConfigLoaded, genesysChatConfig]);
+
   // Render logic with clear loading states
-  if (isUserContextLoading || isPlanContextLoading) {
-    return (
-      <div className="chat-widget-loading">Loading user information...</div>
-    );
-  }
+  const renderContent = () => {
+    if (!memberId || !planId) {
+      return (
+        <div className="waiting-state">
+          <p>Waiting for user and plan information...</p>
+        </div>
+      );
+    }
 
-  if (!memberId || !planId) {
-    return (
-      <div className="chat-widget-error">Missing user or plan information</div>
-    );
-  }
+    if (isLoading) {
+      return (
+        <div className="loading-state">
+          <p>Loading Chat Configuration...</p>
+        </div>
+      );
+    }
 
-  if (isLoading) {
-    return (
-      <div className="chat-widget-loading">Loading chat configuration...</div>
-    );
-  }
+    if (error) {
+      return (
+        <div className="error-state">
+          <p>Error loading chat configuration: {error.toString()}</p>
+          <button
+            onClick={() => {
+              didInitialize.current = false;
+              loadChatConfiguration(memberId, planId);
+            }}
+          >
+            Retry
+          </button>
+        </div>
+      );
+    }
 
-  if (error) {
+    if (scriptLoadFailed) {
+      return (
+        <div className="error-state">
+          <p>Failed to load Genesys chat resources</p>
+          <button onClick={initializeGenesysSDK}>Retry Loading Scripts</button>
+        </div>
+      );
+    }
+
+    // Render debug info in development environment
+    const showDebugInfo = process.env.NODE_ENV === 'development';
     return (
-      <div className="chat-widget-error">
-        Error loading chat: {error.message}
+      <div id="genesys-chat-container">
+        {hasConfigLoaded && showDebugInfo && (
+          <div
+            className="debug-info"
+            style={{ padding: '10px', margin: '5px', border: '1px solid #ccc' }}
+          >
+            <p>Genesys Chat Config Loaded</p>
+            <button
+              onClick={() => {
+                logger.info(
+                  '[ChatWidget] Manual chat button creation triggered',
+                );
+                // Create event to trigger chat button creation
+                const event = new CustomEvent('genesys:create-button');
+                document.dispatchEvent(event);
+                // Try direct function call as well
+                const genesysWindow = window as unknown as GenesysWindow;
+                if (genesysWindow._forceChatButtonCreate) {
+                  genesysWindow._forceChatButtonCreate();
+                }
+              }}
+              style={{ padding: '5px', margin: '5px' }}
+            >
+              Force Create Chat Button
+            </button>
+          </div>
+        )}
       </div>
     );
-  }
+  };
 
-  if (scriptLoadFailed) {
-    return <div className="chat-widget-error">Failed to load chat widget</div>;
-  }
-
-  // Only render the chat container when configuration is properly loaded
-  return hasConfigLoaded ? (
-    <div id="genesys-chat-widget-container">
-      {/* Chat widget will be mounted here by the Genesys script */}
-    </div>
-  ) : null;
+  return renderContent();
 }
