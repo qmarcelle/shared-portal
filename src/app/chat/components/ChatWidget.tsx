@@ -13,25 +13,56 @@
  * overlapping fallbacks to a more streamlined approach.
  */
 
+import { usePlanContext } from '@/app/chat/hooks/usePlanContext';
+import { useUserContext } from '@/app/chat/hooks/useUserContext';
 import { useChatStore } from '@/app/chat/stores/chatStore';
 import { logger } from '@/utils/logger';
 import { useEffect, useState } from 'react';
 
-// We'll use any to avoid type conflicts with other declarations
-// in the codebase that we can't see
-
 export default function ChatWidget() {
   logger.info('[ChatWidget] Component render start');
-  const { genesysChatConfig, isLoading, error } = useChatStore();
+  const { genesysChatConfig, isLoading, error, loadChatConfiguration } =
+    useChatStore();
   const [scriptError, setScriptError] = useState(false);
+  const userContext = useUserContext();
+  const { planContext, error: planError } = usePlanContext();
 
   // Log initial state
   logger.info('[ChatWidget] Initial state', {
     genesysChatConfig,
     isLoading,
     error,
+    userContext,
+    planContext,
+    planError,
   });
 
+  // Load chat configuration when contexts are available
+  useEffect(() => {
+    logger.info('[ChatWidget] Checking contexts for configuration', {
+      userContext,
+      planContext,
+    });
+
+    if (!userContext?.memberId) {
+      logger.warn('[ChatWidget] No user context available');
+      return;
+    }
+
+    if (!planContext?.planId) {
+      logger.warn('[ChatWidget] No plan context available');
+      return;
+    }
+
+    logger.info('[ChatWidget] Loading chat configuration with contexts');
+    loadChatConfiguration(userContext.memberId, planContext.planId).catch(
+      (err) => {
+        logger.error('[ChatWidget] Failed to load chat configuration', err);
+      },
+    );
+  }, [userContext?.memberId, planContext?.planId, loadChatConfiguration]);
+
+  // Handle script and config loading
   useEffect(() => {
     logger.info('[ChatWidget] useEffect triggered', { genesysChatConfig });
     if (!genesysChatConfig) {
@@ -96,17 +127,23 @@ export default function ChatWidget() {
     };
   }, [genesysChatConfig]);
 
-  // Early return if config is missing
+  // Early returns for missing dependencies
+  if (!userContext) {
+    logger.warn('[ChatWidget] No user context available, returning early');
+    return null;
+  }
+
+  if (!planContext) {
+    logger.warn('[ChatWidget] No plan context available, returning early');
+    return planError ? (
+      <div>Error loading chat: {planError.message}</div>
+    ) : null;
+  }
+
   if (!genesysChatConfig) {
     logger.warn('[ChatWidget] No genesysChatConfig present, returning early');
     return null;
   }
-
-  // Early return if not eligible (if you have eligibility logic)
-  // if (!isEligible) {
-  //   logger.warn('[ChatWidget] Not eligible, returning early');
-  //   return null;
-  // }
 
   if (scriptError) {
     logger.error('[ChatWidget] Script error state, returning error UI');
