@@ -7,59 +7,38 @@
  * with a clear visual indicator and error reporting.
  */
 
-import { useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'; // Import React
 
 interface GenesysScriptLoaderProps {
   scriptUrl?: string;
   cssUrls?: string[];
 }
 
-export default function GenesysScriptLoader({
-  scriptUrl = '/assets/genesys/click_to_chat.js',
-  cssUrls = [
-    '/assets/genesys/plugins/widgets.min.css',
-    '/assets/genesys/styles/bcbst-custom.css',
-  ],
-}: GenesysScriptLoaderProps) {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'loaded' | 'error'>(
-    'idle',
-  );
-  const [error, setError] = useState<string | null>(null);
-  // Use a ref to prevent multiple script loads
-  const initialized = useRef(false);
+const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
+  ({
+    scriptUrl = '/assets/genesys/click_to_chat.js',
+    cssUrls = [
+      '/assets/genesys/plugins/widgets.min.css',
+      '/assets/genesys/styles/bcbst-custom.css',
+    ],
+  }) => {
+    const [status, setStatus] = useState<
+      'idle' | 'loading' | 'loaded' | 'error'
+    >('idle');
+    const [error, setError] = useState<string | null>(null);
+    const initialized = useRef(false);
 
-  useEffect(() => {
-    // Add CSS to fix Genesys overlay issues
-    const fixOverlayStyle = document.createElement('style');
-    fixOverlayStyle.textContent = `
-      /* Ensure Genesys elements are visible with proper z-index */
-      .cx-widget.cx-webchat-chat-button {
-        z-index: 9999 !important;
-        display: flex !important;
-        position: fixed !important;
-        right: 20px !important;
-        bottom: 20px !important;
-      }
-      
-      /* Ensure our custom button is always visible as fallback */
-      .genesys-custom-chat-button {
-        position: fixed !important;
-        bottom: 20px !important;
-        right: 20px !important;
-        background: #0078d4 !important;
-        color: white !important;
-        padding: 12px 20px !important;
-        border-radius: 5px !important;
-        z-index: 9998 !important; /* Just below Genesys elements */
-        cursor: pointer !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
-        font-family: sans-serif !important;
-      }
-    `;
-    document.head.appendChild(fixOverlayStyle);
+    // Memoize cssUrls to prevent unnecessary re-renders if parent re-renders
+    const stableCssUrls = useMemo(() => cssUrls, [cssUrls]);
 
-    const loadScript = async () => {
-      // Don't run again if already initialized
+    // Use useCallback for the loadScript function to memoize it
+    const loadScript = useCallback(async () => {
       if (initialized.current) {
         console.log('GenesysScriptLoader: Already initialized, skipping');
         return;
@@ -71,12 +50,11 @@ export default function GenesysScriptLoader({
         console.log('GenesysScriptLoader: Starting load sequence');
 
         // 1. Load CSS files first
-        for (const cssUrl of cssUrls) {
+        for (const cssUrl of stableCssUrls) {
           const link = document.createElement('link');
           link.rel = 'stylesheet';
           link.href = cssUrl;
 
-          // Wait for CSS to load
           await new Promise<void>((resolve, reject) => {
             link.onload = () => {
               console.log(`GenesysScriptLoader: Loaded CSS: ${cssUrl}`);
@@ -101,7 +79,6 @@ export default function GenesysScriptLoader({
           chatMode: 'legacy',
           genesysWidgetUrl: '/assets/genesys/plugins/widgets.min.js',
           isChatAvailable: 'true',
-          // Explicitly disable cobrowse
           isCobrowseActive: 'false',
           coBrowseLicence: '',
           cobrowseSource: '',
@@ -112,7 +89,6 @@ export default function GenesysScriptLoader({
           (window as any).chatSettings,
         );
 
-        // Disable cobrowse function if it exists
         (window as any).startCoBrowseCall = () => {
           console.log('GenesysScriptLoader: Cobrowse disabled');
           return false;
@@ -130,7 +106,7 @@ export default function GenesysScriptLoader({
           const script = document.createElement('script');
           script.src = scriptUrlWithTimestamp;
           script.async = false;
-          script.id = 'genesys-chat-script'; // Add ID to prevent duplicates
+          script.id = 'genesys-chat-script';
 
           script.onload = () => {
             console.log(
@@ -149,7 +125,6 @@ export default function GenesysScriptLoader({
             );
           };
 
-          // Remove any existing script first to prevent duplicates
           const existingScript = document.getElementById('genesys-chat-script');
           if (existingScript) {
             console.log('GenesysScriptLoader: Removing existing script');
@@ -171,15 +146,14 @@ export default function GenesysScriptLoader({
             (window as any)._forceChatButtonCreate();
           } else {
             console.log(
-              'GenesysScriptLoader: _forceChatButtonCreate not found',
+              '_forceChatButtonCreate not found, attempting event dispatch',
             );
+            // Also try event dispatch
+            console.log(
+              'GenesysScriptLoader: Dispatching genesys:create-button event',
+            );
+            document.dispatchEvent(new CustomEvent('genesys:create-button'));
           }
-
-          // Also try event dispatch
-          console.log(
-            'GenesysScriptLoader: Dispatching genesys:create-button event',
-          );
-          document.dispatchEvent(new CustomEvent('genesys:create-button'));
 
           // Check if widgets.min.js loaded
           console.log(
@@ -193,7 +167,6 @@ export default function GenesysScriptLoader({
 
           // Create a guaranteed backup button if all else fails
           setTimeout(() => {
-            // Remove any existing backup button first
             const existingBackupButton = document.querySelector(
               '.genesys-custom-chat-button',
             );
@@ -252,45 +225,83 @@ export default function GenesysScriptLoader({
         setStatus('error');
         setError(err instanceof Error ? err.message : String(err));
       }
-    };
+    }, [stableCssUrls, scriptUrl]); // Dependencies for useCallback
 
-    loadScript();
+    useEffect(() => {
+      // Add CSS to fix Genesys overlay issues
+      const fixOverlayStyle = document.createElement('style');
+      fixOverlayStyle.textContent = `
+        /* Ensure Genesys elements are visible with proper z-index */
+        .cx-widget.cx-webchat-chat-button {
+          z-index: 9999 !important;
+          display: flex !important;
+          position: fixed !important;
+          right: 20px !important;
+          bottom: 20px !important;
+        }
 
-    // Cleanup function
-    return () => {
-      console.log('GenesysScriptLoader: Component unmounting');
-      // We do NOT set initialized.current = false here to prevent reinitialization
-    };
-  }, []); // Empty dependency array - only run once
+        /* Ensure our custom button is always visible as fallback */
+        .genesys-custom-chat-button {
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          background: #0078d4 !important;
+          color: white !important;
+          padding: 12px 20px !important;
+          border-radius: 5px !important;
+          z-index: 9998 !important; /* Just below Genesys elements */
+          cursor: pointer !important;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+          font-family: sans-serif !important;
+        }
+      `;
+      document.head.appendChild(fixOverlayStyle);
 
-  // Render a status indicator
-  return (
-    <div
-      style={{ position: 'fixed', bottom: '60px', left: '10px', zIndex: 9999 }}
-    >
+      loadScript();
+
+      return () => {
+        console.log('GenesysScriptLoader: Component unmounting');
+        // We do NOT set initialized.current = false here to prevent reinitialization
+      };
+    }, [loadScript]); // loadScript is the dependency
+
+    return (
       <div
         style={{
-          padding: '8px 12px',
-          borderRadius: '4px',
-          fontSize: '14px',
-          fontFamily: 'sans-serif',
-          backgroundColor:
-            status === 'loaded'
-              ? '#10b981'
-              : status === 'loading'
-                ? '#f59e0b'
-                : status === 'error'
-                  ? '#ef4444'
-                  : '#6b7280',
-          color: 'white',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          position: 'fixed',
+          bottom: '60px',
+          left: '10px',
+          zIndex: 9999,
         }}
       >
-        {status === 'idle' && 'Script Ready to Load'}
-        {status === 'loading' && 'Loading Genesys Script...'}
-        {status === 'loaded' && 'Genesys Script Loaded ✓'}
-        {status === 'error' && `Error: ${error?.slice(0, 50)}`}
+        <div
+          style={{
+            padding: '8px 12px',
+            borderRadius: '4px',
+            fontSize: '14px',
+            fontFamily: 'sans-serif',
+            backgroundColor:
+              status === 'loaded'
+                ? '#10b981'
+                : status === 'loading'
+                  ? '#f59e0b'
+                  : status === 'error'
+                    ? '#ef4444'
+                    : '#6b7280',
+            color: 'white',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          }}
+        >
+          {status === 'idle' && 'Script Ready to Load'}
+          {status === 'loading' && 'Loading Genesys Script...'}
+          {status === 'loaded' && 'Genesys Script Loaded ✓'}
+          {status === 'error' && `Error: ${error?.slice(0, 50)}`}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  },
+);
+
+GenesysScriptLoader.displayName = 'GenesysScriptLoader'; // Set the display name
+
+export default GenesysScriptLoader;
