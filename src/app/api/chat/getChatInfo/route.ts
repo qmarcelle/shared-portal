@@ -114,15 +114,25 @@ export async function GET(request: NextRequest) {
 
     // Transform the data if needed
     const transformedData = {
-      // Ensure we include all relevant fields from the response
+      // Existing mappings
       cloudChatEligible: data.cloudChatEligible || false,
       chatGroup: data.chatGroup || '',
-      chatAvailable: true, // Force to true for testing
-      isEligible: true, // Force eligibility for testing
-      workingHours: data.workingHours || 'S_S_24', // Set to 24/7 for testing
+      chatAvailable: data.chatAvailable ?? true,
+      isEligible: data.isEligible ?? true,
+      workingHours: data.workingHours || 'S_S_24',
       chatIDChatBotName: data.chatIDChatBotName || '',
-      chatBotEligibility: data.chatBotEligibility || false,
+      // Ensure chatBotEligibility is set to isEligible
+      chatBotEligibility: data.isEligible ?? true,
       routingChatBotEligibility: data.routingChatBotEligibility || false,
+
+      // Genesys config required fields
+      isChatEligibleMember:
+        data.isChatEligibleMember ?? data.isEligible ?? true,
+      isChatAvailable: data.isChatAvailable ?? data.chatAvailable ?? true,
+      chatHours:
+        data.chatHours || process.env.NEXT_PUBLIC_CHAT_HOURS || 'M-F 8am-5pm',
+      rawChatHrs:
+        data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
     };
 
     logger.info('[API:chat/getChatInfo] Returning transformed chat info', {
