@@ -2,7 +2,7 @@
 
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface PlanContext {
   planId: string;
@@ -45,69 +45,62 @@ export function usePlanContext(): PlanContextReturn {
   };
   const [planContext, setPlanContext] = useState<PlanContext | null>(null);
   const [error, setError] = useState<Error | null>(null);
+  const [loading, setLoading] = useState(true);
+  const retryCount = useRef(0);
+  const MAX_RETRIES = 3;
 
   useEffect(() => {
-    // Reset error on new effect call
+    let timer: NodeJS.Timeout | null = null;
     setError(null);
-
     try {
-      // Only process when session is fully authenticated
       if (status !== 'authenticated' || !session) {
         logger.info('[usePlanContext] Session not authenticated yet', {
           status,
         });
+        setLoading(true);
         return;
       }
-
-      // Check if session and necessary nested properties exist
-      if (!session?.user?.currUsr?.plan?.grpId) {
-        logger.warn('[usePlanContext] No plan data found in session', {
-          sessionExists: !!session,
-          userExists: !!session?.user,
-          currUserExists: !!session?.user?.currUsr,
-          planExists: !!session?.user?.currUsr?.plan,
-          grpIdExists: !!session?.user?.currUsr?.plan?.grpId,
+      const planData = session?.user?.currUsr?.plan;
+      if (planData && planData.grpId) {
+        logger.info('[usePlanContext] Successfully loaded plan data');
+        setPlanContext({
+          planId: planData.grpId,
+          groupId: planData.grpId,
         });
-        setPlanContext(null);
-        return;
+        setLoading(false);
+        retryCount.current = 0;
+      } else if (retryCount.current < MAX_RETRIES) {
+        // Retry logic with exponential backoff
+        const timeout = Math.pow(2, retryCount.current) * 1000;
+        logger.warn(
+          `[usePlanContext] Plan data not available, retry ${retryCount.current + 1}/${MAX_RETRIES} in ${timeout}ms`,
+        );
+        timer = setTimeout(() => {
+          retryCount.current += 1;
+          setLoading(true); // Force re-render to trigger another check
+        }, timeout);
+      } else {
+        logger.error(
+          '[usePlanContext] Failed to load plan data after maximum retries',
+        );
+        setLoading(false);
       }
-
-      // Access plan data from the correct nested structure
-      const planData = session.user.currUsr.plan;
-
-      // Validate critical fields
-      if (!planData.grpId) {
-        logger.warn('[usePlanContext] grpId is required but missing');
-        setPlanContext(null);
-        return;
-      }
-
-      const context: PlanContext = {
-        planId: planData.grpId, // Group ID is the plan ID
-        groupId: planData.grpId,
-        // Note: clientId and groupType not available in the current session structure
-      };
-
-      logger.info('[usePlanContext] Successfully retrieved plan context', {
-        planId: context.planId,
-        groupId: context.groupId,
-      });
-
-      setPlanContext(context);
     } catch (err) {
       const errorObj =
         err instanceof Error ? err : new Error('Failed to get plan context');
       logger.error('[usePlanContext] Error getting plan context', errorObj);
       setError(errorObj);
       setPlanContext(null);
+      setLoading(false);
     }
-  }, [session, status]);
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [session, status, loading]);
 
-  // Consider loading if:
-  // 1. Session is still loading OR
-  // 2. Session is authenticated but context isn't set yet (critical data not available)
-  const isPlanContextLoading =
-    status === 'loading' || (status === 'authenticated' && !planContext);
-
-  return { planContext, error, isPlanContextLoading };
+  return {
+    planContext,
+    error,
+    isPlanContextLoading: status === 'loading' || loading,
+  };
 }

@@ -2,7 +2,7 @@
 
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface UserContext {
   memberId: string;
@@ -49,62 +49,60 @@ export function useUserContext(): UserContextReturn {
   };
 
   const [context, setContext] = useState<UserContext | null>(null);
+  const [loading, setLoading] = useState(true);
+  const retryCount = useRef(0);
+  const MAX_RETRIES = 3;
 
   useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
     try {
-      // Only process when session is fully authenticated
       if (status !== 'authenticated' || !session) {
         logger.info('[useUserContext] Session not authenticated yet', {
           status,
         });
+        setLoading(true);
         return;
       }
-
-      // Only set context when critical data is available
-      if (!session?.user?.currUsr?.plan?.memCk) {
-        logger.warn('[useUserContext] No member ID found in session', {
-          sessionExists: !!session,
-          userExists: !!session?.user,
-          currUserExists: !!session?.user?.currUsr,
-          planExists: !!session?.user?.currUsr?.plan,
-          memCkExists: !!session?.user?.currUsr?.plan?.memCk,
+      const userData = session?.user?.currUsr?.plan?.memCk;
+      if (userData) {
+        logger.info('[useUserContext] Successfully loaded member data');
+        setContext({
+          memberId: userData,
+          firstName: session.user.currUsr?.firstName,
+          lastName: session.user.currUsr?.lastName,
+          subscriberId: session.user.currUsr?.subscriberId,
+          suffix: session.user.currUsr?.suffix,
         });
-        return;
+        setLoading(false);
+        retryCount.current = 0;
+      } else if (retryCount.current < MAX_RETRIES) {
+        // Retry logic with exponential backoff
+        const timeout = Math.pow(2, retryCount.current) * 1000;
+        logger.warn(
+          `[useUserContext] Member data not available, retry ${retryCount.current + 1}/${MAX_RETRIES} in ${timeout}ms`,
+        );
+        timer = setTimeout(() => {
+          retryCount.current += 1;
+          setLoading(true); // Force re-render to trigger another check
+        }, timeout);
+      } else {
+        logger.error(
+          '[useUserContext] Failed to load member data after maximum retries',
+        );
+        setLoading(false);
       }
-
-      // Access member data from the correct nested structure
-      const memberData = session.user.currUsr;
-      const planData = memberData.plan!; // We've already checked it exists
-
-      const newContext: UserContext = {
-        memberId: planData.memCk, // Member check ID is the member ID
-        firstName: memberData.firstName,
-        lastName: memberData.lastName,
-        subscriberId: memberData.subscriberId,
-        suffix: memberData.suffix,
-      };
-
-      logger.info('[useUserContext] Successfully retrieved user context', {
-        memberId: newContext.memberId,
-        hasFirstName: !!newContext.firstName,
-        hasLastName: !!newContext.lastName,
-      });
-
-      setContext(newContext);
     } catch (error) {
       logger.error('[useUserContext] Error getting user context', error);
       setContext(null);
+      setLoading(false);
     }
-  }, [session, status]);
-
-  // Consider loading if:
-  // 1. Session is still loading OR
-  // 2. Session is authenticated but context isn't set yet (critical data not available)
-  const isUserContextLoading =
-    status === 'loading' || (status === 'authenticated' && !context);
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [session, status, loading]);
 
   return {
     userContext: context,
-    isUserContextLoading,
+    isUserContextLoading: status === 'loading' || loading,
   };
 }
