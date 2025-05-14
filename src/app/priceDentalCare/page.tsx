@@ -11,7 +11,10 @@ const PriceDentalCarePage = async () => {
   const dentalNetworks = await getNetworks();
   const procCategories = await getProcedureCategories();
   return (
-    <PriceDentalCare networks={dentalNetworks} categories={procCategories} />
+    <PriceDentalCare
+      networks={dentalNetworks[0]?.networks}
+      categories={procCategories[0]}
+    />
   );
 };
 
