@@ -125,7 +125,8 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       GMSChatURL: () => genesysChatConfig.gmsChatUrl,
     };
 
-    // Load scripts/styles (always load widgets.min.js in legacy mode, or if in doubt)
+    // Only load click_to_chat.js; let Genesys handle widgets.min.js internally
+    // This avoids double-loading and potential race conditions
     const loadAllScripts = async () => {
       try {
         await loadStylesheet(
@@ -140,11 +141,7 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
           '/assets/genesys/click_to_chat.js',
           'genesys-click-to-chat',
         );
-        // Always load widgets.min.js for legacy or if in doubt
-        await loadScript(
-          '/assets/genesys/plugins/widgets.min.js',
-          'genesys-widgets',
-        );
+        // Do NOT load widgets.min.js directly; click_to_chat.js will handle it
         console.log('[ChatWidget] All Genesys scripts/styles loaded');
       } catch (err) {
         console.error('[ChatWidget] Error loading Genesys scripts/styles', err);
