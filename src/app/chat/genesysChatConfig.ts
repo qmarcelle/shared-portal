@@ -249,13 +249,12 @@ export function buildGenesysChatConfig({
     },
   );
 
-  // Fallback helpers
   const env: NodeJS.ProcessEnv =
     typeof process !== 'undefined' ? process.env : ({} as NodeJS.ProcessEnv);
   const endpoints = getChatConfig();
 
-  // Build the configuration with all available data and robust fallbacks
-  const config: GenesysChatConfig = {
+  // --- Explicit sensible defaults for all required fields ---
+  const defaults: Partial<GenesysChatConfig> = {
     clickToChatToken:
       (apiConfig.clickToChatToken as string) ||
       (apiConfig.token as string) ||
@@ -264,10 +263,23 @@ export function buildGenesysChatConfig({
     clickToChatEndpoint:
       (apiConfig.clickToChatEndpoint as string) ||
       endpoints.CLICK_TO_CHAT_ENDPOINT ||
-      env.NEXT_PUBLIC_CHAT_ENDPOINT ||
-      '',
-    clickToChatDemoEndPoint:
-      (apiConfig.clickToChatDemoEndPoint as string) || undefined,
+      env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
+      'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
+    gmsChatUrl:
+      staticConfig.gmsChatUrl ||
+      env.NEXT_PUBLIC_GMS_CHAT_URL ||
+      endpoints.CLICK_TO_CHAT_ENDPOINT ||
+      'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
+    widgetUrl:
+      staticConfig.widgetUrl ||
+      env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
+      CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
+      '/assets/genesys/plugins/widgets.min.css',
+    clickToChatJs:
+      staticConfig.clickToChatJs ||
+      env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS ||
+      CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
+      '/assets/genesys/click_to_chat.js',
     coBrowseLicence:
       staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
     cobrowseSource:
@@ -276,93 +288,101 @@ export function buildGenesysChatConfig({
     opsPhone: staticConfig.opsPhone || env.NEXT_PUBLIC_OPS_PHONE || '',
     opsPhoneHours:
       staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
-    routingchatbotEligible: apiConfig.routingchatbotEligible as
-      | boolean
-      | string
-      | undefined,
-    isChatEligibleMember: apiConfig.isChatEligibleMember as boolean | string,
-    isDemoMember: apiConfig.isDemoMember as boolean | string | undefined,
-    isAmplifyMem: apiConfig.isAmplifyMem as boolean | string | undefined,
-    isCobrowseActive: apiConfig.isCobrowseActive as
-      | boolean
-      | string
-      | undefined,
-    isMagellanVAMember: apiConfig.isMagellanVAMember as
-      | boolean
-      | string
-      | undefined,
-    userID: user.userID,
-    memberFirstname: user.memberFirstname,
-    memberLastName: user.memberLastName,
-    formattedFirstName: user.formattedFirstName,
-    subscriberID: user.subscriberID,
-    sfx: user.sfx,
-    groupId: plan.groupId,
-    memberClientID: plan.memberClientID,
-    groupType: plan.groupType,
-    memberMedicalPlanID: plan.memberMedicalPlanID,
-    memberDOB: plan.memberDOB,
-    isDental: apiConfig.isDental as boolean | string | undefined,
-    isMedical: apiConfig.isMedical as boolean | string | undefined,
-    isVision: apiConfig.isVision as boolean | string | undefined,
-    isWellnessOnly: apiConfig.isWellnessOnly as boolean | string | undefined,
-    isCobraEligible: apiConfig.isCobraEligible as boolean | string | undefined,
-    isIDCardEligible: apiConfig.isIDCardEligible as
-      | boolean
-      | string
-      | undefined,
-    isChatAvailable: apiConfig.isChatAvailable as boolean | string,
-    chatbotEligible: apiConfig.chatbotEligible as boolean | string | undefined,
-    isMedicalAdvantageGroup: apiConfig.isMedicalAdvantageGroup as
-      | boolean
-      | string
-      | undefined,
+    chatMode:
+      staticConfig.chatMode ||
+      (apiConfig.cloudChatEligible ? 'cloud' : 'legacy'),
+    isChatEligibleMember:
+      (apiConfig.isChatEligibleMember as boolean | string) || false,
+    isChatAvailable: (apiConfig.isChatAvailable as boolean | string) || false,
+    userID: user.userID || '',
+    MEMBER_ID: user.userID || '',
+    memberMedicalPlanID: plan.memberMedicalPlanID || '',
     chatHours: staticConfig.chatHours || env.NEXT_PUBLIC_CHAT_HOURS || '',
     rawChatHrs: staticConfig.rawChatHrs || env.NEXT_PUBLIC_RAW_CHAT_HRS || '',
-    selfServiceLinks: staticConfig.selfServiceLinks,
+    audioAlertPath:
+      staticConfig.audioAlertPath ||
+      env.NEXT_PUBLIC_AUDIO_ALERT_PATH ||
+      '/assets/genesys/notification.mp3',
+    timestamp: new Date().toISOString(),
+  };
+
+  // Merge defaults with all available values (API, static, etc.)
+  const config: GenesysChatConfig = {
+    ...defaults,
+    ...apiConfig,
+    ...staticConfig,
+    userID: user.userID || '',
+    memberFirstname: user.memberFirstname || '',
+    memberLastName: user.memberLastName || '',
+    formattedFirstName: user.formattedFirstName || '',
+    subscriberID: user.subscriberID || '',
+    sfx: user.sfx || '',
+    groupId: plan.groupId || '',
+    memberClientID: plan.memberClientID || '',
+    groupType: plan.groupType || '',
+    memberMedicalPlanID: plan.memberMedicalPlanID || '',
+    memberDOB: plan.memberDOB || '',
+    clickToChatToken: (defaults.clickToChatToken || '') + '',
+    clickToChatEndpoint: (defaults.clickToChatEndpoint || '') + '',
+    gmsChatUrl: (defaults.gmsChatUrl || '') + '',
+    widgetUrl: (defaults.widgetUrl || '') + '',
+    clickToChatJs: (defaults.clickToChatJs || '') + '',
+    coBrowseLicence: (defaults.coBrowseLicence || '') + '',
+    cobrowseSource: (defaults.cobrowseSource || '') + '',
+    cobrowseURL: (defaults.cobrowseURL || '') + '',
+    chatHours: (defaults.chatHours || '') + '',
+    rawChatHrs: (defaults.rawChatHrs || '') + '',
+    audioAlertPath: (defaults.audioAlertPath || '') + '',
+    MEMBER_ID: (defaults.MEMBER_ID || '') + '',
+    isChatEligibleMember:
+      typeof defaults.isChatEligibleMember === 'string' ||
+      typeof defaults.isChatEligibleMember === 'boolean'
+        ? defaults.isChatEligibleMember
+        : '',
+    isChatAvailable:
+      typeof defaults.isChatAvailable === 'string' ||
+      typeof defaults.isChatAvailable === 'boolean'
+        ? defaults.isChatAvailable
+        : '',
+    opsPhone: staticConfig.opsPhone || env.NEXT_PUBLIC_OPS_PHONE || '',
+    opsPhoneHours:
+      staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
     idCardChatBotName: staticConfig.idCardChatBotName || '',
-    widgetUrl:
-      staticConfig.widgetUrl ||
-      CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
-      '/assets/genesys/plugins/widgets.min.css',
-    clickToChatJs:
-      staticConfig.clickToChatJs ||
-      CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
-      '/assets/genesys/click_to_chat.js',
     chatTokenEndpoint:
       staticConfig.chatTokenEndpoint || endpoints.CHAT_TOKEN_ENDPOINT || '',
     coBrowseEndpoint:
       staticConfig.coBrowseEndpoint ||
       endpoints.COBROWSE_LICENSE_ENDPOINT ||
       '',
-    gmsChatUrl:
-      staticConfig.gmsChatUrl ||
-      env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      endpoints.CLICK_TO_CHAT_ENDPOINT ||
-      '',
-    chatMode:
-      staticConfig.chatMode ||
-      (apiConfig.cloudChatEligible ? 'cloud' : 'legacy'),
-    deploymentId: staticConfig.deploymentId,
-    orgId: staticConfig.orgId,
-    genesysWidgetUrl: staticConfig.genesysWidgetUrl,
-    isBlueEliteGroup: staticConfig.isBlueEliteGroup,
-    INQ_TYPE: staticConfig.INQ_TYPE,
-    LOB: staticConfig.LOB,
-    MEMBER_ID: staticConfig.MEMBER_ID,
-    audioAlertPath: staticConfig.audioAlertPath,
-    // Add timestamp for debugging
     timestamp: new Date().toISOString(),
+    // All other optional fields from apiConfig/staticConfig are included above
   };
 
-  // Validate that all required fields are present
-  const validation = validateGenesysChatConfig(config);
-
-  if (!validation.isValid) {
-    logger.warn('[buildGenesysChatConfig] Config missing required fields', {
-      missingFields: validation.missingFields,
-      timestamp: new Date().toISOString(),
-    });
+  // Validate that all required fields are present and log each missing field
+  const requiredFields = [
+    'clickToChatToken',
+    'clickToChatEndpoint',
+    'gmsChatUrl',
+    'widgetUrl',
+    'clickToChatJs',
+    'coBrowseLicence',
+    'cobrowseSource',
+    'cobrowseURL',
+    'userID',
+    'MEMBER_ID',
+    'memberMedicalPlanID',
+    'isChatEligibleMember',
+    'isChatAvailable',
+    'chatHours',
+    'rawChatHrs',
+  ];
+  const missingFields = requiredFields.filter(
+    (field) => !config[field as keyof GenesysChatConfig],
+  );
+  if (missingFields.length > 0) {
+    logger.error(
+      `[buildGenesysChatConfig] Config missing required fields: ${missingFields.join(', ')}`,
+    );
   }
 
   // Log the final configuration for tracing
