@@ -17,7 +17,7 @@ import {
 import Iframe from '@/components/foundation/Iframe';
 import { InlineLink } from '@/components/foundation/InlineLink';
 import { Row } from '@/components/foundation/Row';
-import { Spacer } from '@/components/foundation/Spacer';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import { isBenefitBookletEnabled } from '@/visibilityEngine/computeVisibilityRules';
@@ -47,17 +47,20 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
             className="max-w-[650px]"
             text="We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits."
           />
-
-          <TextBox
-            className="inline"
-            text="To request a printed version of any of these materials, please "
-          />
-          <InlineLink
-            className="inline py-0 pl-0 pr-0"
-            label="contact us"
-            url="/member/support"
-          />
-          <TextBox className="inline" text="." />
+          <Spacer size={16} />
+          <Row className="body-1">
+            <TextBox
+              className="inline"
+              text="To request a printed version of any of these materials, please"
+            />
+            <SpacerX size={8} />
+            <InlineLink
+              className="inline py-0 pl-0 pr-0"
+              label=" contact us"
+              url="/member/support"
+            />
+            <TextBox className="inline" text="." />
+          </Row>
         </section>
 
         {(isBenefitBooklet || data?.visibilityRules?.medicare) && (
