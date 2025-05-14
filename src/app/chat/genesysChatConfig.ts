@@ -327,11 +327,21 @@ export function buildGenesysChatConfig({
     gmsChatUrl: (defaults.gmsChatUrl || '') + '',
     widgetUrl: (defaults.widgetUrl || '') + '',
     clickToChatJs: (defaults.clickToChatJs || '') + '',
-    coBrowseLicence: (defaults.coBrowseLicence || '') + '',
-    cobrowseSource: (defaults.cobrowseSource || '') + '',
-    cobrowseURL: (defaults.cobrowseURL || '') + '',
-    chatHours: (defaults.chatHours || '') + '',
-    rawChatHrs: (defaults.rawChatHrs || '') + '',
+    coBrowseLicence:
+      staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
+    cobrowseSource:
+      staticConfig.cobrowseSource || env.NEXT_PUBLIC_COBROWSE_SOURCE || '',
+    cobrowseURL: staticConfig.cobrowseURL || env.NEXT_PUBLIC_COBROWSE_URL || '',
+    chatHours:
+      typeof apiConfig.chatHours === 'string'
+        ? apiConfig.chatHours
+        : typeof apiConfig.workingHours === 'string'
+          ? apiConfig.workingHours
+          : env.NEXT_PUBLIC_CHAT_HOURS || '',
+    rawChatHrs:
+      typeof apiConfig.rawChatHrs === 'string'
+        ? apiConfig.rawChatHrs
+        : env.NEXT_PUBLIC_RAW_CHAT_HRS || '',
     audioAlertPath: (defaults.audioAlertPath || '') + '',
     MEMBER_ID: (defaults.MEMBER_ID || '') + '',
     isChatEligibleMember:
@@ -355,7 +365,6 @@ export function buildGenesysChatConfig({
       endpoints.COBROWSE_LICENSE_ENDPOINT ||
       '',
     timestamp: new Date().toISOString(),
-    // All other optional fields from apiConfig/staticConfig are included above
   };
 
   // Validate that all required fields are present and log each missing field
