@@ -60,8 +60,14 @@ export default function GenesysScriptLoader({
           clickToChatEndpoint: 'https://example.com/chat',
           routingchatbotEligible: 'true',
           isChatEligibleMember: 'true',
+          chatMode: 'legacy',
+          genesysWidgetUrl: '/assets/genesys/plugins/widgets.min.js',
+          isChatAvailable: 'true',
         };
-        console.log('GenesysScriptLoader: Set window.chatSettings');
+        console.log(
+          'GenesysScriptLoader: Set window.chatSettings',
+          (window as any).chatSettings,
+        );
 
         // 3. Add the script with cache busting
         const timestamp = new Date().getTime();
