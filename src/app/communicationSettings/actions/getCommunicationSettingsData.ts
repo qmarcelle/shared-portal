@@ -26,6 +26,13 @@ export const getCommunicationSettingsData = async (): Promise<
           return { hTexts, pTexts };
         })
       : [];
+    const contactPreferences = response.contactPreferences?.map((item) => {
+      const communicationCategory = item.communicationCategory;
+      const communicationMethod = item.communicationMethod;
+      const optOut = item.optOut;
+
+      return { communicationCategory, communicationMethod, optOut };
+    });
 
     const phoneNumber = await invokePhoneNumberAction();
 
@@ -39,6 +46,7 @@ export const getCommunicationSettingsData = async (): Promise<
         tierOneDescriptions,
         tierOne: response.tierOne,
         phoneNumber: phoneNumber,
+        contactPreferences,
       },
     };
   } catch (error) {
