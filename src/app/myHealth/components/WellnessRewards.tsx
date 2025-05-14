@@ -7,6 +7,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { isChipRewardsINTEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { IComponent } from '../../../components/IComponent';
@@ -23,6 +25,8 @@ interface WellnessRewardsProps extends IComponent {
   memberRewards: MemberRewards | null;
   icon?: ReactNode;
   linkText?: string;
+  visibilityRules?: VisibilityRules;
+  isMemRelation?: string;
 }
 
 export const WellnessRewards = ({
@@ -32,6 +36,8 @@ export const WellnessRewards = ({
   linkText = 'View Ways to Earn & Learn more',
   icon = <Image alt="external icon" src={externalIcon} />,
   memberRewards,
+  visibilityRules,
+  isMemRelation,
 }: WellnessRewardsProps) => {
   return (
     <>
@@ -139,11 +145,20 @@ export const WellnessRewards = ({
                   </Row>
                   <Spacer size={18} />
                   <Row>
-                    <AppLink
-                      className="body-1"
-                      label={linkText}
-                      url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
-                    />
+                    {isMemRelation &&
+                    isChipRewardsINTEligible(visibilityRules) ? (
+                      <AppLink
+                        className="body-1"
+                        label={linkText}
+                        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+                      />
+                    ) : (
+                      <AppLink
+                        className="body-1"
+                        label={linkText}
+                        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+                      />
+                    )}
                     <Image alt="external icon" src={externalIcon} />
                   </Row>
                   <Spacer size={18} />

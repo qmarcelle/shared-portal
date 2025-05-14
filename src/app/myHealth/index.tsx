@@ -208,6 +208,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
             <WellnessRewards
               memberRewards={data.memberRewards}
               className="section"
+              isMemRelation={data.isMemRelation}
             />
           </section>
         )}

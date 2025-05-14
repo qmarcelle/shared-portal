@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`] = `
+exports[`PrescriptionPaymentsOptions should render SSO correctly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -10,7 +10,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
       >
         <a
           aria-label="Medicare Prescription Payment Plan Sign-up"
-          href="/pharmacy/medicalPrescriptionPaymentPlan"
+          href="/sso/launch?PartnerSpId=https://iam-uat.medadvantage360.com/auth/realms/member-stage"
           style="display: flex;"
         >
           <button
@@ -175,7 +175,394 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
     >
       <a
         aria-label="Medicare Prescription Payment Plan Sign-up"
-        href="/pharmacy/medicalPrescriptionPaymentPlan"
+        href="/sso/launch?PartnerSpId=https://iam-uat.medadvantage360.com/auth/realms/member-stage"
+        style="display: flex;"
+      >
+        <button
+          class="flex flex-row link-container pl-0"
+          style="max-width: max-content; height: auto; display: flex;"
+          tabindex="-1"
+          type="button"
+        >
+          <p
+            class="link undefined"
+          >
+            Medicare Prescription Payment Plan Sign-up
+          </p>
+          <p
+            class="ml-1"
+          >
+            <img
+              alt=""
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </a>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <span
+        class="rich-text body-1 manage-image"
+      >
+        <span>
+          Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
+           
+        </span>
+        <span
+          class="link"
+        >
+          <a
+            class="link"
+            href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+            target="_blank"
+          >
+            fact sheet
+          </a>
+        </span>
+        <span>
+          .
+        </span>
+      </span>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <span
+        class="rich-text body-1 manage-image"
+      >
+        <span>
+          If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
+           
+        </span>
+        <span
+          class="link"
+        >
+          <a
+            class="link"
+            target="_blank"
+          >
+            get a retroactive election
+          </a>
+        </span>
+        <span>
+           into the program.
+        </span>
+      </span>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <span
+        class="rich-text body-1 manage-image"
+      >
+        <span>
+          Learn more about 
+        </span>
+        <span
+          class="link"
+        >
+          <a
+            class="link"
+            href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
+            target="_blank"
+          >
+            making a complaint
+          </a>
+        </span>
+        <span>
+          .
+        </span>
+      </span>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+      />
+      <div
+        class=""
+        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+      />
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+      />
+      <a
+        aria-label="Social Security Extra Help Program"
+        href="https://www.ssa.gov/medicare/part-d-extra-help"
+        style="display: flex;"
+      >
+        <button
+          class="flex flex-row link-container pl-0"
+          style="max-width: max-content; height: auto; display: flex;"
+          tabindex="-1"
+          type="button"
+        >
+          <p
+            class="link undefined"
+          >
+            Social Security Extra Help Program
+          </p>
+          <p
+            class="ml-1"
+          >
+            <img
+              alt=""
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </a>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <p
+        class="body-1"
+        style="display: block;"
+      >
+        If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
+      </p>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col"
+      >
+        <a
+          aria-label="Medicare Prescription Payment Plan Sign-up"
+          href="/sso/launch?PartnerSpId=https://iam-uat.medadvantage360.com/auth/realms/member-stage"
+          style="display: flex;"
+        >
+          <button
+            class="flex flex-row link-container pl-0"
+            style="max-width: max-content; height: auto; display: flex;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+            >
+              Medicare Prescription Payment Plan Sign-up
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <span
+          class="rich-text body-1 manage-image"
+        >
+          <span>
+            Now you can pay for your prescription drugs over time with a monthly payment. You can learn more by reading the
+             
+          </span>
+          <span
+            class="link"
+          >
+            <a
+              class="link"
+              href="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
+              target="_blank"
+            >
+              fact sheet
+            </a>
+          </span>
+          <span>
+            .
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <span
+          class="rich-text body-1 manage-image"
+        >
+          <span>
+            If you had an urgent prescription filled that you paid for before we received and processed your enrollment in the Medicare Prescription Payment Plan, you may be able to
+             
+          </span>
+          <span
+            class="link"
+          >
+            <a
+              class="link"
+              target="_blank"
+            >
+              get a retroactive election
+            </a>
+          </span>
+          <span>
+             into the program.
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <span
+          class="rich-text body-1 manage-image"
+        >
+          <span>
+            Learn more about 
+          </span>
+          <span
+            class="link"
+          >
+            <a
+              class="link"
+              href="https://www.bcbst-medicare.com/use-insurance/health-care-rights/medicare"
+              target="_blank"
+            >
+              making a complaint
+            </a>
+          </span>
+          <span>
+            .
+          </span>
+        </span>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+        />
+        <div
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+        />
+        <a
+          aria-label="Social Security Extra Help Program"
+          href="https://www.ssa.gov/medicare/part-d-extra-help"
+          style="display: flex;"
+        >
+          <button
+            class="flex flex-row link-container pl-0"
+            style="max-width: max-content; height: auto; display: flex;"
+            tabindex="-1"
+            type="button"
+          >
+            <p
+              class="link undefined"
+            >
+              Social Security Extra Help Program
+            </p>
+            <p
+              class="ml-1"
+            >
+              <img
+                alt=""
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+            </p>
+          </button>
+        </a>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <p
+          class="body-1"
+          style="display: block;"
+        >
+          If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
+        </p>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col"
+    >
+      <a
+        aria-label="Medicare Prescription Payment Plan Sign-up"
+        href="/sso/launch?PartnerSpId=https://iam-uat.medadvantage360.com/auth/realms/member-stage"
         style="display: flex;"
       >
         <button
