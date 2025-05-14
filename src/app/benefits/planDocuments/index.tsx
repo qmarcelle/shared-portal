@@ -1,5 +1,9 @@
 'use client';
 
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_PHARMACY_SEARCH_FAST,
+} from '@/app/sso/ssoConstants';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
@@ -18,14 +22,16 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import { isBenefitBookletEnabled } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { PlanDocumentsData } from './models/app/plan_documents_data';
 
 type PlanDocumentsProps = {
   data: PlanDocumentsData;
+  formularyURL?: string;
 };
-const PlanDocuments = ({ data }: PlanDocumentsProps) => {
+const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
   const isBenefitBooklet = isBenefitBookletEnabled(data?.visibilityRules);
-
+  const router = useRouter();
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -60,7 +66,14 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
               <Spacer size={32} />
               <Row className="justify-between">
                 <Column className="w-[50%]">
-                  <Card className="py-3 px-4" onClick={() => {}}>
+                  <Card
+                    className="py-3 px-4"
+                    onClick={() => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Provider Directory`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image
                         className="size-10"
@@ -78,7 +91,14 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                       />
                     </Row>
                   </Card>
-                  <Card className="py-3 px-4 my-4" onClick={() => {}}>
+                  <Card
+                    className="py-3 px-4 my-4"
+                    onClick={() => {
+                      window.open(
+                        `/assets/formularies/${formularyURL}/Drug-Formulary-List.pdf`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image src={prescriptionIcon} alt="link" />
                       <TextBox
@@ -94,7 +114,14 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                   </Card>
                 </Column>
                 <Column className="w-[50%] ml-4">
-                  <Card className="py-3 px-4" onClick={() => {}}>
+                  <Card
+                    className="py-3 px-4"
+                    onClick={() => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET!.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}&alternateText=Pharmacy Directory`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image src={searchPharmacyIcon} alt="link" />
                       <TextBox
