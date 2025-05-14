@@ -2,9 +2,9 @@
 
 import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
-import { Network } from '../models/network';
+import { Networks } from '../models/network';
 
-export async function getNetworks(): Promise<Network[]> {
+export async function getNetworks(): Promise<Networks[]> {
   try {
     const response = await portalSvcsApi.get(
       '/CostEstimatorService/providers/networksByProviderType?providerType=DNTL',
