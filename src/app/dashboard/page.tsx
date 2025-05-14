@@ -1,5 +1,3 @@
-import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
-import { createChatSettings } from '@/app/chat/utils/chatUtils';
 import { Metadata } from 'next';
 import Dashboard from '.';
 import { getDashboardData } from './actions/getDashboardData';
@@ -25,56 +23,13 @@ const DashboardPage = async () => {
   });
 
   const memberDetails = result.data?.memberDetails;
-  let chatSettings = null;
-
-  // Only build chatSettings if we have a selected plan and groupId
-  if (memberDetails?.selectedPlan?.memeCk && memberDetails?.groupId) {
-    console.log('[DashboardPage] Building chat settings', {
-      hasMemeKey: !!memberDetails.selectedPlan.memeCk,
-      hasGroupId: !!memberDetails.groupId,
-      timestamp: new Date().toISOString(),
-    });
-
-    // Fetch canonical user info
-    const userInfo = await getLoggedInUserInfo(
-      memberDetails.selectedPlan.memeCk,
-    );
-
-    // Build userData for chat settings
-    const userData = {
-      memCk: memberDetails.selectedPlan.memeCk,
-      grpId: memberDetails.groupId,
-    };
-
-    console.log('[DashboardPage] Creating chat settings with userData', {
-      userDataKeys: Object.keys(userData),
-      timestamp: new Date().toISOString(),
-    });
-
-    // Wrapping createChatSettings in try/catch to see if it's causing issues
-    try {
-      chatSettings = createChatSettings(userData, 'cloud');
-      console.log('[DashboardPage] Chat settings created successfully');
-    } catch (err) {
-      console.error('[DashboardPage] Error creating chat settings:', err);
-    }
-  } else {
-    console.log(
-      '[DashboardPage] Skipping chat settings - missing required data',
-      {
-        hasMemeKey: !!memberDetails?.selectedPlan?.memeCk,
-        hasGroupId: !!memberDetails?.groupId,
-      },
-    );
-  }
 
   console.log('[DashboardPage] Rendering Dashboard component', {
     hasData: !!result.data,
-    hasChatSettings: !!chatSettings,
     timestamp: new Date().toISOString(),
   });
 
-  return <Dashboard data={result.data!} chatSettings={chatSettings} />;
+  return <Dashboard data={result.data!} />;
 };
 
 export default DashboardPage;

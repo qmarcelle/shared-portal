@@ -1,6 +1,6 @@
 'use client';
 
-import ChatWidget from '@/components/ChatWidget';
+import ChatWidget from '@/app/chat/components/ChatWidget';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -15,10 +15,9 @@ import { DashboardData } from './models/dashboardData';
 
 export type DashboardProps = {
   data: DashboardData;
-  chatSettings?: any;
 };
 
-const Dashboard = ({ data, chatSettings }: DashboardProps) => {
+const Dashboard = ({ data }: DashboardProps) => {
   // Debug logging for data structure
   console.log('[Dashboard Debug] Data structure:', {
     hasData: !!data,
@@ -218,7 +217,7 @@ const Dashboard = ({ data, chatSettings }: DashboardProps) => {
       ) : (
         <NonMemberDashboard profiles={data.profiles!} />
       )}
-      {chatSettings && <ChatWidget chatSettings={chatSettings} />}
+      <ChatWidget />
     </div>
   );
 };

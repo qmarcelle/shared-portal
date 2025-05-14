@@ -2,7 +2,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { useSession } from 'next-auth/react';
 // import { useChat } from '../../hooks/useChat';
-import { ChatWidget } from '../ChatWidget';
+import ChatWidget from '../ChatWidget';
 
 // Mock the hooks and services
 jest.mock('next-auth/react');

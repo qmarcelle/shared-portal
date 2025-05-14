@@ -19,11 +19,6 @@ import { useEffect, useState } from 'react';
 // We'll use any to avoid type conflicts with other declarations
 // in the codebase that we can't see
 
-// Accept any shape for chatSettings, as it is aggregated server-side
-export interface ChatWidgetProps {
-  chatSettings: any;
-}
-
 export default function ChatWidget() {
   const { genesysChatConfig, isLoading, error } = useChatStore();
   const [scriptError, setScriptError] = useState(false);

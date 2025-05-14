@@ -1,16 +1,18 @@
 // src/stores/chatStore.ts
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
-import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
-import { ChatSettings, ScriptLoadPhase } from '../types/index';
-import { createChatSettings } from '../utils/chatUtils';
+import {
+  buildGenesysChatConfig,
+  GenesysChatConfig,
+} from '../genesysChatConfig';
+import { ChatConfig } from '../schemas/genesys.schema';
 
 // chatStore is the central Zustand store for chat state and actions.
 // It manages UI state, chat session state, API responses, and all chat-related actions.
 // All state changes, API calls, and errors are logged for traceability and debugging.
 
 // This helps create stable function references
-function makeStable<T extends (...args: any[]) => any>(fn: T): T {
+function makeStable<T extends (...args: unknown[]) => unknown>(fn: T): T {
   return fn;
 }
 
@@ -49,11 +51,18 @@ export interface ChatState {
   planSwitcherTooltip: string;
 
   // Script loading state
-  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
+  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase;
 
   // Centralized chat settings
   chatSettings: ChatSettings | null;
+
+  // New script and settings actions
+  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
+  setScriptLoadPhase: (phase: ScriptLoadPhase) => void;
+
+  // New GenesysChatConfig
+  genesysChatConfig?: GenesysChatConfig;
 
   // Actions
   setOpen: (isOpen: boolean) => void;
@@ -68,7 +77,6 @@ export interface ChatState {
   incrementMessageCount: () => void;
   resetMessageCount: () => void;
   setPlanSwitcherLocked: (locked: boolean) => void;
-  updateConfig: (cfg: Partial<ChatConfig>) => void;
   closeAndRedirect: () => void;
   loadChatConfiguration: (
     memberId: number | string,
@@ -77,15 +85,6 @@ export interface ChatState {
   ) => Promise<void>;
   startChat: () => void;
   endChat: () => void;
-
-  // New script and settings actions
-  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
-  setScriptLoadPhase: (phase: ScriptLoadPhase) => void;
-  updateChatSettings: (settings: Partial<ChatSettings>) => void;
-  initializeChatSettings: (
-    userData: Record<string, any>,
-    mode: 'legacy' | 'cloud',
-  ) => void;
 }
 
 // Selectors for derived state - these don't cause re-renders when other state changes
@@ -124,11 +123,14 @@ export const useChatStore = create<ChatState>((set, get) => ({
   planSwitcherTooltip: '',
 
   // Script loading state
-  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
+  // @ts-expect-error - Using ScriptLoadPhase from types/index.ts
   scriptLoadPhase: ScriptLoadPhase.INIT,
 
   // Centralized chat settings
   chatSettings: null,
+
+  // New GenesysChatConfig
+  genesysChatConfig: undefined,
 
   // Actions
   setOpen: (isOpen) => {
@@ -196,27 +198,6 @@ export const useChatStore = create<ChatState>((set, get) => ({
         : '',
     });
   },
-
-  updateConfig: (cfg) => {
-    logger.info('[ChatStore] Updating chat configuration', {
-      configFields: Object.keys(cfg),
-    });
-    try {
-      const validated = ChatConfigSchema.parse(cfg);
-      logger.info('[ChatStore] Chat configuration validated successfully');
-      set({ config: validated });
-    } catch (err) {
-      logger.error('[ChatStore] Invalid chat configuration', {
-        error: err instanceof Error ? err.message : 'Validation error',
-        invalidFields: Object.keys(cfg),
-      });
-      console.error('Invalid chat configuration:', err);
-      set({
-        error: new Error('Invalid chat configuration'),
-      });
-    }
-  },
-
   closeAndRedirect: () => {
     logger.info('[ChatStore] Closing chat and redirecting');
     set({
@@ -226,240 +207,100 @@ export const useChatStore = create<ChatState>((set, get) => ({
       isPlanSwitcherLocked: false,
     });
   },
-
   loadChatConfiguration: makeStable(
     async (memberId, planId, memberType = 'byMemberCk') => {
-      const requestId = Date.now().toString();
-      logger.info('[ChatStore] Loading chat configuration', {
-        requestId,
-        memberId,
-        planId,
-        memberType,
-      });
-
-      console.log('⭐ [ChatStore] loadChatConfiguration CALLED ⭐', {
-        requestId,
-        memberId,
-        planId,
-        memberType,
-        timestamp: new Date().toISOString(),
-      });
-
+      set({ isLoading: true, error: null });
       try {
-        set({ isLoading: true, error: null });
-
-        // Fetch the auth token and store it
-        const res = await fetch('/api/chat/token');
-        const data = await res.json();
-        const token = data.token || '';
-        set({ token });
-
-        // Ensure we have a valid memberId string for the API call
-        const memberIdString =
-          typeof memberId === 'string' ? memberId : String(memberId);
-
-        // Check if we have a valid memberId before making the API call
-        if (
-          !memberIdString ||
-          memberIdString === 'undefined' ||
-          memberIdString === 'null' ||
-          memberIdString === 'NaN'
-        ) {
-          throw new Error('Invalid member ID');
-        }
-
-        // SERVER-SIDE CALL: Use fetch to backend API route
-        const apiUrl = `/api/chat/getChatInfo?memberId=${memberIdString}&memberType=${memberType}&planId=${planId}`;
-        logger.info('[ChatStore] Sending API request for chat configuration', {
-          requestId,
-          url: apiUrl,
-        });
-
-        const response = await fetch(apiUrl, {
+        // 1. Load user/plan context (simulate or fetch as needed)
+        // For this refactor, assume memberId/planId are sufficient for chat info API
+        const user = {
+          userID: String(memberId),
+          memberFirstname: '',
+          memberLastName: '',
+          formattedFirstName: '',
+          subscriberID: '',
+          sfx: '',
+        };
+        const plan = {
+          memberMedicalPlanID: String(planId),
+          groupId: '',
+          memberClientID: '',
+          groupType: '',
+          memberDOB: '',
+        };
+        // 2. Fetch chat token
+        const tokenRes = await fetch('/api/chat/token');
+        if (!tokenRes.ok) throw new Error('Failed to fetch chat token');
+        const tokenData = await tokenRes.json();
+        const token = tokenData.token || '';
+        // 3. Fetch chat info
+        const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
+        const infoRes = await fetch(apiUrl, {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-correlation-id': requestId,
-          },
+          headers: { 'Content-Type': 'application/json' },
         });
-
-        logger.info('[ChatStore] API response received', {
-          requestId,
-          status: response.status,
-          statusText: response.statusText,
-          ok: response.ok,
-          contentType: response.headers.get('content-type'),
-        });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          logger.error('[ChatStore] API request failed', {
-            requestId,
-            status: response.status,
-            statusText: response.statusText,
-            errorText: errorText.substring(0, 500),
-          });
-          throw new Error(
-            `Failed to load chat configuration: ${response.status} ${response.statusText}`,
-          );
-        }
-
-        // Try to parse the JSON response
-        let info;
-        try {
-          const responseText = await response.text();
-          logger.info('[ChatStore] Raw API response', {
-            requestId,
-            responseText:
-              responseText.substring(0, 200) +
-              (responseText.length > 200 ? '...' : ''),
-          });
-
-          info = JSON.parse(responseText);
-        } catch (parseError) {
-          logger.error('[ChatStore] Failed to parse JSON response', {
-            requestId,
-            error:
-              parseError instanceof Error
-                ? parseError.message
-                : 'Unknown parsing error',
-          });
-          throw new Error('Invalid JSON response from chat configuration API');
-        }
-
-        // Log all available keys in the response
-        logger.info('[ChatStore] Parsed chat configuration data structure', {
-          requestId,
-          availableKeys: Object.keys(info),
-          hasBusinessHours: !!info.businessHours,
-          businessHoursKeys: info.businessHours
-            ? Object.keys(info.businessHours)
-            : 'N/A',
-          isEligible: info.isEligible,
-          cloudChatEligible: info.cloudChatEligible,
-          chatGroup: info.chatGroup,
-        });
-
-        // Transform the API response to our ChatData structure
-        const formInputs = [
-          { id: 'SERV_Type', value: info.SERV_Type || 'MemberChat' },
-          { id: 'firstname', value: info.first_name || '' },
-          { id: 'lastname', value: info.last_name || '' },
-          { id: 'PLAN_ID', value: planId },
-          { id: 'GROUP_ID', value: info.GROUP_ID || '' },
-          { id: 'MEMBER_ID', value: String(info.member_ck || memberId) },
-          { id: 'LOB', value: info.lob_group || 'Member' },
-        ];
-
-        const userData = {
-          SERV_Type: info.SERV_Type || 'MemberChat',
-          firstname: info.first_name || '',
-          lastname: info.last_name || '',
-          formattedFirstName: info.first_name || '',
-          memberLastName: info.last_name || '',
-          RoutingChatbotInteractionId: info.RoutingChatbotInteractionId,
-          PLAN_ID: planId,
-          GROUP_ID: info.GROUP_ID || '',
-          IDCardBotName: info.IDCardBotName,
-          IsVisionEligible: String((info as any).IsVisionEligible),
-          MEMBER_ID: String(info.member_ck || memberId),
-          coverage_eligibility: info.coverage_eligibility,
-          INQ_TYPE: info.INQ_TYPE,
-          IsDentalEligible: String((info as any).IsDentalEligible),
-          MEMBER_DOB: info.MEMBER_DOB,
-          LOB: info.lob_group || 'Member',
-          lob_group: info.lob_group || 'Member',
-          IsMedicalEligibile: String((info as any).IsMedicalEligibile),
-          Origin: info.Origin || 'Member',
-          Source: info.Source || 'Member Portal',
-          opsPhone:
-            info.opsPhone ||
-            info.ops_phone ||
-            process.env.NEXT_PUBLIC_OPS_PHONE ||
-            '',
-          opsPhoneHours:
-            info.opsPhoneHours ||
-            info.ops_phone_hours ||
-            info.businessHours?.text ||
-            '' ||
-            process.env.NEXT_PUBLIC_OPS_HOURS ||
-            '',
+        if (!infoRes.ok) throw new Error('Failed to fetch chat info');
+        const info = await infoRes.json();
+        // 4. Gather static config
+        const staticConfig = {
+          coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE,
+          cobrowseSource: process.env.NEXT_PUBLIC_COBROWSE_SOURCE,
+          cobrowseURL: process.env.NEXT_PUBLIC_COBROWSE_URL,
+          opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE,
+          opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS,
+          chatHours: process.env.NEXT_PUBLIC_CHAT_HOURS,
+          rawChatHrs: process.env.NEXT_PUBLIC_RAW_CHAT_HRS,
+          selfServiceLinks: info.selfServiceLinks || [],
+          idCardChatBotName:
+            info.IDCardBotName || process.env.NEXT_PUBLIC_IDCARD_BOT_NAME,
+          widgetUrl: process.env.NEXT_PUBLIC_WIDGETS_MIN_URL,
+          clickToChatJs: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL,
+          chatTokenEndpoint: '/api/chat/token',
+          coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_ENDPOINT,
         };
-
-        // Extract chatAvailable from the API response if present
-        const chatAvailableFromApi = info.chatAvailable;
-
-        const chatData: ChatData = {
-          isEligible: info.isEligible ?? !!info.chatGroup,
-          cloudChatEligible: info.cloudChatEligible || false,
-          chatGroup: info.chatGroup,
-          businessHours: info.businessHours || {
-            isOpen:
-              info.workingHours === 'S_S_24' ||
-              info.workingHours?.includes('24'),
-            text:
-              info.workingHours === 'S_S_24'
-                ? '24 hours, 7 days a week'
-                : info.workingHours || '',
-          },
-          routingInteractionId: info.RoutingChatbotInteractionId,
-          userData,
-          formInputs,
+        // 5. Build GenesysChatConfig
+        const apiConfig = {
+          clickToChatToken: token,
+          clickToChatEndpoint: info.clickToChatEndpoint || '',
+          clickToChatDemoEndPoint: info.clickToChatDemoEndPoint,
+          routingchatbotEligible: info.routingchatbotEligible,
+          isChatEligibleMember: info.isEligible,
+          isDemoMember: info.isDemoMember,
+          isAmplifyMem: info.isAmplifyMem,
+          isCobrowseActive: info.isCobrowseActive,
+          isMagellanVAMember: info.isMagellanVAMember,
+          isDental: info.IsDentalEligible,
+          isMedical: info.IsMedicalEligibile,
+          isVision: info.IsVisionEligible,
+          isWellnessOnly: info.isWellnessOnly,
+          isCobraEligible: info.isCobraEligible,
+          isIDCardEligible: info.isIDCardEligible,
+          isChatAvailable: info.chatAvailable,
+          chatbotEligible: info.chatbotEligible,
+          isMedicalAdvantageGroup: info.isMedicalAdvantageGroup,
         };
-
-        // Explicitly set chatAvailable to match the API response
-        // with detailed logging to trace any changes
-        logger.info('[ChatStore] Setting chatAvailable from API', {
-          requestId,
-          chatAvailableFromApi,
-          timestamp: new Date().toISOString(),
+        // Fill in any additional user/plan fields from info if needed
+        user.memberFirstname = info.first_name || '';
+        user.memberLastName = info.last_name || '';
+        user.formattedFirstName = info.first_name || '';
+        user.subscriberID = info.subscriberID || '';
+        user.sfx = info.sfx || '';
+        plan.groupId = info.GROUP_ID || '';
+        plan.memberClientID = info.clientID || '';
+        plan.groupType = info.policyType || '';
+        plan.memberDOB = info.MEMBER_DOB || '';
+        // 6. Build and store config
+        const genesysChatConfig = buildGenesysChatConfig({
+          user,
+          plan,
+          apiConfig,
+          staticConfig,
         });
-
-        // Use defineProperty with a getter/setter to track access
-        Object.defineProperty(chatData, 'chatAvailable', {
-          value:
-            chatAvailableFromApi === undefined ? true : chatAvailableFromApi,
-          writable: true,
-          enumerable: true,
-          configurable: true,
-        });
-
-        logger.info('[ChatStore] API response for chat config', {
-          availableKeys: Object.keys(info),
-          cloudChatEligible: info.cloudChatEligible,
-          isEligible: info.isEligible,
-          chatGroup: info.chatGroup,
-          businessHours: info.businessHours,
-          timestamp: new Date().toISOString(),
-        });
-
-        logger.info('[ChatStore] Setting chatData and chatMode', {
-          chatMode: chatData.cloudChatEligible ? 'cloud' : 'legacy',
-          chatData,
-          timestamp: new Date().toISOString(),
-        });
-
-        set({
-          chatData,
-          isLoading: false,
-        });
-
-        logger.info('[ChatStore] Chat configuration loaded successfully', {
-          requestId,
-          chatMode: chatData.cloudChatEligible ? 'cloud' : 'legacy',
-          stateUpdated: true,
-        });
+        set({ genesysChatConfig, isLoading: false });
+        if (typeof window !== 'undefined') {
+          window.chatSettings = genesysChatConfig;
+        }
       } catch (err) {
-        logger.error('[ChatStore] Error loading chat configuration', {
-          requestId,
-          error: err instanceof Error ? err.message : 'Unknown error',
-          stack: err instanceof Error ? err.stack : undefined,
-          memberId,
-          planId,
-          memberType,
-        });
-
-        console.error('Error loading chat configuration:', err);
         set({
           error:
             err instanceof Error
@@ -470,7 +311,6 @@ export const useChatStore = create<ChatState>((set, get) => ({
       }
     },
   ),
-
   startChat: () => {
     logger.info('[ChatStore] Starting chat');
     set({ isChatActive: true });
@@ -481,191 +321,11 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   // New script and settings actions
-  // @ts-ignore - Using ScriptLoadPhase from types/index.ts
   setScriptLoadPhase: (phase) => {
     logger.info('[ChatStore] Setting script load phase', { phase });
     set({ scriptLoadPhase: phase });
   },
 
-  updateChatSettings: (settings) => {
-    logger.info('[ChatStore] Updating chat settings', {
-      settingsKeys: Object.keys(settings),
-    });
-    set((state) => ({
-      chatSettings: state.chatSettings
-        ? { ...state.chatSettings, ...settings }
-        : (settings as ChatSettings),
-    }));
-
-    // Update window.chatSettings for backward compatibility
-    if (typeof window !== 'undefined' && window.chatSettings) {
-      window.chatSettings = {
-        ...window.chatSettings,
-        ...settings,
-      };
-    }
-  },
-
-  initializeChatSettings: (userData, mode) => {
-    logger.info('[ChatStore] Initializing chat settings', {
-      mode,
-      userDataKeys: Object.keys(userData),
-      timestamp: new Date().toISOString(),
-    });
-
-    // Capture existing window settings before we do anything
-    const existingWindowSettings =
-      typeof window !== 'undefined' && window.chatSettings
-        ? { ...window.chatSettings }
-        : null;
-
-    logger.info('[ChatStore] Existing window chat settings before update', {
-      hasExistingSettings: !!existingWindowSettings,
-      existingKeys: existingWindowSettings
-        ? Object.keys(existingWindowSettings)
-        : [],
-      timestamp: new Date().toISOString(),
-    });
-
-    // @ts-ignore - Using createChatSettings from utils/chatUtils.ts
-    const settings = createChatSettings(userData, mode);
-    set({ chatSettings: settings });
-
-    // Set window.chatSettings for backward compatibility
-    if (typeof window !== 'undefined') {
-      // Carefully merge with existing settings instead of replacing them
-      if (existingWindowSettings) {
-        // First, preserve the new chat-specific settings
-        const mergedSettings = { ...existingWindowSettings };
-
-        // Then add new chat settings, but don't overwrite any critical properties
-        // that might be needed by other components
-        Object.keys(settings).forEach((key) => {
-          // Skip certain properties that might be needed by other components
-          if (!existingWindowSettings[key]) {
-            mergedSettings[key] = settings[key];
-          }
-        });
-
-        window.chatSettings = mergedSettings;
-      } else {
-        window.chatSettings = settings;
-      }
-
-      logger.info('[ChatStore] Window chat settings updated/merged', {
-        keysBeforeUpdate: existingWindowSettings
-          ? Object.keys(existingWindowSettings).length
-          : 0,
-        keysAfterUpdate: window.chatSettings
-          ? Object.keys(window.chatSettings).length
-          : 0,
-        timestamp: new Date().toISOString(),
-      });
-    }
-
-    logger.info('[ChatStore] Chat settings initialized', {
-      settings,
-      timestamp: new Date().toISOString(),
-    });
-
-    return settings;
-  },
-
   // Token field
   token: undefined,
 }));
-
-/**
- * DEPRECATED: The object properties below are maintained for backward compatibility
- * but should not be used in new code. Use chatSelectors instead.
- *
- * @example
- * // Old approach (deprecated):
- * const isEligible = useChatStore.isEligible;
- *
- * // New approach (preferred):
- * import { chatSelectors } from '@/app/chat/stores/chatStore';
- * const isEligible = chatSelectors.isEligible(useChatStore.getState());
- *
- * // Or within a component:
- * const isEligible = chatSelectors.isEligible(useChatStore());
- */
-// For backward compatibility, re-export the selectors as properties of useChatStore
-Object.defineProperties(useChatStore, {
-  // Deprecated: Add accessor for each selector to maintain backward compatibility
-  isEligible: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.isEligible is deprecated. Use chatSelectors.isEligible instead.',
-      );
-      return chatSelectors.isEligible(useChatStore.getState());
-    },
-  },
-  chatMode: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.chatMode is deprecated. Use chatSelectors.chatMode instead.',
-      );
-      return chatSelectors.chatMode(useChatStore.getState());
-    },
-  },
-  isOOO: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.isOOO is deprecated. Use chatSelectors.isOOO instead.',
-      );
-      return chatSelectors.isOOO(useChatStore.getState());
-    },
-  },
-  chatGroup: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.chatGroup is deprecated. Use chatSelectors.chatGroup instead.',
-      );
-      return chatSelectors.chatGroup(useChatStore.getState());
-    },
-  },
-  businessHoursText: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.businessHoursText is deprecated. Use chatSelectors.businessHoursText instead.',
-      );
-      return chatSelectors.businessHoursText(useChatStore.getState());
-    },
-  },
-  routingInteractionId: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.routingInteractionId is deprecated. Use chatSelectors.routingInteractionId instead.',
-      );
-      return chatSelectors.routingInteractionId(useChatStore.getState());
-    },
-  },
-  userData: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.userData is deprecated. Use chatSelectors.userData instead.',
-      );
-      return chatSelectors.userData(useChatStore.getState());
-    },
-  },
-  formInputs: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.formInputs is deprecated. Use chatSelectors.formInputs instead.',
-      );
-      return chatSelectors.formInputs(useChatStore.getState());
-    },
-  },
-  eligibility: {
-    get: () => {
-      console.warn(
-        '[ChatStore] useChatStore.eligibility is deprecated. Use chatSelectors.eligibility instead.',
-      );
-      return chatSelectors.eligibility(useChatStore.getState());
-    },
-  },
-});
-
-// Export the selectors for components that need derived state
-export { chatSelectors };

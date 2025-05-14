@@ -1,6 +1,6 @@
 'use client';
 
-import ChatWidget from '@/components/ChatWidget';
+import ChatWidget from '@/app/chat/components/ChatWidget';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useChatStore } from './chat/stores/chatStore';

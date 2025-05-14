@@ -1,6 +1,6 @@
 'use client';
 
-import ChatWidget from '@/components/ChatWidget';
+import ChatWidget from '@/app/chat/components/ChatWidget';
 import { useEffect, useState } from 'react';
 
 // Minimal mock settings that satisfy TypeScript but are cast to any
