@@ -1,10 +1,8 @@
 // src/stores/chatStore.ts
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
-import {
-  buildGenesysChatConfig,
-  GenesysChatConfig,
-} from '../genesysChatConfig';
+import { GenesysChatConfig } from '../../../../types/genesys-chat';
+import { buildGenesysChatConfig } from '../genesys-chat-config';
 import { ChatConfig } from '../schemas/genesys.schema';
 import { ScriptLoadPhase } from '../types/ScriptLoadPhase';
 
