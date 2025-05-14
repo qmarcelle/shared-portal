@@ -88,7 +88,7 @@ export interface ChatState {
 }
 
 // Selectors for derived state - these don't cause re-renders when other state changes
-const chatSelectors = {
+const _chatSelectors = {
   isEligible: (state: ChatState) => state.chatData?.isEligible || false,
   chatMode: (state: ChatState) =>
     state.chatData?.cloudChatEligible ? 'cloud' : 'legacy',
@@ -104,7 +104,7 @@ const chatSelectors = {
   eligibility: (state: ChatState) => state.chatData,
 };
 
-export const useChatStore = create<ChatState>((set, get) => ({
+export const useChatStore = create<ChatState>((set, _get) => ({
   // UI state
   isOpen: false,
   isMinimized: false,
