@@ -207,10 +207,14 @@ export const useChatStore = create<ChatState>((set, _get) => ({
   },
   loadChatConfiguration: makeStable(
     async (memberId, planId, memberType = 'byMemberCk') => {
+      logger.info('[ChatStore] loadChatConfiguration called', {
+        memberId,
+        planId,
+        memberType,
+      });
       set({ isLoading: true, error: null });
       try {
         // 1. Load user/plan context (simulate or fetch as needed)
-        // For this refactor, assume memberId/planId are sufficient for chat info API
         const user = {
           userID: String(memberId),
           memberFirstname: '',
@@ -226,19 +230,24 @@ export const useChatStore = create<ChatState>((set, _get) => ({
           groupType: '',
           memberDOB: '',
         };
+        logger.info('[ChatStore] User and plan context built', { user, plan });
         // 2. Fetch chat token
+        logger.info('[ChatStore] Fetching chat token');
         const tokenRes = await fetch('/api/chat/token');
         if (!tokenRes.ok) throw new Error('Failed to fetch chat token');
         const tokenData = await tokenRes.json();
         const token = tokenData.token || '';
+        logger.info('[ChatStore] Chat token fetched', { token });
         // 3. Fetch chat info
         const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
+        logger.info('[ChatStore] Fetching chat info', { apiUrl });
         const infoRes = await fetch(apiUrl, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
         if (!infoRes.ok) throw new Error('Failed to fetch chat info');
         const info = await infoRes.json();
+        logger.info('[ChatStore] Chat info fetched', { info });
         // 4. Gather static config
         const staticConfig = {
           coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE,
@@ -248,64 +257,26 @@ export const useChatStore = create<ChatState>((set, _get) => ({
           opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS,
           chatHours: process.env.NEXT_PUBLIC_CHAT_HOURS,
           rawChatHrs: process.env.NEXT_PUBLIC_RAW_CHAT_HRS,
-          selfServiceLinks: info.selfServiceLinks || [],
-          idCardChatBotName:
-            info.IDCardBotName || process.env.NEXT_PUBLIC_IDCARD_BOT_NAME,
-          widgetUrl: process.env.NEXT_PUBLIC_WIDGETS_MIN_URL,
-          clickToChatJs: process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL,
-          chatTokenEndpoint: '/api/chat/token',
-          coBrowseEndpoint: process.env.NEXT_PUBLIC_COBROWSE_ENDPOINT,
         };
+        logger.info('[ChatStore] Static config gathered', { staticConfig });
         // 5. Build GenesysChatConfig
-        const apiConfig = {
-          clickToChatToken: token,
-          clickToChatEndpoint: info.clickToChatEndpoint || '',
-          clickToChatDemoEndPoint: info.clickToChatDemoEndPoint,
-          routingchatbotEligible: info.routingchatbotEligible,
-          isChatEligibleMember: info.isEligible,
-          isDemoMember: info.isDemoMember,
-          isAmplifyMem: info.isAmplifyMem,
-          isCobrowseActive: info.isCobrowseActive,
-          isMagellanVAMember: info.isMagellanVAMember,
-          isDental: info.IsDentalEligible,
-          isMedical: info.IsMedicalEligibile,
-          isVision: info.IsVisionEligible,
-          isWellnessOnly: info.isWellnessOnly,
-          isCobraEligible: info.isCobraEligible,
-          isIDCardEligible: info.isIDCardEligible,
-          isChatAvailable: info.chatAvailable,
-          chatbotEligible: info.chatbotEligible,
-          isMedicalAdvantageGroup: info.isMedicalAdvantageGroup,
-        };
-        // Fill in any additional user/plan fields from info if needed
-        user.memberFirstname = info.first_name || '';
-        user.memberLastName = info.last_name || '';
-        user.formattedFirstName = info.first_name || '';
-        user.subscriberID = info.subscriberID || '';
-        user.sfx = info.sfx || '';
-        plan.groupId = info.GROUP_ID || '';
-        plan.memberClientID = info.clientID || '';
-        plan.groupType = info.policyType || '';
-        plan.memberDOB = info.MEMBER_DOB || '';
-        // 6. Build and store config
         const genesysChatConfig = buildGenesysChatConfig({
           user,
           plan,
-          apiConfig,
+          apiConfig: { ...info, token },
           staticConfig,
         });
-        set({ genesysChatConfig, isLoading: false });
-        if (typeof window !== 'undefined') {
-          window.chatSettings = genesysChatConfig;
-        }
-      } catch (err) {
-        set({
-          error:
-            err instanceof Error
-              ? err
-              : new Error('Failed to load chat configuration'),
-          isLoading: false,
+        logger.info('[ChatStore] GenesysChatConfig built', {
+          genesysChatConfig,
         });
+        set({
+          genesysChatConfig,
+          isLoading: false,
+          error: null,
+        });
+      } catch (err: any) {
+        logger.error('[ChatStore] Error loading chat configuration', err);
+        set({ isLoading: false, error: err });
       }
     },
   ),

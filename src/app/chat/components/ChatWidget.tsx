@@ -14,6 +14,7 @@
  */
 
 import { useChatStore } from '@/app/chat/stores/chatStore';
+import { logger } from '@/utils/logger';
 import { useEffect, useState } from 'react';
 
 // We'll use any to avoid type conflicts with other declarations
@@ -24,12 +25,20 @@ export default function ChatWidget() {
   const [scriptError, setScriptError] = useState(false);
 
   useEffect(() => {
-    if (!genesysChatConfig) return;
+    logger.info('[ChatWidget] useEffect triggered', { genesysChatConfig });
+    if (!genesysChatConfig) {
+      logger.warn('[ChatWidget] No genesysChatConfig present');
+      return;
+    }
     // Set config globals before loading scripts
     window.chatSettings = genesysChatConfig;
     window.gmsServicesConfig = {
       GMSChatURL: () => genesysChatConfig.gmsChatUrl,
     };
+    logger.info(
+      '[ChatWidget] Set window.chatSettings and window.gmsServicesConfig',
+      { chatSettings: window.chatSettings },
+    );
     // For Genesys Cloud mode, set deploymentId/orgId if present
     if (genesysChatConfig.chatMode === 'cloud') {
       if (genesysChatConfig.deploymentId) {
@@ -38,46 +47,79 @@ export default function ChatWidget() {
       if (genesysChatConfig.orgId) {
         window.chatSettings.orgId = genesysChatConfig.orgId;
       }
+      logger.info('[ChatWidget] Cloud mode: set deploymentId/orgId', {
+        deploymentId: genesysChatConfig.deploymentId,
+        orgId: genesysChatConfig.orgId,
+      });
     }
     // Load CSS
     const css = document.createElement('link');
     css.rel = 'stylesheet';
     css.href = genesysChatConfig.widgetUrl;
     document.head.appendChild(css);
+    logger.info('[ChatWidget] Appended Genesys widget CSS', { href: css.href });
     // Load click_to_chat.js (legacy) or cloud script
     let script: HTMLScriptElement;
     if (genesysChatConfig.chatMode === 'cloud') {
       script = document.createElement('script');
-      script.src = genesysChatConfig.clickToChatJs; // Use cloud-specific script if needed
+      script.src = genesysChatConfig.clickToChatJs;
       script.async = true;
-      script.onerror = () => setScriptError(true);
+      script.onerror = () => {
+        setScriptError(true);
+        logger.error('[ChatWidget] Cloud script failed to load', {
+          src: script.src,
+        });
+      };
       document.body.appendChild(script);
+      logger.info('[ChatWidget] Appended Genesys cloud script', {
+        src: script.src,
+      });
+      // Cleanup for cloud mode
+      return () => {
+        logger.info('[ChatWidget] Cleanup: removing cloud CSS and script');
+        document.head.removeChild(css);
+        document.body.removeChild(script);
+      };
     } else {
       script = document.createElement('script');
       script.src = genesysChatConfig.clickToChatJs;
       script.async = true;
-      script.onerror = () => setScriptError(true);
+      script.onerror = () => {
+        setScriptError(true);
+        logger.error('[ChatWidget] click_to_chat.js failed to load', {
+          src: script.src,
+        });
+      };
       document.body.appendChild(script);
+      logger.info('[ChatWidget] Appended click_to_chat.js', {
+        src: script.src,
+      });
       // Load widgets.min.js after click_to_chat.js
       const widgetsScript: HTMLScriptElement = document.createElement('script');
       widgetsScript.src =
         genesysChatConfig.genesysWidgetUrl ||
         '/assets/genesys/plugins/widgets.min.js';
       widgetsScript.async = true;
-      widgetsScript.onerror = () => setScriptError(true);
+      widgetsScript.onerror = () => {
+        setScriptError(true);
+        logger.error('[ChatWidget] widgets.min.js failed to load', {
+          src: widgetsScript.src,
+        });
+      };
       document.body.appendChild(widgetsScript);
+      logger.info('[ChatWidget] Appended widgets.min.js', {
+        src: widgetsScript.src,
+      });
       // Cleanup widgetsScript
       return () => {
+        logger.info(
+          '[ChatWidget] Cleanup: removing legacy CSS, click_to_chat.js, and widgets.min.js',
+        );
         document.head.removeChild(css);
         document.body.removeChild(script);
         document.body.removeChild(widgetsScript);
       };
     }
-    // Cleanup for cloud mode
-    return () => {
-      document.head.removeChild(css);
-      document.body.removeChild(script);
-    };
   }, [genesysChatConfig]);
 
   if (isLoading) return <div>Loading chat...</div>;

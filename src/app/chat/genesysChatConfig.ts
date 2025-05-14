@@ -130,6 +130,8 @@ interface ApiConfig {
   [key: string]: unknown;
 }
 
+import { logger } from '@/utils/logger';
+
 /**
  * Build a GenesysChatConfig from user/session, plan/group, and API/static config sources.
  * @param user - user/session context (from auth/session)
@@ -148,7 +150,13 @@ export function buildGenesysChatConfig({
   apiConfig: ApiConfig;
   staticConfig?: Partial<GenesysChatConfig>;
 }): GenesysChatConfig {
-  return {
+  logger.info('[buildGenesysChatConfig] called', {
+    user,
+    plan,
+    apiConfig,
+    staticConfig,
+  });
+  const config: GenesysChatConfig = {
     clickToChatToken: apiConfig.clickToChatToken as string,
     clickToChatEndpoint: apiConfig.clickToChatEndpoint as string,
     clickToChatDemoEndPoint: apiConfig.clickToChatDemoEndPoint as
@@ -220,6 +228,8 @@ export function buildGenesysChatConfig({
     audioAlertPath: staticConfig.audioAlertPath,
     // ...add any other custom fields as needed
   };
+  logger.info('[buildGenesysChatConfig] returning config', config);
+  return config;
 }
 
 /**
