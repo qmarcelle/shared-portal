@@ -98,72 +98,90 @@ export default function ChatWidget({ chatSettings = {} }: ChatWidgetProps) {
       timestamp: new Date().toISOString(),
     });
 
-    // Set up window objects with complete configuration
-    const genesysWindow = window as unknown as GenesysWindow;
+    try {
+      // 1. Set window.chatSettings with all configuration
+      window.chatSettings = genesysChatConfig;
 
-    // Assign the full config object to window.chatSettings
-    genesysWindow.chatSettings = genesysChatConfig;
+      // Log configuration for debugging
+      logger.info('[ChatWidget] Window configuration set', {
+        chatSettingsKeys: Object.keys(window.chatSettings || {}),
+        timestamp: new Date().toISOString(),
+      });
 
-    // Set up service configuration
-    genesysWindow.gmsServicesConfig = {
-      GMSChatURL: () =>
-        genesysChatConfig.gmsChatUrl ||
-        genesysChatConfig.clickToChatEndpoint ||
-        '',
-    };
+      // 2. Load CSS files without any conditionals
+      const cssFiles = [
+        {
+          id: 'genesys-widgets-css',
+          href: 'assets/genesys/plugins/widgets.min.css',
+        },
+        {
+          id: 'bcbst-custom-css',
+          href: 'assets/genesys/styles/bcbst-custom.css',
+        },
+      ];
 
-    // Log the current window config for debugging
-    logger.info('[ChatWidget] Window configuration set', {
-      chatSettings: !!genesysWindow.chatSettings,
-      gmsServicesConfig: !!genesysWindow.gmsServicesConfig,
-      settingsKeys: genesysWindow.chatSettings
-        ? Object.keys(genesysWindow.chatSettings)
-        : [],
-    });
-
-    // Load CSS files first - no conditional checks
-    const widgetsCSS = document.createElement('link');
-    widgetsCSS.rel = 'stylesheet';
-    widgetsCSS.href = 'assets/genesys/plugins/widgets.min.css';
-    widgetsCSS.id = 'genesys-widgets-css';
-    document.head.appendChild(widgetsCSS);
-
-    const customCSS = document.createElement('link');
-    customCSS.rel = 'stylesheet';
-    customCSS.href = 'assets/genesys/styles/bcbst-custom.css';
-    customCSS.id = 'bcbst-custom-css';
-    document.head.appendChild(customCSS);
-
-    // Then load the JS file
-    const clickToChat = document.createElement('script');
-    clickToChat.src = 'assets/genesys/click_to_chat.js';
-    clickToChat.id = 'genesys-click-to-chat';
-    clickToChat.onload = () => {
-      logger.info('[ChatWidget] Genesys script loaded successfully');
-
-      // Try to initialize after script loads
-      setTimeout(() => {
-        // Dispatch event to trigger button creation
-        const event = new CustomEvent('genesys:create-button');
-        document.dispatchEvent(event);
-
-        // Also try direct function call
-        if (
-          genesysWindow._forceChatButtonCreate &&
-          typeof genesysWindow._forceChatButtonCreate === 'function'
-        ) {
-          genesysWindow._forceChatButtonCreate();
+      // Load all CSS files
+      cssFiles.forEach((file) => {
+        // Skip if already loaded
+        if (document.getElementById(file.id)) {
+          logger.info(`[ChatWidget] CSS already loaded: ${file.id}`);
+          return;
         }
-      }, 500);
-    };
 
-    // Handle load error
-    clickToChat.onerror = () => {
-      logger.error('[ChatWidget] Failed to load Genesys script');
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = file.href;
+        link.id = file.id;
+        document.head.appendChild(link);
+
+        logger.info(`[ChatWidget] CSS loaded: ${file.id}`);
+      });
+
+      // 3. Load the JS file directly
+      if (document.getElementById('genesys-click-to-chat')) {
+        logger.info('[ChatWidget] Genesys script already loaded');
+      } else {
+        logger.info('[ChatWidget] Loading Genesys script');
+        const script = document.createElement('script');
+        script.src = 'assets/genesys/click_to_chat.js';
+        script.id = 'genesys-click-to-chat';
+
+        script.onload = () => {
+          logger.info('[ChatWidget] Genesys script loaded successfully');
+
+          // Wait a moment for script initialization
+          setTimeout(() => {
+            // Trigger button creation
+            logger.info('[ChatWidget] Triggering button creation');
+
+            // Try event dispatch
+            document.dispatchEvent(new CustomEvent('genesys:create-button'));
+
+            // Try direct function call if available
+            const genesysWindow = window as unknown as GenesysWindow;
+            if (
+              genesysWindow._forceChatButtonCreate &&
+              typeof genesysWindow._forceChatButtonCreate === 'function'
+            ) {
+              genesysWindow._forceChatButtonCreate();
+            }
+          }, 500);
+        };
+
+        script.onerror = () => {
+          logger.error('[ChatWidget] Failed to load Genesys script');
+          setScriptLoadFailed(true);
+        };
+
+        document.head.appendChild(script);
+      }
+    } catch (err) {
+      logger.error('[ChatWidget] Error initializing Genesys SDK', {
+        error: err instanceof Error ? err.message : String(err),
+        timestamp: new Date().toISOString(),
+      });
       setScriptLoadFailed(true);
-    };
-
-    document.head.appendChild(clickToChat);
+    }
   }, [genesysChatConfig]);
 
   // Load chat configuration when contexts are ready
