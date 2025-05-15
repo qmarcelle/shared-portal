@@ -224,6 +224,10 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         // 1. Load CSS files first
         setStatus('loading-css');
         logger.info(
+          `${LOG_PREFIX} Effective CSS URLs to load:`,
+          { urls: stableCssUrls }, // Log the URLs being used
+        );
+        logger.info(
           `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS file(s)...`,
           { urls: stableCssUrls },
         );
@@ -248,77 +252,66 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         logger.info(`${LOG_PREFIX} All CSS files loaded successfully.`);
 
         // 2. Set chat configuration on window object
-        // As per README: "Sets the fully assembled `genesysChatConfig` onto `window.chatSettings`
-        // immediately before injecting `click_to_chat.js`."
         setStatus('setting-config');
+        logger.info(
+          `${LOG_PREFIX} Setting window.chatSettings with provided config.`,
+          { configKeys: config ? Object.keys(config) : 'undefined' },
+        );
         if (typeof window !== 'undefined') {
-          (window as any).chatSettings = { ...config }; // Ensure a copy is set
-          logger.info(
-            `${LOG_PREFIX} Set window.chatSettings successfully.`,
-            { chatSettings: (window as any).chatSettings }, // Log the actual settings for debugging
-          );
-        } else {
-          logger.warn(
-            `${LOG_PREFIX} Window object not available. Cannot set window.chatSettings.`,
-          );
-          // This case should ideally not happen in a client-side component.
+          window.chatSettings = config;
         }
 
-        // 3. Add the main Genesys script (click_to_chat.js)
+        // 3. Load the main script
         setStatus('loading-script');
-        const timestamp = new Date().getTime();
-        const scriptUrlWithTimestamp = `${scriptUrl}?t=${timestamp}`; // Cache busting
         logger.info(
-          `${LOG_PREFIX} Injecting main Genesys script: ${scriptUrlWithTimestamp}`,
+          `${LOG_PREFIX} Effective script URL to load:`,
+          { url: scriptUrl }, // Log the script URL being used
         );
+        logger.info(`${LOG_PREFIX} Loading script: ${scriptUrl}`);
+        const script = document.createElement('script');
+        script.src = scriptUrl;
+        script.id = 'genesys-chat-script';
 
-        await new Promise<void>((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = scriptUrlWithTimestamp;
-          script.id = 'genesys-chat-script';
+        /**
+         * Genesys requires synchronous loading (async=false) to ensure dependencies
+         * load in the correct order. This is per Genesys implementation guidelines.
+         * Setting async=true causes inconsistent behavior with the widget's internal
+         * script loading sequence.
+         *
+         * References:
+         * - Genesys Implementation Guide: [URL to Genesys docs if available]
+         * - Internal testing confirmed async=true failures in multiple browsers
+         */
+        script.async = false;
 
-          /**
-           * Genesys requires synchronous loading (async=false) to ensure dependencies
-           * load in the correct order. This is per Genesys implementation guidelines.
-           * Setting async=true causes inconsistent behavior with the widget's internal
-           * script loading sequence.
-           *
-           * References:
-           * - Genesys Implementation Guide: [URL to Genesys docs if available]
-           * - Internal testing confirmed async=true failures in multiple browsers
-           */
-          script.async = false;
-
-          script.onload = () => {
-            logger.info(
-              `${LOG_PREFIX} Main Genesys script loaded successfully: ${scriptUrlWithTimestamp}`,
-            );
-            // After script loads, start polling for widget readiness
-            setStatus('polling-ready');
-            logger.info(
-              `${LOG_PREFIX} Script loaded. Now polling for widget readiness (checkReadyWithBackoff).`,
-            );
-            checkReadyWithBackoff(); // This will eventually call onLoad or onError
-            resolve(); // Resolve this promise once script is loaded, polling handles final status
-          };
-
-          script.onerror = (e) => {
-            const errMsg = `Main Genesys script failed to load: ${scriptUrlWithTimestamp}`;
-            logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
-            reject(new Error(errMsg));
-          };
-
-          const existingScript = document.getElementById('genesys-chat-script');
-          if (existingScript) {
-            console.log('GenesysScriptLoader: Removing existing script');
-            existingScript.remove();
-          }
-
-          document.body.appendChild(script);
-          console.log(
-            `GenesysScriptLoader: Added script to body: ${scriptUrlWithTimestamp}`,
+        script.onload = () => {
+          logger.info(
+            `${LOG_PREFIX} Main Genesys script loaded successfully: ${scriptUrl}`,
           );
-        });
+          // After script loads, start polling for widget readiness
+          setStatus('polling-ready');
+          logger.info(
+            `${LOG_PREFIX} Script loaded. Now polling for widget readiness (checkReadyWithBackoff).`,
+          );
+          checkReadyWithBackoff(); // This will eventually call onLoad or onError
+        };
+
+        script.onerror = (e) => {
+          const errMsg = `Main Genesys script failed to load: ${scriptUrl}`;
+          logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
+          setStatus('error');
+          setErrorMessage(errMsg);
+          if (onError) onError(new Error(errMsg));
+        };
+
+        const existingScript = document.getElementById('genesys-chat-script');
+        if (existingScript) {
+          console.log('GenesysScriptLoader: Removing existing script');
+          existingScript.remove();
+        }
+
+        document.body.appendChild(script);
+        console.log(`GenesysScriptLoader: Added script to body: ${scriptUrl}`);
       } catch (err: any) {
         logger.error(`${LOG_PREFIX} Error during script loading sequence:`, {
           message: err?.message,
