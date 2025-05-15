@@ -4,7 +4,7 @@ import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { ProcedureResponse } from '../models/procedureResponse';
 
-export async function getProcedureCategories(): Promise<ProcedureResponse[]> {
+export async function getProcedureCategories(): Promise<ProcedureResponse> {
   try {
     const response = await portalSvcsApi.get(
       '/CostEstimatorService/ProcedureCategories/member',

@@ -14,12 +14,12 @@ import { useCallback, useMemo, useState } from 'react';
 import DentalIcon from '../../../public/assets/dental.svg';
 import { getProcedureCost } from './actions/getProcedureCost';
 import { PriceDentalCareCard } from './components/PriceDentalCareCard';
-import { Network } from './models/network';
+import { Network, Networks } from './models/network';
 import { ProcedureCostResponse } from './models/procedureCostResponse';
 import { Procedure, ProcedureResponse } from './models/procedureResponse';
 
 export type PriceDentalCareProps = {
-  networks: Network[];
+  networks: Networks;
   categories: ProcedureResponse;
 };
 
@@ -80,7 +80,7 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
   };
 
   const networkDropdownValues = useMemo(
-    () => getNetworkDropdownValues(networks),
+    () => getNetworkDropdownValues(networks.networks),
     [networks],
   );
 
