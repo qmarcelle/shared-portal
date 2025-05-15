@@ -24,6 +24,7 @@ import {
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNotWellnessQa,
   isNurseChatEligible,
+  isPayMyPremiumEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
@@ -294,7 +295,8 @@ export const getMenuNavigation = (
         showOnMenu: (rules) =>
           isBlueCareNotEligible(rules) &&
           isNotWellnessQa(rules) &&
-          payMyPremiumMedicareEligible(rules),
+          payMyPremiumMedicareEligible(rules) &&
+          isPayMyPremiumEligible(rules),
         url: '/balances',
         external: true,
       },
