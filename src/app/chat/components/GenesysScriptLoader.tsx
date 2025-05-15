@@ -14,7 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { ChatSettings, GenesysCXBus } from '../types';
+import { ChatSettings, GenesysCXBus } from '../types/chat-types';
 
 /**
  * Props for the GenesysScriptLoader component

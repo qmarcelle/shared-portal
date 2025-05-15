@@ -16,7 +16,11 @@ import {
   chatUISelectors,
   useChatStore,
 } from '../stores/chatStore';
-import { GenesysChat, GenesysCXBus, ScriptLoadPhase } from '../types';
+import {
+  GenesysChat,
+  GenesysCXBus,
+  ScriptLoadPhase,
+} from '../types/chat-types';
 import GenesysScriptLoader from './GenesysScriptLoader';
 
 interface ChatWidgetProps {

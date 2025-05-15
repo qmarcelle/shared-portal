@@ -2,10 +2,9 @@
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
-import { GenesysChatConfig } from '../../../../types/genesys-chat';
 import { buildGenesysChatConfig } from '../genesys-chat-config';
 import { ChatConfig, createGenesysConfig } from '../schemas/genesys.schema';
-import { ScriptLoadPhase } from '../types/ScriptLoadPhase';
+import { GenesysChatConfig, ScriptLoadPhase } from '../types/chat-types';
 
 // chatStore is the central Zustand store for chat state and actions.
 // It manages UI state, chat session state, API responses, and all chat-related actions.
