@@ -40,6 +40,7 @@ export async function getLoggedInMember(
     member.coverageTypes = loggedUserInfo.coverageTypes;
     member.lineOfBusiness = loggedUserInfo.lob;
     member.cmCondition = loggedUserInfo.cmcondition.join(',');
+    member.healthCareAccounts = loggedUserInfo?.healthCareAccounts;
     const loggedMember = loggedUserInfo.members.find(
       (item) => item.memberCk.toString() === session!.user.currUsr!.plan!.memCk,
     );

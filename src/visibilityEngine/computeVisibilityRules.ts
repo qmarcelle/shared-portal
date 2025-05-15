@@ -565,6 +565,7 @@ export function isWellnessOnlyBenefitsQV(rules: VisibilityRules | undefined) {
 export function isLifePointGrp(rules: VisibilityRules | undefined) {
   return rules?.isLifePointGrp || false;
 }
+
 export const isChipRewardsINTEligible = (
   rules: VisibilityRules | undefined,
 ) => {
