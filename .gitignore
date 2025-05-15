@@ -75,5 +75,3 @@ src/app/chat/__mocks__/temporaryData.ts
 
 # Other development files
 pnpm-lock.yaml
-types/
-src/app/types/
