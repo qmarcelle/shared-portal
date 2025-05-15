@@ -16,9 +16,10 @@ import { useMemo, useState } from 'react';
 type ClaimsPageProps = {
   filters: FilterItem[] | null;
   claimsList: ClaimDetails[] | undefined;
+  phone: string;
 };
 
-const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
+const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
   const initialFilter = useMemo(() => {
     return filters ?? [];
   }, [filters]);
@@ -139,7 +140,7 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
                 <span className="link font-bold" key={1}>
                   start a chat
                 </span>,
-                <span key={2}> or call us at [1-800-000-000].</span>,
+                <span key={2}> or call us at [{phone}].</span>,
               ]}
             />
 
@@ -147,7 +148,9 @@ const ClaimsSnapshot = ({ filters, claimsList }: ClaimsPageProps) => {
               spans={[
                 <span key={0}>Need to submit a claim? </span>,
                 <span className="link font-bold" key={1}>
-                  <a href="/claims/submitAClaim">Get the form you need</a>
+                  <a href="/member/myplan/claims/submit">
+                    Get the form you need
+                  </a>
                 </span>,
                 <span key={2}>.</span>,
               ]}

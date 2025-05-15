@@ -46,7 +46,7 @@ export const OtherBenefits = ({
         <Spacer size={23} />
         <AppLink
           label="View All Health Programs & Resources"
-          url="/myHealth/healthProgramsResources"
+          url="/member/myhealth/healthprograms"
         />
       </Column>
     </Card>

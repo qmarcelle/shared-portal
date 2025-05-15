@@ -1,22 +1,18 @@
 'use server';
 
-import { portalSvcsApi } from '@/utils/api/portalApi';
-
 import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { getDateTwoYearsAgo } from '@/utils/api/date';
-import { DocumentListMockResp } from '../mock/documentListMockResp';
-import { GetDocumentMockResp } from '../mock/getDocumentMockResp';
+import { esApi } from '@/utils/api/esApi';
+import { logger } from '@/utils/logger';
+import { formatMemberId } from '@/utils/member_utils';
 import {
   IDocumentFile,
   IDocumentMetadataListResponse,
 } from '../models/api/document';
 
-export async function getDocumentsList(): Promise<
-  ActionResponse<number, IDocumentMetadataListResponse>
-> {
+export async function getDocumentsList(): Promise<IDocumentMetadataListResponse> {
   try {
     const fromDate: string = getDateTwoYearsAgo();
     const session = await auth();
@@ -27,42 +23,35 @@ export async function getDocumentsList(): Promise<
     const loggedInMemberInfo: LoggedInUserInfo = loggedInMemberInfoReq;
     const groupId: string = loggedInMemberInfo.groupData.groupID;
     const ids: string[] = loggedInMemberInfo.members.map((member: Member) => {
-      return `${loggedInMemberInfo.subscriberID}0${member.memberSuffix}`;
+      return formatMemberId(
+        loggedInMemberInfo.subscriberID,
+        member.memberSuffix,
+      );
     });
+
     const memberIdsUrl: string = ids.map((id: string) => `${id}`).join('|');
-    const response = await portalSvcsApi.get<IDocumentMetadataListResponse>(
+    const response = await esApi.get(
       `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}?memberId=${memberIdsUrl}&groupId=${groupId}&fromDate=${fromDate}`,
     );
-
-    return {
-      status: 200,
-      data: response.data,
-    };
+    logger.info('DocumentsList Status Api Response', response.data);
+    return response?.data?.data;
   } catch (err) {
-    return {
-      status: 400,
-      data: DocumentListMockResp,
-    };
+    logger.error('Error in document center - getDocumentsList ', err);
+    throw err;
   }
 }
 
 export async function getDocumentFileInfo(
   documentId: string,
   taskSequenceNumber: string,
-): Promise<ActionResponse<number, IDocumentFile>> {
+): Promise<IDocumentFile> {
   try {
-    const response = await portalSvcsApi.get<IDocumentFile>(
-      `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}:${documentId}?taskSequenceNumber=${taskSequenceNumber}`,
+    const response = await esApi.get(
+      `/${process.env.DOCUMENTSERVICE_CONTEXT_ROOT}/${documentId}?taskSequenceNumber=${taskSequenceNumber}`,
     );
-
-    return {
-      status: 200,
-      data: response.data,
-    };
+    return response?.data?.data;
   } catch (err) {
-    return {
-      status: 400,
-      data: GetDocumentMockResp,
-    };
+    logger.error('Error in document center - getDocumentFileInfo ', err);
+    throw err;
   }
 }

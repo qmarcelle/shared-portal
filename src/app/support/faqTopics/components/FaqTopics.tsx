@@ -1,4 +1,5 @@
 import { Column } from '@/components/foundation/Column';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   FaqHeaderCardDetails,
@@ -12,44 +13,50 @@ import { OtherFaqTopics } from './OtherFaqTopics';
 
 let activeFaqTopic: (item: FaqTopicType | string | null) => void;
 export const FaqTopics = () => {
-  const [topics, setTopics] = useState<FaqTopicDetails>();
-  let faqType: FaqTopicType | string | null;
+  
+  const router = useRouter()
+  const {faqType} = useParams<{faqType:string}>()
+ 
+  const [topic, setTopic] = useState<FaqTopicDetails>(SupportFaqTopicDetails.get(faqType)!);
+  
+
   useEffect(() => {
-    const urlSearchString = window?.location?.search;
-    const params = new URLSearchParams(urlSearchString);
-    faqType = params.get('faqtype');
-    activeFaqTopic(faqType);
+    
+    activeFaqTopic(faqType!);
+    
   }, []);
 
   activeFaqTopic = (faqType: FaqTopicType | string | null) => {
-    setTopics(SupportFaqTopicDetails.get(faqType));
+    setTopic(SupportFaqTopicDetails.get(faqType)!);
+
+    window.history.pushState(null, "",`/member/support/FAQ/${faqType}`)
   };
 
   return (
     <Column className="app-content app-base-font-color">
       <FaqHeaderCard
         faqHeaderDetails={
-          topics?.faqTopicHeaderDetails ?? ({} as FaqHeaderCardDetails)
+          topic?.faqTopicHeaderDetails ?? ({} as FaqHeaderCardDetails)
         }
       />
       <section className="flex flex-row items-start app-body">
         <Column className="flex-grow page-section-63_33 items-stretch">
           <FaqCard
-            services={topics?.faqTopCardDetails ?? []}
-            topicType={topics?.topicType}
+            services={topic?.faqTopCardDetails ?? []}
+            topicType={topic?.topicType}
           />
           <FaqCard
-            services={topics?.faqSecondCardDetails}
-            topicType={topics?.topicType}
+            services={topic?.faqSecondCardDetails}
+            topicType={topic?.topicType}
           />
           <FaqCard
-            services={topics?.faqThirdCardDetails}
-            topicType={topics?.topicType}
+            services={topic?.faqThirdCardDetails}
+            topicType={topic?.topicType}
           />
         </Column>
         <Column className=" flex-grow page-section-36_67 items-stretch ">
           <OtherFaqTopics
-            faqTopics={FaqTopicType}
+            faqtype = {topic!.faqPathParam}
             goToFaqPage={activeFaqTopic}
           />
         </Column>

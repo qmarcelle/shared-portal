@@ -49,10 +49,10 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               </div>
             </div>
             <div
-              class="searchSuggestion font-medium text-black scroll w-full"
+              class="flex flex-col searchSuggestion font-medium text-black scroll-auto w-full"
             >
               <div
-                class="flex flex-row searchForField title-3 px-4 py-2"
+                class="flex flex-row searchForField title-3 px-4 py-2 cursor-pointer"
               >
                 <p
                   class="body-1 px-2"
@@ -67,10 +67,9 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                   heal
                 </p>
               </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div>
+              <div
+                class="mt-8"
+              >
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
@@ -486,10 +485,10 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             </div>
           </div>
           <div
-            class="searchSuggestion font-medium text-black scroll w-full"
+            class="flex flex-col searchSuggestion font-medium text-black scroll-auto w-full"
           >
             <div
-              class="flex flex-row searchForField title-3 px-4 py-2"
+              class="flex flex-row searchForField title-3 px-4 py-2 cursor-pointer"
             >
               <p
                 class="body-1 px-2"
@@ -504,10 +503,9 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 heal
               </p>
             </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
-            <div>
+            <div
+              class="mt-8"
+            >
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
@@ -958,7 +956,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <img
-              alt="Search"
+              alt=""
               class="icon items-end ml-1"
               data-nimg="1"
               decoding="async"
@@ -997,7 +995,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <img
-            alt="Search"
+            alt=""
             class="icon items-end ml-1"
             data-nimg="1"
             decoding="async"

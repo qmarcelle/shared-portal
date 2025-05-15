@@ -1,12 +1,14 @@
 'use client';
 
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_PHARMACY_SEARCH_FAST,
+} from '@/app/sso/ssoConstants';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
-import { InfoCard } from '@/components/composite/InfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import {
   downloadIcon,
-  envelopeIcon,
   externalIcon,
   prescriptionIcon,
   searchCareLogo,
@@ -15,19 +17,21 @@ import {
 import Iframe from '@/components/foundation/Iframe';
 import { InlineLink } from '@/components/foundation/InlineLink';
 import { Row } from '@/components/foundation/Row';
-import { Spacer } from '@/components/foundation/Spacer';
+import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import { isBenefitBookletEnabled } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { PlanDocumentsData } from './models/app/plan_documents_data';
 
 type PlanDocumentsProps = {
   data: PlanDocumentsData;
+  formularyURL?: string;
 };
-const PlanDocuments = ({ data }: PlanDocumentsProps) => {
+const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
   const isBenefitBooklet = isBenefitBookletEnabled(data?.visibilityRules);
-
+  const router = useRouter();
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -43,38 +47,36 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
             className="max-w-[650px]"
             text="We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits."
           />
-
-          <TextBox
-            className="inline"
-            text="To request a printed version of any of these materials, please "
-          />
-          <InlineLink
-            className="inline py-0 pl-0 pr-0"
-            label="contact us"
-            url="/support"
-          />
-          <TextBox className="inline" text="." />
+          <Spacer size={16} />
+          <Row className="body-1">
+            <TextBox
+              className="inline"
+              text="To request a printed version of any of these materials, please"
+            />
+            <SpacerX size={8} />
+            <InlineLink
+              className="inline py-0 pl-0 pr-0"
+              label=" contact us"
+              url="/member/support"
+            />
+            <TextBox className="inline" text="." />
+          </Row>
         </section>
 
         {(isBenefitBooklet || data?.visibilityRules?.medicare) && (
           <>
-            {isBenefitBooklet && (
-              <>
-                <Spacer size={16} />
-                <InfoCard
-                  icon={envelopeIcon}
-                  label={'Request Printed Material'}
-                  body={'Ask us to mail your plan documents to you.'}
-                  link={''}
-                />
-              </>
-            )}
-
             <section>
               <Spacer size={32} />
-              <Row className="justify-between">
-                <Column className="w-[50%]">
-                  <Card className="py-3 px-4" onClick={() => {}}>
+              <Row>
+                <Column className="w-[36%]">
+                  <Card
+                    className="py-3 px-4"
+                    onClick={() => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Provider Directory`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image
                         className="size-10"
@@ -92,7 +94,14 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                       />
                     </Row>
                   </Card>
-                  <Card className="py-3 px-4 my-4" onClick={() => {}}>
+                  <Card
+                    className="py-3 px-4 my-4"
+                    onClick={() => {
+                      window.open(
+                        `/assets/formularies/${formularyURL}/Drug-Formulary-List.pdf`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image src={prescriptionIcon} alt="link" />
                       <TextBox
@@ -107,8 +116,15 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                     </Row>
                   </Card>
                 </Column>
-                <Column className="w-[50%] ml-4">
-                  <Card className="py-3 px-4" onClick={() => {}}>
+                <Column className="w-[36%] ml-4">
+                  <Card
+                    className="py-3 px-4"
+                    onClick={() => {
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET!.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}&alternateText=Pharmacy Directory`,
+                      );
+                    }}
+                  >
                     <Row>
                       <Image src={searchPharmacyIcon} alt="link" />
                       <TextBox
@@ -134,7 +150,7 @@ const PlanDocuments = ({ data }: PlanDocumentsProps) => {
                     />
                   ) : (
                     <ErrorInfoCard
-                      className="mt-4"
+                      className="mt-4 w-[73%]"
                       errorText="We're not able to load Benefit Booklet right now. Please try again later."
                     />
                   )}

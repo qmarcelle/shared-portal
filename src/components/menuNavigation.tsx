@@ -3,39 +3,52 @@ import {
   CVS_DRUG_SEARCH_INIT,
   CVS_PHARMACY_SEARCH_FAST,
   CVS_REFILL_RX,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_MEDICAL,
+  PROV_DIR_VISION,
 } from '@/app/sso/ssoConstants';
 import {
+  isAHAdvisorpage,
   isBiometricScreening,
-  isBlueCareAndPrimaryCarePhysicianEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
+  isChipRewardsEligible,
   isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
+  isKatieBeckettEligible,
+  isLifePointGrp,
+  isManageMyPolicyEligible,
   isMentalHealthMenuOption,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
+  isNotWellnessQa,
   isNurseChatEligible,
+  isPayMyPremiumEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
+  isPrimaryCarePhysicianEligible,
   isSpendingAccountsMenuOptions,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
+  isWellnessOnlyBenefitsQV,
+  isWellnessQa,
+  payMyPremiumMedicareEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
-
 export const getMenuNavigation = (
   rules: VisibilityRules,
 ): SiteHeaderSubNavProps[] => [
   {
     id: 1,
     title: 'Find Care & Costs',
+    titleLink: 'Find All Care & Costs',
     description: 'This is Find Care & Costs',
     category: '',
-    showOnMenu: true,
-    url: '/findcare',
+    showOnMenu: isNotWellnessQa(rules) || isLifePointGrp(rules),
+    url: '/member/findcare',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "Looking for what's covered under your plan?",
@@ -45,7 +58,7 @@ export const getMenuNavigation = (
           <span className="font-bold"> Benefits & Coverages.</span>
         </p>
       ),
-      link: '/benefits',
+      link: '/member/myplan/benefits',
     },
     template: {
       firstCol: 'Find Care',
@@ -72,7 +85,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/findprovider',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&redirectLink=PCPSearchRedirect`,
         external: true,
       },
       {
@@ -81,7 +94,7 @@ export const getMenuNavigation = (
         description: 'This is Primary Care Options',
         category: 'Find Care',
         showOnMenu: isPrimaryCareMenuOption,
-        url: 'findcare/primaryCareOptions',
+        url: '/member/findcare/virtualcare/primarycare',
         external: false,
       },
       {
@@ -100,11 +113,11 @@ export const getMenuNavigation = (
         category: 'Find Care',
         showOnMenu: () => {
           if (
-            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) &&
-            isNewMentalHealthSupportAbleToEligible(rules) &&
-            isHingeHealthEligible(rules) &&
-            isTeladocPrimary360Eligible(rules) &&
-            isTeladocEligible(rules) &&
+            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+            isNewMentalHealthSupportAbleToEligible(rules) ||
+            isHingeHealthEligible(rules) ||
+            isTeladocPrimary360Eligible(rules) ||
+            isTeladocEligible(rules) ||
             isNurseChatEligible(rules)
           ) {
             return true;
@@ -112,7 +125,7 @@ export const getMenuNavigation = (
             return false;
           }
         },
-        url: '/virtualCareOptions',
+        url: '/member/findcare/virtualcare',
         external: false,
       },
       {
@@ -123,7 +136,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/pricemedicalcare',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MEDICAL)!)}`,
         external: true,
       },
       {
@@ -131,8 +144,8 @@ export const getMenuNavigation = (
         title: 'Price Dental Care',
         description: 'This is Price Dental Care',
         category: 'Estimate Costs',
-        showOnMenu: isPriceDentalCareMenuOptions,
-        url: '/priceDentalCare',
+        showOnMenu: isPriceDentalCareMenuOptions || isLifePointGrp(rules),
+        url: '/member/findcare/dentalcosts',
         external: false,
       },
       {
@@ -141,7 +154,7 @@ export const getMenuNavigation = (
         description: 'This is Price Vision Care',
         category: 'Estimate Costs',
         showOnMenu: isPriceVisionCareMenuOptions,
-        url: '/pricevisioncare',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_VISION)!)}`,
         external: true,
       },
       {
@@ -161,10 +174,11 @@ export const getMenuNavigation = (
   {
     id: 2,
     title: 'My Plan',
+    titleLink: 'View All Plan Details',
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
-    url: '/myPlan',
+    url: '/member/myplan',
     template: {
       firstCol: 'Plan Details',
       secondCol: 'Claims',
@@ -177,10 +191,8 @@ export const getMenuNavigation = (
         title: 'Benefits & Coverage',
         description: 'This is Benefits & Coverage',
         category: 'Plan Details',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/benefits',
+        showOnMenu: isNotWellnessQa || isLifePointGrp(rules),
+        url: '/member/myplan/benefits',
         external: false,
       },
       {
@@ -188,8 +200,9 @@ export const getMenuNavigation = (
         title: 'Plan Documents',
         description: 'This is Plan Documents',
         category: 'Plan Details',
-        showOnMenu: isBlueCareNotEligible,
-        url: '/benefits/planDocuments',
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        url: '/member/myplan/benefits/plandocuments',
         external: false,
       },
       {
@@ -197,8 +210,9 @@ export const getMenuNavigation = (
         title: 'Services Used',
         description: 'This is Services Used',
         category: 'Plan Details',
-        showOnMenu: isBlueCareNotEligible,
-        url: '/benefits/servicesUsed',
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        url: '/member/myplan/servicesused',
         external: false,
       },
       {
@@ -206,9 +220,13 @@ export const getMenuNavigation = (
         title: 'Member Handbook',
         description: 'This is Member Handbook',
         category: 'Plan Details',
-        showOnMenu: isBlueCareEligible,
-        url: 'https://bluecare.bcbst.com/get-care/documents-forms',
+        showOnMenu: (rules) =>
+          isBlueCareEligible(rules) ||
+          isWellnessQa(rules) ||
+          isWellnessOnlyBenefitsQV(rules),
+        url: process.env.NEXT_PUBLIC_BLUECARE_FIND_FORM_URL ?? '',
         external: true,
+        openInNewWindow: true,
       },
       {
         id: 96,
@@ -218,7 +236,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/claims',
+        url: '/member/myplan/claims',
         external: false,
       },
       {
@@ -226,10 +244,8 @@ export const getMenuNavigation = (
         title: 'Prior Authorizations',
         description: 'This is Prior Authorizations',
         category: 'Claims',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/priorAuthorization',
+        showOnMenu: isNotWellnessQa,
+        url: '/member/myplan/priorauthorizations',
         external: false,
       },
       {
@@ -237,10 +253,8 @@ export const getMenuNavigation = (
         title: 'Submit a Claim',
         description: 'This is Submit a Claim',
         category: 'Claims',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/claims/submitAClaim',
+        showOnMenu: isNotWellnessQa,
+        url: '/member/myplan/claims/submit',
         external: false,
       },
       {
@@ -248,8 +262,9 @@ export const getMenuNavigation = (
         title: 'Balances',
         description: 'This is Balances',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
-        url: '/benefits/balances',
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        url: '/member/myplan/benefits/balances',
         external: false,
       },
       {
@@ -257,8 +272,9 @@ export const getMenuNavigation = (
         title: 'Spending Accounts (HSA, FSA)',
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
-        showOnMenu: isSpendingAccountsMenuOptions,
-        url: '/spendingAccounts',
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isSpendingAccountsMenuOptions(rules),
+        url: '/member/myplan/spendingaccounts',
         external: false,
       },
       {
@@ -266,8 +282,9 @@ export const getMenuNavigation = (
         title: 'Spending Summary',
         description: 'This is Spending Summary',
         category: 'Spending',
-        showOnMenu: isBlueCareNotEligible,
-        url: '/spendingSummary',
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        url: '/member/myplan/spendingsummary',
         external: false,
       },
       {
@@ -275,7 +292,11 @@ export const getMenuNavigation = (
         title: 'View or Pay Premium',
         description: 'This is View or Pay Premium',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules) &&
+          payMyPremiumMedicareEligible(rules) &&
+          isPayMyPremiumEligible(rules),
         url: '/balances',
         external: true,
       },
@@ -285,7 +306,9 @@ export const getMenuNavigation = (
         description: 'This is Enroll in a Health Plan',
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
-          isEnrollEligible(rules) && isBlueCareNotEligible(rules),
+          isEnrollEligible(rules) &&
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules),
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
         external: true,
       },
@@ -294,7 +317,10 @@ export const getMenuNavigation = (
         title: 'Manage My Policy',
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules) &&
+          isManageMyPolicyEligible(rules),
         url: '',
         external: false,
       },
@@ -303,8 +329,9 @@ export const getMenuNavigation = (
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: isBlueCareNotEligible,
-        url: '/reportOtherHealthInsurance',
+        showOnMenu: (rules) =>
+          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        url: '/member/myplan/otherinsurance',
         external: false,
       },
       {
@@ -312,10 +339,8 @@ export const getMenuNavigation = (
         title: 'Update Katie Beckett Banking Info',
         description: 'This is Updating Katie Beckett Banking Info',
         category: 'Manage My Plan',
-        showOnMenu: () => {
-          return true;
-        },
-        url: 'myPlan/katieBeckettBankingInfo',
+        showOnMenu: isKatieBeckettEligible,
+        url: '/member/myplan/katiebeckett',
         external: false,
       },
     ],
@@ -325,20 +350,23 @@ export const getMenuNavigation = (
   {
     id: 3,
     title: 'My Health',
+    titleLink: 'View My Health Dashboard',
     description: 'This is My Health',
     category: '',
     showOnMenu: true,
-    url: '/myHealth',
-    qt: {
-      firstParagraph:
-        'Looking for a virtual care provider for mental health or physical therapy?',
-      secondParagraph: (
-        <p className="pb-1 text-base app-base-font-color ">
-          View <span className="font-bold">Virtual Care Options.</span>
-        </p>
-      ),
-      link: '/virtualCareOptions',
-    },
+    url: '/member/myhealth',
+    qt: isNotWellnessQa(rules)
+      ? {
+          firstParagraph:
+            'Looking for a virtual care provider for mental health or physical therapy?',
+          secondParagraph: (
+            <p className="pb-1 text-base app-base-font-color ">
+              View <span className="font-bold">Virtual Care Options.</span>
+            </p>
+          ),
+          link: '/member/findcare/virtualcare',
+        }
+      : undefined,
     template: {
       firstCol: 'Wellness',
       secondCol: 'Advice & Support',
@@ -351,10 +379,9 @@ export const getMenuNavigation = (
         title: 'Wellness Rewards',
         description: 'This is Wellness Rewards',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
-        url: '/wellnessrewards',
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isChipRewardsEligible(rules),
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`,
         external: true,
       },
       {
@@ -373,8 +400,9 @@ export const getMenuNavigation = (
         title: 'Biometric Screening',
         description: 'This is Biometric Screening',
         category: 'Wellness',
-        showOnMenu: isBiometricScreening,
-        url: '/biometricscreening',
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isBiometricScreening(rules),
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}`,
         external: true,
       },
       {
@@ -382,7 +410,8 @@ export const getMenuNavigation = (
         title: 'My Primary Care Provider',
         description: 'This is My Primary Care Provider',
         category: 'Wellness',
-        showOnMenu: isBlueCareAndPrimaryCarePhysicianEligible,
+        showOnMenu: (rules) =>
+          isNotWellnessQa(rules) && isPrimaryCarePhysicianEligible(rules),
         url: '/myPrimaryCareProvider',
         external: false,
       },
@@ -394,7 +423,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/memberdiscounts',
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`,
         external: true,
       },
       {
@@ -403,19 +432,8 @@ export const getMenuNavigation = (
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
         showOnMenu: isHealthProgamAndResourceEligible,
-        url: '/myHealth/healthProgramsResources',
+        url: '/member/myhealth/healthprograms',
         external: false,
-      },
-      {
-        id: 80,
-        title: 'Dental Health Library',
-        description: 'This is Dental Health Library',
-        category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
-        url: 'https://bcbstwelltuned.com/',
-        external: true,
       },
       {
         id: 79,
@@ -433,9 +451,7 @@ export const getMenuNavigation = (
         title: 'WellTuned Blog',
         description: 'This is WellTuned Blog',
         category: 'Advice & Support',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: isBlueCareNotEligible,
         url: 'https://bcbstwelltuned.com/',
         external: true,
       },
@@ -446,10 +462,11 @@ export const getMenuNavigation = (
   {
     id: 4,
     title: 'Pharmacy',
+    titleLink: 'View All Pharmacy',
     description: 'This is Pharmacy',
     category: '',
-    showOnMenu: true,
-    url: '/pharmacy',
+    showOnMenu: isNotWellnessQa(rules),
+    url: '/member/pharmacy',
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
       secondParagraph: (
@@ -462,7 +479,7 @@ export const getMenuNavigation = (
     },
     shortLinks: [
       { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
-      { title: 'Pharmacy Spending', link: '/spendingSummary' },
+      { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
     ],
     template: {
       firstCol: 'QT',
@@ -547,10 +564,13 @@ export const getMenuNavigation = (
   {
     id: 5,
     title: 'Support',
+    titleLink: 'View All Support',
     description: 'This is Support',
     category: '',
     showOnMenu: true,
-    url: '/support',
+    url: isAHAdvisorpage(rules)
+      ? '/member/amplifyhealthsupport'
+      : '/member/support',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
@@ -560,7 +580,9 @@ export const getMenuNavigation = (
           [1-800-000-0000].
         </p>
       ),
-      link: '/support',
+      link: isAHAdvisorpage(rules)
+        ? '/member/amplifyhealthsupport'
+        : '/member/support',
     },
     template: {
       firstCol: 'QT',
@@ -577,7 +599,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/support/faq',
+        url: '/member/support/FAQ',
         external: false,
       },
       {

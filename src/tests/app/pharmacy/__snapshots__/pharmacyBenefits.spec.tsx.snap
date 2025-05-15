@@ -24,6 +24,17 @@ exports[`Pharmacy Benefits should render Pharmacy Benefits correctly 1`] = `
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div
@@ -177,6 +188,17 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Your prescription and medical plan work together. CVS Caremark
+                <sup>
+                  TM
+                </sup>
+                 helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+              </span>
+            </span>
           </div>
         </div>
         <div
@@ -211,7 +233,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                   />
                   <a
                     aria-label="View All Plan Documents"
-                    href="/benefits/planDocuments"
+                    href="/member/myplan/benefits/plandocuments"
                     style="display: block;"
                   >
                     <button
@@ -343,6 +365,17 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div
@@ -377,7 +410,7 @@ exports[`Pharmacy Benefits should render Ui properly for Freedom MA BlueAdvantag
                 />
                 <a
                   aria-label="View All Plan Documents"
-                  href="/benefits/planDocuments"
+                  href="/member/myplan/benefits/plandocuments"
                   style="display: block;"
                 >
                   <button

@@ -19,7 +19,7 @@ export const AmplifyHealthAdvisorBanner = () => {
           you 24/7. You can start a chat or call us at [1-866-258-3267].
         </p>
         <Spacer size={32}></Spacer>
-        <Link href="/amplifyHealthSupport" className="link link-hover">
+        <Link href="/member/amplifyhealthsupport" className="link link-hover">
           <p className="pb-2 pt-2">Learn More About My AmplifyHealth Advisor</p>
         </Link>
       </Column>

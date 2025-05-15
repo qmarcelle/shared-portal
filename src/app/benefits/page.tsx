@@ -2,6 +2,7 @@ import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
 import { Metadata } from 'next';
 import { Session } from 'next-auth';
+import { invokePhoneNumberAction } from '../profileSettings/actions/profileSettingsAction';
 import loadBenefits from './actions/loadBenefits';
 import Benefits from './benefits';
 import { BenefitsError } from './components/BenefitsError';
@@ -39,6 +40,9 @@ const BenefitsAndCoveragePage = async () => {
     if (isDelinquent) {
       return <Delinquent />;
     }
+
+    const phoneNumber = await invokePhoneNumberAction();
+
     //To check the Eligibility Criteria for Employer Provided Benefits
     const employerProvidedBenefits = await getEmployerProvidedBenefits(
       session!.user.currUsr!.plan!.memCk,
@@ -54,6 +58,8 @@ const BenefitsAndCoveragePage = async () => {
         )}
         userGroupId={userInfoData.groupData.groupID}
         visibilityRules={session.user.vRules}
+        phoneNumber={phoneNumber}
+        loggedInMemeck={session!.user.currUsr!.plan!.memCk}
       />
     );
   } catch (error) {

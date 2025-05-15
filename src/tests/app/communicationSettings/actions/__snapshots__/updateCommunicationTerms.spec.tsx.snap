@@ -104,23 +104,24 @@ exports[`communication Information API Integration communication Information Ema
                       aria-checked="true"
                       aria-disabled="false"
                       aria-invalid="false"
+                      aria-label="Warning message"
                       aria-required="false"
-                      class="flex flex-col "
+                      class="flex flex-col   "
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-center"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
                           aria-label="Warning message"
-                          class="checkbox checked  "
-                          id="checkbox-test-warning-message"
+                          class="checkbox  checked checkbox--checked  "
+                          id="checkbox-warning-message"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2"
-                          for="checkbox-test-warning-message"
+                          class="ml-2  cursor-pointer"
+                          for="checkbox-warning-message"
                         >
                           Warning message
                         </label>
@@ -134,7 +135,7 @@ exports[`communication Information API Integration communication Information Ema
                       />
                       <button
                         aria-label="Save Changes"
-                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color opacity-50"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color "
                         type="button"
                       >
                         Save Changes
@@ -295,23 +296,24 @@ exports[`communication Information API Integration communication Information sav
                       aria-checked="true"
                       aria-disabled="false"
                       aria-invalid="false"
+                      aria-label="Warning message"
                       aria-required="false"
-                      class="flex flex-col "
+                      class="flex flex-col   "
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-center"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
                           aria-label="Warning message"
-                          class="checkbox checked  "
-                          id="checkbox-test-warning-message"
+                          class="checkbox  checked checkbox--checked  "
+                          id="checkbox-warning-message"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2"
-                          for="checkbox-test-warning-message"
+                          class="ml-2  cursor-pointer"
+                          for="checkbox-warning-message"
                         >
                           Warning message
                         </label>
@@ -325,7 +327,7 @@ exports[`communication Information API Integration communication Information sav
                       />
                       <button
                         aria-label="Save Changes"
-                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color opacity-50"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold primary-color "
                         type="button"
                       >
                         Save Changes

@@ -7,6 +7,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { isChipRewardsINTEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import { IComponent } from '../../../components/IComponent';
@@ -15,6 +17,7 @@ import { Column } from '../../../components/foundation/Column';
 import { Header } from '../../../components/foundation/Header';
 import { externalIcon } from '../../../components/foundation/Icons';
 import { MemberRewards } from '../models/app/my_health_data';
+import { WellnessInfo } from './WellnessInfo';
 
 interface WellnessRewardsProps extends IComponent {
   color1?: string;
@@ -22,6 +25,8 @@ interface WellnessRewardsProps extends IComponent {
   memberRewards: MemberRewards | null;
   icon?: ReactNode;
   linkText?: string;
+  visibilityRules?: VisibilityRules;
+  isMemRelation?: string;
 }
 
 export const WellnessRewards = ({
@@ -31,6 +36,8 @@ export const WellnessRewards = ({
   linkText = 'View Ways to Earn & Learn more',
   icon = <Image alt="external icon" src={externalIcon} />,
   memberRewards,
+  visibilityRules,
+  isMemRelation,
 }: WellnessRewardsProps) => {
   return (
     <>
@@ -138,7 +145,20 @@ export const WellnessRewards = ({
                   </Row>
                   <Spacer size={18} />
                   <Row>
-                    <AppLink className="body-1" label={linkText} />
+                    {isMemRelation &&
+                    isChipRewardsINTEligible(visibilityRules) ? (
+                      <AppLink
+                        className="body-1"
+                        label={linkText}
+                        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+                      />
+                    ) : (
+                      <AppLink
+                        className="body-1"
+                        label={linkText}
+                        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
+                      />
+                    )}
                     <Image alt="external icon" src={externalIcon} />
                   </Row>
                   <Spacer size={18} />
@@ -190,6 +210,13 @@ export const WellnessRewards = ({
           )}
         </>
       </Card>
+      <WellnessInfo
+        header="Active Rewards - Employer Provided Reward"
+        subHeader="Wellness Rewards"
+        bodyText="Complete wellness tasks to earn rewards provided by your employer."
+        buttonText="Learn More"
+        className="section"
+      />
     </>
   );
 };

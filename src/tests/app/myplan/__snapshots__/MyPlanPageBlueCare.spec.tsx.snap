@@ -38,7 +38,9 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
               </a>
             </span>
             <span>
-               or call us at [1-800-000-000].
+               or call us at [
+              1-800-565-9000
+              ].
             </span>
           </span>
         </div>
@@ -110,7 +112,7 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
                 />
                 <a
                   aria-label="View More ID Card Options"
-                  href="/memberIDCard"
+                  href="/member/idcard"
                   style="display: block;"
                 >
                   <button
@@ -175,6 +177,42 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Plan Contact Information
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -307,7 +345,7 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
                 class="flex flex-col"
               >
                 <a
-                  href="/benefits"
+                  href="/member/myplan/benefits"
                 >
                   <div
                     class="card-elevated small-section"
@@ -349,7 +387,7 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
                   </div>
                 </a>
                 <a
-                  href="/claims"
+                  href="/member/myplan/claims"
                 >
                   <div
                     class="card-elevated small-section"
@@ -391,7 +429,7 @@ exports[`My Plan Page for BlueCare member should render My Plan page UI features
                   </div>
                 </a>
                 <a
-                  href="/priorAuth"
+                  href="/member/myplan/priorauthorizations"
                 >
                   <div
                     class="card-elevated small-section"

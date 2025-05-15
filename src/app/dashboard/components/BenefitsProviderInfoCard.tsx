@@ -17,7 +17,7 @@ export const BenefitsProviderInfoCard = ({
 }: BenefitsProviderInfoCardProps) => {
   return (
     <Card className={`${className}`}>
-      <a className="p-4 block" href={url}>
+      <a className="p-4 block" href={url} target="_blank">
         {url != null ? (
           <Title
             className="body-bold primary-color"

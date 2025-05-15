@@ -5,6 +5,7 @@ import { CoverageTypes } from '@/userManagement/models/coverageType';
 export const computePolicyName = (policyTypes: string[]): string => {
   const policies = policyTypes
     .map((policy) => CoverageTypes.get(policy))
+    .filter((policy) => policy && policy.trim() !== '')
     .join(', ');
   return policies;
 };
@@ -29,7 +30,7 @@ export const transformPolicyToPlans = (policyInfo: PolicyInfo) => {
       subscriberName: item.subscriberName,
       memeCk: item.memberCk?.toString(),
       termedPlan: true,
-      endedOn: item.termDate?.split('-')[3],
+      endedOn: item.termDate?.split('-')[2],
     }),
   );
   return planDetails;

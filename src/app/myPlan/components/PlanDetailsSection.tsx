@@ -22,7 +22,7 @@ export type PlanDeatilsSectionProps = {
   svgData: string | null;
   planType: string | null;
   visibilityRules?: VisibilityRules;
-  planData: AllMyPlanData[];
+  planData: AllMyPlanData<string>[];
 } & IComponent;
 
 export const PlanDetailsSection = ({
@@ -32,10 +32,6 @@ export const PlanDetailsSection = ({
   visibilityRules,
   planData,
 }: PlanDeatilsSectionProps) => {
-  const formatText = (text: string) => {
-    if (!text) return '';
-    return text.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
-  };
   function IDCardFront() {
     return (
       <Column>
@@ -59,28 +55,37 @@ export const PlanDetailsSection = ({
     );
   }
 
-  const onMyPlanDetails = planData.map((member) => ({
-    memberName: formatText(member.memberName),
-    DOB: new Date(member.dob).toLocaleDateString(),
-    sharingType: member.planDetails
-      .map((plan) => {
-        if (plan.isMedical) return 'Medical';
-        if (plan.isDental) return 'Dental';
-        if (plan.isVision) return 'Vision';
-        return '';
-      })
-      .filter((type) => type !== '')
-      .join(' / '),
-    medicalEffectiveDate: member.medicalEffectiveDate,
-    dentalEffectiveDate: member.dentalEffectiveDate,
-    visionEffectiveDate: member.visionEffectiveDate,
-    isMinor: false,
-    address:
-      member.address.length > 0
-        ? `${member.address[0]?.address1 ?? ''} ${member.address[0]?.city ?? ''}, ${member.address[0]?.state ?? ''} ${member.address[0]?.zipcode ?? ''}`
-        : '',
-    primaryPhoneNumber: member.primaryPhoneNumber,
-  }));
+  const onMyPlanDetails = planData.map((member) => {
+    return {
+      memberName: member.memberName,
+      DOB: new Date(member.dob).toLocaleDateString(),
+      sharingType: member.planDetails
+        .map((plan) => {
+          if (plan.isMedical) return 'Medical';
+          if (plan.isDental) return 'Dental';
+          if (plan.isVision) return 'Vision';
+          return '';
+        })
+        .filter((type) => type !== '')
+        .join(' / '),
+      medicalEffectiveDate: member.medicalEffectiveDate,
+      dentalEffectiveDate: member.dentalEffectiveDate,
+      visionEffectiveDate: member.visionEffectiveDate,
+      isMinor: false,
+
+      address1: member.address1,
+      cityStateZip: member.address2,
+
+      primaryPhoneNumber: member.primaryPhoneNumber,
+      secondaryPhoneNumber: member.secondaryPhoneNumber,
+      memck: member.memCk,
+      loggedInMember: member.loggedInMember,
+    };
+  });
+
+  const loggedInMember = onMyPlanDetails.find(
+    (item) => item.loggedInMember == true,
+  );
 
   return (
     <Card className={className}>
@@ -95,32 +100,23 @@ export const PlanDetailsSection = ({
               <TextBox text="BlueCare Medicaid" className="font-bold" />
             </Row>
           </>
-        ) : !planData ||
-          planData.length === 0 ||
-          !planData.some((member) => !member.primaryPhoneNumber) ? (
-          planType ? (
-            <>
-              {!planType?.includes(NOT_AVAILABLE) && (
-                <>
-                  <Spacer size={32} />
-                  <Row>
-                    <TextBox text="Plan Type:"></TextBox>
-                    <Spacer size={16} axis="horizontal" />
-                    <TextBox text={planType} className="body-bold" />
-                  </Row>
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              <Spacer size={32} />
-              <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
-            </>
-          )
+        ) : planType ? (
+          <>
+            {!planType?.includes(NOT_AVAILABLE) && (
+              <>
+                <Spacer size={32} />
+                <Row>
+                  <TextBox text="Plan Type:"></TextBox>
+                  <Spacer size={16} axis="horizontal" />
+                  <TextBox text={planType} className="body-bold" />
+                </Row>
+              </>
+            )}
+          </>
         ) : (
           <>
             <Spacer size={32} />
-            <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+            <ErrorCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later. " />
           </>
         )}
         <Spacer size={32} />
@@ -135,7 +131,7 @@ export const PlanDetailsSection = ({
         <AppLink
           className="p-0"
           label="View More ID Card Options"
-          url="/memberIDCard"
+          url="/member/idcard"
         />
         <Spacer size={24} />
         <Divider />
@@ -167,36 +163,39 @@ export const PlanDetailsSection = ({
           </Column>
         </Card>
         <Spacer size={16} />
-        {onMyPlanDetails.map((detail, index) => (
-          <Card key={index}>
-            <Column className="items-stretch">
-              <Accordion
-                className="px-2 py-4"
-                label="View Plan Contact Information"
-                initialOpen={false}
-                type="card"
-                openIcon={
-                  <Image
-                    className="pl-2 w-6"
-                    src={Down}
-                    alt="Down Chevron"
-                  ></Image>
-                }
-                closeIcon={
-                  <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-                }
-                child={
-                  <PlanContactInformationSection
-                    title="Below is the phone number and mailing address associated with your plan."
-                    address={detail.address}
-                    primaryPhoneNumber={detail.primaryPhoneNumber}
-                    secondaryPhoneNumber="N/A"
-                  />
-                }
-              ></Accordion>
-            </Column>
-          </Card>
-        ))}
+        <Card>
+          <Column className="items-stretch">
+            <Accordion
+              className="px-2 py-4"
+              label="View Plan Contact Information"
+              initialOpen={false}
+              type="card"
+              openIcon={
+                <Image
+                  className="pl-2 w-6"
+                  src={Down}
+                  alt="Down Chevron"
+                ></Image>
+              }
+              closeIcon={
+                <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
+              }
+              child={
+                <PlanContactInformationSection
+                  title="Below is the phone number and mailing address associated with your plan."
+                  address1={loggedInMember?.address1 ?? 'N/A'}
+                  address2={loggedInMember?.cityStateZip ?? 'N/A'}
+                  primaryPhoneNumber={
+                    loggedInMember?.primaryPhoneNumber ?? 'N/A'
+                  }
+                  secondaryPhoneNumber={
+                    loggedInMember?.secondaryPhoneNumber ?? 'N/A'
+                  }
+                />
+              }
+            ></Accordion>
+          </Column>
+        </Card>
       </div>
     </Card>
   );

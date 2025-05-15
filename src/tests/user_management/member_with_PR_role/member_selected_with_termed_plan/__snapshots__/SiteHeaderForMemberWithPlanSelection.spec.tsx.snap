@@ -41,7 +41,7 @@ exports[`SiteHeader for Plan Selection Wall for Member with Termed Plan should r
         </div>
         <a
           class="ml-5 lg:px-0"
-          href="/dashboard"
+          href="/member/home"
         >
           <img
             alt="BCBST Logo"

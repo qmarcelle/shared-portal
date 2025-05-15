@@ -13,43 +13,35 @@ export async function computeSessionUser(
   userId: string,
   selectedUserId?: string,
   planId?: string,
+  impersonator?: string,
 ): Promise<SessionUser> {
-  logger.info('[computeSessionUser] ENTRY', { userId, selectedUserId, planId });
   try {
-    logger.info('[computeSessionUser] Calling revalidateUser', { userId });
+    logger.info('Calling computeSessionUser');
     revalidateUser(userId);
-    logger.info('[computeSessionUser] Fetching PBE', { userId });
+    // Get the PBE of the loggedIn user
+    // The loggedIn user here is the user who has logged in
+    // and not the user role to which user has switched to.
     const pbe = await getPersonBusinessEntity(userId, true, true, true);
-    logger.info('[computeSessionUser] PBE fetched', {
-      pbeSummary: pbe && pbe.getPBEDetails ? pbe.getPBEDetails.length : 'none',
-    });
-    logger.info('[computeSessionUser] Getting current user', {
-      selectedUserId,
-      planId,
-    });
 
-    // Get the current user
+    // Get the current user to which user has either switched to or
+    // their actual role with the selected plan.
+    // if user has only one plan, it is default selected.
+    // if multiple plans with no selected planId, no plan is selected.
     const currentUser = getCurrentUser(pbe, selectedUserId, planId);
-    logger.info('[computeSessionUser] Current user determined', {
-      currentUser,
-    });
-
-    // Always determine the subscriber profile
-    const subscriberProfile = getSubscriberProfile(pbe);
-    logger.info('[computeSessionUser] Subscriber profile determined', {
-      subscriberId: subscriberProfile?.id,
-      isCurrentUserSubscriber: subscriberProfile?.id === currentUser?.id,
-    });
-
     if (currentUser) {
       const plans = currentUser.plans;
 
       if (planId) {
-        return computeTokenWithPlan(userId, currentUser, planId, subscriberProfile);
+        return computeTokenWithPlan(userId, currentUser, planId, impersonator);
       } else {
         const selectedPlan = plans.length == 1 ? plans[0] : null;
         if (selectedPlan) {
-          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK, subscriberProfile);
+          return computeTokenWithPlan(
+            userId,
+            currentUser,
+            selectedPlan.memCK,
+            impersonator,
+          );
         }
         return {
           id: userId,
@@ -59,16 +51,17 @@ export async function computeSessionUser(
             role: currentUser.type,
             plan: undefined,
           },
-          subscriberId: subscriberProfile?.id, // Always include subscriber ID
+          impersonated: !!impersonator,
+          impersonator,
         };
       }
     } else {
       logger.error('User of given id not found');
       throw 'User Not Found';
     }
-  } catch (error) {
-    logger.error('[computeSessionUser] ERROR', { error });
-    throw error;
+  } catch (err) {
+    logger.error('Compute Session Error occurred', err);
+    throw err;
   }
 }
 
@@ -82,52 +75,12 @@ function getCurrentUser(
     selectedUserId,
     selectedPlanId,
   );
-
-  // For chat functionality, we need to ensure we're using the subscriber profile
-  // This will be used for subscriber ID determination in chat API calls
   if (selectedUserId) {
     const selectedProfile = userProfiles.find((item) => item.selected == true);
-    
-    // Log the selected profile and whether it's a subscriber
-    logger.info('[getCurrentUser] Selected profile', {
-      isSubscriber: selectedProfile?.relationshipType === 'Subscriber',
-      profileId: selectedProfile?.id,
-      relationshipType: selectedProfile?.relationshipType,
-    });
-    
     return selectedProfile!;
   } else {
-    // If no profile is specifically selected, prioritize returning the subscriber if available
-    const subscriberProfile = userProfiles.find(
-      (profile) => profile.type === 'MEM' && profile.relationshipType === 'Subscriber'
-    );
-    
-    if (subscriberProfile) {
-      logger.info('[getCurrentUser] No specific user selected, returning subscriber profile', {
-        subscriberId: subscriberProfile.id,
-      });
-      return subscriberProfile;
-    }
-    
-    logger.info('[getCurrentUser] No specific user selected and no subscriber found, returning first profile', {
-      profileId: userProfiles[0]?.id,
-      relationshipType: userProfiles[0]?.relationshipType,
-    });
-    
     return userProfiles[0];
   }
-}
-
-/**
- * Get the subscriber profile from the PBE data
- * The subscriber is always the primary policyholder
- */
-function getSubscriberProfile(pbe: PBEData): UserProfile | undefined {
-  const userProfiles = computeUserProfilesFromPbe(pbe);
-  // Find the subscriber profile (type MEM with relationshipType "Subscriber")
-  return userProfiles.find(
-    (profile) => profile.type === 'MEM' && profile.relationshipType === 'Subscriber'
-  );
 }
 
 // Computes the session token with user and plan details added
@@ -135,11 +88,10 @@ async function computeTokenWithPlan(
   userId: string,
   currentUser: UserProfile,
   planId: string,
-  subscriberProfile?: UserProfile,
+  impersonator?: string,
 ): Promise<SessionUser> {
   const loggedUserInfo = await getLoggedInUserInfo(planId, true, userId);
   const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
-  
   return {
     id: userId,
     currUsr: {
@@ -148,16 +100,18 @@ async function computeTokenWithPlan(
       role: currentUser.type,
       plan: {
         fhirId: currentUser.plans.find((item) => item.memCK == planId)!
-          .patientFhirId,
+          .patientFhirId, //plan.patientFHIRID,
         grgrCk: loggedUserInfo.groupData.groupCK,
         grpId: loggedUserInfo.groupData.groupID,
         memCk: planId,
         sbsbCk: loggedUserInfo.subscriberCK,
         subId: loggedUserInfo.subscriberID,
-        ntwkId: memberNetworks[0].allowable_networks.default[0].id.toString(),
+        ntwkId:
+          memberNetworks[0].allowable_networks.default[0]?.id.toString() ?? '',
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),
-    subscriberId: subscriberProfile?.id, // Always include the subscriber ID
+    impersonated: !!impersonator,
+    impersonator: impersonator,
   };
 }

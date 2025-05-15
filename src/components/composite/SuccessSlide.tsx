@@ -23,7 +23,7 @@ export const SuccessSlide = ({
     <Column className="items-center">
       <img src="/assets/success.svg" className="size-[80px]" alt="success" />
       <Spacer size={24} />
-      <Header className="title-2" text={label} />
+      <Header className="title-2 text-center" text={label} />
       <Spacer size={16} />
       <Column className="w-[358px]">
         {body}

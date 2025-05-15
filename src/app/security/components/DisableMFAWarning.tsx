@@ -57,8 +57,7 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
         </Row>
         {checked ? (
           <TextBox
-            text="We'll send a one-time security code to your email by default. Set up
-            multiple methods for more options when you log in."
+            text="We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in."
           />
         ) : (
           <p className="body-1">

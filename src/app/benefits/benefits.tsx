@@ -16,7 +16,10 @@ import { RichText } from '@/components/foundation/RichText';
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
-import { isBlue365FitnessYourWayEligible } from '@/visibilityEngine/computeVisibilityRules';
+import {
+  isBlue365FitnessYourWayEligible,
+  isMskEligible,
+} from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -25,6 +28,7 @@ import {
   getMemberDropdownValues,
 } from './actions/benefitsUtils';
 import loadBenefits from './actions/loadBenefits';
+import { JointProcedureCard } from './components/JointProcedureCard';
 import {
   ManageBenefitsItems,
   MedicalPharmacyDentalCard,
@@ -41,7 +45,9 @@ interface BenefitsProps {
   benefitsBean: MemberBenefitsBean;
   otherBenefitItems: ManageBenefitsItems[];
   userGroupId: string;
+  phoneNumber: string;
   visibilityRules?: VisibilityRules;
+  loggedInMemeck: string;
 }
 
 const Benefits = ({
@@ -49,7 +55,9 @@ const Benefits = ({
   benefitsBean,
   otherBenefitItems,
   userGroupId,
+  phoneNumber,
   visibilityRules,
+  loggedInMemeck,
 }: BenefitsProps) => {
   const [medicalBenefitsItems, setMedicalBenefitsItems] = useState<
     ManageBenefitsItems[]
@@ -93,7 +101,10 @@ const Benefits = ({
 
   useEffect(() => {
     setCurrentUserBenefitData(benefitsBean);
-    setCurrentSelectedMember(memberInfo[0]);
+    const selectedMember = memberInfo.find(
+      (member) => member.memberCk.toString() === loggedInMemeck,
+    );
+    if (selectedMember) setCurrentSelectedMember(selectedMember);
   }, [
     benefitsBean,
     memberInfo,
@@ -120,7 +131,9 @@ const Benefits = ({
         serviceCategory: category,
         benefitType: benefitType,
       });
-      router.push('/benefits/details');
+      let path = pathName(category);
+
+      router.push(`/member/myplan/benefits/${path}`);
     },
     [router, setSelectedBenefitDetails],
   );
@@ -148,7 +161,6 @@ const Benefits = ({
       setMedicalBenefitsItems([]);
     }
     if (currentUserBenefitData.dentalBenefits) {
-      const denBenefits: ManageBenefitsItems[] = [];
       setDentalBenefitsItems(
         generateBenefitsItems(
           currentUserBenefitData.dentalBenefits,
@@ -157,8 +169,8 @@ const Benefits = ({
           BenefitType.DENTAL,
         ),
       );
-      setDentalBenefitsItems(denBenefits);
     }
+    else setDentalBenefitsItems([]);
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(
@@ -216,6 +228,13 @@ const Benefits = ({
     [currentSelectedMember.planDetails],
   );
 
+  function pathName(category: { category: string; id: number }) {
+    let path = category.category.replace(/\s/g, '').toLowerCase();
+    if (path === 'medicalequipment/prosthetics/orthotics')
+      path = 'medicalequipment';
+    return path;
+  }
+
   function onFilterSelectChange(index: number, data: FilterItem[]) {
     if (index == 0) onMemberSelectionChange(data[index].selectedValue?.value);
     else if (index == 1)
@@ -234,7 +253,7 @@ const Benefits = ({
             <span className="link font-bold" key={1}>
               start a chat
             </span>,
-            <span key={2}> or call us at [1-800-000-000].</span>,
+            <span key={2}> or call us at [{phoneNumber}].</span>,
           ]}
         />
         <Spacer size={16} />
@@ -282,6 +301,12 @@ const Benefits = ({
                 onBenefitTypeSelectChange(benefitTypes[0].value);
               }}
             />
+            {isMskEligible(visibilityRules) && (
+              <JointProcedureCard
+                className="mt-8 row-span-4 font-normal text-white lg:w-[300px] secondary-bg-blue-500 p-5 rounded-lg"
+                phoneNumber={currentUserBenefitData.phoneNumber!}
+              />
+            )}
           </Column>
           <Column className="flex-grow page-section-63_33 items-stretch">
             {currentSelectedMember.planDetails.find(

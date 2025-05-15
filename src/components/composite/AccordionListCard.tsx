@@ -50,6 +50,9 @@ export const AccordionListCard = ({
                   alt="Up Chevron"
                 />
               }
+              onOpenCallBack={() =>
+                info.onOpenCallBack && info.onOpenCallBack()
+              }
             ></Accordion>
             {index !== information.length - 1 && <Divider />}
           </>

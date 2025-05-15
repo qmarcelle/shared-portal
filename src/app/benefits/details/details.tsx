@@ -3,6 +3,8 @@ import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
+import estimateCost from '@/public/assets/estimate_cost.svg';
+import servicesUsed from '@/public/assets/services_used.svg';
 import { BalanceSectionWrapper } from '../balances/components/BalanceSection';
 import {
   SpendingAccountSection,
@@ -19,9 +21,11 @@ import { useBenefitsStore } from '../stores/benefitsStore';
 export const Details = ({
   balanceData,
   spendingAccountInfo,
+  contact,
 }: {
   balanceData: BalanceData | undefined;
   spendingAccountInfo: SpendingAccountSectionProps;
+  contact: string;
 }) => {
   const { selectedBenefitDetails } = useBenefitsStore();
 
@@ -47,9 +51,25 @@ export const Details = ({
     (service) => {
       return {
         listBenefitDetails: service.serviceDetails.map((detail) => {
-          const copayInsurance = detail.memberPays
-            ? `${detail.memberPays}% coinsurance after you pay the deductible`
-            : `$${detail.copay} copay`;
+          const formatDollarAmount = (amount: number) =>
+            amount.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            });
+
+          const copayInsurance = [
+            detail.deductible > 0
+              ? `${formatDollarAmount(detail.deductible)} deductible`
+              : null,
+            detail.memberPays > 0 ? `${detail.memberPays}% coinsurance` : null,
+            detail.copay > 0
+              ? `${formatDollarAmount(detail.copay)} copay`
+              : null,
+          ]
+            .filter(Boolean)
+            .join(', ');
           return {
             benefitTitle: detail.description,
             copayOrCoinsurance: copayInsurance,
@@ -98,14 +118,14 @@ export const Details = ({
               <InfoCard
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
-                icon="/assets/estimate_cost.svg"
-                link="findcare"
+                icon={estimateCost}
+                link="/member/findcare"
               />
               <InfoCard
                 label="Services Used"
                 body="View a list of common services, the maximum amount covered by your plan and how many you've used."
-                icon="/assets/services_used.svg"
-                link="servicesused"
+                icon={servicesUsed}
+                link="/member/myplan/servicesused"
               />
               {/* Add Medical Balances Card */}
               {[
@@ -116,6 +136,7 @@ export const Details = ({
                   key="Medical"
                   title="Medical & Pharmacy Balance"
                   product={balanceData?.medical}
+                  phone={contact}
                 />
               )}
               {selectedBenefitDetails.benefitType ===
@@ -124,6 +145,7 @@ export const Details = ({
                   key="Dental"
                   title="Dental Balance"
                   product={balanceData?.dental}
+                  phone={contact}
                 />
               )}
 
@@ -136,7 +158,7 @@ export const Details = ({
                 />
               )}
               <GetHelpSection
-                link="/benefits/faq"
+                link="/support/faqTopics/benefits"
                 linkURL="Benefits & Coverage FAQ"
                 headerText="Get Help with Benefits"
               />

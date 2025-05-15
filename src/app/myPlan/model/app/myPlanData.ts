@@ -20,13 +20,20 @@ export type MyPlanData = {
   visibilityRules?: VisibilityRules;
 };
 
-export type AllMyPlanData = {
+export type AllMyPlanData<T = Address[]> = {
   memberName: string;
   dob: string;
   planDetails: PlanDetail[];
   medicalEffectiveDate: string;
   dentalEffectiveDate: string;
   visionEffectiveDate: string;
-  address: Address[];
+  address?: T;
+  address1?: string;
+  address2?: string;
   primaryPhoneNumber: string;
+  age?: number | undefined;
+  secondaryPhoneNumber: string;
+  mailAddressType?: string;
+  memCk: string;
+  loggedInMember?: boolean;
 };

@@ -1,10 +1,10 @@
 'use server';
- 
+
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { PBEData } from '@/models/member/api/pbeData';
 import { logger } from '@/utils/logger';
 import { getAuthToken } from '../getToken';
- 
+
 export async function getPersonBusinessEntity(
   userId: string,
   needPBE: boolean = true,
@@ -25,9 +25,9 @@ export async function getPersonBusinessEntity(
         },
       },
     );
- 
+
     const result = (await resp.json()) as ESResponse<PBEData>;
- 
+
     logger.info('PBE Data', result.data!);
     return result.data!;
   } catch (err) {

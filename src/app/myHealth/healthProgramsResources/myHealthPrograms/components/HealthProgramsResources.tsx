@@ -1,13 +1,13 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
+import { Session } from 'next-auth';
 import { HealthProgramDetails } from '../models/health_program_details';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
 import { CostforThisOptionCard } from './CostforThisOptionCard';
 import { GoodforThisOptionCard } from './GoodforThisOptionCard';
 import { HealthProgramsHeaderCard } from './HealthProgramsHeaderCard';
 import { WhyUseThisOptionCard } from './WhyUseThisOptionCard';
-import { Session } from 'next-auth';
 
 interface HealthProgramsResourcesProps extends IComponent {
   healthProgramDetails?: HealthProgramDetails;
@@ -19,8 +19,7 @@ export const HealthProgramsResources = ({
   sessionData,
 }: HealthProgramsResourcesProps) => {
   return (
-    <Column className="app-content app-base-font-color">
-      <Spacer size={64} />
+    <Column className="app-content app-base-font-color !p-0">
       <HealthProgramsHeaderCard
         sessionData={sessionData}
         healthProgramHeaderDetails={

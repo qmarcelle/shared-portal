@@ -5,7 +5,7 @@ import {
 } from '@/models/member/api/pbeData';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
-import { formatDateToLocale } from './date_formatter';
+import { formatDateString } from './date_formatter';
 import { logger } from './logger';
 
 /**
@@ -79,7 +79,7 @@ function addNonMemberToProfiles(
     personFhirId: pbe.getPBEDetails[0].personFHIRID,
     firstName: pbe.getPBEDetails[0].firstName,
     lastName: pbe.getPBEDetails[0].lastName,
-    dob: formatDateToLocale(new Date(pbe.getPBEDetails[0].dob)),
+    dob: formatDateString(pbe.getPBEDetails[0].dob, 'yyyy-mm-dd', 'mm/dd/yyyy'),
     type: UserRole.NON_MEM,
     selected: selectedUserId == pbe.getPBEDetails[0].umpid,
     plans: [],
@@ -98,7 +98,11 @@ function addAUOrPRToProfiles(
     personFhirId: relatedPerson.relatedPersonFHIRID,
     firstName: relatedPerson.relatedPersonFirstName,
     lastName: relatedPerson.relatedPersonLastName,
-    dob: formatDateToLocale(new Date(relatedPerson.relatedPersonDob)),
+    dob: formatDateString(
+      relatedPerson.relatedPersonDob,
+      'yyyy-mm-dd',
+      'mm/dd/yyyy',
+    ),
     type:
       relationship.personRoleType == 'PR'
         ? UserRole.PERSONAL_REP
@@ -124,7 +128,7 @@ function addMemberToProfiles(
     personFhirId: pbe.getPBEDetails[0].personFHIRID,
     firstName: pbe.getPBEDetails[0].firstName,
     lastName: pbe.getPBEDetails[0].lastName,
-    dob: formatDateToLocale(new Date(pbe.getPBEDetails[0].dob)),
+    dob: formatDateString(pbe.getPBEDetails[0].dob, 'yyyy-mm-dd', 'mm/dd/yyyy'),
     type: UserRole.MEMBER,
     selected: selectedUserId == pbe.getPBEDetails[0].umpid,
     plans: [

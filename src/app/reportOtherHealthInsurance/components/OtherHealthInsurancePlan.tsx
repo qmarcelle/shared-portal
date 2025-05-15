@@ -1,8 +1,11 @@
+import { MemberData } from '@/actions/loggedUserInfo';
 import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import SelectMemberPlan from '../components/SelectMemberPlan';
+import React from 'react';
+import SelectMemberPlan from './SelectMemberPlan';
+
 interface OtherHealthInsurancePlanProps {
   checkboxState: {
     medicarePlan: boolean;
@@ -11,12 +14,22 @@ interface OtherHealthInsurancePlanProps {
   };
   onCheckboxChange: (checkboxValue: string[]) => void;
   selectedData: boolean;
+  selectedOption: 'all' | 'selected';
+  setSelectedOption: React.Dispatch<React.SetStateAction<'all' | 'selected'>>;
+  selectedCheckboxes: string[];
+  setSelectedCheckboxes: React.Dispatch<React.SetStateAction<string[]>>;
+  membersData: MemberData[];
 }
 
 const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
   checkboxState,
   onCheckboxChange,
   selectedData,
+  selectedOption,
+  setSelectedOption,
+  selectedCheckboxes,
+  setSelectedCheckboxes,
+  membersData,
 }) => {
   const handleChange = (checkboxValue: string[]) => {
     onCheckboxChange(checkboxValue);
@@ -34,34 +47,41 @@ const OtherHealthInsurancePlan: React.FC<OtherHealthInsurancePlanProps> = ({
           <Spacer size={32} />
           <Checkbox
             label={'Medicare Plan'}
-            callback={() => handleChange(['medicarePlan'])}
+            checked={checkboxState.medicarePlan}
+            onChange={() => handleChange(['medicarePlan'])}
             classProps={
               checkboxState.medicalPlan || checkboxState.dentalPlan
                 ? disabledClass
                 : ''
             }
-            selected={checkboxState.medicarePlan}
           ></Checkbox>
           <Spacer size={8} />
           <Checkbox
             label={'Medical Plan'}
-            callback={() => handleChange(['medicalPlan'])}
+            checked={checkboxState.medicalPlan}
+            onChange={() => handleChange(['medicalPlan'])}
             classProps={checkboxState.medicarePlan ? disabledClass : ''}
-            selected={checkboxState.medicalPlan}
           ></Checkbox>
           <Spacer size={8} />
           <Checkbox
             label={'Dental Plan'}
-            callback={() => handleChange(['dentalPlan'])}
+            checked={checkboxState.dentalPlan}
+            onChange={() => handleChange(['dentalPlan'])}
             classProps={checkboxState.medicarePlan ? disabledClass : ''}
-            selected={checkboxState.dentalPlan}
           ></Checkbox>
           <Spacer size={32} />
         </Column>
       )}
       {!selectedData && (
         <Column>
-          <SelectMemberPlan selectedCheckbox={null} />
+          <SelectMemberPlan
+            selectedCheckbox={null}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            selectedCheckboxes={selectedCheckboxes}
+            setSelectedCheckboxes={setSelectedCheckboxes}
+            membersData={membersData}
+          />
         </Column>
       )}
     </main>

@@ -4,6 +4,11 @@ export type CommunicationSettingsAppData = {
   emailAddress: string;
   mobileNumber: string;
   visibilityRules?: VisibilityRules;
+  contactPreferences?: {
+    optOut: string;
+    communicationCategory: string;
+    communicationMethod: string;
+  }[];
   tierOne?: {
     communicationCategory: string;
     communicationMethod: string;
@@ -15,6 +20,7 @@ export type CommunicationSettingsAppData = {
   }[];
   tierOneDescriptions: TierDescriptions[];
   dutyToWarn?: { texts: string[] }[];
+  phoneNumber?: string;
 };
 
 export interface TierDescriptions {
@@ -48,9 +54,6 @@ export interface ContactPreference {
 export enum AlertType {
   ReceiveTextAlerts = 'ReceiveTextAlerts',
   ReceiveEmailAlerts = 'ReceiveEmailAlerts',
-  ImportantPlanInformation = 'ImportantPlanInformation',
-  ClaimsInformation = 'ClaimsInformation',
-  HealthWellness = 'HealthWellness',
 }
 
 export interface Preferences {
@@ -61,12 +64,3 @@ export interface Preferences {
   method?: string;
   childCheckBox?: Map<AlertType, Preferences>;
 }
-
-export const PreferenceCommunication: Map<
-  AlertType,
-  { category: string; method: string }
-> = new Map([
-  [AlertType.ImportantPlanInformation, { category: 'PLIN', method: 'EML' }],
-  [AlertType.ClaimsInformation, { category: 'CLMS', method: 'EML' }],
-  [AlertType.HealthWellness, { category: 'HLTW', method: 'EML' }],
-]);

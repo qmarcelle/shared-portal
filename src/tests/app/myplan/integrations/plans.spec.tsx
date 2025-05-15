@@ -25,7 +25,7 @@ jest.mock('src/auth', () => ({
     }),
   ),
 }));
-const mockPlanData: AllMyPlanData[] = [
+const mockPlanData: AllMyPlanData<string>[] = [
   {
     memberName: 'CHRISTMAS HALL',
     dob: '06/29/2009',
@@ -82,8 +82,10 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '1/1/2019',
     visionEffectiveDate: '1/1/2019',
-    address: [],
+    address: '',
     primaryPhoneNumber: '123456789',
+    secondaryPhoneNumber: '',
+    memCk: '',
   },
   {
     memberName: 'KRISSY HALL',
@@ -129,8 +131,10 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '',
     visionEffectiveDate: '1/1/2019',
-    address: [],
-    primaryPhoneNumber: '',
+    address: '',
+    primaryPhoneNumber: '123456789',
+    secondaryPhoneNumber: '',
+    memCk: '',
   },
   {
     memberName: 'CHRIS HALL',
@@ -188,8 +192,10 @@ const mockPlanData: AllMyPlanData[] = [
     medicalEffectiveDate: '1/1/2019',
     dentalEffectiveDate: '11/1/2017',
     visionEffectiveDate: '1/1/2019',
-    address: [],
-    primaryPhoneNumber: '',
+    address: '',
+    primaryPhoneNumber: '123456789',
+    secondaryPhoneNumber: '',
+    memCk: '',
   },
 ];
 describe('PlanDetailsSection', () => {
@@ -225,7 +231,11 @@ describe('PlanDetailsSection', () => {
     expect(screen.getByText('DOB: 6/29/2009')).toBeInTheDocument();
     const contactInfo = screen.queryAllByText(/View Plan Contact Information/i);
     fireEvent.click(contactInfo[0]);
-    expect(screen.getByText('123456789')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Below is the phone number and mailing address associated with your plan.',
+      ),
+    ).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 

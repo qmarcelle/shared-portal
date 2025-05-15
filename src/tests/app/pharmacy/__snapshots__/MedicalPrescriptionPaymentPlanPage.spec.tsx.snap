@@ -135,7 +135,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                  including without limitation disenrollment and payment of any amounts due and owing to
                  BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
                    any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
-                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                   messages may possibly be intercepted and read by people other than those it's addressed to. Message and data rates may apply. 
                     I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
                     and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
                     regulation, or regulatory guidance.
@@ -148,7 +148,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 aria-disabled="false"
                 aria-invalid="false"
                 aria-required="false"
-                class="flex flex-col "
+                class="flex flex-col  "
                 role="checkbox"
               >
                 <div
@@ -160,13 +160,13 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein."
-                    class="checkbox   "
-                    id="checkbox-test-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
+                    class="checkbox    "
+                    id="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                     type="checkbox"
                   />
                   <label
-                    class="ml-2"
-                    for="checkbox-test-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
+                    class="ml-2 "
+                    for="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                   >
                     I read, considered, understand and agree to the contents above. I
                   understand that, by clicking on the "I AGREE" button, below, I am
@@ -183,7 +183,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 aria-disabled="false"
                 aria-invalid="false"
                 aria-required="false"
-                class="flex flex-col "
+                class="flex flex-col  "
                 role="checkbox"
               >
                 <div
@@ -192,14 +192,26 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                 >
                   <input
                     aria-label=""
-                    class="checkbox   "
-                    id="checkbox-test-"
+                    class="checkbox    "
+                    id="checkbox-"
                     type="checkbox"
                   />
                   <label
-                    class="ml-2"
-                    for="checkbox-test-"
-                  />
+                    class="ml-2 "
+                    for="checkbox-"
+                  >
+                    <div>
+                      I have read and agree to the Medicare Prescription Payment Plan
+                      <a
+                        class="primary-color !font-bold ml-1"
+                        href="/assets/terms_and_conditions.pdf"
+                        target="_blank"
+                      >
+                        Terms and Conditions
+                      </a>
+                      .
+                    </div>
+                  </label>
                 </div>
               </div>
               <span
@@ -361,7 +373,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                  including without limitation disenrollment and payment of any amounts due and owing to
                  BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
                    any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
-                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                   messages may possibly be intercepted and read by people other than those it's addressed to. Message and data rates may apply. 
                     I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
                     and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
                     regulation, or regulatory guidance.
@@ -374,7 +386,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               aria-disabled="false"
               aria-invalid="false"
               aria-required="false"
-              class="flex flex-col "
+              class="flex flex-col  "
               role="checkbox"
             >
               <div
@@ -386,13 +398,13 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein."
-                  class="checkbox   "
-                  id="checkbox-test-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
+                  class="checkbox    "
+                  id="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                   type="checkbox"
                 />
                 <label
-                  class="ml-2"
-                  for="checkbox-test-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
+                  class="ml-2 "
+                  for="checkbox-i-read,-considered,-understand-and-agree-to-the-contents-above.-i-understand-that,-by-clicking-on-the-"i-agree"-button,-below,-i-am-confirming-my-authorization-for-the-use,-disclosure-of-information-about-me-and-redirection-to-wipro,-llc,-as-described-herein."
                 >
                   I read, considered, understand and agree to the contents above. I
                   understand that, by clicking on the "I AGREE" button, below, I am
@@ -409,7 +421,7 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               aria-disabled="false"
               aria-invalid="false"
               aria-required="false"
-              class="flex flex-col "
+              class="flex flex-col  "
               role="checkbox"
             >
               <div
@@ -418,14 +430,26 @@ exports[`Medical Prescription Payment Plan Page should render the page correctly
               >
                 <input
                   aria-label=""
-                  class="checkbox   "
-                  id="checkbox-test-"
+                  class="checkbox    "
+                  id="checkbox-"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2"
-                  for="checkbox-test-"
-                />
+                  class="ml-2 "
+                  for="checkbox-"
+                >
+                  <div>
+                    I have read and agree to the Medicare Prescription Payment Plan
+                    <a
+                      class="primary-color !font-bold ml-1"
+                      href="/assets/terms_and_conditions.pdf"
+                      target="_blank"
+                    >
+                      Terms and Conditions
+                    </a>
+                    .
+                  </div>
+                </label>
               </div>
             </div>
             <span

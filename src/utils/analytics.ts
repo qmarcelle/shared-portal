@@ -9,9 +9,13 @@ export const ANALYTICS_KEYS = {
   CLICK_TEXT: 'click_text',
   CLICK_URL: 'click_url',
   ELEMENT_CATEGORY: 'element_category',
+  ELEMENT_ID: 'element_id',
   ACTION: 'action',
   EVENT: 'event',
   CONTENT_TYPE: 'content_type',
+  PAGE_SECTION: 'page_section',
+  SELECTION_TYPE: 'selection_type',
+  SITE_SECTION: 'site_section',
 } as const;
 
 export const googleAnalytics = async (data: AnalyticsData) => {
@@ -23,6 +27,10 @@ export const googleAnalytics = async (data: AnalyticsData) => {
       [ANALYTICS_KEYS.ACTION]: data.action,
       [ANALYTICS_KEYS.EVENT]: data.event,
       [ANALYTICS_KEYS.CONTENT_TYPE]: data.content_type,
+      [ANALYTICS_KEYS.PAGE_SECTION]: data.page_section,
+      [ANALYTICS_KEYS.SELECTION_TYPE]: data.selection_type,
+      [ANALYTICS_KEYS.SITE_SECTION]: data.site_section,
+      [ANALYTICS_KEYS.ELEMENT_ID]: data.element_id,
     });
   } catch (error) {
     logger.error('googleAnalytics', error);

@@ -1,5 +1,7 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { PlanDetails } from '@/models/plan_details';
 import { switchUser } from '@/userManagement/actions/switchUser';
+import { googleAnalytics } from '@/utils/analytics';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -167,6 +169,19 @@ export const PlanSwitcher = ({
       setIsCurrentPlan(true);
     }
   };
+  function trackPlanSwitcherAnalytics() {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: 'View Plan',
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'dropdown',
+      element_category: 'Account Switching',
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
+
   return (
     <div className={`${className}`}>
       <RichDropDown<PlanDetails>
@@ -184,6 +199,7 @@ export const PlanSwitcher = ({
         isMultipleItem={isMultiplePlan}
         selected={selected}
         onSelectItem={(val) => {
+          trackPlanSwitcherAnalytics();
           setSelected(val);
           switchUser(undefined, val.memeCk);
           if (isModal) {

@@ -9,6 +9,7 @@ import React from 'react';
 
 import {
   isBlueCareEligible,
+  isKatieBeckettEligible,
   isManageMyPolicyEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -22,34 +23,37 @@ export const ManageMyPlan = ({
   visibilityRules,
 }: ManageMyPlanProps) => {
   let manageMyPlanDetails;
-  if (isBlueCareEligible(visibilityRules))
+  if (
+    isBlueCareEligible(visibilityRules) ||
+    isKatieBeckettEligible(visibilityRules)
+  ) {
     manageMyPlanDetails = [
       {
         title: 'Katie Beckett Banking Info',
         body: 'Find and update your bank draft details for your plan here.',
         externalLink: false,
-        url: 'myPlan/katieBeckettBankingInfo',
+        url: '/member/myplan/katiebeckett',
       },
     ];
-  else if (isManageMyPolicyEligible(visibilityRules))
+  } else if (isManageMyPolicyEligible(visibilityRules))
     manageMyPlanDetails = [
       {
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
-        url: '/reportOtherHealthInsurance',
+        url: '/member/myplan/otherinsurance',
       },
       {
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
+        url: '/member/myplan/ssn',
       },
       {
         title: 'Manage My Policy',
         body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
-        url: '/myPlan/manageMyPolicy',
+        url: '/member/myplan/managepolicy',
       },
     ];
   else
@@ -58,13 +62,13 @@ export const ManageMyPlan = ({
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
-        url: '/reportOtherHealthInsurance',
+        url: '/member/myplan/otherinsurance',
       },
       {
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
+        url: '/member/myplan/ssn',
       },
       {
         title: 'Enroll in a Health Plan',

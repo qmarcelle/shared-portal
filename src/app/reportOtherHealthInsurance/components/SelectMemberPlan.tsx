@@ -1,41 +1,49 @@
+import { MemberData } from '@/actions/loggedUserInfo';
 import { Checkbox } from '@/components/foundation/Checkbox';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Radio } from '@/components/foundation/Radio';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import React from 'react';
 
-import React, { useState } from 'react';
 interface SelectMemberPlanProps {
   selectedCheckbox: string[] | null;
+  selectedOption: 'all' | 'selected';
+  setSelectedOption: React.Dispatch<React.SetStateAction<'all' | 'selected'>>;
+  selectedCheckboxes: string[];
+  setSelectedCheckboxes: React.Dispatch<React.SetStateAction<string[]>>;
+  membersData?: MemberData[];
+  otherInsuranceCompanyName?: string;
+  otherInsurancePolicyNumber?: string;
+  otherInsuranceEffectiveDate?: string;
 }
 
 const SelectMemberPlan: React.FC<SelectMemberPlanProps> = ({
   selectedCheckbox,
+  selectedOption,
+  setSelectedOption,
+  selectedCheckboxes,
+  setSelectedCheckboxes,
+  membersData,
+  otherInsuranceCompanyName,
+  otherInsurancePolicyNumber,
+  otherInsuranceEffectiveDate,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<'all' | 'selected'>(
-    'selected',
-  );
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([
-    'Chris Hall',
-  ]);
-
-  // Handles radio button change
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event as unknown as 'all' | 'selected');
+    setSelectedOption(event.target.value as 'all' | 'selected');
   };
 
-  // Handles checkbox change
   const handleCheckboxChange = (label: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (val: any) => {
-      if (val.target?.checked) {
+    return (val: boolean) => {
+      if (val) {
         setSelectedCheckboxes((prev) => [...prev, label]);
       } else {
         setSelectedCheckboxes((prev) => prev.filter((item) => item !== label));
       }
     };
   };
+
   return (
     <main>
       {selectedCheckbox && (
@@ -56,9 +64,9 @@ const SelectMemberPlan: React.FC<SelectMemberPlanProps> = ({
           <TextBox className="body-1" text="The policy you've entered is:" />
           <Spacer size={16} />
           <Column className="text-center font-bold">
-            <TextBox className="body-1" text="[Company Name]" />
-            <TextBox className="body-1" text="[Policy Identification #]" />
-            <TextBox className="body-1" text="[Policy Start Date]" />
+            <TextBox className="body-1" text={otherInsuranceCompanyName!} />
+            <TextBox className="body-1" text={otherInsurancePolicyNumber!} />
+            <TextBox className="body-1" text={otherInsuranceEffectiveDate!} />
           </Column>
           <Spacer size={16} />
           <TextBox
@@ -105,42 +113,19 @@ const SelectMemberPlan: React.FC<SelectMemberPlanProps> = ({
               className="body-1 text-left"
               text="Check all that apply:"
             />
-
-            <Checkbox
-              label={'Chris Hall'}
-              selected={selectedCheckboxes.includes('Chris Hall')}
-              callback={handleCheckboxChange('Chris Hall')}
-            ></Checkbox>
-            <Spacer size={8} />
-            <Checkbox
-              label={'Maddison Hall'}
-              selected={selectedCheckboxes.includes('Maddison Hall')}
-              callback={handleCheckboxChange('Maddison Hall')}
-            ></Checkbox>
-            <Spacer size={8} />
-            <Checkbox
-              label={'Forrest Hall'}
-              selected={selectedCheckboxes.includes('Forrest Hall')}
-              callback={handleCheckboxChange('Forrest Hall')}
-            ></Checkbox>
-            <Spacer size={8} />
-            <Checkbox
-              label={'Corey Hall'}
-              selected={selectedCheckboxes.includes('Corey Hall')}
-              callback={handleCheckboxChange('Corey Hall')}
-            ></Checkbox>
-            <Spacer size={8} />
-            <Checkbox
-              label={'Telly Hall'}
-              selected={selectedCheckboxes.includes('Telly Hall')}
-              callback={handleCheckboxChange('Telly Hall')}
-            ></Checkbox>
-            <Spacer size={8} />
-            <Checkbox
-              label={'Janie Hall'}
-              selected={selectedCheckboxes.includes('Janie Hall')}
-              callback={handleCheckboxChange('Janie Hall')}
-            ></Checkbox>
+            {membersData &&
+              membersData.map((member) => {
+                return (
+                  <>
+                    <Checkbox
+                      label={member.name}
+                      selected={selectedCheckboxes.includes(member.name)}
+                      callback={handleCheckboxChange(member.name)}
+                    ></Checkbox>
+                    <Spacer size={8} />
+                  </>
+                );
+              })}
             <Spacer size={32} />
           </Column>
         )}

@@ -41,3 +41,7 @@ jest.mock('src/utils/api/getToken', () => ({
 
 export const mockedFetch = jest.fn();
 global.fetch = mockedFetch;
+
+jest.mock('src/actions/ext_token', () => ({
+  setExternalSessionToken: jest.fn(),
+}));

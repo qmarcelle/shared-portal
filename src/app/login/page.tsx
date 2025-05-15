@@ -6,10 +6,10 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 import { EmailUniquenessVerification } from './components/EmailUniquenessVerification';
 import { LoginComponent } from './components/LoginComponent';
 import { LoginEmailVerification } from './components/LoginEmailVerification';
+import { LoginErrorPBETemplate } from './components/LoginErrorPBETemplate';
 import { LoginGenericErrorcomponent } from './components/LoginGenericErrorcomponent';
 import { MfaComponent } from './components/MfaComponent';
 import { MFASecurityCodeMultipleAttemptComponent } from './components/MFASecurityCodeMultipleAttemptComponent';
@@ -18,6 +18,7 @@ import { PrimaryAccountSelection } from './components/PrimaryAccountSelection';
 import { ResetPasswordComponent } from './components/ResetPasswordComponent';
 import { useLoginStore } from './stores/loginStore';
 import { useMfaStore } from './stores/mfaStore';
+import { usePrimaryAccountSelectionStore } from './stores/primaryAccountSelectionStore';
 
 export default function LogIn() {
   const [
@@ -32,6 +33,7 @@ export default function LogIn() {
     emailUniqueness,
     verifyUniqueEmail,
     duplicateAccount,
+    updateLoggedUser,
   ] = useLoginStore((state) => [
     state.unhandledErrors,
     state.loggedUser,
@@ -44,34 +46,40 @@ export default function LogIn() {
     state.emailUniqueness,
     state.verifyUniqueEmail,
     state.duplicateAccount,
+    state.updateLoggedUser,
   ]);
   const [multipleMFASecurityCodeAttempts] = useMfaStore((state) => [
     state.multipleMFASecurityCodeAttempts,
+  ]);
+  const [pbeError] = usePrimaryAccountSelectionStore((state) => [
+    state.pbeError,
   ]);
 
   const router = useRouter();
   const queryParams = useSearchParams();
 
-  useEffect(() => {
-    if (loggedUser == true) {
-      router.replace(
-        queryParams.get('TargetResource') ||
-          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL ||
-          '/security',
-      );
-      router.refresh();
-    }
-    if (isRiskScoreHigh == true || riskLevelNotDetermined == true) {
-      router.replace(process.env.NEXT_PUBLIC_PORTAL_ERROR_URL ?? '');
-    }
-  }, [loggedUser, isRiskScoreHigh, riskLevelNotDetermined, queryParams, router]);
-
   function renderComp() {
     if (unhandledErrors == true) {
       return <LoginGenericErrorcomponent />;
     }
+    if (loggedUser == true) {
+      const targetResource = queryParams.get('TargetResource');
+      if (targetResource) {
+        const decoded = decodeURIComponent(targetResource);
+        router.replace(decoded);
+      } else {
+        router.replace(
+          process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard',
+        );
+      }
+      router.refresh();
+      updateLoggedUser(false); // Setting to false to prevent redirect loop on page expiry
+    }
     if (multipleLoginAttempts == true) {
       return <MultipleAttemptsErrorComponent />;
+    }
+    if (isRiskScoreHigh == true || riskLevelNotDetermined == true) {
+      router.replace(process.env.NEXT_PUBLIC_PORTAL_ERROR_URL ?? '');
     }
     if (multipleMFASecurityCodeAttempts == true) {
       return <MFASecurityCodeMultipleAttemptComponent />;
@@ -87,6 +95,9 @@ export default function LogIn() {
     }
     if (duplicateAccount == true) {
       return <PrimaryAccountSelection />;
+    }
+    if (pbeError == true) {
+      return <LoginErrorPBETemplate />;
     }
     if (mfaNeeded == false) {
       return <LoginComponent />;

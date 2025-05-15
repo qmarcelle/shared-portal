@@ -1,6 +1,5 @@
 'use client';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
-import { GetHelpSection } from '@/components/composite/GetHelpSection';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -17,12 +16,12 @@ import { MedicalServicesWrapper } from '../components/MedicalServices';
 type ServicesUsedProps = {
   users: UIUser[] | undefined;
   services: Map<string, ServicesUsedItem[]> | undefined;
+  phoneNumber: string;
 };
 
-const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
+const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className=" mb-0" text="Services Used" />
         <Spacer size={8} />
@@ -42,6 +41,7 @@ const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
                 }))}
                 initSelectedMemberId={users[0].id}
                 medicalServiceDetailsUsed={services}
+                phoneNumber={phoneNumber}
               />
             ) : (
               <ErrorInfoCard
@@ -55,18 +55,14 @@ const ServicesUsed = ({ users, services }: ServicesUsedProps) => {
               label="Find Care & Estimate Costs"
               body="Find a health care provider near you, or plan your upcoming care costs before you make an appointment."
               icon={searchCareLogo}
-              link="/findcare"
+              link="/member/findcare"
             ></InfoCard>
             <InfoCard
               label="Claims"
               body="Search for claims and view details or submit a claim."
               icon={claimsBenefitsCoverage}
-              link="/claims"
+              link="/member/myplan/claims"
             ></InfoCard>
-            <GetHelpSection
-              linkURL={'Benefits & Coverage FAQ.'}
-              headerText={'Get Help with Services Used'}
-            />
           </Column>
         </section>
       </Column>

@@ -10,14 +10,8 @@ export const SERVER_ACTION_NO_SESSION_ERROR = 'Invalid session';
 declare module 'next-auth' {
   interface Session {
     user: PortalUser;
-    // JWT token needed for chat service authentication and external service validation
-    token?: string;
   }
 }
-
-const JWT_EXPIRY: number = parseInt(
-  process.env.JWT_SESSION_EXPIRY_SECONDS || '1800',
-);
 
 export const {
   handlers: { GET, POST },
@@ -31,7 +25,6 @@ export const {
     async session({ token, session }) {
       return {
         ...session,
-        token: token.jwt,
         user: {
           ...session.user,
           ...token.user!,
@@ -50,6 +43,7 @@ export const {
           token.sub!,
           session.userId,
           session.planId,
+          session.impersonator,
         );
 
         return {
@@ -66,13 +60,6 @@ export const {
       }
       return { ...token, ...session };
     },
-  },
-  session: {
-    strategy: 'jwt',
-    maxAge: JWT_EXPIRY,
-  },
-  jwt: {
-    maxAge: JWT_EXPIRY,
   },
   ...authConfig,
 });

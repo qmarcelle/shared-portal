@@ -1,6 +1,10 @@
 'use client';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
+import { noHeaderAndFooterRoutes } from '@/utils/routes';
+import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Column } from './Column';
 import {
   bcbstnLogo,
@@ -16,15 +20,25 @@ import { Row } from './Row';
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
-  const currentYear = new Date().getFullYear(); // Gets the current year
-  const [currentPath, setCurrentPath] = useState('');
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentPath(window.location.pathname);
-    }
-  }, []);
-  const specificPages = ['/amplifyHealthSupport'];
+  const currentYear = new Date().getFullYear();
+  const currentPath =
+    typeof window !== 'undefined' ? window.location.pathname : '';
+  const specificPages = ['/member/amplifyhealthsupport'];
+
   const isSpecificPage = specificPages.includes(currentPath);
+  const trackLinkAnalytics = (clickText: string, clickUrl: string) => {
+    const analytics: AnalyticsData = {
+      click_text: clickText.toLowerCase(),
+      click_url: clickUrl,
+      event: 'navigation',
+      site_section: 'Footer',
+    };
+    googleAnalytics(analytics);
+  };
+
+  if (noHeaderAndFooterRoutes.includes(currentPath)) {
+    return null; // Do not render the Footer on these pages
+  }
   return (
     <footer>
       <section
@@ -39,16 +53,44 @@ const Footer: React.FC<FooterProps> = () => {
             <h3 className="body-bold mb-4">Popular Links</h3>
             <ul className="space-y-4 font-thin body-2">
               <li>
-                <Link href="/memberIDCard">Get an ID Card</Link>
+                <Link
+                  href="/member/idcard"
+                  onClick={() =>
+                    trackLinkAnalytics('Get an ID Card', '/member/idcard')
+                  }
+                >
+                  Get an ID Card
+                </Link>
               </li>
               <li>
-                <Link href="/findcare">Find Care & Costs</Link>
+                <Link
+                  href="/member/findcare"
+                  onClick={() =>
+                    trackLinkAnalytics('Find Care & Costs', '/member/findcare')
+                  }
+                >
+                  Find Care & Costs
+                </Link>
               </li>
               <li>
-                <Link href="/claims">View Claims</Link>
+                <Link
+                  href="/member/myplan/claims"
+                  onClick={() =>
+                    trackLinkAnalytics('View Claims', '/member/myplan/claims')
+                  }
+                >
+                  View Claims
+                </Link>
               </li>
               <li>
-                <Link href="/profileSettings">Profile Settings</Link>
+                <Link
+                  href="/member/profile"
+                  onClick={() =>
+                    trackLinkAnalytics('Profile Settings', '/member/profile')
+                  }
+                >
+                  Profile Settings
+                </Link>
               </li>
             </ul>
           </Column>
@@ -58,13 +100,43 @@ const Footer: React.FC<FooterProps> = () => {
             <h3 className="body-bold mb-4">Support</h3>
             <ul className="space-y-4 body-2 font-thin">
               <li>
-                <Link href="/support">Get Help & Contact Us</Link>
+                <Link
+                  href="/member/support"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Get Help & Contact Us',
+                      '/member/support',
+                    )
+                  }
+                >
+                  Get Help & Contact Us
+                </Link>
               </li>
               <li>
-                <Link href="">Share Website Feedback</Link>
+                <Link
+                  href="http://wn008422.bcbst.com:81/portal/portal_refresh1/index.html#987736460"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Share Website Feedback',
+                      'http://wn008422.bcbst.com:81/portal/portal_refresh1/index.html#987736460',
+                    )
+                  }
+                >
+                  Share Website Feedback
+                </Link>
               </li>
               <li>
-                <Link href="">Share Your Screen</Link>
+                <Link
+                  href="http://wn008422.bcbst.com:81/portal/portal_feature_cobrowse/index.html#988880562"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Share Your Screen',
+                      'http://wn008422.bcbst.com:81/portal/portal_feature_cobrowse/index.html#988880562',
+                    )
+                  }
+                >
+                  Share Your Screen
+                </Link>
               </li>
             </ul>
           </Column>
@@ -74,13 +146,43 @@ const Footer: React.FC<FooterProps> = () => {
             <h3 className="body-bold mb-4">Important Information</h3>
             <ul className="space-y-4 body-2 font-thin">
               <li>
-                <Link href="">Nondiscrimination</Link>
+                <Link
+                  href="https://www.bcbst.com/about/our-company/corporate-governance/legal/nondiscrimination-notice"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Nondiscrimination',
+                      'https://www.bcbst.com/about/our-company/corporate-governance/legal/nondiscrimination-notice',
+                    )
+                  }
+                >
+                  Nondiscrimination
+                </Link>
               </li>
               <li>
-                <Link href="">Member Rights</Link>
+                <Link
+                  href="https://www.bcbst.com/use-insurance/member-rights"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Member Rights',
+                      'https://www.bcbst.com/use-insurance/member-rights',
+                    )
+                  }
+                >
+                  Member Rights
+                </Link>
               </li>
               <li>
-                <Link href="">Fight Fraud</Link>
+                <Link
+                  href="https://www.bcbst.com/fraud"
+                  onClick={() =>
+                    trackLinkAnalytics(
+                      'Fight Fraud',
+                      'https://www.bcbst.com/fraud',
+                    )
+                  }
+                >
+                  Fight Fraud
+                </Link>
               </li>
             </ul>
           </Column>
@@ -88,7 +190,7 @@ const Footer: React.FC<FooterProps> = () => {
           {/* Download the App Section */}
           <Column className="md:ml-16 p-7 md:p-0 text-left">
             <Row className="md:block lg:flex">
-              <img className="" src={bcbstnLogo} alt="" />
+              <Image className="" src={bcbstnLogo} alt="" />
 
               <Column className="ml-4 md:ml-0 lg:ml-4 mt-1">
                 <h3 className="body-bold mb-2">Download the App</h3>
@@ -99,37 +201,106 @@ const Footer: React.FC<FooterProps> = () => {
             </Row>
             <Row className="flex mt-4 grid grid-cols-6 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 md:mb-2 mb-0 lg:mb-0 gap-x-2 gap-y-4">
               {/* Social Media Icons */}
-              <img
-                width={35}
-                height={35}
-                src={facebookLogo}
-                alt="Facebook Icon"
-              />
-              <img
-                width={35}
-                height={35}
-                src={linkedinLogo}
-                alt="Linkedin Icon"
-              />
-              <img
-                width={35}
-                height={35}
-                src={instagramLogo}
-                alt="Instagram Icon"
-              />
-              <img
-                width={35}
-                height={35}
-                src={youtubeLogo}
-                alt="Youtube ICon"
-              />
-              <img
-                width={35}
-                height={35}
-                src={pintrestLogo}
-                alt="Pintrest Icon"
-              />
-              <img width={35} height={35} src={xLogo} alt="X Icon" />
+              <a
+                href="https://www.facebook.com/bcbst"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'Facebook',
+                    'https://www.facebook.com/bcbst',
+                  )
+                }
+              >
+                <Image
+                  width={35}
+                  height={35}
+                  src={facebookLogo}
+                  alt="Facebook Icon"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/bcbst"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'LinkedIn',
+                    'https://www.linkedin.com/company/bcbst',
+                  )
+                }
+              >
+                <Image
+                  width={35}
+                  height={35}
+                  src={linkedinLogo}
+                  alt="Linkedin Icon"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/bcbst/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'Instagram',
+                    'https://www.instagram.com/bcbst/?hl=en',
+                  )
+                }
+              >
+                <Image
+                  width={35}
+                  height={35}
+                  src={instagramLogo}
+                  alt="Instagram Icon"
+                />
+              </a>
+              <a
+                href="https://www.youtube.com/@bcbstennessee/shorts"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'YouTube',
+                    'https://www.youtube.com/@bcbstennessee/shorts',
+                  )
+                }
+              >
+                <Image
+                  width={35}
+                  height={35}
+                  src={youtubeLogo}
+                  alt="Youtube Icon"
+                />
+              </a>
+              <a
+                href="https://www.pinterest.com/bcbst/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'Pinterest',
+                    'https://www.pinterest.com/bcbst/',
+                  )
+                }
+              >
+                <Image
+                  width={35}
+                  height={35}
+                  src={pintrestLogo}
+                  alt="Pinterest Icon"
+                />
+              </a>
+              <a
+                href="https://twitter.com/bcbst"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackLinkAnalytics('X', 'https://twitter.com/bcbst')
+                }
+              >
+                <Image width={35} height={35} src={xLogo} alt="X Icon" />
+              </a>
             </Row>
           </Column>
         </Column>
@@ -193,11 +364,33 @@ const Footer: React.FC<FooterProps> = () => {
               Chattanooga TN 37402-0001
             </Column>
             <Row className="space-x-4 body-2 !mt-4 lg:text-left justify-center">
-              <Link href="">Sitemap</Link>
+              <Link href="" onClick={() => trackLinkAnalytics('Sitemap', '')}>
+                Sitemap
+              </Link>
               <span>|</span>
-              <Link href="">Privacy & Security</Link>
+              <Link
+                href="https://www.bcbst.com/about/our-company/corporate-governance/privacy-security"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'Privacy & Security',
+                    'https://www.bcbst.com/about/our-company/corporate-governance/privacy-security',
+                  )
+                }
+              >
+                Privacy & Security
+              </Link>
               <span>|</span>
-              <Link href="">Legal</Link>
+              <Link
+                href="https://www.bcbst.com/about/our-company/corporate-governance/legal"
+                onClick={() =>
+                  trackLinkAnalytics(
+                    'Legal',
+                    'https://www.bcbst.com/about/our-company/corporate-governance/legal',
+                  )
+                }
+              >
+                Legal
+              </Link>
             </Row>
           </Row>
         </Column>

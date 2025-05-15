@@ -1,4 +1,5 @@
 import { ConfirmTermsSlide } from '@/components/composite/ConfirmTermsSlide';
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
 import {
   ModalChildProps,
@@ -38,10 +39,13 @@ export const UpdateCommunicationTerms = ({
       console.log('selectedPreferences', selectedPreferences);
       const response = await saveDataAction(selectedPreferences);
 
-      if (response.data?.componentStatus === 'Success') {
+      if (response.details?.componentStatus === 'Success') {
         changePage?.(1, true);
+      } else {
+        changePage?.(2, true);
       }
     } catch (error) {
+      changePage?.(2, true);
       console.error('Error:', error);
     }
   };
@@ -67,6 +71,19 @@ export const UpdateCommunicationTerms = ({
             text="Your communication preferences have been updated."
           />
           <Spacer size={16} />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={2}
+      label="Something went wrong."
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We’re unable to update your information at this time. Please try again later."
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

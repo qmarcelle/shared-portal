@@ -24,6 +24,17 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div
@@ -489,7 +500,7 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -536,7 +547,7 @@ exports[`PharmacyDocuments should render UI correctly - for Medicare Groups 1`] 
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1293,6 +1304,17 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Your prescription and medical plan work together. CVS Caremark
+              <sup>
+                TM
+              </sup>
+               helps manage your pharmacy benefits, but you don’t have to go to a CVS retail pharmacy.
+            </span>
+          </span>
         </div>
       </div>
       <div
@@ -1758,7 +1780,7 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="/claims?type=pharmacy"
+                  href="member/myplan/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1805,7 +1827,7 @@ exports[`PharmacyDocuments should render UI correctly - for Non Medicare Groups 
                 />
                 <a
                   aria-label="View Pharmacy Spending Summary"
-                  href="/spendingSummary?type=Pharmacy"
+                  href="/member/myplan/spendingsummary?type=Pharmacy"
                   style="display: block;"
                 >
                   <button

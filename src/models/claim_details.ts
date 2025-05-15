@@ -18,6 +18,7 @@ export interface ClaimDetails {
   isMiniCard?: boolean;
   callBack?: (claimId: string) => void;
   columns?: ColumnInfo[];
+  providerId?: string;
 }
 
 export interface ColumnInfo {

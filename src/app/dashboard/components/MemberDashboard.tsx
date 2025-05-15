@@ -8,21 +8,36 @@ import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
 import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
+import {
+  CVS_DEEPLINK_MAP,
+  CVS_PHARMACY_SEARCH_FAST,
+  EYEMED_DEEPLINK_MAP,
+  EYEMED_PROVIDER_DIRECTORY,
+  PROV_DIR_DEEPLINK_MAP,
+  PROV_DIR_DENTAL,
+  PROV_DIR_MENTAL_HEALTH,
+} from '@/app/sso/ssoConstants';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { bcbstBlueLogo } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
   isAHAdvisorpage,
   isBlueCareEligible,
   isEmboldHealthEligible,
+  isLifePointGrp,
   isPayMyPremiumEligible,
+  isPharmacyBenefitsEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
+  isSpendingAccountsEligible,
+  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import EstimateCost from '../../../../public/assets/estimate_cost.svg';
+import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 import { DashboardData } from '../models/dashboardData';
@@ -33,7 +48,8 @@ export type DashboardProps = {
 };
 
 const MemberDashboard = ({ data }: DashboardProps) => {
-  const { visibilityRules, primaryCareProvider } = data;
+  const router = useRouter();
+  const { memberDetails, visibilityRules, primaryCareProvider } = data;
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -93,8 +109,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 },
               ]}
             />
-            {isBlueCareEligible(visibilityRules) &&
-              isPrimaryCarePhysicianEligible(visibilityRules) &&
+            {isPrimaryCarePhysicianEligible(visibilityRules) &&
               !isQuantumHealthEligible(visibilityRules) && (
                 <PrimaryCareProvider
                   className="large-section"
@@ -144,23 +159,25 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   className="large-section"
                   dueDate="08/10/2023"
                   amountDue={1000.46}
+                  visibilityRules={visibilityRules}
                 />
               )}
 
-            {!isBlueCareEligible(visibilityRules) && (
-              <SpendingAccountSummary
-                className="large-section"
-                title="Spending Summary"
-                linkLabel="View Spending Summary"
-                subTitle={'October 12, 2023'}
-                amountPaid={1199.19}
-                totalBilledAmount={9804.31}
-                amountSaved={8605.12}
-                amountSavedPercentage={89}
-                color1={'#005EB9'}
-                color2={'#5DC1FD'}
-              />
-            )}
+            {!isBlueCareEligible(visibilityRules) &&
+              isSpendingAccountsEligible(visibilityRules) && (
+                <SpendingAccountSummary
+                  className="large-section"
+                  title="Spending Summary"
+                  linkLabel="View Spending Summary"
+                  subTitle={'October 12, 2023'}
+                  amountPaid={1199.19}
+                  totalBilledAmount={9804.31}
+                  amountSaved={8605.12}
+                  amountSavedPercentage={89}
+                  color1={'#005EB9'}
+                  color2={'#5DC1FD'}
+                />
+              )}
             <PriorAuthSection
               className="large-section"
               priorauth={[
@@ -182,29 +199,45 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
+            {isQuantumHealthEligible(visibilityRules) &&
+              isLifePointGrp(visibilityRules) && (
+                <BenefitsAndCoverageSection
+                  className="large-section"
+                  benefits={[
+                    {
+                      benefitName: 'Dental Benefits',
+                      benefitURL: '/member/myplan/benefits',
+                    },
+                    {
+                      benefitName: 'Vision Benefits',
+                      benefitURL: '/member/myplan/benefits',
+                    },
+                  ]}
+                />
+              )}
             {!isQuantumHealthEligible(visibilityRules) && (
               <BenefitsAndCoverageSection
                 className="large-section"
                 benefits={[
                   {
                     benefitName: 'Medical Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Pharmacy Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Dental Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Vision Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                   {
                     benefitName: 'Other Benefits',
-                    benefitURL: '#',
+                    benefitURL: '/member/myplan/benefits',
                   },
                 ]}
               />
@@ -219,47 +252,69 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               <PillBox
                 title="Looking for Care? Find A:"
                 icon={
-                  <img
-                    src="/assets/find_care_search.svg"
-                    className="w-[50px] h-[50px]"
-                    alt=""
-                  />
+                  <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
                 }
                 pillObjects={[
                   {
                     label: 'Primary Care Provider',
                     callback: () => {
-                      console.log('Clicked Pill PCP');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
+                      );
                     },
                   },
                   {
                     label: 'Dentist',
                     callback: () => {
-                      console.log('Clicked Pill Dentist');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`,
+                      );
                     },
                   },
                   {
                     label: 'Mental Health Provider',
                     callback: () => {
-                      console.log('Clicked Pill Mental Health Provider');
+                      router.push(
+                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`,
+                      );
                     },
                   },
-                  {
-                    label: 'Eye Doctor',
-                    callback: () => {
-                      console.log('Clicked Pill Eye Doctor');
-                    },
-                  },
-                  {
-                    label: 'Pharmacy',
-                    callback: () => {
-                      console.log('Clicked Pill Pharmacy');
-                    },
-                  },
+                  isVisionEligible(visibilityRules)
+                    ? {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Eye Doctor',
+                        callback: () => {
+                          router.push('');
+                        },
+                      },
+                  isPharmacyBenefitsEligible(visibilityRules)
+                    ? {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      }
+                    : {
+                        label: 'Pharmacy',
+                        callback: () => {
+                          router.push(
+                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
+                          );
+                        },
+                      },
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      console.log('Clicked Pill Virtual Care');
+                      router.push('/member/findcare/virtualcare');
                     },
                   },
                 ]}
@@ -270,7 +325,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               <InfoCard
                 label="Estimate Costs"
                 body="Plan your upcoming care costs before you make an appointment."
-                icon="/assets/estimate_cost.svg"
+                icon={EstimateCost}
                 link={process.env.NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE ?? ''}
               ></InfoCard>
             )}
@@ -279,11 +334,9 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 title="Planning for a procedure? You can estimate costs for:"
                 icon={
                   <Image
-                    src="/assets/estimate_cost.svg"
+                    src={EstimateCost}
                     className="w-[50px] h-[50px]"
                     alt=""
-                    width={50}
-                    height={50}
                   />
                 }
                 pillObjects={[
@@ -318,39 +371,18 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         </section>
         <section>
           {!isBlueCareEligible(visibilityRules) &&
-            !isQuantumHealthEligible(visibilityRules) && <AmplifyHealthCard />}
+            !isQuantumHealthEligible(visibilityRules) &&
+            isAHAdvisorpage(visibilityRules) && <AmplifyHealthCard />}
         </section>
         <section>
-          {data.employerProvidedBenefits?.length &&
+          {data.employerProvidedBenefits != undefined &&
+            data.employerProvidedBenefits?.length != 0 &&
             !isQuantumHealthEligible(visibilityRules) && (
               <EmployeeProvidedBenefitsTile
                 className="large-section"
-                employer="Ben Cole Co"
-                employerLogo={bcbstBlueLogo}
-                benefits={[
-                  {
-                    id: '45',
-                    providedBy: 'Davis Vision',
-                    contact: '1-800-456-9876',
-                    url: 'https://davis-vision.com',
-                  },
-                  {
-                    id: '87',
-                    providedBy: 'Nirmal Dental',
-                    contact: '1-800-367-9676',
-                    url: 'https://nirmaldental.com',
-                  },
-                  {
-                    id: '25',
-                    providedBy: 'Low Pharm',
-                    contact: '1-800-834-2465',
-                  },
-                  {
-                    id: '289',
-                    providedBy: 'Quant Labs',
-                    contact: '1-800-834-3465',
-                  },
-                ]}
+                employer={data.memberDetails?.planName ?? ''}
+                groupId={data.memberDetails?.groupId ?? ''}
+                benefits={data.employerProvidedBenefits}
               />
             )}
         </section>

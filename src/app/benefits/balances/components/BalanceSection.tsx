@@ -31,6 +31,7 @@ export interface BalanceSectionProps extends IComponent {
   selectedNetworkId?: string;
   disclaimerText?: string;
   balanceDetailLink?: boolean;
+  contact: string;
 }
 
 export const BalanceSection = ({
@@ -49,6 +50,7 @@ export const BalanceSection = ({
   balanceNetworks,
   disclaimerText,
   balanceDetailLink = false,
+  contact,
 }: BalanceSectionProps) => {
   return (
     <Card className={className}>
@@ -108,11 +110,16 @@ export const BalanceSection = ({
           <ServicesUsedChart
             label="Services Used"
             serviceDetails={serviceDetailsUsed}
+            contact={contact}
           />
         )}
 
         {balanceDetailLink && (
-          <AppLink className="pl-0" label="View Balances" url="/balances" />
+          <AppLink
+            className="pl-0"
+            label="View Balances"
+            url="/member/myplan/benefits/balances"
+          />
         )}
       </Column>
     </Card>
@@ -123,12 +130,14 @@ type BalanceSectionWrapperProps = {
   product: ProductBalance | undefined;
   title: string;
   balanceDetailLink?: boolean;
+  phone: string;
 };
 
 export const BalanceSectionWrapper = ({
   title,
   product,
   balanceDetailLink,
+  phone,
 }: BalanceSectionWrapperProps) => {
   const [selectedUser, setSelectedUser] = useState(product?.balances[0]);
 
@@ -167,6 +176,7 @@ export const BalanceSectionWrapper = ({
     <BalanceSection
       className="large-section"
       title={title}
+      contact={phone}
       members={product.balances.map((item) => ({
         label: item.name,
         value: item.id,

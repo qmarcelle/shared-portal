@@ -171,6 +171,7 @@ export const useMfaStore = createWithEqualityFn<MfaStore>(
             interactionData: {
               interactionId: resp.data!.interactionId,
               interactionToken: resp.data!.interactionToken,
+              sessionToken: resp.data!.sessionToken,
             },
             userId: resp.data!.userId,
           });

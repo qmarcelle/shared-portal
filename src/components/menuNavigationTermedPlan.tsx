@@ -14,7 +14,7 @@ export const getMenuNavigationTermedPlan = (
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
-    url: '/myPlan',
+    url: '/member/myplan',
     template: {
       firstCol: 'Claims',
       secondCol: 'Spending',
@@ -30,7 +30,7 @@ export const getMenuNavigationTermedPlan = (
         showOnMenu: () => {
           return true;
         },
-        url: '/claims',
+        url: '/member/myplan/claims',
         external: false,
       },
       {
@@ -41,7 +41,7 @@ export const getMenuNavigationTermedPlan = (
         showOnMenu: () => {
           return true;
         },
-        url: '/priorAuthorization',
+        url: '/member/myplan/priorauthorizations',
         external: false,
       },
       {
@@ -50,7 +50,7 @@ export const getMenuNavigationTermedPlan = (
         description: 'This is Spending Summary',
         category: 'Spending',
         showOnMenu: isBlueCareNotEligible,
-        url: '/spendingSummary',
+        url: '/member/myplan/spendingsummary',
         external: false,
       },
     ],
@@ -63,7 +63,7 @@ export const getMenuNavigationTermedPlan = (
     description: 'This is Support',
     category: '',
     showOnMenu: true,
-    url: '/support',
+    url: '/member/support',
     qt: {
       // eslint-disable-next-line quotes
       firstParagraph: "We're here to help.",
@@ -73,7 +73,7 @@ export const getMenuNavigationTermedPlan = (
           [1-800-000-0000].
         </p>
       ),
-      link: '/support',
+      link: '/member/support',
     },
     template: {
       firstCol: 'QT',
@@ -90,7 +90,7 @@ export const getMenuNavigationTermedPlan = (
         showOnMenu: () => {
           return true;
         },
-        url: '/support/faq',
+        url: '/member/support/FAQ',
         external: false,
       },
       {

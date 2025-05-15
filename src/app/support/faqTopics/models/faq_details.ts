@@ -20,6 +20,7 @@ export interface FaqTopicDetails {
   faqSecondCardDetails?: FAQDetails[];
   faqThirdCardDetails?: FAQDetails[];
   faqType?: string;
+  faqPathParam: string;
 }
 
 export enum FaqTopicType {
@@ -30,4 +31,15 @@ export enum FaqTopicType {
   Pharmacy = 'Pharmacy',
   PriorAuthorization = 'Prior Authorization',
   SharingPermisionsSecurity = 'Security',
+}
+
+
+export enum FaqTopicParam {
+  BenefitsAndCoverage = 'benefits',
+  Claims = 'claims',
+  IdCards = 'idcard',
+  MyPlanInformation = 'myplan',
+  Pharmacy = 'pharmacy',
+  PriorAuthorization = 'priorauthorizations',
+  SharingPermisionsSecurity = 'security',
 }

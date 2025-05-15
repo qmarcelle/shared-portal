@@ -1,3 +1,5 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useState } from 'react';
 import { IComponent } from '../IComponent';
@@ -19,6 +21,19 @@ export const SiteHeaderNavSection = ({
   closeMenuAndSubMenu,
 }: SiteHeaderNavProps) => {
   const [currentPageId, setCurrentPageId] = useState<number>(0);
+  const  trackAnalytics=(title: string, url: string)=>{
+    const analytics: AnalyticsData = {
+      event: 'navigation',
+      click_text: title.toLowerCase(),
+      click_url: url,     
+      page_section: 'header',
+      nav_section: 'header'
+    };
+    googleAnalytics(analytics);
+  }
+
+  
+
   return (
     <div className="flex flex-col w-full lg:flex-row mt-1 border-b border-r lg:border-r-0">
       {parentPages.map((item, index) => (
@@ -42,6 +57,7 @@ export const SiteHeaderNavSection = ({
                 } else {
                   onOpenOverlay(item.id); // Open submenu
                   setCurrentPageId(item.id);
+                  trackAnalytics(item.title,item.url);
                 }
               }}
             >
@@ -49,14 +65,14 @@ export const SiteHeaderNavSection = ({
               <Image
                 className="block lg:hidden ml-auto"
                 src={rightIcon}
-                alt="Chevron icon"
+                alt=""
               />
               <Image
                 data-accordion-icon
                 aria-expanded="false"
                 className="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                 src={upIcon}
-                alt="Chevron icon"
+                alt=""
               />
             </button>
           </div>

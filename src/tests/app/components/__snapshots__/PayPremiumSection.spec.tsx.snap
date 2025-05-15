@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PayPremiumSection should render the UI correctly 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div>
+    <div
+      class="card-main large-section"
+    >
+      <div>
+        <h2
+          class="title-2"
+        >
+          Pay Premium
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Payment Due Date
+          </p>
+          <p
+            class="body-bold ml-auto"
+          >
+            08/10/2023
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <div
+          class="flex flex-row"
+        >
+          <p
+            class="body-1"
+            style="display: block;"
+          >
+            Amount Due
+          </p>
+          <p
+            class="body-bold ml-auto"
+          >
+            $
+            1000.46
+          </p>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <button
+          aria-label="View or Pay Premium"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+          type="button"
+        >
+          View or Pay Premium
+          <p
+            class="ml-2"
+          >
+            <img
+              alt="external icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="react-responsive-modal-root"
+      data-testid="root"
+    >
+      <div
+        aria-hidden="true"
+        class="react-responsive-modal-overlay modal-overlay"
+        data-testid="overlay"
+        style="animation: react-responsive-modal-overlay-in 300ms;"
+      />
+      <div
+        class="react-responsive-modal-container react-responsive-modal-containerCenter"
+        data-testid="modal-container"
+      >
+        <div
+          aria-modal="true"
+          class="react-responsive-modal-modal"
+          data-testid="modal"
+          role="dialog"
+          style="animation: react-responsive-modal-modal-in 300ms;"
+          tabindex="-1"
+        >
+          <div>
+            <div
+              class="flex flex-col modal-container"
+            >
+              <div
+                class="flex flex-row justify-between modal-header items-center relative"
+              >
+                <div
+                  tabindex="1"
+                />
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <div
+                  class="size-8 focus-icon"
+                  tabindex="0"
+                >
+                  <img
+                    alt="close"
+                    class="size-4"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row flex-grow justify-center"
+              >
+                <div
+                  class="flex flex-row justify-center modal-content"
+                >
+                  <section
+                    class="flex flex-col items-center p-7"
+                    id="modal-premium"
+                  >
+                    <div
+                      class="flex flex-col flex flex-col items-center"
+                    >
+                      <h2
+                        class="title-2"
+                      >
+                        Open External Website
+                      </h2>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 text-center"
+                        style="display: block;"
+                      >
+                        Use this service as an easy and secure way to pay your premium with a debit card or electronic check. Setup recurring bank drafts, manage future payments, and view payment history.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <p
+                        class="body-1 text-center"
+                        style="display: block;"
+                      >
+                        By continuing, you agree to leave the BlueCross website and view the content of an external website. If you choose not to leave the BlueCross website, simply cancel.
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row flex w-full justify-between"
+                      >
+                        <button
+                          aria-label="Cancel"
+                          class="button-text secondary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                          type="button"
+                        >
+                          Cancel
+                        </button>
+                        <span
+                          style="display: block; width: 24px; min-width: 24px; height: 1px; min-height: 1px;"
+                        />
+                        <button
+                          aria-label="Continue"
+                          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null font-bold active"
+                          type="button"
+                        >
+                          Continue
+                          <p
+                            class="ml-2"
+                          >
+                            <img
+                              alt="external icon"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="flex flex-row justify-center modal-footer"
+              >
+                <img
+                  alt="bcbst logo"
+                  class="modal-icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

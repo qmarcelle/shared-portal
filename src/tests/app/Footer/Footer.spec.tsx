@@ -1,7 +1,9 @@
 import Footer from '@/components/foundation/Footer';
+import { googleAnalytics } from '@/utils/analytics';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 const renderUI = () => {
   return render(<Footer />);
 };
@@ -13,6 +15,10 @@ jest.mock('next/navigation', () => ({
       replace: () => null,
     };
   },
+}));
+
+jest.mock('src/utils/analytics', () => ({
+  googleAnalytics: jest.fn(),
 }));
 
 describe('Footer Component', () => {
@@ -51,24 +57,54 @@ describe('Footer Component', () => {
 
     const user = userEvent.setup();
     const getIdCard = screen.getByText('Get an ID Card');
-    expect(getIdCard).toHaveAttribute('href', '/memberIDCard');
+    expect(getIdCard).toHaveAttribute('href', '/member/idcard');
     await user.click(getIdCard);
+    expect(googleAnalytics).toHaveBeenCalledWith({
+      click_text: 'get an id card',
+      click_url: '/member/idcard',
+      event: 'navigation',
+      site_section: 'Footer',
+    });
 
     const getFindCare = screen.getByText('Find Care & Costs');
-    expect(getFindCare).toHaveAttribute('href', '/findcare');
+    expect(getFindCare).toHaveAttribute('href', '/member/findcare');
     await user.click(getFindCare);
+    expect(googleAnalytics).toHaveBeenCalledWith({
+      click_text: 'find care & costs',
+      click_url: '/member/findcare',
+      event: 'navigation',
+      site_section: 'Footer',
+    });
 
     const getClaims = screen.getByText('View Claims');
-    expect(getClaims).toHaveAttribute('href', '/claims');
+    expect(getClaims).toHaveAttribute('href', '/member/myplan/claims');
     await user.click(getClaims);
+    expect(googleAnalytics).toHaveBeenCalledWith({
+      click_text: 'view claims',
+      click_url: '/member/myplan/claims',
+      event: 'navigation',
+      site_section: 'Footer',
+    });
 
     const getSupport = screen.getByText('Get Help & Contact Us');
-    expect(getSupport).toHaveAttribute('href', '/support');
+    expect(getSupport).toHaveAttribute('href', '/member/support');
     await user.click(getSupport);
+    expect(googleAnalytics).toHaveBeenCalledWith({
+      click_text: 'get help & contact us',
+      click_url: '/member/support',
+      event: 'navigation',
+      site_section: 'Footer',
+    });
 
     const getProfileSettings = screen.getByText('Profile Settings');
-    expect(getProfileSettings).toHaveAttribute('href', '/profileSettings');
+    expect(getProfileSettings).toHaveAttribute('href', '/member/profile');
     await user.click(getProfileSettings);
+    expect(googleAnalytics).toHaveBeenCalledWith({
+      click_text: 'profile settings',
+      click_url: '/member/profile',
+      event: 'navigation',
+      site_section: 'Footer',
+    });
 
     expect(component.baseElement).toMatchSnapshot();
   });

@@ -1,12 +1,19 @@
 'use client';
+import { setExternalSessionToken } from '@/actions/ext_token';
+import { useLoginStore } from '@/app/login/stores/loginStore';
+import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { logger } from '@/utils/logger';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { SessionIdleTimer } from '../clientComponents/IdleTimer';
+import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
@@ -15,43 +22,71 @@ import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import { AlertBar } from './AlertBar';
 import {
-    bcbstBlueLogo,
-    bcbstStackedlogo,
-    closeIcon,
-    globalIdCardIcon,
-    hamburgerMenuIcon,
-    inboxIcon,
-    profileWhiteIcon,
+  bcbstBlueLogo,
+  bcbstStackedlogo,
+  closeIcon,
+  globalIdCardIcon,
+  hamburgerMenuIcon,
+  inboxIcon,
+  profileWhiteIcon,
 } from './Icons';
 
 type SiteHeaderProps = {
+  isLoggedIn: boolean;
   visibilityRules: VisibilityRules;
   profiles: UserProfile[];
   selectedProfile: UserProfile;
   plans: PlanDetails[];
   selectedPlan: PlanDetails | undefined;
+  userId?: string;
+  groupId?: string;
 };
 
 export default function SiteHeader({
+  isLoggedIn,
   visibilityRules,
   profiles,
   plans,
   selectedPlan,
   selectedProfile,
+  userId,
+  groupId,
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const isMobileQuery = useMediaQuery({ query: '(max-width: 1023px)' });
+  const [pathname, setPathName] = useState<string>('/');
+  const [updateLoggedUser, resetToHome] = useLoginStore((state) => [
+    state.updateLoggedUser,
+    state.resetToHome,
+  ]);
+  const sitePathName = usePathname();
 
-  // Use useEffect to update the state after initial render to avoid hydration mismatch
   useEffect(() => {
-    setIsMobile(isMobileQuery);
-  }, [isMobileQuery]);
+    try {
+      (window?.dataLayer ?? []).push({
+        business_unit: 'member',
+        page_name: window.document.title,
+        page_type: undefined,
+        content_type: undefined,
+        user_id: userId,
+        group_id: groupId,
+      });
+    } catch (error) {
+      logger.error('googleAnalytics Site Navigation PageLevel Metadata', error);
+    }
+  }, [window.document.title]);
+  useEffect(() => {
+    setPathName(sitePathName);
+  }, [sitePathName]);
+
+  useEffect(() => {
+    resetToHome();
+    updateLoggedUser(true); // Update logged in state as true to reload the login page on expiry
+  }, []);
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules);
+    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -71,6 +106,19 @@ export default function SiteHeader({
     setIsOpen(false);
     setActiveSubNavId(null);
   };
+
+  useEffect(() => {
+    console.log('Setting external token');
+    if (selectedPlan?.memeCk) {
+      setExternalSessionToken();
+    }
+  }, [selectedPlan?.memeCk]);
+
+  const breadcrumbs = pathname
+    .split('/')
+    .filter(Boolean)
+    .map((item) => appPaths.get(item.toLowerCase())!)
+    .filter(Boolean);
 
   return (
     <>
@@ -112,26 +160,24 @@ export default function SiteHeader({
                 )}
               </button>
             </div>
-            <Link className="ml-5 lg:px-0" href="/dashboard">
-              {/* Using display classes instead of conditional rendering to avoid hydration mismatch */}
-              <div className="block lg:hidden">
+            <Link className="ml-5 lg:px-0" href="/member/home">
+              {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
                 <Image
                   width="64"
                   height="36"
                   src={bcbstStackedlogo}
-                  alt="BCBST Logo"
+                  alt="BCBST Stacked Logo"
                 />
-              </div>
-              <div className="hidden lg:block">
+              ) : (
                 <Image
                   width="174"
                   height="35"
                   src={bcbstBlueLogo}
                   alt="BCBST Logo"
                 />
-              </div>
+              )}
             </Link>
-            {selectedProfile?.type != UserRole.NON_MEM && (
+            {selectedProfile?.type != UserRole.NON_MEM && plans.length > 1 && (
               <PlanSwitcher
                 key={selectedProfile.id + selectedPlan?.id}
                 className="mx-4 w-[268px] hidden md:block"
@@ -152,7 +198,7 @@ export default function SiteHeader({
           </div>
           <SiteHeaderMenuSection
             profiles={profiles}
-            icon={<Image src={profileWhiteIcon} alt="Profile Icon"></Image>}
+            icon={<Image src={profileWhiteIcon} alt=""></Image>}
             items={
               selectedPlan
                 ? selectedPlan.termedPlan
@@ -160,22 +206,22 @@ export default function SiteHeader({
                       {
                         title: 'Inbox',
                         label: 'inbox',
-                        icon: <Image src={inboxIcon} alt="Inbox" />,
-                        url: 'inbox',
+                        icon: <Image src={inboxIcon} alt="" />,
+                        url: '/member/inbox',
                       },
                     ]
                   : [
                       {
                         title: 'Inbox',
                         label: 'inbox',
-                        icon: <Image src={inboxIcon} alt="Inbox" />,
-                        url: 'inbox',
+                        icon: <Image src={inboxIcon} alt="" />,
+                        url: '/member/inbox',
                       },
                       {
                         title: 'ID Card',
                         label: 'id card',
-                        icon: <Image src={globalIdCardIcon} alt="ID Card" />,
-                        url: '/memberIDCard',
+                        icon: <Image src={globalIdCardIcon} alt="" />,
+                        url: '/member/idcard',
                       },
                     ]
                 : []
@@ -214,6 +260,7 @@ export default function SiteHeader({
                       key={index}
                       id={page.id}
                       title={page.title}
+                      titleLink={page.titleLink}
                       description={page.description}
                       category={page.category}
                       showOnMenu={page.showOnMenu}
@@ -232,7 +279,7 @@ export default function SiteHeader({
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
-                    ? process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? []
+                    ? (process.env.NEXT_PUBLIC_ALERTS?.split(';') ?? [])
                     : []
                 }
               />
@@ -259,6 +306,16 @@ export default function SiteHeader({
           onSelectionChange={() => {}}
         />
       )}
+      {/* breadcrumbs */}
+      {breadcrumbs.length > 1 && (
+        <div className="flex flex-col justify-center items-center page">
+          <div className="app-content">
+            <BreadCrumb items={breadcrumbs} />
+          </div>
+        </div>
+      )}
+      {/* Session idle timer */}
+      {isLoggedIn && <SessionIdleTimer />}
     </>
   );
 }

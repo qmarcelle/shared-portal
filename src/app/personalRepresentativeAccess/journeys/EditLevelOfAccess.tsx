@@ -1,3 +1,4 @@
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
@@ -12,7 +13,9 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Link from 'next/link';
 import { useState } from 'react';
+import { updateConsentDataAction } from '../actions/getPersonalRepresentativeData';
 import FullAndBasicAccessOption from '../components/FullAndBasicAccessOption';
+import { UpdateConsentRequest } from '../models/updateConsentRequest';
 
 const bottomNote =
   'Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to hae access to your health information. BlueCross BlueShield of Tennessee does not warrant that the information provided will be accurate, timely or complete.';
@@ -22,8 +25,15 @@ interface InviteToRegisterProps {
   memberName: string;
   requestorType?: string;
   targetType?: string;
-  currentAccessType: AccessType;
+  currentAccessType: string;
   isMaturedMinor?: boolean;
+  disableSubmit?: boolean;
+  id?: string;
+  policyId?: string;
+  expiresOn?: string;
+  effectiveOn?: string;
+  firstName?: string;
+  lastName?: string;
 }
 
 export const EditLevelOfAccess = ({
@@ -33,12 +43,44 @@ export const EditLevelOfAccess = ({
   targetType = '',
   currentAccessType,
   isMaturedMinor,
+  disableSubmit = false,
+  id,
+  policyId,
+  expiresOn,
+  effectiveOn,
+  firstName,
+  lastName,
 }: ModalChildProps & InviteToRegisterProps) => {
-  const [selectedData, setSelectedData] =
-    useState<AccessType>(currentAccessType);
+  const [selectedData, setSelectedData] = useState<string>(currentAccessType);
 
-  const handleClick = (val: AccessType) => {
+  const handleClick = (val: string) => {
     setSelectedData(val);
+  };
+  const handleNext = async () => {
+    try {
+      const request: UpdateConsentRequest = {
+        consentId: id,
+        policyId: policyId,
+        effectiveOn: effectiveOn,
+        expiresOn: expiresOn,
+        requestType: 'update',
+        firstName: firstName,
+        lastName: lastName,
+      };
+
+      const response = await updateConsentDataAction({
+        request,
+      });
+
+      if (response?.data?.message === 'Success') {
+        changePage?.(2);
+      } else {
+        changePage?.(3);
+      }
+    } catch (error) {
+      changePage?.(3);
+      console.error('Error in Editing Level of Access:', error);
+    }
   };
 
   const { dismissModal } = useAppModalStore();
@@ -55,25 +97,25 @@ export const EditLevelOfAccess = ({
           <Spacer size={32} />
           <Column>
             <Radio
-              label={`Full ${isMaturedMinor ? 'Access' : 'Sharing'}`}
+              label={`Full ${isMaturedMinor ? 'Access +' : 'Sharing'}`}
               subLabel={
                 isMaturedMinor
-                  ? 'Your Representative will have access to all documents and claims, even those with sensitive information'
+                  ? 'Your personal representative and anyone they choose will have access to all documents and claims, even those with sensitive information.'
                   : 'They’ll see documents and claims, even those with sensitive information.'
               }
-              selected={selectedData === 'full'}
-              callback={() => handleClick('full')}
+              selected={selectedData === 'Full Access'}
+              callback={() => handleClick('Full Access')}
             />
             <Spacer size={16} />
             <Radio
               label={`Basic ${isMaturedMinor ? 'Access' : 'Sharing'}`}
               subLabel={
                 isMaturedMinor
-                  ? 'Your Representative will have access to all documents and claims, but will not be able to view sensitive information'
+                  ? 'Your personal representative will have access to all documents and claims, but will not be able to view sensitive information.'
                   : 'They won’t be able to see documents or claims with sensitive information.'
               }
-              selected={selectedData === 'basic'}
-              callback={() => handleClick('basic')}
+              selected={selectedData === 'Basic Access'}
+              callback={() => handleClick('Basic Access')}
             />
             <Spacer size={16} />
             {!isMaturedMinor && (
@@ -82,14 +124,14 @@ export const EditLevelOfAccess = ({
                   <Radio
                     label="None"
                     subLabel="They won’t see any documents and claims."
-                    selected={selectedData === 'none'}
-                    callback={() => handleClick('none')}
+                    selected={selectedData === 'None'}
+                    callback={() => handleClick('None')}
                   />
                 ) : (
                   <RichText
                     spans={[
                       <span key={1}>
-                        <Link href="/contact" className="link font-bold">
+                        <Link href="/member/support" className="link font-bold">
                           Contact us
                         </Link>
                       </span>,
@@ -106,26 +148,34 @@ export const EditLevelOfAccess = ({
       }
       changeAuthButton={undefined}
       buttonLabel="Next"
-      nextCallback={() => changePage?.(selectedData !== 'none' ? 1 : 2)}
+      nextCallback={() => {
+        // If we're disabling submit prevent the call from happening when none is selected.
+        // If Full/Basic is selected submit is disable on final slide of modal.
+        if (selectedData == 'none') {
+          if (!disableSubmit) changePage?.(2);
+        } else changePage?.(1);
+      }}
       bottomNote={<TextBox className="body-2" text={bottomNote} />}
       cancelCallback={() => dismissModal()}
     />,
     <InputModalSlide
-      key="second"
+      key={2}
       label="Edit Level Of Access"
       subLabel=""
       actionArea={
         <FullAndBasicAccessOption
           isMaturedMinor={isMaturedMinor}
           accessType={selectedData}
+          memberName={memberName}
         />
       }
       buttonLabel="Save Permissions"
-      nextCallback={() => changePage?.(2)}
+      nextCallback={() => handleNext()}
       cancelCallback={() => dismissModal()}
+      disableSubmit={disableSubmit}
     />,
     <SuccessSlide
-      key="third"
+      key={3}
       label="Level Of Access Saved"
       body={
         <Column className="items-center">
@@ -135,6 +185,19 @@ export const EditLevelOfAccess = ({
           />
           <Spacer size={16} />
           <TextBox className="font-bold" text={memberName} />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={4}
+      label="Try Again Later"
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We weren’t able to update your settings at this time. Please try again later."
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

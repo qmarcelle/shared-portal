@@ -643,7 +643,7 @@ describe('Log In User whose status is forced password reset', () => {
     fireEvent.click(screen.getByText('Continue'));
     await waitFor(() => {
       // Assert the user user is taken to dashboard
-      expect(mockReplace).toHaveBeenCalledWith('/security');
+      expect(mockReplace).toHaveBeenCalledWith('/dashboard');
     });
   });
 });

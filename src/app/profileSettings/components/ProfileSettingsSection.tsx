@@ -26,20 +26,20 @@ export const ProfileSettingsSection = ({
         label: 'Communication Settings',
         description: 'Update your alert preferences.',
         iconName: communicationSettingsIcon,
-        link: '/communicationSettings',
+        link: '/member/profile/communication',
       },
       {
         label: 'Security Settings',
         description: 'Change your password and edit your account security.',
         iconName: securityIcon,
-        link: '/security',
+        link: '/member/profile/security',
       },
 
       {
         label: 'Sharing & Permissions',
         description: 'View or edit access to plan information.',
         iconName: sharePermissionsIcon,
-        link: '/sharingPermissions',
+        link: '/member/profile/accountsharing',
       },
     ];
   } else {
@@ -48,7 +48,7 @@ export const ProfileSettingsSection = ({
         label: 'Sharing & Permissions',
         description: 'View or edit access to plan information.',
         iconName: sharePermissionsIcon,
-        link: '/sharingPermissions',
+        link: '/member/profile/accountsharing',
       },
     ];
   }

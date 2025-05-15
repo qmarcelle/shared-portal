@@ -13,13 +13,12 @@ describe('Edit Level Of Access Component', () => {
       />,
     );
     expect(screen.getByText('Edit Level Of Access')).toBeInTheDocument();
-    expect(screen.getByText('Full Access')).toBeInTheDocument();
+    expect(screen.getByText('Full Access +')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Your Representative will have access to all documents and claims, even those with sensitive information',
+        'Your personal representative will have access to all documents and claims, but will not be able to view sensitive information.',
       ),
     ).toBeInTheDocument();
-    expect(screen.getByText('Basic Access')).toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 });

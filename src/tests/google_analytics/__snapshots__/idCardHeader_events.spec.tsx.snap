@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteHeader Menu -  ID Card Google Analtics  - Header ID Card  1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        class="flex items-center"
+      >
+        <a
+          class="flex mr-5 items-center justify-center font-bold hover:bg-secondary-focus h-[40px] w-[40px] sm:h-[56px] sm:w-[102px] lg:h-[56px] lg:w-[134px] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-primary-color  box-border"
+          href="/member/idcard"
+        >
+          <img
+            alt="ID Card"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            class="hidden lg:inline px-2 pt-2"
+          >
+            ID Card
+          </span>
+        </a>
+        <div
+          aria-label="Profile Card"
+          class="flex h-full secondary-bg-color2 text-white px-4 py-1 hover:bg-info focus:bg-info focus:mr-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:h-[90%] "
+          tabindex="0"
+        >
+          <img
+            alt="Profile Icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <div
+            class="hidden lg:block p-2"
+          >
+            <span
+              class="text-xs"
+            >
+              My Profile:
+            </span>
+            <p>
+              Chris Hall
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

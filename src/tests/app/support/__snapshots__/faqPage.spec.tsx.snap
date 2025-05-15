@@ -33,7 +33,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         />
       </section>
       <a
-        href="/support/faqTopics?faqtype=Benefits%20%26%20Coverage"
+        href="/member/support/FAQ/benefits"
       >
         <div
           class="card-elevated small-section"
@@ -75,7 +75,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Claims"
+        href="/member/support/FAQ/claims"
       >
         <div
           class="card-elevated small-section"
@@ -117,7 +117,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=ID Cards"
+        href="/member/support/FAQ/idcard"
       >
         <div
           class="card-elevated small-section"
@@ -159,7 +159,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=My%20Plan%20Information"
+        href="/member/support/FAQ/myplan"
       >
         <div
           class="card-elevated small-section"
@@ -201,7 +201,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Pharmacy"
+        href="/member/support/FAQ/pharmacy"
       >
         <div
           class="card-elevated small-section"
@@ -243,7 +243,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Prior%20Authorization"
+        href="/member/support/FAQ/priorauthorizations"
       >
         <div
           class="card-elevated small-section"
@@ -285,7 +285,7 @@ exports[`Frequently Asked Question Page should render the page correctly 1`] = `
         </div>
       </a>
       <a
-        href="/support/faqTopics?faqtype=Security"
+        href="/member/support/FAQ/accountsharing"
       >
         <div
           class="card-elevated small-section"

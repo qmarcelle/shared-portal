@@ -17,6 +17,7 @@ export async function getCommunicationSettingsAppData(): Promise<CommunicationSe
     const response = await esApi.get(
       `/memberContactPreference?memberKey=${session?.user.currUsr.plan!.memCk}&subscriberKey=${session?.user.currUsr?.plan!.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true`,
     );
+    logger.info('contactPrefRes', response?.data?.data);
     return response?.data?.data;
   } catch (error) {
     logger.error('Error Response from  Email API', error);
@@ -40,11 +41,12 @@ export async function saveDataAction(
       lineOfBusiness: memberDetails.lineOfBusiness,
     };
 
-    const resp = await esApi.post<
+  const resp = await esApi.post<
       ESResponse<CommunicationSettingsSaveResponse>
-    >(
-      '/memberContactPreference?memberKey=${session?.user.currUsr?.plan.memCk}&subscriberKey=${session?.user.currUsr?.plan.sbsbCk}&getMemberPreferenceBy=memberKeySubscriberKey&extendedOptions=true',
-      saveDataRequest,
+    >('/memberContactPreference', saveDataRequest);
+    logger.info(
+      'Contact Pref - Save Action Response ',
+      JSON.stringify(resp.data),
     );
 
     return resp.data;

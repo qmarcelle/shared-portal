@@ -15,7 +15,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             class="flex flex-row flex flex-col align-top m-4 mt-8"
           >
             <p
-              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
               style="display: block;"
             >
               Mental Health
@@ -58,11 +58,11 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <div>
                 <p
-                  class="body-1 body-1 m-4"
+                  class="body-1 body-1 m-4 mt-2 mb-0"
                   style="display: block;"
                 />
                 <ul
-                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                  class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                 >
                   <div>
                     <li>
@@ -141,7 +141,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             class="flex flex-row flex flex-col align-top m-4 mt-8"
           >
             <p
-              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+              class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
               style="display: block;"
             />
             <img
@@ -182,13 +182,13 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <div>
                 <p
-                  class="body-1 body-1 m-4"
+                  class="body-1 body-1 m-4 mt-2 mb-0"
                   style="display: block;"
                 >
                   Generally good for:
                 </p>
                 <ul
-                  class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                  class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
                 >
                   <div>
                     <li>
@@ -242,7 +242,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           class="flex flex-row flex flex-col align-top m-4 mt-8"
         >
           <p
-            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
             style="display: block;"
           >
             Mental Health
@@ -285,11 +285,11 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <div>
               <p
-                class="body-1 body-1 m-4"
+                class="body-1 body-1 m-4 mt-2 mb-0"
                 style="display: block;"
               />
               <ul
-                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
               >
                 <div>
                   <li>
@@ -368,7 +368,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           class="flex flex-row flex flex-col align-top m-4 mt-8"
         >
           <p
-            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+            class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
             style="display: block;"
           />
           <img
@@ -409,13 +409,13 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <div>
               <p
-                class="body-1 body-1 m-4"
+                class="body-1 body-1 m-4 mt-2 mb-0"
                 style="display: block;"
               >
                 Generally good for:
               </p>
               <ul
-                class="list-disc m-8 mb-0 marker:text-[#5DC1FD]"
+                class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
               >
                 <div>
                   <li>

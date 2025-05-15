@@ -18,6 +18,7 @@ interface MemberListItemCardProps extends IComponent {
   isSSN: boolean;
   icon?: JSX.Element;
   successCallback: () => void;
+  isImpersonated: boolean;
 }
 
 export const MemberListItemCard = ({
@@ -27,6 +28,7 @@ export const MemberListItemCard = ({
   isSSN,
   icon = <Image src={editIcon} alt="link" />,
   successCallback,
+  isImpersonated,
 }: MemberListItemCardProps) => {
   const { showAppModal } = useAppModalStore();
   return (
@@ -63,6 +65,7 @@ export const MemberListItemCard = ({
                 <UpdateSocialSecurityNumberJourney
                   memberName={memberName}
                   successCallback={() => successCallback()}
+                  disableSubmit={isImpersonated}
                 />
               ),
             })

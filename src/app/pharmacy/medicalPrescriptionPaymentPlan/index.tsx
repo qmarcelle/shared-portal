@@ -10,6 +10,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -19,6 +21,17 @@ const opeInNewTab = (url: string) => {
 };
 
 const termsAndConditionsPDF = '/assets/terms_and_conditions.pdf';
+const trackLinkAnalytics = (clickText: string) => {
+  const analytics: AnalyticsData = {
+    click_text: clickText.toLowerCase(),
+    click_url: window.location.href,
+    event: 'internal_link_click',
+    action: 'click',
+    element_category: 'content interaction',
+    content_type: undefined,
+  };
+  googleAnalytics(analytics);
+};
 
 const headerText = () => {
   return (
@@ -31,6 +44,7 @@ const headerText = () => {
           'https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf'
         }
         target="_blank"
+        onClick={trackLinkAnalytics('fact sheet') ?? undefined}
       >
         fact sheet
       </a>
@@ -65,6 +79,30 @@ const checkboxPaymentPlanText = () => {
       .
     </div>
   );
+};
+
+const TandCTextAnalytics = (action: string) => {
+  const analytics: AnalyticsData = {
+    click_text: action,
+    click_url: undefined,
+    element_category: 'Terms and Conditions',
+    action: action,
+    event: 'select_content',
+    content_type: 'select',
+  };
+  googleAnalytics(analytics);
+};
+
+const TandCLinkAnalytics = () => {
+  const analytics: AnalyticsData = {
+    click_text: 'I Agree',
+    click_url: window.location.href,
+    element_category: 'content interaction',
+    action: 'click',
+    event: 'internal_link_click',
+    content_type: undefined,
+  };
+  googleAnalytics(analytics);
 };
 
 const MedicalPrescriptionPaymentPlan = () => {
@@ -124,7 +162,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                  including without limitation disenrollment and payment of any amounts due and owing to
                  BlueCross BlueShield of Tennessee, Inc. or any of its affiliates. I authorize BlueCross BlueShield of Tennessee, Inc.,
                    any of its affiliates or WIPRO, LLC to send email, text, and other forms of communication. Unencrypted email or text 
-                   messages may possibly be intercepted and read by people other than those it’s addressed to. Message and data rates may apply. 
+                   messages may possibly be intercepted and read by people other than those it's addressed to. Message and data rates may apply. 
                     I further agree that my participation in the Medicare Prescription Payment Program is subject to all terms, conditions, 
                     and requirements outlined in the applicable Terms and Conditions, my Evidence of Coverage, and applicable law, 
                     regulation, or regulatory guidance.`}
@@ -135,13 +173,21 @@ const MedicalPrescriptionPaymentPlan = () => {
                   understand that, by clicking on the "I AGREE" button, below, I am
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.`}
-                callback={(event) => setReadAgreement(event.target.checked)}
+                callback={() => {
+                  TandCTextAnalytics("I read");
+                }}
+                checked={readAgreement}
+                onChange={(newValue) => setReadAgreement(newValue)}
               />
               <Spacer size={16} />
               <Checkbox
                 label=""
                 body={checkboxPaymentPlanText()}
-                callback={(event) => setAgreedTc(event.target.checked)}
+                callback={() => {
+                  TandCTextAnalytics("I Agree");
+                }}
+                checked={agreedTc}
+                onChange={(newValue) => setAgreedTc(newValue)}
               />
               <Spacer size={32} />
               <Row className="pl-3 pr-3">
@@ -151,6 +197,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                   label="Print"
                   callback={() => {
                     opeInNewTab(termsAndConditionsPDF);
+                    TandCTextAnalytics("Print");
                   }}
                 />
                 <Button
@@ -161,6 +208,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                     !isFormValid
                       ? undefined
                       : () => {
+                          TandCLinkAnalytics();
                           router.replace('/dashboard');
                         }
                   }

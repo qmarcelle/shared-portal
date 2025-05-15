@@ -10,9 +10,10 @@ import { ProviderContactInformation } from './components/ProviderContactInformat
 
 export type PrimaryCareOptionsProps = {
   data: PrimaryCareOptionsData;
+  phone: string;
 };
 
-const MyPrimaryCareProvider = ({ data }: PrimaryCareOptionsProps) => {
+const MyPrimaryCareProvider = ({ data, phone }: PrimaryCareOptionsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color mt-20">
@@ -36,20 +37,24 @@ const MyPrimaryCareProvider = ({ data }: PrimaryCareOptionsProps) => {
               />
             )}
             <Spacer size={12} />
-            <Header text="Dependents" className="title-2 m-4" />
-            <Spacer size={12} />
             {data.dependentPrimaryCareProvider &&
-              data.dependentPrimaryCareProvider.map((item, index) => (
-                <ProviderContactInformation
-                  key={index}
-                  className="large-section"
-                  providerDetails={item}
-                  label="Primary Care Provider"
-                />
-              ))}
+              data.dependentPrimaryCareProvider.length > 0 && (
+                <>
+                  <Header text="Dependents" className="title-2 m-4" />
+                  <Spacer size={12} />
+                  {data.dependentPrimaryCareProvider.map((item, index) => (
+                    <ProviderContactInformation
+                      key={index}
+                      className="large-section"
+                      providerDetails={item}
+                      label="Primary Care Provider"
+                    />
+                  ))}
+                </>
+              )}
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
-            <HelpWithPrimaryCareProvider />
+            <HelpWithPrimaryCareProvider contact={phone} />
           </Column>
         </section>
       </Column>

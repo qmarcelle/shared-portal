@@ -33,7 +33,10 @@ export const OrderIdCard = ({
     `${memberDetails?.first_name} ${memberDetails?.last_name}`,
   );
   const addressLine1 = toPascalCase(memberDetails?.contact?.address1 ?? '');
-  const addressLine2 = toPascalCase(
+  const addressLine2 = toPascalCase(memberDetails?.contact?.address2 ?? '');
+  const addressLine3 = toPascalCase(memberDetails?.contact?.address3 ?? '');
+
+  const addressLine4 = toPascalCase(
     `${memberDetails?.contact?.city} ${memberDetails?.contact?.state} ${formatZip(memberDetails?.contact?.zipcode)}`,
   );
 
@@ -86,7 +89,15 @@ export const OrderIdCard = ({
           />
           <TextBox
             className="body-1 text-center font-bold"
-            text={addressLine2}
+            text={addressLine2 ?? ''}
+          />
+          <TextBox
+            className="body-1 text-center font-bold"
+            text={addressLine3 ?? ''}
+          />
+          <TextBox
+            className="body-1 text-center font-bold"
+            text={addressLine4}
           />
           <Spacer size={21} />
         </Column>

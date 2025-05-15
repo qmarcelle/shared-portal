@@ -13,10 +13,12 @@ import { RepresentativeViewDetails } from './models/representativeDetails';
 
 export type PersonalRepresentativeAccessProps = {
   representativeDetails?: RepresentativeViewDetails;
+  isImpersonated?: boolean;
 };
 
 const PersonalRepresentativeAccess = ({
   representativeDetails,
+  isImpersonated = false,
 }: PersonalRepresentativeAccessProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
@@ -85,11 +87,12 @@ const PersonalRepresentativeAccess = ({
                 representativesData={
                   representativeDetails?.representativeData ?? null
                 }
+                allowUpdates={!isImpersonated}
               />
             </Card>
 
             <AuthorizationForm
-              isMatureMinor={true}
+              isMatureMinor={representativeDetails!.isMatureMinor}
               fullAccess={true}
               isRepresentative={representativeDetails?.isRepresentativeLoggedIn}
               linkLabel="Download Authorization Form"

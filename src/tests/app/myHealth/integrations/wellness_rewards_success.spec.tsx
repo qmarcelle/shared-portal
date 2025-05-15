@@ -22,7 +22,7 @@ const vRules = {
         fhirId: '654543434',
         grgrCk: '7678765456',
         grpId: '65654323',
-        memCk: '502622001',
+        memCk: '123456789',
         sbsbCk: '5654566',
         subId: '56543455',
       },
@@ -74,7 +74,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('70').length).toBe(1);
   });
@@ -93,7 +93,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('70').length).toBe(1);
   });
@@ -112,7 +112,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
   });
   it('should render Wellness Rewards with progress bar & pie chart when dollars alone are available', async () => {
@@ -132,7 +132,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('60').length).toBe(1);
   });
@@ -151,7 +151,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('0').length).toBe(1);
   });
@@ -172,7 +172,7 @@ describe('My Health Page Integration', () => {
       '/memberRewards/member/getMbrWellness',
       { memberId: '90221882300', accounts: { isBalance: true } },
     );
-    expect(screen.getByText('Wellness Rewards')).toBeVisible();
+    expect(screen.getAllByText('Wellness Rewards').length).toBe(2);
     expect(screen.getAllByText('100 pts').length).toBe(1);
     expect(screen.getAllByText('0').length).toBe(1);
   });

@@ -1,5 +1,9 @@
+import { EditAlertPreferncesSection } from '@/app/communicationSettings/components/EditAlertPreferences';
 import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/UpdateCommunicationTerms';
-import { CommunicationSettingsSaveResponse } from '@/app/communicationSettings/models/app/communicationSettingsAppData';
+import {
+  CommunicationSettingsAppData,
+  CommunicationSettingsSaveResponse,
+} from '@/app/communicationSettings/models/app/communicationSettingsAppData';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { ESResponse } from '@/models/enterprise/esResponse';
@@ -108,10 +112,9 @@ describe('communication Information API Integration', () => {
       } as ESResponse<CommunicationSettingsSaveResponse>,
     });
 
-    // Ensure the checkbox is present and click it
-    const checkbox = screen.getByLabelText('Warning message');
-    expect(checkbox).toBeInTheDocument();
-    fireEvent.click(checkbox);
+    const checkboxes = screen.getAllByLabelText('Warning message');
+    expect(checkboxes[0]).toBeInTheDocument();
+    fireEvent.click(checkboxes[0]);
 
     // Ensure the button is present
     const saveButton = screen.getByText('Save Changes');
@@ -124,9 +127,9 @@ describe('communication Information API Integration', () => {
     mockedAxios.post.mockRejectedValueOnce(new Error('An error occurred'));
 
     // Ensure the checkbox is present and click it
-    const checkbox = screen.getByLabelText('Warning message');
-    expect(checkbox).toBeInTheDocument();
-    fireEvent.click(checkbox);
+    const checkbox = screen.getAllByLabelText('Warning message');
+    expect(checkbox[0]).toBeInTheDocument();
+    fireEvent.click(checkbox[0]);
 
     // Ensure the button is present
     const saveButton = screen.getByText('Save Changes');
@@ -134,5 +137,28 @@ describe('communication Information API Integration', () => {
 
     // Skip actual button click and API call, just mock the API call directly
     expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should show error message if api fails', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValue();
+
+    const preferenceData: CommunicationSettingsAppData = [
+      {
+        emailAddress: 'John@bcbst.com',
+        mobileNumber: '7463728472',
+        tierOneDescriptions: [{ hTexts: [], pTexts: [] }],
+      },
+    ];
+
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {},
+    });
+    render(<EditAlertPreferncesSection alertPreferenceData={preferenceData} />);
+    expect(
+      screen.getByText(
+        // eslint-disable-next-line quotes
+        "We're not able to load your communication settings right now. Please try again later.",
+      ),
+    ).toBeInTheDocument();
   });
 });

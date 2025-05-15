@@ -82,24 +82,56 @@ exports[`Account selection Component should render all the required details 1`] 
           aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Checkbox"
           aria-required="false"
-          class="flex flex-col "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
               aria-label=""
-              class="checkbox   "
-              id="checkbox-test-"
+              class="checkbox    "
+              id="checkbox-checkbox"
               type="checkbox"
             />
             <label
-              class="ml-2"
-              for="checkbox-test-"
-            />
+              class="ml-2  cursor-pointer"
+              for="checkbox-checkbox"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span
+                    class="font-bold"
+                  >
+                    I understand
+                     
+                  </span>
+                  <span>
+                    the username listed above and its password will be the only login credentials for
+                     
+                  </span>
+                  <span
+                    class="font-bold"
+                  >
+                    all my BlueCross BlueShield of Tennessee registered accounts
+                     
+                  </span>
+                  <span>
+                    moving forward. 
+                  </span>
+                </span>
+              </div>
+              <span
+                class="sr-only"
+              />
+            </label>
           </div>
         </div>
         <span
@@ -269,24 +301,56 @@ exports[`Account selection Component should render all the required details 1`] 
         aria-checked="false"
         aria-disabled="false"
         aria-invalid="false"
+        aria-label="Checkbox"
         aria-required="false"
-        class="flex flex-col "
+        class="flex flex-col   "
         role="checkbox"
       >
         <div
-          class="flex flex-row items-center"
+          class="flex flex-row"
           tabindex="0"
         >
           <input
             aria-label=""
-            class="checkbox   "
-            id="checkbox-test-"
+            class="checkbox    "
+            id="checkbox-checkbox"
             type="checkbox"
           />
           <label
-            class="ml-2"
-            for="checkbox-test-"
-          />
+            class="ml-2  cursor-pointer"
+            for="checkbox-checkbox"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <span
+                class="rich-text body-1 undefined"
+              >
+                <span
+                  class="font-bold"
+                >
+                  I understand
+                   
+                </span>
+                <span>
+                  the username listed above and its password will be the only login credentials for
+                   
+                </span>
+                <span
+                  class="font-bold"
+                >
+                  all my BlueCross BlueShield of Tennessee registered accounts
+                   
+                </span>
+                <span>
+                  moving forward. 
+                </span>
+              </span>
+            </div>
+            <span
+              class="sr-only"
+            />
+          </label>
         </div>
       </div>
       <span

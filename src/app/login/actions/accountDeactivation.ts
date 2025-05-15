@@ -18,7 +18,7 @@ export async function callAccountDeactivation(
     if (resp?.data?.data?.status === 'OK') {
       authUser = request.userName;
       await setWebsphereRedirectCookie({
-        ...resp.data.data,
+        ...request.interactionData,
       });
       return resp?.data?.data?.status;
     } else {
@@ -36,6 +36,7 @@ export async function callAccountDeactivation(
       //signIn calls redirect() so it must be done in the finally block.
       await signIn('credentials', {
         userId: authUser,
+        impersonator: null,
         redirect: false,
       });
     }

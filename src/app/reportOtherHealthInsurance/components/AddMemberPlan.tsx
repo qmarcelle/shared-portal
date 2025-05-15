@@ -16,18 +16,77 @@ import { useState } from 'react';
 interface AddMemberPlanProps {
   selectedCheckbox: string[] | null;
   memberDetails: AddMemberDetails[];
+  selectedCompanyName: string;
+  selectedCompanyNumber: string;
+  selectedPolicyEffectiveDate: string;
+  selectedPolicyEndDate: string;
+  selectedPolicyNumber: string;
+  selectedPolicyFirstName: string;
+  selectedPolicyLastName: string;
+  selectedHolderDOB: string;
+  onCompanyNameChange: React.Dispatch<React.SetStateAction<string>>;
+  onCompanyNumberChange: React.Dispatch<React.SetStateAction<string>>;
+  onEffectiveDateChange: React.Dispatch<React.SetStateAction<string>>;
+  onEndDateChange: React.Dispatch<React.SetStateAction<string>>;
+  onPolicyNumberChange: React.Dispatch<React.SetStateAction<string>>;
+  onPolicyFirstNameChange: React.Dispatch<React.SetStateAction<string>>;
+  onPolicyLastNameChange: React.Dispatch<React.SetStateAction<string>>;
+  onPolicyDOBeChange: React.Dispatch<React.SetStateAction<string>>;
 }
 const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
   memberDetails,
   selectedCheckbox,
+  onCompanyNameChange,
+  onCompanyNumberChange,
+  onEffectiveDateChange,
+  onEndDateChange,
+  onPolicyNumberChange,
+  onPolicyFirstNameChange,
+  onPolicyLastNameChange,
+  onPolicyDOBeChange,
 }) => {
   const [selectedMemberData, setSelectedMemberData] = useState(false);
   const [error, setError] = useState('');
+  const [partA, setPartA] = useState(false);
+  const [partB, setPartB] = useState(false);
+  const [partD, setPartD] = useState(false);
+  const [isOver65, setIsOver65] = useState(false);
 
   function handleClick() {
-    setSelectedMemberData(true);
     setSelectedMemberData(!selectedMemberData);
   }
+
+  const handleCompanyChange = (companyName: string) => {
+    onCompanyNameChange(companyName);
+  };
+
+  const handlePolicyChange = (policyNumber: string) => {
+    onPolicyNumberChange(policyNumber);
+  };
+
+  const handleCompanyNumber = (companyNumber: string) => {
+    onCompanyNumberChange(companyNumber);
+  };
+
+  const handlePolicyEffectiveDate = (policyEffectiveDate: string) => {
+    onEffectiveDateChange(policyEffectiveDate);
+  };
+
+  const handleFirstNameChange = (policyFirstName: string) => {
+    onPolicyFirstNameChange(policyFirstName);
+  };
+
+  const handleLastNameChange = (policyLastName: string) => {
+    onPolicyLastNameChange(policyLastName);
+  };
+
+  const handleDOBChange = (holderDOB: string) => {
+    onPolicyDOBeChange(holderDOB);
+  };
+
+  const handlePolicyEndDate = (policyEndDate: string) => {
+    onEndDateChange(policyEndDate);
+  };
 
   const handleDateSelection = (enterDOB: string) => {
     if (!enterDOB) {
@@ -37,6 +96,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
 
     if (enterDOB && memberDetails[0].dob) {
       if (enterDOB === memberDetails[0].dob) {
+        handleDOBChange(enterDOB);
         setError('');
       } else {
         setError(
@@ -67,19 +127,24 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
         <Spacer size={32} />
         <TextBox
           className="body-1 w-[130%] text-center"
-          text="Tell us about your other insurance. All fields are required unless
-          noted as optional."
+          text="Tell us about your other insurance. All fields are required unless noted as optional."
         />
         <Spacer size={32} />
       </Column>
       <Column className="items-left">
         <TextBox className="title-3 !items-left" text="Insurance Company" />
         <Spacer size={24} />
-        <TextField label="Company Name" />
+        <TextField label="Company Name" valueCallback={handleCompanyChange} />
         <Spacer size={24} />
-        <TextField label="Policy Identification Number" />
+        <TextField
+          label="Policy Identification Number"
+          valueCallback={handlePolicyChange}
+        />
         <Spacer size={24} />
-        <TextField label="Company Phone Number" />
+        <TextField
+          label="Company Phone Number"
+          valueCallback={handleCompanyNumber}
+        />
         <Spacer size={24} />
         <TextBox
           className="body-1"
@@ -108,29 +173,50 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Checkbox
               label={'Medicare Part A'}
               classProps="!p-0"
+              checked={partA}
+              onChange={(newValue) => setPartA(newValue)}
               id="medicare-part-a"
             ></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part B'} id="medicare-part-b"></Checkbox>
+            <Checkbox
+              label={'Medicare Part B'}
+              checked={partB}
+              onChange={(newValue) => setPartB(newValue)}
+              id="medicare-part-b"
+            ></Checkbox>
             <Spacer size={8} />
-            <Checkbox label={'Medicare Part D'} id="medicare-part-d"></Checkbox>
-            <Spacer size={16} />
-            <CalendarField
-              isSuffixNeeded={true}
-              label={'Policy Effective Date (MM/DD/YYYY)'}
-            />
-            <CalendarField
-              isSuffixNeeded={true}
-              label={'Policy End Date (MM/DD/YYYY) (optional)'}
-            />
+            <Checkbox
+              label={'Medicare Part D'}
+              checked={partD}
+              onChange={(newValue) => setPartD(newValue)}
+              id="medicare-part-d"
+            ></Checkbox>
           </Column>
         )}
         <Spacer size={16} />
+        <CalendarField
+          isSuffixNeeded={true}
+          label={'Policy Effective Date (MM/DD/YYYY)'}
+          valueCallback={handlePolicyEffectiveDate}
+        />
+        <Spacer size={16} />
+        <CalendarField
+          isSuffixNeeded={true}
+          label={'Policy End Date (MM/DD/YYYY) (optional)'}
+          valueCallback={handlePolicyEndDate}
+        />
+        <Spacer size={16} />
         <TextBox className="title-3" text="Policyholder Information" />
         <Spacer size={24} />
-        <TextField label="Policyholder First Name" />
+        <TextField
+          label="Policyholder First Name"
+          valueCallback={handleFirstNameChange}
+        />
         <Spacer size={8} />
-        <TextField label="Policyholder Last Name" />
+        <TextField
+          label="Policyholder Last Name"
+          valueCallback={handleLastNameChange}
+        />
         <Spacer size={16} />
         <CalendarField
           isSuffixNeeded={true}
@@ -163,8 +249,7 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Spacer size={16} />
             <TextBox
               className="body-1"
-              text="Is this member eligible for Medicare due to End Stage Renal
-              Disease?"
+              text="Is this member eligible for Medicare due to End Stage Renal Disease?"
             />
             <Spacer size={16} />
             <Radio
@@ -200,7 +285,8 @@ const AddMemberPlan: React.FC<AddMemberPlanProps> = ({
             <Spacer size={8} />
             <Checkbox
               label={'This member is over 65.'}
-              id="member-over-65"
+              checked={isOver65}
+              onChange={(newValue) => setIsOver65(newValue)}
             ></Checkbox>
             <Spacer size={32} />
             {error && (

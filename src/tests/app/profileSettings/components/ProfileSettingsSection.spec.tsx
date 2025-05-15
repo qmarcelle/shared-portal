@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react';
 let vRules: VisibilityRules = {};
 const renderUI = (vRules: VisibilityRules) => {
   return render(
-    <ProfileSettingsSection visibilityRules={vRules} userRole={''} />,
+    <ProfileSettingsSection visibilityRules={vRules} userRole={undefined} />,
   );
 };
 jest.mock('next/navigation', () => ({

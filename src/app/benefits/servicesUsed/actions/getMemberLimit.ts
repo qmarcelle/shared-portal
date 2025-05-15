@@ -5,7 +5,7 @@ import { logger } from '@/utils/logger';
 import { MemberLimitResponse } from '../models/api/memberLimitResponse';
 
 export async function getMemberLimit({
-  lookUpType = 'bySubscriberCk',
+  lookUpType = 'byMemberCk',
   memberId,
   productTypes,
 }: {

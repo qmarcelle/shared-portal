@@ -15,6 +15,7 @@ interface ViewCareOptionsProps extends IComponent {
     description: string;
     image: JSX.Element;
     url: string;
+    visible?: boolean;
   }[];
 }
 
@@ -23,6 +24,10 @@ export const ViewCareOptions = ({
   options,
 }: ViewCareOptionsProps) => {
   const router = useRouter();
+  const visibleOptions = options.filter((item) => item.visible);
+
+  if (visibleOptions.length === 0) return null;
+
   return (
     <Column className={`${className ?? ''} cursor-pointer`}>
       <Column className="flex flex-col">

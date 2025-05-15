@@ -114,7 +114,7 @@ export const RewardPoints = () => {
                     spans={[
                       <span key={0}>View your points on your </span>,
                       <span className="link" key={1}>
-                        <a href="/myHealth">Health Dashboard</a>
+                        <a href="/member/myhealth">Health Dashboard</a>
                       </span>,
                       <span className="!no-underline" key={2}>
                         .

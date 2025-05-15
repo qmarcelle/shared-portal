@@ -28,11 +28,13 @@ export async function invokePhoneNumberAction(): Promise<string> {
   try {
     const session = await auth();
     const memberDetails = await getLoggedInMember(session);
+    console.log('before call' + memberDetails.groupId);
     const effectiveDetials = new Date().toLocaleDateString(); // current date
 
     const phoneNumberResponse = await idCardService.get(
       `/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDetials=${effectiveDetials}`,
     );
+    console.log('Rohit' + phoneNumberResponse?.data.memberServicePhoneNumber);
     if (phoneNumberResponse?.data.memberServicePhoneNumber != null) {
       return phoneNumberResponse?.data.memberServicePhoneNumber;
     } else {
