@@ -6,9 +6,13 @@ This is the up-to-date reference for the Genesys chat integration in the Member 
 
 ## 1. Modern Architecture Overview
 
-- **Single Source of Truth:** All chat config and state is managed in a Zustand store (`chatStore.ts`).
+- **Single Source of Truth:** All chat config and state is managed in a Zustand store (`chatStore.ts`) organized by domains (UI, config, session, scripts).
+- **Optimized Performance:** Store provides selectors for each domain to prevent unnecessary re-renders.
+- **Centralized Configuration:** The store's `loadChatConfiguration` method handles all aspects of config building, including PBE consent verification.
 - **Config Assembly:** The config is built from environment variables, API responses (`getChatInfo`), and user/plan context, then exposed as `genesysChatConfig` in the store and on `window.chatSettings`.
 - **Config Validation:** Before any Genesys scripts load, the config is validated for all required fields (see `genesysChatConfig.ts`). Any missing or mismatched fields are logged in dev.
+- **Simplified Components:** Components access store state/actions directly with no local state duplication.
+- **Clean Initialization:** `ChatProvider` component handles one-time initialization with user/plan context.
 - **Minimal Loader:** The `ChatWidget` component loads Genesys scripts only after config is ready and validated, sets all required globals, and handles both cloud and legacy modes.
 - **No Legacy Fallbacks:** All legacy/duplicate config logic, props, and multi-fallback systems have been removed for clarity and maintainability.
 - **Optimized Initialization:** One-time initialization with refs prevents infinite API request loops and ensures resources are loaded efficiently.
@@ -18,16 +22,19 @@ This is the up-to-date reference for the Genesys chat integration in the Member 
 
 ## 2. Key Files
 
-| File Name                | Location                      | Responsibility                                 |
-| ------------------------ | ----------------------------- | ---------------------------------------------- |
-| **ChatWidget.tsx**       | src/app/chat/components/      | Loads scripts, sets globals, renders chat root |
-| **chatStore.ts**         | src/app/chat/stores/          | Zustand store: config, state, actions          |
-| **genesysChatConfig.ts** | src/app/chat/                 | Config builder, DTO, type safety, validation   |
-| **endpoints.ts**         | src/app/chat/config/          | Centralizes endpoint construction from .env    |
-| **click_to_chat.js**     | public/assets/genesys/        | Genesys widget logic (legacy/cloud)            |
-| **useUserContext.ts**    | src/app/chat/hooks/           | Session-based user context hook                |
-| **usePlanContext.ts**    | src/app/chat/hooks/           | Session-based plan context hook                |
-| **getChatInfo**          | src/app/api/chat/getChatInfo/ | API endpoint for chat config                   |
+| File Name                   | Location                      | Responsibility                                   |
+| --------------------------- | ----------------------------- | ------------------------------------------------ |
+| **chatStore.ts**            | src/app/chat/stores/          | Zustand store: config, state, actions, selectors |
+| **ChatProvider.tsx**        | src/app/chat/components/      | Initializes store with user/plan context         |
+| **ChatWidget.tsx**          | src/app/chat/components/      | Loads scripts, sets globals, renders chat root   |
+| **ChatControls.tsx**        | src/app/chat/components/      | Provides UI controls using store state           |
+| **GenesysScriptLoader.tsx** | src/app/chat/components/      | Handles script loading with lifecycle events     |
+| **useUserContext.ts**       | src/app/chat/hooks/           | Session-based user context hook                  |
+| **usePlanContext.ts**       | src/app/chat/hooks/           | Session-based plan context hook                  |
+| **genesysChatConfig.ts**    | src/app/chat/                 | Config builder, DTO, type safety, validation     |
+| **endpoints.ts**            | src/app/chat/config/          | Centralizes endpoint construction from .env      |
+| **click_to_chat.js**        | public/assets/genesys/        | Genesys widget logic (legacy/cloud)              |
+| **getChatInfo**             | src/app/api/chat/getChatInfo/ | API endpoint for chat config                     |
 
 ---
 
@@ -35,27 +42,29 @@ This is the up-to-date reference for the Genesys chat integration in the Member 
 
 1. **Session Access & Context**
 
+   - `ChatProvider` component initializes the chat store when mounted.
    - `useUserContext` and `usePlanContext` hooks extract user and plan data from NextAuth session.
    - Context follows the session structure: `session.user.currUsr.plan.memCk` for member ID and `session.user.currUsr.plan.grpId` for plan ID.
 
 2. **Config Fetch & Assembly**
 
-   - The Zustand store fetches user/plan context, chat token, and chat info from APIs (notably `getChatInfo`).
+   - The `loadChatConfiguration` method in the store fetches user/plan context, chat token, PBE consent data, and chat info from APIs.
    - The config is built from these sources and environment variables using `buildGenesysChatConfig` in `genesysChatConfig.ts`.
    - All required fields (see `GenesysChatConfig` interface) are validated for presence and type. Missing or mismatched fields are logged in dev.
    - The config is mapped to the exact structure expected by `click_to_chat.js` and set on `window.chatSettings`.
 
 3. **Widget Loading**
 
-   - `ChatWidget` only renders and loads scripts after `genesysChatConfig` is ready and validated.
+   - `ChatWidget` only renders `GenesysScriptLoader` after `genesysChatConfig` is ready and validated.
    - All required globals (`window.chatSettings`, `window.gmsServicesConfig`) are set before any Genesys scripts are loaded.
    - CSS is loaded first, then `click_to_chat.js`, then (for legacy) `widgets.min.js`.
    - The widget automatically handles both cloud and legacy modes based on config.
 
-4. **No Redundant Fallbacks**
+4. **Component Integration**
 
-   - All multi-fallback button creation and legacy config merging logic has been removed.
-   - The widget is robust and race-free by design: scripts only load after config is ready and validated.
+   - Components like `ChatControls` access store state through optimized selectors and trigger actions directly.
+   - UI components are lightweight with minimal props, deriving state directly from the store.
+   - Event listeners for chat events are centralized in the `ChatWidget` component.
 
 5. **Cobrowse & Optional Features**
    - Cobrowse and other features are toggled via config fields (e.g., `isCobrowseActive`).
@@ -72,37 +81,31 @@ This is the up-to-date reference for the Genesys chat integration in the Member 
 
 ---
 
-## 5. Example: How It Works
+## 5. Example: How to Integrate
 
 ```tsx
-// In ChatWidget.tsx
-const { genesysChatConfig, isLoading, error } = useChatStore();
-const userContext = useUserContext();
-const { planContext } = usePlanContext();
-const didInitialize = useRef(false);
+// In your page or component
+import { ChatProvider, ChatWidget, ChatControls } from '@/app/chat/components';
 
-// Memoized initialization function
-const initializeChat = useCallback(() => {
-  if (userContext?.memberId && planContext?.planId) {
-    loadChatConfiguration(userContext.memberId, planContext.planId);
-  }
-}, [userContext?.memberId, planContext?.planId, loadChatConfiguration]);
+export default function YourComponent() {
+  return (
+    <ChatProvider>
+      {/* Chat Controls - Opens and closes the chat */}
+      <ChatControls
+        buttonText="Need Help?"
+        className="your-custom-button-class"
+      />
 
-// One-time initialization effect
-useEffect(() => {
-  if (didInitialize.current || !userContext?.memberId || !planContext?.planId)
-    return;
-  didInitialize.current = true;
-  initializeChat();
-}, [userContext, planContext, initializeChat]);
-
-// Script loading effect
-useEffect(() => {
-  if (!genesysChatConfig) return;
-  window.chatSettings = genesysChatConfig;
-  window.gmsServicesConfig = { GMSChatURL: () => genesysChatConfig.gmsChatUrl };
-  // Load CSS, then scripts...
-}, [genesysChatConfig]);
+      {/* Chat Widget - Renders the actual chat container */}
+      <ChatWidget
+        containerId="your-chat-container-id"
+        hideCoBrowse={true}
+        onChatOpened={() => console.log('Chat opened')}
+        onChatClosed={() => console.log('Chat closed')}
+      />
+    </ChatProvider>
+  );
+}
 ```
 
 ---
@@ -117,18 +120,63 @@ useEffect(() => {
 
 ---
 
-## 7. Troubleshooting
+## 7. Accessing Chat Store
+
+For components that need to access chat state or actions directly:
+
+```tsx
+import {
+  chatUISelectors,
+  chatConfigSelectors,
+  chatSessionSelectors,
+  useChatStore,
+} from '@/app/chat/stores/chatStore';
+
+function YourComponent() {
+  // Get state using selectors for optimized rendering
+  const isOpen = useChatStore(chatUISelectors.isOpen);
+  const isLoading = useChatStore(chatConfigSelectors.isLoading);
+  const messages = useChatStore(chatSessionSelectors.messages);
+
+  // Get actions directly
+  const { setOpen, addMessage } = useChatStore((state) => state.actions);
+
+  // Use state and actions in your component
+  return (
+    <div>
+      <button onClick={() => setOpen(!isOpen)}>
+        {isOpen ? 'Close Chat' : 'Open Chat'}
+      </button>
+
+      {isLoading ? <div>Loading chat...</div> : <div>Chat is ready</div>}
+
+      <div>
+        {messages.map((msg) => (
+          <div key={msg.id}>
+            {msg.sender}: {msg.content}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## 8. Troubleshooting
 
 - **Button not appearing:** Check for script errors, ensure config is ready and validated before widget loads.
 - **Wrong mode:** Ensure `chatMode` and all required fields are set in config.
 - **Environment mismatch:** Check that all endpoints and IDs are set from the correct `.env` for your environment.
-- **Infinite API calls:** Check if initialization logic is being triggered multiple times - ensure `didInitialize` ref is working properly.
+- **Infinite API calls:** Check if initialization logic is being triggered multiple times in `ChatProvider`.
 - **Session data missing:** Verify session structure and ensure `useUserContext` and `usePlanContext` are correctly accessing session data.
 - **Config field mismatch:** If the widget fails to load or behaves unexpectedly, inspect `window.chatSettings` and compare to `GenesysChatConfig` and `click_to_chat.js` for missing or mismatched fields.
+- **Store state issues:** Use Redux DevTools to inspect Zustand store state and action dispatches.
 
 ---
 
-## 8. Updating Genesys Integration
+## 9. Updating Genesys Integration
 
 - Update `.env` for new endpoints or IDs.
 - Update `endpoints.ts` if endpoint construction logic changes.
@@ -139,21 +187,165 @@ useEffect(() => {
 
 ---
 
-## 9. Summary Diagram
+## 10. Detailed Architecture Diagram
 
 ```mermaid
-flowchart TD
-    A[App loads] --> B[Session data accessed via hooks]
-    B --> C[One-time initialization check]
-    C -->|First time| D[Zustand store fetches config]
-    D --> E[Config validated & mapped]
-    E --> F[Config set on window.chatSettings]
-    F --> G[ChatWidget loads scripts after config ready]
-    G --> H[Genesys widget initializes]
-    C -->|Already initialized| H
-    H --> I[User can chat]
+graph TD
+    %% Main Components
+    AppEntry[App Entry Point] --> ChatProvider
+
+    %% Core Components
+    subgraph Components
+        ChatProvider[ChatProvider.tsx\nInitializes store with context]
+        ChatWidget[ChatWidget.tsx\nRenders chat container and loads scripts]
+        ChatControls[ChatControls.tsx\nUI controls for chat]
+        ScriptLoader[GenesysScriptLoader.tsx\nLoads Genesys scripts]
+        ChatExample[ChatExample.tsx\nExample implementation]
+        ErrorBoundary[ChatErrorBoundary.tsx\nHandles errors]
+        StatusComponents[StatusComponents.tsx\nStatus indicators]
+    end
+
+    %% Hooks
+    subgraph Hooks
+        UserContext[useUserContext.ts\nGets user from session]
+        PlanContext[usePlanContext.ts\nGets plan from session]
+    end
+
+    %% Store
+    subgraph Store
+        ChatStore[chatStore.ts\nZustand store with domains:\nUI, config, session, scripts]
+
+        subgraph Selectors
+            UISelectors[chatUISelectors\nisOpen, isMinimized, etc]
+            ConfigSelectors[chatConfigSelectors\nisLoading, error, config, etc]
+            SessionSelectors[chatSessionSelectors\nisChatActive, messages, etc]
+            ScriptSelectors[chatScriptSelectors\nscriptLoadPhase]
+        end
+
+        subgraph Actions
+            UIActions[UI Actions\nsetOpen, minimizeChat, etc]
+            ConfigActions[Config Actions\nloadChatConfiguration, setError, etc]
+            SessionActions[Session Actions\naddMessage, setChatActive, etc]
+            ScriptActions[Script Actions\nsetScriptLoadPhase]
+        end
+    end
+
+    %% Config and Types
+    subgraph Configuration
+        ConfigBuilder[genesysChatConfig.ts\nBuilds and validates config]
+        Endpoints[endpoints.ts\nEndpoint construction]
+        GenesysSchema[genesys.schema.ts\nSchema definitions]
+    end
+
+    subgraph Types
+        ScriptPhase[ScriptLoadPhase.ts\nEnum for script load phases]
+        ChatTypes[Types for chat components]
+    end
+
+    %% Services and APIs
+    subgraph Services
+        ChatService[chat.service.ts\nAPI client functions]
+    end
+
+    subgraph APIs
+        GetChatInfo[getChatInfo API\nReturns chat configuration]
+        GetChatToken[token API\nReturns auth token]
+    end
+
+    %% External Resources
+    subgraph External
+        ClickToChat[click_to_chat.js\nGenesys widget logic]
+        WidgetsJS[widgets.min.js\nLegacy widget code]
+        GenesysCSS[genesys.css\nWidget styles]
+    end
+
+    %% Relationships and data flow
+
+    %% Provider and context relationships
+    ChatProvider --> UserContext
+    ChatProvider --> PlanContext
+    ChatProvider --> ChatStore
+
+    %% Store to components
+    ChatStore --> ChatWidget
+    ChatStore --> ChatControls
+
+    %% Component relationships
+    ChatWidget --> ScriptLoader
+    ChatWidget --> ErrorBoundary
+    ChatWidget --> StatusComponents
+    ChatExample --> ChatProvider
+    ChatExample --> ChatWidget
+    ChatExample --> ChatControls
+
+    %% Store internals
+    ChatStore --> UISelectors
+    ChatStore --> ConfigSelectors
+    ChatStore --> SessionSelectors
+    ChatStore --> ScriptSelectors
+    ChatStore --> UIActions
+    ChatStore --> ConfigActions
+    ChatStore --> SessionActions
+    ChatStore --> ScriptActions
+
+    %% Configuration flow
+    ConfigActions --> ConfigBuilder
+    ConfigBuilder --> Endpoints
+    ConfigBuilder --> GenesysSchema
+    ConfigBuilder --> ChatStore
+
+    %% API relationships
+    ConfigActions --> GetChatInfo
+    ConfigActions --> GetChatToken
+    ChatService --> GetChatInfo
+    ChatService --> GetChatToken
+
+    %% Script loading
+    ScriptLoader --> External
+    ScriptLoader --> ScriptActions
+
+    %% Type relationships
+    ScriptPhase --> ChatStore
+    ChatTypes --> Components
+
+    %% Styling
+    style ChatStore fill:#f9f,stroke:#333,stroke-width:2px
+    style ChatProvider fill:#bbf,stroke:#333,stroke-width:2px
+    style ConfigBuilder fill:#fb9,stroke:#333,stroke-width:2px
+    style ScriptLoader fill:#bfb,stroke:#333,stroke-width:2px
+
+    %% Flow Descriptions
+    classDef flow-description fill:#f5f5f5,stroke:#ccc,stroke-width:1px,color:#666
+
+    Flow1[1. Initialize\nChatProvider mounts\nand initializes store]:::flow-description
+    Flow2[2. Load Configuration\nStore fetches user/plan data,\nPBE consent, and chat info]:::flow-description
+    Flow3[3. Build Config\nConfig is built and validated\nwith all required fields]:::flow-description
+    Flow4[4. Load Scripts\nGenesysScriptLoader loads\nscripts based on config]:::flow-description
+    Flow5[5. Widget Ready\nGenesys widget initialized\nand ready for user]:::flow-description
+
+    ChatProvider --> Flow1
+    Flow1 --> ConfigActions
+    ConfigActions --> Flow2
+    Flow2 --> ConfigBuilder
+    ConfigBuilder --> Flow3
+    Flow3 --> ChatWidget
+    ChatWidget --> ScriptLoader
+    ScriptLoader --> Flow4
+    Flow4 --> External
+    External --> Flow5
 ```
 
 ---
 
-**This flow is robust, maintainable, fully aligned with Genesys best practices, and optimized for performance.**
+## 11. Eliminated Redundancies
+
+In this refactored implementation, the following redundancies have been eliminated:
+
+- **Duplicate State Management**: Removed local state in components that duplicated store functionality
+- **Multiple Config Builders**: Consolidated config building into a single function in the store
+- **Redundant API Calls**: Eliminated multiple hooks making the same API calls
+- **Duplicated Initialization Logic**: Centralized in ChatProvider component
+- **Removed Hooks**: Deprecated redundant hooks (useChatConfig, usePBEData, useChatContext)
+- **Simplified Component Props**: Components now derive state directly from store
+
+This architecture is robust, maintainable, fully aligned with Genesys best practices, and optimized for performance.

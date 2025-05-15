@@ -1,10 +1,44 @@
 (function (window, document) {
   'use strict';
 
-  // === 0) Grab config ===
-  const cfg = window.chatSettings || {};
+  // === CONFIG SECTION ===
+  // Validate and set configuration with defaults
+  const validateConfig = (cfg) => {
+    const required = {
+      legacy: ['clickToChatToken', 'clickToChatEndpoint'],
+      cloud: ['deploymentId', 'orgId'],
+    };
 
-  // JSPF parity: mirror all JSP-injected values
+    // Determine mode and check required fields
+    const mode = cfg.chatMode || 'legacy';
+    const missingFields = required[mode]?.filter((field) => !cfg[field]) || [];
+
+    if (missingFields.length > 0) {
+      console.error(
+        `[Genesys] Missing required fields for ${mode} mode:`,
+        missingFields,
+      );
+    }
+
+    return {
+      ...cfg,
+      chatMode: mode,
+      targetContainer: cfg.targetContainer || 'genesys-chat-container',
+      isChatAvailable: cfg.isChatAvailable !== 'false',
+      isChatEligibleMember: cfg.isChatEligibleMember === 'true',
+      isDemoMember: cfg.isDemoMember === 'true',
+      isAmplifyMem: cfg.isAmplifyMem === 'true',
+      isCobrowseActive: cfg.isCobrowseActive === 'true',
+      isMagellanVAMember: cfg.isMagellanVAMember === 'true',
+      isMedicalAdvantageGroup: cfg.isMedicalAdvantageGroup === 'true',
+      routingchatbotEligible: cfg.routingchatbotEligible === 'true',
+    };
+  };
+
+  // Load and validate config
+  const cfg = validateConfig(window.chatSettings || {});
+
+  // Backwards compatibility: mirror all JSP-injected values directly on window
   const clickToChatToken = cfg.clickToChatToken;
   const clickToChatEndpoint = cfg.clickToChatEndpoint;
   const clickToChatDemoEndPoint = cfg.clickToChatDemoEndPoint;
@@ -13,13 +47,13 @@
   const cobrowseURL = cfg.cobrowseURL;
   const opsPhone = cfg.opsPhone;
   const opsPhoneHours = cfg.opsPhoneHours;
-  const routingchatbotEligible = cfg.routingchatbotEligible === 'true';
-  const isChatEligibleMember = cfg.isChatEligibleMember === 'true';
-  const isDemoMember = cfg.isDemoMember === 'true';
-  const isAmplifyMem = cfg.isAmplifyMem === 'true';
-  const isCobrowseActive = cfg.isCobrowseActive === 'true';
-  const isMagellanVAMember = cfg.isMagellanVAMember === 'true';
-  const isMedicalAdvantageGroup = cfg.isMedicalAdvantageGroup === 'true';
+  const routingchatbotEligible = cfg.routingchatbotEligible;
+  const isChatEligibleMember = cfg.isChatEligibleMember;
+  const isDemoMember = cfg.isDemoMember;
+  const isAmplifyMem = cfg.isAmplifyMem;
+  const isCobrowseActive = cfg.isCobrowseActive;
+  const isMagellanVAMember = cfg.isMagellanVAMember;
+  const isMedicalAdvantageGroup = cfg.isMedicalAdvantageGroup;
   const selfServiceLinks = cfg.selfServiceLinks || [];
   const rawChatHrs = cfg.rawChatHrs;
 
@@ -29,14 +63,15 @@
       isDemoMember ? clickToChatDemoEndPoint : clickToChatEndpoint,
   };
 
-  // Simplified logging
+  // Enhanced logging with more detail
   console.log('[Genesys] Initializing chat widget', {
-    chatMode: cfg.chatMode || 'legacy',
+    chatMode: cfg.chatMode,
     userInfo: {
       firstname: cfg.firstname || cfg.formattedFirstName || '',
       lastname: cfg.lastname || cfg.memberLastName || '',
     },
-    chatAvailable: cfg.isChatAvailable !== 'false',
+    chatAvailable: cfg.isChatAvailable,
+    targetContainer: cfg.targetContainer,
     timestamp: new Date().toISOString(),
   });
 
@@ -48,7 +83,62 @@
     });
   }
 
-  // === 1) Inject JSPF CSS ===
+  // === UTILITY FUNCTIONS ===
+  // Promise-based resource loading
+  const loadResource = {
+    script: (src, attributes = {}) => {
+      return new Promise((resolve, reject) => {
+        if (!src) {
+          reject(new Error('No source provided for script'));
+          return;
+        }
+
+        // Add cache-busting if needed
+        const finalSrc = src.includes('?') ? src : `${src}?_t=${Date.now()}`;
+
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = finalSrc;
+
+        // Add any custom attributes
+        Object.entries(attributes).forEach(([key, value]) => {
+          script.setAttribute(key, value);
+        });
+
+        script.onload = () => resolve(script);
+        script.onerror = (e) =>
+          reject(new Error(`Failed to load script: ${finalSrc}`));
+
+        document.head.appendChild(script);
+      });
+    },
+
+    style: (cssText, id) => {
+      return new Promise((resolve) => {
+        const styleEl = document.createElement('style');
+        if (id) styleEl.id = id;
+        styleEl.textContent = cssText;
+        document.head.appendChild(styleEl);
+        resolve(styleEl);
+      });
+    },
+  };
+
+  // Target container finder
+  const getTargetContainer = () => {
+    const container = document.getElementById(cfg.targetContainer);
+    if (!container) {
+      console.warn(
+        `[Genesys] Target container #${cfg.targetContainer} not found, using document.body`,
+      );
+      return document.body;
+    }
+    return container;
+  };
+
+  // === CSS INJECTION ===
+  // Critical styles for chat button and window
   const css = `
   /* Critical styles for chat button and window */
   .cx-widget.cx-webchat-chat-button {
@@ -119,16 +209,23 @@
     cursor: pointer;
   }
   `;
-  const styleEl = document.createElement('style');
-  styleEl.id = 'genesys-chat-styles';
-  styleEl.textContent = css;
-  document.head.appendChild(styleEl);
 
-  // === 2) Inject JSPF modals ===
+  // Inject styles
+  loadResource
+    .style(css, 'genesys-chat-styles')
+    .then(() => console.log('[Genesys] Chat styles loaded'))
+    .catch((err) =>
+      console.error('[Genesys] Failed to load chat styles:', err),
+    );
+
+  // === MODAL INJECTION ===
+  // Inject modals to target container or body
   function injectModals() {
+    const targetContainer = getTargetContainer();
     const wrapper = document.createElement('div');
+    wrapper.id = 'genesys-chat-modals';
     wrapper.innerHTML = `
-<div id="cobrowse-sessionConfirm" class="modal" style="background: rgba(50, 50, 50, 0.4); position: fixed; bottom: 0; top: 0; left: 0; right: 0">
+<div id="cobrowse-sessionConfirm" class="modal" style="background: rgba(50, 50, 50, 0.4); position: fixed; bottom: 0; top: 0; left: 0; right: 0; display: none; z-index: 9999;">
   <div class="cobrowse-card" style="width:100%">
     <div style="text-align:left; margin-bottom:5px"><b>Are you on the phone with us?</b></div>
     <div>We can help better if we can see your screen.</div>
@@ -139,7 +236,7 @@
   </div>
 </div>
 
-<div class="modal" id="cobrowse-sessionYesModal" tabindex="-1" role="dialog">
+<div class="modal" id="cobrowse-sessionYesModal" tabindex="-1" role="dialog" style="display: none; z-index: 9999;">
   <div class="modal-dialog modal-dialog-bottom">
     <div class="modal-content sessionmodalcontent">
       <div class="modal-body">
@@ -153,7 +250,7 @@
   </div>
 </div>
 
-<div class="modal" id="cobrowse-contactUsScreen1" tabindex="-1" role="dialog" style="background: rgba(50, 50, 50, 0.4); position: fixed; bottom: 0; top: 0; left: 0; right: 0">
+<div class="modal" id="cobrowse-contactUsScreen1" tabindex="-1" role="dialog" style="background: rgba(50, 50, 50, 0.4); position: fixed; bottom: 0; top: 0; left: 0; right: 0; display: none; z-index: 9999;">
   <div style="color: #333; font-family:sans-serif; line-height:230%; position:fixed; padding:25px; background:white; top:50px; left:50%; width:75%; max-width:520px; transform:translateX(-50%);">
     <div class="scrSharingHead">How would you like to talk to us?</div>
     <div class="cobrowse-scrSharingSubHead">Choose an option to talk to our Member Services team</div>
@@ -162,45 +259,73 @@
   </div>
 </div>
 
-<div class="modal" id="cobrowse-contactUsScreen2" tabindex="-1" role="dialog">
+<div class="modal" id="cobrowse-contactUsScreen2" tabindex="-1" role="dialog" style="display: none; z-index: 9999;">
   <div style="background: rgba(50, 50, 50, 0); position: fixed; bottom: 0; top: 0; left: 0; right: 0">
     <div style="color: #333; font-family:sans-serif; line-height:230%; position:fixed; padding:25px; background:white; border-radius:15px; top:50px; left:50%; width:75%; max-width:700px; transform:translateX(-50%);">
       <a class="cobrowse-chatClose" onclick="cobrowseClosePopup()">&times;</a>
       <div class="cobrowse-main-phone">
         <div class="cobrowse-phone-title"><span>Call us at</span></div>
-        <div class="cobrowse-phone-number"><span class="href-col">${opsPhone}</span></div>
+        <div class="cobrowse-phone-number"><span class="href-col">${opsPhone || 'Contact support'}</span></div>
         <div class="cobrowse-phone-subtitle"><span>Once you're on the line with us, say "share your screen."</span></div>
       </div>
       <div class="cobrowse-availability">
         <div class="cobrowse-hours"><b>Hours of operation</b></div>
-        <div class="hrs-opt">${opsPhoneHours}</div>
+        <div class="hrs-opt">${opsPhoneHours || 'Please call for current hours'}</div>
       </div>
       <div class="cobrowse-shareScreen-link"><span class="cobrowse-cobrowse-offer">Already on a call? <a class="cobrowse-cobrowse-link" onclick="cobrowseSessionModal()">Share your screen</a></span></div>
     </div>
   </div>
 </div>
     `;
-    document.body.appendChild(wrapper);
-  }
-  injectModals();
-
-  // === 3) Audio alert ===
-  const webAlert = new Audio();
-  try {
-    const audioPath = '/assets/genesys/sounds/bell.mp3';
-    webAlert.src = audioPath;
-    webAlert.muted = true;
-    webAlert.addEventListener('error', (e) =>
-      console.error('[Genesys] Audio error', e),
+    targetContainer.appendChild(wrapper);
+    console.log(
+      '[Genesys] Chat modals injected into',
+      targetContainer.id || 'body',
     );
-  } catch (err) {
-    webAlert.play = () => console.log('[Genesys] Audio unavailable');
   }
 
-  // === 4) Utility & CobrowseIO boot-strap ===
-  // TODO: Cobrowse integration temporarily disabled for troubleshooting.
-  // Commented out CobrowseIO boot-strap and modal logic. Revisit and fix later.
-  /*
+  // Safely inject modals
+  try {
+    injectModals();
+  } catch (error) {
+    console.error('[Genesys] Failed to inject modals:', error);
+  }
+
+  // === AUDIO NOTIFICATION ===
+  // Create and configure audio alert with better error handling
+  const initAudioAlert = () => {
+    const webAlert = new Audio();
+    try {
+      const audioPath = '/assets/genesys/sounds/bell.mp3';
+      webAlert.src = audioPath;
+      webAlert.muted = true;
+
+      // Preload the audio
+      webAlert.load();
+
+      webAlert.addEventListener('canplaythrough', () => {
+        console.log('[Genesys] Audio loaded and ready');
+      });
+
+      webAlert.addEventListener('error', (e) => {
+        console.error('[Genesys] Audio error', e);
+        // Create a fallback play method
+        webAlert.play = () =>
+          console.log('[Genesys] Audio unavailable, using silent fallback');
+      });
+
+      return webAlert;
+    } catch (err) {
+      console.error('[Genesys] Audio initialization failed:', err);
+      // Return an object with a no-op play method
+      return { play: () => console.log('[Genesys] Audio unavailable') };
+    }
+  };
+
+  const webAlert = initAudioAlert();
+
+  // === COBROWSE INTEGRATION ===
+  // Improved CoBrowse consent handling
   function buildConsent(title, message) {
     return new Promise((resolve) => {
       const el = document.createElement('div');
@@ -211,187 +336,47 @@
             <div>${message}</div>
             <div style="float:left;color:rgb(0,122,255);margin-top:10px">
               <a class="cobrowse-allow btn btn-primary">Yes</a>
-              <a class="cobrowse-deny  btn btn-secondary">No</a>
+              <a class="cobrowse-deny btn btn-secondary" style="margin-left:10px">No</a>
             </div>
           </div>
         </div>`;
+
       el.querySelector('.cobrowse-allow').onclick = () => {
         resolve(true);
         el.remove();
-        setTimeout(
-          () =>
-            (document.querySelector('.cbio_session_controls').innerHTML =
-              'End Screen Sharing'),
-          400,
-        );
+        // Update session controls text after short delay
+        setTimeout(() => {
+          const controls = document.querySelector('.cbio_session_controls');
+          if (controls) controls.innerHTML = 'End Screen Sharing';
+        }, 400);
       };
+
       el.querySelector('.cobrowse-deny').onclick = () => {
         resolve(false);
         el.remove();
       };
+
       document.body.appendChild(el);
     });
   }
 
-  window.CobrowseIO = window.CobrowseIO || {};
-  CobrowseIO.confirmSession = () =>
-    buildConsent(
-      "We'd like to share your screen",
-      'Sharing only your BCBST.com tab. OK?',
-    );
-  CobrowseIO.confirmRemoteControl = () =>
-    buildConsent("We'd like control", 'We can click to help. OK?');
-  */
+  // Initialize CoBrowse if enabled
+  if (isCobrowseActive) {
+    window.CobrowseIO = window.CobrowseIO || {};
 
-  // === 5) jQuery loader & main init ===
-  const loadJQ = (cb) => {
-    const s = document.createElement('script');
-    s.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-    s.onload = () => cb(window.jQuery);
-    document.head.appendChild(s);
-  };
-  Promise.resolve(window.jQuery || loadJQ).then(($) =>
-    initializeChatWidget($, cfg),
-  );
+    // Set up custom consent prompts
+    CobrowseIO.confirmSession = () =>
+      buildConsent(
+        "We'd like to share your screen",
+        'Sharing only your BCBST.com tab. OK?',
+      );
 
-  // === 6) initializeChatWidget ===
-  function initializeChatWidget($, cfg) {
-    // 6.1) Constants & utilities
-    const clientIdConst = {
-      BlueCare: 'BC',
-      BlueCarePlus: 'DS',
-      CoverTN: 'CT',
-      CoverKids: 'CK',
-      SeniorCare: 'BA',
-      Individual: 'INDV',
-      BlueElite: 'INDVMX',
-    };
-    const chatTypeConst = {
-      BlueCareChat: 'BlueCare_Chat',
-      SeniorCareChat: 'SCD_Chat',
-      DefaultChat: 'MBAChat',
-    };
-    const defaultedClientID = (id) => {
-      const L = ['INDVMX', 'BA', 'INDV', 'CK', 'BC', 'DS', 'CT'];
-      return id && L.includes(id.trim()) ? id.trim() : 'Default';
-    };
-    const isDentalOnly = () =>
-      !(
-        cfg.isMedical === 'true' ||
-        cfg.isVision === 'true' ||
-        cfg.isWellnessOnly === 'true'
-      ) && cfg.isDental === 'true';
-    const getChatType = (cid) => {
-      switch (cid) {
-        case clientIdConst.BlueCare:
-        case clientIdConst.BlueCarePlus:
-        case clientIdConst.CoverTN:
-        case clientIdConst.CoverKids:
-          return chatTypeConst.BlueCareChat;
-        case clientIdConst.SeniorCare:
-        case clientIdConst.BlueElite:
-          return chatTypeConst.SeniorCareChat;
-        default:
-          return chatTypeConst.DefaultChat;
-      }
-    };
+    CobrowseIO.confirmRemoteControl = () =>
+      buildConsent("We'd like control", 'We can click to help. OK?');
 
-    // 6.2) setOptions
-    function setOptions(optVar) {
-      const opts =
-        calculatedCiciId === clientIdConst.SeniorCare
-          ? []
-          : [
-              {
-                disabled: 'disabled',
-                selected: 'selected',
-                text: 'Select one',
-              },
-            ];
-      const push = (t, v) => opts.push({ text: t, value: v });
-      switch (optVar) {
-        case clientIdConst.BlueCare:
-          ['Eligibility', 'TennCare PCP', 'Benefits', 'Transportation'].forEach(
-            (t) => push(t, t),
-          );
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          break;
-        case clientIdConst.BlueCarePlus:
-        case clientIdConst.CoverTN:
-        case clientIdConst.CoverKids:
-          ['Eligibility', 'Benefits', 'Claims Financial'].forEach((t) =>
-            push(t, t),
-          );
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          push('Member Update Information', 'Member Update Information');
-          push('Pharmacy', 'Pharmacy');
-          break;
-        case 'dentalOnly':
-          push('Benefits and Coverage', 'Benefits and Coverage');
-          push('New or Existing Claims', 'New Or Existing Claims');
-          if (cfg.groupType === 'INDV')
-            push('Premium Billing', 'Premium Billing');
-          push('Deductibles', 'Deductibles');
-          push('Find Care', 'Find Care');
-          if (cfg.isCobraEligible === 'true') push('COBRA', 'COBRA');
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          push('Other', 'Other');
-          break;
-        case clientIdConst.Individual:
-          [
-            'Benefits and Coverage',
-            'New or Existing Claims',
-            'Premium Billing',
-            'Deductibles',
-            'Pharmacy and Prescriptions',
-            'Find Care',
-          ].forEach((t) => push(t, t));
-          if (cfg.isDental === 'true') push('Dental', 'Dental');
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          push('Other', 'Other');
-          break;
-        case clientIdConst.BlueElite:
-          [
-            'Address Update',
-            'Bank Draft',
-            'Premium Billing',
-            'Report Date of Death',
-          ].forEach((t) => push(t, t));
-          if (cfg.isDental === 'true') push('Dental', 'Dental');
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          push('All Other', 'All Other');
-          break;
-        default:
-          [
-            'Benefits and Coverage',
-            'New or Existing Claims',
-            'Deductibles',
-            'Pharmacy and Prescriptions',
-            'Find Care',
-          ].forEach((t) => push(t, t));
-          if (cfg.isDental === 'true') push('Dental', 'Dental');
-          if (cfg.isCobraEligible === 'true') push('COBRA', 'COBRA');
-          if (cfg.isIDCardEligible === 'true' && cfg.chatbotEligible === 'true')
-            push('ID Card Request', 'OrderIDCard');
-          push('Other', 'Other');
-      }
-      return opts;
-    }
-
-    // 6.3) Derived
-    const calculatedCiciId = (() => {
-      if (cfg.isBlueEliteGroup === 'true') return clientIdConst.BlueElite;
-      if (cfg.groupType === 'INDV') return clientIdConst.Individual;
-      return cfg.memberClientID;
-    })();
-
-    // 6.4) Load CobrowseIO script
+    // Initialize CoBrowse client conditionally
     (function (w, t, c) {
+      // Create a promise that resolves when the client is loaded
       const p = new Promise((r) => {
         w[c] = {
           client: () => {
@@ -410,10 +395,91 @@
         };
       });
     })(window, 'script', 'CobrowseIO');
+  }
 
-    // 6.5) buildActiveChatInputs
+  // === JQUERY & INITIALIZATION ===
+  // Improved jQuery loader with Promise support
+  const loadJQuery = () => {
+    // Skip loading if jQuery already available
+    if (window.jQuery) {
+      console.log('[Genesys] jQuery already loaded');
+      return Promise.resolve(window.jQuery);
+    }
+
+    console.log('[Genesys] Loading jQuery');
+    return loadResource
+      .script('https://code.jquery.com/jquery-3.6.0.min.js')
+      .then(() => {
+        console.log('[Genesys] jQuery loaded successfully');
+        return window.jQuery;
+      })
+      .catch((err) => {
+        console.error('[Genesys] jQuery loading failed:', err);
+        throw err;
+      });
+  };
+
+  // Load jQuery and initialize chat widget
+  loadJQuery()
+    .then(($) => initializeChatWidget($, cfg))
+    .catch((err) =>
+      console.error('[Genesys] Failed to initialize chat widget:', err),
+    );
+
+  // === CHAT WIDGET INITIALIZATION ===
+  function initializeChatWidget($, cfg) {
+    console.log('[Genesys] Beginning chat widget initialization');
+
+    // === Constants & Utilities ===
+    const clientIdConst = {
+      BlueCare: 'BC',
+      BlueCarePlus: 'DS',
+      CoverTN: 'CT',
+      CoverKids: 'CK',
+      SeniorCare: 'BA',
+      Individual: 'INDV',
+      BlueElite: 'INDVMX',
+    };
+
+    const chatTypeConst = {
+      BlueCareChat: 'BlueCare_Chat',
+      SeniorCareChat: 'SCD_Chat',
+      DefaultChat: 'MBAChat',
+    };
+
+    // Utility functions
+    const defaultedClientID = (id) => {
+      const validIds = ['INDVMX', 'BA', 'INDV', 'CK', 'BC', 'DS', 'CT'];
+      return id && validIds.includes(id.trim()) ? id.trim() : 'Default';
+    };
+
+    const isDentalOnly = () =>
+      !(
+        cfg.isMedical === 'true' ||
+        cfg.isVision === 'true' ||
+        cfg.isWellnessOnly === 'true'
+      ) && cfg.isDental === 'true';
+
+    const getChatType = (cid) => {
+      switch (cid) {
+        case clientIdConst.BlueCare:
+        case clientIdConst.BlueCarePlus:
+        case clientIdConst.CoverTN:
+        case clientIdConst.CoverKids:
+          return chatTypeConst.BlueCareChat;
+        case clientIdConst.SeniorCare:
+        case clientIdConst.BlueElite:
+          return chatTypeConst.SeniorCareChat;
+        default:
+          return chatTypeConst.DefaultChat;
+      }
+    };
+
+    // === Chat Form Builder ===
     function buildActiveChatInputs() {
       const inputs = [];
+
+      // Title section
       inputs.push({
         custom: isAmplifyMem
           ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\'s talk.' style='font-size:30px'></td></tr>"
@@ -422,6 +488,8 @@
       inputs.push({
         custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
       });
+
+      // Service type selector or chatbot routing
       if (!routingchatbotEligible) {
         inputs.push({
           custom:
@@ -456,23 +524,44 @@
           type: 'hidden',
         });
       }
-      // hidden: LOB, IsMedicalEligible, IsDentalEligible, IsVisionEligible, IDCardBotName
-      [
-        'LOB',
-        'IsMedicalEligible',
-        'IsDentalEligible',
-        'IsVisionEligible',
-        'IDCardBotName',
-      ].forEach((key) => {
-        const m = {
-          LOB: defaultedClientID(calculatedCiciId),
-          IsMedicalEligible: cfg.isMedical,
-          IsDentalEligible: cfg.isDental,
-          IsVisionEligible: cfg.isVision,
-          IDCardBotName: routingchatbotEligible ? cfg.idCardChatBotName : '',
-        }[key];
-        inputs.push({ id: key, name: key, value: m, type: 'hidden' });
-      });
+
+      // Hidden fields for various settings
+      const hiddenFields = [
+        {
+          id: 'LOB',
+          name: 'LOB',
+          value: defaultedClientID(calculatedCiciId),
+          type: 'hidden',
+        },
+        {
+          id: 'IsMedicalEligible',
+          name: 'IsMedicalEligible',
+          value: cfg.isMedical,
+          type: 'hidden',
+        },
+        {
+          id: 'IsDentalEligible',
+          name: 'IsDentalEligible',
+          value: cfg.isDental,
+          type: 'hidden',
+        },
+        {
+          id: 'IsVisionEligible',
+          name: 'IsVisionEligible',
+          value: cfg.isVision,
+          type: 'hidden',
+        },
+        {
+          id: 'IDCardBotName',
+          name: 'IDCardBotName',
+          value: routingchatbotEligible ? cfg.idCardChatBotName : '',
+          type: 'hidden',
+        },
+      ];
+
+      hiddenFields.forEach((field) => inputs.push(field));
+
+      // Terms and conditions
       inputs.push({
         custom:
           "<tr class='activeChat'><td>By clicking on the button, you agree with our <a href='#' onclick='OpenChatDisclaimer();return false;'>Terms and Conditions</a> for chat.</td></tr>",
@@ -480,8 +569,9 @@
       inputs.push({
         custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
       });
-      // demographics: firstName_field, lastname_field, memberId_field, groupId_field, planId_field, dob_field, inquiryType_field
-      [
+
+      // User demographics fields
+      const demographicFields = [
         {
           id: 'firstName_field',
           name: 'firstname',
@@ -497,24 +587,41 @@
           name: 'MEMBER_ID',
           value: `${cfg.subscriberID || ''}-${cfg.sfx || ''}`,
         },
-        { id: 'groupId_field', name: 'GROUP_ID', value: cfg.groupId },
-        { id: 'planId_field', name: 'PLAN_ID', value: cfg.memberMedicalPlanID },
-        { id: 'dob_field', name: 'MEMBER_DOB', value: cfg.memberDOB },
+        {
+          id: 'groupId_field',
+          name: 'GROUP_ID',
+          value: cfg.groupId,
+        },
+        {
+          id: 'planId_field',
+          name: 'PLAN_ID',
+          value: cfg.memberMedicalPlanID,
+        },
+        {
+          id: 'dob_field',
+          name: 'MEMBER_DOB',
+          value: cfg.memberDOB,
+        },
         {
           id: 'inquiryType_field',
           name: 'INQ_TYPE',
           value: getChatType(calculatedCiciId),
         },
-      ].forEach((f) => inputs.push(f));
+      ];
+
+      demographicFields.forEach((field) => inputs.push(field));
+
       return inputs;
     }
 
-    // 6.6) Init Genesys widgets
+    // === Genesys Widget Configuration ===
     function initLocalWidgetConfiguration() {
+      // Initialize namespace objects
       window._genesys = window._genesys || {};
       window._gt = window._gt || [];
       window._genesys.widgets = window._genesys.widgets || {};
 
+      // Main configuration
       window._genesys.widgets.main = {
         debug: false,
         theme: 'light',
@@ -538,7 +645,7 @@
         actionsBar: { showPoweredBy: false },
       };
 
-      // CallUs
+      // CallUs configuration
       window._genesys.widgets.main.i18n.en.callus = {
         CallUsTitle: 'Call Us',
         SubTitle: '',
@@ -555,6 +662,7 @@
         AriaCobrowseLink: 'Opens the Co-browse Session',
         AriaCancelButtonText: 'Call Us Cancel',
       };
+
       window._genesys.widgets.callus = {
         contacts: [
           {
@@ -566,12 +674,14 @@
         hours: [opsPhoneHours],
       };
 
-      // Chat plugins
+      // Add chat plugins if eligible
       if (isChatEligibleMember || isDemoMember) {
         window._genesys.widgets.main.plugins.push(
           'cx-webchat-service',
           'cx-webchat',
         );
+
+        // Common text strings
         const commonText = {
           ChatButton: 'Chat with us',
           ChatTitle: 'Chat with us',
@@ -588,6 +698,8 @@
           ChatEndQuestion:
             "<div class='modalTitle'>We'll be right here if we can</br>help with anything else.</div>",
         };
+
+        // Set i18n text based on demo status
         window._genesys.widgets.main.i18n.en.webchat = isDemoMember
           ? {
               ...commonText,
@@ -597,12 +709,15 @@
               },
             }
           : commonText;
+
+        // Customize for Amplify members
         if (isAmplifyMem) {
           const w = window._genesys.widgets.main.i18n.en.webchat;
           w.ChatButton = 'Chat with an advisor';
           w.ChatTitle = 'Chat with an advisor';
         }
 
+        // Base webchat configuration
         const base = {
           dataURL: gmsServicesConfig.GMSChatURL(),
           enableCustomHeader: true,
@@ -622,6 +737,8 @@
           },
           composerFooter: { showPoweredBy: false },
         };
+
+        // Configure for chat availability
         if (cfg.isChatAvailable === 'false') {
           window._genesys.widgets.webchat = {
             ...base,
@@ -649,52 +766,93 @@
         }
       }
     }
+
+    // Initialize widget configuration
     initLocalWidgetConfiguration();
 
     // === 7) CXBus subscriptions & after-hours ===
     window._genesys.widgets.onReady = (CXBus) => {
+      console.log('[Genesys] CXBus ready, registering plugins and handlers');
+
+      // Create local plugin for customizations
       const plugin = CXBus.registerPlugin('LocalCustomization');
+
+      // WebChat.opened handler
       plugin.subscribe('WebChat.opened', () => {
-        // after-hours
-        const now = parseFloat(
-          new Date()
-            .toLocaleTimeString('en-US', {
-              hour12: false,
-              timeZone: 'America/New_York',
-            })
-            .replace(':', '.')
-            .slice(0, 4),
-        );
-        let end = parseFloat(rawChatHrs.split('_').pop());
-        if (end < 12) end += 12;
-        if (cfg.isChatAvailable === 'true' && now > end) {
-          const links = selfServiceLinks;
-          links.forEach((e) => {
-            if (e.value.startsWith('http'))
-              $('.cx-form table').append(
-                `<tr><td colspan='2'><a class='btn btn-secondary' href='${e.value}' target='_blank'>${e.key}</a></td></tr>`,
-              );
-          });
-          $('.activeChat').hide();
-          $('button[data-message="ChatFormSubmit"]').hide();
+        console.log('[Genesys] WebChat opened');
+
+        // Check for after-hours and handle UI
+        try {
+          const now = parseFloat(
+            new Date()
+              .toLocaleTimeString('en-US', {
+                hour12: false,
+                timeZone: 'America/New_York',
+              })
+              .replace(':', '.')
+              .slice(0, 4),
+          );
+
+          let end = parseFloat(rawChatHrs?.split('_')?.pop() || '0');
+          if (end < 12) end += 12;
+
+          if (cfg.isChatAvailable === 'true' && now > end) {
+            console.log(
+              '[Genesys] After hours detected, showing self-service options',
+            );
+
+            // Add self-service links
+            const links = selfServiceLinks || [];
+            links.forEach((e) => {
+              if (e.value && e.value.startsWith('http')) {
+                $('.cx-form table').append(
+                  `<tr><td colspan='2'><a class='btn btn-secondary' href='${e.value}' target='_blank'>${e.key}</a></td></tr>`,
+                );
+              }
+            });
+
+            // Hide active chat elements
+            $('.activeChat').hide();
+            $('button[data-message="ChatFormSubmit"]').hide();
+          }
+        } catch (error) {
+          console.error('[Genesys] Error handling after-hours logic:', error);
+        }
+
+        // Trigger custom event for external listeners
+        try {
+          document.dispatchEvent(new CustomEvent('genesys:webchat:opened'));
+        } catch (e) {
+          console.error('[Genesys] Error dispatching webchat:opened event:', e);
         }
       });
 
-      // Message added handler
+      // Message added handler with audio notification
       plugin.subscribe('WebChat.messageAdded', (data) => {
         try {
           if (data && data.response && data.response.message) {
+            console.log('[Genesys] New message received');
+
             // Unmute and play alert
             webAlert.muted = false;
             webAlert
               .play()
               .catch((e) => console.log('[Genesys] Audio play error:', e));
 
-            // Focus chat if unfocused
+            // Handle notifications when document not visible
             if (document.visibilityState !== 'visible') {
-              console.log(
-                '[Genesys] Document not visible, showing notification',
-              );
+              console.log('[Genesys] Document not visible, notifying user');
+
+              // Trigger custom event for external notification handling
+              try {
+                document.dispatchEvent(
+                  new CustomEvent('genesys:message:received', {
+                    detail: { message: data.response.message },
+                  }),
+                );
+              } catch (e) {
+                console.error('[Genesys] Error dispatching message event:', e);
+              }
             }
           }
         } catch (err) {
@@ -702,16 +860,27 @@
         }
       });
 
-      // Error handler
+      // Error handler with recovery options
       plugin.subscribe('WebChat.error', (error) => {
         console.error('[Genesys] WebChat error:', error);
 
-        // Common error handling
+        // Handle websocket errors
         if (error && error.error === 'websocket.error') {
-          // Handle websocket errors
+          console.log(
+            '[Genesys] Websocket error detected, attempting recovery',
+          );
+
           setTimeout(() => {
             try {
               CXBus.command('WebChat.close');
+
+              // Notify application of the error
+              document.dispatchEvent(
+                new CustomEvent('genesys:webchat:error', {
+                  detail: { error, recovering: true },
+                }),
+              );
+
               // Could add reconnection logic here
             } catch (e) {
               console.error('[Genesys] Error during error recovery:', e);
@@ -720,63 +889,122 @@
         }
       });
 
-      // Form submitted handler
+      // Form submitted handler for analytics
       plugin.subscribe('WebChat.submitted', (data) => {
-        console.log('[Genesys] Chat form submitted:', data);
-        // Enhancement opportunity: track form analytics
+        console.log('[Genesys] Chat form submitted');
+
+        // Trigger custom event for external analytics
+        try {
+          document.dispatchEvent(
+            new CustomEvent('genesys:webchat:submitted', {
+              detail: { formData: data },
+            }),
+          );
+        } catch (e) {
+          console.error(
+            '[Genesys] Error dispatching form submission event:',
+            e,
+          );
+        }
       });
+
+      // Store CXBus reference for external use
+      window._genesysCXBus = CXBus;
     };
 
-    // Cobrowse helpers
-    window.startCoBrowseCall = () =>
+    // === CoBrowse Helper Functions ===
+    // Define global functions for CoBrowse interactions
+    window.startCoBrowseCall = () => {
+      console.log('[Genesys] Starting CoBrowse call');
       $('#cobrowse-sessionConfirm').modal({
         backdrop: 'static',
         keyboard: false,
       });
-    window.openWebChatWidget = () => CXBus.command('WebChat.open');
-    window.openCallUsWidget = () => CXBus.command('CallUs.open');
+    };
+
+    window.openWebChatWidget = () => {
+      console.log('[Genesys] Opening WebChat widget');
+      if (window._genesysCXBus) {
+        window._genesysCXBus.command('WebChat.open');
+      }
+    };
+
+    window.openCallUsWidget = () => {
+      console.log('[Genesys] Opening CallUs widget');
+      if (window._genesysCXBus) {
+        window._genesysCXBus.command('CallUs.open');
+      }
+    };
+
     window.showCobrowseModal = () => {
+      console.log('[Genesys] Showing CoBrowse modal');
       $('#cobrowse-sessionConfirm').modal('hide');
+
       if (typeof window.startCobrowse === 'function') {
         window.startCobrowse();
       } else {
-        console.error('Cobrowse start function not defined');
+        console.error('[Genesys] Cobrowse start function not defined');
       }
+
       $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
     };
 
-    // Gate CobrowseIO.client behind explicit user action
-    defineCobrowseStarter();
-    function defineCobrowseStarter() {
+    // Define CoBrowse starter function
+    window.defineCobrowseStarter = function () {
       window.startCobrowse = function () {
-        console.log('Cobrowse initialization requested by user action');
-        CobrowseIO.client().then((c) =>
-          c
-            .createSessionCode()
-            .then(
-              (code) =>
-                (document.getElementById('cobrowse-sessionToken').textContent =
-                  code.match(/.{1,3}/g).join('-')),
-            ),
+        console.log(
+          '[Genesys] CoBrowse initialization requested by user action',
         );
+
+        if (
+          window.CobrowseIO &&
+          typeof window.CobrowseIO.client === 'function'
+        ) {
+          CobrowseIO.client().then((c) =>
+            c
+              .createSessionCode()
+              .then(
+                (code) =>
+                  (document.getElementById(
+                    'cobrowse-sessionToken',
+                  ).textContent = code.match(/.{1,3}/g).join('-')),
+              )
+              .catch((err) =>
+                console.error(
+                  '[Genesys] Error creating CoBrowse session:',
+                  err,
+                ),
+              ),
+          );
+        } else {
+          console.error('[Genesys] CobrowseIO not available');
+        }
       };
-    }
+    };
+
+    // Initialize CoBrowse starter
+    defineCobrowseStarter();
+
+    // Additional CoBrowse modal handlers
     window.showCobrowseContactUsModal = () => {
       $('#cobrowse-sessionConfirm').modal('hide');
       $('#cobrowse-contactUsScreen1').modal({ backdrop: 'static' });
     };
+
     window.cobrowseContactUsOption = () => {
       $('#cobrowse-contactUsScreen1').modal('hide');
       $('#cobrowse-contactUsScreen2').modal('show');
     };
+
     window.cobrowseClosePopup = () =>
       $('#cobrowse-contactUsScreen2').modal('hide');
+
     window.cobrowseSessionModal = () => {
       $('#cobrowse-contactUsScreen2').modal('hide');
       if (typeof window.startCobrowse === 'function') {
         window.startCobrowse();
       } else {
-        console.error('Cobrowse start function not defined');
+        console.error('[Genesys] Cobrowse start function not defined');
       }
       $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
     };
@@ -784,9 +1012,12 @@
     window.endCoBrowseCall = () =>
       CobrowseIO.client()
         .then((c) => c.exitSession())
-        .catch(console.error);
+        .catch((err) =>
+          console.error('[Genesys] Error ending CoBrowse call:', err),
+        );
 
-    // Add function to force create chat button for fallback
+    // === Fallback Button Creation ===
+    // Add function to force create chat button as fallback
     window.forceCreateChatButton = function () {
       console.log('[Genesys] Forcing chat button creation');
 
@@ -794,15 +1025,22 @@
       const existingButton = document.querySelector(
         '.cx-widget.cx-webchat-chat-button',
       );
+
       if (!existingButton) {
+        const targetContainer =
+          document.getElementById(cfg.targetContainer) || document.body;
         const button = document.createElement('div');
         button.className =
           'cx-widget cx-webchat-chat-button fallback-chat-button';
-        button.textContent = 'Chat Now';
+        button.textContent = isAmplifyMem ? 'Chat with an advisor' : 'Chat Now';
+        button.setAttribute('role', 'button');
+        button.setAttribute('tabindex', '0');
+        button.setAttribute('aria-label', 'Open chat');
+
         button.addEventListener('click', () => {
           try {
-            if (window.CXBus && CXBus.command) {
-              CXBus.command('WebChat.open');
+            if (window._genesysCXBus) {
+              window._genesysCXBus.command('WebChat.open');
             } else if (
               window._genesys &&
               window._genesys.widgets &&
@@ -810,6 +1048,7 @@
             ) {
               window._genesys.widgets.main.startChat();
             } else {
+              console.error('[Genesys] No chat method available');
               alert('Chat is currently unavailable. Please try again later.');
             }
           } catch (err) {
@@ -817,17 +1056,41 @@
             alert('Chat is currently unavailable. Please try again later.');
           }
         });
-        document.body.appendChild(button);
+
+        // Add keyboard support
+        button.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            button.click();
+          }
+        });
+
+        targetContainer.appendChild(button);
+        console.log('[Genesys] Fallback button created');
         return true;
       }
+
+      console.log(
+        '[Genesys] Button already exists, skipping fallback creation',
+      );
       return false;
     };
 
     // Make accessible globally
     window._forceChatButtonCreate = window.forceCreateChatButton;
+
+    // Setup button check timeout
+    setTimeout(() => {
+      if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
+        console.log(
+          '[Genesys] No chat button found after timeout, forcing creation',
+        );
+        window.forceCreateChatButton();
+      }
+    }, 5000);
   }
 
-  // === 8) Genesys script loader (legacy mode) ===
+  // === LEGACY SCRIPT LOADER ===
   (function () {
     // Only load in legacy mode
     if (cfg.chatMode === 'cloud') {
@@ -837,33 +1100,7 @@
       return;
     }
 
-    console.log('[Genesys] Legacy mode detected, loading scripts');
-
-    // Helper for loading scripts
-    function loadScript(src, callback) {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.src = src;
-
-      if (callback) {
-        script.onload = callback;
-      }
-
-      document.head.appendChild(script);
-    }
-
-    // Setup time check
-    setTimeout(() => {
-      if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
-        console.log(
-          '[Genesys] No chat button found after timeout, forcing creation',
-        );
-        if (window.forceCreateChatButton) {
-          window.forceCreateChatButton();
-        }
-      }
-    }, 5000);
+    console.log('[Genesys] Legacy mode detected, loading widgets script');
 
     // Add event listener for manual button creation
     document.addEventListener('genesys:create-button', () => {
@@ -873,27 +1110,58 @@
       }
     });
 
-    // Load widgets.min.js script if not using cloud mode
+    // Load widgets.min.js script if in legacy mode
     const widgetsUrl =
       cfg.genesysWidgetUrl ||
       'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
-    loadScript(widgetsUrl, () => {
-      console.log('[Genesys] Widgets script loaded');
 
-      // Check for button after script loads
-      setTimeout(() => {
-        const button = document.querySelector(
-          '.cx-widget.cx-webchat-chat-button',
-        );
-        if (!button) {
-          console.log(
-            '[Genesys] Button not found after widgets loaded, creating fallback',
+    loadResource
+      .script(widgetsUrl, { id: 'genesys-widgets-script' })
+      .then(() => {
+        console.log('[Genesys] Widgets script loaded successfully');
+
+        // Check for button after script loads
+        setTimeout(() => {
+          const button = document.querySelector(
+            '.cx-widget.cx-webchat-chat-button',
           );
-          if (window.forceCreateChatButton) {
-            window.forceCreateChatButton();
+          if (!button) {
+            console.log(
+              '[Genesys] Button not found after widgets loaded, creating fallback',
+            );
+            if (window.forceCreateChatButton) {
+              window.forceCreateChatButton();
+            }
           }
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error('[Genesys] Failed to load widgets script:', err);
+
+        // Attempt fallback button creation on failure
+        if (window.forceCreateChatButton) {
+          window.forceCreateChatButton();
         }
-      }, 2000);
-    });
+
+        // Trigger error event
+        document.dispatchEvent(
+          new CustomEvent('genesys:script:error', {
+            detail: { error: err },
+          }),
+        );
+      });
   })();
+
+  // Expose key functions to window for external access
+  window.GenesysChat = {
+    forceCreateButton: window.forceCreateChatButton,
+    openChat: () =>
+      window._genesysCXBus && window._genesysCXBus.command('WebChat.open'),
+    closeChat: () =>
+      window._genesysCXBus && window._genesysCXBus.command('WebChat.close'),
+    startCoBrowse: window.startCoBrowseCall,
+  };
+
+  // Log initialization complete
+  console.log('[Genesys] Chat initialization complete');
 })(window, document);
