@@ -1,12 +1,8 @@
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
-import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import { TextBox } from '@/components/foundation/TextBox';
-import { formatCurrency } from '@/utils/currency_formatter';
 
 export interface SpendingAccountSectionProps extends IComponent {
   linkURL: string;
@@ -17,13 +13,14 @@ export interface SpendingAccountSectionProps extends IComponent {
 export const SpendingAccountSection = ({
   className,
   linkURL,
-  hsaBalance,
-  fsaBalance,
+  // hsaBalance,
+  // fsaBalance,
 }: SpendingAccountSectionProps) => {
   return (
     <Card className={className}>
       <div>
         <Header className="title-2" text="Spending Accounts" />
+        {/**  Commented the below code for future reference
         <Spacer size={32} />
         <Row>
           <Column>
@@ -53,6 +50,7 @@ export const SpendingAccountSection = ({
             />
           </Column>
         </Row>
+        */}
         <Spacer size={18} />
         <AppLink label="View Spending Accounts" url={linkURL} />
       </div>

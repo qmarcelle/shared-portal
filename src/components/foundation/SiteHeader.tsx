@@ -20,7 +20,7 @@ import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
 import { getMenuNavigation } from '../menuNavigation';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
-import { AlertBar } from './AlertBar';
+
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -276,6 +276,7 @@ export default function SiteHeader({
                   )}
                 </div>
               ))}
+              {/* 
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
@@ -283,6 +284,7 @@ export default function SiteHeader({
                     : []
                 }
               />
+              */}
             </div>
           </div>
         )}

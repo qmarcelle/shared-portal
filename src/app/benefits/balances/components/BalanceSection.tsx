@@ -35,6 +35,7 @@ export interface BalanceSectionProps extends IComponent {
   disclaimerText?: string;
   balanceDetailLink?: boolean;
   contact: string;
+  showMinView?: boolean;
 }
 
 export const BalanceSection = ({
@@ -54,6 +55,7 @@ export const BalanceSection = ({
   disclaimerText,
   balanceDetailLink = false,
   contact,
+  showMinView = false,
 }: BalanceSectionProps) => {
   return (
     <Card className={className}>
@@ -97,7 +99,7 @@ export const BalanceSection = ({
         />
         <Spacer size={32} />
 
-        {!balanceDetailLink && balanceNetworks && (
+        {!showMinView && !balanceDetailLink && balanceNetworks && (
           <>
             <Divider />
             <Spacer size={32} />
@@ -109,7 +111,7 @@ export const BalanceSection = ({
           </>
         )}
 
-        {serviceDetailsUsed.length > 0 && (
+        {!showMinView && serviceDetailsUsed.length > 0 && (
           <ServicesUsedChart
             label="Services Used"
             serviceDetails={serviceDetailsUsed}
@@ -134,6 +136,7 @@ type BalanceSectionWrapperProps = {
   title: string;
   balanceDetailLink?: boolean;
   phone: string;
+  showMinView?: boolean;
 };
 
 export const BalanceSectionWrapper = ({
@@ -141,6 +144,7 @@ export const BalanceSectionWrapper = ({
   product,
   balanceDetailLink,
   phone,
+  showMinView = false,
 }: BalanceSectionWrapperProps) => {
   const [selectedUser, setSelectedUser] = useState(product?.balances[0]);
 
@@ -229,7 +233,7 @@ export const BalanceSectionWrapper = ({
                 : item.value.toString(),
               limitAmount: service.isDollar
                 ? `${formatCurrency(service.maxValue) ?? ''}`
-                : service.maxValue?.toString() ?? '',
+                : (service.maxValue?.toString() ?? ''),
               serviceName: service.desc,
             };
           } else {
@@ -237,6 +241,7 @@ export const BalanceSectionWrapper = ({
           }
         })
         .filter((item) => item != null)}
+      showMinView={showMinView}
     />
   );
 };
