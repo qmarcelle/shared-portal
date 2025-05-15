@@ -30,6 +30,7 @@ import {
   isMemberWellnessCenterEligible,
   isPrimaryCarePhysicianEligible,
   isQuestSelectEligible,
+  isSilverAndFitnessEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
@@ -315,6 +316,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
                     description:
                       'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
                     url: `${urlRedirect + HealthProgramType.SilverFit}`,
+                    isHidden: !isSilverAndFitnessEligible(data.visibilityRules),
                   },
                 ]}
               />
