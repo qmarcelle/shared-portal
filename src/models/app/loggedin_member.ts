@@ -3,6 +3,7 @@ import {
   AuthFunction,
   CoverageType,
   GroupData,
+  HealthCareAccount,
   PlanDetail,
 } from '../member/api/loggedInUserInfo';
 
@@ -45,4 +46,5 @@ export interface LoggedInMember {
   cmCondition: string;
   groupKey: string;
   lineOfBusiness: string;
+  healthCareAccounts: HealthCareAccount[] | undefined;
 }
