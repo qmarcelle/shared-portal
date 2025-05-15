@@ -67,8 +67,8 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
           <>
             <section>
               <Spacer size={32} />
-              <Row className="justify-between">
-                <Column className="w-[50%]">
+              <Row>
+                <Column className="w-[36%]">
                   <Card
                     className="py-3 px-4"
                     onClick={() => {
@@ -116,7 +116,7 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
                     </Row>
                   </Card>
                 </Column>
-                <Column className="w-[50%] ml-4">
+                <Column className="w-[36%] ml-4">
                   <Card
                     className="py-3 px-4"
                     onClick={() => {
@@ -150,7 +150,7 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
                     />
                   ) : (
                     <ErrorInfoCard
-                      className="mt-4"
+                      className="mt-4 w-[73%]"
                       errorText="We're not able to load Benefit Booklet right now. Please try again later."
                     />
                   )}
