@@ -1,11 +1,11 @@
 'use client';
 
 /**
- * ChatControls Component
- *
- * Provides UI controls for the chat widget.
- * Uses the chat store for state and actions exclusively.
- * Does NOT directly interact with window.GenesysChat or CXBus.
+ * @file ChatControls.tsx
+ * @description This component provides UI elements (e.g., an open/close button) for users to interact with the chat.
+ * It exclusively uses the `chatStore` for its state (e.g., `isOpen`, `isChatEnabled`) and to dispatch actions (e.g., `setOpen`).
+ * As per README.md: "Provides UI controls (e.g., open/close button) interacting with the store."
+ * It does NOT directly interact with `window.GenesysChat` or `CXBus`; `ChatWidget` handles those interactions based on store changes.
  */
 
 import { logger } from '@/utils/logger';
@@ -15,6 +15,8 @@ import {
   chatUISelectors,
   useChatStore,
 } from '../stores/chatStore';
+
+const LOG_PREFIX = '[ChatControls]';
 
 interface ChatControlsProps {
   /** Custom button text */
@@ -34,6 +36,12 @@ export default function ChatControls({
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const isChatEnabled = useChatStore(chatConfigSelectors.isChatEnabled);
   const isLoading = useChatStore(chatConfigSelectors.isLoading);
+
+  logger.info(`${LOG_PREFIX} Component rendered. Status:`, {
+    isOpen,
+    isChatEnabled,
+    isLoading,
+  });
 
   // Get actions from store
   const setOpen = useChatStore((state) => state.actions.setOpen);

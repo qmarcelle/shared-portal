@@ -2,6 +2,13 @@
 
 import { useEffect, useState } from 'react';
 
+// Define the window interface extension
+declare global {
+  interface Window {
+    startChat?: () => void;
+  }
+}
+
 export default function QuickOpen() {
   const [ready, setReady] = useState(false);
 

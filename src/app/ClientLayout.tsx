@@ -12,7 +12,9 @@ export default function ClientLayout({
 }) {
   // Add loading state to prevent rendering before data is ready
   const [isClientReady, setIsClientReady] = useState(false);
-  const chatSettings = useChatStore((state) => state.chatSettings);
+  const genesysChatConfig = useChatStore(
+    (state) => state.config.genesysChatConfig,
+  );
 
   // Only run on client-side
   useEffect(() => {
@@ -22,14 +24,14 @@ export default function ClientLayout({
       console.log(
         '[ClientLayout] Client ready, ChatWidget can now be rendered',
         {
-          hasChatSettings: !!chatSettings,
-          chatSettingsKeys: chatSettings ? Object.keys(chatSettings) : [],
+          hasGenesysConfig: !!genesysChatConfig,
+          configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
         },
       );
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [chatSettings]);
+  }, [genesysChatConfig]);
 
   // Get session data
   const { data: session } = useSession();
@@ -49,17 +51,17 @@ export default function ClientLayout({
     });
   }, [session]);
 
-  const isChatSettingsReady =
-    !!chatSettings && Object.keys(chatSettings).length > 0;
+  const isChatConfigReady =
+    !!genesysChatConfig && Object.keys(genesysChatConfig).length > 0;
 
   // Log when chatSettings changes for debugging
   useEffect(() => {
     console.log(
-      '[ClientLayout] chatSettings updated:',
-      chatSettings ? Object.keys(chatSettings).length : 0,
+      '[ClientLayout] genesysChatConfig updated:',
+      genesysChatConfig ? Object.keys(genesysChatConfig).length : 0,
       'keys',
     );
-  }, [chatSettings]);
+  }, [genesysChatConfig]);
 
   // Don't render any client components while not ready
   if (!isClientReady) {
@@ -67,17 +69,17 @@ export default function ClientLayout({
   }
 
   // IMPORTANT: Always render ChatWidget once the client is ready,
-  // even if chatSettings isn't available yet.
+  // even if genesysChatConfig isn't available yet.
   // This allows ChatWidget to make the API call to load the chat configuration,
-  // which will in turn populate chatSettings.
+  // which will in turn populate the store.
   console.log(
-    '[ClientLayout] Rendering ChatWidget with or without chatSettings',
-    chatSettings ? Object.keys(chatSettings) : 'none',
+    '[ClientLayout] Rendering ChatWidget with or without config',
+    genesysChatConfig ? Object.keys(genesysChatConfig) : 'none',
   );
 
   return (
     <>
-      <ChatWidget chatSettings={chatSettings || {}} />
+      <ChatWidget />
       {children}
     </>
   );

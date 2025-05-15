@@ -1,20 +1,68 @@
 'use client';
 
 /**
- * ChatLazyLoader Component
- *
- * Lazy loads the chat functionality only when the user interacts with a button.
- * This significantly improves initial page load performance by deferring the loading
- * of heavy chat scripts (~1MB+) until they're actually needed.
+ * @file ChatLazyLoader.tsx
+ * @description Component responsible for deferring the loading of the entire Genesys chat system
+ * until explicit user interaction (e.g., clicking a "Chat with Us" button).
+ * This is a key performance optimization, preventing heavy chat scripts from impacting
+ * initial page load times. It dynamically loads ChatProvider, ChatWidget, and ChatControls.
+ * As per README.md: Defers loading of the entire chat system until user interaction.
  */
 
 import dynamic from 'next/dynamic';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+const LOG_PREFIX = '[ChatLazyLoader]';
 
 // Dynamically import components to prevent them from loading until needed
-const ChatProvider = dynamic(() => import('./ChatProvider'), { ssr: false });
-const ChatWidget = dynamic(() => import('./ChatWidget'), { ssr: false });
-const ChatControls = dynamic(() => import('./ChatControls'), { ssr: false });
+// These components form the core of the chat system.
+const ChatProvider = dynamic(
+  () => {
+    console.log(`${LOG_PREFIX} Dynamically importing ChatProvider...`);
+    return import('./ChatProvider')
+      .then((mod) => {
+        console.log(`${LOG_PREFIX} ChatProvider imported successfully.`);
+        return mod;
+      })
+      .catch((err) => {
+        console.error(`${LOG_PREFIX} Failed to import ChatProvider:`, err);
+        throw err; // Re-throw to allow Next.js to handle the error
+      });
+  },
+  { ssr: false },
+);
+
+const ChatWidget = dynamic(
+  () => {
+    console.log(`${LOG_PREFIX} Dynamically importing ChatWidget...`);
+    return import('./ChatWidget')
+      .then((mod) => {
+        console.log(`${LOG_PREFIX} ChatWidget imported successfully.`);
+        return mod;
+      })
+      .catch((err) => {
+        console.error(`${LOG_PREFIX} Failed to import ChatWidget:`, err);
+        throw err;
+      });
+  },
+  { ssr: false },
+);
+
+const ChatControls = dynamic(
+  () => {
+    console.log(`${LOG_PREFIX} Dynamically importing ChatControls...`);
+    return import('./ChatControls')
+      .then((mod) => {
+        console.log(`${LOG_PREFIX} ChatControls imported successfully.`);
+        return mod;
+      })
+      .catch((err) => {
+        console.error(`${LOG_PREFIX} Failed to import ChatControls:`, err);
+        throw err;
+      });
+  },
+  { ssr: false },
+);
 
 interface ChatLazyLoaderProps {
   /** Custom text for the initialization button */
@@ -23,10 +71,16 @@ interface ChatLazyLoaderProps {
   buttonClassName?: string;
   /** Custom CSS class for the chat controls once loaded */
   chatControlsClassName?: string;
-  /** Callback when chat is initialized */
+  /** Callback when chat is initialized by user interaction */
   onChatInitialized?: () => void;
 }
 
+/**
+ * ChatLazyLoader component.
+ * Renders a button to initiate chat. Upon user click, it dynamically loads and renders
+ * the core chat components (ChatProvider, ChatWidget, ChatControls).
+ * @param {ChatLazyLoaderProps} props - The component props.
+ */
 export default function ChatLazyLoader({
   buttonText = 'Chat with us',
   buttonClassName = '',
@@ -35,35 +89,53 @@ export default function ChatLazyLoader({
 }: ChatLazyLoaderProps) {
   const [chatInitialized, setChatInitialized] = useState(false);
 
+  useEffect(() => {
+    console.log(
+      `${LOG_PREFIX} Component mounted. Chat initialized: ${chatInitialized}`,
+    );
+  }, [chatInitialized]); // Empty dependency array ensures this runs only on mount
+
   // Initialize chat components when the user clicks the button
   const initializeChat = useCallback(() => {
+    console.log(
+      `${LOG_PREFIX} initializeChat called. Setting chatInitialized to true.`,
+    );
     setChatInitialized(true);
     if (onChatInitialized) {
+      console.log(`${LOG_PREFIX} Calling onChatInitialized callback.`);
       onChatInitialized();
     }
 
-    // Log initialization for analytics
+    // Log initialization for analytics or internal tracking
     console.log(
-      '[ChatLazyLoader] Chat components initialized on user interaction',
+      `${LOG_PREFIX} Chat components will now be rendered due to user interaction.`,
     );
 
-    // You could also track this event with your analytics service
+    // Example of pushing to dataLayer for analytics
     try {
       if (window.dataLayer) {
         window.dataLayer.push({
-          event: 'chat_initialized',
+          event: 'chat_lazy_load_initialized',
           eventCategory: 'Chat',
-          eventAction: 'Initialize',
+          eventAction: 'LazyLoadInitialize',
           eventLabel: 'User Initiated',
         });
+        console.log(
+          `${LOG_PREFIX} Pushed chat_lazy_load_initialized event to dataLayer.`,
+        );
       }
     } catch (e) {
-      console.error('[ChatLazyLoader] Error logging analytics event', e);
+      console.error(
+        `${LOG_PREFIX} Error pushing analytics event to dataLayer:`,
+        e,
+      );
     }
   }, [onChatInitialized]);
 
-  // Only show the initialization button if chat hasn't been initialized
   if (!chatInitialized) {
+    console.log(
+      `${LOG_PREFIX} Chat not yet initialized. Rendering initialization button.`,
+    );
     return (
       <button
         className={`chat-init-button ${buttonClassName}`}
@@ -75,6 +147,9 @@ export default function ChatLazyLoader({
     );
   }
 
+  console.log(
+    `${LOG_PREFIX} Chat initialized. Rendering ChatProvider, ChatWidget, and ChatControls.`,
+  );
   // Once initialized, render the chat components
   return (
     <ChatProvider>
@@ -84,9 +159,9 @@ export default function ChatLazyLoader({
   );
 }
 
-// Add TypeScript interface for global window object
+// Add TypeScript interface for global window object if not already present globally
 declare global {
   interface Window {
-    dataLayer?: any[];
+    dataLayer?: unknown[]; // For Google Tag Manager or similar analytics
   }
 }

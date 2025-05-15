@@ -1,11 +1,13 @@
 'use client';
 
 /**
- * ChatProvider Component
- *
- * Initializes the chat store with user and plan context.
- * Serves as a single initialization point for chat functionality.
- * Ensures chat configuration is loaded once user and plan contexts are available.
+ * @file ChatProvider.tsx
+ * @description This component is responsible for initializing the chat store (`chatStore.ts`)
+ * with essential user and plan context once the chat system is loaded (typically by `ChatLazyLoader`).
+ * It fetches user context (via `useUserContext`) and plan context (via `usePlanContext`)
+ * and then triggers the `loadChatConfiguration` action in the chat store.
+ * As per README.md: "Initializes store with user/plan context (once loaded by `ChatLazyLoader`)."
+ * It ensures that chat configuration is loaded only when all necessary context data is available.
  */
 
 import { logger } from '@/utils/logger';
@@ -13,6 +15,8 @@ import { useEffect, useState } from 'react';
 import { usePlanContext } from '../hooks/usePlanContext';
 import { useUserContext } from '../hooks/useUserContext';
 import { chatConfigSelectors, useChatStore } from '../stores/chatStore';
+
+const LOG_PREFIX = '[ChatProvider]';
 
 interface ChatProviderProps {
   /** Children to render */
@@ -28,12 +32,18 @@ interface ChatProviderProps {
 export default function ChatProvider({
   children,
   autoInitialize = true,
-  maxInitAttempts = 3,
-  verbose = false,
+  maxInitAttempts = 3, // Increased default for robustness
+  verbose = process.env.NODE_ENV === 'development', // Verbose in dev by default
 }: ChatProviderProps) {
   // Initialization tracking
   const [initAttempts, setInitAttempts] = useState(0);
-  const [initialized, setInitialized] = useState(false);
+  const [initialized, setInitialized] = useState(false); // Tracks if loadChatConfiguration has been called
+
+  logger.info(`${LOG_PREFIX} Component instance created.`, {
+    autoInitialize,
+    initialized,
+    initAttempts,
+  });
 
   // Get user and plan context
   const { userContext, isUserContextLoading } = useUserContext();
@@ -44,7 +54,7 @@ export default function ChatProvider({
   } = usePlanContext();
 
   // Get chat store state and actions
-  const isLoading = useChatStore(chatConfigSelectors.isLoading);
+  const isLoadingConfig = useChatStore(chatConfigSelectors.isLoading);
   const configError = useChatStore(chatConfigSelectors.error);
   const loadChatConfiguration = useChatStore(
     (state) => state.actions.loadChatConfiguration,
@@ -53,63 +63,113 @@ export default function ChatProvider({
 
   // Initialize chat configuration when contexts are ready
   useEffect(() => {
-    // Skip if not auto-initializing or already initialized
-    if (!autoInitialize || initialized) {
-      return;
-    }
-
-    // Prevent excessive initialization attempts
-    if (initAttempts >= maxInitAttempts) {
-      logger.warn('[ChatProvider] Exceeded maximum initialization attempts', {
-        attempts: initAttempts,
-        max: maxInitAttempts,
-      });
-      return;
-    }
-
-    // Track initialization attempt
-    setInitAttempts((prev) => prev + 1);
-
-    // Skip if contexts are still loading
-    if (isUserContextLoading || isPlanContextLoading) {
-      verbose && logger.info('[ChatProvider] Waiting for contexts to load');
-      return;
-    }
-
-    // Handle plan context error
-    if (planError) {
-      logger.error('[ChatProvider] Plan context error', planError);
-      setError(planError);
-      return;
-    }
-
-    // Validate required context values
-    if (!userContext?.memberId || !planContext?.planId) {
-      logger.warn('[ChatProvider] Missing required context values', {
-        hasMemberId: !!userContext?.memberId,
-        hasPlanId: !!planContext?.planId,
-      });
-      return;
-    }
-
-    // Load chat configuration
-    logger.info('[ChatProvider] Initializing chat configuration', {
-      memberId: userContext.memberId,
-      planId: planContext.planId,
-      attempt: initAttempts,
+    logger.info(`${LOG_PREFIX} useEffect triggered.`, {
+      autoInitialize,
+      initialized,
+      initAttempts,
+      isUserContextLoading,
+      isPlanContextLoading,
+      isLoadingConfig,
     });
 
-    // Mark as initialized to prevent further attempts
+    if (!autoInitialize || initialized || isLoadingConfig) {
+      if (isLoadingConfig)
+        logger.info(
+          `${LOG_PREFIX} Skipping: Chat configuration is already loading in store.`,
+        );
+      else if (initialized)
+        logger.info(
+          `${LOG_PREFIX} Skipping: Chat already initialized by this provider instance.`,
+        );
+      else logger.info(`${LOG_PREFIX} Skipping: Auto-initialize is false.`);
+      return;
+    }
+
+    if (initAttempts >= maxInitAttempts) {
+      logger.warn(
+        `${LOG_PREFIX} Exceeded maximum initialization attempts. Halting.`,
+        {
+          attempts: initAttempts,
+          max: maxInitAttempts,
+        },
+      );
+      setError(new Error('ChatProvider: Max initialization attempts reached.'));
+      return;
+    }
+
+    if (verbose) {
+      logger.info(`${LOG_PREFIX} Context status:`, {
+        isUserContextLoading,
+        userContextProvided: !!userContext,
+        isPlanContextLoading,
+        planContextProvided: !!planContext,
+        planError: planError?.message,
+      });
+    }
+
+    if (isUserContextLoading || isPlanContextLoading) {
+      logger.info(
+        `${LOG_PREFIX} Waiting for user/plan contexts to load... Attempt: ${initAttempts + 1}`,
+      );
+      return;
+    }
+
+    setInitAttempts((prev) => prev + 1);
+    logger.info(
+      `${LOG_PREFIX} Initialization attempt ${initAttempts + 1}/${maxInitAttempts}.`,
+    );
+
+    if (planError) {
+      logger.error(
+        `${LOG_PREFIX} Plan context error. Halting initialization.`,
+        planError,
+      );
+      setError(planError);
+      setInitialized(true);
+      return;
+    }
+
+    if (!userContext?.memberId || !planContext?.planId) {
+      logger.warn(
+        `${LOG_PREFIX} Missing required context values (memberId or planId). Halting for now. Will retry if contexts update.`,
+        {
+          userContext,
+          planContext,
+          hasMemberId: !!userContext?.memberId,
+          hasPlanId: !!planContext?.planId,
+        },
+      );
+      return;
+    }
+
+    logger.info(
+      `${LOG_PREFIX} All contexts loaded and validated. Calling loadChatConfiguration.`,
+      {
+        memberId: userContext.memberId,
+        planId: planContext.planId,
+        attempt: initAttempts + 1,
+        userContext,
+        planContext,
+      },
+    );
+
     setInitialized(true);
 
-    // Initialize chat store with context data
     loadChatConfiguration(
       userContext.memberId,
       planContext.planId,
-      'byMemberCk',
+      undefined,
       userContext,
       planContext,
-    );
+    )
+      .then(() => {
+        logger.info(`${LOG_PREFIX} loadChatConfiguration promise resolved.`);
+      })
+      .catch((loadError) => {
+        logger.error(`${LOG_PREFIX} loadChatConfiguration promise rejected.`, {
+          loadError,
+        });
+      });
   }, [
     autoInitialize,
     initialized,
@@ -123,7 +183,18 @@ export default function ChatProvider({
     loadChatConfiguration,
     setError,
     verbose,
+    isLoadingConfig,
   ]);
 
+  useEffect(() => {
+    if (configError) {
+      logger.error(
+        `${LOG_PREFIX} Chat configuration error from store:`,
+        configError.message,
+      );
+    }
+  }, [configError]);
+
+  logger.info(`${LOG_PREFIX} Rendering children.`);
   return <>{children}</>;
 }

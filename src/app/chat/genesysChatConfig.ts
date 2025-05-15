@@ -413,7 +413,7 @@ export function buildGenesysChatConfig({
  * (Optional) React hook to fetch GenesysChatConfig from an API and inject into window.chatSettings
  */
 import { useEffect } from 'react';
-import { ChatSettings } from './types/genesys.types';
+import { ChatSettings } from './types/chat-types';
 export function useGenesysChatConfig(
   fetchConfig: () => Promise<GenesysChatConfig>,
 ) {

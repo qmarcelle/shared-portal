@@ -1,11 +1,17 @@
 'use client';
 
 /**
- * ChatWidget Component
- *
- * Provides a React interface to the Genesys chat functionality.
- * Uses GenesysScriptLoader to load chat scripts and manages the container div.
- * Acts as the central coordinator between store state and CXBus commands.
+ * @file ChatWidget.tsx
+ * @description This component is the main UI/UX orchestrator for the Genesys chat.
+ * As per README.md: "Renders chat container, manages UI based on store, handles CXBus events, renders loader."
+ * Key Responsibilities:
+ * - Renders the `div` container where the Genesys chat widget will be injected.
+ * - Conditionally renders `GenesysScriptLoader` when `genesysChatConfig` is ready and chat is enabled.
+ * - Synchronizes the chat widget's open/closed state with the `chatStore` using `CXBus` commands (`WebChat.open`, `WebChat.close`).
+ * - Subscribes to `CXBus` events (e.g., `WebChat.opened`, `WebChat.closed`, `WebChat.error`) to update the `chatStore`,
+ *   ensuring a unidirectional data flow: UI/Store -> Widget Command -> Widget Event -> Store.
+ * - Handles script loading success and errors from `GenesysScriptLoader`.
+ * - Provides backwards compatibility for older `window.GenesysChat` methods if needed.
  */
 
 import { logger } from '@/utils/logger';
@@ -23,10 +29,12 @@ import {
 } from '../types/chat-types';
 import GenesysScriptLoader from './GenesysScriptLoader';
 
+const LOG_PREFIX = '[ChatWidget]';
+
 interface ChatWidgetProps {
   /** Custom container ID (default: 'genesys-chat-container') */
   containerId?: string;
-  /** Hide CoBrowse functionality */
+  /** Hide CoBrowse functionality - Note: Cobrowse is primarily configured via genesysChatConfig */
   hideCoBrowse?: boolean;
   /** Show script loader status indicator */
   showLoaderStatus?: boolean;
@@ -41,11 +49,16 @@ interface ChatWidgetProps {
 export default function ChatWidget({
   containerId = 'genesys-chat-container',
   hideCoBrowse = true,
-  showLoaderStatus = false,
+  showLoaderStatus = process.env.NODE_ENV === 'development',
   onChatOpened,
   onChatClosed,
   onError,
 }: ChatWidgetProps) {
+  logger.info(`${LOG_PREFIX} Component instance created/rendered.`, {
+    containerId,
+    initialIsChatEnabled: useChatStore.getState().config.chatData?.isEligible,
+  });
+
   // Get state from store using selectors for optimized rendering
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const genesysChatConfig = useChatStore(chatConfigSelectors.genesysChatConfig);
@@ -62,16 +75,22 @@ export default function ChatWidget({
 
   // Ref to track whether we've set up CXBus subscriptions
   const cxBusSubscriptionsSetup = useRef(false);
+  const cxBusPollTimer = useRef<NodeJS.Timeout | null>(null); // Ref for CXBus polling timer
 
   // Script load/error handlers
   const handleScriptLoaded = useCallback(() => {
-    logger.info('[ChatWidget] Scripts loaded successfully');
+    logger.info(
+      `${LOG_PREFIX} handleScriptLoaded: Genesys scripts reported as loaded by GenesysScriptLoader.`,
+    );
     setScriptLoadPhase(ScriptLoadPhase.LOADED);
   }, [setScriptLoadPhase]);
 
   const handleScriptError = useCallback(
     (err: Error) => {
-      logger.error('[ChatWidget] Script loading error:', err);
+      logger.error(`${LOG_PREFIX} handleScriptError: Script loading failed.`, {
+        error: err.message,
+        stack: err.stack,
+      });
       setScriptLoadPhase(ScriptLoadPhase.ERROR);
       setError(err);
       if (onError) onError(err);
@@ -79,173 +98,305 @@ export default function ChatWidget({
     [setScriptLoadPhase, setError, onError],
   );
 
-  // Set up chat event listeners for backwards compatibility
+  // Effect for Legacy Event Listeners (genesys:webchat:*)
+  // README mentions CXBus as the primary communication. These are likely for compatibility or specific events not on CXBus.
   useEffect(() => {
-    const handleChatOpened = () => {
-      // Update store state
+    logger.info(
+      `${LOG_PREFIX} useEffect: Setting up legacy document event listeners (genesys:webchat:*).`,
+    );
+    const handleChatOpenedEvent = () => {
+      logger.info(
+        `${LOG_PREFIX} Legacy event 'genesys:webchat:opened' received.`,
+      );
       useChatStore.getState().actions.setOpen(true);
       useChatStore.getState().actions.startChat();
-      // Then trigger callback
       if (onChatOpened) onChatOpened();
     };
-
-    const handleChatClosed = () => {
-      // Update store state
+    const handleChatClosedEvent = () => {
+      logger.info(
+        `${LOG_PREFIX} Legacy event 'genesys:webchat:closed' received.`,
+      );
       useChatStore.getState().actions.setOpen(false);
       useChatStore.getState().actions.endChat();
-      // Then trigger callback
       if (onChatClosed) onChatClosed();
     };
-
-    const handleError = (e: Event) => {
+    const handleErrorEvent = (e: Event) => {
       const customEvent = e as CustomEvent;
-      logger.error('[ChatWidget] Chat error:', customEvent.detail?.error);
-
-      const errorObj =
-        customEvent.detail?.error || new Error('Unknown chat error');
-      setError(errorObj);
-      if (onError) onError(errorObj);
+      const errorDetail =
+        customEvent.detail?.error ||
+        new Error('Unknown chat error from legacy event');
+      logger.error(
+        `${LOG_PREFIX} Legacy event 'genesys:script:error' or 'genesys:webchat:error' received.`,
+        { error: errorDetail, eventType: e.type },
+      );
+      setError(errorDetail);
+      if (onError) onError(errorDetail);
     };
 
-    // Add event listeners
-    document.addEventListener('genesys:webchat:opened', handleChatOpened);
-    document.addEventListener('genesys:webchat:closed', handleChatClosed);
-    document.addEventListener('genesys:script:error', handleError);
-    document.addEventListener('genesys:webchat:error', handleError);
+    document.addEventListener('genesys:webchat:opened', handleChatOpenedEvent);
+    document.addEventListener('genesys:webchat:closed', handleChatClosedEvent);
+    document.addEventListener('genesys:script:error', handleErrorEvent);
+    document.addEventListener('genesys:webchat:error', handleErrorEvent);
 
-    // Clean up event listeners
     return () => {
-      document.removeEventListener('genesys:webchat:opened', handleChatOpened);
-      document.removeEventListener('genesys:webchat:closed', handleChatClosed);
-      document.removeEventListener('genesys:script:error', handleError);
-      document.removeEventListener('genesys:webchat:error', handleError);
+      logger.info(
+        `${LOG_PREFIX} useEffect: Cleaning up legacy document event listeners.`,
+      );
+      document.removeEventListener(
+        'genesys:webchat:opened',
+        handleChatOpenedEvent,
+      );
+      document.removeEventListener(
+        'genesys:webchat:closed',
+        handleChatClosedEvent,
+      );
+      document.removeEventListener('genesys:script:error', handleErrorEvent);
+      document.removeEventListener('genesys:webchat:error', handleErrorEvent);
     };
   }, [onChatOpened, onChatClosed, onError, setError]);
 
-  // Expose methods to window for external access - backwards compatibility only
+  // Effect for Backwards Compatibility (window.GenesysChat)
   useEffect(() => {
+    logger.info(
+      `${LOG_PREFIX} useEffect: Setting up backwards compatibility for window.GenesysChat methods.`,
+    );
     if (typeof window !== 'undefined') {
-      // Do not define window.GenesysChat here, as it will conflict with click_to_chat.js
-      // Instead, rely on the CXBus subscriptions and commands set up in the other useEffect
-
-      // For backwards compatibility with code that might be using these methods:
       const originalGenesysChat = window.GenesysChat || {};
-
-      // Store the original methods if they exist
       const originalOpenChat = originalGenesysChat.openChat;
       const originalCloseChat = originalGenesysChat.closeChat;
 
-      // Create backup methods that use our store if the originals don't exist
       if (!originalOpenChat) {
-        logger.info('[ChatWidget] Adding compatibility openChat method');
+        logger.info(
+          `${LOG_PREFIX} window.GenesysChat.openChat not found. Adding compatibility method.`,
+        );
         if (!window.GenesysChat) window.GenesysChat = {};
         window.GenesysChat.openChat = () => {
-          logger.info('[ChatWidget] External openChat called (compatibility)');
-          useChatStore.getState().actions.setOpen(true);
-          // CXBus command will be triggered by the isOpen effect
+          logger.info(
+            `${LOG_PREFIX} Compatibility window.GenesysChat.openChat() called. Updating store.`,
+          );
+          useChatStore.getState().actions.setOpen(true); // This will trigger the CXBus command via another useEffect
         };
       }
-
       if (!originalCloseChat) {
-        logger.info('[ChatWidget] Adding compatibility closeChat method');
+        logger.info(
+          `${LOG_PREFIX} window.GenesysChat.closeChat not found. Adding compatibility method.`,
+        );
         if (!window.GenesysChat) window.GenesysChat = {};
         window.GenesysChat.closeChat = () => {
-          logger.info('[ChatWidget] External closeChat called (compatibility)');
-          useChatStore.getState().actions.setOpen(false);
-          // CXBus command will be triggered by the isOpen effect
+          logger.info(
+            `${LOG_PREFIX} Compatibility window.GenesysChat.closeChat() called. Updating store.`,
+          );
+          useChatStore.getState().actions.setOpen(false); // This will trigger the CXBus command via another useEffect
         };
       }
     }
+    // No specific cleanup needed here as we are augmenting the window object.
   }, []);
 
-  // Add useEffect to sync with CXBus when it becomes available
+  // Effect for CXBus Setup and Event Subscriptions
+  // As per README: "ChatWidget.tsx listens to events from the Genesys widget via CXBus ... and dispatches actions to chatStore.ts"
   useEffect(() => {
-    // Function to check for CXBus availability and subscribe to events
-    const setupCXBusSubscriptions = () => {
-      if (window._genesysCXBus && !cxBusSubscriptionsSetup.current) {
-        logger.info('[ChatWidget] CXBus detected, setting up subscriptions');
-        cxBusSubscriptionsSetup.current = true;
+    logger.info(
+      `${LOG_PREFIX} useEffect: CXBus setup initiated. Current scriptLoadPhase: ${scriptLoadPhase}`,
+    );
 
-        // Subscribe to WebChat.closed event (instead of relying on genesys:webchat:closed)
+    const setupSubscriptions = () => {
+      if (window._genesysCXBus && !cxBusSubscriptionsSetup.current) {
+        logger.info(
+          `${LOG_PREFIX} CXBus detected. Setting up event subscriptions (WebChat.opened, WebChat.closed, WebChat.error).`,
+        );
+        cxBusSubscriptionsSetup.current = true; // Mark as setup
+
+        window._genesysCXBus.subscribe('WebChat.opened', () => {
+          logger.info(
+            `${LOG_PREFIX} CXBus event: WebChat.opened. Updating store.`,
+          );
+          useChatStore.getState().actions.setOpen(true);
+          useChatStore.getState().actions.startChat();
+          if (onChatOpened) onChatOpened();
+        });
+
         window._genesysCXBus.subscribe('WebChat.closed', () => {
-          logger.info('[ChatWidget] WebChat.closed event via CXBus');
+          logger.info(
+            `${LOG_PREFIX} CXBus event: WebChat.closed. Updating store.`,
+          );
           useChatStore.getState().actions.setOpen(false);
           useChatStore.getState().actions.endChat();
           if (onChatClosed) onChatClosed();
         });
 
-        // Also subscribe to other relevant CXBus events
-        window._genesysCXBus.subscribe('WebChat.opened', () => {
-          logger.info('[ChatWidget] WebChat.opened event via CXBus');
-          useChatStore.getState().actions.setOpen(true);
-          useChatStore.getState().actions.startChat();
-          if (onChatOpened) onChatOpened();
-        });
+        window._genesysCXBus.subscribe(
+          'WebChat.error',
+          (e: { data?: any; error?: any }) => {
+            const errorDetail =
+              e.data ||
+              e.error ||
+              new Error('Unknown error from CXBus WebChat.error');
+            logger.error(
+              `${LOG_PREFIX} CXBus event: WebChat.error. Updating store.`,
+              { error: errorDetail, eventData: e },
+            );
+            const errorToSet =
+              errorDetail instanceof Error
+                ? errorDetail
+                : new Error(String(errorDetail));
+            setError(errorToSet);
+            if (onError) onError(errorToSet);
+          },
+        );
+
+        // Add other subscriptions as needed, e.g., for messages, agent typing, etc.
+        // window._genesysCXBus.subscribe('Message.added', (message) => { ... });
+
+        logger.info(`${LOG_PREFIX} CXBus subscriptions complete.`);
+      } else if (cxBusSubscriptionsSetup.current) {
+        logger.info(`${LOG_PREFIX} CXBus subscriptions already set up.`);
       }
     };
 
-    // Set up exponential backoff polling to check for CXBus availability
     let attempts = 0;
-    const maxAttempts = 10;
-    let timeout = 100; // Start with 100ms
+    const maxAttempts = 15; // Increased attempts for CXBus detection
+    const baseTimeout = 200; // Base timeout for polling
 
-    const checkCXBusAvailability = () => {
+    const pollForCXBus = () => {
+      if (cxBusPollTimer.current) clearTimeout(cxBusPollTimer.current); // Clear previous timer
+
       if (window._genesysCXBus) {
-        setupCXBusSubscriptions();
+        logger.info(
+          `${LOG_PREFIX} CXBus found after ${attempts} attempts. Proceeding with subscription setup.`,
+        );
+        setupSubscriptions();
         return;
       }
 
       attempts++;
       if (attempts >= maxAttempts) {
-        logger.warn('[ChatWidget] CXBus not available after maximum attempts');
+        logger.warn(
+          `${LOG_PREFIX} CXBus not available after ${maxAttempts} attempts. Subscriptions might not be set up.`,
+        );
         return;
       }
 
-      // Exponential backoff with max of 2000ms
-      timeout = Math.min(timeout * 1.5, 2000);
-      setTimeout(checkCXBusAvailability, timeout);
+      const currentTimeout = Math.min(
+        baseTimeout * Math.pow(1.5, attempts - 1),
+        3000,
+      ); // Exponential backoff, max 3s
+      logger.info(
+        `${LOG_PREFIX} CXBus not yet available. Retrying in ${currentTimeout}ms (Attempt ${attempts}/${maxAttempts}).`,
+      );
+      cxBusPollTimer.current = setTimeout(pollForCXBus, currentTimeout);
     };
 
-    // Start polling when script is loaded
     if (scriptLoadPhase === ScriptLoadPhase.LOADED) {
-      checkCXBusAvailability();
+      logger.info(
+        `${LOG_PREFIX} Scripts are loaded. Starting to poll for CXBus availability.`,
+      );
+      pollForCXBus();
+    } else {
+      logger.info(
+        `${LOG_PREFIX} Scripts not yet loaded (phase: ${scriptLoadPhase}). CXBus polling deferred.`,
+      );
     }
 
-    // Clean up on unmount
     return () => {
-      // No cleanup needed for this effect
+      logger.info(`${LOG_PREFIX} useEffect: Cleaning up CXBus polling timer.`);
+      if (cxBusPollTimer.current) {
+        clearTimeout(cxBusPollTimer.current);
+      }
+      // Note: CXBus subscriptions themselves might not be easily removable or necessary to remove
+      // if the widget is fully torn down. Genesys documentation should clarify this.
+      // If unsubscription is needed: window._genesysCXBus.unsubscribe('WebChat.opened', handlerRef);
     };
-  }, [onChatOpened, onChatClosed, scriptLoadPhase]);
+  }, [scriptLoadPhase, onChatOpened, onChatClosed, onError, setError]); // Added setError
 
-  // Update the isOpen effect to command the widget directly via CXBus when store state changes
+  // Effect for Syncing Store's `isOpen` State to Widget via CXBus Command
+  // As per README: "If state indicates the chat should open/close, ChatWidget.tsx issues commands to the Genesys widget via CXBus"
   useEffect(() => {
-    // Only proceed if scripts are loaded
-    if (scriptLoadPhase !== ScriptLoadPhase.LOADED || !window._genesysCXBus) {
+    logger.info(
+      `${LOG_PREFIX} useEffect: isOpen state sync check. isOpen: ${isOpen}, scriptLoadPhase: ${scriptLoadPhase}`,
+    );
+    if (scriptLoadPhase !== ScriptLoadPhase.LOADED) {
+      logger.info(
+        `${LOG_PREFIX} Scripts not loaded. Cannot sync isOpen state to widget yet.`,
+      );
+      return;
+    }
+
+    if (!window._genesysCXBus) {
+      logger.warn(
+        `${LOG_PREFIX} CXBus not available. Cannot sync isOpen state to widget.`,
+      );
       return;
     }
 
     try {
-      if (isOpen) {
+      // Type the return of 'WebChat.get' as any to avoid TS errors if structure is not strictly defined
+      const currentWidgetState: any =
+        window._genesysCXBus.command('WebChat.get');
+      logger.info(
+        `${LOG_PREFIX} Current widget state before command:`,
+        currentWidgetState,
+      );
+
+      if (isOpen && currentWidgetState?.data?.state !== 'opened') {
         logger.info(
-          '[ChatWidget] Opening chat via CXBus due to store state change',
+          `${LOG_PREFIX} Store isOpen is true. Commanding WebChat.open via CXBus.`,
         );
         window._genesysCXBus.command('WebChat.open');
-      } else {
-        // We only explicitly close the chat if the store indicates it should be closed
-        // This is to prevent accidental closures
+      } else if (!isOpen && currentWidgetState?.data?.state !== 'closed') {
         logger.info(
-          '[ChatWidget] Closing chat via CXBus due to store state change',
+          `${LOG_PREFIX} Store isOpen is false. Commanding WebChat.close via CXBus.`,
         );
         window._genesysCXBus.command('WebChat.close');
       }
     } catch (err) {
-      logger.error('[ChatWidget] Error commanding chat via CXBus', err);
+      logger.error(
+        `${LOG_PREFIX} Error commanding WebChat open/close via CXBus:`,
+        err,
+      );
+      // Potentially dispatch an error to the store if CXBus commands fail
+      // setError(new Error('Failed to command Genesys widget via CXBus.'));
     }
-  }, [isOpen, scriptLoadPhase]);
+  }, [isOpen, scriptLoadPhase]); // Dependency: isOpen and scriptLoadPhase
 
+  logger.info(
+    `${LOG_PREFIX} Rendering. isLoading: ${isLoading}, configError: ${error?.message}, isChatEnabled: ${isChatEnabled}, genesysChatConfig available: ${!!genesysChatConfig}`,
+  );
+
+  // Do not render GenesysScriptLoader if chat is not enabled or config is missing
+  if (!isChatEnabled || !genesysChatConfig) {
+    if (!isChatEnabled)
+      logger.warn(
+        `${LOG_PREFIX} Chat is not enabled (eligibility/consent). GenesysScriptLoader will not be rendered.`,
+      );
+    if (!genesysChatConfig)
+      logger.warn(
+        `${LOG_PREFIX} genesysChatConfig is not available. GenesysScriptLoader will not be rendered.`,
+      );
+    // Optionally render a placeholder or status message if chat is loading or errored
+    if (isLoading) return <p>Loading chat configuration...</p>;
+    if (error) return <p>Error loading chat: {error.message}</p>;
+    return null; // Or some other UI indicating chat is unavailable
+  }
+
+  logger.info(
+    `${LOG_PREFIX} Chat is enabled and config is available. Rendering GenesysScriptLoader.`,
+  );
   return (
     <>
-      {/* Hide CoBrowse elements if needed */}
+      {/* Container for the Genesys chat widget */}
+      <div id={containerId} />
+
+      {/* Loader for Genesys scripts, rendered only when config is ready */}
+      {genesysChatConfig && (
+        <GenesysScriptLoader
+          config={genesysChatConfig} // Pass the fully built config from the store
+          onLoad={handleScriptLoaded}
+          onError={handleScriptError}
+          showStatus={showLoaderStatus}
+        />
+      )}
+      {/* Hide CoBrowse elements if needed - This might conflict with Genesys own CoBrowse styling */}
       {hideCoBrowse && (
         <style>{`
           .cobrowse-card,
@@ -266,19 +417,6 @@ export default function ChatWidget({
         >
           Chat is currently unavailable. Please try again later.
         </div>
-      )}
-
-      {/* Container for Genesys chat widget */}
-      <div id={containerId} className="genesys-chat-container" />
-
-      {/* Only load script if configuration is ready and user is eligible */}
-      {genesysChatConfig && isChatEnabled && (
-        <GenesysScriptLoader
-          config={genesysChatConfig}
-          onLoad={handleScriptLoaded}
-          onError={handleScriptError}
-          showStatus={showLoaderStatus}
-        />
       )}
     </>
   );
