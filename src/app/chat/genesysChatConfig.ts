@@ -144,11 +144,7 @@ import { ChatSettings } from './types/chat-types';
  * These fields MUST be present for the widget to function properly
  */
 const REQUIRED_CONFIG_FIELDS = [
-  'clickToChatToken',
   'clickToChatEndpoint',
-  'coBrowseLicence',
-  'cobrowseSource',
-  'cobrowseURL',
   'userID',
   'memberMedicalPlanID',
   'isChatEligibleMember',
@@ -373,14 +369,10 @@ export function buildGenesysChatConfig({
 
   // Validate that all required fields are present and log each missing field
   const requiredFields = [
-    'clickToChatToken',
     'clickToChatEndpoint',
     'gmsChatUrl',
     'widgetUrl',
     'clickToChatJs',
-    'coBrowseLicence',
-    'cobrowseSource',
-    'cobrowseURL',
     'userID',
     'MEMBER_ID',
     'memberMedicalPlanID',
