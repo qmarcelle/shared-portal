@@ -14,6 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { GenesysCXBus } from '../types';
 
 /**
  * Props for the GenesysScriptLoader component
@@ -33,6 +34,51 @@ interface GenesysScriptLoaderProps {
   showStatus?: boolean;
 }
 
+/**
+ * Adds resource hints to improve connection performance for external resources
+ */
+const addResourceHints = () => {
+  const hints = [
+    {
+      rel: 'preconnect',
+      href: 'https://code.jquery.com',
+      crossOrigin: 'anonymous',
+    },
+    { rel: 'dns-prefetch', href: 'https://code.jquery.com' },
+    {
+      rel: 'preconnect',
+      href: 'https://apps.mypurecloud.com',
+      crossOrigin: 'anonymous',
+    },
+    { rel: 'dns-prefetch', href: 'https://apps.mypurecloud.com' },
+    {
+      rel: 'preconnect',
+      href: 'https://js.cobrowse.io',
+      crossOrigin: 'anonymous',
+    },
+    { rel: 'dns-prefetch', href: 'https://js.cobrowse.io' },
+  ];
+
+  // Only add hints if they don't already exist
+  hints.forEach((hint) => {
+    const existingHint = document.querySelector(
+      `link[rel="${hint.rel}"][href="${hint.href}"]`,
+    );
+    if (!existingHint) {
+      const link = document.createElement('link');
+      link.rel = hint.rel;
+      link.href = hint.href;
+      if (hint.crossOrigin) {
+        link.crossOrigin = hint.crossOrigin;
+      }
+      document.head.appendChild(link);
+      console.log(
+        `[GenesysScriptLoader] Added resource hint: ${hint.rel} for ${hint.href}`,
+      );
+    }
+  });
+};
+
 const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
   ({
     scriptUrl = '/assets/genesys/click_to_chat.js',
@@ -47,9 +93,72 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     >('idle');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const initialized = useRef(false);
+    const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     // Memoize cssUrls to prevent unnecessary re-renders if parent re-renders
     const stableCssUrls = useMemo(() => cssUrls, [cssUrls]);
+
+    /**
+     * Checks if Genesys is ready with exponential backoff
+     * This reduces CPU usage while still ensuring we detect when scripts are ready
+     */
+    const checkReadyWithBackoff = useCallback(() => {
+      let attempts = 0;
+      const maxAttempts = 10;
+      let timeout = 100; // Start with 100ms
+
+      // Clear any existing interval
+      if (checkIntervalRef.current) {
+        clearTimeout(checkIntervalRef.current);
+        checkIntervalRef.current = null;
+      }
+
+      const checkFn = () => {
+        if (window._forceChatButtonCreate || window._genesysCXBus) {
+          // Script is ready
+          console.log(
+            '[GenesysScriptLoader] Widget ready detected via backoff polling',
+          );
+
+          try {
+            if (window._forceChatButtonCreate) {
+              console.log(
+                '[GenesysScriptLoader] Calling _forceChatButtonCreate()',
+              );
+              window._forceChatButtonCreate();
+            }
+          } catch (err) {
+            console.error('[GenesysScriptLoader] Error creating button:', err);
+          }
+
+          setStatus('loaded');
+          if (onLoad) onLoad();
+          return;
+        }
+
+        attempts++;
+        if (attempts >= maxAttempts) {
+          console.error(
+            '[GenesysScriptLoader] Failed to detect widget readiness after maximum attempts',
+          );
+          if (status !== 'error') {
+            setStatus('error');
+            setErrorMessage('Timeout waiting for chat widget initialization');
+            if (onError) onError(new Error('Widget initialization timeout'));
+          }
+          return;
+        }
+
+        // Exponential backoff with max of 2000ms
+        timeout = Math.min(timeout * 1.5, 2000);
+        console.log(
+          `[GenesysScriptLoader] Widget not ready, retrying in ${timeout}ms (attempt ${attempts}/${maxAttempts})`,
+        );
+        checkIntervalRef.current = setTimeout(checkFn, timeout);
+      };
+
+      checkFn();
+    }, [onLoad, onError, status]);
 
     // Use useCallback for the loadScript function to memoize it
     const loadScript = useCallback(async () => {
@@ -62,6 +171,9 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       try {
         setStatus('loading');
         console.log('GenesysScriptLoader: Starting load sequence');
+
+        // Add resource hints for faster connections
+        addResourceHints();
 
         // 1. Load CSS files first
         for (const cssUrl of stableCssUrls) {
@@ -86,12 +198,13 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
         // 2. Set chat configuration from props
         if (typeof window !== 'undefined') {
-          window.chatSettings = {
+          // Use type assertion to any to avoid conflicts with other declarations
+          (window as any).chatSettings = {
             ...config,
-          } as ChatSettings;
+          };
           console.log(
             'GenesysScriptLoader: Set window.chatSettings',
-            window.chatSettings,
+            (window as any).chatSettings,
           );
         }
 
@@ -145,73 +258,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           );
         });
 
-        // 4. Initialize the chat button after script loads
-        const handleGenesysReady = () => {
-          try {
-            if (window._forceChatButtonCreate) {
-              console.log(
-                'GenesysScriptLoader: Calling _forceChatButtonCreate()',
-              );
-              window._forceChatButtonCreate();
-            } else {
-              console.log(
-                'GenesysScriptLoader: _forceChatButtonCreate not found, attempting event dispatch',
-              );
-              document.dispatchEvent(new CustomEvent('genesys:create-button'));
-            }
-          } catch (err) {
-            console.error(
-              'GenesysScriptLoader: Error creating chat button:',
-              err,
-            );
-          }
-          window.removeEventListener(
-            'genesys:webchat:ready',
-            handleGenesysReady,
-          ); // Clean up
-        };
-
-        window.addEventListener('genesys:webchat:ready', handleGenesysReady);
-
-        // Add fallback for cases where the event might not fire
-        let attempts = 0;
-        const maxAttempts = 10;
-        const checkInterval = 500;
-
-        const checkWidgetReady = () => {
-          if (window._genesys && window._forceChatButtonCreate) {
-            try {
-              console.log(
-                'GenesysScriptLoader: Genesys widget detected via polling, creating button',
-              );
-              window._forceChatButtonCreate();
-              // Remove event listener since we're handling it via polling
-              window.removeEventListener(
-                'genesys:webchat:ready',
-                handleGenesysReady,
-              );
-            } catch (err) {
-              console.error(
-                'GenesysScriptLoader: Error creating button via polling:',
-                err,
-              );
-            }
-          } else if (attempts < maxAttempts) {
-            attempts++;
-            setTimeout(checkWidgetReady, checkInterval);
-          } else {
-            console.error(
-              'GenesysScriptLoader: Genesys widget initialization timed out after multiple attempts',
-            );
-          }
-        };
-
-        setTimeout(checkWidgetReady, checkInterval);
-
-        setStatus('loaded');
-        if (onLoad) {
-          onLoad();
-        }
+        // 4. Use backoff polling strategy to detect when widget is ready
+        checkReadyWithBackoff();
       } catch (err) {
         const error = err instanceof Error ? err : new Error(String(err));
         console.error('GenesysScriptLoader: Error loading resources', error);
@@ -221,7 +269,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           onError(error);
         }
       }
-    }, [stableCssUrls, scriptUrl, config, onLoad, onError]);
+    }, [
+      stableCssUrls,
+      scriptUrl,
+      config,
+      onLoad,
+      onError,
+      checkReadyWithBackoff,
+    ]);
 
     useEffect(() => {
       // Add CSS to fix Genesys overlay issues
@@ -248,71 +303,51 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           z-index: 9998 !important; /* Just below Genesys elements */
           cursor: pointer !important;
           box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
-          font-family: sans-serif !important;
         }
       `;
       document.head.appendChild(fixOverlayStyle);
 
+      // Load script on mount
       loadScript();
 
+      // Clean up on unmount - remove any pending timers
       return () => {
-        console.log('GenesysScriptLoader: Component unmounting');
-        // We do NOT set initialized.current = false here to prevent reinitialization
+        if (checkIntervalRef.current) {
+          clearTimeout(checkIntervalRef.current);
+          checkIntervalRef.current = null;
+        }
       };
-    }, [loadScript]); // loadScript is the dependency
+    }, [loadScript]);
 
+    // Only render status indicator if showStatus is true
     if (!showStatus) {
       return null;
     }
 
+    // Render appropriate UI based on loading state
     return (
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '60px',
-          left: '10px',
-          zIndex: 9999,
-        }}
-      >
-        <div
-          style={{
-            padding: '8px 12px',
-            borderRadius: '4px',
-            fontSize: '14px',
-            fontFamily: 'sans-serif',
-            backgroundColor:
-              status === 'loaded'
-                ? '#10b981'
-                : status === 'loading'
-                  ? '#f59e0b'
-                  : status === 'error'
-                    ? '#ef4444'
-                    : '#6b7280',
-            color: 'white',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-          }}
-        >
-          {status === 'idle' && 'Script Ready to Load'}
-          {status === 'loading' && 'Loading Genesys Script...'}
-          {status === 'loaded' && 'Genesys Script Loaded ✓'}
-          {status === 'error' && `Error: ${errorMessage?.slice(0, 50)}`}
-        </div>
+      <div className="genesys-script-loader" data-status={status}>
+        {status === 'loading' && (
+          <div className="loader-indicator">Loading chat widget...</div>
+        )}
+        {status === 'error' && (
+          <div className="loader-error">
+            Failed to load chat: {errorMessage}
+          </div>
+        )}
       </div>
     );
   },
 );
 
-GenesysScriptLoader.displayName = 'GenesysScriptLoader'; // Set the display name
-
-// Add TypeScript global declaration for window extensions
-declare global {
-  interface Window {
-    chatSettings?: ChatSettings;
-    _forceChatButtonCreate?: () => boolean;
-    CXBus?: CXBus;
-    _genesys?: GenesysGlobal;
-    _gt?: any[];
-  }
-}
+GenesysScriptLoader.displayName = 'GenesysScriptLoader';
 
 export default GenesysScriptLoader;
+
+// Extend Window interface to avoid conflicts with other declarations
+declare global {
+  interface Window {
+    _forceChatButtonCreate?: () => boolean;
+    _genesysCXBus?: GenesysCXBus;
+  }
+}

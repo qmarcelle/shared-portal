@@ -4,7 +4,8 @@
  * ChatControls Component
  *
  * Provides UI controls for the chat widget.
- * Uses the chat store for state and actions.
+ * Uses the chat store for state and actions exclusively.
+ * Does NOT directly interact with window.GenesysChat or CXBus.
  */
 
 import { logger } from '@/utils/logger';
@@ -29,7 +30,7 @@ export default function ChatControls({
   className = '',
   onClick,
 }: ChatControlsProps) {
-  // Get state from store
+  // Get state from store using selectors for optimized rendering
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const isChatEnabled = useChatStore(chatConfigSelectors.isChatEnabled);
   const isLoading = useChatStore(chatConfigSelectors.isLoading);
@@ -37,14 +38,16 @@ export default function ChatControls({
   // Get actions from store
   const setOpen = useChatStore((state) => state.actions.setOpen);
 
-  // Handle chat button click
+  // Handle chat button click - only interacts with the Zustand store
   const handleClick = useCallback(() => {
     logger.info('[ChatControls] Chat button clicked');
 
     // Call user-provided onClick handler
     if (onClick) onClick();
 
-    // Toggle chat open state
+    // Toggle chat open state in the store
+    // The ChatWidget component will detect this state change
+    // and issue the appropriate CXBus command
     setOpen(!isOpen);
   }, [isOpen, setOpen, onClick]);
 
