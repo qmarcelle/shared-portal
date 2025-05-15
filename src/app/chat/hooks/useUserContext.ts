@@ -102,6 +102,9 @@ export function useUserContext(): UserContextReturn {
       const suffix = session?.user?.currUsr?.suffix;
       const role = session?.user?.currUsr?.role;
       const umpi = session?.user?.currUsr?.umpi;
+      logger.info(`${LOG_PREFIX} Raw UMPI value from session: `, {
+        umpiValue: session?.user?.currUsr?.umpi,
+      }); // Added specific log for umpi
 
       if (memberId) {
         logger.info(
