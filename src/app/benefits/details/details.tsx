@@ -90,7 +90,6 @@ export const Details = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <button onClick={() => window.history.back()}>Go Back</button>
         {benefitTypeDetails?.benefitTypeHeaderDetails && (
           <>
             <section className="flex flex-row items-start app-body">
@@ -137,6 +136,8 @@ export const Details = ({
                   title="Medical & Pharmacy Balance"
                   product={balanceData?.medical}
                   phone={contact}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
               {selectedBenefitDetails.benefitType ===
@@ -146,6 +147,8 @@ export const Details = ({
                   title="Dental Balance"
                   product={balanceData?.dental}
                   phone={contact}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
 
