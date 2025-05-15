@@ -158,7 +158,7 @@ export default function ChatProvider({
     loadChatConfiguration(
       userContext.memberId,
       planContext.planId,
-      undefined,
+      userContext.memberType,
       userContext,
       planContext,
     )

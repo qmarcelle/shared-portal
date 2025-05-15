@@ -10,6 +10,7 @@ interface UserContext {
   lastName?: string;
   subscriberId?: string;
   suffix?: string;
+  memberType?: string;
 }
 
 // Define the expected session structure based on what we see in the logs
@@ -90,7 +91,7 @@ export function useUserContext(): UserContextReturn {
         }
         // For other non-ideal states where currUsr might be missing but session is technically authenticated
         setLoading(true); // Keep loading true to allow for retries if applicable
-        // Fall through to retry logic if appropriate (e.g. session authenticated but currUsr temporarily missing)
+        // Fall through to retry logic if applicable (e.g. session authenticated but currUsr temporarily missing)
       }
 
       const memberId = session?.user?.currUsr?.plan?.memCk;
@@ -98,11 +99,12 @@ export function useUserContext(): UserContextReturn {
       const lastName = session?.user?.currUsr?.lastName;
       const subscriberId = session?.user?.currUsr?.subscriberId;
       const suffix = session?.user?.currUsr?.suffix;
+      const role = session?.user?.currUsr?.role;
 
       if (memberId) {
         logger.info(
           `${LOG_PREFIX} User data (memberId) found in session. Setting userContext.`,
-          { memberId: memberId?.substring(0, 3) + '...' },
+          { memberId: memberId?.substring(0, 3) + '...', role },
         );
         setContext({
           memberId: memberId,
@@ -110,6 +112,7 @@ export function useUserContext(): UserContextReturn {
           lastName: lastName,
           subscriberId: subscriberId,
           suffix: suffix,
+          memberType: role,
         });
         setLoading(false);
         retryCount.current = 0; // Reset retry count on success
