@@ -11,6 +11,7 @@ interface UserContext {
   subscriberId?: string;
   suffix?: string;
   memberType?: string;
+  userID?: string;
 }
 
 // Define the expected session structure based on what we see in the logs
@@ -100,11 +101,12 @@ export function useUserContext(): UserContextReturn {
       const subscriberId = session?.user?.currUsr?.subscriberId;
       const suffix = session?.user?.currUsr?.suffix;
       const role = session?.user?.currUsr?.role;
+      const umpi = session?.user?.currUsr?.umpi;
 
       if (memberId) {
         logger.info(
-          `${LOG_PREFIX} User data (memberId) found in session. Setting userContext.`,
-          { memberId: memberId?.substring(0, 3) + '...', role },
+          `${LOG_PREFIX} User data (memberId, umpi) found in session. Setting userContext.`,
+          { memberId: memberId?.substring(0, 3) + '...', role, userID: umpi },
         );
         setContext({
           memberId: memberId,
@@ -113,6 +115,7 @@ export function useUserContext(): UserContextReturn {
           subscriberId: subscriberId,
           suffix: suffix,
           memberType: role,
+          userID: umpi,
         });
         setLoading(false);
         retryCount.current = 0; // Reset retry count on success
