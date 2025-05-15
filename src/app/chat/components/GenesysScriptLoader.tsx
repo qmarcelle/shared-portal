@@ -14,7 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { GenesysCXBus } from '../types';
+import { ChatSettings, GenesysCXBus } from '../types';
 
 /**
  * Props for the GenesysScriptLoader component
@@ -25,7 +25,7 @@ interface GenesysScriptLoaderProps {
   /** Array of CSS URLs to load before the script */
   cssUrls?: string[];
   /** Configuration object to be set on window.chatSettings */
-  config?: Record<string, any>;
+  config?: Partial<ChatSettings>;
   /** Callback when scripts are successfully loaded */
   onLoad?: () => void;
   /** Callback when script loading fails */

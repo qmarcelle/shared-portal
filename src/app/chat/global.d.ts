@@ -19,14 +19,24 @@ declare global {
     openGenesysChat?: () => void;
     chatSettings?: ChatSettings;
 
-    // Events
+    // Custom events for Genesys chat
     addEventListener(
-      type: 'genesys-ready',
+      type:
+        | 'genesys-ready'
+        | 'genesys:webchat:opened'
+        | 'genesys:message:received'
+        | 'genesys:webchat:error'
+        | 'genesys:webchat:submitted',
       listener: (this: Window, ev: Event) => any,
       options?: boolean | AddEventListenerOptions,
     ): void;
     removeEventListener(
-      type: 'genesys-ready',
+      type:
+        | 'genesys-ready'
+        | 'genesys:webchat:opened'
+        | 'genesys:message:received'
+        | 'genesys:webchat:error'
+        | 'genesys:webchat:submitted',
       listener: (this: Window, ev: Event) => any,
       options?: boolean | EventListenerOptions,
     ): void;
