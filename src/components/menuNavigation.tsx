@@ -18,6 +18,7 @@ import {
   isHingeHealthEligible,
   isKatieBeckettEligible,
   isLifePointGrp,
+  isManageMyPolicyEligible,
   isMentalHealthMenuOption,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -315,7 +316,9 @@ export const getMenuNavigation = (
         description: 'This is Manage My Policy',
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules) &&
+          isManageMyPolicyEligible(rules),
         url: '',
         external: false,
       },
