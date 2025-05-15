@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Build the URL
-    const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
+    const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
@@ -92,14 +92,40 @@ export async function GET(request: NextRequest) {
       cache: 'no-store',
     });
 
-    const data = await response.json();
+    // Try to parse JSON, but handle cases where it might not be JSON (e.g. plain text error)
+    let data;
+    try {
+      data = await response.json();
+    } catch (e) {
+      // If response is not JSON, try to get text
+      const textResponse = await response.text();
+      logger.warn(
+        '[API:chat/getChatInfo] Member service response was not JSON.',
+        {
+          correlationId,
+          status: response.status,
+          textResponse: textResponse.substring(0, 500), // Log first 500 chars
+        },
+      );
+      // Construct a data object that mimics the error structure if possible
+      data = {
+        error: 'Non-JSON response from member service',
+        description: textResponse.substring(0, 500),
+        status: response.status,
+      };
+    }
 
     logger.info(
       '[API:chat/getChatInfo] Response received from member service',
       {
         correlationId,
         status: response.status,
-        dataKeys: data ? Object.keys(data) : [],
+        // Log the full data if status is not OK, otherwise just keys for brevity on success
+        responseData: !response.ok
+          ? data
+          : data
+            ? Object.keys(data)
+            : 'no data object',
       },
     );
     // eslint-disable-next-line no-console
@@ -108,11 +134,36 @@ export async function GET(request: NextRequest) {
       {
         correlationId,
         status: response.status,
-        dataKeys: data ? Object.keys(data) : [],
+        // Log the full data if status is not OK, otherwise just keys for brevity on success
+        responseData: !response.ok
+          ? data
+          : data
+            ? Object.keys(data)
+            : 'no data object',
       },
     );
 
-    // Transform the data if needed
+    // IMPORTANT: Check if the call to member service failed (e.g. 400, 500)
+    if (!response.ok) {
+      logger.error(
+        '[API:chat/getChatInfo] Member service call failed. Returning error to client.',
+        {
+          correlationId,
+          status: response.status,
+          errorDataFromService: data, // This will now contain the detailed error from member service
+        },
+      );
+      // Return an error response to the client, including details from member service if available
+      return NextResponse.json(
+        {
+          message: `Failed to get chat info from member service. Status: ${response.status}`,
+          serviceError: data,
+        },
+        { status: response.status }, // Propagate the error status
+      );
+    }
+
+    // Transform the data if needed (only if response.ok)
     const transformedData = {
       // Existing mappings
       cloudChatEligible: data.cloudChatEligible || false,
