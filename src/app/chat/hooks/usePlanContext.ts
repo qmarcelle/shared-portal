@@ -20,6 +20,7 @@ const LOG_PREFIX = '[usePlanContext]';
 interface PlanContext {
   planId: string;
   groupId?: string; // Typically same as planId from grpId in current structure
+  memberMedicalPlanID?: string; // Added memberMedicalPlanID
   // Add other plan-specific fields if needed, e.g., clientId, groupType
 }
 
@@ -28,6 +29,7 @@ interface ExtendedSession {
     currUsr?: {
       plan?: {
         grpId: string; // This is used as planId
+        subId?: string; // Added subId for memberMedicalPlanID
         // Other plan fields if available and needed by chat
       };
     };
@@ -93,15 +95,21 @@ export function usePlanContext(): PlanContextReturn {
       }
 
       const planId = session?.user?.currUsr?.plan?.grpId;
+      const subId = session?.user?.currUsr?.plan?.subId; // Extracted subId
 
       if (planId) {
+        // Still gate by planId as primary identifier for context validity
         logger.info(
-          `${LOG_PREFIX} Plan data (planId) found in session. Setting planContext.`,
-          { planId: planId?.substring(0, 3) + '...' }, // Log partial ID for privacy
+          `${LOG_PREFIX} Plan data (planId, subId) found in session. Setting planContext.`,
+          {
+            planId: planId?.substring(0, 3) + '...',
+            memberMedicalPlanID: subId,
+          },
         );
         setPlanContext({
           planId: planId,
           groupId: planId, // Assuming groupId is the same as planId from grpId
+          memberMedicalPlanID: subId, // Set memberMedicalPlanID from subId
         });
         setLoading(false);
         setError(null); // Clear error on success
