@@ -113,27 +113,31 @@ export interface GenesysChatConfig {
 }
 
 // Define minimal types for user, plan, apiConfig
-interface UserConfig {
+export interface UserConfig {
   userID: string;
   memberFirstname?: string;
   memberLastName?: string;
   formattedFirstName?: string;
   subscriberID?: string;
   sfx?: string;
+  memberDOB?: string;
 }
-interface PlanConfig {
+
+export interface PlanConfig {
   memberMedicalPlanID: string;
   groupId?: string;
   memberClientID?: string;
   groupType?: string;
   memberDOB?: string;
 }
+
 interface ApiConfig {
   [key: string]: unknown;
 }
 
 import { logger } from '@/utils/logger';
 import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
+import { ChatSettings } from './types/chat-types';
 
 /**
  * Required fields for GenesysChatConfig
@@ -413,7 +417,6 @@ export function buildGenesysChatConfig({
  * (Optional) React hook to fetch GenesysChatConfig from an API and inject into window.chatSettings
  */
 import { useEffect } from 'react';
-import { ChatSettings } from './types/chat-types';
 export function useGenesysChatConfig(
   fetchConfig: () => Promise<GenesysChatConfig>,
 ) {

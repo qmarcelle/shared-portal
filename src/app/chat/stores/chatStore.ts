@@ -18,11 +18,17 @@
  *
  * Logging: All significant state changes, API calls, and errors are logged for traceability and debugging.
  */
+import { ConsentDetail, PBEData } from '@/models/member/api/pbeData';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
-import { buildGenesysChatConfig } from '../genesysChatConfig';
-import { ChatConfig, createGenesysConfig } from '../schemas/genesys.schema';
+import { getChatInfo } from '../api';
+import {
+  buildGenesysChatConfig,
+  PlanConfig,
+  UserConfig,
+} from '../genesysChatConfig';
+import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 import { GenesysChatConfig, ScriptLoadPhase } from '../types/chat-types';
 
 const LOG_STORE_PREFIX = '[ChatStore]'; // General store lifecycle/setup logs
@@ -106,8 +112,8 @@ interface ChatState {
       memberId: number | string,
       planId: string,
       memberType?: string,
-      userContext?: any,
-      planContext?: any,
+      userContext?: UserConfig | any,
+      planContext?: PlanConfig | any,
     ) => Promise<void>;
 
     // Session actions
@@ -195,7 +201,7 @@ export const useChatStore = create<ChatState>((set, get) => {
 
     // Config state
     config: {
-      isLoading: true,
+      isLoading: false,
       error: null,
       genesysChatConfig: undefined,
       chatData: null,
@@ -441,373 +447,193 @@ export const useChatStore = create<ChatState>((set, get) => {
         async (
           memberId: number | string,
           planId: string,
-          memberType = 'byMemberCk',
-          userContext?: {
-            firstName?: string;
-            lastName?: string;
-            subscriberId?: string;
-            suffix?: string;
-          },
-          planContext?: {
-            groupId?: string;
-            clientId?: string;
-            groupType?: string;
-          },
+          memberType?: string,
+          userContext?: UserConfig | any,
+          planContext?: PlanConfig | any,
         ) => {
-          logger.info(`${LOG_CONFIG_PREFIX} loadChatConfiguration started`, {
-            memberId,
-            planId,
-            memberType,
-          });
+          logger.info(
+            `${LOG_CONFIG_PREFIX} loadChatConfiguration: Action initiated.`,
+            { memberId, planId, memberType },
+          );
           set((state) => ({
             config: { ...state.config, isLoading: true, error: null },
           }));
 
           try {
-            // 1. Load user/plan context (from params or build defaults)
-            logger.info(`${LOG_CONFIG_PREFIX} Building user context`, {
-              memberId,
-            });
-            const user = {
-              userID: String(memberId),
-              memberFirstname: userContext?.firstName || '',
-              memberLastName: userContext?.lastName || '',
-              formattedFirstName: userContext?.firstName || '',
-              subscriberID: userContext?.subscriberId || '',
-              sfx: userContext?.suffix || '',
-            };
+            logger.info(
+              `${LOG_CONFIG_PREFIX} Attempting to fetch chat configurations and context.`,
+              { memberId, planId, memberType },
+            );
 
-            logger.info(`${LOG_CONFIG_PREFIX} Building plan context`, {
+            // 1. Fetch Chat Info (from /api/chat/getChatInfo)
+            // Ensure memberType is correctly sourced and passed if it's mandatory.
+            // If memberType can be undefined and API handles it, this is fine.
+            // Otherwise, ChatProvider needs to ensure it passes a valid memberType.
+            const chatInfoResponse = await getChatInfo(
+              String(memberId), // Ensure memberId is string for API
               planId,
-            });
-            const plan = {
-              memberMedicalPlanID: String(planId),
-              groupId: planContext?.groupId || '',
-              memberClientID: planContext?.clientId || '',
-              groupType: planContext?.groupType || '',
-              memberDOB: '',
-            };
-
-            logger.info(
-              `${LOG_CONFIG_PREFIX} User and plan context built successfully`,
-              {
-                user,
-                plan,
-                timestamp: new Date().toISOString(),
-              },
+              memberType, // Pass memberType; API must handle if optional
             );
-
-            // 2. Fetch chat token
-            logger.info(`${LOG_CONFIG_PREFIX} Fetching chat token`, {
-              endpoint: '/api/chat/token',
-              timestamp: new Date().toISOString(),
+            logger.info(`${LOG_CONFIG_PREFIX} Raw chatInfoResponse:`, {
+              data: chatInfoResponse,
             });
-            const tokenRes = await fetch('/api/chat/token');
 
-            if (!tokenRes.ok) {
-              const errorMsg = `Failed to fetch chat token: ${tokenRes.status} ${tokenRes.statusText}`;
-              logger.error(`${LOG_CONFIG_PREFIX} Token fetch failed`, {
-                status: tokenRes.status,
-                statusText: tokenRes.statusText,
-              });
-              throw new Error(errorMsg);
-            }
+            // 2. Validate raw chatInfoResponse
+            const parsedChatInfo = ChatConfigSchema.safeParse(chatInfoResponse);
 
-            const tokenData = await tokenRes.json();
-
-            if (!tokenData || !tokenData.token) {
+            if (!parsedChatInfo.success) {
               logger.error(
-                `${LOG_CONFIG_PREFIX} Token response missing token field`,
-                { tokenData },
+                `${LOG_CONFIG_PREFIX} Failed to validate raw chatInfo API response.`,
+                {
+                  errors: parsedChatInfo.error.errors,
+                  rawData: chatInfoResponse,
+                },
               );
-              throw new Error(
-                'Chat token response invalid - missing token field',
-              );
-            }
-
-            const token = tokenData.token;
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Chat token fetched successfully`,
-              {
-                tokenFirstChars: token.substring(0, 5) + '...',
-                tokenLength: token.length,
-                timestamp: new Date().toISOString(),
-              },
-            );
-
-            // 3. Fetch chat info
-            const apiUrl = `/api/chat/getChatInfo?memberId=${memberId}&memberType=${memberType}&planId=${planId}`;
-            logger.info(`${LOG_CONFIG_PREFIX} Fetching chat info`, {
-              apiUrl,
-              timestamp: new Date().toISOString(),
-            });
-
-            const infoRes = await fetch(apiUrl, {
-              method: 'GET',
-              headers: { 'Content-Type': 'application/json' },
-            });
-
-            if (!infoRes.ok) {
-              const errorMsg = `Failed to fetch chat info: ${infoRes.status} ${infoRes.statusText}`;
-              logger.error(`${LOG_CONFIG_PREFIX} Chat info fetch failed`, {
-                status: infoRes.status,
-                statusText: infoRes.statusText,
-              });
-              throw new Error(errorMsg);
-            }
-
-            const info = await infoRes.json();
-
-            if (!info) {
-              logger.error(
-                `${LOG_CONFIG_PREFIX} Chat info response invalid or empty`,
-              );
-              throw new Error('Chat info response invalid or empty');
-            }
-
-            logger.info(`${LOG_CONFIG_PREFIX} Chat info fetched successfully`, {
-              infoKeys: Object.keys(info),
-              eligibility: info.isChatEligibleMember,
-              cloudEligible: info.cloudChatEligible,
-              timestamp: new Date().toISOString(),
-            });
-
-            // 4. NEW: Fetch PBE data for consent checking
-            logger.info(`${LOG_CONFIG_PREFIX} Fetching PBE data for consent`);
-            let hasConsent = false; // Default to false - safer approach
-
-            if (process.env.CONSENT_ENABLED === 'true') {
-              try {
-                const userIdForPBE =
-                  userContext?.subscriberId || String(memberId);
-                if (!userIdForPBE) {
-                  logger.warn(
-                    `${LOG_CONFIG_PREFIX} Cannot check PBE consent, missing user identifier for PBE.`,
-                  );
-                  // hasConsent remains false
-                } else {
-                  logger.info(
-                    `${LOG_CONFIG_PREFIX} Fetching PBE data for consent`,
-                    { userIdForPBE },
-                  );
-                  const pbeData = await getPersonBusinessEntity(
-                    userIdForPBE,
-                    true, // needPBE
-                    true, // needConsent
-                    false, // refresh
-                  );
-
-                  if (
-                    pbeData &&
-                    pbeData.consentDetails &&
-                    pbeData.consentDetails.length > 0
-                  ) {
-                    const now = new Date();
-                    // Find active, non-expired consent for chat
-                    const validChatConsent = pbeData.consentDetails.find(
-                      (consent) =>
-                        consent.status === 'active' &&
-                        (consent.accessControl === 'PERMIT_ALL' ||
-                          consent.accessControl === 'PERMIT') &&
-                        new Date(consent.expiresOn) > now,
-                      // Add specific chat consent identifier if available
-                    );
-
-                    if (validChatConsent) {
-                      hasConsent = true;
-                      logger.info(
-                        `${LOG_CONFIG_PREFIX} Active PBE consent found for chat.`,
-                        { consentId: validChatConsent.id },
-                      );
-                    } else {
-                      logger.info(
-                        `${LOG_CONFIG_PREFIX} No active/valid PBE consent found for chat in details.`,
-                      );
-                      // hasConsent remains false
-                    }
-                  } else {
-                    logger.info(
-                      `${LOG_CONFIG_PREFIX} No PBE consent details array returned or it was empty.`,
-                    );
-                    // hasConsent remains false
-                  }
-                }
-              } catch (pbeError: any) {
-                logger.error(
-                  `${LOG_CONFIG_PREFIX} Error during PBE data fetch or processing. Assuming no consent.`,
-                  {
-                    errorMessage: pbeError.message,
-                  },
-                );
-                hasConsent = false; // Ensure consent is false if PBE check fails
-              }
+              // For now, proceed; buildGenesysChatConfig might handle defaults
             } else {
               logger.info(
-                `${LOG_CONFIG_PREFIX} PBE Consent check is disabled via environment variable. Assuming consent.`,
+                `${LOG_CONFIG_PREFIX} Successfully validated raw chatInfo API response.`,
+                { data: parsedChatInfo.data },
               );
-              hasConsent = true; // If consent system is turned off, consent is implied
             }
+            const rawApiDataForConfig = chatInfoResponse; // Use original response for flexibility in buildGenesysChatConfig
 
-            // 5. Gather static config
-            logger.info(`${LOG_CONFIG_PREFIX} Gathering static configuration`);
-            const staticConfig = {
-              coBrowseLicence: process.env.NEXT_PUBLIC_COBROWSE_LICENSE,
-              cobrowseSource: process.env.NEXT_PUBLIC_COBROWSE_SOURCE,
-              cobrowseURL: process.env.NEXT_PUBLIC_COBROWSE_URL,
-              opsPhone: process.env.NEXT_PUBLIC_OPS_PHONE,
-              opsPhoneHours: process.env.NEXT_PUBLIC_OPS_HOURS,
-              chatHours: process.env.NEXT_PUBLIC_CHAT_HOURS,
-              rawChatHrs: process.env.NEXT_PUBLIC_RAW_CHAT_HRS,
-            };
+            // 3. Fetch PBE Consent
+            let pbeConsent = true; // Default consent
+            let pbeError = null;
+            const userIdForPBE = userContext?.subscriberId || String(memberId);
 
-            // Validate critical env variables
-            if (!staticConfig.coBrowseLicence || !staticConfig.cobrowseURL) {
+            if (
+              process.env.NEXT_PUBLIC_CONSENT_ENABLED === 'true' &&
+              userIdForPBE
+            ) {
+              try {
+                const pbeResponse: PBEData = await getPersonBusinessEntity(
+                  userIdForPBE, // userId
+                  true, // needPBE
+                  true, // needConsent
+                  false, // refresh
+                );
+
+                // Adjust access based on actual PBEData structure.
+                // This example assumes consentDetails is an array on the root pbeResponse.
+                // If it's pbeResponse.pbe.consentDetails, adjust accordingly.
+                if (
+                  pbeResponse?.consentDetails &&
+                  Array.isArray(pbeResponse.consentDetails) &&
+                  pbeResponse.consentDetails.length > 0
+                ) {
+                  const now = new Date();
+                  const validChatConsent = pbeResponse.consentDetails.find(
+                    (consent: ConsentDetail) =>
+                      consent.status === 'active' &&
+                      (consent.accessControl === 'PERMIT_ALL' ||
+                        consent.accessControl === 'PERMIT') &&
+                      new Date(consent.expiresOn) > now,
+                    // Add specific chat consent identifier if available and needed for filtering
+                  );
+                  pbeConsent = !!validChatConsent;
+                  logger.info(`${LOG_CONFIG_PREFIX} PBE consent fetched:`, {
+                    consent: pbeConsent,
+                  });
+                } else {
+                  logger.warn(
+                    `${LOG_CONFIG_PREFIX} PBE consent data not in expected format or missing. Defaulting consent.`,
+                    { pbeResponse },
+                  );
+                  pbeConsent = false; // Explicitly set to false if expected data is not found
+                }
+              } catch (err: any) {
+                logger.error(
+                  `${LOG_CONFIG_PREFIX} Failed to fetch PBE consent. Assuming no consent.`,
+                  {
+                    error: err.message,
+                  },
+                );
+                pbeError = err;
+                pbeConsent = false; // Ensure consent is false on error
+              }
+            } else if (
+              !userIdForPBE &&
+              process.env.NEXT_PUBLIC_CONSENT_ENABLED === 'true'
+            ) {
               logger.warn(
-                `${LOG_CONFIG_PREFIX} Missing critical static config values`,
-                {
-                  hasCoBrowseLicence: !!staticConfig.coBrowseLicence,
-                  hasCobrowseURL: !!staticConfig.cobrowseURL,
-                },
+                `${LOG_CONFIG_PREFIX} Cannot check PBE consent, missing userIdForPBE. Assuming no consent.`,
               );
+              pbeConsent = false;
             }
 
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Static config gathered successfully`,
-              {
-                staticConfigKeys: Object.keys(staticConfig),
-                timestamp: new Date().toISOString(),
-              },
-            );
-
-            // 6. Build GenesysChatConfig
-            logger.info(`${LOG_CONFIG_PREFIX} Building GenesysChatConfig`);
-            const genesysChatConfig = buildGenesysChatConfig({
-              user,
-              plan,
-              apiConfig: { ...info, token },
-              staticConfig,
+            // 4. Build the final GenesysChatConfig DTO
+            // Ensure userContext and planContext passed to buildGenesysChatConfig are of the expected types
+            // or that buildGenesysChatConfig can handle potentially undefined/partial objects.
+            const finalGenesysConfig = buildGenesysChatConfig({
+              apiConfig: rawApiDataForConfig,
+              user: userContext || {}, // Pass empty object if undefined to satisfy UserConfig (if it expects an object)
+              plan: planContext || {}, // Pass empty object if undefined to satisfy PlanConfig
             });
 
-            if (!genesysChatConfig) {
-              logger.error(
-                `${LOG_CONFIG_PREFIX} Failed to build GenesysChatConfig`,
-              );
-              throw new Error('Failed to build GenesysChatConfig');
-            }
+            logger.info(`${LOG_CONFIG_PREFIX} Final genesysChatConfig built:`, {
+              config: finalGenesysConfig,
+            });
 
-            // Validate critical fields in the generated config
-            if (!genesysChatConfig.clickToChatToken) {
-              logger.warn(
-                `${LOG_CONFIG_PREFIX} Missing clickToChatToken in config`,
-              );
-            }
+            // 5. Determine overall chat eligibility and availability
+            const isEligible =
+              finalGenesysConfig.isChatEligibleMember === 'true';
+            const chatAvailable = finalGenesysConfig.isChatAvailable === 'true';
+            const determinedChatGroup = rawApiDataForConfig?.chatGroup || ''; // Get chatGroup from API response
 
-            if (!genesysChatConfig.clickToChatEndpoint) {
-              logger.warn(
-                `${LOG_CONFIG_PREFIX} Missing clickToChatEndpoint in config`,
-              );
-            }
-
-            if (!genesysChatConfig.gmsChatUrl) {
-              logger.warn(`${LOG_CONFIG_PREFIX} Missing gmsChatUrl in config`);
-            }
-
-            if (!genesysChatConfig.widgetUrl) {
-              logger.warn(`${LOG_CONFIG_PREFIX} Missing widgetUrl in config`);
-            }
-
-            if (!genesysChatConfig.clickToChatJs) {
-              logger.warn(
-                `${LOG_CONFIG_PREFIX} Missing clickToChatJs in config`,
-              );
-            }
-
-            logger.info(
-              `${LOG_CONFIG_PREFIX} GenesysChatConfig built successfully`,
-              {
-                configKeys: Object.keys(genesysChatConfig),
-                chatMode: genesysChatConfig.chatMode,
-                isCloud: genesysChatConfig.chatMode === 'cloud',
-                hasToken: !!genesysChatConfig.clickToChatToken,
-                hasEndpoint: !!genesysChatConfig.clickToChatEndpoint,
-                timestamp: new Date().toISOString(),
-              },
-            );
-
-            // 7. Prepare chat data
-            const chatData: ChatData = {
-              isEligible: info.isEligible || false,
-              cloudChatEligible: info.cloudChatEligible || false,
-              chatAvailable: info.chatAvailable !== false,
-              chatGroup: info.chatGroup || '',
-              businessHours: {
-                isOpen: info.chatAvailable ?? true, // Use the backend-provided flag for operational status
-                text: info.workingHours || staticConfig.chatHours || '',
-              },
-              userData: {},
-              formInputs: [],
-            };
-
-            // 8. Update all state at once to prevent multiple re-renders
+            // 6. Update store
             set((state) => ({
               config: {
                 ...state.config,
-                genesysChatConfig,
-                chatData,
-                hasConsent,
-                isLoading: false,
-                error: null,
-                token,
+                genesysChatConfig: finalGenesysConfig,
+                chatData: {
+                  isEligible: isEligible,
+                  cloudChatEligible: finalGenesysConfig.chatMode === 'cloud',
+                  chatAvailable: chatAvailable,
+                  chatGroup: determinedChatGroup, // Use chatGroup from API data
+                  businessHours: {
+                    isOpen: chatAvailable, // Or map more specifically from finalGenesysConfig.chatHours
+                    text: finalGenesysConfig.chatHours || '',
+                  },
+                  userData: {}, // Populate based on userContext or finalGenesysConfig
+                  formInputs: [], // Populate if applicable
+                  routingInteractionId:
+                    rawApiDataForConfig?.routingInteractionId, // Example
+                },
+                chatConfig: parsedChatInfo.success
+                  ? parsedChatInfo.data
+                  : undefined,
+                hasConsent: pbeConsent,
+                error: pbeError, // Or combine with other errors
               },
             }));
-
             logger.info(
-              `${LOG_CONFIG_PREFIX} Chat configuration loaded successfully`,
-              {
-                timestamp: new Date().toISOString(),
-              },
+              `${LOG_CONFIG_PREFIX} Chat store updated with new configuration.`,
             );
-
-            // After fetching 'info' from API, add the chatConfig validation:
-            try {
-              const validatedApiInfo = createGenesysConfig(info as any); // Cast if shape isn't an exact match
-              set((state) => ({
-                config: {
-                  ...state.config,
-                  chatConfig: validatedApiInfo, // Store the Zod-validated raw API info
-                },
-              }));
-              logger.info(
-                `${LOG_CONFIG_PREFIX} Raw API info validated and stored in chatConfig.`,
-              );
-            } catch (validationError: any) {
-              logger.error(
-                `${LOG_CONFIG_PREFIX} Raw API info validation failed against ChatConfigSchema.`,
-                {
-                  error: validationError.message,
-                  issues: validationError.errors, // Zod errors
-                  rawData: info,
-                },
-              );
-              // Continue - validation failure should be logged but not block chat
-            }
-          } catch (err: any) {
-            const errorObj =
-              err instanceof Error ? err : new Error(String(err));
+          } catch (error: any) {
             logger.error(
-              `${LOG_CONFIG_PREFIX} Error loading chat configuration`,
+              `${LOG_CONFIG_PREFIX} Error during loadChatConfiguration:`,
               {
-                error: errorObj.message,
-                stack: errorObj.stack,
-                timestamp: new Date().toISOString(),
+                message: error.message,
+                stack: error.stack,
               },
             );
             set((state) => ({
               config: {
                 ...state.config,
-                isLoading: false,
-                error: errorObj,
+                error:
+                  error instanceof Error ? error : new Error(String(error)),
+                genesysChatConfig: undefined,
+                chatData: null,
               },
+            }));
+          } finally {
+            logger.info(
+              `${LOG_CONFIG_PREFIX} loadChatConfiguration finished. Setting isLoading to false.`,
+            );
+            set((state) => ({
+              config: { ...state.config, isLoading: false },
             }));
           }
         },

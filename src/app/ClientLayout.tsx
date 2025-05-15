@@ -1,6 +1,6 @@
 'use client';
 
-import ChatWidget from '@/app/chat/components/ChatWidget';
+import { ChatClientEntry } from '@/app/chat/components';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useChatStore } from './chat/stores/chatStore';
@@ -72,14 +72,11 @@ export default function ClientLayout({
   // even if genesysChatConfig isn't available yet.
   // This allows ChatWidget to make the API call to load the chat configuration,
   // which will in turn populate the store.
-  console.log(
-    '[ClientLayout] Rendering ChatWidget with or without config',
-    genesysChatConfig ? Object.keys(genesysChatConfig) : 'none',
-  );
+  console.log('[ClientLayout] Rendering ChatClientEntry');
 
   return (
     <>
-      <ChatWidget />
+      <ChatClientEntry />
       {children}
     </>
   );
