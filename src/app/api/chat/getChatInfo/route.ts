@@ -71,11 +71,12 @@ export async function GET(request: NextRequest) {
     });
 
     // Build the URL
-    const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo`;
+    const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
+      planId, // Log the planId being sent to better trace issues
     });
     // eslint-disable-next-line no-console
     console.log('[API:chat/getChatInfo] Calling member service API', {
