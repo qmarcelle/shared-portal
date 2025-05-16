@@ -34,22 +34,33 @@ import {
 
 const LOG_PREFIX = '[GenesysScriptLoader]';
 
+// Define structure for Genesys Cloud initial config
+interface GenesysCloudConfig {
+  environment: string;
+  deploymentId: string;
+  // Potentially other fields like 'orgGuid' if needed later
+}
+
 /**
  * Props for the GenesysScriptLoader component
  */
 interface GenesysScriptLoaderProps {
-  /** URL of the main Genesys chat script */
+  /** Main Genesys script URL (can be legacy click_to_chat.js or cloud genesys.min.js) */
   scriptUrl?: string;
   /** Array of CSS URLs to load before the script */
   cssUrls?: string[];
-  /** Configuration object to be set on window.chatSettings */
-  config?: Partial<ChatSettings> | GenesysChatConfig;
+  /** Configuration object for legacy: window.chatSettings */
+  legacyConfig?: Partial<ChatSettings> | GenesysChatConfig;
+  /** Configuration object for Genesys Cloud: environment, deploymentId */
+  cloudConfig?: GenesysCloudConfig;
   /** Callback when scripts are successfully loaded */
   onLoad?: () => void;
   /** Callback when script loading fails */
   onError?: (error: Error) => void;
   /** Whether to show the status indicator */
   showStatus?: boolean;
+  /** Explicitly set chat mode to determine loading strategy */
+  chatMode?: 'legacy' | 'cloud';
 }
 
 /**
@@ -102,12 +113,19 @@ const addResourceHints = () => {
 
 const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
   ({
-    scriptUrl = '/assets/genesys/click_to_chat.js', // Default path to the core script
-    cssUrls = ['/assets/genesys/styles/bcbst-custom.css'], // Default custom CSS
-    config = {},
+    // Default to Genesys Cloud script, can be overridden by chatMode logic later
+    scriptUrl, // Will be determined by chatMode
+    cssUrls = ['/assets/genesys/styles/bcbst-custom.css'],
+    legacyConfig = {},
+    cloudConfig = {
+      // Default empty, should be provided if chatMode is 'cloud'
+      environment: '', // e.g., 'prod-usw2'
+      deploymentId: '', // The deployment key
+    },
     onLoad,
     onError,
-    showStatus = process.env.NODE_ENV === 'development', // Show status in dev by default
+    showStatus = process.env.NODE_ENV === 'development',
+    chatMode = 'legacy', // Default to legacy, ChatWidget should set this based on store
   }) => {
     const [status, setStatus] = useState<
       | 'idle'
@@ -126,15 +144,33 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     logger.info(`${LOG_PREFIX} Component instance created/rendered. Props:`, {
       scriptUrlProp: scriptUrl,
       cssUrlsProp: cssUrls,
-      configProp: config,
+      legacyConfigProp: legacyConfig,
+      cloudConfigProp: cloudConfig,
       showStatus,
+      chatMode,
     });
 
-    // Determine effective URLs based on props and config
-    const effectiveScriptUrl = config?.clickToChatJs || scriptUrl;
+    // Determine effective URLs and config based on chatMode
+    const effectiveScriptUrl = useMemo(() => {
+      if (chatMode === 'cloud') {
+        return (
+          scriptUrl ||
+          'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
+        );
+      }
+      // Legacy mode
+      return (
+        scriptUrl ||
+        legacyConfig?.clickToChatJs ||
+        '/assets/genesys/click_to_chat.js'
+      );
+    }, [chatMode, scriptUrl, legacyConfig?.clickToChatJs]);
+
     // Ensure effectiveCssUrls is always an array and includes the custom CSS.
     let resolvedCssUrls: string[] = [];
-    const baseCssUrl = config?.widgetUrl || cssUrls; // This could be string or string[]
+    // For CSS, legacyConfig.widgetUrl might be an array or string. cloudConfig doesn't specify CSS.
+    const baseCssUrl =
+      chatMode === 'legacy' ? legacyConfig?.widgetUrl || cssUrls : cssUrls;
 
     if (Array.isArray(baseCssUrl)) {
       resolvedCssUrls = [...baseCssUrl];
@@ -175,25 +211,35 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       }
 
       const checkFn = () => {
-        if (window._forceChatButtonCreate || window._genesysCXBus) {
+        // For cloud, readiness might be just window.Genesys object and its methods.
+        // For legacy, it's _forceChatButtonCreate or _genesysCXBus
+        const isReady =
+          chatMode === 'cloud'
+            ? typeof window.Genesys === 'function' &&
+              typeof window.Genesys.command === 'function'
+            : window._forceChatButtonCreate || window._genesysCXBus;
+
+        if (isReady) {
           logger.info(
-            `${LOG_PREFIX} Widget readiness detected (found _forceChatButtonCreate or _genesysCXBus). Attempts: ${attempts}`,
+            `${LOG_PREFIX} Widget readiness detected. Mode: ${chatMode}. Attempts: ${attempts}`,
           );
 
-          try {
-            if (window._forceChatButtonCreate) {
+          if (chatMode === 'legacy' && window._forceChatButtonCreate) {
+            try {
               logger.info(
-                `${LOG_PREFIX} Calling window._forceChatButtonCreate() to ensure button creation.`,
+                `${LOG_PREFIX} Calling window._forceChatButtonCreate() for legacy mode.`,
               );
               window._forceChatButtonCreate();
+            } catch (err: any) {
+              logger.error(
+                `${LOG_PREFIX} Error calling _forceChatButtonCreate():`,
+                { message: err?.message, error: err },
+              );
             }
-          } catch (err: any) {
-            logger.error(
-              `${LOG_PREFIX} Error calling _forceChatButtonCreate():`,
-              { message: err?.message, error: err },
-            );
-            // Don't necessarily fail the whole load for this, widget might still work via CXBus
           }
+          // For cloud mode, further configuration via Genesys('config.set', ...) or Genesys('command', ...)
+          // would typically happen *after* this onLoad, triggered by the calling component.
+          // Or, we could pass a full config object to be applied here.
 
           setStatus('loaded');
           logger.info(
@@ -244,9 +290,10 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         initialized.current = false;
       }
 
-      if (initialized.current) {
+      // Added to prevent re-entry if already loading/loaded/error unless idle.
+      if (initialized.current && status !== 'idle') {
         logger.info(
-          `${LOG_PREFIX} loadScript: Still considered initialized from a previous run, and status is not idle. Skipping to avoid re-entry during an active loading sequence.`,
+          `${LOG_PREFIX} loadScript: Script loading process already initiated or completed (status: ${status}). Preventing re-entry.`,
         );
         return;
       }
@@ -299,70 +346,114 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         }
         logger.info(`${LOG_PREFIX} All CSS files loaded successfully.`);
 
-        // 2. Set window.chatSettings
-        setStatus('setting-config');
-        logger.info(
-          `${LOG_PREFIX} Setting window.chatSettings with config:`,
-          config,
-        );
-        if (typeof window !== 'undefined') {
-          window.chatSettings = config;
+        // 2. Set window.chatSettings (for legacy mode)
+        if (chatMode === 'legacy') {
+          setStatus('setting-config');
+          logger.info(
+            `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings with legacyConfig:`,
+            legacyConfig,
+          );
+          if (typeof window !== 'undefined') {
+            window.chatSettings = legacyConfig;
+          } else {
+            logger.warn(
+              `${LOG_PREFIX} Legacy Mode: window object not available. Cannot set window.chatSettings.`,
+            );
+          }
         } else {
-          logger.warn(
-            `${LOG_PREFIX} window object not available. Cannot set window.chatSettings.`,
+          logger.info(
+            `${LOG_PREFIX} Cloud Mode: Skipping window.chatSettings. Config passed in script tag or via Genesys object post-load.`,
+            { cloudConfig },
           );
         }
 
         // 3. Load the main Genesys script
         setStatus('loading-script');
         logger.info(
-          `${LOG_PREFIX} Attempting to load main script: ${effectiveScriptUrl}`,
+          `${LOG_PREFIX} Attempting to load main script for ${chatMode} mode: ${effectiveScriptUrl}`,
         );
-        const script = document.createElement('script');
-        script.src = effectiveScriptUrl;
-        script.id = 'genesys-chat-script';
 
-        /**
-         * Genesys requires synchronous loading (async=false) to ensure dependencies
-         * load in the correct order. This is per Genesys implementation guidelines.
-         * Setting async=true causes inconsistent behavior with the widget's internal
-         * script loading sequence.
-         *
-         * References:
-         * - Genesys Implementation Guide: [URL to Genesys docs if available]
-         * - Internal testing confirmed async=true failures in multiple browsers
-         */
-        script.async = false;
+        let scriptElement: HTMLScriptElement;
 
-        script.onload = () => {
+        if (chatMode === 'cloud') {
+          if (!cloudConfig?.deploymentId || !cloudConfig?.environment) {
+            const errMsg =
+              'Genesys Cloud mode requires deploymentId and environment in cloudConfig.';
+            logger.error(`${LOG_PREFIX} ${errMsg}`);
+            setStatus('error');
+            setErrorMessage(errMsg);
+            if (onError) onError(new Error(errMsg));
+            initialized.current = false; // Allow retry if props change
+            return;
+          }
+          // For Genesys Cloud, we create the script tag with embedded configuration
+          // as shown in the user-provided snippet.
+          const scriptContent = `
+            (function (g, e, n, es, ys) {
+              g['_genesysJs'] = e;
+              g[e] = g[e] || function () {
+                (g[e].q = g[e].q || []).push(arguments)
+              };
+              g[e].t = 1 * new Date();
+              g[e].c = es;
+              ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+            })(window, 'Genesys', '${effectiveScriptUrl}', {
+              environment: '${cloudConfig.environment}',
+              deploymentId: '${cloudConfig.deploymentId}'
+            });
+          `;
+          scriptElement = document.createElement('script');
+          scriptElement.id = 'genesys-cloud-bootstrap-script';
+          scriptElement.type = 'text/javascript';
+          scriptElement.charset = 'utf-8';
+          scriptElement.textContent = scriptContent;
+
+          // The actual script loading (genesys.min.js) is handled *by* this bootstrap code.
+          // So, the 'onload' for this inline script means the bootstrap is added.
+          // Readiness of genesys.min.js is then polled by checkReadyWithBackoff.
+        } else {
+          // Legacy mode
+          scriptElement = document.createElement('script');
+          scriptElement.src = effectiveScriptUrl;
+          scriptElement.id = 'genesys-chat-script'; // Legacy ID
+          scriptElement.async = false; // Legacy mode often requires sync
+        }
+
+        scriptElement.onload = () => {
           logger.info(
-            `${LOG_PREFIX} Main Genesys script loaded successfully: ${effectiveScriptUrl}`,
+            `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode. Source/Content: ${scriptElement.src || 'inline_bootstrap_script'}`,
           );
-          // After script loads, start polling for widget readiness
           setStatus('polling-ready');
           logger.info(
-            `${LOG_PREFIX} Script loaded. Now polling for widget readiness (checkReadyWithBackoff).`,
+            `${LOG_PREFIX} Script processed. Now polling for widget readiness (checkReadyWithBackoff).`,
           );
-          checkReadyWithBackoff(); // This will eventually call onLoad or onError
+          checkReadyWithBackoff();
         };
 
-        script.onerror = (e) => {
-          const errMsg = `Main Genesys script failed to load: ${effectiveScriptUrl}`;
+        scriptElement.onerror = (e) => {
+          const errMsg = `Main Genesys script element failed for ${chatMode} mode. Source/Content: ${scriptElement.src || 'inline_bootstrap_script'}`;
           logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
           setStatus('error');
           setErrorMessage(errMsg);
           if (onError) onError(new Error(errMsg));
+          initialized.current = false; // Allow retry
         };
 
-        const existingScript = document.getElementById('genesys-chat-script');
+        const existingScriptId =
+          chatMode === 'cloud'
+            ? 'genesys-cloud-bootstrap-script'
+            : 'genesys-chat-script';
+        const existingScript = document.getElementById(existingScriptId);
         if (existingScript) {
-          console.log('GenesysScriptLoader: Removing existing script');
+          logger.info(
+            `${LOG_PREFIX} Removing existing script: ${existingScriptId}`,
+          );
           existingScript.remove();
         }
 
-        document.body.appendChild(script);
-        console.log(
-          `GenesysScriptLoader: Added script to body: ${effectiveScriptUrl}`,
+        document.head.appendChild(scriptElement); // Append to head for cloud, can be body for legacy
+        logger.info(
+          `${LOG_PREFIX} Added script element to ${chatMode === 'cloud' ? 'head' : 'body'}: ${scriptElement.id}`,
         );
       } catch (err: any) {
         logger.error(`${LOG_PREFIX} Error in loadScript sequence:`, {
@@ -376,32 +467,30 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         if (onError)
           onError(err instanceof Error ? err : new Error(String(err)));
       }
-    }, [config, effectiveScriptUrl, stableCssUrls, onLoad, onError, status]); // Added status to deps of loadScript
+    }, [chatMode, effectiveScriptUrl, stableCssUrls, onLoad, onError, status]); // Added status to deps of loadScript
 
     useEffect(() => {
       logger.info(
-        `${LOG_PREFIX} useEffect for loadScript triggered. Status: ${status}. Config available: ${!!config}`,
+        `${LOG_PREFIX} useEffect for loadScript triggered. Status: ${status}. Config available: ${!!legacyConfig || !!cloudConfig}`,
       );
 
       const timerId = setTimeout(() => {
         // Only attempt to load script if config is available and we haven't had a terminal error
         if (
-          config &&
-          Object.keys(config).length > 0 &&
-          status !== 'error' &&
-          status !== 'loaded'
+          (legacyConfig && Object.keys(legacyConfig).length > 0) ||
+          (cloudConfig && Object.keys(cloudConfig).length > 0)
         ) {
           logger.info(
             `${LOG_PREFIX} Config is available. Calling loadScript (after delay).`,
           );
           loadScript();
-        } else if (!config || Object.keys(config).length === 0) {
+        } else if (!legacyConfig && !cloudConfig) {
           logger.warn(
             `${LOG_PREFIX} Config not available or empty. Deferring loadScript (after delay).`,
           );
         } else {
           logger.info(
-            `${LOG_PREFIX} loadScript not called (after delay). Status: ${status}, Config available: ${!!config}`,
+            `${LOG_PREFIX} loadScript not called (after delay). Status: ${status}, Config available: ${!!legacyConfig || !!cloudConfig}`,
           );
         }
       }, 500); // Introduce a 500ms delay, adjust as needed
@@ -463,6 +552,7 @@ declare global {
   interface Window {
     _forceChatButtonCreate?: () => boolean;
     _genesysCXBus?: GenesysCXBus;
-    chatSettings?: ChatSettings | GenesysChatConfig; // Reflecting that we set it
+    chatSettings?: ChatSettings | GenesysChatConfig; // Reflecting that we set it for legacy
+    Genesys?: any; // For Genesys Cloud
   }
 }

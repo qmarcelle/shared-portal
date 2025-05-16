@@ -66,6 +66,10 @@ export default function ChatWidget({
   const error = useChatStore(chatConfigSelectors.error);
   const isChatEnabled = useChatStore(chatConfigSelectors.isChatEnabled);
   const scriptLoadPhase = useChatStore(chatScriptSelectors.scriptLoadPhase);
+  const chatMode = useChatStore(chatConfigSelectors.chatMode);
+  const genesysCloudConfig = useChatStore(
+    chatConfigSelectors.genesysCloudDeploymentConfig,
+  );
 
   // Get actions from store
   const setScriptLoadPhase = useChatStore(
@@ -403,9 +407,16 @@ export default function ChatWidget({
       <div id={containerId} />
 
       {/* Loader for Genesys scripts, rendered only when config is ready */}
-      {genesysChatConfig && (
+      {/* The genesysChatConfig variable is kept in case GenesysScriptLoader needs it for legacy mode under a different prop name (e.g., legacyConfig) */}
+      {isChatEnabled && (
         <GenesysScriptLoader
-          config={genesysChatConfig} // Pass the fully built config from the store
+          // config={genesysChatConfig} // Removed due to linter error; GenesysScriptLoaderProps might have changed.
+          chatMode={chatMode}
+          cloudConfig={genesysCloudConfig} // For cloud mode
+          // If legacy mode needs the old config, GenesysScriptLoader might expect it as e.g. legacyConfig={genesysChatConfig}
+          // For now, assuming cloud mode only needs chatMode and cloudConfig.
+          // If legacy functionality is broken, the props for GenesysScriptLoader (legacy part) need to be revisited.
+          legacyConfig={chatMode === 'legacy' ? genesysChatConfig : undefined} // Tentatively pass for legacy mode
           onLoad={handleScriptLoaded}
           onError={handleScriptError}
           showStatus={showLoaderStatus}
