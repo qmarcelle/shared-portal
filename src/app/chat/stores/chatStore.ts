@@ -584,9 +584,15 @@ export const useChatStore = create<ChatState>((set, get) => {
             });
 
             // 5. Determine overall chat eligibility and availability
+            // Ensure correct boolean check, not string comparison
             const isEligible =
-              finalGenesysConfig.isChatEligibleMember === 'true';
-            const chatAvailable = finalGenesysConfig.isChatAvailable === 'true';
+              finalGenesysConfig.isChatEligibleMember === true ||
+              String(finalGenesysConfig.isChatEligibleMember).toLowerCase() ===
+                'true';
+            const chatAvailable =
+              finalGenesysConfig.isChatAvailable === true ||
+              String(finalGenesysConfig.isChatAvailable).toLowerCase() ===
+                'true';
             const determinedChatGroup = rawApiDataForConfig?.chatGroup || ''; // Get chatGroup from API response
 
             // 6. Update store
