@@ -1,6 +1,11 @@
 'use client';
 
 import { useChatStore } from '@/app/chat/stores/chatStore';
+import {
+  ChatLoadingState,
+  markDomEnhancementComplete,
+} from '@/app/chat/utils/chatSequentialLoader';
+import { logger } from '@/utils/logger';
 import { useEffect, useRef } from 'react';
 
 /**
@@ -19,13 +24,14 @@ export function ChatLinkEnhancer() {
     // Skip if already set up in this component instance
     if (isSetupComplete.current) return;
 
-    // Track if we've set up global handler
-    if (window._chatLinkEnhancerActive) {
-      console.log('[ChatLinkEnhancer] Already active, skipping setup');
+    // Skip if already enhanced according to sequential loader
+    if (ChatLoadingState.domState.linksEnhanced) {
+      logger.info(
+        '[ChatLinkEnhancer] Already enhanced according to ChatLoadingState, skipping setup',
+      );
       return;
     }
 
-    window._chatLinkEnhancerActive = true;
     isSetupComplete.current = true;
 
     // Wait for DOM to be fully loaded
@@ -73,9 +79,12 @@ export function ChatLinkEnhancer() {
 
       if (newEnhanced > 0) {
         enhancedCount.current += newEnhanced;
-        console.log(
+        logger.info(
           `[ChatLinkEnhancer] Enhanced ${newEnhanced} new chat links. Total: ${enhancedCount.current}`,
         );
+
+        // Update sequential loader state
+        markDomEnhancementComplete(enhancedCount.current);
       }
     };
 
@@ -83,7 +92,6 @@ export function ChatLinkEnhancer() {
     enhanceChatLinks();
 
     // Set up a mutation observer to handle dynamically added links
-    // But only if we don't already have one
     if (!observerRef.current) {
       observerRef.current = new MutationObserver((mutations) => {
         let shouldEnhance = false;

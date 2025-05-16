@@ -83,6 +83,28 @@ export default function ClientLayout({
 
   // Auto-check eligibility after authentication
   useEffect(() => {
+    logger.info(
+      '[ClientLayout] Session useEffect triggered. Checking conditions for loadChatConfiguration.',
+    );
+    logger.info('[ClientLayout] Session object:', session);
+
+    if (session?.user?.currUsr?.plan) {
+      logger.info(
+        '[ClientLayout] session.user.currUsr.plan object:',
+        session.user.currUsr.plan,
+      );
+      logger.info(
+        '[ClientLayout] session.user.currUsr.plan.memCk:',
+        session.user.currUsr.plan.memCk,
+      );
+      logger.info(
+        '[ClientLayout] session.user.currUsr.plan.grpId:',
+        session.user.currUsr.plan.grpId,
+      );
+    } else {
+      logger.info('[ClientLayout] session.user.currUsr.plan is not available.');
+    }
+
     // Only proceed if session exists and has user data
     if (
       session?.user?.currUsr?.plan?.memCk &&
