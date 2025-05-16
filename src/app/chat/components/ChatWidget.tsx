@@ -220,6 +220,33 @@ export default function ChatWidget({
           if (onChatOpened) onChatOpened();
         });
 
+        // Add new subscriptions for connection monitoring
+        window._genesysCXBus.subscribe('WebChat.agentConnected', (e) => {
+          logger.info(`${LOG_PREFIX} CXBus event: Agent connected to chat.`, {
+            agentDetails: e,
+          });
+        });
+
+        window._genesysCXBus.subscribe('WebChat.agentDisconnected', (e) => {
+          logger.info(
+            `${LOG_PREFIX} CXBus event: Agent disconnected from chat.`,
+            { reason: e },
+          );
+        });
+
+        window._genesysCXBus.subscribe('WebChat.ended', (e) => {
+          logger.info(`${LOG_PREFIX} CXBus event: Chat session ended.`, {
+            reason: e,
+          });
+        });
+
+        window._genesysCXBus.subscribe('WebChat.failedToStart', (e) => {
+          logger.error(`${LOG_PREFIX} CXBus event: Chat failed to start.`, {
+            error: e,
+          });
+          setError(new Error('Failed to start chat session'));
+        });
+
         window._genesysCXBus.subscribe('WebChat.closed', () => {
           logger.info(
             `${LOG_PREFIX} CXBus event: WebChat.closed. Updating store.`,
