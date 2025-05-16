@@ -310,7 +310,7 @@ export default function ChatWidget({
   }, [scriptLoadPhase, onChatOpened, onChatClosed, onError, setError]); // Added setError
 
   // Effect for Syncing Store's `isOpen` State to Widget via CXBus Command
-  // As per README: "If state indicates the chat should open/close, ChatWidget.tsx issues commands to the Genesys widget via CXBus"
+  // As per README: "ChatWidget.tsx uses CXBus commands to control the widget (open/close) based on store state."
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} useEffect: isOpen state sync check. isOpen: ${isOpen}, scriptLoadPhase: ${scriptLoadPhase}`,
@@ -358,6 +358,21 @@ export default function ChatWidget({
       // setError(new Error('Failed to command Genesys widget via CXBus.'));
     }
   }, [isOpen, scriptLoadPhase]); // Dependency: isOpen and scriptLoadPhase
+
+  // Log critical state just before rendering GenesysScriptLoader decision
+  const chatDataFromStore = useChatStore.getState().config.chatData;
+  const genesysConfigFromStore =
+    useChatStore.getState().config.genesysChatConfig;
+
+  logger.info(`${LOG_PREFIX} Decision Values (Pre-Render):`, {
+    isChatEnabled, // The value from the hook
+    storeChatDataIsEligible: chatDataFromStore?.isEligible,
+    storeChatDataChatAvailable: chatDataFromStore?.chatAvailable,
+    storeHasGenesysConfig: !!genesysConfigFromStore,
+    isLoading, // from hook
+    error, // from hook
+    scriptLoadPhase, // from hook
+  });
 
   logger.info(
     `${LOG_PREFIX} Rendering. isLoading: ${isLoading}, configError: ${error?.message}, isChatEnabled: ${isChatEnabled}, genesysChatConfig available: ${!!genesysChatConfig}`,
