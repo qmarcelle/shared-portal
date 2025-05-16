@@ -37,15 +37,14 @@ export async function GET(request: NextRequest) {
   const correlationId =
     request.headers.get('x-correlation-id') || Date.now().toString();
 
-  // Map the frontend member type to a backend-compatible type
-  const backendMemberType = mapMemberType(memberType);
+  // We don't need the mapping function anymore as we'll use a fixed path
+  // const backendMemberType = mapMemberType(memberType);
 
   console.log('⭐ [API:chat/getChatInfo] Endpoint CALLED ⭐', {
     correlationId,
     memberId,
     memeck,
     memberType,
-    backendMemberType,
     planId,
     timestamp: new Date().toISOString(),
     url: request.url,
@@ -57,7 +56,6 @@ export async function GET(request: NextRequest) {
     memberId,
     memeck,
     memberType,
-    backendMemberType,
     planId,
   });
   // eslint-disable-next-line no-console
@@ -66,13 +64,12 @@ export async function GET(request: NextRequest) {
     memberId,
     memeck,
     memberType,
-    backendMemberType,
     planId,
   });
 
-  if (!memeck || !memberType) {
+  if (!memeck) {
     return NextResponse.json(
-      { message: 'Missing required parameters' },
+      { message: 'Missing required parameter: memeck or memberId' },
       { status: 400 },
     );
   }
@@ -98,14 +95,12 @@ export async function GET(request: NextRequest) {
       memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
     });
 
-    // Build the URL using the memeck value and subscriberId type
-    const url = `${baseURL}/api/member/v1/members/${backendMemberType}/${memeck}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
+    // Build the URL using the correct format: /api/member/v1/members/byMemberCk/${memberCk}
+    const url = `${baseURL}/api/member/v1/members/byMemberCk/${memeck}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
-      memberType,
-      backendMemberType,
       memeck,
       planId,
     });
