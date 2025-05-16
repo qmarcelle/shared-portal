@@ -6,6 +6,24 @@ import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
+ * Maps frontend member types to backend-compatible member ID types
+ * @param frontendType The member type passed from the frontend (e.g., 'MEM')
+ * @returns A backend-compatible member ID type
+ */
+const mapMemberType = (frontendType: string | null): string => {
+  if (!frontendType) return 'memberId'; // Default fallback
+
+  // Map frontend member types to backend types
+  const typeMap: Record<string, string> = {
+    MEM: 'memberId', // Map 'MEM' to 'memberId' (or whatever the Java service expects)
+    SUB: 'subscriberId',
+    // Add more mappings as needed
+  };
+
+  return typeMap[frontendType] || frontendType; // Return mapped value or original if no mapping exists
+};
+
+/**
  * API Route handler for the /api/chat/getChatInfo endpoint
  *
  * This endpoint proxies requests to the member service API to retrieve chat configuration
@@ -18,10 +36,14 @@ export async function GET(request: NextRequest) {
   const correlationId =
     request.headers.get('x-correlation-id') || Date.now().toString();
 
+  // Map the frontend member type to a backend-compatible type
+  const backendMemberType = mapMemberType(memberType);
+
   console.log('⭐ [API:chat/getChatInfo] Endpoint CALLED ⭐', {
     correlationId,
     memberId,
     memberType,
+    backendMemberType, // Log the mapped type
     planId,
     timestamp: new Date().toISOString(),
     url: request.url,
@@ -32,6 +54,7 @@ export async function GET(request: NextRequest) {
     correlationId,
     memberId,
     memberType,
+    backendMemberType, // Log the mapped type
     planId,
   });
   // eslint-disable-next-line no-console
@@ -39,6 +62,7 @@ export async function GET(request: NextRequest) {
     correlationId,
     memberId,
     memberType,
+    backendMemberType, // Log the mapped type
     planId,
   });
 
@@ -71,12 +95,14 @@ export async function GET(request: NextRequest) {
     });
 
     // Build the URL
-    const url = `${baseURL}/api/member/v1/members/${memberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
+    const url = `${baseURL}/api/member/v1/members/${backendMemberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
-      planId, // Log the planId being sent to better trace issues
+      memberType,
+      backendMemberType, // Log both types for clarity
+      planId,
     });
     // eslint-disable-next-line no-console
     console.log('[API:chat/getChatInfo] Calling member service API', {
