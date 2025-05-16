@@ -250,8 +250,6 @@ const MyHealth = ({ data }: MyHealthProps) => {
           />
         )}
         <Spacer size={64} />
-        <Header text="Other Programs & Resources" type="title-1" />
-        <Spacer size={32} />
         {isHealthProgamAndResourceEligible(data.visibilityRules) && (
           <>
             <section className="flex-row items-start app-body">
@@ -323,6 +321,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
             </section>
           </>
         )}
+        <Spacer size={32} />
+        <Header text="Other Programs & Resources" type="title-1" />
+        <Spacer size={32} />
         {isBlueCareNotEligible(data.visibilityRules) && (
           <section>
             <MyHealthOffsiteLinkCard
