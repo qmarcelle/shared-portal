@@ -122,13 +122,27 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     const initialized = useRef(false); // Prevents re-initialization on re-renders
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null); // For polling timer
 
-    logger.info(
-      `${LOG_PREFIX} Component instance created/rendered. Initial status: idle.`,
-      { scriptUrl, cssUrlsCount: cssUrls.length, showStatus },
-    );
+    // Log the props received by the component instance
+    logger.info(`${LOG_PREFIX} Component instance created/rendered. Props:`, {
+      scriptUrlProp: scriptUrl,
+      cssUrlsProp: cssUrls,
+      configProp: config,
+      showStatus,
+    });
+
+    // Determine effective URLs based on props and config
+    const effectiveScriptUrl = config?.clickToChatJs || scriptUrl;
+    const effectiveCssUrls = (
+      config?.widgetUrl ? [config.widgetUrl] : cssUrls
+    ).filter(Boolean); // Ensure widgetUrl from config is used if present, and filter out any empty strings
+
+    logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
+      effectiveScriptUrl,
+      effectiveCssUrls,
+    });
 
     // Memoize cssUrls to prevent unnecessary re-renders if parent re-renders
-    const stableCssUrls = useMemo(() => cssUrls, [cssUrls]);
+    const stableCssUrls = useMemo(() => effectiveCssUrls, [effectiveCssUrls]);
 
     /**
      * Checks if Genesys is ready with exponential backoff
@@ -205,16 +219,31 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     }, [onLoad, onError, status]); // Added status to dependencies
 
     const loadScript = useCallback(async () => {
-      if (initialized.current) {
+      if (initialized.current && status !== 'idle') {
+        // Allow re-entry if idle (e.g. prop change)
         logger.info(
-          `${LOG_PREFIX} loadScript: Already initialized or in progress. Skipping.`,
+          `${LOG_PREFIX} loadScript: Already initialized or in progress (status: ${status}). Skipping.`,
         );
         return;
       }
-      initialized.current = true; // Mark as initialized to prevent multiple executions
+      // If not idle, but initialized.current is true, it means a previous attempt might have started.
+      // Resetting initialized.current only if idle allows a fresh attempt if props change and component re-evaluates.
+      if (status === 'idle') {
+        initialized.current = false;
+      }
+
+      if (initialized.current) {
+        logger.info(
+          `${LOG_PREFIX} loadScript: Still considered initialized from a previous run, and status is not idle. Skipping to avoid re-entry during an active loading sequence.`,
+        );
+        return;
+      }
+
+      initialized.current = true; // Mark as initialized for this attempt
       logger.info(
-        `${LOG_PREFIX} loadScript: Starting script loading sequence.`,
+        `${LOG_PREFIX} loadScript: Starting script loading sequence. Current status: ${status}`,
       );
+      setStatus('loading-css'); // Set status early in the process
 
       try {
         // 0. Add resource hints
@@ -222,7 +251,6 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         addResourceHints();
 
         // 1. Load CSS files first
-        setStatus('loading-css');
         logger.info(
           `${LOG_PREFIX} Effective CSS URLs to load:`,
           { urls: stableCssUrls }, // Log the URLs being used
@@ -231,7 +259,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS file(s)...`,
           { urls: stableCssUrls },
         );
+        if (stableCssUrls.length === 0) {
+          logger.info(`${LOG_PREFIX} No CSS URLs to load.`);
+        }
         for (const cssUrl of stableCssUrls) {
+          if (!cssUrl) {
+            logger.warn(`${LOG_PREFIX} Empty CSS URL found, skipping.`);
+            continue;
+          }
+          logger.info(`${LOG_PREFIX} Attempting to load CSS: ${cssUrl}`);
           const link = document.createElement('link');
           link.rel = 'stylesheet';
           link.href = cssUrl;
@@ -251,25 +287,27 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         }
         logger.info(`${LOG_PREFIX} All CSS files loaded successfully.`);
 
-        // 2. Set chat configuration on window object
+        // 2. Set window.chatSettings
         setStatus('setting-config');
         logger.info(
-          `${LOG_PREFIX} Setting window.chatSettings with provided config.`,
-          { configKeys: config ? Object.keys(config) : 'undefined' },
+          `${LOG_PREFIX} Setting window.chatSettings with config:`,
+          config,
         );
         if (typeof window !== 'undefined') {
           window.chatSettings = config;
+        } else {
+          logger.warn(
+            `${LOG_PREFIX} window object not available. Cannot set window.chatSettings.`,
+          );
         }
 
-        // 3. Load the main script
+        // 3. Load the main Genesys script
         setStatus('loading-script');
         logger.info(
-          `${LOG_PREFIX} Effective script URL to load:`,
-          { url: scriptUrl }, // Log the script URL being used
+          `${LOG_PREFIX} Attempting to load main script: ${effectiveScriptUrl}`,
         );
-        logger.info(`${LOG_PREFIX} Loading script: ${scriptUrl}`);
         const script = document.createElement('script');
-        script.src = scriptUrl;
+        script.src = effectiveScriptUrl;
         script.id = 'genesys-chat-script';
 
         /**
@@ -286,7 +324,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
         script.onload = () => {
           logger.info(
-            `${LOG_PREFIX} Main Genesys script loaded successfully: ${scriptUrl}`,
+            `${LOG_PREFIX} Main Genesys script loaded successfully: ${effectiveScriptUrl}`,
           );
           // After script loads, start polling for widget readiness
           setStatus('polling-ready');
@@ -297,7 +335,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         };
 
         script.onerror = (e) => {
-          const errMsg = `Main Genesys script failed to load: ${scriptUrl}`;
+          const errMsg = `Main Genesys script failed to load: ${effectiveScriptUrl}`;
           logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
           setStatus('error');
           setErrorMessage(errMsg);
@@ -311,41 +349,47 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         }
 
         document.body.appendChild(script);
-        console.log(`GenesysScriptLoader: Added script to body: ${scriptUrl}`);
+        console.log(
+          `GenesysScriptLoader: Added script to body: ${effectiveScriptUrl}`,
+        );
       } catch (err: any) {
-        logger.error(`${LOG_PREFIX} Error during script loading sequence:`, {
+        logger.error(`${LOG_PREFIX} Error in loadScript sequence:`, {
           message: err?.message,
-          error: err,
+          originalError: err,
         });
         setStatus('error');
         setErrorMessage(
-          err.message || 'An unknown error occurred during script loading.',
+          err?.message || 'An unknown error occurred during script loading.',
         );
         if (onError)
           onError(err instanceof Error ? err : new Error(String(err)));
       }
-    }, [
-      config,
-      stableCssUrls,
-      scriptUrl,
-      onLoad,
-      onError,
-      checkReadyWithBackoff,
-    ]); // Added checkReadyWithBackoff
+    }, [config, effectiveScriptUrl, stableCssUrls, onLoad, onError, status]); // Added status to deps of loadScript
 
-    // Effect to trigger script loading when component mounts or config changes
     useEffect(() => {
       logger.info(
-        `${LOG_PREFIX} useEffect: Triggering loadScript. Current status: ${status}. Initialized: ${initialized.current}`,
+        `${LOG_PREFIX} useEffect for loadScript triggered. Status: ${status}. Config available: ${!!config}`,
       );
-      if (status === 'idle' && !initialized.current) {
-        // Only load if idle and not already initialized
+      // Only attempt to load script if config is available and we haven't had a terminal error
+      if (
+        config &&
+        Object.keys(config).length > 0 &&
+        status !== 'error' &&
+        status !== 'loaded'
+      ) {
+        logger.info(`${LOG_PREFIX} Config is available. Calling loadScript.`);
         loadScript();
+      } else if (!config || Object.keys(config).length === 0) {
+        logger.warn(
+          `${LOG_PREFIX} Config not available or empty. Deferring loadScript.`,
+        );
+      } else {
+        logger.info(
+          `${LOG_PREFIX} loadScript not called. Status: ${status}, Config available: ${!!config}`,
+        );
       }
-      // Do not re-run if config, scriptUrl etc. change after initial load, by design of `initialized.current`
-      // If re-load on config change is desired, `initialized.current` logic needs adjustment and cleanup of old scripts.
 
-      // Cleanup function for the polling interval when the component unmounts
+      // Cleanup polling interval on component unmount or if dependencies change
       return () => {
         if (checkIntervalRef.current) {
           logger.info(
