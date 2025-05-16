@@ -1,7 +1,6 @@
 'use server';
 
 import { getAuthToken } from '@/utils/api/getToken';
-import { serverConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -77,22 +76,23 @@ export async function GET(request: NextRequest) {
   try {
     const token = await getAuthToken();
 
-    const baseURL =
-      serverConfig.portalServices.url +
-      serverConfig.portalServices.memberServiceRoot;
+    // Use direct environment variables instead of serverConfig
+    const portalServicesUrl = process.env.PORTAL_SERVICES_URL || '';
+    const memberServiceRoot = process.env.MEMBERSERVICE_CONTEXT_ROOT || '';
+    const baseURL = `${portalServicesUrl}${memberServiceRoot}`;
 
     logger.info('[API:chat/getChatInfo] Member service configuration', {
       correlationId,
       baseURL,
-      portalServicesUrl: serverConfig.portalServices.url,
-      memberServiceContext: serverConfig.portalServices.memberServiceRoot,
+      portalServicesUrl,
+      memberServiceContext: memberServiceRoot,
     });
     // eslint-disable-next-line no-console
     console.log('[API:chat/getChatInfo] Member service configuration', {
       correlationId,
       baseURL,
-      portalServicesUrl: serverConfig.portalServices.url,
-      memberServiceContext: serverConfig.portalServices.memberServiceRoot,
+      portalServicesUrl,
+      memberServiceContext: memberServiceRoot,
     });
 
     // Build the URL using the correct format: /api/member/v1/members/byMemberCk/${memberCk}

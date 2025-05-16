@@ -1,5 +1,6 @@
 'use client';
 
+import { useChatStore } from '@/app/chat/stores/chatStore';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -20,6 +21,8 @@ import { AmplifyHealthAppInformation } from './components/AmplifyHealthAppInform
 
 const AmplifyHealthSupport = () => {
   const router = useRouter();
+  const { setOpen: openChatWidget } = useChatStore((state) => state.actions);
+
   const navigateToSendEmailPage = () => {
     router.push('/member/support/email');
   };
@@ -35,7 +38,11 @@ const AmplifyHealthSupport = () => {
           />
           <Spacer size={32}></Spacer>
           <section className="md:flex md:flex-row">
-            <Button label="Start a Chat" type="card" callback={() => {}} />
+            <Button
+              label="Start a Chat"
+              type="card"
+              callback={() => openChatWidget(true)}
+            />
             <Spacer axis="horizontal" size={32} />
             <Button
               className="!bg-transparent outline outline-primary-content mt-[10px] md:mt-[0px]"
@@ -63,14 +70,14 @@ const AmplifyHealthSupport = () => {
           body={getHeroBannerContent()}
         />
         {/* Header Component Ends */}
-        
+
         {/* Content Wrapper */}
         <div className="app-content self-center relative">
           {/* Advisors Card as Overlay */}
           <div className="relative -top-[3rem] w-full z-10">
             <AmplifyAdvisors />
           </div>
-          
+
           {/* Amplify Health Support Body Component */}
           <Column className="w-full">
             <Spacer size={32}></Spacer>
@@ -80,7 +87,7 @@ const AmplifyHealthSupport = () => {
               </Column>
             </section>
           </Column>
-          
+
           {/* Resources Section */}
           <Card className="large-section">
             <Column>
@@ -114,7 +121,7 @@ const AmplifyHealthSupport = () => {
             </Column>
           </Card>
         </div>
-        
+
         {/* Feedback Section */}
         <div className="w-full surface-gradient-amplify-flipped">
           <Column className="mt-16 text-white items-center px-4 gap-4">
