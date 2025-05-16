@@ -110,6 +110,7 @@ export default function ClientLayout({
 
     // Only proceed if session exists and has user data
     if (
+      session?.user?.id &&
       session?.user?.currUsr?.plan?.memCk &&
       session?.user?.currUsr?.plan?.grpId
     ) {
@@ -118,11 +119,13 @@ export default function ClientLayout({
       );
 
       // Extract member info from session
+      const userId = session.user.id;
       const memberId = session.user.currUsr.plan.memCk;
       const planId = session.user.currUsr.plan.grpId;
 
       // Add basic user context with plan information
       const userContext = {
+        userID: userId,
         // Can't reliably access firstName or lastName as they might not exist on the user object
         groupId: planId,
         memberId: memberId,
