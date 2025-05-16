@@ -31,6 +31,14 @@ const environments = {
 // Helper function to check if we're running in a server context
 export const isServer = typeof window === 'undefined';
 
+// Debug logging for environment variables
+console.log('DEBUG ENV VARS:', {
+  PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL,
+  MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT,
+  ES_API_URL: process.env.ES_API_URL,
+  ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL,
+});
+
 // Server-side configuration
 export const serverConfig: ServerConfig = validateConfig(
   ServerConfigSchema,
@@ -38,16 +46,18 @@ export const serverConfig: ServerConfig = validateConfig(
     portalServices: {
       url: process.env.PORTAL_SERVICES_URL
         ? process.env.PORTAL_SERVICES_URL.trim()
-        : '',
+        : 'https://api3.bcbst.com/stge/soa/api/portalsvcs', // Default fallback
       memberServiceRoot: process.env.MEMBERSERVICE_CONTEXT_ROOT
         ? process.env.MEMBERSERVICE_CONTEXT_ROOT.trim()
-        : '',
+        : '/memberservice', // Default fallback
     },
     elasticSearch: {
-      apiUrl: process.env.ES_API_URL ? process.env.ES_API_URL.trim() : '',
+      apiUrl: process.env.ES_API_URL
+        ? process.env.ES_API_URL.trim()
+        : 'https://api3.bcbst.com/stge/soa/api/entsvcs', // Default fallback
       portalServicesApiUrl: process.env.ES_PORTAL_SVCS_API_URL
         ? process.env.ES_PORTAL_SVCS_API_URL.trim()
-        : '',
+        : 'https://api3.bcbst.com/stge/soa/api/portalsvcs', // Default fallback
     },
   },
   'server',
