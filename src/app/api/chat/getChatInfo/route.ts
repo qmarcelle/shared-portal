@@ -309,17 +309,54 @@ export async function GET(request: NextRequest) {
       rawChatHrs:
         data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
 
-      // Use the Ping auth token as the clickToChatToken (as per user request for testing)
-      clickToChatToken: token || '', // token is from getAuthToken()
+      // Use the Ping auth token as the clickToChatToken
+      clickToChatToken: token || '',
 
-      // Add Genesys Cloud configuration
+      // Add Genesys Cloud configuration (even if cloudChatEligible is false, provide structure)
       genesysCloudConfig: {
-        deploymentId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID || '',
+        deploymentId:
+          (data.genesysCloudConfig as any)?.deploymentId ||
+          process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+          '',
         environment:
-          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
-        orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || '',
+          (data.genesysCloudConfig as any)?.environment ||
+          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
+          'prod-usw2',
+        orgId:
+          (data.genesysCloudConfig as any)?.orgId ||
+          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID ||
+          '',
       },
+      // Provide legacy endpoint if not cloud eligible (and if available from backend `data` or env)
+      clickToChatEndpoint: !(data.cloudChatEligible || false)
+        ? (data.clickToChatEndpoint as string) ||
+          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+          ''
+        : undefined,
+      gmsChatUrl: !(data.cloudChatEligible || false)
+        ? (data.gmsChatUrl as string) ||
+          process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+          (data.clickToChatEndpoint as string) ||
+          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+          ''
+        : undefined,
     };
+
+    // Forcing legacy for testing if a query param is set, for example
+    // This is a DEV utility, remove for production
+    if (request.nextUrl.searchParams.get('forceLegacy') === 'true') {
+      (transformedData as any).cloudChatEligible = false;
+      (transformedData as any).clickToChatEndpoint =
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'forced-legacy-endpoint';
+      (transformedData as any).gmsChatUrl =
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'forced-legacy-gms';
+      logger.warn(
+        '[API:chat/getChatInfo] Forcing legacy mode via query parameter.',
+      );
+    }
 
     // Update sequential loader state with API result
     updateApiState(
