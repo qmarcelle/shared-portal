@@ -370,27 +370,33 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       logger.info(
         `${LOG_PREFIX} useEffect for loadScript triggered. Status: ${status}. Config available: ${!!config}`,
       );
-      // Only attempt to load script if config is available and we haven't had a terminal error
-      if (
-        config &&
-        Object.keys(config).length > 0 &&
-        status !== 'error' &&
-        status !== 'loaded'
-      ) {
-        logger.info(`${LOG_PREFIX} Config is available. Calling loadScript.`);
-        loadScript();
-      } else if (!config || Object.keys(config).length === 0) {
-        logger.warn(
-          `${LOG_PREFIX} Config not available or empty. Deferring loadScript.`,
-        );
-      } else {
-        logger.info(
-          `${LOG_PREFIX} loadScript not called. Status: ${status}, Config available: ${!!config}`,
-        );
-      }
 
-      // Cleanup polling interval on component unmount or if dependencies change
+      const timerId = setTimeout(() => {
+        // Only attempt to load script if config is available and we haven't had a terminal error
+        if (
+          config &&
+          Object.keys(config).length > 0 &&
+          status !== 'error' &&
+          status !== 'loaded'
+        ) {
+          logger.info(
+            `${LOG_PREFIX} Config is available. Calling loadScript (after delay).`,
+          );
+          loadScript();
+        } else if (!config || Object.keys(config).length === 0) {
+          logger.warn(
+            `${LOG_PREFIX} Config not available or empty. Deferring loadScript (after delay).`,
+          );
+        } else {
+          logger.info(
+            `${LOG_PREFIX} loadScript not called (after delay). Status: ${status}, Config available: ${!!config}`,
+          );
+        }
+      }, 500); // Introduce a 500ms delay, adjust as needed
+
+      // Cleanup polling interval and the new timer on component unmount or if dependencies change
       return () => {
+        clearTimeout(timerId); // Clear the timeout
         if (checkIntervalRef.current) {
           logger.info(
             `${LOG_PREFIX} useEffect: Cleaning up polling timer on unmount.`,
