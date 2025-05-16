@@ -45,7 +45,7 @@ export async function getFormularyFilter(
       return 'Preferred';
     } else if (visibilityRules?.rxChoiceEligible) {
       return 'Choice';
-    } else return 'null';
+    } else return 'Default';
   } catch (error) {
     logger.error('Drug list formulary', error);
     return '';

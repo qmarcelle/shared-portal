@@ -39,6 +39,8 @@ export const ClaimItem = ({
         return 'partialapproval';
       case 'Approved':
         return 'success';
+      case 'Completed':
+        return 'success';
       default:
         return 'empty';
     }
@@ -103,14 +105,32 @@ export const ClaimItem = ({
               />
               {claimInfo.isMiniCard && (
                 <Column className="md:hidden">
-                  <TextBox
-                    className="body-1 font-bold mt-2"
-                    text={
-                      claimInfo.claimTotal != null
-                        ? `$${claimInfo.claimTotal}`
-                        : ''
-                    }
-                  />
+                  {claimInfo.columns
+                    ?.filter((column) => column.label === 'My Share')
+                    .map((column, index) => (
+                      <TextBox
+                        key={index}
+                        className="body-1 font-bold mt-2"
+                        text={
+                          getFormattedDataValue(
+                            column.value,
+                            column.defaultValue,
+                            column.isDollar ?? false,
+                          ) ?? column.defaultValue
+                        }
+                      />
+                    ))}
+
+                  {!claimInfo.columns && (
+                    <TextBox
+                      className="body-1 font-bold mt-2"
+                      text={
+                        claimInfo.claimTotal != null
+                          ? `$${claimInfo.claimTotal}`
+                          : ''
+                      }
+                    />
+                  )}
                 </Column>
               )}
             </section>
@@ -123,19 +143,38 @@ export const ClaimItem = ({
                   text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
                 />
               </Column>
+
               <Column className="max-md:hidden">
-                <TextBox
-                  className="body-1 font-bold mt-2"
-                  text={
-                    claimInfo.claimTotal != null
-                      ? `$${claimInfo.claimTotal}`
-                      : ''
-                  }
-                />
+                {claimInfo.columns
+                  ?.filter((column) => column.label === 'My Share')
+                  .map((column, index) => (
+                    <TextBox
+                      key={index}
+                      className="body-1 font-bold mt-2"
+                      text={
+                        getFormattedDataValue(
+                          column.value,
+                          column.defaultValue,
+                          column.isDollar ?? false,
+                        ) ?? column.defaultValue
+                      }
+                    />
+                  ))}
+
+                {!claimInfo.columns && (
+                  <TextBox
+                    className="body-1 font-bold mt-2"
+                    text={
+                      claimInfo.claimTotal != null
+                        ? `$${claimInfo.claimTotal}`
+                        : ''
+                    }
+                  />
+                )}
               </Column>
             </Row>
           )}
-          {claimInfo.columns && (
+          {claimInfo.columns && !claimInfo.isMiniCard && (
             <Row className="mt-2">
               <Column className="mr-2 flex-grow max-md:hidden">
                 <TextBox

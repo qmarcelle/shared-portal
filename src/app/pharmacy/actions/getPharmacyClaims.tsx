@@ -37,11 +37,21 @@ export async function getPharmacyClaims(
       gender: loggedInMemberInfoReq.members[0].gender,
     };
     logger.info('Calling PharmacyClaims API - Request is :: ', request);
-    const response = await esApi.post('/searchPharmacyClaims', request);
-    logger.info(`Response from PharmacyClaims API : ${response}`);
+    const resp = await esApi.post('/searchPharmacyClaims', request);
+    logger.info(`Response from PharmacyClaims API : ${resp}`);
+
+    const pharmacyResp = resp?.data?.data?.pharmacyClaims?.pharmacyClaim || [];
+
+    let claims = pharmacyResp ?? [];
+
+    if (!Array.isArray(claims)) {
+      // Extract claims array from the response
+      claims = [claims];
+    }
+
     return {
       status: 200,
-      data: response.data,
+      data: claims,
     };
   } catch (err) {
     logger.error('searchPharmacyClaims API Failed', err);

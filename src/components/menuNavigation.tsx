@@ -236,7 +236,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/member/myplan/claims',
+        url: '/claims',
         external: false,
       },
       {
@@ -478,7 +478,7 @@ export const getMenuNavigation = (
       link: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
     },
     shortLinks: [
-      { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
+      { title: 'Pharmacy Claims', link: '/claims?type=pharmacy' },
       { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
     ],
     template: {

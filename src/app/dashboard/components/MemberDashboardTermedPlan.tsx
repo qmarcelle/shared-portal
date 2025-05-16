@@ -10,7 +10,7 @@ export type DashboardProps = {
   data: DashboardData;
 };
 
-const MemberDashboardTermedPlan = ({}: DashboardProps) => {
+const MemberDashboardTermedPlan = ({ data }: DashboardProps) => {
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -20,47 +20,8 @@ const MemberDashboardTermedPlan = ({}: DashboardProps) => {
               className="large-section"
               title="Recent Claims"
               linkText="View Claims"
-              claims={[
-                {
-                  id: 'Claim98',
-                  claimStatus: 'Processed',
-                  claimType: 'Medical',
-                  claimTotal: '67',
-                  issuer: 'John Doe',
-                  memberName: 'Chris James',
-                  serviceDate: '02/06/2024',
-                  isMiniCard: true,
-                  claimInfo: {},
-                  memberId: '04',
-                  claimStatusCode: 2,
-                },
-                {
-                  id: 'Claim76',
-                  claimStatus: 'Pending',
-                  claimType: 'Pharmacy',
-                  claimTotal: '30.24',
-                  issuer: 'John Doe',
-                  memberName: 'Aly Jame',
-                  serviceDate: '01/06/2024',
-                  claimInfo: {},
-                  isMiniCard: true,
-                  memberId: '03',
-                  claimStatusCode: 2,
-                },
-                {
-                  id: 'Claim54',
-                  claimStatus: 'Denied',
-                  claimType: 'Dental',
-                  claimTotal: '65.61',
-                  issuer: 'John Doe',
-                  memberName: 'Aly Jame',
-                  serviceDate: '01/16/2024',
-                  claimInfo: {},
-                  isMiniCard: true,
-                  memberId: '08',
-                  claimStatusCode: 4,
-                },
-              ]}
+              linkUrl="/claims"
+              claimDetails={data.memberClaims}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
