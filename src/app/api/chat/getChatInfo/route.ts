@@ -232,6 +232,13 @@ export async function GET(request: NextRequest) {
 
       // Use the Ping auth token as the clickToChatToken (as per user request for testing)
       clickToChatToken: token || '', // token is from getAuthToken()
+
+      // Add Genesys Cloud configuration
+      genesysCloudConfig: {
+        deploymentId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID || '',
+        environment:
+          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
+      },
     };
 
     logger.info(

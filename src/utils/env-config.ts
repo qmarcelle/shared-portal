@@ -9,10 +9,10 @@ export const serverConfig = {
   MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT || '',
   ES_API_URL: process.env.ES_API_URL || '',
   ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL || '',
-  
+
   // Environment
   NODE_ENV: process.env.NODE_ENV || 'development',
-  
+
   // Helper method to log all config values for debugging
   logConfig: () => {
     console.log('SERVER ENV CONFIG:', {
@@ -20,22 +20,32 @@ export const serverConfig = {
       PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL,
       MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT,
       ES_API_URL: process.env.ES_API_URL,
-      ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL
+      ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL,
     });
-  }
+  },
 };
 
 // Client-side config: Only include NEXT_PUBLIC_ variables
 export const clientConfig = {
   // Make sure these are prefixed with NEXT_PUBLIC_ in your .env files
   PORTAL_URL: process.env.NEXT_PUBLIC_PORTAL_URL || '',
-  
+
+  // Genesys Cloud Configuration
+  GENESYS_CLOUD_DEPLOYMENT_ID:
+    process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID || '',
+  GENESYS_CLOUD_ENVIRONMENT:
+    process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
+
   // Helper method to log all client config values for debugging
   logConfig: () => {
     console.log('CLIENT ENV CONFIG:', {
-      PORTAL_URL: process.env.NEXT_PUBLIC_PORTAL_URL
+      PORTAL_URL: process.env.NEXT_PUBLIC_PORTAL_URL,
+      GENESYS_CLOUD_DEPLOYMENT_ID:
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID,
+      GENESYS_CLOUD_ENVIRONMENT:
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT,
     });
-  }
+  },
 };
 
 // Public environment variables that can be used in both client and server components
@@ -57,6 +67,6 @@ export function getEnvVariable(key: string, defaultValue: string = ''): string {
   if (isServer || key.startsWith('NEXT_PUBLIC_')) {
     return process.env[key] || defaultValue;
   }
-  
+
   return defaultValue;
 }
