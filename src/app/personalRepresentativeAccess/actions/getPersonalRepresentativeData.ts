@@ -87,6 +87,7 @@ const computeMemberData = async (item: RelatedPerson) => {
     requesteeUMPID: item.relatedPersonUMPID,
     accessStatus: item.name,
     accessStatusIsPending: false,
+    createdAt: item.createdAt,
   };
 };
 
@@ -114,6 +115,7 @@ const computePRProfile = (
       policyId: item.policyId,
       firstName: item.relatedPersonFirstName,
       lastName: item.relatedPersonLastName,
+      createdAt: item.createdAt,
     }),
   );
   return representativesData;

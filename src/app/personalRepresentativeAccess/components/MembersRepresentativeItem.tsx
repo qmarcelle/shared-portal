@@ -14,7 +14,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import { formatDateToLocale } from '@/utils/date_formatter';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -48,6 +47,7 @@ interface MembersRepresentativeItemProps extends IComponent {
   onInviteSuccessCallBack: () => void;
   pendingIcon?: JSX.Element;
   allowUpdates?: boolean;
+  createdAt?: string;
 }
 
 export const MembersRepresentativeItem = ({
@@ -77,16 +77,16 @@ export const MembersRepresentativeItem = ({
   icon1 = <Image src={inboxIcon} alt="link" />,
   pendingIcon = <Image src={pendingLogo} alt="link" />,
   allowUpdates = true,
+  createdAt,
 }: MembersRepresentativeItemProps) => {
   const { showAppModal } = useAppModalStore();
-  const currentDate: string = formatDateToLocale(new Date());
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
           <TextBox
             className="pt-1 ml-1"
-            text={`Basic Access as of ${currentDate}`}
+            text={`Basic Access as of ${createdAt}`}
           />
           <Spacer axis="horizontal" size={32} />
         </Row>
@@ -147,7 +147,7 @@ export const MembersRepresentativeItem = ({
             <Row>
               <TextBox
                 className="ml-2"
-                text={`Basic Access as of ${currentDate}`}
+                text={`Basic Access as of ${createdAt}`}
               />
               <Spacer size={42} />
             </Row>
@@ -232,11 +232,7 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          {isMatureMinor ? (
-            <TextBox className="font-bold body-1" text="[Mature Minor]" />
-          ) : (
-            <TextBox className="font-bold body-1" text={memberName} />
-          )}
+          <TextBox className="font-bold body-1" text={memberName} />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />

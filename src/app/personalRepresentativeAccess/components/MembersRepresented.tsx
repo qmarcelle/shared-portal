@@ -91,6 +91,7 @@ export const MembersRepresented = ({
               firstName={item.firstName}
               lastName={item.lastName}
               isMatureMinor={item.isMatureMinor}
+              createdAt={item.createdAt}
             />
           ))}
         </Column>
