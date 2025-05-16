@@ -18,6 +18,7 @@
  *
  * Logging: All significant state changes, API calls, and errors are logged for traceability and debugging.
  */
+import { serverConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { getChatInfo } from '../api';
@@ -139,9 +140,15 @@ interface ChatData {
     isOpen: boolean;
     text: string;
   };
+  workingHours?: string;
+  userData?: Record<string, string>;
+  formInputs?: { id: string; value: string }[];
+  rawChatHrs?: string;
+  genesysCloudConfig?: {
+    deploymentId: string;
+    environment: string;
+  };
   routingInteractionId?: string;
-  userData: Record<string, string>;
-  formInputs: { id: string; value: string }[];
 }
 
 // Selectors for derived state - these don't cause re-renders when other state changes
@@ -168,9 +175,27 @@ export const chatConfigSelectors = {
     state.config.chatData?.routingInteractionId,
   userData: (state: ChatState) => state.config.chatData?.userData || {},
   formInputs: (state: ChatState) => state.config.chatData?.formInputs || [],
-  isChatEnabled: (state: ChatState) =>
-    (state.config.chatData?.isEligible || false) &&
-    state.config.chatData?.chatAvailable !== false,
+  isChatEnabled: (state: ChatState) => {
+    const baseEligibility =
+      state.config.chatData?.isEligible === true &&
+      state.config.chatData?.chatAvailable === true;
+
+    if (state.config.chatData?.cloudChatEligible) {
+      return baseEligibility;
+    }
+    const pbeConsentIsRequiredByConfig =
+      (serverConfig as any).PBE_CONSENT_REQUIRED_FOR_CHAT === true;
+
+    if (pbeConsentIsRequiredByConfig && !state.config.hasConsent) {
+      logger.info(
+        `${LOG_CONFIG_PREFIX} Chat disabled: PBE consent required and not granted for legacy mode.`,
+      );
+      return false;
+    }
+    return baseEligibility;
+  },
+  genesysCloudDeploymentConfig: (state: ChatState) =>
+    state.config.chatData?.genesysCloudConfig,
 };
 
 export const chatSessionSelectors = {
@@ -583,44 +608,53 @@ export const useChatStore = create<ChatState>((set, get) => {
               config: finalGenesysConfig,
             });
 
-            // 5. Determine overall chat eligibility and availability
-            // Ensure correct boolean check, not string comparison
-            const isEligible =
-              finalGenesysConfig.isChatEligibleMember === true ||
-              String(finalGenesysConfig.isChatEligibleMember).toLowerCase() ===
-                'true';
-            const chatAvailable =
-              finalGenesysConfig.isChatAvailable === true ||
-              String(finalGenesysConfig.isChatAvailable).toLowerCase() ===
-                'true';
-            const determinedChatGroup = rawApiDataForConfig?.chatGroup || ''; // Get chatGroup from API response
+            // For testing Genesys Cloud, we'll hardcode these.
+            // In a real scenario, these would come from a secure config source or the API.
+            const genesysCloudDeploymentId =
+              '52dd824c-f565-47a6-a6d5-f30d81c97491'; // From your script snippet
+            const genesysCloudEnvironment = 'prod-usw2'; // From your script snippet
 
-            // 6. Update store
-            set((state) => ({
+            // 5. Determine overall chat eligibility and availability
+            const isEligible = finalGenesysConfig.isChatEligibleMember === true;
+            const chatAvailable = finalGenesysConfig.isChatAvailable === true;
+
+            const cloudChatEligibleForTesting = true;
+
+            // finalGenesysConfig should have isChatAvailable (boolean) and chatHours (string)
+            // These are typically populated by buildGenesysChatConfig based on API response and env vars.
+            const rawWorkingHours = finalGenesysConfig.workingHours; // This is already a string or undefined
+
+            set({
               config: {
-                ...state.config,
+                isLoading: false,
+                error: null,
                 genesysChatConfig: finalGenesysConfig,
                 chatData: {
-                  isEligible: isEligible,
-                  cloudChatEligible: finalGenesysConfig.chatMode === 'cloud',
-                  chatAvailable: chatAvailable,
-                  chatGroup: determinedChatGroup, // Use chatGroup from API data
+                  ...rawApiDataForConfig, // Spread raw API data first
+                  isEligible: finalGenesysConfig.isChatEligibleMember === true, // Ensure boolean
+                  chatAvailable: finalGenesysConfig.isChatAvailable === true, // Ensure boolean
+                  cloudChatEligible: cloudChatEligibleForTesting,
+                  workingHours: rawWorkingHours, // Store the raw string (e.g. M_F_8_17)
                   businessHours: {
-                    isOpen: chatAvailable, // Or map more specifically from finalGenesysConfig.chatHours
-                    text: finalGenesysConfig.chatHours || '',
+                    isOpen: finalGenesysConfig.isChatAvailable === true,
+                    text: finalGenesysConfig.chatHours || 'Hours unavailable',
                   },
-                  userData: {}, // Populate based on userContext or finalGenesysConfig
-                  formInputs: [], // Populate if applicable
+                  genesysCloudConfig: cloudChatEligibleForTesting
+                    ? {
+                        deploymentId: genesysCloudDeploymentId,
+                        environment: genesysCloudEnvironment,
+                      }
+                    : undefined,
+                  userData: finalGenesysConfig.userData || {},
+                  formInputs: finalGenesysConfig.formInputs || [],
                   routingInteractionId:
-                    rawApiDataForConfig?.routingInteractionId, // Example
+                    rawApiDataForConfig?.routingInteractionId as
+                      | string
+                      | undefined,
                 },
-                chatConfig: parsedChatInfo.success
-                  ? parsedChatInfo.data
-                  : undefined,
                 hasConsent: pbeConsent,
-                error: pbeError, // Or combine with other errors
               },
-            }));
+            });
             logger.info(
               `${LOG_CONFIG_PREFIX} Chat store updated with new configuration.`,
             );

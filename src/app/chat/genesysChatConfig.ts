@@ -71,6 +71,8 @@ export interface GenesysChatConfig {
   chatbotEligible?: boolean | string;
   /** API/eligibility logic: Is medical advantage group */
   isMedicalAdvantageGroup?: boolean | string;
+  /** API/static config: Chat working hours (e.g., 'S_S_24', 'M_F_8_17') */
+  workingHours?: string;
   /** API/static config: Chat hours (display) */
   chatHours: string;
   /** API/static config: Raw chat hours (e.g. '8_17') */
@@ -109,6 +111,10 @@ export interface GenesysChatConfig {
   audioAlertPath?: string;
   /** Timestamp for debugging and tracing */
   timestamp?: string;
+  /** Data to pre-populate in the chat widget, typically user-specific. */
+  userData?: Record<string, string>;
+  /** Form inputs for pre-chat or offline forms, if applicable. */
+  formInputs?: { id: string; value: string }[];
   // ...any other custom fields from JSP mapping
 }
 
