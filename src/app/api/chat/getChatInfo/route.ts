@@ -123,6 +123,19 @@ export async function GET(request: NextRequest) {
     let data;
     try {
       data = await response.json();
+      // Log the raw data received from the member service to inspect its structure
+      logger.info('[API:chat/getChatInfo] Raw data from member service:', {
+        correlationId,
+        rawDataFromService: data, // Log the entire data object
+      });
+      // eslint-disable-next-line no-console
+      console.log(
+        '[API:chat/getChatInfo] Raw data from member service (console):',
+        {
+          correlationId,
+          rawDataFromService: data, // Log the entire data object via console too
+        },
+      );
     } catch (e) {
       // If response is not JSON, try to get text
       const textResponse = await response.text();
