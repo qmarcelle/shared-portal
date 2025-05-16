@@ -18,8 +18,6 @@
  *
  * Logging: All significant state changes, API calls, and errors are logged for traceability and debugging.
  */
-import { ConsentDetail, PBEData } from '@/models/member/api/pbeData';
-import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { getChatInfo } from '../api';
@@ -172,8 +170,7 @@ export const chatConfigSelectors = {
   formInputs: (state: ChatState) => state.config.chatData?.formInputs || [],
   isChatEnabled: (state: ChatState) =>
     (state.config.chatData?.isEligible || false) &&
-    state.config.chatData?.chatAvailable !== false &&
-    state.config.hasConsent,
+    state.config.chatData?.chatAvailable !== false,
 };
 
 export const chatSessionSelectors = {
@@ -498,7 +495,8 @@ export const useChatStore = create<ChatState>((set, get) => {
             }
             const rawApiDataForConfig = chatInfoResponse; // Use original response for flexibility in buildGenesysChatConfig
 
-            // 3. Fetch PBE Consent
+            // 3. Fetch PBE Consent (COMMENTED OUT)
+            /*
             let pbeConsent = true; // Default consent
             let pbeError = null;
             const userIdForPBE = userContext?.subscriberId || String(memberId);
@@ -537,7 +535,7 @@ export const useChatStore = create<ChatState>((set, get) => {
                     // Add specific chat consent identifier if available and needed for filtering
                   );
                   pbeConsent = !!validChatConsent;
-                  logger.info(`${LOG_CONFIG_PREFIX} PBE consent fetched:`, {
+                  logger.info(${LOG_CONFIG_PREFIX} PBE consent fetched:, {
                     consent: pbeConsent,
                     foundConsentDetail: validChatConsent, // Log the found detail
                   });
@@ -567,6 +565,10 @@ export const useChatStore = create<ChatState>((set, get) => {
               );
               pbeConsent = false;
             }
+            */
+            // Ensure pbeConsent is true if the block above is commented out, so it doesn't affect later logic if hasConsent is used elsewhere.
+            const pbeConsent = true; // Defaulting to true as PBE check is bypassed
+            const pbeError = null; // Defaulting to null
 
             // 4. Build the final GenesysChatConfig DTO
             // Ensure userContext and planContext passed to buildGenesysChatConfig are of the expected types
