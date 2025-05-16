@@ -86,7 +86,10 @@ export default function ClientLayout({
     logger.info(
       '[ClientLayout] Session useEffect triggered. Checking conditions for loadChatConfiguration.',
     );
-    logger.info('[ClientLayout] Session object:', session);
+    logger.info('[ClientLayout] Session object (full):', session);
+    if (session?.user) {
+      logger.info('[ClientLayout] Session user object:', session.user);
+    }
 
     if (session?.user?.currUsr?.plan) {
       logger.info(
