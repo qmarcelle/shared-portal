@@ -36,12 +36,18 @@ export const serverConfig: ServerConfig = validateConfig(
   ServerConfigSchema,
   {
     portalServices: {
-      url: process.env.PORTAL_SERVICES_URL || '',
-      memberServiceRoot: process.env.MEMBERSERVICE_CONTEXT_ROOT || '',
+      url: process.env.PORTAL_SERVICES_URL
+        ? process.env.PORTAL_SERVICES_URL.trim()
+        : '',
+      memberServiceRoot: process.env.MEMBERSERVICE_CONTEXT_ROOT
+        ? process.env.MEMBERSERVICE_CONTEXT_ROOT.trim()
+        : '',
     },
     elasticSearch: {
-      apiUrl: process.env.ES_API_URL || '',
-      portalServicesApiUrl: process.env.ES_PORTAL_SVCS_API_URL || '',
+      apiUrl: process.env.ES_API_URL ? process.env.ES_API_URL.trim() : '',
+      portalServicesApiUrl: process.env.ES_PORTAL_SVCS_API_URL
+        ? process.env.ES_PORTAL_SVCS_API_URL.trim()
+        : '',
     },
   },
   'server',

@@ -17,14 +17,57 @@ export const ClientConfigSchema = z.object({
 
 export const ServerConfigSchema = z.object({
   portalServices: z.object({
-    url: z.string().url('Portal services URL must be a valid URL'),
+    url: z
+      .string()
+      .min(1, 'Portal services URL is required')
+      .refine((value) => {
+        try {
+          // Allow for relative URLs or properly formatted absolute URLs
+          if (value.startsWith('/') || value.startsWith('http')) {
+            return true;
+          }
+          // Try to create a URL object to validate
+          new URL(value.includes('://') ? value : `https://${value}`);
+          return true;
+        } catch {
+          return false;
+        }
+      }, 'Portal services URL must be a valid URL'),
     memberServiceRoot: z.string().min(1, 'Member service root is required'),
   }),
   elasticSearch: z.object({
-    apiUrl: z.string().url('Elastic Search API URL must be a valid URL'),
+    apiUrl: z
+      .string()
+      .min(1, 'Elastic Search API URL is required')
+      .refine((value) => {
+        try {
+          // Allow for relative URLs or properly formatted absolute URLs
+          if (value.startsWith('/') || value.startsWith('http')) {
+            return true;
+          }
+          // Try to create a URL object to validate
+          new URL(value.includes('://') ? value : `https://${value}`);
+          return true;
+        } catch {
+          return false;
+        }
+      }, 'Elastic Search API URL must be a valid URL'),
     portalServicesApiUrl: z
       .string()
-      .url('Portal services API URL must be a valid URL'),
+      .min(1, 'Portal services API URL is required')
+      .refine((value) => {
+        try {
+          // Allow for relative URLs or properly formatted absolute URLs
+          if (value.startsWith('/') || value.startsWith('http')) {
+            return true;
+          }
+          // Try to create a URL object to validate
+          new URL(value.includes('://') ? value : `https://${value}`);
+          return true;
+        } catch {
+          return false;
+        }
+      }, 'Portal services API URL must be a valid URL'),
   }),
 });
 
