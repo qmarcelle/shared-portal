@@ -18,6 +18,12 @@
  * - Optionally displays a visual status indicator.
  */
 
+import {
+  ChatLoadingState,
+  markScriptLoadComplete,
+  markScriptLoadStarted,
+  shouldLoadScripts,
+} from '@/app/chat/utils/chatSequentialLoader';
 import { GenesysConfig } from '@/types/config';
 import { logger } from '@/utils/logger';
 import React, {
@@ -38,10 +44,7 @@ const LOG_PREFIX = '[GenesysScriptLoader]';
 // Static loading tracker to prevent multiple initializations
 // This persists across component instances
 const GenesysLoadingState = {
-  isInitialized: false,
-  isLoading: false,
-  isLoaded: false,
-  error: null as Error | null,
+  scriptLoaded: false,
   scriptId: 'genesys-chat-script',
   cssIds: [] as string[],
 };
@@ -176,11 +179,9 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       cloudConfigProp: cloudConfig,
       showStatus,
       chatMode,
-      existingStatus: GenesysLoadingState.isLoaded
+      existingStatus: ChatLoadingState.scriptState.isComplete
         ? 'already-loaded'
-        : GenesysLoadingState.isLoading
-          ? 'already-loading'
-          : 'not-started',
+        : 'not-started',
     });
 
     // Determine effective URLs based on chat mode
@@ -267,6 +268,9 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           // Or, we could pass a full config object to be applied here.
 
           setStatus('loaded');
+          // Update the sequential loading state
+          markScriptLoadComplete(true);
+
           logger.info(
             `${LOG_PREFIX} Status set to LOADED. Calling onLoad callback.`,
           );
@@ -285,6 +289,10 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             const errMsg =
               'Timeout waiting for chat widget initialization after script load.';
             setErrorMessage(errMsg);
+
+            // Mark as failed in the sequential loader
+            markScriptLoadComplete(false);
+
             logger.warn(`${LOG_PREFIX} ${errMsg}. Calling onError callback.`);
             if (onError) onError(new Error(errMsg));
           }
@@ -299,9 +307,26 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       };
 
       checkFn(); // Start the first check
-    }, [onLoad, onError, status]); // Added status to dependencies
+    }, [onLoad, onError, status, chatMode]); // Added chatMode to dependencies
 
     const loadScript = useCallback(async () => {
+      // First check if we should load scripts based on our sequential loader state
+      if (!shouldLoadScripts()) {
+        logger.info(
+          `${LOG_PREFIX} Script loading skipped based on sequential loader state.`,
+        );
+
+        // If scripts are already loaded successfully, call onLoad
+        if (ChatLoadingState.scriptState.isComplete) {
+          logger.info(
+            `${LOG_PREFIX} Scripts already loaded, calling onLoad callback.`,
+          );
+          if (onLoad) onLoad();
+        }
+
+        return;
+      }
+
       if (initialized.current && status !== 'idle') {
         // Allow re-entry if idle (e.g. prop change)
         logger.info(
@@ -309,21 +334,13 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         );
         return;
       }
-      // If not idle, but initialized.current is true, it means a previous attempt might have started.
-      // Resetting initialized.current only if idle allows a fresh attempt if props change and component re-evaluates.
-      if (status === 'idle') {
-        initialized.current = false;
-      }
 
-      // Added to prevent re-entry if already loading/loaded/error unless idle.
-      if (initialized.current && status !== 'idle') {
-        logger.info(
-          `${LOG_PREFIX} loadScript: Script loading process already initiated or completed (status: ${status}). Preventing re-entry.`,
-        );
-        return;
-      }
+      // Mark as initialized for this attempt
+      initialized.current = true;
 
-      initialized.current = true; // Mark as initialized for this attempt
+      // Update sequential loader state
+      markScriptLoadStarted();
+
       logger.info(
         `${LOG_PREFIX} loadScript: Starting script loading sequence. Current status: ${status}`,
       );
@@ -398,22 +415,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           `${LOG_PREFIX} Attempting to load main script for ${chatMode} mode: ${effectiveScriptUrl}`,
         );
 
-        let scriptElement: HTMLScriptElement;
+        const scriptElement: HTMLScriptElement =
+          document.createElement('script');
 
         if (chatMode === 'cloud') {
-          if (!cloudConfig?.deploymentId || !cloudConfig?.environment) {
-            const errMsg =
-              'Genesys Cloud mode requires deploymentId and environment in cloudConfig.';
-            logger.error(`${LOG_PREFIX} ${errMsg}`);
-            setStatus('error');
-            setErrorMessage(errMsg);
-            if (onError) onError(new Error(errMsg));
-            initialized.current = false; // Allow retry if props change
-            return;
-          }
-          // For Genesys Cloud, we create the script tag with embedded configuration
-          // as shown in the user-provided snippet.
-          const scriptContent = `
+          // Cloud mode script setup
+          scriptElement.id = 'genesys-cloud-bootstrap-script';
+          scriptElement.type = 'text/javascript';
+          scriptElement.charset = 'utf-8';
+          scriptElement.textContent = `
             (function (g, e, n, es, ys) {
               g['_genesysJs'] = e;
               g[e] = g[e] || function () {
@@ -423,63 +433,50 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               g[e].c = es;
               ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
             })(window, 'Genesys', '${effectiveScriptUrl}', {
-              environment: '${cloudConfig.environment}',
-              deploymentId: '${cloudConfig.deploymentId}'
+              environment: '${cloudConfig?.environment || ''}',
+              deploymentId: '${cloudConfig?.deploymentId || ''}'
             });
           `;
-          scriptElement = document.createElement('script');
-          scriptElement.id = 'genesys-cloud-bootstrap-script';
-          scriptElement.type = 'text/javascript';
-          scriptElement.charset = 'utf-8';
-          scriptElement.textContent = scriptContent;
-
-          // The actual script loading (genesys.min.js) is handled *by* this bootstrap code.
-          // So, the 'onload' for this inline script means the bootstrap is added.
-          // Readiness of genesys.min.js is then polled by checkReadyWithBackoff.
         } else {
           // Legacy mode
-          scriptElement = document.createElement('script');
           scriptElement.src = effectiveScriptUrl;
-          scriptElement.id = 'genesys-chat-script'; // Legacy ID
-          scriptElement.async = false; // Legacy mode often requires sync
+          scriptElement.id = 'genesys-chat-script';
+          scriptElement.async = false;
         }
 
         scriptElement.onload = () => {
           logger.info(
-            `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode. Source/Content: ${scriptElement.src || 'inline_bootstrap_script'}`,
+            `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode.`,
           );
+
           setStatus('polling-ready');
           logger.info(
-            `${LOG_PREFIX} Script processed. Now polling for widget readiness (checkReadyWithBackoff).`,
+            `${LOG_PREFIX} Script processed. Now polling for widget readiness.`,
           );
           checkReadyWithBackoff();
         };
 
         scriptElement.onerror = (e) => {
-          const errMsg = `Main Genesys script element failed for ${chatMode} mode. Source/Content: ${scriptElement.src || 'inline_bootstrap_script'}`;
+          const errMsg = `Main Genesys script element failed for ${chatMode} mode.`;
           logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
           setStatus('error');
           setErrorMessage(errMsg);
+
+          // Mark as failed in the sequential loader
+          markScriptLoadComplete(false);
+
           if (onError) onError(new Error(errMsg));
-          initialized.current = false; // Allow retry
         };
 
-        const existingScriptId =
-          chatMode === 'cloud'
-            ? 'genesys-cloud-bootstrap-script'
-            : 'genesys-chat-script';
-        const existingScript = document.getElementById(existingScriptId);
+        // Remove existing script if present
+        const existingScript = document.getElementById('genesys-chat-script');
         if (existingScript) {
-          logger.info(
-            `${LOG_PREFIX} Removing existing script: ${existingScriptId}`,
-          );
+          logger.info(`${LOG_PREFIX} Removing existing script.`);
           existingScript.remove();
         }
 
-        document.head.appendChild(scriptElement); // Append to head for cloud, can be body for legacy
-        logger.info(
-          `${LOG_PREFIX} Added script element to ${chatMode === 'cloud' ? 'head' : 'body'}: ${scriptElement.id}`,
-        );
+        document.head.appendChild(scriptElement);
+        logger.info(`${LOG_PREFIX} Added script element: ${scriptElement.id}`);
       } catch (err: any) {
         logger.error(`${LOG_PREFIX} Error in loadScript sequence:`, {
           message: err?.message,
@@ -489,10 +486,24 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         setErrorMessage(
           err?.message || 'An unknown error occurred during script loading.',
         );
+
+        // Mark as failed in the sequential loader
+        markScriptLoadComplete(false);
+
         if (onError)
           onError(err instanceof Error ? err : new Error(String(err)));
       }
-    }, [chatMode, effectiveScriptUrl, stableCssUrls, onLoad, onError, status]); // Added status to deps of loadScript
+    }, [
+      chatMode,
+      effectiveScriptUrl,
+      stableCssUrls,
+      legacyConfig,
+      cloudConfig,
+      onLoad,
+      onError,
+      status,
+      checkReadyWithBackoff,
+    ]);
 
     // Error handling function
     const handleError = useCallback(
@@ -502,195 +513,53 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         logger.error(`${LOG_PREFIX} Error:`, { message, error });
         setStatus('error');
         setErrorMessage(message);
+
+        // Mark as failed in the sequential loader
+        markScriptLoadComplete(false);
+
         if (onError) onError(error);
       },
       [onError],
     );
 
-    // For cloud mode, inject the initialization script
-    const injectCloudScript = useCallback(() => {
-      if (chatMode !== 'cloud' || !cloudConfig) return;
-
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.charset = 'utf-8';
-      script.textContent = `
-        (function (g, e, n, es, ys) {
-          g['_genesysJs'] = e;
-          g[e] = g[e] || function () {
-            (g[e].q = g[e].q || []).push(arguments)
-          };
-          g[e].t = 1 * new Date();
-          g[e].c = es;
-          ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-        })(window, 'Genesys', '${effectiveScriptUrl}', {
-          environment: '${cloudConfig.environment}',
-          deploymentId: '${cloudConfig.deploymentId}'
-        });
-
-        // Set up database subscription for custom attributes
-        Genesys("subscribe", "Database.ready", function () {
-          console.log("Database plugin is ready.");
-          Genesys("command", "Database.set", {
-            messaging: {
-              customAttributes: ${JSON.stringify(cloudConfig.customAttributes || {})}
-            }
-          });
-        });
-      `;
-
-      document.head.appendChild(script);
-      logger.info(`${LOG_PREFIX} Injected Genesys Cloud initialization script`);
-    }, [chatMode, cloudConfig, effectiveScriptUrl]);
-
     // Initialization logic
     useEffect(() => {
-      // Don't re-initialize if already done
-      if (initialized.current) {
+      // Check if scripts are already loaded according to our sequential loader
+      if (ChatLoadingState.scriptState.isComplete) {
         logger.info(
-          `${LOG_PREFIX} Component already initialized this instance, skipping.`,
-        );
-        return;
-      }
-
-      // Check global state first
-      if (GenesysLoadingState.isLoaded) {
-        logger.info(
-          `${LOG_PREFIX} Genesys already fully loaded in another instance, skipping initialization.`,
+          `${LOG_PREFIX} Scripts already loaded according to ChatLoadingState, skipping initialization.`,
         );
         setStatus('loaded');
         if (onLoad) onLoad();
         return;
       }
 
-      if (GenesysLoadingState.isLoading) {
+      // If scripts are currently loading in another component instance, wait
+      if (ChatLoadingState.scriptState.isLoading) {
         logger.info(
-          `${LOG_PREFIX} Genesys already loading in another instance, waiting for it to complete.`,
+          `${LOG_PREFIX} Scripts already loading in another instance, waiting.`,
         );
-        // Start polling to check when it completes
-        const checkLoaded = setInterval(() => {
-          if (GenesysLoadingState.isLoaded) {
-            clearInterval(checkLoaded);
-            setStatus('loaded');
-            if (onLoad) onLoad();
-          } else if (GenesysLoadingState.error) {
-            clearInterval(checkLoaded);
-            setStatus('error');
-            setErrorMessage(GenesysLoadingState.error.message);
-            if (onError) onError(GenesysLoadingState.error);
-          }
-        }, 200);
-        return () => clearInterval(checkLoaded);
+        return;
       }
 
-      // If we get here, we're the first one - mark as loading globally
-      GenesysLoadingState.isLoading = true;
-      initialized.current = true;
-
-      // The rest of the init function (add guard at the start)
-      const init = async () => {
-        try {
-          // Check if script already exists
-          if (document.getElementById(GenesysLoadingState.scriptId)) {
-            logger.info(
-              `${LOG_PREFIX} Script already exists in DOM, skipping loading.`,
-            );
-            GenesysLoadingState.isLoaded = true;
-            setStatus('loaded');
-            if (onLoad) onLoad();
-            return;
-          }
-
-          // Always add resource hints first
-          addResourceHints();
-
-          // Load CSS files if needed
-          if (effectiveCssUrls.length > 0) {
-            setStatus('loading-css');
-            await loadScript();
-          }
-
-          setStatus('setting-config');
-          if (chatMode === 'cloud') {
-            // Cloud mode initialization
-            injectCloudScript();
-          } else {
-            // Legacy mode initialization
-            window.chatSettings = legacyConfig;
-            setStatus('loading-script');
-            await loadScript();
-          }
-
-          setStatus('polling-ready');
-          checkReadyWithBackoff();
-        } catch (error: any) {
-          logger.error(`${LOG_PREFIX} Error in initialization:`, {
-            message: error?.message,
-            stack: error?.stack,
-          });
-          GenesysLoadingState.error = error;
-          GenesysLoadingState.isLoading = false;
-          setStatus('error');
-          setErrorMessage(error?.message || 'Unknown error in initialization');
-          if (onError) onError(error);
-        }
-      };
-
-      init();
+      // This instance will handle initialization if allowed by sequential loader
+      if (shouldLoadScripts()) {
+        logger.info(
+          `${LOG_PREFIX} Ready to initialize scripts based on sequential loader state.`,
+        );
+        loadScript();
+      } else {
+        logger.info(
+          `${LOG_PREFIX} Scripts loading not allowed by sequential loader state.`,
+        );
+      }
 
       return () => {
         if (checkIntervalRef.current) {
           clearTimeout(checkIntervalRef.current);
         }
       };
-    }, [
-      effectiveCssUrls,
-      effectiveScriptUrl,
-      legacyConfig,
-      chatMode,
-      injectCloudScript,
-      checkReadyWithBackoff,
-      handleError,
-      loadScript,
-    ]);
-
-    useEffect(() => {
-      logger.info(
-        `${LOG_PREFIX} useEffect for loadScript triggered. Status: ${status}. Config available: ${!!legacyConfig || !!cloudConfig}`,
-      );
-
-      const timerId = setTimeout(() => {
-        // Only attempt to load script if config is available and we haven't had a terminal error
-        if (
-          (legacyConfig && Object.keys(legacyConfig).length > 0) ||
-          (cloudConfig && Object.keys(cloudConfig).length > 0)
-        ) {
-          logger.info(
-            `${LOG_PREFIX} Config is available. Calling loadScript (after delay).`,
-          );
-          loadScript();
-        } else if (!legacyConfig && !cloudConfig) {
-          logger.warn(
-            `${LOG_PREFIX} Config not available or empty. Deferring loadScript (after delay).`,
-          );
-        } else {
-          logger.info(
-            `${LOG_PREFIX} loadScript not called (after delay). Status: ${status}, Config available: ${!!legacyConfig || !!cloudConfig}`,
-          );
-        }
-      }, 500); // Introduce a 500ms delay, adjust as needed
-
-      // Cleanup polling interval and the new timer on component unmount or if dependencies change
-      return () => {
-        clearTimeout(timerId); // Clear the timeout
-        if (checkIntervalRef.current) {
-          logger.info(
-            `${LOG_PREFIX} useEffect: Cleaning up polling timer on unmount.`,
-          );
-          clearTimeout(checkIntervalRef.current);
-        }
-      };
-    }, [loadScript, status]); // Added status to dependencies
+    }, [loadScript, onLoad, shouldLoadScripts, checkIntervalRef]);
 
     if (!showStatus) {
       return null; // Render nothing if status indicator is hidden

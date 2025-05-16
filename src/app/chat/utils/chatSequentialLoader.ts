@@ -1,0 +1,208 @@
+import { logger } from '@/utils/logger';
+
+/**
+ * ChatSequentialLoader
+ *
+ * This utility manages the sequential loading of chat resources, prevents race conditions,
+ * and ensures resources are loaded only once.
+ */
+
+// Static state for tracking loading progress across all component instances
+export const ChatLoadingState = {
+  // Global initialization state - prevents multiple app-level initializations
+  isInitialized: false,
+
+  // API state - tracks if getChatInfo has been called and completed
+  apiState: {
+    isFetching: false,
+    isComplete: false,
+    isEligible: false,
+    chatMode: null as 'legacy' | 'cloud' | null,
+    lastFetchTimestamp: 0,
+  },
+
+  // Script loading state - tracks script loading
+  scriptState: {
+    isLoading: false,
+    isComplete: false,
+    loadAttempts: 0,
+    lastAttemptTimestamp: 0,
+  },
+
+  // DOM state - tracks DOM elements like chat buttons, links, etc.
+  domState: {
+    linksEnhanced: false,
+    buttonCount: 0,
+    lastUpdateTimestamp: 0,
+  },
+};
+
+// Time constants (in milliseconds)
+const TIME_CONSTANTS = {
+  // Minimum time between API refresh calls
+  MIN_API_REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes
+
+  // How long to wait for scripts to load before retrying
+  SCRIPT_LOAD_TIMEOUT: 10 * 1000, // 10 seconds
+
+  // Maximum retries for failed script loads
+  MAX_SCRIPT_LOAD_ATTEMPTS: 3,
+
+  // Delay between initialization phases
+  PHASE_DELAY: 300, // 300ms between phases for smoother loading
+};
+
+/**
+ * Checks if we should fetch the API data again
+ */
+export function shouldRefreshChatConfig(): boolean {
+  const { apiState } = ChatLoadingState;
+  const now = Date.now();
+
+  // If never fetched, or sufficient time has passed since last fetch
+  return (
+    !apiState.isComplete ||
+    now - apiState.lastFetchTimestamp > TIME_CONSTANTS.MIN_API_REFRESH_INTERVAL
+  );
+}
+
+/**
+ * Marks the API fetch as started
+ */
+export function markApiCallStarted(): void {
+  logger.info('[ChatSequentialLoader] API call started');
+  ChatLoadingState.apiState.isFetching = true;
+}
+
+/**
+ * Updates the API state with results from getChatInfo
+ */
+export function updateApiState(
+  isEligible: boolean,
+  chatMode: 'legacy' | 'cloud',
+): void {
+  logger.info('[ChatSequentialLoader] API call completed', {
+    isEligible,
+    chatMode,
+  });
+
+  ChatLoadingState.apiState = {
+    isFetching: false,
+    isComplete: true,
+    isEligible,
+    chatMode,
+    lastFetchTimestamp: Date.now(),
+  };
+}
+
+/**
+ * Checks if we should load the chat scripts based on API eligibility
+ */
+export function shouldLoadScripts(): boolean {
+  const { apiState, scriptState } = ChatLoadingState;
+
+  // Only load scripts if:
+  // 1. API call is complete
+  // 2. User is eligible for chat
+  // 3. Scripts haven't been successfully loaded yet
+  // 4. We haven't exceeded max retry attempts
+  return (
+    apiState.isComplete &&
+    apiState.isEligible &&
+    !scriptState.isComplete &&
+    scriptState.loadAttempts < TIME_CONSTANTS.MAX_SCRIPT_LOAD_ATTEMPTS
+  );
+}
+
+/**
+ * Marks script loading as started
+ */
+export function markScriptLoadStarted(): void {
+  logger.info('[ChatSequentialLoader] Script loading started');
+
+  ChatLoadingState.scriptState.isLoading = true;
+  ChatLoadingState.scriptState.loadAttempts += 1;
+  ChatLoadingState.scriptState.lastAttemptTimestamp = Date.now();
+}
+
+/**
+ * Marks script loading as complete
+ */
+export function markScriptLoadComplete(success: boolean): void {
+  logger.info('[ChatSequentialLoader] Script loading completed', { success });
+
+  ChatLoadingState.scriptState.isLoading = false;
+  ChatLoadingState.scriptState.isComplete = success;
+}
+
+/**
+ * Checks if a chat initialization has timed out and should be retried
+ */
+export function hasScriptLoadTimedOut(): boolean {
+  const { scriptState } = ChatLoadingState;
+  const now = Date.now();
+
+  return (
+    scriptState.isLoading &&
+    now - scriptState.lastAttemptTimestamp > TIME_CONSTANTS.SCRIPT_LOAD_TIMEOUT
+  );
+}
+
+/**
+ * Marks DOM enhancement (buttons, links) as complete
+ */
+export function markDomEnhancementComplete(buttonCount: number): void {
+  logger.info('[ChatSequentialLoader] DOM enhancement completed', {
+    buttonCount,
+  });
+
+  ChatLoadingState.domState = {
+    linksEnhanced: true,
+    buttonCount,
+    lastUpdateTimestamp: Date.now(),
+  };
+}
+
+/**
+ * Main initialization function that ensures sequential loading
+ * Returns whether initialization was started
+ */
+export function initializeChatSequentially(): boolean {
+  // If already initialized or initializing, don't start again
+  if (ChatLoadingState.isInitialized) {
+    logger.info('[ChatSequentialLoader] Chat already initialized, skipping');
+    return false;
+  }
+
+  logger.info('[ChatSequentialLoader] Starting sequential initialization');
+  ChatLoadingState.isInitialized = true;
+  return true;
+}
+
+/**
+ * Resets the loader state - useful for testing or forced reinitialization
+ * Should be used carefully in production
+ */
+export function resetChatLoader(): void {
+  logger.info('[ChatSequentialLoader] Resetting chat loader state');
+
+  ChatLoadingState.isInitialized = false;
+  ChatLoadingState.apiState = {
+    isFetching: false,
+    isComplete: false,
+    isEligible: false,
+    chatMode: null,
+    lastFetchTimestamp: 0,
+  };
+  ChatLoadingState.scriptState = {
+    isLoading: false,
+    isComplete: false,
+    loadAttempts: 0,
+    lastAttemptTimestamp: 0,
+  };
+  ChatLoadingState.domState = {
+    linksEnhanced: false,
+    buttonCount: 0,
+    lastUpdateTimestamp: 0,
+  };
+}

@@ -2,6 +2,8 @@
 
 import { ChatClientEntry } from '@/app/chat/components';
 import { registerGlobalChatOpener } from '@/app/chat/utils/chatOpenHelpers';
+import { initializeChatSequentially } from '@/app/chat/utils/chatSequentialLoader';
+import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
 import { chatConfigSelectors, useChatStore } from './chat/stores/chatStore';
@@ -20,28 +22,40 @@ export default function ClientLayout({
   const chatMode = useChatStore(chatConfigSelectors.chatMode);
   const legacyConfig = useChatStore((state) => state.config.legacyConfig);
   const cloudConfig = useChatStore((state) => state.config.cloudConfig);
+  const loadChatConfiguration = useChatStore(
+    (state) => state.actions.loadChatConfiguration,
+  );
 
   const genesysChatConfig = chatMode === 'legacy' ? legacyConfig : cloudConfig;
 
   // Only run on client-side
   useEffect(() => {
-    // Register global chat opener for use in legacy components or direct script access
-    // Only do this once per session/page load
+    // Use our sequential loader to manage initialization
     if (!hasInitialized.current) {
-      console.log('[ClientLayout] Initializing chat functionality');
-      registerGlobalChatOpener();
+      logger.info('[ClientLayout] Initializing chat functionality');
+
+      // Initialize sequentially - will only run once even if ClientLayout is remounted
+      if (initializeChatSequentially()) {
+        logger.info(
+          '[ClientLayout] First initialization - registering global opener',
+        );
+        // Register global chat opener for use in legacy components or direct script access
+        registerGlobalChatOpener();
+      } else {
+        logger.info('[ClientLayout] Sequential loader already initialized');
+      }
+
       hasInitialized.current = true;
     }
 
     // Short timeout to ensure DOM is fully ready before loading chat components
     const timer = setTimeout(() => {
       setIsClientReady(true);
-      console.log(
+      logger.info(
         '[ClientLayout] Client ready, ChatWidget can now be rendered',
         {
           hasGenesysConfig: !!genesysChatConfig,
           configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
-          isChatClientInitialized,
         },
       );
     }, 1000);
@@ -54,7 +68,7 @@ export default function ClientLayout({
 
   // Log session data for debugging
   useEffect(() => {
-    console.log('[ClientLayout] Session data:', {
+    logger.info('[ClientLayout] Session data:', {
       isAuthenticated: !!session,
       user: session?.user ? 'exists' : 'null',
       plan: session?.user?.currUsr?.plan
@@ -67,16 +81,46 @@ export default function ClientLayout({
     });
   }, [session]);
 
+  // Auto-check eligibility after authentication
+  useEffect(() => {
+    // Only proceed if session exists and has user data
+    if (
+      session?.user?.currUsr?.plan?.memCk &&
+      session?.user?.currUsr?.plan?.grpId
+    ) {
+      logger.info(
+        '[ClientLayout] User authenticated, loading chat configuration',
+      );
+
+      // Extract member info from session
+      const memberId = session.user.currUsr.plan.memCk;
+      const planId = session.user.currUsr.plan.grpId;
+
+      // Add basic user context with plan information
+      const userContext = {
+        // Can't reliably access firstName or lastName as they might not exist on the user object
+        groupId: planId,
+        memberId: memberId,
+      };
+
+      // Pre-fetch chat eligibility as soon as we have user data
+      loadChatConfiguration(
+        memberId,
+        planId,
+        'MEM', // Default member type
+        userContext,
+      );
+    }
+  }, [session, loadChatConfiguration]);
+
   const isChatConfigReady =
     !!genesysChatConfig && Object.keys(genesysChatConfig).length > 0;
 
   // Log when chatSettings changes for debugging
   useEffect(() => {
-    console.log(
-      '[ClientLayout] genesysChatConfig updated:',
-      genesysChatConfig ? Object.keys(genesysChatConfig).length : 0,
-      'keys',
-    );
+    logger.info('[ClientLayout] genesysChatConfig updated:', {
+      keyCount: genesysChatConfig ? Object.keys(genesysChatConfig).length : 0,
+    });
   }, [genesysChatConfig]);
 
   // Don't render any client components while not ready
@@ -84,17 +128,15 @@ export default function ClientLayout({
     return <>{children}</>;
   }
 
-  // IMPORTANT: Only render ChatClientEntry once per app lifetime
-  // This prevents multiple instances of Genesys scripts
-  let chatClientEntry = null;
+  // Always render ChatClientEntry at least once
+  const chatClientEntry = <ChatClientEntry />;
+
+  // Mark as initialized for subsequent renders
   if (!isChatClientInitialized) {
     console.log('[ClientLayout] First time rendering ChatClientEntry');
     isChatClientInitialized = true;
-    chatClientEntry = <ChatClientEntry />;
   } else {
-    console.log(
-      '[ClientLayout] ChatClientEntry already initialized, skipping render',
-    );
+    console.log('[ClientLayout] ChatClientEntry already initialized');
   }
 
   return (
