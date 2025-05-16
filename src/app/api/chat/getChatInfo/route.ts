@@ -78,21 +78,21 @@ export async function GET(request: NextRequest) {
     const token = await getAuthToken();
 
     const baseURL =
-      serverConfig.PORTAL_SERVICES_URL +
-      serverConfig.MEMBERSERVICE_CONTEXT_ROOT;
+      serverConfig.portalServices.url +
+      serverConfig.portalServices.memberServiceRoot;
 
     logger.info('[API:chat/getChatInfo] Member service configuration', {
       correlationId,
       baseURL,
-      portalServicesUrl: serverConfig.PORTAL_SERVICES_URL,
-      memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
+      portalServicesUrl: serverConfig.portalServices.url,
+      memberServiceContext: serverConfig.portalServices.memberServiceRoot,
     });
     // eslint-disable-next-line no-console
     console.log('[API:chat/getChatInfo] Member service configuration', {
       correlationId,
       baseURL,
-      portalServicesUrl: serverConfig.PORTAL_SERVICES_URL,
-      memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
+      portalServicesUrl: serverConfig.portalServices.url,
+      memberServiceContext: serverConfig.portalServices.memberServiceRoot,
     });
 
     // Build the URL using the correct format: /api/member/v1/members/byMemberCk/${memberCk}

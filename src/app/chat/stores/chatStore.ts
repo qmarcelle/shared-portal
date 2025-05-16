@@ -18,7 +18,6 @@
  *
  * Logging: All significant state changes, API calls, and errors are logged for traceability and debugging.
  */
-import { serverConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { getChatInfo } from '../api';
@@ -28,7 +27,7 @@ import {
   UserConfig,
 } from '../genesysChatConfig';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
-import { ScriptLoadPhase } from '../types/chat-types';
+import { ChatSettings, ScriptLoadPhase } from '../types/chat-types';
 
 const LOG_STORE_PREFIX = '[ChatStore]'; // General store lifecycle/setup logs
 const LOG_UI_PREFIX = '[ChatStore:UI]';
@@ -98,7 +97,6 @@ interface ChatState {
     };
     chatData: ChatData | null;
     chatConfig?: ChatConfig;
-    hasConsent: boolean;
     token?: string;
   };
 
@@ -108,6 +106,7 @@ interface ChatState {
     messages: Array<{ id: string; content: string; sender: 'user' | 'agent' }>;
     isPlanSwitcherLocked: boolean;
     planSwitcherTooltip: string;
+    standardErrorMessage: string; // Standard message for chat failures
   };
 
   // Script state domain
@@ -202,7 +201,6 @@ export const chatConfigSelectors = {
     return state.config.legacyConfig;
   },
   isEligible: (state: ChatState) => state.config.chatData?.isEligible || false,
-  hasConsent: (state: ChatState) => state.config.hasConsent,
   chatMode: (state: ChatState) =>
     state.config.chatData?.cloudChatEligible ? 'cloud' : 'legacy',
   isOOO: (state: ChatState) =>
@@ -215,23 +213,11 @@ export const chatConfigSelectors = {
   userData: (state: ChatState) => state.config.chatData?.userData || {},
   formInputs: (state: ChatState) => state.config.chatData?.formInputs || [],
   isChatEnabled: (state: ChatState) => {
-    const baseEligibility =
+    // Simplified to only check the core eligibility factors
+    return (
       state.config.chatData?.isEligible === true &&
-      state.config.chatData?.chatAvailable === true;
-
-    if (state.config.chatData?.cloudChatEligible) {
-      return baseEligibility;
-    }
-    const pbeConsentIsRequiredByConfig =
-      (serverConfig as any).PBE_CONSENT_REQUIRED_FOR_CHAT === true;
-
-    if (pbeConsentIsRequiredByConfig && !state.config.hasConsent) {
-      logger.info(
-        `${LOG_CONFIG_PREFIX} Chat disabled: PBE consent required and not granted for legacy mode.`,
-      );
-      return false;
-    }
-    return baseEligibility;
+      state.config.chatData?.chatAvailable === true
+    );
   },
   genesysCloudDeploymentConfig: (state: ChatState) =>
     state.config.chatData?.genesysCloudConfig,
@@ -243,6 +229,8 @@ export const chatSessionSelectors = {
   isPlanSwitcherLocked: (state: ChatState) =>
     state.session.isPlanSwitcherLocked,
   planSwitcherTooltip: (state: ChatState) => state.session.planSwitcherTooltip,
+  standardErrorMessage: (state: ChatState) =>
+    state.session.standardErrorMessage,
 };
 
 export const chatScriptSelectors = {
@@ -267,7 +255,6 @@ export const useChatStore = create<ChatState>((set, get) => {
       genesysChatConfig: undefined,
       chatData: null,
       chatConfig: undefined,
-      hasConsent: true, // Default to true until PBE data is loaded
       token: undefined,
     },
 
@@ -277,6 +264,8 @@ export const useChatStore = create<ChatState>((set, get) => {
       messages: [],
       isPlanSwitcherLocked: false,
       planSwitcherTooltip: '',
+      standardErrorMessage:
+        'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.',
     },
 
     // Script state
@@ -527,9 +516,6 @@ export const useChatStore = create<ChatState>((set, get) => {
             );
 
             // 1. Fetch Chat Info (from /api/chat/getChatInfo)
-            // Ensure memberType is correctly sourced and passed if it's mandatory.
-            // If memberType can be undefined and API handles it, this is fine.
-            // Otherwise, ChatProvider needs to ensure it passes a valid memberType.
             const chatInfoResponse = await getChatInfo(
               String(memberId), // Ensure memberId is string for API
               planId,
@@ -559,84 +545,11 @@ export const useChatStore = create<ChatState>((set, get) => {
             }
             const rawApiDataForConfig = chatInfoResponse; // Use original response for flexibility in buildGenesysChatConfig
 
-            // 3. Fetch PBE Consent (COMMENTED OUT)
-            /*
-            let pbeConsent = true; // Default consent
-            let pbeError = null;
-            const userIdForPBE = userContext?.subscriberId || String(memberId);
-
-            if (
-              process.env.NEXT_PUBLIC_CONSENT_ENABLED === 'true' &&
-              userIdForPBE
-            ) {
-              try {
-                const pbeResponse: PBEData = await getPersonBusinessEntity(
-                  userIdForPBE, // userId
-                  true, // needPBE
-                  true, // needConsent
-                  false, // refresh
-                );
-
-                // Adjust access based on actual PBEData structure.
-                // This example assumes consentDetails is an array on the root pbeResponse.
-                // If it's pbeResponse.pbe.consentDetails, adjust accordingly.
-                logger.info(
-                  `${LOG_CONFIG_PREFIX} Raw PBE Response for consent check:`,
-                  { pbeResponse },
-                ); // Log raw PBE response
-                if (
-                  pbeResponse?.consentDetails &&
-                  Array.isArray(pbeResponse.consentDetails) &&
-                  pbeResponse.consentDetails.length > 0
-                ) {
-                  const now = new Date();
-                  const validChatConsent = pbeResponse.consentDetails.find(
-                    (consent: ConsentDetail) =>
-                      consent.status === 'active' &&
-                      (consent.accessControl === 'PERMIT_ALL' ||
-                        consent.accessControl === 'PERMIT') &&
-                      new Date(consent.expiresOn) > now,
-                    // Add specific chat consent identifier if available and needed for filtering
-                  );
-                  pbeConsent = !!validChatConsent;
-                  logger.info(${LOG_CONFIG_PREFIX} PBE consent fetched:, {
-                    consent: pbeConsent,
-                    foundConsentDetail: validChatConsent, // Log the found detail
-                  });
-                } else {
-                  logger.warn(
-                    `${LOG_CONFIG_PREFIX} PBE consent data not in expected format or missing. Defaulting consent.`,
-                    { pbeResponse },
-                  );
-                  pbeConsent = false; // Explicitly set to false if expected data is not found
-                }
-              } catch (err: any) {
-                logger.error(
-                  `${LOG_CONFIG_PREFIX} Failed to fetch PBE consent. Assuming no consent.`,
-                  {
-                    error: err.message,
-                  },
-                );
-                pbeError = err;
-                pbeConsent = false; // Ensure consent is false on error
-              }
-            } else if (
-              !userIdForPBE &&
-              process.env.NEXT_PUBLIC_CONSENT_ENABLED === 'true'
-            ) {
-              logger.warn(
-                `${LOG_CONFIG_PREFIX} Cannot check PBE consent, missing userIdForPBE. Assuming no consent.`,
-              );
-              pbeConsent = false;
-            }
-            */
-            // Ensure pbeConsent is true if the block above is commented out, so it doesn't affect later logic if hasConsent is used elsewhere.
-            const pbeConsent = true; // Defaulting to true as PBE check is bypassed
-            const pbeError = null; // Defaulting to null
+            // NOTE: PBE consent check was removed since it's not currently needed
+            // Always setting hasConsent to true for backward compatibility
+            const pbeConsent = true;
 
             // 4. Build the final GenesysChatConfig DTO
-            // Ensure userContext and planContext passed to buildGenesysChatConfig are of the expected types
-            // or that buildGenesysChatConfig can handle potentially undefined/partial objects.
             const finalGenesysConfig = buildGenesysChatConfig({
               apiConfig: rawApiDataForConfig,
               user: userContext || {}, // Pass empty object if undefined to satisfy UserConfig (if it expects an object)
@@ -661,6 +574,7 @@ export const useChatStore = create<ChatState>((set, get) => {
                   // Legacy chat configuration
                   clickToChatJs: '/assets/genesys/click_to_chat.js',
                   widgetUrl: '/assets/genesys/plugins/widgets.min.css',
+                  clickToChatToken: rawApiDataForConfig.clickToChatToken || '', // Added token for legacy
                   // ... other legacy config fields from finalGenesysConfig
                 }
               : undefined;
@@ -719,7 +633,6 @@ export const useChatStore = create<ChatState>((set, get) => {
                       | string
                       | undefined,
                 },
-                hasConsent: pbeConsent,
               },
             });
             logger.info(

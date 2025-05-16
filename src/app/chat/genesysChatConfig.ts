@@ -115,6 +115,10 @@ export interface GenesysChatConfig {
   userData?: Record<string, string>;
   /** Form inputs for pre-chat or offline forms, if applicable. */
   formInputs?: { id: string; value: string }[];
+  /** Number of plans the user has */
+  numberOfPlans?: number;
+  /** Name of the current selected plan */
+  currentPlanName?: string;
   // ...any other custom fields from JSP mapping
 }
 
@@ -141,9 +145,27 @@ interface ApiConfig {
   [key: string]: unknown;
 }
 
+import { MemberPlan } from '@/userManagement/models/plan';
 import { logger } from '@/utils/logger';
 import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
 import { ChatSettings } from './types/chat-types';
+
+// Add this interface declaration after the existing interfaces
+interface ZustandStores {
+  planStore?: {
+    getState: () => {
+      plans: MemberPlan[];
+      selectedPlanId: string;
+    };
+  };
+}
+
+// Extend Window interface to include __ZUSTAND_STORES__
+declare global {
+  interface Window {
+    __ZUSTAND_STORES__?: ZustandStores;
+  }
+}
 
 /**
  * Required fields for GenesysChatConfig
@@ -255,6 +277,35 @@ export function buildGenesysChatConfig({
     },
   );
 
+  // Try to get plan information from the global store if available
+  let numberOfPlans = 1;
+  let currentPlanName = '';
+
+  try {
+    if (typeof window !== 'undefined') {
+      // Attempt to access plan store if it exists
+      const planStore = window.__ZUSTAND_STORES__?.planStore;
+      if (planStore) {
+        const state = planStore.getState();
+        numberOfPlans = state.plans?.length || 1;
+
+        if (state.selectedPlanId && state.plans?.length) {
+          const currentPlan = state.plans.find(
+            (p: MemberPlan) => p.id === state.selectedPlanId,
+          );
+          if (currentPlan) {
+            currentPlanName = currentPlan.name || '';
+          }
+        }
+      }
+    }
+  } catch (err) {
+    logger.warn('[buildGenesysChatConfig] Could not access plan store', {
+      error: err,
+    });
+    // Fall back to default values (already set)
+  }
+
   const env: NodeJS.ProcessEnv =
     typeof process !== 'undefined' ? process.env : ({} as NodeJS.ProcessEnv);
   const endpoints = getChatConfig();
@@ -310,6 +361,8 @@ export function buildGenesysChatConfig({
       env.NEXT_PUBLIC_AUDIO_ALERT_PATH ||
       '/assets/genesys/notification.mp3',
     timestamp: new Date().toISOString(),
+    numberOfPlans,
+    currentPlanName,
   };
 
   // Merge defaults with all available values (API, static, etc.)

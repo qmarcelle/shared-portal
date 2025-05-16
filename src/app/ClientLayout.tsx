@@ -3,7 +3,7 @@
 import { ChatClientEntry } from '@/app/chat/components';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useChatStore } from './chat/stores/chatStore';
+import { chatConfigSelectors, useChatStore } from './chat/stores/chatStore';
 
 export default function ClientLayout({
   children,
@@ -12,9 +12,11 @@ export default function ClientLayout({
 }) {
   // Add loading state to prevent rendering before data is ready
   const [isClientReady, setIsClientReady] = useState(false);
-  const genesysChatConfig = useChatStore(
-    (state) => state.config.genesysChatConfig,
-  );
+  const chatMode = useChatStore(chatConfigSelectors.chatMode);
+  const legacyConfig = useChatStore((state) => state.config.legacyConfig);
+  const cloudConfig = useChatStore((state) => state.config.cloudConfig);
+
+  const genesysChatConfig = chatMode === 'legacy' ? legacyConfig : cloudConfig;
 
   // Only run on client-side
   useEffect(() => {
