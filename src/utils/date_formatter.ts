@@ -75,6 +75,13 @@ export const getDateTwoYearsAgoFormatted = () => {
   );
 };
 
+export const getDateTwoYearsAgoLocale = () => {
+  const today = new Date();
+  return formatDateToLocale(
+    new Date(today.getFullYear() - 2, today.getMonth(), today.getDate()),
+  );
+};
+
 /**
  * Computes the difference in days between two dates.
  * A positive value means date 1 is ahead or else date2 is ahead.

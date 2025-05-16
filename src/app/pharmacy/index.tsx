@@ -155,8 +155,8 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                   className="large-section"
                   title="My Recent Pharmacy Claims"
                   linkText="View All Pharmacy Claims"
-                  claims={claims}
-                  linkUrl="member/myplan/claims?type=pharmacy"
+                  claimDetails={claims}
+                  linkUrl="/claims?type=pharmacy"
                 />
               </Column>
               <Column className=" flex-grow page-section-36_67 items-stretch">

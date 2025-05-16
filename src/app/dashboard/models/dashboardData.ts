@@ -1,4 +1,5 @@
 import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
+import { ClaimDetails } from '@/models/claim_details';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
@@ -12,6 +13,7 @@ export type DashboardData = {
   profiles?: UserProfile[];
   visibilityRules?: VisibilityRules;
   employerProvidedBenefits?: BenefitsProviderInfo[] | null;
+  memberClaims?: ClaimDetails[];
 };
 
 export interface DashboardMemberDetails {

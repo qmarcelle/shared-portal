@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <Link
-                  href="/member/myplan/claims"
+                  href="/claims"
                   onClick={() =>
                     trackLinkAnalytics('View Claims', '/member/myplan/claims')
                   }
