@@ -23,6 +23,7 @@ import { create } from 'zustand';
 import { getChatInfo } from '../api';
 import {
   buildGenesysChatConfig,
+  GenesysChatConfig,
   PlanConfig,
   UserConfig,
 } from '../genesysChatConfig';
@@ -74,6 +75,7 @@ interface ChatState {
   config: {
     isLoading: boolean;
     error: Error | null;
+    genesysChatConfig?: GenesysChatConfig;
     // Legacy chat config
     legacyConfig?: ChatSettings;
     // Cloud chat config
@@ -166,6 +168,7 @@ interface ChatData {
   genesysCloudConfig?: {
     deploymentId: string;
     environment: string;
+    orgId?: string;
     customAttributes?: {
       Firstname?: string;
       lastname?: string;
@@ -558,89 +561,62 @@ export const useChatStore = create<ChatState>((set, get) => {
             // 4. Build the final GenesysChatConfig DTO
             const finalGenesysConfig = buildGenesysChatConfig({
               apiConfig: rawApiDataForConfig,
-              user: userContext || {},
-              plan: planContext || {},
+              user: userContext || { userID: 'fallbackUserID' },
+              plan: planContext || { memberMedicalPlanID: 'fallbackPlanID' },
             });
 
             logger.info(`${LOG_CONFIG_PREFIX} Final genesysChatConfig built:`, {
-              config: finalGenesysConfig,
+              configKeys: Object.keys(finalGenesysConfig),
+              chatMode: finalGenesysConfig.chatMode,
+              userID: finalGenesysConfig.userID,
             });
 
-            // 5. Determine overall chat eligibility and availability
-            const isEligible = finalGenesysConfig.isChatEligibleMember === true;
-            const chatAvailable = finalGenesysConfig.isChatAvailable === true;
-
-            // Use cloudChatEligible from API response instead of hardcoding
-            const cloudChatEligible =
-              rawApiDataForConfig?.cloudChatEligible || false;
-
-            // Build either legacy or cloud configuration based on eligibility
-            const legacyConfig = !cloudChatEligible
-              ? {
-                  // Legacy chat configuration
-                  clickToChatJs: '/assets/genesys/click_to_chat.js',
-                  widgetUrl: '/assets/genesys/plugins/widgets.min.css',
-                  clickToChatToken: rawApiDataForConfig.clickToChatToken || '', // Added token for legacy
-                  // ... other legacy config fields from finalGenesysConfig
-                }
-              : undefined;
-
-            const cloudConfig = cloudChatEligible
-              ? {
-                  environment:
-                    rawApiDataForConfig?.genesysCloudConfig?.environment ||
-                    process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
-                    'prod-usw2',
-                  deploymentId:
-                    rawApiDataForConfig?.genesysCloudConfig?.deploymentId ||
-                    process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
-                    '',
-                  customAttributes: {
-                    Firstname: userContext?.firstName || '',
-                    lastname: userContext?.lastName || '',
-                    MEMBER_ID: String(memberId) || '',
-                    MEMBER_DOB: userContext?.dateOfBirth || '',
-                    GROUP_ID: userContext?.groupId || '',
-                    PLAN_ID: planId || '',
-                    INQ_TYPE: '', // Can be populated based on context if needed
-                    isMedicalEligible: String(isEligible),
-                    IsDentalEligible: String(
-                      userContext?.isDentalEligible || false,
-                    ),
-                    IsVisionEligible: String(
-                      userContext?.isVisionEligible || false,
-                    ),
-                    IDCardBotName: finalGenesysConfig.idCardChatBotName || '',
-                    LOB: userContext?.lineOfBusiness || '',
-                  },
-                }
-              : undefined;
-
+            // 5. Update Zustand state with the final configuration
             set({
               config: {
+                ...get().config,
+                genesysChatConfig: finalGenesysConfig,
                 isLoading: false,
                 error: null,
-                legacyConfig,
-                cloudConfig,
                 chatData: {
-                  ...rawApiDataForConfig,
-                  isEligible,
-                  chatAvailable,
-                  cloudChatEligible,
+                  isEligible:
+                    finalGenesysConfig.isChatEligibleMember as boolean,
+                  cloudChatEligible: finalGenesysConfig.chatMode === 'cloud',
+                  chatAvailable: finalGenesysConfig.isChatAvailable as boolean,
+                  chatGroup: finalGenesysConfig.chatGroup,
                   workingHours: finalGenesysConfig.workingHours,
-                  businessHours: {
-                    isOpen: chatAvailable,
-                    text: finalGenesysConfig.chatHours || 'Hours unavailable',
+                  rawChatHrs: finalGenesysConfig.rawChatHrs,
+                  genesysCloudConfig: {
+                    deploymentId: finalGenesysConfig.deploymentId || '',
+                    environment:
+                      (rawApiDataForConfig.genesysCloudConfig as any)
+                        ?.environment || '',
+                    orgId: finalGenesysConfig.orgId || '',
                   },
-                  userData: finalGenesysConfig.userData || {},
-                  formInputs: finalGenesysConfig.formInputs || [],
-                  routingInteractionId:
-                    rawApiDataForConfig?.routingInteractionId as
-                      | string
-                      | undefined,
                 },
               },
             });
+
+            // 6. Populate window.chatSettings for click_to_chat.js
+            if (typeof window !== 'undefined') {
+              window.chatSettings = finalGenesysConfig as any;
+              if (window.chatSettings) {
+                logger.info(
+                  `${LOG_CONFIG_PREFIX} window.chatSettings has been populated.`,
+                  {
+                    chatMode: window.chatSettings.chatMode,
+                    hasToken: !!window.chatSettings.clickToChatToken,
+                    deploymentId: window.chatSettings.deploymentId,
+                    orgId: window.chatSettings.orgId,
+                    isChatEligibleMember:
+                      window.chatSettings.isChatEligibleMember,
+                    isChatAvailable: window.chatSettings.isChatAvailable,
+                  },
+                );
+              }
+            }
+
+            // Mark chat as ready to be initialized by ChatClientEntry
             logger.info(
               `${LOG_CONFIG_PREFIX} Chat store updated with new configuration.`,
             );

@@ -54,6 +54,7 @@ function generateMockChatConfig(
         'mock-deployment-id',
       environment:
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
+      orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || '',
     },
     // Additional debugging info
     _mockData: true,
@@ -133,6 +134,8 @@ export async function GET(request: NextRequest) {
 
       // Generate mock data as fallback for missing environment variables
       const mockData = generateMockChatConfig(memeck, planId);
+      mockData.genesysCloudConfig.orgId =
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
 
       // Update sequential loader state
       updateApiState(
@@ -264,6 +267,8 @@ export async function GET(request: NextRequest) {
 
       // Generate mock data as fallback
       const mockData = generateMockChatConfig(memeck, planId);
+      mockData.genesysCloudConfig.orgId =
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
 
       // Update sequential loader state with mock data
       updateApiState(
@@ -312,6 +317,7 @@ export async function GET(request: NextRequest) {
         deploymentId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID || '',
         environment:
           process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
+        orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || '',
       },
     };
 
@@ -366,6 +372,8 @@ export async function GET(request: NextRequest) {
     try {
       // Generate mock data as fallback for error cases
       const mockData = generateMockChatConfig(memeck, planId);
+      mockData.genesysCloudConfig.orgId =
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
 
       // Update sequential loader state with mock data for error case
       updateApiState(
@@ -393,6 +401,14 @@ export async function GET(request: NextRequest) {
         isEligible: true,
         cloudChatEligible: false,
         chatAvailable: true,
+        genesysCloudConfig: {
+          deploymentId:
+            process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+            'mock-deployment-id',
+          environment:
+            process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
+          orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id',
+        },
         _error: 'Error handling failed, basic fallback provided',
       };
 

@@ -45,6 +45,7 @@ export interface GenesysChatConfig {
   sfx?: string;
   /** Plan/group context: Group ID */
   groupId?: string;
+  chatGroup?: string;
   /** Plan/group context: Member client ID */
   memberClientID?: string;
   /** Plan/group context: Group type */
@@ -147,7 +148,6 @@ interface ApiConfig {
 
 import { MemberPlan } from '@/userManagement/models/plan';
 import { logger } from '@/utils/logger';
-import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
 import { ChatSettings } from './types/chat-types';
 
 // Add this interface declaration after the existing interfaces
@@ -248,7 +248,7 @@ export function buildGenesysChatConfig({
 
   if (!plan.memberMedicalPlanID) {
     const error = new Error(
-      'Member medical plan ID is required in plan context',
+      'Member Medical Plan ID is required in plan context',
     );
     logger.error(
       '[buildGenesysChatConfig] Missing memberMedicalPlanID in plan context',
@@ -257,211 +257,128 @@ export function buildGenesysChatConfig({
     throw error;
   }
 
-  if (!apiConfig) {
-    const error = new Error('API config is required for building chat config');
-    logger.error('[buildGenesysChatConfig] Missing API config', { error });
-    throw error;
-  }
+  // Determine chatMode
+  const chatMode = apiConfig.cloudChatEligible ? 'cloud' : 'legacy';
 
-  logger.info(
-    '[buildGenesysChatConfig] Building chat config with validated inputs',
-    {
-      hasUser: !!user,
-      hasPlan: !!plan,
-      hasApiConfig: !!apiConfig,
-      userID: user.userID,
-      planID: plan.memberMedicalPlanID,
-      apiConfigKeys: Object.keys(apiConfig),
-      staticConfigKeys: Object.keys(staticConfig || {}),
-      timestamp: new Date().toISOString(),
-    },
-  );
+  // Base config from API and context
+  const config: Partial<GenesysChatConfig> = {
+    // From User Context
+    userID: user.userID,
+    memberFirstname: user.memberFirstname,
+    memberLastName: user.memberLastName,
+    formattedFirstName: user.formattedFirstName || user.memberFirstname,
+    subscriberID: user.subscriberID,
+    sfx: user.sfx,
+    MEMBER_ID: `${user.subscriberID || ''}-${user.sfx || ''}`,
+    memberDOB: user.memberDOB || plan.memberDOB,
 
-  // Try to get plan information from the global store if available
-  let numberOfPlans = 1;
-  let currentPlanName = '';
+    // From Plan Context
+    memberMedicalPlanID: plan.memberMedicalPlanID,
+    groupId: plan.groupId,
+    memberClientID: plan.memberClientID, // LOB can be derived from this or groupType
+    groupType: plan.groupType,
 
-  try {
-    if (typeof window !== 'undefined') {
-      // Attempt to access plan store if it exists
-      const planStore = window.__ZUSTAND_STORES__?.planStore;
-      if (planStore) {
-        const state = planStore.getState();
-        numberOfPlans = state.plans?.length || 1;
-
-        if (state.selectedPlanId && state.plans?.length) {
-          const currentPlan = state.plans.find(
-            (p: MemberPlan) => p.id === state.selectedPlanId,
-          );
-          if (currentPlan) {
-            currentPlanName = currentPlan.name || '';
-          }
-        }
-      }
-    }
-  } catch (err) {
-    logger.warn('[buildGenesysChatConfig] Could not access plan store', {
-      error: err,
-    });
-    // Fall back to default values (already set)
-  }
-
-  const env: NodeJS.ProcessEnv =
-    typeof process !== 'undefined' ? process.env : ({} as NodeJS.ProcessEnv);
-  const endpoints = getChatConfig();
-
-  // --- Explicit sensible defaults for all required fields ---
-  const defaults: Partial<GenesysChatConfig> = {
-    clickToChatToken:
-      (apiConfig.clickToChatToken as string) ||
-      (apiConfig.token as string) ||
-      env.NEXT_PUBLIC_DEFAULT_CHAT_TOKEN ||
-      '',
-    clickToChatEndpoint:
-      (apiConfig.clickToChatEndpoint as string) ||
-      endpoints.CLICK_TO_CHAT_ENDPOINT ||
-      env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
-      'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
-    gmsChatUrl:
-      staticConfig.gmsChatUrl ||
-      env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      endpoints.CLICK_TO_CHAT_ENDPOINT ||
-      'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
-    widgetUrl:
-      staticConfig.widgetUrl ||
-      env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-      CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
-      '/assets/genesys/plugins/widgets.min.css',
-    clickToChatJs:
-      staticConfig.clickToChatJs ||
-      env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS ||
-      CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
-      '/assets/genesys/click_to_chat.js',
-    coBrowseLicence:
-      staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
-    cobrowseSource:
-      staticConfig.cobrowseSource || env.NEXT_PUBLIC_COBROWSE_SOURCE || '',
-    cobrowseURL: staticConfig.cobrowseURL || env.NEXT_PUBLIC_COBROWSE_URL || '',
-    opsPhone: staticConfig.opsPhone || env.NEXT_PUBLIC_OPS_PHONE || '',
-    opsPhoneHours:
-      staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
-    chatMode:
-      staticConfig.chatMode ||
-      (apiConfig.cloudChatEligible ? 'cloud' : 'legacy'),
+    // From API Config (getChatInfo response)
+    clickToChatToken: apiConfig.clickToChatToken as string,
     isChatEligibleMember:
-      (apiConfig.isChatEligibleMember as boolean | string) || false,
-    isChatAvailable: (apiConfig.isChatAvailable as boolean | string) || false,
-    userID: user.userID || '',
-    MEMBER_ID: user.userID || '',
-    memberMedicalPlanID: plan.memberMedicalPlanID || '',
-    chatHours: staticConfig.chatHours || env.NEXT_PUBLIC_CHAT_HOURS || '',
-    rawChatHrs: staticConfig.rawChatHrs || env.NEXT_PUBLIC_RAW_CHAT_HRS || '',
-    audioAlertPath:
-      staticConfig.audioAlertPath ||
-      env.NEXT_PUBLIC_AUDIO_ALERT_PATH ||
-      '/assets/genesys/notification.mp3',
-    timestamp: new Date().toISOString(),
-    numberOfPlans,
-    currentPlanName,
-  };
-
-  // Merge defaults with all available values (API, static, etc.)
-  const config: GenesysChatConfig = {
-    ...defaults,
-    ...apiConfig,
-    ...staticConfig,
-    userID: user.userID || '',
-    memberFirstname: user.memberFirstname || '',
-    memberLastName: user.memberLastName || '',
-    formattedFirstName: user.formattedFirstName || '',
-    subscriberID: user.subscriberID || '',
-    sfx: user.sfx || '',
-    groupId: plan.groupId || '',
-    memberClientID: plan.memberClientID || '',
-    groupType: plan.groupType || '',
-    memberMedicalPlanID: plan.memberMedicalPlanID || '',
-    memberDOB: plan.memberDOB || '',
-    clickToChatToken: (defaults.clickToChatToken || '') + '',
-    clickToChatEndpoint: (defaults.clickToChatEndpoint || '') + '',
-    gmsChatUrl: (defaults.gmsChatUrl || '') + '',
-    widgetUrl: (defaults.widgetUrl || '') + '',
-    clickToChatJs: (defaults.clickToChatJs || '') + '',
-    coBrowseLicence:
-      staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
-    cobrowseSource:
-      staticConfig.cobrowseSource || env.NEXT_PUBLIC_COBROWSE_SOURCE || '',
-    cobrowseURL: staticConfig.cobrowseURL || env.NEXT_PUBLIC_COBROWSE_URL || '',
-    chatHours:
-      typeof apiConfig.chatHours === 'string'
-        ? apiConfig.chatHours
-        : typeof apiConfig.workingHours === 'string'
-          ? apiConfig.workingHours
-          : env.NEXT_PUBLIC_CHAT_HOURS || '',
-    rawChatHrs:
-      typeof apiConfig.rawChatHrs === 'string'
-        ? apiConfig.rawChatHrs
-        : env.NEXT_PUBLIC_RAW_CHAT_HRS || '',
-    audioAlertPath: (defaults.audioAlertPath || '') + '',
-    MEMBER_ID: (defaults.MEMBER_ID || '') + '',
-    isChatEligibleMember:
-      typeof defaults.isChatEligibleMember === 'string' ||
-      typeof defaults.isChatEligibleMember === 'boolean'
-        ? defaults.isChatEligibleMember
-        : '',
+      apiConfig.isChatEligibleMember ?? apiConfig.isEligible ?? true,
     isChatAvailable:
-      typeof defaults.isChatAvailable === 'string' ||
-      typeof defaults.isChatAvailable === 'boolean'
-        ? defaults.isChatAvailable
-        : '',
-    opsPhone: staticConfig.opsPhone || env.NEXT_PUBLIC_OPS_PHONE || '',
-    opsPhoneHours:
-      staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
-    idCardChatBotName: staticConfig.idCardChatBotName || '',
-    chatTokenEndpoint:
-      staticConfig.chatTokenEndpoint || endpoints.CHAT_TOKEN_ENDPOINT || '',
-    coBrowseEndpoint:
-      staticConfig.coBrowseEndpoint ||
-      endpoints.COBROWSE_LICENSE_ENDPOINT ||
-      '',
-    timestamp: new Date().toISOString(),
+      apiConfig.isChatAvailable ?? apiConfig.chatAvailable ?? true,
+    cloudChatEligible: apiConfig.cloudChatEligible as boolean, // Ensure this is present in apiConfig type
+    chatGroup: apiConfig.chatGroup as string,
+    workingHours: apiConfig.workingHours as string,
+    chatHours: (apiConfig.workingHours ||
+      process.env.NEXT_PUBLIC_CHAT_HOURS ||
+      'M-F 8am-5pm') as string,
+    rawChatHrs: (apiConfig.rawChatHrs ||
+      process.env.NEXT_PUBLIC_RAW_CHAT_HRS ||
+      '8_17') as string,
+    idCardChatBotName: apiConfig.chatIDChatBotName as string, // Assuming chatIDChatBotName is idCardChatBotName
+    chatbotEligible: apiConfig.chatBotEligibility as boolean,
+    routingchatbotEligible: apiConfig.routingChatBotEligibility as boolean,
+
+    // Chat Mode specific
+    chatMode: chatMode,
   };
 
-  // Validate that all required fields are present and log each missing field
-  const requiredFields = [
-    'clickToChatEndpoint',
-    'gmsChatUrl',
-    'widgetUrl',
-    'clickToChatJs',
-    'userID',
-    'MEMBER_ID',
-    'memberMedicalPlanID',
-    'isChatEligibleMember',
-    'isChatAvailable',
-    'chatHours',
-    'rawChatHrs',
-  ];
-  const missingFields = requiredFields.filter(
-    (field) => !config[field as keyof GenesysChatConfig],
-  );
-  if (missingFields.length > 0) {
-    logger.error(
-      `[buildGenesysChatConfig] Config missing required fields: ${missingFields.join(', ')}`,
-    );
+  // Populate mode-specific fields
+  if (chatMode === 'cloud') {
+    config.deploymentId =
+      (apiConfig.genesysCloudConfig as any)?.deploymentId ||
+      process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID;
+    config.orgId =
+      (apiConfig.genesysCloudConfig as any)?.orgId ||
+      process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID;
+    // For cloud, gmsChatUrl might not be used in the same way, or could be the API endpoint base
+  } else {
+    // Legacy mode
+    config.clickToChatEndpoint =
+      (apiConfig.clickToChatEndpoint as string) ||
+      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT;
+    config.gmsChatUrl =
+      (apiConfig.gmsChatUrl as string) ||
+      process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+      config.clickToChatEndpoint; // Default gmsChatUrl to clickToChatEndpoint for legacy
   }
 
-  // Log the final configuration for tracing
-  logger.info('[buildGenesysChatConfig] Returning final config', {
-    configKeys: Object.keys(config),
-    userID: config.userID,
-    memberMedicalPlanID: config.memberMedicalPlanID,
-    chatMode: config.chatMode,
-    isChatEligible: config.isChatEligibleMember,
-    isChatAvailable: config.isChatAvailable,
-    hasToken: !!config.clickToChatToken,
-    timestamp: config.timestamp,
+  // Populate from environment variables / static defaults
+  config.widgetUrl =
+    process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
+    'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
+  config.clickToChatJs =
+    process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
+    '/assets/genesys/click_to_chat.js';
+
+  // If gmsChatUrl is not set by legacy mode logic, and it's cloud, it might need a different source or not be needed by click_to_chat.js for cloud mode.
+  // For now, ensure it has a fallback if not set. click_to_chat.js uses gmsServicesConfig.GMSChatURL which uses clickToChatEndpoint in legacy.
+  if (!config.gmsChatUrl && chatMode === 'legacy') {
+    config.gmsChatUrl = config.clickToChatEndpoint;
+  } else if (!config.gmsChatUrl && chatMode === 'cloud') {
+    // For cloud, this might be different or derived. For now, a placeholder if needed.
+    // Consult Genesys Cloud documentation for appropriate dataURL if click_to_chat.js uses it for cloud.
+    config.gmsChatUrl = `https://api.${(apiConfig.genesysCloudConfig as any)?.environment?.split('-').pop()}.pure.cloud`; // Example, might need adjustment
+  }
+
+  // Other static/defaultable fields from the original JSP mapping, if needed
+  config.coBrowseLicence =
+    process.env.NEXT_PUBLIC_COBROWSE_LICENCE || 'YOUR_COBROWSE_LICENCE';
+  config.cobrowseSource =
+    process.env.NEXT_PUBLIC_COBROWSE_SOURCE || 'YOUR_COBROWSE_SOURCE';
+  config.cobrowseURL =
+    process.env.NEXT_PUBLIC_COBROWSE_URL || 'YOUR_COBROWSE_URL';
+  config.opsPhone = process.env.NEXT_PUBLIC_OPS_PHONE || '1-800-MEMBER-LINE';
+  config.opsPhoneHours =
+    process.env.NEXT_PUBLIC_OPS_PHONE_HOURS || 'M-F 8am-6pm EST';
+  config.isDemoMember = process.env.NEXT_PUBLIC_IS_DEMO_MEMBER === 'true';
+  config.isAmplifyMem = !!apiConfig.isAmplifyMem; // Coerce to boolean
+  config.isCobrowseActive =
+    process.env.NEXT_PUBLIC_IS_COBROWSE_ACTIVE === 'true';
+
+  // Merge with any staticConfig overrides passed in
+  const mergedConfig = { ...config, ...staticConfig } as GenesysChatConfig;
+
+  // Final validation
+  const validation = validateGenesysChatConfig(mergedConfig);
+  if (!validation.isValid) {
+    logger.warn(
+      '[buildGenesysChatConfig] Built config is missing required fields:',
+      {
+        missingFields: validation.missingFields,
+        generatedConfig: mergedConfig,
+      },
+    );
+    // Depending on strictness, you might throw an error here or allow it to proceed
+    // For now, we'll log a warning. Some fields in REQUIRED_CONFIG_FIELDS might be for legacy only.
+  }
+
+  logger.info('[buildGenesysChatConfig] Successfully built GenesysChatConfig', {
+    chatMode: mergedConfig.chatMode,
+    userID: mergedConfig.userID,
+    planId: mergedConfig.memberMedicalPlanID,
+    isEligible: mergedConfig.isChatEligibleMember,
   });
 
-  return config;
+  return mergedConfig;
 }
 
 /**
