@@ -62,7 +62,10 @@ export const EditAlertPreferncesSection = ({
 
         setEditAlertMap(updatedMap);
       } catch (error) {
-        console.error('Failed to load saved preferences:', error);
+        console.error(
+          'Failed to load saved preferences for communication settings',
+          error,
+        );
       }
     };
 
