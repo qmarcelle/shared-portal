@@ -216,6 +216,9 @@ export async function GET(request: NextRequest) {
         'M-F 8am-5pm',
       rawChatHrs:
         data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
+
+      // Pass through the token from the member service response
+      clickToChatToken: data.clickToChatToken || '',
     };
 
     logger.info('[API:chat/getChatInfo] Returning transformed chat info', {

@@ -264,8 +264,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
         // 1. Load CSS files first
         logger.info(
-          `${LOG_PREFIX} Effective CSS URLs to load:`,
-          { urls: stableCssUrls }, // Log the URLs being used
+          `${LOG_PREFIX} Effective CSS URLs to load (stableCssUrls value just before loop):`,
+          { urls: stableCssUrls },
         );
         logger.info(
           `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS file(s)...`,
