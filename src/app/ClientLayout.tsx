@@ -1,9 +1,13 @@
 'use client';
 
 import { ChatClientEntry } from '@/app/chat/components';
+import { registerGlobalChatOpener } from '@/app/chat/utils/chatOpenHelpers';
 import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { chatConfigSelectors, useChatStore } from './chat/stores/chatStore';
+
+// Global tracking to prevent multiple initializations
+let isChatClientInitialized = false;
 
 export default function ClientLayout({
   children,
@@ -12,6 +16,7 @@ export default function ClientLayout({
 }) {
   // Add loading state to prevent rendering before data is ready
   const [isClientReady, setIsClientReady] = useState(false);
+  const hasInitialized = useRef(false);
   const chatMode = useChatStore(chatConfigSelectors.chatMode);
   const legacyConfig = useChatStore((state) => state.config.legacyConfig);
   const cloudConfig = useChatStore((state) => state.config.cloudConfig);
@@ -20,6 +25,14 @@ export default function ClientLayout({
 
   // Only run on client-side
   useEffect(() => {
+    // Register global chat opener for use in legacy components or direct script access
+    // Only do this once per session/page load
+    if (!hasInitialized.current) {
+      console.log('[ClientLayout] Initializing chat functionality');
+      registerGlobalChatOpener();
+      hasInitialized.current = true;
+    }
+
     // Short timeout to ensure DOM is fully ready before loading chat components
     const timer = setTimeout(() => {
       setIsClientReady(true);
@@ -28,6 +41,7 @@ export default function ClientLayout({
         {
           hasGenesysConfig: !!genesysChatConfig,
           configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
+          isChatClientInitialized,
         },
       );
     }, 1000);
@@ -70,15 +84,22 @@ export default function ClientLayout({
     return <>{children}</>;
   }
 
-  // IMPORTANT: Always render ChatWidget once the client is ready,
-  // even if genesysChatConfig isn't available yet.
-  // This allows ChatWidget to make the API call to load the chat configuration,
-  // which will in turn populate the store.
-  console.log('[ClientLayout] Rendering ChatClientEntry');
+  // IMPORTANT: Only render ChatClientEntry once per app lifetime
+  // This prevents multiple instances of Genesys scripts
+  let chatClientEntry = null;
+  if (!isChatClientInitialized) {
+    console.log('[ClientLayout] First time rendering ChatClientEntry');
+    isChatClientInitialized = true;
+    chatClientEntry = <ChatClientEntry />;
+  } else {
+    console.log(
+      '[ClientLayout] ChatClientEntry already initialized, skipping render',
+    );
+  }
 
   return (
     <>
-      <ChatClientEntry />
+      {chatClientEntry}
       {children}
     </>
   );

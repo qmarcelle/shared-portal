@@ -19,7 +19,6 @@
  */
 
 import { GenesysConfig } from '@/types/config';
-import { getConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import React, {
   useCallback,
@@ -35,6 +34,17 @@ import {
 } from '../types/chat-types';
 
 const LOG_PREFIX = '[GenesysScriptLoader]';
+
+// Static loading tracker to prevent multiple initializations
+// This persists across component instances
+const GenesysLoadingState = {
+  isInitialized: false,
+  isLoading: false,
+  isLoaded: false,
+  error: null as Error | null,
+  scriptId: 'genesys-chat-script',
+  cssIds: [] as string[],
+};
 
 // Define structure for Genesys Cloud initial config
 interface GenesysCloudConfig extends GenesysConfig {
@@ -80,6 +90,16 @@ interface GenesysScriptLoaderProps {
  * Adds resource hints to improve connection performance for external resources
  */
 const addResourceHints = () => {
+  // Skip if already added
+  if (
+    document.querySelector(
+      'link[rel="preconnect"][href="https://code.jquery.com"]',
+    )
+  ) {
+    logger.info(`${LOG_PREFIX} Resource hints already added, skipping.`);
+    return;
+  }
+
   logger.info(
     `${LOG_PREFIX} addResourceHints: Adding resource hints for performance.`,
   );
@@ -129,7 +149,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     scriptUrl,
     cssUrls,
     legacyConfig,
-    cloudConfig = getConfig('client').genesys, // Use config as default
+    cloudConfig,
     onLoad,
     onError,
     showStatus = process.env.NODE_ENV === 'development',
@@ -156,6 +176,11 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       cloudConfigProp: cloudConfig,
       showStatus,
       chatMode,
+      existingStatus: GenesysLoadingState.isLoaded
+        ? 'already-loaded'
+        : GenesysLoadingState.isLoading
+          ? 'already-loading'
+          : 'not-started',
     });
 
     // Determine effective URLs based on chat mode
@@ -518,13 +543,64 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       logger.info(`${LOG_PREFIX} Injected Genesys Cloud initialization script`);
     }, [chatMode, cloudConfig, effectiveScriptUrl]);
 
-    // Update the initialization logic to handle both modes cleanly
+    // Initialization logic
     useEffect(() => {
-      if (initialized.current) return;
+      // Don't re-initialize if already done
+      if (initialized.current) {
+        logger.info(
+          `${LOG_PREFIX} Component already initialized this instance, skipping.`,
+        );
+        return;
+      }
+
+      // Check global state first
+      if (GenesysLoadingState.isLoaded) {
+        logger.info(
+          `${LOG_PREFIX} Genesys already fully loaded in another instance, skipping initialization.`,
+        );
+        setStatus('loaded');
+        if (onLoad) onLoad();
+        return;
+      }
+
+      if (GenesysLoadingState.isLoading) {
+        logger.info(
+          `${LOG_PREFIX} Genesys already loading in another instance, waiting for it to complete.`,
+        );
+        // Start polling to check when it completes
+        const checkLoaded = setInterval(() => {
+          if (GenesysLoadingState.isLoaded) {
+            clearInterval(checkLoaded);
+            setStatus('loaded');
+            if (onLoad) onLoad();
+          } else if (GenesysLoadingState.error) {
+            clearInterval(checkLoaded);
+            setStatus('error');
+            setErrorMessage(GenesysLoadingState.error.message);
+            if (onError) onError(GenesysLoadingState.error);
+          }
+        }, 200);
+        return () => clearInterval(checkLoaded);
+      }
+
+      // If we get here, we're the first one - mark as loading globally
+      GenesysLoadingState.isLoading = true;
       initialized.current = true;
 
+      // The rest of the init function (add guard at the start)
       const init = async () => {
         try {
+          // Check if script already exists
+          if (document.getElementById(GenesysLoadingState.scriptId)) {
+            logger.info(
+              `${LOG_PREFIX} Script already exists in DOM, skipping loading.`,
+            );
+            GenesysLoadingState.isLoaded = true;
+            setStatus('loaded');
+            if (onLoad) onLoad();
+            return;
+          }
+
           // Always add resource hints first
           addResourceHints();
 
@@ -548,7 +624,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           setStatus('polling-ready');
           checkReadyWithBackoff();
         } catch (error: any) {
-          handleError(error);
+          logger.error(`${LOG_PREFIX} Error in initialization:`, {
+            message: error?.message,
+            stack: error?.stack,
+          });
+          GenesysLoadingState.error = error;
+          GenesysLoadingState.isLoading = false;
+          setStatus('error');
+          setErrorMessage(error?.message || 'Unknown error in initialization');
+          if (onError) onError(error);
         }
       };
 

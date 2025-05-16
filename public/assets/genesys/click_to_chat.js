@@ -32,6 +32,8 @@
       isMagellanVAMember: cfg.isMagellanVAMember === 'true',
       isMedicalAdvantageGroup: cfg.isMedicalAdvantageGroup === 'true',
       routingchatbotEligible: cfg.routingchatbotEligible === 'true',
+      numberOfPlans: parseInt(cfg.numberOfPlans || '1', 10) || 1,
+      currentPlanName: cfg.currentPlanName || '',
     };
   };
 
@@ -489,6 +491,19 @@
         custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
       });
 
+      // NEW: If user has multiple plans, add plan information row
+      if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
+        inputs.push({
+          custom: `<tr class='activeChat'><td colspan='2'><div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:#f8f9fa;border-radius:4px;margin-bottom:10px;">
+            <div><strong>Chatting about:</strong> ${cfg.currentPlanName}</div>
+            <button onclick="window.openPlanSwitcher();return false;" style="background:#007bff;color:white;border:none;border-radius:4px;padding:5px 10px;cursor:pointer;">Switch Plan</button>
+          </div></td></tr>`,
+        });
+        inputs.push({
+          custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
+        });
+      }
+
       // Service type selector or chatbot routing
       if (!routingchatbotEligible) {
         inputs.push({
@@ -781,6 +796,25 @@
       plugin.subscribe('WebChat.opened', () => {
         console.log('[Genesys] WebChat opened');
 
+        // Add current plan name to titlebar if user has multiple plans
+        try {
+          if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
+            const titlebar = $('.cx-widget.cx-webchat .cx-titlebar');
+            if (titlebar.length && !titlebar.data('plan-info-added')) {
+              const originalTitle = titlebar.text().trim();
+              titlebar.html(
+                `<span>${cfg.currentPlanName}</span> - <span>${originalTitle}</span>`,
+              );
+              titlebar.data('plan-info-added', true);
+            }
+          }
+        } catch (error) {
+          console.error(
+            '[Genesys] Error updating titlebar with plan info:',
+            error,
+          );
+        }
+
         // Check for after-hours and handle UI
         try {
           const now = parseFloat(
@@ -860,32 +894,70 @@
         }
       });
 
-      // Error handler with recovery options
+      // Enhanced error handling with better user feedback
       plugin.subscribe('WebChat.error', (error) => {
         console.error('[Genesys] WebChat error:', error);
 
-        // Handle websocket errors
-        if (error && error.error === 'websocket.error') {
-          console.log(
-            '[Genesys] Websocket error detected, attempting recovery',
+        // Create a standard error message for user display
+        const errorMessage =
+          'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.';
+
+        // Try to display error in widget if possible
+        try {
+          if ($('.cx-widget.cx-webchat').length) {
+            $('.cx-widget.cx-webchat').append(`
+              <div class="chat-error-message" style="padding:15px;background:#f8d7da;color:#721c24;margin:10px;border-radius:4px;">
+                <p>${errorMessage}</p>
+                <button id="chat-error-ok" style="background:#dc3545;color:white;border:none;padding:5px 15px;border-radius:4px;cursor:pointer;">OK</button>
+              </div>
+            `);
+
+            $('#chat-error-ok').on('click', function () {
+              $('.chat-error-message').remove();
+              // Re-open chat form
+              if (window._genesysCXBus) {
+                window._genesysCXBus.command('WebChat.open');
+              }
+            });
+          }
+        } catch (err) {
+          console.error('[Genesys] Error displaying chat error message:', err);
+        }
+
+        // Also dispatch event for external handlers
+        try {
+          document.dispatchEvent(
+            new CustomEvent('genesys:webchat:error', {
+              detail: {
+                error,
+                message: errorMessage,
+              },
+            }),
           );
+        } catch (e) {
+          console.error('[Genesys] Error dispatching error event:', e);
+        }
+      });
 
-          setTimeout(() => {
-            try {
-              CXBus.command('WebChat.close');
+      // Add specific handler for failed to start
+      plugin.subscribe('WebChat.failedToStart', () => {
+        console.error('[Genesys] WebChat failed to start');
 
-              // Notify application of the error
-              document.dispatchEvent(
-                new CustomEvent('genesys:webchat:error', {
-                  detail: { error, recovering: true },
-                }),
-              );
+        const errorMessage =
+          'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.';
 
-              // Could add reconnection logic here
-            } catch (e) {
-              console.error('[Genesys] Error during error recovery:', e);
-            }
-          }, 1000);
+        try {
+          // Show error message to user
+          alert(errorMessage);
+
+          // Dispatch event for external handlers
+          document.dispatchEvent(
+            new CustomEvent('genesys:webchat:failedToStart', {
+              detail: { message: errorMessage },
+            }),
+          );
+        } catch (e) {
+          console.error('[Genesys] Error handling failedToStart:', e);
         }
       });
 
@@ -1088,6 +1160,118 @@
         window.forceCreateChatButton();
       }
     }, 5000);
+
+    // Define global functions for opening the plan switcher
+    window.openPlanSwitcher = function () {
+      console.log('[Genesys] Opening Plan Switcher');
+      // Close the widget first
+      if (window._genesysCXBus) {
+        try {
+          window._genesysCXBus.command('WebChat.close');
+        } catch (err) {
+          console.error(
+            '[Genesys] Error closing chat before plan switch:',
+            err,
+          );
+        }
+      }
+
+      // Try to access the plan switcher from the store if exists
+      try {
+        if (window.__ZUSTAND_STORES__?.planStore) {
+          window.__ZUSTAND_STORES__.planStore.getState().openPlanSwitcher();
+        } else {
+          // Fallback to focusing on a plan select dropdown
+          const planSelect = document.getElementById('plan-select');
+          if (planSelect) {
+            planSelect.focus();
+          }
+        }
+      } catch (err) {
+        console.error('[Genesys] Error opening plan switcher:', err);
+        alert('Unable to switch plans at this time. Please try again later.');
+      }
+    };
+
+    // Define OpenChatDisclaimer for Terms & Conditions
+    window.OpenChatDisclaimer = function () {
+      console.log('[Genesys] Opening Chat Disclaimer');
+      let title = 'Terms and Conditions';
+      let message =
+        'By using our chat service, you agree to our terms and conditions.';
+      let url = '#';
+
+      // Use LOB to determine the appropriate T&C content
+      const lob = cfg.LOB || 'Default';
+
+      switch (lob) {
+        case 'BC': // BlueCare
+          title = 'BlueCare Chat Terms';
+          message =
+            'By using BlueCare chat services, you agree to our terms and conditions.';
+          url = '/terms/bluecare-terms';
+          break;
+        case 'BA': // SeniorCare
+          title = 'SeniorCare Chat Terms';
+          message =
+            'By using SeniorCare chat services, you agree to our terms and conditions.';
+          url = '/terms/seniorcare-terms';
+          break;
+        case 'INDV': // Individual
+          title = 'Individual Plan Chat Terms';
+          message =
+            'By using Individual Plan chat services, you agree to our terms and conditions.';
+          url = '/terms/individual-terms';
+          break;
+        case 'INDVMX': // BlueElite
+          title = 'BlueElite Chat Terms';
+          message =
+            'By using BlueElite chat services, you agree to our terms and conditions.';
+          url = '/terms/blueelite-terms';
+          break;
+        default:
+        // Use defaults already set
+      }
+
+      // Create and display the modal
+      const modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100%';
+      modal.style.height = '100%';
+      modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+      modal.style.zIndex = '9999';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+
+      const content = document.createElement('div');
+      content.style.backgroundColor = 'white';
+      content.style.padding = '20px';
+      content.style.borderRadius = '5px';
+      content.style.maxWidth = '500px';
+      content.style.width = '80%';
+
+      content.innerHTML = `
+        <h3 style="margin-top:0">${title}</h3>
+        <p>${message}</p>
+        <div style="text-align:center">
+          <button id="terms-ok" style="padding:8px 16px;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>
+        </div>
+      `;
+
+      modal.appendChild(content);
+      document.body.appendChild(modal);
+
+      document
+        .getElementById('terms-ok')
+        .addEventListener('click', function () {
+          document.body.removeChild(modal);
+        });
+
+      return false; // Prevent default link behavior
+    };
   }
 
   // === LEGACY SCRIPT LOADER ===
