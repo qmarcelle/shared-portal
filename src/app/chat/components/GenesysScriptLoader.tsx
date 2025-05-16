@@ -132,13 +132,25 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
     // Determine effective URLs based on props and config
     const effectiveScriptUrl = config?.clickToChatJs || scriptUrl;
-    const effectiveCssUrls = (
-      config?.widgetUrl ? [config.widgetUrl] : cssUrls
-    ).filter(Boolean); // Ensure widgetUrl from config is used if present, and filter out any empty strings
+    // Ensure effectiveCssUrls is always an array and includes the custom CSS.
+    let resolvedCssUrls: string[] = [];
+    const baseCssUrl = config?.widgetUrl || cssUrls; // This could be string or string[]
+
+    if (Array.isArray(baseCssUrl)) {
+      resolvedCssUrls = [...baseCssUrl];
+    } else if (baseCssUrl) {
+      resolvedCssUrls = [baseCssUrl];
+    }
+
+    const customCssPath = '/assets/genesys/styles/bcbst-custom.css';
+    if (!resolvedCssUrls.includes(customCssPath)) {
+      resolvedCssUrls.push(customCssPath);
+    }
+    const effectiveCssUrls = resolvedCssUrls;
 
     logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
-      effectiveScriptUrl,
-      effectiveCssUrls,
+      script: effectiveScriptUrl,
+      css: effectiveCssUrls,
     });
 
     // Memoize cssUrls to prevent unnecessary re-renders if parent re-renders
