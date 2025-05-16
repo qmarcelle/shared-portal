@@ -518,6 +518,10 @@ export const useChatStore = create<ChatState>((set, get) => {
                 // Adjust access based on actual PBEData structure.
                 // This example assumes consentDetails is an array on the root pbeResponse.
                 // If it's pbeResponse.pbe.consentDetails, adjust accordingly.
+                logger.info(
+                  `${LOG_CONFIG_PREFIX} Raw PBE Response for consent check:`,
+                  { pbeResponse },
+                ); // Log raw PBE response
                 if (
                   pbeResponse?.consentDetails &&
                   Array.isArray(pbeResponse.consentDetails) &&
@@ -535,6 +539,7 @@ export const useChatStore = create<ChatState>((set, get) => {
                   pbeConsent = !!validChatConsent;
                   logger.info(`${LOG_CONFIG_PREFIX} PBE consent fetched:`, {
                     consent: pbeConsent,
+                    foundConsentDetail: validChatConsent, // Log the found detail
                   });
                 } else {
                   logger.warn(
