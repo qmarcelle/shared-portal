@@ -109,7 +109,7 @@ export const OnMyPlanItem = ({
       <Column>
         <Row>
           <Spacer axis="horizontal" size={8} />
-          <TextBox className="body-1 " text={getSharingText(sharingType)} />
+          <TextBox className="body-1 " text={sharingType} />
           {infoButton && (
             <ToolTip
               showTooltip={true}
