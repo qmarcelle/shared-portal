@@ -97,7 +97,7 @@ export function usePlanContext(): PlanContextReturn {
       const planId = session?.user?.currUsr?.plan?.grpId;
       const subId = session?.user?.currUsr?.plan?.subId; // Extracted subId
 
-      if (planId) {
+      if (planId && subId) {
         // Still gate by planId as primary identifier for context validity
         logger.info(
           `${LOG_PREFIX} Plan data (planId, subId) found in session. Setting planContext.`,
@@ -121,8 +121,11 @@ export function usePlanContext(): PlanContextReturn {
         // Only retry if authenticated and planId is still not found
         const timeoutDuration = Math.pow(2, retryCount.current) * 1000;
         logger.warn(
-          `${LOG_PREFIX} Plan data (planId) not available in authenticated session. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
-          { currentPlanDataInSession: session?.user?.currUsr?.plan },
+          `${LOG_PREFIX} Essential plan data (planId, subId) not available in authenticated session. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
+          {
+            currentPlanDataInSession: session?.user?.currUsr?.plan,
+            expected: { planId: !!planId, subId: !!subId },
+          },
         );
         timer = setTimeout(() => {
           retryCount.current += 1;
@@ -135,9 +138,10 @@ export function usePlanContext(): PlanContextReturn {
         }, timeoutDuration);
       } else if (status === 'authenticated') {
         // Max retries reached while authenticated but planId not found
-        const errMsg = `Failed to load plan data (planId) after ${MAX_RETRIES} retries, despite session being authenticated.`;
+        const errMsg = `Failed to load essential plan data (planId, subId) after ${MAX_RETRIES} retries, despite session being authenticated.`;
         logger.error(`${LOG_PREFIX} ${errMsg}`, {
           sessionPlanData: session?.user?.currUsr?.plan,
+          expected: { planId: !!planId, subId: !!subId },
         });
         setPlanContext(null);
         setError(new Error(errMsg));

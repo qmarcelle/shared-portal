@@ -106,9 +106,9 @@ export function useUserContext(): UserContextReturn {
         umpiValue: session?.user?.currUsr?.umpi,
       }); // Added specific log for umpi
 
-      if (memberId) {
+      if (memberId && role && umpi) {
         logger.info(
-          `${LOG_PREFIX} User data (memberId, umpi) found in session. Setting userContext.`,
+          `${LOG_PREFIX} User data (memberId, role, umpi) found in session. Setting userContext.`,
           { memberId: memberId?.substring(0, 3) + '...', role, userID: umpi },
         );
         setContext({
@@ -129,8 +129,11 @@ export function useUserContext(): UserContextReturn {
         // Only retry if authenticated
         const timeoutDuration = Math.pow(2, retryCount.current) * 1000; // Exponential backoff
         logger.warn(
-          `${LOG_PREFIX} User data (memberId) not available in session. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
-          { sessionData: session }, // Log available session data for debugging
+          `${LOG_PREFIX} Essential user data (memberId, role, or umpi) not available in session. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
+          {
+            sessionData: session,
+            expected: { memberId: !!memberId, role: !!role, umpi: !!umpi },
+          },
         );
         timer = setTimeout(() => {
           retryCount.current += 1;
@@ -150,8 +153,11 @@ export function useUserContext(): UserContextReturn {
       } else if (status === 'authenticated') {
         // Max retries reached while authenticated
         logger.error(
-          `${LOG_PREFIX} Failed to load user data (memberId) after ${MAX_RETRIES} retries, despite session being authenticated. User context will be null.`,
-          { sessionData: session },
+          `${LOG_PREFIX} Failed to load essential user data (memberId, role, or umpi) after ${MAX_RETRIES} retries, despite session being authenticated. User context will be null.`,
+          {
+            sessionData: session,
+            expected: { memberId: !!memberId, role: !!role, umpi: !!umpi },
+          },
         );
         setContext(null); // Set context to null after max retries
         setLoading(false);
