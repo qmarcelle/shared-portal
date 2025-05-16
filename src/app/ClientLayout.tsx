@@ -93,8 +93,12 @@ export default function ClientLayout({
 
     if (session?.user?.currUsr?.plan) {
       logger.info(
-        '[ClientLayout] session.user.currUsr.plan object:',
-        session.user.currUsr.plan,
+        '[ClientLayout] session.user.currUsr.plan object (raw):',
+        session.user.currUsr.plan, // Keep original log for comparison
+      );
+      logger.info(
+        '[ClientLayout] session.user.currUsr.plan object (JSON stringified):',
+        JSON.stringify(session.user.currUsr.plan, null, 2), // Log as stringified JSON
       );
       logger.info(
         '[ClientLayout] session.user.currUsr.plan.memCk:',
