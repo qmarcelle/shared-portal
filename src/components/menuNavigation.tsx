@@ -571,22 +571,9 @@ export const getMenuNavigation = (
     url: isAHAdvisorpage(rules)
       ? '/member/amplifyhealthsupport'
       : '/member/support',
-    qt: {
-      // eslint-disable-next-line quotes
-      firstParagraph: "We're here to help.",
-      secondParagraph: (
-        <p className="pb-1 text-base app-base-font-color ">
-          <span className="font-bold">Start a chat</span> or call us at
-          [1-800-000-0000].
-        </p>
-      ),
-      link: isAHAdvisorpage(rules)
-        ? '/member/amplifyhealthsupport'
-        : '/member/support',
-    },
     template: {
-      firstCol: 'QT',
-      secondCol: 'Support',
+      firstCol: 'Support',
+      secondCol: '',
       thirdCol: '',
       fourthCol: '',
     },
