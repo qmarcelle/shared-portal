@@ -41,11 +41,6 @@ export const WellnessRewards = ({
 }: WellnessRewardsProps) => {
   return (
     <>
-      {memberRewards?.isSelfFunded ? (
-        <Header text="Active Rewards - Self Funded" />
-      ) : (
-        <Header text="Active Rewards - Fully Insured & Level Funded" />
-      )}
       <Card className={className}>
         <>
           <Header type="title-2" text="Wellness Rewards" />
