@@ -28,7 +28,7 @@ import {
   UserConfig,
 } from '../genesysChatConfig';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
-import { GenesysChatConfig, ScriptLoadPhase } from '../types/chat-types';
+import { ScriptLoadPhase } from '../types/chat-types';
 
 const LOG_STORE_PREFIX = '[ChatStore]'; // General store lifecycle/setup logs
 const LOG_UI_PREFIX = '[ChatStore:UI]';
@@ -75,7 +75,27 @@ interface ChatState {
   config: {
     isLoading: boolean;
     error: Error | null;
-    genesysChatConfig?: GenesysChatConfig;
+    // Legacy chat config
+    legacyConfig?: ChatSettings;
+    // Cloud chat config
+    cloudConfig?: {
+      environment: string;
+      deploymentId: string;
+      customAttributes?: {
+        Firstname?: string;
+        lastname?: string;
+        MEMBER_ID?: string;
+        MEMBER_DOB?: string;
+        GROUP_ID?: string;
+        PLAN_ID?: string;
+        INQ_TYPE?: string;
+        isMedicalEligible?: string;
+        IsDentalEligible?: string;
+        IsVisionEligible?: string;
+        IDCardBotName?: string;
+        LOB?: string;
+      };
+    };
     chatData: ChatData | null;
     chatConfig?: ChatConfig;
     hasConsent: boolean;
@@ -147,6 +167,20 @@ interface ChatData {
   genesysCloudConfig?: {
     deploymentId: string;
     environment: string;
+    customAttributes?: {
+      Firstname?: string;
+      lastname?: string;
+      MEMBER_ID?: string;
+      MEMBER_DOB?: string;
+      GROUP_ID?: string;
+      PLAN_ID?: string;
+      INQ_TYPE?: string;
+      isMedicalEligible?: string;
+      IsDentalEligible?: string;
+      IsVisionEligible?: string;
+      IDCardBotName?: string;
+      LOB?: string;
+    };
   };
   routingInteractionId?: string;
 }
@@ -161,7 +195,12 @@ export const chatUISelectors = {
 export const chatConfigSelectors = {
   isLoading: (state: ChatState) => state.config.isLoading,
   error: (state: ChatState) => state.config.error,
-  genesysChatConfig: (state: ChatState) => state.config.genesysChatConfig,
+  genesysChatConfig: (state: ChatState) => {
+    if (state.config.chatData?.cloudChatEligible) {
+      return state.config.cloudConfig;
+    }
+    return state.config.legacyConfig;
+  },
   isEligible: (state: ChatState) => state.config.chatData?.isEligible || false,
   hasConsent: (state: ChatState) => state.config.hasConsent,
   chatMode: (state: ChatState) =>
@@ -608,43 +647,71 @@ export const useChatStore = create<ChatState>((set, get) => {
               config: finalGenesysConfig,
             });
 
-            // For testing Genesys Cloud, we'll hardcode these.
-            // In a real scenario, these would come from a secure config source or the API.
-            const genesysCloudDeploymentId =
-              '52dd824c-f565-47a6-a6d5-f30d81c97491'; // From your script snippet
-            const genesysCloudEnvironment = 'prod-usw2'; // From your script snippet
-
             // 5. Determine overall chat eligibility and availability
             const isEligible = finalGenesysConfig.isChatEligibleMember === true;
             const chatAvailable = finalGenesysConfig.isChatAvailable === true;
 
-            const cloudChatEligibleForTesting = true;
+            // Use cloudChatEligible from API response instead of hardcoding
+            const cloudChatEligible =
+              rawApiDataForConfig?.cloudChatEligible || false;
 
-            // finalGenesysConfig should have isChatAvailable (boolean) and chatHours (string)
-            // These are typically populated by buildGenesysChatConfig based on API response and env vars.
-            const rawWorkingHours = finalGenesysConfig.workingHours; // This is already a string or undefined
+            // Build either legacy or cloud configuration based on eligibility
+            const legacyConfig = !cloudChatEligible
+              ? {
+                  // Legacy chat configuration
+                  clickToChatJs: '/assets/genesys/click_to_chat.js',
+                  widgetUrl: '/assets/genesys/plugins/widgets.min.css',
+                  // ... other legacy config fields from finalGenesysConfig
+                }
+              : undefined;
+
+            const cloudConfig = cloudChatEligible
+              ? {
+                  environment:
+                    rawApiDataForConfig?.genesysCloudConfig?.environment ||
+                    process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
+                    'prod-usw2',
+                  deploymentId:
+                    rawApiDataForConfig?.genesysCloudConfig?.deploymentId ||
+                    process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+                    '',
+                  customAttributes: {
+                    Firstname: userContext?.firstName || '',
+                    lastname: userContext?.lastName || '',
+                    MEMBER_ID: String(memberId) || '',
+                    MEMBER_DOB: userContext?.dateOfBirth || '',
+                    GROUP_ID: userContext?.groupId || '',
+                    PLAN_ID: planId || '',
+                    INQ_TYPE: '', // Can be populated based on context if needed
+                    isMedicalEligible: String(isEligible),
+                    IsDentalEligible: String(
+                      userContext?.isDentalEligible || false,
+                    ),
+                    IsVisionEligible: String(
+                      userContext?.isVisionEligible || false,
+                    ),
+                    IDCardBotName: finalGenesysConfig.idCardChatBotName || '',
+                    LOB: userContext?.lineOfBusiness || '',
+                  },
+                }
+              : undefined;
 
             set({
               config: {
                 isLoading: false,
                 error: null,
-                genesysChatConfig: finalGenesysConfig,
+                legacyConfig,
+                cloudConfig,
                 chatData: {
-                  ...rawApiDataForConfig, // Spread raw API data first
-                  isEligible: finalGenesysConfig.isChatEligibleMember === true, // Ensure boolean
-                  chatAvailable: finalGenesysConfig.isChatAvailable === true, // Ensure boolean
-                  cloudChatEligible: cloudChatEligibleForTesting,
-                  workingHours: rawWorkingHours, // Store the raw string (e.g. M_F_8_17)
+                  ...rawApiDataForConfig,
+                  isEligible,
+                  chatAvailable,
+                  cloudChatEligible,
+                  workingHours: finalGenesysConfig.workingHours,
                   businessHours: {
-                    isOpen: finalGenesysConfig.isChatAvailable === true,
+                    isOpen: chatAvailable,
                     text: finalGenesysConfig.chatHours || 'Hours unavailable',
                   },
-                  genesysCloudConfig: cloudChatEligibleForTesting
-                    ? {
-                        deploymentId: genesysCloudDeploymentId,
-                        environment: genesysCloudEnvironment,
-                      }
-                    : undefined,
                   userData: finalGenesysConfig.userData || {},
                   formInputs: finalGenesysConfig.formInputs || [],
                   routingInteractionId:

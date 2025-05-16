@@ -18,6 +18,8 @@
  * - Optionally displays a visual status indicator.
  */
 
+import { GenesysConfig } from '@/types/config';
+import { getConfig } from '@/utils/env-config';
 import { logger } from '@/utils/logger';
 import React, {
   useCallback,
@@ -35,10 +37,21 @@ import {
 const LOG_PREFIX = '[GenesysScriptLoader]';
 
 // Define structure for Genesys Cloud initial config
-interface GenesysCloudConfig {
-  environment: string;
-  deploymentId: string;
-  // Potentially other fields like 'orgGuid' if needed later
+interface GenesysCloudConfig extends GenesysConfig {
+  customAttributes?: {
+    Firstname?: string;
+    lastname?: string;
+    MEMBER_ID?: string;
+    MEMBER_DOB?: string;
+    GROUP_ID?: string;
+    PLAN_ID?: string;
+    INQ_TYPE?: string;
+    isMedicalEligible?: string;
+    IsDentalEligible?: string;
+    IsVisionEligible?: string;
+    IDCardBotName?: string;
+    LOB?: string;
+  };
 }
 
 /**
@@ -49,9 +62,9 @@ interface GenesysScriptLoaderProps {
   scriptUrl?: string;
   /** Array of CSS URLs to load before the script */
   cssUrls?: string[];
-  /** Configuration object for legacy: window.chatSettings */
-  legacyConfig?: Partial<ChatSettings> | GenesysChatConfig;
-  /** Configuration object for Genesys Cloud: environment, deploymentId */
+  /** Legacy chat configuration */
+  legacyConfig?: Partial<ChatSettings>;
+  /** Cloud chat configuration */
   cloudConfig?: GenesysCloudConfig;
   /** Callback when scripts are successfully loaded */
   onLoad?: () => void;
@@ -113,19 +126,14 @@ const addResourceHints = () => {
 
 const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
   ({
-    // Default to Genesys Cloud script, can be overridden by chatMode logic later
-    scriptUrl, // Will be determined by chatMode
-    cssUrls = ['/assets/genesys/styles/bcbst-custom.css'],
-    legacyConfig = {},
-    cloudConfig = {
-      // Default empty, should be provided if chatMode is 'cloud'
-      environment: '', // e.g., 'prod-usw2'
-      deploymentId: '', // The deployment key
-    },
+    scriptUrl,
+    cssUrls,
+    legacyConfig,
+    cloudConfig = getConfig('client').genesys, // Use config as default
     onLoad,
     onError,
     showStatus = process.env.NODE_ENV === 'development',
-    chatMode = 'legacy', // Default to legacy, ChatWidget should set this based on store
+    chatMode = 'legacy',
   }) => {
     const [status, setStatus] = useState<
       | 'idle'
@@ -150,7 +158,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       chatMode,
     });
 
-    // Determine effective URLs and config based on chatMode
+    // Determine effective URLs based on chat mode
     const effectiveScriptUrl = useMemo(() => {
       if (chatMode === 'cloud') {
         return (
@@ -158,31 +166,23 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
         );
       }
-      // Legacy mode
-      return (
-        scriptUrl ||
-        legacyConfig?.clickToChatJs ||
-        '/assets/genesys/click_to_chat.js'
-      );
-    }, [chatMode, scriptUrl, legacyConfig?.clickToChatJs]);
+      // Legacy mode - use click_to_chat.js
+      return scriptUrl || '/assets/genesys/click_to_chat.js';
+    }, [chatMode, scriptUrl]);
 
-    // Ensure effectiveCssUrls is always an array and includes the custom CSS.
-    let resolvedCssUrls: string[] = [];
-    // For CSS, legacyConfig.widgetUrl might be an array or string. cloudConfig doesn't specify CSS.
-    const baseCssUrl =
-      chatMode === 'legacy' ? legacyConfig?.widgetUrl || cssUrls : cssUrls;
-
-    if (Array.isArray(baseCssUrl)) {
-      resolvedCssUrls = [...baseCssUrl];
-    } else if (baseCssUrl) {
-      resolvedCssUrls = [baseCssUrl];
-    }
-
-    const customCssPath = '/assets/genesys/styles/bcbst-custom.css';
-    if (!resolvedCssUrls.includes(customCssPath)) {
-      resolvedCssUrls.push(customCssPath);
-    }
-    const effectiveCssUrls = resolvedCssUrls;
+    // Determine CSS URLs based on chat mode
+    const effectiveCssUrls = useMemo(() => {
+      if (chatMode === 'cloud') {
+        // Cloud mode doesn't need our legacy CSS files
+        return cssUrls || [];
+      }
+      // Legacy mode - ensure we have all required CSS files
+      const defaultCssUrls = [
+        '/assets/genesys/plugins/widgets.min.css',
+        '/assets/genesys/styles/bcbst-custom.css',
+      ];
+      return cssUrls || defaultCssUrls;
+    }, [chatMode, cssUrls]);
 
     logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
       script: effectiveScriptUrl,
@@ -468,6 +468,107 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           onError(err instanceof Error ? err : new Error(String(err)));
       }
     }, [chatMode, effectiveScriptUrl, stableCssUrls, onLoad, onError, status]); // Added status to deps of loadScript
+
+    // Error handling function
+    const handleError = useCallback(
+      (error: Error) => {
+        const message =
+          error?.message || 'Unknown error loading Genesys scripts';
+        logger.error(`${LOG_PREFIX} Error:`, { message, error });
+        setStatus('error');
+        setErrorMessage(message);
+        if (onError) onError(error);
+      },
+      [onError],
+    );
+
+    // For cloud mode, inject the initialization script
+    const injectCloudScript = useCallback(() => {
+      if (chatMode !== 'cloud' || !cloudConfig) return;
+
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.charset = 'utf-8';
+      script.textContent = `
+        (function (g, e, n, es, ys) {
+          g['_genesysJs'] = e;
+          g[e] = g[e] || function () {
+            (g[e].q = g[e].q || []).push(arguments)
+          };
+          g[e].t = 1 * new Date();
+          g[e].c = es;
+          ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+        })(window, 'Genesys', '${effectiveScriptUrl}', {
+          environment: '${cloudConfig.environment}',
+          deploymentId: '${cloudConfig.deploymentId}'
+        });
+
+        // Set up database subscription for custom attributes
+        Genesys("subscribe", "Database.ready", function () {
+          console.log("Database plugin is ready.");
+          Genesys("command", "Database.set", {
+            messaging: {
+              customAttributes: ${JSON.stringify(cloudConfig.customAttributes || {})}
+            }
+          });
+        });
+      `;
+
+      document.head.appendChild(script);
+      logger.info(`${LOG_PREFIX} Injected Genesys Cloud initialization script`);
+    }, [chatMode, cloudConfig, effectiveScriptUrl]);
+
+    // Update the initialization logic to handle both modes cleanly
+    useEffect(() => {
+      if (initialized.current) return;
+      initialized.current = true;
+
+      const init = async () => {
+        try {
+          // Always add resource hints first
+          addResourceHints();
+
+          // Load CSS files if needed
+          if (effectiveCssUrls.length > 0) {
+            setStatus('loading-css');
+            await loadScript();
+          }
+
+          setStatus('setting-config');
+          if (chatMode === 'cloud') {
+            // Cloud mode initialization
+            injectCloudScript();
+          } else {
+            // Legacy mode initialization
+            window.chatSettings = legacyConfig;
+            setStatus('loading-script');
+            await loadScript();
+          }
+
+          setStatus('polling-ready');
+          checkReadyWithBackoff();
+        } catch (error: any) {
+          handleError(error);
+        }
+      };
+
+      init();
+
+      return () => {
+        if (checkIntervalRef.current) {
+          clearTimeout(checkIntervalRef.current);
+        }
+      };
+    }, [
+      effectiveCssUrls,
+      effectiveScriptUrl,
+      legacyConfig,
+      chatMode,
+      injectCloudScript,
+      checkReadyWithBackoff,
+      handleError,
+      loadScript,
+    ]);
 
     useEffect(() => {
       logger.info(
