@@ -11,11 +11,11 @@ import { NextRequest, NextResponse } from 'next/server';
  * @returns A backend-compatible member ID type
  */
 const mapMemberType = (frontendType: string | null): string => {
-  if (!frontendType) return 'memberId'; // Default fallback
+  if (!frontendType) return 'subscriberId'; // Default fallback
 
   // Map frontend member types to backend types
   const typeMap: Record<string, string> = {
-    MEM: 'memberId', // Map 'MEM' to 'memberId' (or whatever the Java service expects)
+    MEM: 'subscriberId', // Map 'MEM' to 'subscriberId' as specified
     SUB: 'subscriberId',
     // Add more mappings as needed
   };
@@ -31,6 +31,7 @@ const mapMemberType = (frontendType: string | null): string => {
  */
 export async function GET(request: NextRequest) {
   const memberId = request.nextUrl.searchParams.get('memberId');
+  const memeck = request.nextUrl.searchParams.get('memeck') || memberId; // Look for memeck or fall back to memberId
   const memberType = request.nextUrl.searchParams.get('memberType');
   const planId = request.nextUrl.searchParams.get('planId');
   const correlationId =
@@ -42,8 +43,9 @@ export async function GET(request: NextRequest) {
   console.log('⭐ [API:chat/getChatInfo] Endpoint CALLED ⭐', {
     correlationId,
     memberId,
+    memeck,
     memberType,
-    backendMemberType, // Log the mapped type
+    backendMemberType,
     planId,
     timestamp: new Date().toISOString(),
     url: request.url,
@@ -53,20 +55,22 @@ export async function GET(request: NextRequest) {
   logger.info('[API:chat/getChatInfo] Incoming request', {
     correlationId,
     memberId,
+    memeck,
     memberType,
-    backendMemberType, // Log the mapped type
+    backendMemberType,
     planId,
   });
   // eslint-disable-next-line no-console
   console.log('[API:chat/getChatInfo] Incoming request', {
     correlationId,
     memberId,
+    memeck,
     memberType,
-    backendMemberType, // Log the mapped type
+    backendMemberType,
     planId,
   });
 
-  if (!memberId || !memberType) {
+  if (!memeck || !memberType) {
     return NextResponse.json(
       { message: 'Missing required parameters' },
       { status: 400 },
@@ -94,14 +98,15 @@ export async function GET(request: NextRequest) {
       memberServiceContext: serverConfig.MEMBERSERVICE_CONTEXT_ROOT,
     });
 
-    // Build the URL
-    const url = `${baseURL}/api/member/v1/members/${backendMemberType}/${memberId}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
+    // Build the URL using the memeck value and subscriberId type
+    const url = `${baseURL}/api/member/v1/members/${backendMemberType}/${memeck}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
       memberType,
-      backendMemberType, // Log both types for clarity
+      backendMemberType,
+      memeck,
       planId,
     });
     // eslint-disable-next-line no-console
