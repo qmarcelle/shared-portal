@@ -549,11 +549,17 @@ export const useChatStore = create<ChatState>((set, get) => {
             // Always setting hasConsent to true for backward compatibility
             const pbeConsent = true;
 
+            // Log the userContext before calling buildGenesysChatConfig
+            logger.info(
+              `${LOG_CONFIG_PREFIX} userContext before calling buildGenesysChatConfig:`,
+              userContext,
+            );
+
             // 4. Build the final GenesysChatConfig DTO
             const finalGenesysConfig = buildGenesysChatConfig({
               apiConfig: rawApiDataForConfig,
-              user: userContext || {}, // Pass empty object if undefined to satisfy UserConfig (if it expects an object)
-              plan: planContext || {}, // Pass empty object if undefined to satisfy PlanConfig
+              user: userContext || {},
+              plan: planContext || {},
             });
 
             logger.info(`${LOG_CONFIG_PREFIX} Final genesysChatConfig built:`, {
