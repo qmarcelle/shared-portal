@@ -230,16 +230,19 @@ export async function GET(request: NextRequest) {
       rawChatHrs:
         data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
 
-      // Pass through the token from the member service response
-      clickToChatToken: data.clickToChatToken || '',
+      // Use the Ping auth token as the clickToChatToken (as per user request for testing)
+      clickToChatToken: token || '', // token is from getAuthToken()
     };
 
-    logger.info('[API:chat/getChatInfo] Returning transformed chat info', {
-      correlationId,
-      cloudChatEligible: transformedData.cloudChatEligible,
-      chatGroup: transformedData.chatGroup,
-      chatAvailable: transformedData.chatAvailable,
-    });
+    logger.info(
+      '[API:chat/getChatInfo] Returning transformed chat info (using Ping token as clickToChatToken)',
+      {
+        correlationId,
+        cloudChatEligible: transformedData.cloudChatEligible,
+        chatGroup: transformedData.chatGroup,
+        chatAvailable: transformedData.chatAvailable,
+      },
+    );
     // eslint-disable-next-line no-console
     console.log('[API:chat/getChatInfo] Returning transformed chat info', {
       correlationId,
