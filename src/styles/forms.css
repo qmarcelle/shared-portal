@@ -1,0 +1,21 @@
+.formBoundary {
+  border: 1px solid #f0f0f0;
+  /* padding: 20px; */
+  border-radius: 5px;
+  margin-bottom: 32px;
+}
+
+.forms-checkbox-container {
+  width: 100%;
+}
+
+.forms-checkbox {
+  min-width: 1.25rem; /* Ensure full width alignment */
+}
+
+.forms-checkbox-label {
+  flex-grow: 1; /* Allow the label to take up remaining space */
+  word-wrap: break-word; /* Handle long text gracefully */
+  line-height: 1.2; /* Adjust line-spacing for closer alignment */
+  margin: 0.3rem 1rem; /* Add some margin for spacing */
+}

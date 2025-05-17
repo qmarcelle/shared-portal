@@ -235,7 +235,8 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                             'Request for Medicare Prescription Drug Coverage Determination',
                           linkDescription:
                             'You can request an exception for prescription drug coverage.',
-                          linkIcon: (
+                            linkURL: '/forms/redetermination',
+                            linkIcon: (
                             <Image
                               src={rightIcon}
                               alt="right arrow Icon"

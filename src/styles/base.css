@@ -30,6 +30,7 @@
 @import './loader.css';
 @import './calendar.css';
 @import './plan_selector.css';
+@import './forms.css';
 
 :root {
   --primary-color: #005eb9;
@@ -135,7 +136,8 @@ body {
 }
 
 .brand-gradient {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       ellipse farthest-corner at right top,
       #5dc1fd 0%,
       #0000 60%
@@ -144,7 +146,8 @@ body {
 }
 
 .surface-gradient-flipped {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at bottom right,
       rgba(93, 193, 253, 0.3) 0%,
       transparent 60%
@@ -153,7 +156,8 @@ body {
 }
 
 .surface-gradient-amplify {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at top right,
       rgba(0, 94, 185, 0.6),
       transparent
@@ -162,7 +166,8 @@ body {
 }
 
 .surface-gradient-amplify-flipped {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at bottom right,
       rgba(0, 94, 185, 0.6),
       transparent
