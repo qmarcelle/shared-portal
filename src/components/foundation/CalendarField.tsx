@@ -14,7 +14,7 @@ export interface CalendarFieldProps extends IComponent {
   errors?: string[] | null;
   valueCallback?: (value: string) => void;
   onKeydownCallback?: (key: string) => void;
-  maxWidth?: number;
+  maxWidth?: number | string; // Allow both number and string for flexibility
   isSuffixNeeded?: boolean;
   highlightError?: boolean;
   onFocusCallback?: () => void;
@@ -23,7 +23,9 @@ export interface CalendarFieldProps extends IComponent {
   disabled?: boolean;
   minDateErrMsg?: string;
   maxDateErrMsg?: string;
+  required? : boolean;
 }
+
 export const CalendarField = ({
   label,
   errors = [],
@@ -37,6 +39,8 @@ export const CalendarField = ({
   disabled,
   minDateErrMsg,
   maxDateErrMsg,
+  maxWidth,
+  required = false,
 }: CalendarFieldProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const datePickerRef = useRef<DatePicker>(null);
@@ -173,12 +177,23 @@ export const CalendarField = ({
       setInputValue(formattedDate);
     }
   }, [selectedDate]);
+
+  // Determine the maxWidth with default to px if no unit is provided
+  const resolvedMaxWidth =
+    typeof maxWidth === 'number' || /^\d+$/.test(maxWidth as string)
+      ? `${maxWidth}px`
+      : maxWidth;
+
   return (
     <div
       ref={inputRef}
+      style={{ ...(resolvedMaxWidth && { maxWidth: resolvedMaxWidth }) }}
       className={`flex flex-col relative inline-block w-full text-field ${error ? 'border-red-500' : ''}`}
     >
-      <p className="mb-2 mt-3">{label}</p>
+      <p className="mb-2 mt-3">
+        {required && <span className="text-red-500 ml-1">* </span>}
+        {label}
+      </p>
 
       <div
         className={`flex flex-row items-center input relative w-full left-0 top-full ${className} ${

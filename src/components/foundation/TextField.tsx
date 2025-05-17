@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { IComponent } from '../IComponent';
+import { resolveMaxWidth } from '../MaxWidthResolver';
 import {
   alertErrorIcon,
   showPasswordIcon,
@@ -18,7 +19,7 @@ export interface TextFieldProps extends IComponent {
   valueCallback?: (value: string) => void;
   onKeydownCallback?: (key: string) => void;
   suffixIconCallback?: () => void;
-  maxWidth?: number;
+  maxWidth?: number | string; // Allow both number and string for flexibility
   isSuffixNeeded?: boolean;
   highlightError?: boolean;
   onFocusCallback?: () => void;
@@ -27,6 +28,8 @@ export interface TextFieldProps extends IComponent {
   maxLength?: number;
   disabled?: boolean;
   list?: string;
+  otherProps?: any;
+  required?: boolean;
 }
 
 const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
@@ -131,6 +134,8 @@ export const TextField = ({
   highlightError = true,
   disabled = false,
   list,
+  otherProps,
+  required,
 }: TextFieldProps) => {
   const [focus, setFocus] = useState(false);
   const [obscuredState, setObscuredState] = useState(
@@ -152,12 +157,17 @@ export const TextField = ({
     suffixIconCallback?.();
   }
 
+  const resolvedMaxWidth = resolveMaxWidth(maxWidth);
+
   return (
     <div
-      style={{ ...(maxWidth && { maxWidth: `${maxWidth}px` }) }}
+      style={{ ...(resolvedMaxWidth && { maxWidth: resolvedMaxWidth }) }}
       className="flex flex-col w-full text-field"
     >
-      <p>{label}</p>
+      <p>
+        {required && <span className="text-red-500 ml-1">* </span>}
+        {label}
+      </p>
       <div
         className={`flex flex-row items-center input ${className} ${
           focus ? 'input-focus' : ''
@@ -169,7 +179,6 @@ export const TextField = ({
             setFocus(true);
             onFocusCallback?.();
           }}
-          onBlur={() => setFocus(false)}
           onChange={(event) => valueCallback?.(event.target.value)}
           onKeyDown={(event) => onKeydownCallback?.(event.key)}
           value={value}
@@ -181,6 +190,13 @@ export const TextField = ({
           maxLength={maxLength}
           disabled={disabled}
           list={list}
+          {...otherProps}
+          onBlur={(e) => {
+            if (otherProps?.onBlur) {
+              otherProps.onBlur(e);
+            }
+            setFocus(false);
+          }}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (

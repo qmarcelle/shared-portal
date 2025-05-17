@@ -389,4 +389,18 @@ export const appPaths: Map<string, AppPath> = new Map([
       path: '/healthymaternity',
     },
   ],
+  [
+    'redetermination',
+    {
+      label: 'Drug Redetermination Form',
+      path: '/redetermination',
+    },
+  ],
+  [
+    'determination',
+    {
+      label: 'Drug Determination Form',
+      path: '/determination',
+    },
+  ],
 ]);
