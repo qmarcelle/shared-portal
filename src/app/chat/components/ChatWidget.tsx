@@ -459,7 +459,21 @@ export default function ChatWidget({
       loadingComplete,
       hasGenesysConfig: !!genesysChatConfig,
     });
-  }, [scriptLoadPhase, genesysChatConfig]);
+
+    // If scripts are loaded and we're in legacy mode, manually trigger button creation
+    if (scriptLoadPhase === ScriptLoadPhase.LOADED && chatMode === 'legacy') {
+      logger.info(
+        `${LOG_PREFIX} Scripts loaded, attempting to force button creation`,
+      );
+      // Short delay to ensure DOM is ready
+      setTimeout(() => {
+        if (typeof window._forceChatButtonCreate === 'function') {
+          logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
+          window._forceChatButtonCreate();
+        }
+      }, 1000);
+    }
+  }, [scriptLoadPhase, genesysChatConfig, chatMode]);
 
   // Log critical state just before rendering GenesysScriptLoader decision
   const chatDataFromStore = useChatStore.getState().config.chatData;
@@ -497,22 +511,49 @@ export default function ChatWidget({
   logger.info(
     `${LOG_PREFIX} Chat is enabled and config is available. Rendering GenesysScriptLoader.`,
   );
+
+  // Ensure the container div exists and is properly configured
+  useEffect(() => {
+    // Check if container already exists, if not create it
+    let containerElement = document.getElementById(containerId);
+    if (!containerElement) {
+      logger.info(
+        `${LOG_PREFIX} Creating missing container element with id: ${containerId}`,
+      );
+      containerElement = document.createElement('div');
+      containerElement.id = containerId;
+      containerElement.setAttribute('data-chat-container', 'true');
+      document.body.appendChild(containerElement);
+    } else {
+      logger.info(
+        `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
+      );
+    }
+
+    return () => {
+      // Don't remove the container on unmount as Genesys might still need it
+    };
+  }, [containerId]);
+
   return (
     <>
-      {/* Container for the Genesys chat widget */}
-      <div id={containerId} />
+      {/* Container for the Genesys chat widget - explicitly rendered with z-index */}
+      <div
+        id={containerId}
+        style={{
+          position: 'relative',
+          zIndex: 999,
+          minHeight: '10px',
+          minWidth: '10px',
+        }}
+      />
 
       {/* Loader for Genesys scripts, rendered only when config is ready */}
-      {/* The genesysChatConfig variable is kept in case GenesysScriptLoader needs it for legacy mode under a different prop name (e.g., legacyConfig) */}
       {isChatEnabled && (
         <GenesysScriptLoader
-          // config={genesysChatConfig} // Removed due to linter error; GenesysScriptLoaderProps might have changed.
           chatMode={chatMode}
-          cloudConfig={genesysCloudConfig} // For cloud mode
-          // If legacy mode needs the old config, GenesysScriptLoader might expect it as e.g. legacyConfig={genesysChatConfig}
-          // For now, assuming cloud mode only needs chatMode and cloudConfig.
-          // If legacy functionality is broken, the props for GenesysScriptLoader (legacy part) need to be revisited.
-          legacyConfig={chatMode === 'legacy' ? genesysChatConfig : undefined} // Tentatively pass for legacy mode
+          cloudConfig={genesysCloudConfig}
+          legacyConfig={chatMode === 'legacy' ? genesysChatConfig : undefined}
           onLoad={handleScriptLoaded}
           onError={handleScriptError}
           showStatus={showLoaderStatus}
@@ -530,6 +571,39 @@ export default function ChatWidget({
           }
         `}</style>
       )}
+
+      {/* Add custom CSS styles to ensure chat button is visible */}
+      <style>{`
+        /* Make the Genesys chat button visible */
+        .cx-widget.cx-webchat-chat-button,
+        .fallback-chat-button {
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: fixed !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          z-index: 9999 !important;
+          padding: 10px 20px !important;
+          background-color: #0056b3 !important;
+          color: white !important;
+          border-radius: 30px !important;
+          cursor: pointer !important;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+          font-weight: bold !important;
+          font-family: Arial, sans-serif !important;
+          font-size: 14px !important;
+          min-width: 120px !important;
+          text-align: center !important;
+          border: none !important;
+          transition: background-color 0.3s ease !important;
+        }
+        
+        .cx-widget.cx-webchat-chat-button:hover,
+        .fallback-chat-button:hover {
+          background-color: #003d7a !important;
+        }
+      `}</style>
 
       {/* Error message display with OK button to retry */}
       {error && showChatErrorModal && (

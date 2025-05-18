@@ -122,6 +122,13 @@ export interface GenesysChatConfig {
   /** ID of the HTML element where the chat widget will be injected */
   targetContainer?: string;
   // ...any other custom fields from JSP mapping
+
+  /** Additional fields for legacy mode */
+  chatBtnText?: string;
+  chatWidgetTitle?: string;
+  chatWidgetSubtitle?: string;
+  enableCobrowse?: boolean;
+  showChatButton?: boolean;
 }
 
 // Define minimal types for user, plan, apiConfig
@@ -338,14 +345,24 @@ export function buildGenesysChatConfig({
   if (!config.gmsChatUrl && chatMode === 'legacy') {
     config.gmsChatUrl = config.clickToChatEndpoint;
   } else if (!config.gmsChatUrl && chatMode === 'cloud') {
-    // For cloud, this might be different or derived. For now, a placeholder if needed.
-    // Consult Genesys Cloud documentation for appropriate dataURL if click_to_chat.js uses it for cloud.
-    config.gmsChatUrl = `https://api.${(apiConfig.genesysCloudConfig as any)?.environment?.split('-').pop()}.pure.cloud`; // Example, might need adjustment
+    // For cloud, this might be different or derived. For now, a placeholder if needed
   }
 
-  // Add targetContainer, defaulting to 'genesys-chat-container'
-  config.targetContainer =
-    staticConfig?.targetContainer || 'genesys-chat-container';
+  // Add more default values that might be required for button creation
+  if (chatMode === 'legacy') {
+    // These values are often required for legacy chat button initialization
+    config.chatBtnText =
+      config.chatBtnText ||
+      (config.isAmplifyMem ? 'Chat with an advisor' : 'Chat Now');
+    config.chatWidgetTitle = config.chatWidgetTitle || 'Customer Service Chat';
+    config.chatWidgetSubtitle =
+      config.chatWidgetSubtitle || "We're here to help.";
+    config.enableCobrowse = config.enableCobrowse || false;
+    config.showChatButton = true; // Explicitly request button
+  }
+
+  // Ensure the targetContainer is explicitly set for the widget to render
+  config.targetContainer = 'genesys-chat-container';
 
   // Other static/defaultable fields from the original JSP mapping, if needed
   config.coBrowseLicence =
