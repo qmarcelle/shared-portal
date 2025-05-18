@@ -190,10 +190,10 @@ export interface GenesysChatConfig {
 }
 
 /**
- * GenesysChat interface - Public API exposed by click_to_chat.js
+ * Interface for GenesysChat public API exposed to window
  */
 export interface GenesysChat {
-  forceCreateButton?: () => boolean;
+  forceCreateChatButton?: () => boolean;
   openChat?: () => void;
   closeChat?: () => void;
   startCoBrowse?: () => void;
