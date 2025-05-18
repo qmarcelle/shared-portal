@@ -460,73 +460,132 @@ export default function ChatWidget({
       hasGenesysConfig: !!genesysChatConfig,
     });
 
-    // If scripts are loaded and we're in legacy mode, manually trigger button creation
+    // If scripts are loaded and we're in legacy mode, handle button creation/management
     if (scriptLoadPhase === ScriptLoadPhase.LOADED && chatMode === 'legacy') {
       logger.info(
-        `${LOG_PREFIX} Scripts loaded, attempting to force button creation`,
+        `${LOG_PREFIX} Scripts loaded, managing chat button visibility`,
       );
-      // Short delay to ensure DOM is ready
-      setTimeout(() => {
-        if (typeof window._forceChatButtonCreate === 'function') {
-          logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
-          window._forceChatButtonCreate();
 
-          // Wait a bit more, then remove fallback button if the official one exists
-          setTimeout(() => {
-            const officialButton = document.querySelector(
-              '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
-            );
-            const fallbackButton = document.querySelector(
-              '.fallback-chat-button',
-            );
+      // First ensure container exists and is properly configured
+      let containerElement = document.getElementById(containerId);
+      if (!containerElement) {
+        logger.info(
+          `${LOG_PREFIX} Creating container element with id: ${containerId}`,
+        );
+        containerElement = document.createElement('div');
+        containerElement.id = containerId;
+        containerElement.setAttribute('data-chat-container', 'true');
+        document.body.appendChild(containerElement);
+      }
 
-            if (officialButton && fallbackButton) {
-              logger.info(
-                `${LOG_PREFIX} Found official button, removing fallback`,
-              );
-              fallbackButton.remove();
-            } else if (fallbackButton && !officialButton) {
-              logger.info(
-                `${LOG_PREFIX} Only fallback button exists, keeping it`,
-              );
-              // Enhance the fallback button to make it work better
-              fallbackButton.setAttribute(
-                'aria-label',
-                'Chat with Customer Service',
-              );
-              fallbackButton.classList.add('enhanced-fallback');
-            }
+      // Set up a robust MutationObserver to detect both official and fallback buttons
+      const observer = new MutationObserver((mutations) => {
+        const officialButton = document.querySelector(
+          '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
+        );
+        const fallbackButton = document.querySelector('.fallback-chat-button');
 
-            // Setup a MutationObserver to detect if the official button appears later
-            // This helps with browsers that don't support :has() CSS selector
-            const targetNode = document.body;
-            const config = { childList: true, subtree: true };
-            const callback = (mutationsList: MutationRecord[]) => {
-              const newOfficialButton = document.querySelector(
-                '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
-              );
-              const newFallbackButton = document.querySelector(
-                '.fallback-chat-button',
-              );
-
-              if (newOfficialButton && newFallbackButton) {
-                logger.info(
-                  `${LOG_PREFIX} MutationObserver: Official button detected, removing fallback`,
-                );
-                newFallbackButton.remove();
-              }
-            };
-
-            const observer = new MutationObserver(callback);
-            observer.observe(targetNode, config);
-
-            // Cleanup observer after 10 seconds - by then, buttons should be stable
-            setTimeout(() => observer.disconnect(), 10000);
-          }, 2000);
+        if (officialButton && fallbackButton) {
+          logger.info(
+            `${LOG_PREFIX} MutationObserver: Official button detected, removing fallback`,
+          );
+          fallbackButton.remove();
         }
-      }, 1000);
+      });
+
+      // Start observing with a configuration that targets button elements
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class'],
+      });
+
+      // Sequence of attempts to create and manage buttons
+      const attemptSequence = [
+        // First attempt - immediate
+        () => {
+          if (typeof window._forceChatButtonCreate === 'function') {
+            logger.info(
+              `${LOG_PREFIX} First attempt: Calling window._forceChatButtonCreate()`,
+            );
+            window._forceChatButtonCreate();
+          }
+        },
+        // Second attempt - after short delay
+        () => {
+          const officialButton = document.querySelector(
+            '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
+          );
+          const fallbackButton = document.querySelector(
+            '.fallback-chat-button',
+          );
+
+          if (officialButton && fallbackButton) {
+            logger.info(
+              `${LOG_PREFIX} Second attempt: Found official button, removing fallback`,
+            );
+            fallbackButton.remove();
+          } else if (
+            !officialButton &&
+            !fallbackButton &&
+            window.forceCreateChatButton
+          ) {
+            logger.info(
+              `${LOG_PREFIX} Second attempt: No buttons found, creating fallback`,
+            );
+            window.forceCreateChatButton();
+          }
+        },
+        // Final attempt - after longer delay
+        () => {
+          const officialButton = document.querySelector(
+            '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
+          );
+          const fallbackButton = document.querySelector(
+            '.fallback-chat-button',
+          );
+
+          if (officialButton && fallbackButton) {
+            logger.info(
+              `${LOG_PREFIX} Final attempt: Found official button, removing fallback`,
+            );
+            fallbackButton.remove();
+          } else if (!officialButton && window.forceCreateChatButton) {
+            logger.info(
+              `${LOG_PREFIX} Final attempt: No official button, creating/keeping fallback`,
+            );
+            // Ensure fallback exists and is visible with enhanced styling
+            if (fallbackButton) {
+              fallbackButton.classList.add('enhanced-fallback');
+            } else {
+              window.forceCreateChatButton();
+              // Find newly created button and enhance it
+              setTimeout(() => {
+                const newFallback = document.querySelector(
+                  '.fallback-chat-button',
+                );
+                if (newFallback) newFallback.classList.add('enhanced-fallback');
+              }, 100);
+            }
+          }
+
+          // Cleanup observer after final attempt
+          setTimeout(() => observer.disconnect(), 10000);
+        },
+      ];
+
+      // Execute the sequence with appropriate delays
+      attemptSequence[0]();
+      setTimeout(attemptSequence[1], 1000);
+      setTimeout(attemptSequence[2], 3000);
+
+      // Return cleanup function
+      return () => {
+        observer.disconnect();
+      };
     }
-  }, [scriptLoadPhase, genesysChatConfig, chatMode]);
+  }, [scriptLoadPhase, genesysChatConfig, chatMode, containerId]);
 
   // Log critical state just before rendering GenesysScriptLoader decision
   const chatDataFromStore = useChatStore.getState().config.chatData;

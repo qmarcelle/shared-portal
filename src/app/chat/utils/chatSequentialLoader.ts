@@ -89,10 +89,23 @@ export function updateApiState(
   ChatLoadingState.apiState = {
     isFetching: false,
     isComplete: true,
-    isEligible,
+    isEligible: !!isEligible, // Ensure boolean conversion
     chatMode,
     lastFetchTimestamp: Date.now(),
   };
+
+  // Add explicit logging about eligibility status for debugging
+  if (isEligible) {
+    logger.info('[ChatSequentialLoader] User is eligible for chat');
+  } else {
+    logger.info('[ChatSequentialLoader] User is NOT eligible for chat');
+  }
+
+  // Log the complete state after update for debugging
+  logger.info(
+    '[ChatSequentialLoader] Updated API state:',
+    ChatLoadingState.apiState,
+  );
 }
 
 /**

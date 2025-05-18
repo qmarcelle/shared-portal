@@ -120,7 +120,7 @@ export interface GenesysChatConfig {
   /** Name of the current selected plan */
   currentPlanName?: string;
   /** ID of the HTML element where the chat widget will be injected */
-  targetContainer?: string;
+  targetContainer: string;
   // ...any other custom fields from JSP mapping
 
   /** Additional fields for legacy mode */

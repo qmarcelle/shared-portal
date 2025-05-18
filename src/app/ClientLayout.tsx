@@ -43,7 +43,8 @@ export default function ClientLayout({
       if (
         ChatLoadingState.apiState.isComplete &&
         !ChatLoadingState.scriptState.isComplete &&
-        !ChatLoadingState.scriptState.isLoading
+        !ChatLoadingState.scriptState.isLoading &&
+        ChatLoadingState.apiState.isEligible // Only reset if eligible but not loading
       ) {
         logger.info(
           '[ClientLayout] Chat loader state detected as stalled - API complete but scripts not loading',
@@ -71,37 +72,57 @@ export default function ClientLayout({
       apiState: {
         isComplete: ChatLoadingState.apiState.isComplete,
         isEligible: ChatLoadingState.apiState.isEligible,
+        chatMode: ChatLoadingState.apiState.chatMode,
       },
       scriptState: {
         isComplete: ChatLoadingState.scriptState.isComplete,
         isLoading: ChatLoadingState.scriptState.isLoading,
+        attempts: ChatLoadingState.scriptState.loadAttempts,
       },
       hasGenesysConfig: !!genesysChatConfig,
       configKeyCount: genesysChatConfig
         ? Object.keys(genesysChatConfig).length
         : 0,
+      targetContainer: genesysChatConfig?.targetContainer || 'undefined',
     });
 
-    // Short timeout to ensure DOM is fully ready before loading chat components
-    // Only proceed if we have verified both the sequential loader state AND the chat config
-    const readyForRender =
-      (ChatLoadingState.apiState.isComplete && !!genesysChatConfig) ||
-      ChatLoadingState.scriptState.isComplete;
+    // Improved check for readiness - both API state and configuration must be ready
+    // Cases when we're ready:
+    // 1. API says eligible AND we have config
+    // 2. Scripts are already loaded (fallback case)
+    // 3. API says NOT eligible (no need to wait for config)
+    const eligibleWithConfig =
+      ChatLoadingState.apiState.isComplete &&
+      ChatLoadingState.apiState.isEligible &&
+      !!genesysChatConfig &&
+      Object.keys(genesysChatConfig).length > 0 &&
+      !!genesysChatConfig.targetContainer; // Ensure targetContainer exists
 
-    // Only set client ready if we have the configuration or if we've determined we're not eligible
-    if (
-      readyForRender ||
-      (ChatLoadingState.apiState.isComplete &&
-        !ChatLoadingState.apiState.isEligible)
-    ) {
+    const scriptsAlreadyLoaded = ChatLoadingState.scriptState.isComplete;
+
+    const notEligible =
+      ChatLoadingState.apiState.isComplete &&
+      !ChatLoadingState.apiState.isEligible;
+
+    const readyForRender =
+      eligibleWithConfig || scriptsAlreadyLoaded || notEligible;
+
+    // Only set client ready if conditions are met
+    if (readyForRender) {
       const timer = setTimeout(() => {
         setIsClientReady(true);
         logger.info(
           '[ClientLayout] Client ready, ChatWidget can now be rendered',
           {
             hasGenesysConfig: !!genesysChatConfig,
+            configHasTargetContainer: !!genesysChatConfig?.targetContainer,
             apiStateComplete: ChatLoadingState.apiState.isComplete,
             apiStateEligible: ChatLoadingState.apiState.isEligible,
+            readyReason: eligibleWithConfig
+              ? 'eligible-with-config'
+              : scriptsAlreadyLoaded
+                ? 'scripts-loaded'
+                : 'not-eligible',
             configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
           },
         );
@@ -110,8 +131,13 @@ export default function ClientLayout({
       return () => clearTimeout(timer);
     }
 
-    // If not ready for render, log that we're waiting
-    logger.info('[ClientLayout] Still waiting for complete configuration data');
+    // If not ready for render, log that we're waiting and why
+    logger.info('[ClientLayout] Not yet ready to render chat widget', {
+      apiComplete: ChatLoadingState.apiState.isComplete,
+      apiEligible: ChatLoadingState.apiState.isEligible,
+      hasConfig: !!genesysChatConfig,
+      scriptsLoaded: ChatLoadingState.scriptState.isComplete,
+    });
   }, [genesysChatConfig]);
 
   // Get session data
