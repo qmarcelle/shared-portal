@@ -140,10 +140,20 @@ export default function ChatLazyLoader({
   useEffect(() => {
     if (autoInitialize && !chatInitialized) {
       console.log(`${LOG_PREFIX} Auto-initializing chat...`);
-      // Small delay to ensure other components are loaded first
+      // Increased delay to ensure other components are loaded first
+      // and authentication is complete
       const timer = setTimeout(() => {
-        initializeChat();
-      }, 1000);
+        console.log(
+          `${LOG_PREFIX} Auto-initialization timer fired after 3s delay`,
+        );
+        try {
+          console.log(`${LOG_PREFIX} Calling initializeChat`);
+          initializeChat();
+          console.log(`${LOG_PREFIX} initializeChat called successfully`);
+        } catch (error) {
+          console.error(`${LOG_PREFIX} Error in auto-initialization:`, error);
+        }
+      }, 3000);
 
       return () => clearTimeout(timer);
     }

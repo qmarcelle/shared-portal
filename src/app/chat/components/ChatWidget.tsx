@@ -557,7 +557,67 @@ export default function ChatWidget({
       // Call the Genesys function to create the official button once
       if (typeof window._forceChatButtonCreate === 'function') {
         logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
-        window._forceChatButtonCreate();
+
+        // Try to ensure button is visible by checking if it exists first
+        const existingButton = document.querySelector(
+          '.cx-widget.cx-webchat-chat-button',
+        );
+        console.log(
+          `${LOG_PREFIX} Existing button before _forceChatButtonCreate:`,
+          existingButton,
+        );
+
+        try {
+          const result = window._forceChatButtonCreate();
+          console.log(`${LOG_PREFIX} _forceChatButtonCreate result:`, result);
+
+          // Double-check if button now exists
+          setTimeout(() => {
+            const buttonAfterCreate = document.querySelector(
+              '.cx-widget.cx-webchat-chat-button',
+            );
+            console.log(
+              `${LOG_PREFIX} Button after _forceChatButtonCreate:`,
+              buttonAfterCreate,
+            );
+            if (!buttonAfterCreate) {
+              console.log(
+                `${LOG_PREFIX} Button not found after create call - attempting alternative creation`,
+              );
+
+              // Try an alternative approach to ensure button visibility
+              const style = document.createElement('style');
+              style.textContent = `
+                .cx-widget.cx-webchat-chat-button {
+                  display: block !important;
+                  visibility: visible !important;
+                  opacity: 1 !important;
+                  position: fixed !important;
+                  bottom: 20px !important;
+                  right: 20px !important;
+                  z-index: 9999 !important;
+                  background-color: #0056b3 !important;
+                  color: white !important;
+                  padding: 10px 20px !important;
+                  border-radius: 4px !important;
+                  cursor: pointer !important;
+                }
+              `;
+              document.head.appendChild(style);
+
+              // As a fallback, create our own button if the native one isn't working
+              if (typeof window._genesysCXBus?.command === 'function') {
+                window._genesysCXBus.command('WebChat.showChatButton');
+              }
+            }
+          }, 1000);
+        } catch (err) {
+          console.error(`${LOG_PREFIX} Error in _forceChatButtonCreate:`, err);
+        }
+      } else {
+        logger.warn(
+          `${LOG_PREFIX} _forceChatButtonCreate function not available`,
+        );
       }
     }
   }, [scriptLoadPhase, genesysChatConfig, chatMode, containerId]);
@@ -598,6 +658,79 @@ export default function ChatWidget({
   logger.info(
     `${LOG_PREFIX} Chat is enabled and config is available. Rendering GenesysScriptLoader.`,
   );
+
+  useEffect(() => {
+    logger.info(`${LOG_PREFIX} Current system state:`, {
+      apiState: {
+        isComplete: ChatLoadingState.apiState.isComplete,
+        isEligible: ChatLoadingState.apiState.isEligible,
+        chatMode: ChatLoadingState.apiState.chatMode,
+      },
+      scriptState: {
+        isComplete: ChatLoadingState.scriptState.isComplete,
+        isLoading: ChatLoadingState.scriptState.isLoading,
+        attempts: ChatLoadingState.scriptState.loadAttempts,
+      },
+      hasGenesysConfig: !!genesysChatConfig,
+      configKeyCount: genesysChatConfig
+        ? Object.keys(genesysChatConfig).length
+        : 0,
+      targetContainer:
+        genesysChatConfig && 'targetContainer' in genesysChatConfig
+          ? genesysChatConfig.targetContainer
+          : 'undefined',
+    });
+
+    // Add a check and fallback custom button if the Genesys button doesn't appear
+    if (isChatEnabled && scriptLoadPhase === ScriptLoadPhase.LOADED) {
+      // Wait 5 seconds for the button to appear, and if it doesn't, create a fallback
+      const buttonCheckTimer = setTimeout(() => {
+        const genesysButton = document.querySelector(
+          '.cx-widget.cx-webchat-chat-button',
+        );
+        if (!genesysButton) {
+          console.log(
+            `${LOG_PREFIX} Genesys button not found after 5s - adding fallback button`,
+          );
+
+          // Create a custom fallback button
+          const fallbackButton = document.createElement('button');
+          fallbackButton.innerText = 'Chat with us';
+          fallbackButton.id = 'fallback-chat-button';
+          fallbackButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          `;
+
+          // Add click handler to open chat
+          fallbackButton.onclick = () => {
+            setOpen(true);
+            if (window._genesysCXBus?.command) {
+              window._genesysCXBus.command('WebChat.open');
+            }
+          };
+
+          // Add to the document body
+          document.body.appendChild(fallbackButton);
+        } else {
+          console.log(`${LOG_PREFIX} Genesys button found:`, genesysButton);
+        }
+      }, 5000);
+
+      return () => clearTimeout(buttonCheckTimer);
+    }
+  }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]);
 
   return (
     <>
