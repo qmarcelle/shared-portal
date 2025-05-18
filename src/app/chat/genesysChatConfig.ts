@@ -402,7 +402,17 @@ export function buildGenesysChatConfig({
     );
     config.clickToChatEndpoint =
       process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-      'https://legacy-chat-endpoint.example.com';
+      'https://chat-api.bcbst.com/api/chat/v1';
+
+    // Always ensure gmsChatUrl is set when clickToChatEndpoint is set
+    if (!config.gmsChatUrl) {
+      config.gmsChatUrl =
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL || config.clickToChatEndpoint;
+      logger.info(
+        '[buildGenesysChatConfig] Setting gmsChatUrl to match clickToChatEndpoint',
+        { gmsChatUrl: config.gmsChatUrl },
+      );
+    }
   } else if (chatMode === 'cloud' && !config.deploymentId) {
     logger.warn(
       '[buildGenesysChatConfig] Missing deploymentId for cloud mode, using fallback',
@@ -436,9 +446,22 @@ export function buildGenesysChatConfig({
   logger.info('[buildGenesysChatConfig] Successfully built GenesysChatConfig', {
     chatMode: mergedConfig.chatMode,
     userID: mergedConfig.userID,
-    planId: mergedConfig.memberMedicalPlanID,
+    planId: mergedConfig.memberMedicalPlanID || plan.memberMedicalPlanID,
     isEligible: mergedConfig.isChatEligibleMember,
   });
+
+  // Log the full config for debugging in development
+  if (process.env.NODE_ENV === 'development') {
+    logger.info('[buildGenesysChatConfig] Full config for debugging', {
+      key_fields: {
+        clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
+        gmsChatUrl: mergedConfig.gmsChatUrl,
+        userID: mergedConfig.userID,
+        planId: mergedConfig.memberMedicalPlanID,
+        chatMode: mergedConfig.chatMode,
+      },
+    });
+  }
 
   return mergedConfig;
 }

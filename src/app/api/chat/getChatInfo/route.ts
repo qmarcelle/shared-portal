@@ -48,6 +48,17 @@ function generateMockChatConfig(
     chatHours: 'M-F 8am-5pm EST',
     rawChatHrs: '8_17',
     clickToChatToken: 'mock-token-for-testing-purposes',
+    // CRITICAL for legacy chat - Add required Genesys configuration
+    clickToChatEndpoint:
+      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+      'https://chat-api.bcbst.com/api/chat/v1',
+    gmsChatUrl:
+      process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+      'https://chat-api.bcbst.com/api/chat/v1',
+    widgetUrl:
+      process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
+      'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js',
+    clickToChatJs: '/assets/genesys/click_to_chat.js',
     genesysCloudConfig: {
       deploymentId:
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
@@ -136,6 +147,12 @@ export async function GET(request: NextRequest) {
       const mockData = generateMockChatConfig(memeck, planId);
       mockData.genesysCloudConfig.orgId =
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
+      // Ensure legacy endpoints are set
+      mockData.clickToChatEndpoint =
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'https://chat-api.bcbst.com/api/chat/v1';
+      mockData.gmsChatUrl =
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 
       // Update sequential loader state
       updateApiState(
@@ -269,6 +286,12 @@ export async function GET(request: NextRequest) {
       const mockData = generateMockChatConfig(memeck, planId);
       mockData.genesysCloudConfig.orgId =
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
+      // Ensure legacy endpoints are set
+      mockData.clickToChatEndpoint =
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'https://chat-api.bcbst.com/api/chat/v1';
+      mockData.gmsChatUrl =
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 
       // Update sequential loader state with mock data
       updateApiState(
@@ -331,14 +354,14 @@ export async function GET(request: NextRequest) {
       clickToChatEndpoint: !(data.cloudChatEligible || false)
         ? (data.clickToChatEndpoint as string) ||
           process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          ''
+          'https://chat-api.bcbst.com/api/chat/v1'
         : undefined,
       gmsChatUrl: !(data.cloudChatEligible || false)
         ? (data.gmsChatUrl as string) ||
           process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
           (data.clickToChatEndpoint as string) ||
           process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          ''
+          'https://chat-api.bcbst.com/api/chat/v1'
         : undefined,
     };
 
@@ -411,6 +434,12 @@ export async function GET(request: NextRequest) {
       const mockData = generateMockChatConfig(memeck, planId);
       mockData.genesysCloudConfig.orgId =
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
+      // Ensure legacy endpoints are set
+      mockData.clickToChatEndpoint =
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'https://chat-api.bcbst.com/api/chat/v1';
+      mockData.gmsChatUrl =
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 
       // Update sequential loader state with mock data for error case
       updateApiState(
