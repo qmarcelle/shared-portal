@@ -1,7 +1,8 @@
-// Export all chat components
-export { ChatClientEntry } from './ChatClientEntry';
-export { default as ChatControls } from './ChatControls';
-export { default as ChatLazyLoader } from './ChatLazyLoader';
-export { default as ChatProvider } from './ChatProvider';
-export { default as ChatWidget } from './ChatWidget';
-export { default as GenesysScriptLoader } from './GenesysScriptLoader';
+// Public exports for the chat components module
+// Export components that should be accessible to other modules
+
+import { ChatClientEntry } from './ChatClientEntry';
+import ChatLazyLoader from './ChatLazyLoader';
+// Remove ChatControls export as it's deprecated
+
+export { ChatClientEntry, ChatLazyLoader };

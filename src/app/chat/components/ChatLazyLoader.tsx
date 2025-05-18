@@ -48,21 +48,8 @@ const ChatWidget = dynamic(
   { ssr: false },
 );
 
-const ChatControls = dynamic(
-  () => {
-    console.log(`${LOG_PREFIX} Dynamically importing ChatControls...`);
-    return import('./ChatControls')
-      .then((mod) => {
-        console.log(`${LOG_PREFIX} ChatControls imported successfully.`);
-        return mod;
-      })
-      .catch((err) => {
-        console.error(`${LOG_PREFIX} Failed to import ChatControls:`, err);
-        throw err;
-      });
-  },
-  { ssr: false },
-);
+// Remove ChatControls - it's deprecated and causing warnings
+// const ChatControls = dynamic(...);
 
 interface ChatLazyLoaderProps {
   /** Custom text for the initialization button */
@@ -81,13 +68,13 @@ interface ChatLazyLoaderProps {
  * ChatLazyLoader component.
  * Either automatically initializes chat or renders a button to initiate chat.
  * Upon initialization, it dynamically loads and renders the core chat components
- * (ChatProvider, ChatWidget, ChatControls).
+ * (ChatProvider, ChatWidget).
  * @param {ChatLazyLoaderProps} props - The component props.
  */
 export default function ChatLazyLoader({
   buttonText = 'Chat with us',
   buttonClassName = '',
-  chatControlsClassName = '',
+  chatControlsClassName = '', // Keep for backward compatibility
   onChatInitialized,
   autoInitialize = true, // Default to auto-initialize
 }: ChatLazyLoaderProps) {
@@ -97,6 +84,18 @@ export default function ChatLazyLoader({
     console.log(
       `${LOG_PREFIX} Component mounted. Chat initialized: ${chatInitialized}`,
     );
+
+    // Cleanup function to remove stale ChatControls
+    return () => {
+      // Attempt to remove any previous fallback chat buttons that may exist
+      if (typeof document !== 'undefined') {
+        const fallbackButton = document.getElementById('fallback-chat-button');
+        if (fallbackButton) {
+          console.log(`${LOG_PREFIX} Removing previous fallback button`);
+          fallbackButton.remove();
+        }
+      }
+    };
   }, [chatInitialized]);
 
   // Initialize chat components when the user clicks the button
@@ -182,13 +181,12 @@ export default function ChatLazyLoader({
   }
 
   console.log(
-    `${LOG_PREFIX} Chat initialized. Rendering ChatProvider, ChatWidget, and ChatControls.`,
+    `${LOG_PREFIX} Chat initialized. Rendering ChatProvider and ChatWidget.`,
   );
-  // Once initialized, render the chat components
+  // Once initialized, render the chat components - removed ChatControls
   return (
     <ChatProvider>
       <ChatWidget />
-      <ChatControls className={chatControlsClassName} />
     </ChatProvider>
   );
 }

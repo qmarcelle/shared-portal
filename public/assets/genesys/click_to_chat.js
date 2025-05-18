@@ -161,6 +161,8 @@
     min-height: 45px !important;
     align-items: center !important;
     justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .cx-widget.cx-webchat-chat-button:hover {
     background-color: #003d7a !important;
@@ -432,6 +434,53 @@
     .catch((err) =>
       console.error('[Genesys] Failed to initialize chat widget:', err),
     );
+
+  // Safety timeout - ensure button is visible after 10 seconds no matter what
+  setTimeout(() => {
+    console.log('[Genesys] Safety timeout: Ensuring chat button is visible');
+
+    // First check if button already exists
+    const existingButton = document.querySelector(
+      '.cx-widget.cx-webchat-chat-button',
+    );
+
+    if (!existingButton) {
+      console.log('[Genesys] Button not found after 10s, forcing creation');
+
+      // Try various methods to create the button
+      if (window._forceChatButtonCreate) {
+        window._forceChatButtonCreate();
+      }
+
+      if (window._genesysCXBus) {
+        try {
+          window._genesysCXBus.command('WebChat.showChatButton');
+        } catch (e) {
+          console.error('[Genesys] Error showing button via CXBus:', e);
+        }
+      }
+
+      // As a last resort, create a custom button style to force visibility
+      const style = document.createElement('style');
+      style.textContent = `
+        .cx-widget.cx-webchat-chat-button {
+          display: block !important;
+          visibility: visible !important; 
+          opacity: 1 !important;
+          z-index: 9999 !important;
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Dispatch the event to create the button
+      document.dispatchEvent(new CustomEvent('genesys:create-button'));
+    } else {
+      console.log('[Genesys] Button exists after 10s, ensuring visibility');
+      existingButton.style.display = 'flex';
+      existingButton.style.visibility = 'visible';
+      existingButton.style.opacity = '1';
+    }
+  }, 10000);
 
   // === CHAT WIDGET INITIALIZATION ===
   function initializeChatWidget($, cfg) {

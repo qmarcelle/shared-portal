@@ -568,49 +568,84 @@ export default function ChatWidget({
         );
 
         try {
-          const result = window._forceChatButtonCreate();
-          console.log(`${LOG_PREFIX} _forceChatButtonCreate result:`, result);
+          // First add a style to ensure button is visible when created
+          const style = document.createElement('style');
+          style.textContent = `
+            .cx-widget.cx-webchat-chat-button {
+              display: block !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+              position: fixed !important;
+              bottom: 20px !important;
+              right: 20px !important;
+              z-index: 9999 !important;
+              background-color: #0056b3 !important;
+              color: white !important;
+              padding: 10px 20px !important;
+              border-radius: 4px !important;
+              cursor: pointer !important;
+              font-weight: bold !important;
+            }
+          `;
+          document.head.appendChild(style);
 
-          // Double-check if button now exists
+          // Add a small delay before forcing button creation to allow Genesys to fully initialize
           setTimeout(() => {
-            const buttonAfterCreate = document.querySelector(
-              '.cx-widget.cx-webchat-chat-button',
-            );
-            console.log(
-              `${LOG_PREFIX} Button after _forceChatButtonCreate:`,
-              buttonAfterCreate,
-            );
-            if (!buttonAfterCreate) {
+            console.log(`${LOG_PREFIX} Attempting button creation after delay`);
+            // Type safety check for _forceChatButtonCreate
+            const forceChatButtonCreate = window._forceChatButtonCreate;
+            const result =
+              typeof forceChatButtonCreate === 'function'
+                ? forceChatButtonCreate()
+                : false;
+            console.log(`${LOG_PREFIX} _forceChatButtonCreate result:`, result);
+
+            // Double-check if button now exists after a short delay
+            setTimeout(() => {
+              const buttonAfterCreate = document.querySelector(
+                '.cx-widget.cx-webchat-chat-button',
+              );
               console.log(
-                `${LOG_PREFIX} Button not found after create call - attempting alternative creation`,
+                `${LOG_PREFIX} Button after _forceChatButtonCreate:`,
+                buttonAfterCreate,
               );
 
-              // Try an alternative approach to ensure button visibility
-              const style = document.createElement('style');
-              style.textContent = `
-                .cx-widget.cx-webchat-chat-button {
-                  display: block !important;
-                  visibility: visible !important;
-                  opacity: 1 !important;
-                  position: fixed !important;
-                  bottom: 20px !important;
-                  right: 20px !important;
-                  z-index: 9999 !important;
-                  background-color: #0056b3 !important;
-                  color: white !important;
-                  padding: 10px 20px !important;
-                  border-radius: 4px !important;
-                  cursor: pointer !important;
-                }
-              `;
-              document.head.appendChild(style);
+              if (!buttonAfterCreate) {
+                console.log(
+                  `${LOG_PREFIX} Button not found after create call - attempting alternative creation`,
+                );
 
-              // As a fallback, create our own button if the native one isn't working
-              if (typeof window._genesysCXBus?.command === 'function') {
-                window._genesysCXBus.command('WebChat.showChatButton');
+                // Try direct CXBus command if available
+                if (typeof window._genesysCXBus?.command === 'function') {
+                  console.log(
+                    `${LOG_PREFIX} Using CXBus.command("WebChat.showChatButton")`,
+                  );
+                  window._genesysCXBus.command('WebChat.showChatButton');
+
+                  // Check again after another delay
+                  setTimeout(() => {
+                    const buttonAfterCXBus = document.querySelector(
+                      '.cx-widget.cx-webchat-chat-button',
+                    );
+                    console.log(
+                      `${LOG_PREFIX} Button after CXBus command:`,
+                      buttonAfterCXBus,
+                    );
+
+                    if (!buttonAfterCXBus) {
+                      // Last resort - use document event to trigger button creation
+                      console.log(
+                        `${LOG_PREFIX} Dispatching genesys:create-button event`,
+                      );
+                      document.dispatchEvent(
+                        new CustomEvent('genesys:create-button'),
+                      );
+                    }
+                  }, 1000);
+                }
               }
-            }
-          }, 1000);
+            }, 1000);
+          }, 2000); // 2 second delay before first attempt
         } catch (err) {
           console.error(`${LOG_PREFIX} Error in _forceChatButtonCreate:`, err);
         }
