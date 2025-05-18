@@ -32,21 +32,15 @@ exports[` 1`] = `
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Company Name]
-            </p>
+            />
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Policy Identification #]
-            </p>
+            />
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Policy Start Date]
-            </p>
+            />
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -94,7 +88,6 @@ exports[` 1`] = `
             <label>
               <input
                 aria-label="Select Members"
-                checked=""
                 id=""
                 name=""
                 type="radio"
@@ -109,191 +102,6 @@ exports[` 1`] = `
                 Select Members
               </p>
             </div>
-          </div>
-          <div
-            class="flex flex-col ml-7"
-          >
-            <p
-              class="body-1 body-1 text-left"
-              style="display: block;"
-            >
-              Check all that apply:
-            </p>
-            <div
-              aria-checked="true"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Chris Hall"
-                  checked=""
-                  class="checkbox  checked  "
-                  id="checkbox-chris-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-chris-hall"
-                >
-                  Chris Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              aria-checked="false"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Maddison Hall"
-                  class="checkbox    "
-                  id="checkbox-maddison-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-maddison-hall"
-                >
-                  Maddison Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              aria-checked="false"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Forrest Hall"
-                  class="checkbox    "
-                  id="checkbox-forrest-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-forrest-hall"
-                >
-                  Forrest Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              aria-checked="false"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Corey Hall"
-                  class="checkbox    "
-                  id="checkbox-corey-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-corey-hall"
-                >
-                  Corey Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              aria-checked="false"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Telly Hall"
-                  class="checkbox    "
-                  id="checkbox-telly-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-telly-hall"
-                >
-                  Telly Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              aria-checked="false"
-              aria-disabled="false"
-              aria-invalid="false"
-              aria-required="false"
-              class="flex flex-col  "
-              role="checkbox"
-            >
-              <div
-                class="flex flex-row items-center"
-                tabindex="0"
-              >
-                <input
-                  aria-label="Janie Hall"
-                  class="checkbox    "
-                  id="checkbox-janie-hall"
-                  type="checkbox"
-                />
-                <label
-                  class="ml-2 "
-                  for="checkbox-janie-hall"
-                >
-                  Janie Hall
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
           </div>
         </div>
       </main>
@@ -327,21 +135,15 @@ exports[` 1`] = `
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Company Name]
-          </p>
+          />
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Policy Identification #]
-          </p>
+          />
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Policy Start Date]
-          </p>
+          />
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -389,7 +191,6 @@ exports[` 1`] = `
           <label>
             <input
               aria-label="Select Members"
-              checked=""
               id=""
               name=""
               type="radio"
@@ -404,191 +205,6 @@ exports[` 1`] = `
               Select Members
             </p>
           </div>
-        </div>
-        <div
-          class="flex flex-col ml-7"
-        >
-          <p
-            class="body-1 body-1 text-left"
-            style="display: block;"
-          >
-            Check all that apply:
-          </p>
-          <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Chris Hall"
-                checked=""
-                class="checkbox  checked  "
-                id="checkbox-chris-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-chris-hall"
-              >
-                Chris Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Maddison Hall"
-                class="checkbox    "
-                id="checkbox-maddison-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-maddison-hall"
-              >
-                Maddison Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Forrest Hall"
-                class="checkbox    "
-                id="checkbox-forrest-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-forrest-hall"
-              >
-                Forrest Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Corey Hall"
-                class="checkbox    "
-                id="checkbox-corey-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-corey-hall"
-              >
-                Corey Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Telly Hall"
-                class="checkbox    "
-                id="checkbox-telly-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-telly-hall"
-              >
-                Telly Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-invalid="false"
-            aria-required="false"
-            class="flex flex-col  "
-            role="checkbox"
-          >
-            <div
-              class="flex flex-row items-center"
-              tabindex="0"
-            >
-              <input
-                aria-label="Janie Hall"
-                class="checkbox    "
-                id="checkbox-janie-hall"
-                type="checkbox"
-              />
-              <label
-                class="ml-2 "
-                for="checkbox-janie-hall"
-              >
-                Janie Hall
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
         </div>
       </div>
     </main>

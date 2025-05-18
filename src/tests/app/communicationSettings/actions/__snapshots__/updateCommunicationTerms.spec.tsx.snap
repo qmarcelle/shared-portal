@@ -104,22 +104,23 @@ exports[`communication Information API Integration communication Information Ema
                       aria-checked="true"
                       aria-disabled="false"
                       aria-invalid="false"
+                      aria-label="Warning message"
                       aria-required="false"
-                      class="flex flex-col  "
+                      class="flex flex-col   "
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-center"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
                           aria-label="Warning message"
-                          class="checkbox  checked  "
+                          class="checkbox  checked checkbox--checked  "
                           id="checkbox-warning-message"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2 "
+                          class="ml-2  cursor-pointer"
                           for="checkbox-warning-message"
                         >
                           Warning message
@@ -295,22 +296,23 @@ exports[`communication Information API Integration communication Information sav
                       aria-checked="true"
                       aria-disabled="false"
                       aria-invalid="false"
+                      aria-label="Warning message"
                       aria-required="false"
-                      class="flex flex-col  "
+                      class="flex flex-col   "
                       role="checkbox"
                     >
                       <div
-                        class="flex flex-row items-center"
+                        class="flex flex-row"
                         tabindex="0"
                       >
                         <input
                           aria-label="Warning message"
-                          class="checkbox  checked  "
+                          class="checkbox  checked checkbox--checked  "
                           id="checkbox-warning-message"
                           type="checkbox"
                         />
                         <label
-                          class="ml-2 "
+                          class="ml-2  cursor-pointer"
                           for="checkbox-warning-message"
                         >
                           Warning message

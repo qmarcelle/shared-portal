@@ -17,12 +17,15 @@ export interface RepresentativeData {
   policyId?: string;
   firstName?: string;
   lastName?: string;
+  isMatureMinor: boolean;
+  createdAt: string;
 }
 
 export type RepresentativeViewDetails = {
   representativeData: RepresentativeData[] | null;
   visibilityRules?: VisibilityRules;
   isRepresentativeLoggedIn: boolean;
+  isMatureMinor: boolean;
 };
 
 export enum InviteStatus {

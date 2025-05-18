@@ -26,6 +26,7 @@ export type ConsentDetail = {
   modifiedAt: string;
   accessControl: string;
   options: Option[];
+  createdAt: string;
 };
 
 export type Option = {
@@ -97,4 +98,5 @@ export type RelatedPerson = {
   effectiveOn: string;
   policyId: string;
   name: AccessStatus;
+  createdAt: string;
 };

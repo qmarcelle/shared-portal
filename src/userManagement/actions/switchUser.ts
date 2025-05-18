@@ -14,6 +14,7 @@ export async function switchUser(userId?: string, planId?: string) {
         // We will pass planId only when userId is null ie. no user switch
         // only plan switch
         planId: userId == null ? planId : null,
+        impersonator: session.user.impersonator,
       });
     }
   } catch (error) {

@@ -18,6 +18,7 @@ interface ButtonProps extends IComponent {
   label?: string;
   icon?: ReactNode;
   callback?: () => void | Promise<void> | null | Promise<string>;
+  disable?: boolean;
 }
 
 export const Button = ({
@@ -28,6 +29,7 @@ export const Button = ({
   id,
   className,
   callback,
+  disable = false,
 }: ButtonProps) => {
   function computeContent() {
     if (label) {
@@ -49,7 +51,7 @@ export const Button = ({
       className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
       type={style}
       id={id}
-      disabled={!callback ? true : false}
+      disabled={disable || (!callback ? true : false)}
     >
       {computeContent()}
     </button>

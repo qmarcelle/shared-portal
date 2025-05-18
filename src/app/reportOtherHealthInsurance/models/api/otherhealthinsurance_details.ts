@@ -18,6 +18,6 @@ export interface OtherHealthInsuranceDetails {
   noOtherInsurance?: boolean;
   lastUpdated?: Date;
 
-  memberName: any;
-  dob: any;
+  memberName?: any;
+  dob?: any;
 }

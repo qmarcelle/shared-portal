@@ -14,7 +14,7 @@ const PharmacyPage = async () => {
     getPharmacyClaims(),
   ]);
 
-  const pharmacyClam = claimsData?.data!.pharmacyClaims.pharmacyClaim;
+  const pharmacyClam = claimsData?.data!.pharmacyClaims?.pharmacyClaim;
   const claims = formatPharmacyClaims(pharmacyClam);
 
   return <Pharmacy data={result.data!} claims={claims} />;

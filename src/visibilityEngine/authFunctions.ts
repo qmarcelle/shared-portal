@@ -6,7 +6,7 @@ export const AUTH_FUNCTION_MAP = {
   otcEnable: 'OTCEnable',
   showPharmacyTab: 'ENABLE_PHAR_TAB',
   chipRewardsEligible: 'CHIPELIGIBLE',
-  blueHealthRewardsEligible: 'BLUEHEALTH_REWARDS', //TODO We can consolidate these - two auth functions are not necessary for rewards
+  blueHealthRewardsEligible: 'BLUEHEALTHREWARDS', //TODO We can consolidate these - two auth functions are not necessary for rewards
   bluePerksElig: 'BLUEPRKS',
   amplifyMember: 'AMPLIFYMEMBER',
   myStrengthCompleteEligible: 'TELADOC_MYSTRENGTHCOMPLETE',

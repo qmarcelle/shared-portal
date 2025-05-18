@@ -510,23 +510,24 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                     aria-checked="false"
                     aria-disabled="false"
                     aria-invalid="false"
+                    aria-label="Checkbox"
                     aria-required="false"
-                    class="flex flex-col pl-0 "
+                    class="flex flex-col pl-0  "
                     role="checkbox"
                   >
                     <div
-                      class="flex flex-row items-center"
+                      class="flex flex-row"
                       tabindex="0"
                     >
                       <input
                         aria-label=""
                         class="checkbox    "
-                        id="checkbox-"
+                        id="checkbox-checkbox"
                         type="checkbox"
                       />
                       <label
-                        class="ml-2 "
-                        for="checkbox-"
+                        class="ml-2  cursor-pointer"
+                        for="checkbox-checkbox"
                       >
                         <span
                           class="rich-text body-1 undefined"
@@ -543,6 +544,9 @@ exports[`Katie Beckett Banking Info Page should render the Banking form correctl
                             </a>
                           </span>
                         </span>
+                        <span
+                          class="sr-only"
+                        />
                       </label>
                     </div>
                   </div>

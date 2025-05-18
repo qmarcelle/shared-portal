@@ -6,14 +6,16 @@ import { TextBox } from '@/components/foundation/TextBox';
 
 interface PlanContactInformationSectionProps extends IComponent {
   title: string;
-  address: string;
+  address1: string;
+  address2: string;
   primaryPhoneNumber: string;
   secondaryPhoneNumber: string;
 }
 
 export const PlanContactInformationSection = ({
   title,
-  address,
+  address1,
+  address2,
   primaryPhoneNumber,
   secondaryPhoneNumber,
 }: PlanContactInformationSectionProps) => {
@@ -22,8 +24,9 @@ export const PlanContactInformationSection = ({
       <Spacer size={16} />
       <TextBox className="body-1" text={title}></TextBox>
       <Spacer size={32} />
-      <TextBox className="body-2" text="Mailing Address"></TextBox>
-      <TextBox className="body-1" text={address}></TextBox>
+      <TextBox className="body-2 mb-2" text="Mailing Address"></TextBox>
+      <TextBox className="body-1" text={address1}></TextBox>
+      <TextBox className="body-1" text={address2}></TextBox>
       <Spacer size={16} />
       <TextBox className="body-2" text="Primary Phone Number"></TextBox>
       <TextBox className="body-1" text={primaryPhoneNumber}></TextBox>

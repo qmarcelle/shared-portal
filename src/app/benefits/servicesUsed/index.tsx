@@ -22,7 +22,6 @@ type ServicesUsedProps = {
 const ServicesUsed = ({ users, services, phoneNumber }: ServicesUsedProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className=" mb-0" text="Services Used" />
         <Spacer size={8} />

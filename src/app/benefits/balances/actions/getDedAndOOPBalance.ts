@@ -37,7 +37,7 @@ export async function callGetDedAndOOPBalance({
     const resp =
       await memberLimitService.get<DedAndOOPBalanceResponse>(serviceURL);
 
-    logger.info(`Response: ${JSON.stringify(resp)}`);
+    logger.info(`Response: ${JSON.stringify(resp.data)}`);
     return resp.data;
   } catch (err) {
     logger.error('GetDedAndOOPBalance Api call failed', err);

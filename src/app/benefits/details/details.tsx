@@ -51,9 +51,25 @@ export const Details = ({
     (service) => {
       return {
         listBenefitDetails: service.serviceDetails.map((detail) => {
-          const copayInsurance = detail.memberPays
-            ? `${detail.memberPays}% coinsurance after you pay the deductible`
-            : `$${detail.copay} copay`;
+          const formatDollarAmount = (amount: number) =>
+            amount.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0,
+            });
+
+          const copayInsurance = [
+            detail.deductible > 0
+              ? `${formatDollarAmount(detail.deductible)} deductible`
+              : null,
+            detail.memberPays > 0 ? `${detail.memberPays}% coinsurance` : null,
+            detail.copay > 0
+              ? `${formatDollarAmount(detail.copay)} copay`
+              : null,
+          ]
+            .filter(Boolean)
+            .join(', ');
           return {
             benefitTitle: detail.description,
             copayOrCoinsurance: copayInsurance,
@@ -74,7 +90,6 @@ export const Details = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <button onClick={() => window.history.back()}>Go Back</button>
         {benefitTypeDetails?.benefitTypeHeaderDetails && (
           <>
             <section className="flex flex-row items-start app-body">
@@ -121,6 +136,8 @@ export const Details = ({
                   title="Medical & Pharmacy Balance"
                   product={balanceData?.medical}
                   phone={contact}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
               {selectedBenefitDetails.benefitType ===
@@ -130,6 +147,8 @@ export const Details = ({
                   title="Dental Balance"
                   product={balanceData?.dental}
                   phone={contact}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
 

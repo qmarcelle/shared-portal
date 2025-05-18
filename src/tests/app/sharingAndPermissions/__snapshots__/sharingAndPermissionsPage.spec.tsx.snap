@@ -31,7 +31,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
           >
             <a
               class="flex flex-col p-1 link-row cursor-pointer link-row-container"
-              href="/shareMyInformation"
+              href="/member/profile/accountsharing/myinfo"
             >
               <div
                 class="flex flex-row m-2"
@@ -66,7 +66,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
             </a>
             <a
               class="flex flex-col p-1 link-row cursor-pointer link-row-container"
-              href="/accessOthersInformation"
+              href="/member/profile/accountsharing/access"
             >
               <div
                 class="flex flex-row m-2"
@@ -101,7 +101,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
             </a>
             <a
               class="flex flex-col p-1 link-row cursor-pointer link-row-container"
-              href="/personalRepresentativeAccess"
+              href="/member/profile/accountsharing/personalrep"
             >
               <div
                 class="flex flex-row m-2"
@@ -136,7 +136,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
             </a>
             <a
               class="flex flex-col p-1 false cursor-pointer link-row-container"
-              href="/thirdPartySharing"
+              href="/member/profile/accountsharing/thirdparty"
             >
               <div
                 class="flex flex-row m-2"
@@ -208,7 +208,7 @@ exports[`SharingAndPermissions Page should render the page correctly for PR 1`] 
           >
             <a
               class="flex flex-col p-1 link-row cursor-pointer link-row-container"
-              href="/shareMyInformation"
+              href="/member/profile/accountsharing/myinfo"
             >
               <div
                 class="flex flex-row m-2"
@@ -243,7 +243,7 @@ exports[`SharingAndPermissions Page should render the page correctly for PR 1`] 
             </a>
             <a
               class="flex flex-col p-1 false cursor-pointer link-row-container"
-              href="/thirdPartySharing"
+              href="/member/profile/accountsharing/thirdparty"
             >
               <div
                 class="flex flex-row m-2"

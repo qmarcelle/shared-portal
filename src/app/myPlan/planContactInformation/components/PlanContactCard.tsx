@@ -12,7 +12,8 @@ interface PlanContactCardProps extends IComponent {
   age: number | undefined;
   primaryPhoneNumber: string;
   secondaryPhoneNumber: string;
-  address: string;
+  address1: string;
+  address2: string;
 }
 
 export const PlanContactCard = ({
@@ -22,7 +23,8 @@ export const PlanContactCard = ({
   age,
   primaryPhoneNumber,
   secondaryPhoneNumber,
-  address,
+  address1,
+  address2,
 }: PlanContactCardProps) => {
   return (
     <Card className={` ${className}`} type="elevated">
@@ -44,7 +46,8 @@ export const PlanContactCard = ({
           <>
             <TextBox text="Mailing Address" className="ml-2" type="body-2" />
             <Spacer size={1} />
-            <TextBox text={address} className="ml-2 w-52" />
+            <TextBox text={address1} className="ml-2" />
+            <TextBox text={address2} className="ml-2" />
             <Spacer size={5} />
             <TextBox
               text="Primary Phone Number"

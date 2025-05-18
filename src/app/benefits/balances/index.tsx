@@ -6,6 +6,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isDentalCostEstimator,
   isFindADentist,
+  isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { SpendingAccountSummary } from '../../dashboard/components/SpendingAccountSummary';
@@ -68,12 +69,14 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
               color1={'#005EB9'}
               color2={'#5DC1FD'}
             />
-            <SpendingAccountSection
-              className="large-section"
-              fsaBalance={1009.5}
-              hsaBalance={349.9}
-              linkURL=""
-            />
+            {isSpendingAccountsEligible(data?.visibilityRules) && (
+              <SpendingAccountSection
+                className="large-section"
+                fsaBalance={1009.5}
+                hsaBalance={349.9}
+                linkURL="/spendingAccounts"
+              />
+            )}
           </Column>
         </section>
       </Column>

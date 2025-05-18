@@ -11,12 +11,12 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getCommunicationSettingsData } from '../actions/getCommunicationSettingsData';
 import {
   AlertType,
   CommunicationSettingsAppData,
   ContactPreference,
-  PreferenceCommunication,
   Preferences,
 } from '../models/app/communicationSettingsAppData';
 
@@ -31,28 +31,92 @@ export const EditAlertPreferncesSection = ({
   className,
   alertPreferenceData,
 }: EditAlertPreferncesProps) => {
+  useEffect(() => {
+    const fetchSavedPreferences = async () => {
+      try {
+        const response = await getCommunicationSettingsData();
+        const savedPreferences: ContactPreference[] =
+          response.data?.contactPreferences ?? [];
+        const updatedMap = new Map(initialEditAlertMap);
+        savedPreferences.forEach((pref) => {
+          for (const [, value] of updatedMap.entries()) {
+            if (
+              value.category === pref.communicationCategory &&
+              value.method === pref.communicationMethod
+            ) {
+              value.selected = pref.optOut === 'I';
+            }
+
+            if (value.childCheckBox) {
+              for (const [, childValue] of value.childCheckBox.entries()) {
+                if (
+                  childValue.category === pref.communicationCategory &&
+                  childValue.method === pref.communicationMethod
+                ) {
+                  childValue.selected = pref.optOut === 'I';
+                }
+              }
+            }
+          }
+        });
+
+        setEditAlertMap(updatedMap);
+      } catch (error) {
+        console.error(
+          'Failed to load saved preferences for communication settings',
+          error,
+        );
+      }
+    };
+
+    fetchSavedPreferences();
+  }, []);
+
   const getDescriptions = (): Map<AlertType, Preferences> => {
+    const dynamicMap = new Map<
+      AlertType,
+      { category: string; method: string }
+    >();
+
+    alertPreferenceData.tierOne?.forEach((item) => {
+      const hText = item.description
+        .filter((desc) => desc.type === 'h')
+        .map((desc) => desc.texts)
+        .join('');
+
+      if (hText) {
+        const alertType = normalizeText(hText) as AlertType;
+        dynamicMap.set(alertType, {
+          category: item.communicationCategory,
+          method: item.communicationMethod,
+        });
+      }
+    });
+
     const pref: [AlertType, Preferences][] = (
       alertPreferenceData.tierOneDescriptions || []
     )
-      .filter(
-        (tierOneDescription) =>
-          normalizeText(tierOneDescription.hTexts.join('')) !== '',
-      )
-      .map((tierOneDescription) => [
-        normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-        {
-          hText: tierOneDescription.hTexts.join(' ').replace('&amp;', '&'),
-          pText: tierOneDescription.pTexts.join(' ').replace('&apos;', '′'),
-          selected: false,
-          category: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.category,
-          method: PreferenceCommunication.get(
-            normalizeText(tierOneDescription.hTexts.join('')) as AlertType,
-          )?.method,
-        },
-      ]);
+      .filter((tierOneDescription) => {
+        const hText = tierOneDescription.hTexts.join('');
+        return normalizeText(hText) !== '';
+      })
+      .map((tierOneDescription) => {
+        const alertType = normalizeText(
+          tierOneDescription.hTexts.join(''),
+        ) as AlertType;
+
+        return [
+          alertType,
+          {
+            hText: tierOneDescription.hTexts.join(' ').replace('&amp;', '&'),
+            pText: tierOneDescription.pTexts.join(' ').replace('&apos;', '′'),
+            selected: false,
+            category: dynamicMap.get(alertType)?.category,
+            method: dynamicMap.get(alertType)?.method,
+          },
+        ];
+      });
+
     return new Map(pref);
   };
 
@@ -171,7 +235,6 @@ export const EditAlertPreferncesSection = ({
       ),
     });
   };
-
   const generateCheckBox = (
     preference: Preferences,
     alertType: AlertType,
@@ -179,10 +242,15 @@ export const EditAlertPreferncesSection = ({
   ) => {
     return (
       <Checkbox
-        label={preference.hText}
-        classProps="font-bold"
+        label={preference.hText} // Use hText for the label
+        classProps=""
         checked={preference.selected}
-        body={<TextBox className="mt-2" text={preference.pText} />}
+        body={
+          <>
+            <TextBox className="body-bold mb-2" text={preference.hText} />
+            <TextBox text={preference.pText} />
+          </>
+        }
         onChange={() => checkBoxHandler(alertType, parentAlertType)}
       />
     );
@@ -204,6 +272,7 @@ export const EditAlertPreferncesSection = ({
                   {generateCheckBox(preference, alertType)}
                   {preference.selected && preference.childCheckBox && (
                     <Column className="emailAlertsSublevel">
+                      <Spacer size={18} />
                       <Divider axis="vertical" />
                       <Spacer size={18} />
                       <TextBox text="Choose the emails you want to receive:" />

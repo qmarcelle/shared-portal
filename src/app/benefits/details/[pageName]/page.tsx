@@ -1,6 +1,6 @@
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
-import { getDedAndOOPBalanceForSubscriberAndDep } from '../balances/actions/getDedAndOOPBalance';
-import { Details } from './details';
+import { getDedAndOOPBalanceForSubscriberAndDep } from '../../balances/actions/getDedAndOOPBalance';
+import { Details } from '../details';
 
 const BenefitDetailsPage = async () => {
   const spendingAccounts = {

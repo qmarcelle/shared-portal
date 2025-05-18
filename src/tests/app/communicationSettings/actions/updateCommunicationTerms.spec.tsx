@@ -112,10 +112,9 @@ describe('communication Information API Integration', () => {
       } as ESResponse<CommunicationSettingsSaveResponse>,
     });
 
-    // Ensure the checkbox is present and click it
-    const checkbox = screen.getByLabelText('Warning message');
-    expect(checkbox).toBeInTheDocument();
-    fireEvent.click(checkbox);
+    const checkboxes = screen.getAllByLabelText('Warning message');
+    expect(checkboxes[0]).toBeInTheDocument();
+    fireEvent.click(checkboxes[0]);
 
     // Ensure the button is present
     const saveButton = screen.getByText('Save Changes');
@@ -128,9 +127,9 @@ describe('communication Information API Integration', () => {
     mockedAxios.post.mockRejectedValueOnce(new Error('An error occurred'));
 
     // Ensure the checkbox is present and click it
-    const checkbox = screen.getByLabelText('Warning message');
-    expect(checkbox).toBeInTheDocument();
-    fireEvent.click(checkbox);
+    const checkbox = screen.getAllByLabelText('Warning message');
+    expect(checkbox[0]).toBeInTheDocument();
+    fireEvent.click(checkbox[0]);
 
     // Ensure the button is present
     const saveButton = screen.getByText('Save Changes');

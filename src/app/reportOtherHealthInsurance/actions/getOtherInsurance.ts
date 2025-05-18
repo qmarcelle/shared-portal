@@ -1,7 +1,7 @@
 'use server';
 
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
-import { portalSvcsApi } from '@/utils/api/portalApi';
+import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { OtherHealthInsuranceDetails } from '../models/api/otherhealthinsurance_details';
 
@@ -37,11 +37,9 @@ export async function getOtherInsurance(
     isMedAdv = isMedAdv || isMed;
 
     // eslint-disable-next-line prefer-const
-    const otherInsuranceResponse = await portalSvcsApi.get<
+    const otherInsuranceResponse = await memberService.get<
       OtherHealthInsuranceDetails[]
-    >(
-      `/memberservice/api/COBService?memeCKs=${memeCKString}&isMedAdv=${isMedAdv}`,
-    );
+    >(`/api/COBService?memeCKs=${memeCKString}&isMedAdv=${isMedAdv}`);
 
     otherInsuranceResponse.data.forEach((item) => {
       const member = membersInfo.find(

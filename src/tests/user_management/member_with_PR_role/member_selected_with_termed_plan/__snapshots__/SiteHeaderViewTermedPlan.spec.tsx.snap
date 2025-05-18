@@ -55,53 +55,6 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
             width="174"
           />
         </a>
-        <div
-          class="mx-4 w-[268px] hidden md:block"
-        >
-          <div
-            class="rich-dropdown"
-          >
-            <div
-              class="flex flex-col switch-filter disabled"
-              tabindex="1"
-            >
-              <div>
-                <div
-                  class="flex flex-row px-4 py-2 items-center justify-between"
-                >
-                  <div
-                    class="flex flex-col max-w-[90%]"
-                  >
-                    <p
-                      class="body-2 app-base-font-color"
-                      style="display: block;"
-                    >
-                      View Plan:
-                    </p>
-                    <p
-                      class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                      style="display: block;"
-                    >
-                      BlueCross BlueShield of Tennessee
-                    </p>
-                  </div>
-                  <img
-                    alt="switch"
-                    class="size-5 head-icon m-[4px]"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div
         class="flex items-center"
@@ -111,7 +64,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
           href="/member/inbox"
         >
           <img
-            alt="Inbox"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -133,7 +86,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
           tabindex="0"
         >
           <img
-            alt="Profile Icon"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -189,7 +142,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   My Plan
                 </span>
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   class="block lg:hidden ml-auto"
                   data-nimg="1"
                   decoding="async"
@@ -201,7 +154,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   width="40"
                 />
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   aria-expanded="false"
                   class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                   data-accordion-icon="true"
@@ -237,7 +190,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   Support
                 </span>
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   class="block lg:hidden ml-auto"
                   data-nimg="1"
                   decoding="async"
@@ -249,7 +202,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   width="40"
                 />
                 <img
-                  alt="Chevron icon"
+                  alt=""
                   aria-expanded="false"
                   class="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                   data-accordion-icon="true"
@@ -290,7 +243,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
                   <img
-                    alt="Search"
+                    alt=""
                     class="icon items-end ml-1"
                     data-nimg="1"
                     decoding="async"

@@ -5,7 +5,7 @@ export interface TextAreaProps extends IComponent {
   value?: string | number;
   onChange: (e: { target: { value: SetStateAction<string> } }) => void;
   className?: string;
-  placeholder?: string;
+  placeholder?: string; // Adjust type based on your form setup
 }
 
 export const TextArea = ({

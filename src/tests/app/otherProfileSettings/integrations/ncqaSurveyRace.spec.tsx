@@ -284,9 +284,12 @@ describe('Other Profile Settngs - NCQA Survey', () => {
     ).toBeVisible();
     expect(screen.getByText('White')).toBeVisible();
     expect(screen.getByText('Some other race')).toBeVisible();
-    const selectedRace = screen.getAllByRole('checkbox');
-    fireEvent.click(selectedRace[2]);
-    fireEvent.click(selectedRace[4]);
+    const selectedRace1 = screen.getAllByLabelText(
+      'Black or African American',
+    )[0];
+    const selectedRace2 = screen.getAllByLabelText('White')[0];
+    fireEvent.click(selectedRace1);
+    fireEvent.click(selectedRace2);
     fireEvent.click(screen.getAllByText('Save Answer')[1]);
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(

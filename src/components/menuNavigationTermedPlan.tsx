@@ -30,7 +30,7 @@ export const getMenuNavigationTermedPlan = (
         showOnMenu: () => {
           return true;
         },
-        url: '/member/myplan/claims',
+        url: '/claims',
         external: false,
       },
       {

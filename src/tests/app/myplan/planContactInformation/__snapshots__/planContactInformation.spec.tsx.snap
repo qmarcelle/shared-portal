@@ -144,9 +144,17 @@ exports[`PlanContactInformation should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 1px; min-height: 1px;"
             />
             <p
-              class="body-1 ml-2 w-52"
+              class="body-1 ml-2"
               style="display: block;"
-            />
+            >
+              11412 VALLEY VIEW LANDING LN 
+            </p>
+            <p
+              class="body-1 ml-2"
+              style="display: block;"
+            >
+              N/A
+            </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
             />
@@ -242,9 +250,17 @@ exports[`PlanContactInformation should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 1px; min-height: 1px;"
             />
             <p
-              class="body-1 ml-2 w-52"
+              class="body-1 ml-2"
               style="display: block;"
-            />
+            >
+              11412 VALLEY VIEW LANDING LN 
+            </p>
+            <p
+              class="body-1 ml-2"
+              style="display: block;"
+            >
+              N/A
+            </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
             />
@@ -340,9 +356,17 @@ exports[`PlanContactInformation should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 1px; min-height: 1px;"
             />
             <p
-              class="body-1 ml-2 w-52"
+              class="body-1 ml-2"
               style="display: block;"
-            />
+            >
+              11412 VALLEY VIEW LANDING LN 
+            </p>
+            <p
+              class="body-1 ml-2"
+              style="display: block;"
+            >
+              N/A
+            </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
             />

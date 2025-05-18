@@ -11,11 +11,17 @@ const FullAndBasicAccessOption = ({
   isMaturedMinor,
   accessType,
   memberName,
+  isAUAccess,
+  selectionCallBack,
+  isCheckBoxChecked,
 }: {
   isMaturedMinor?: boolean;
   accessType: string;
   memberName?: string;
   loggedInMemberName?: string;
+  isAUAccess?: boolean;
+  selectionCallBack?: (isChecked?: boolean) => void;
+  isCheckBoxChecked?: boolean;
 }) => {
   const members = isMaturedMinor ? 'yours' : "the Member's";
   const access = accessType?.charAt(0).toUpperCase() + accessType?.slice(1);
@@ -56,14 +62,14 @@ const FullAndBasicAccessOption = ({
         ) : (
           <>
             <Row className="body-1 text-center">
-              {isMaturedMinor ? (
+              {isMaturedMinor || isAUAccess ? (
                 <RichText
                   spans={[
                     <span key={0} className="body-1  text-center">
                       Granting{' '}
                     </span>,
                     <span key={1} className="font-bold">
-                      Full Access +{' '}
+                      Full Access{' '}
                     </span>,
                     <span key={2}>to</span>,
                   ]}
@@ -128,9 +134,14 @@ const FullAndBasicAccessOption = ({
                 type="body-1"
                 spans={[
                   accessType === 'full' ? (
-                    <span key={0}>
-                      {`You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application ${access} Access to the selected Member's health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the`}
-                    </span>
+                    <>
+                      <span key={0}>
+                        {`You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application ${access} Access to the selected Member's health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the`}
+                      </span>
+                      <span key={1} className="font-bold">
+                        {' "I Agree" '}
+                      </span>
+                    </>
                   ) : (
                     <>
                       <span>
@@ -489,8 +500,8 @@ const FullAndBasicAccessOption = ({
                   ]}
                 />
               }
-              checked={agreementChecked}
-              onChange={(newValue) => setAgreementChecked(newValue)}
+              checked={isCheckBoxChecked}
+              onChange={(isChecked) => selectionCallBack?.(isChecked)}
             ></Checkbox>
             <Spacer size={16} />
             {/* TO Do:Removed this filed from UI as part of US-46981 */}

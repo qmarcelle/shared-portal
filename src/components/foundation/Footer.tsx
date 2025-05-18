@@ -1,6 +1,7 @@
 'use client';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
+import { noHeaderAndFooterRoutes } from '@/utils/routes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -35,6 +36,9 @@ const Footer: React.FC<FooterProps> = () => {
     googleAnalytics(analytics);
   };
 
+  if (noHeaderAndFooterRoutes.includes(currentPath)) {
+    return null; // Do not render the Footer on these pages
+  }
   return (
     <footer>
       <section
@@ -70,7 +74,7 @@ const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <Link
-                  href="/member/myplan/claims"
+                  href="/claims"
                   onClick={() =>
                     trackLinkAnalytics('View Claims', '/member/myplan/claims')
                   }

@@ -20,6 +20,7 @@ import { requestAccessToMembers } from '../action/getAccessOtherInformationData'
 interface RequestAccessOnMyPlanProps {
   memberDetails: ShareMyPlanDetails;
   onRequestSuccessCallBack: () => void;
+  disableSubmit?: boolean;
 }
 
 export const RequestAccessOnMyPlan = ({
@@ -27,6 +28,7 @@ export const RequestAccessOnMyPlan = ({
   pageIndex,
   memberDetails,
   onRequestSuccessCallBack,
+  disableSubmit = false,
 }: ModalChildProps & RequestAccessOnMyPlanProps) => {
   const { dismissModal } = useAppModalStore();
 
@@ -92,6 +94,7 @@ export const RequestAccessOnMyPlan = ({
       }
       cancelCallback={() => dismissModal()}
       nextCallback={() => accessOthersInformationRequest(memberDetails)}
+      disableSubmit={disableSubmit}
     />,
     <SuccessSlide
       key={1}

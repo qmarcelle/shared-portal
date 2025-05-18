@@ -12,6 +12,12 @@ export interface ShareMyPlanDetails {
   roleType: string;
 }
 
+export interface ShareOutsideMyPlanDetails {
+  memberName: string;
+  DOB: string;
+  accessStatus: AccessStatus;
+}
+
 export enum AccessStatus {
   NoAccess = 'No Access',
   FullAccess = 'Full Access',

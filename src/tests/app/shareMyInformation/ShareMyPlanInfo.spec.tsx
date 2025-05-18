@@ -264,6 +264,7 @@ describe('Share My Information  Page', () => {
         accessStatus: AccessStatus.FullAccess,
         roleType: '',
         isMinor: true,
+        isMatureMinor: false,
         accessStatusIsPending: false,
       },
     ];
@@ -419,6 +420,7 @@ describe('Share My Information  Page', () => {
         accessStatus: AccessStatus.BasicAccess,
         roleType: '',
         isMinor: false,
+        isMatureMinor: false,
         accessStatusIsPending: false,
       },
     ];

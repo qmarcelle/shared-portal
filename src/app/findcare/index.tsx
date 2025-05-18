@@ -164,7 +164,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                   {
                     label: 'Virtual Care',
                     callback: () => {
-                      router.push('/virtualCareOptions');
+                      router.push('/member/findcare/virtualcare');
                     },
                   },
                 ]}
@@ -248,6 +248,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     />
                   ),
                   url: '/member/findcare/virtualcare/primarycare',
+                  visible: isTeladocPrimary360Eligible(visibilityRules),
                 },
                 {
                   title: 'Mental Care Options',
@@ -261,49 +262,74 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     />
                   ),
                   url: '/member/findcare/mentalHealthOptions',
+                  visible:
+                    isNewMentalHealthSupportAbleToEligible(visibilityRules) ||
+                    isNewMentalHealthSupportMyStrengthCompleteEligible(
+                      visibilityRules,
+                    ),
                 },
               ]}
             />
           </Column>
         </section>
         <Spacer size={32} />
-        {isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) &&
-          isNewMentalHealthSupportAbleToEligible(visibilityRules) &&
-          isHingeHealthEligible(visibilityRules) &&
-          isTeladocPrimary360Eligible(visibilityRules) &&
-          isTeladocEligible(visibilityRules) &&
-          isNurseChatEligible(visibilityRules) && (
-            <section>
-              <VirtualCareOptions
-                className="p-8"
-                options={[
-                  {
-                    id: '1',
-                    title: 'AbleTo',
-                    description:
-                      // eslint-disable-next-line quotes
-                      "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
-                    url: 'null',
-                  },
-                  {
-                    id: '2',
-                    title: 'Blue of Tennessee Medical Centers Virtual Visits ',
-                    description:
-                      'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. ',
-                    url: 'null',
-                  },
-                  {
-                    id: '3',
-                    title: 'Hinge Health Back & Joint Care',
-                    description:
-                      'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
-                    url: 'null',
-                  },
-                  { id: '4', title: 'yyt', description: 'xxx', url: 'null' },
-                ]}
-              />
-            </section>
-          )}
+        {(isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) ||
+          isNewMentalHealthSupportAbleToEligible(visibilityRules) ||
+          isHingeHealthEligible(visibilityRules) ||
+          isTeladocPrimary360Eligible(visibilityRules) ||
+          isTeladocEligible(visibilityRules) ||
+          isNurseChatEligible(visibilityRules)) && (
+          <section>
+            <VirtualCareOptions
+              className="p-8"
+              options={[
+                {
+                  id: '1',
+                  title: 'AbleTo',
+                  description:
+                    // eslint-disable-next-line quotes
+                    "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
+                  url: 'null',
+                },
+                {
+                  id: '2',
+                  title: 'Hinge Health Back & Joint Care',
+                  description:
+                    'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
+                  url: 'null',
+                },
+                {
+                  id: '3',
+                  title: 'Talk to a Nurse',
+                  description:
+                    'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.',
+                  url: '',
+                },
+                {
+                  id: '4',
+                  title: 'Teladoc Health General & Urgent Care',
+                  description:
+                    'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
+                  url: 'null',
+                },
+                {
+                  id: '5',
+                  title: 'Teladoc Health Primary Care Provider',
+                  description:
+                    'With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.',
+                  url: '',
+                },
+                {
+                  id: '6',
+                  title: 'Teladoc Mental Health',
+                  description:
+                    'Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.',
+                  url: '',
+                },
+              ]}
+            />
+          </section>
+        )}
       </Column>
       <Spacer size={32}></Spacer>
     </main>

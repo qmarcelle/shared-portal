@@ -10,6 +10,7 @@ export interface AccordionTileProps extends IComponent {
   child: ReactNode;
   initialOpen: boolean;
   type?: 'normal' | 'card';
+  onOpenCallBack?: () => void;
 }
 
 export const Accordion = ({
@@ -22,6 +23,7 @@ export const Accordion = ({
   child,
   initialOpen,
   type = 'normal',
+  onOpenCallBack,
 }: AccordionTileProps) => {
   const [open, setOpen] = useState(initialOpen);
 
@@ -31,7 +33,10 @@ export const Accordion = ({
       className={`flex flex-col ${type == 'card' && 'card-main-elevated p-1 cursor-pointer'} ${className}`}
     >
       <div
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setOpen(!open);
+          !open && onOpenCallBack && onOpenCallBack();
+        }}
         className="flex flex-row m-1 accordion-head"
       >
         {icon && <div className="mr-1">{icon}</div>}

@@ -1,13 +1,11 @@
 import { AccessCode } from '@/components/composite/AccessCode';
-import { Button } from '@/components/foundation/Button';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
 import { Header } from '@/components/foundation/Header';
-import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import qrCodeFPO from '../../../../../../public/assets/fpo_qr_code.jpg';
+import careTNQRCode from '../../../../../../public/assets/caretn_qr_code.svg';
 import numberStepOne from '../../../../../../public/assets/number_step_one.svg';
 import numberStepThree from '../../../../../../public/assets/number_step_three.svg';
 import numberStepTwo from '../../../../../../public/assets/number_step_two.svg';
@@ -34,18 +32,10 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
             <TextBox text="Scan the QR Code with your smartphone’s camera." />
             <Column className="w-[94px]">
               <Spacer size={8} />
-              <Button
-                icon={
-                  <Image alt="external icon" src={externalOffsiteWhiteIcon} />
-                }
-                className="w-[270px] block md:max-2xl:hidden"
-                label="Download CareTN"
-                callback={() => {}}
-              />
               <Image
-                src={qrCodeFPO}
+                src={careTNQRCode}
                 alt="QRCode"
-                className="hidden md:max-2xl:block"
+                className="md:max-2xl:block"
               />
             </Column>
           </Column>
@@ -84,7 +74,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
         </section>
         <Spacer size={32} />
       </Column>
-      <Divider />     
+      <Divider />
     </section>
   );
 };

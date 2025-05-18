@@ -26,7 +26,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -95,7 +95,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -169,7 +169,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -242,7 +242,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -321,7 +321,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -367,7 +367,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return process.env.NEXT_PUBLIC_QUEST_SELECT ?? '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [
@@ -407,7 +407,7 @@ export const healthProgramsandResourcesDetails: Map<
         buttonText: 'Use Teladoc Health',
         icon: teladocHealthLogo,
         redirectLink: () => {
-          return process.env.NEXT_PUBLIC_QUEST_SELECT ?? '';
+          return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
         },
       },
       whyUseThisOptionDetails: [

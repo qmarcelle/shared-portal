@@ -24,12 +24,15 @@ const MyClaimsPage = async ({
       throw new Error('Failed to fetch claims data');
     }
 
+    const pharmacyClaimsList =
+      pharmacyClaims?.data?.pharmacyClaims?.pharmacyClaim ?? [];
+
     const claimsData: ClaimsData = {
       claims: [
         ...(result?.data?.claims ?? []),
-        ...formatPharmacyClaims(
-          pharmacyClaims?.data!.pharmacyClaims.pharmacyClaim ?? [],
-        ),
+        ...(pharmacyClaimsList.length > 0
+          ? formatPharmacyClaims(pharmacyClaimsList)
+          : []), // Skip formatPharmacyClaims if the list is empty
       ],
       members: result?.data?.members ?? [],
     };

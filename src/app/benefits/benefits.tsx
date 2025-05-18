@@ -131,7 +131,9 @@ const Benefits = ({
         serviceCategory: category,
         benefitType: benefitType,
       });
-      router.push('/benefits/details');
+      let path = pathName(category);
+
+      router.push(`/member/myplan/benefits/${path}`);
     },
     [router, setSelectedBenefitDetails],
   );
@@ -159,7 +161,6 @@ const Benefits = ({
       setMedicalBenefitsItems([]);
     }
     if (currentUserBenefitData.dentalBenefits) {
-      const denBenefits: ManageBenefitsItems[] = [];
       setDentalBenefitsItems(
         generateBenefitsItems(
           currentUserBenefitData.dentalBenefits,
@@ -168,8 +169,8 @@ const Benefits = ({
           BenefitType.DENTAL,
         ),
       );
-      setDentalBenefitsItems(denBenefits);
     }
+    else setDentalBenefitsItems([]);
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(
@@ -226,6 +227,13 @@ const Benefits = ({
     () => getBenefitTypes(currentSelectedMember.planDetails),
     [currentSelectedMember.planDetails],
   );
+
+  function pathName(category: { category: string; id: number }) {
+    let path = category.category.replace(/\s/g, '').toLowerCase();
+    if (path === 'medicalequipment/prosthetics/orthotics')
+      path = 'medicalequipment';
+    return path;
+  }
 
   function onFilterSelectChange(index: number, data: FilterItem[]) {
     if (index == 0) onMemberSelectionChange(data[index].selectedValue?.value);

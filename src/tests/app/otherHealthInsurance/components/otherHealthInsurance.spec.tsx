@@ -1,7 +1,7 @@
 import OtherHealthInsurancePage from '@/app/reportOtherHealthInsurance/page';
 import { mockedAxios } from '@/tests/__mocks__/axios';
 import { mockedFetch } from '@/tests/setup';
-import { fetchRespWrapper } from '@/tests/test_utils';
+import { createAxiosErrorForTest, fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
@@ -169,11 +169,11 @@ describe('OtherHealthInsurance', () => {
         },
       ],
     });
-
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
     await waitFor(async () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/COBService?memeCKs=91722407&isMedAdv=false',
+        '/api/COBService?memeCKs=91722407&isMedAdv=false',
       );
 
       screen.getByRole('heading', { name: 'Report Other Health Insurance' });
@@ -202,13 +202,80 @@ describe('OtherHealthInsurance', () => {
         { memeCK: '91722407', forAllDependents: true, noOtherInsurance: true },
       ],
     });
-
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
     await waitFor(async () => {
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        '/memberservice/api/COBService?memeCKs=91722407&isMedAdv=false',
+        '/api/COBService?memeCKs=91722407&isMedAdv=false',
       );
       screen.getByText('Not covered by other health insurance.');
     });
+  });
+
+  test('other Insurance api integration null scenario', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockResolvedValueOnce({
+      data: [null],
+    });
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
+    await setupUI();
+    await waitFor(async () => {
+      const response = expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/api/COBService?memeCKs=91722407&isMedAdv=false',
+      );
+      expect(response).toBeNull;
+    });
+    expect(
+      screen.getAllByText(
+        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+      ).length,
+    ).toBe(1);
+  });
+
+  test('other Insurance api integration 400 bad request scenario', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 400,
+      }),
+    );
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
+    await setupUI();
+    await waitFor(async () => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/api/COBService?memeCKs=91722407&isMedAdv=false',
+      );
+    });
+    expect(
+      screen.getAllByText(
+        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+      ).length,
+    ).toBe(1);
+  });
+
+  test('other Insurance api integration 500 bad request scenario', async () => {
+    const mockAuth = jest.requireMock('src/auth').auth;
+    mockAuth.mockResolvedValueOnce(vRules);
+    mockedAxios.get.mockRejectedValue(
+      createAxiosErrorForTest({
+        errorObject: {},
+        status: 400,
+      }),
+    );
+    mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
+    await setupUI();
+    await waitFor(async () => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/api/COBService?memeCKs=91722407&isMedAdv=false',
+      );
+    });
+    expect(
+      screen.getAllByText(
+        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
+      ).length,
+    ).toBe(1);
   });
 });

@@ -26,7 +26,7 @@ export const getAllPlansData = async (): Promise<
       return currentYear - dobAge;
     };
     const memberPlanData: AllMyPlanData<string>[] = membersData.map((plan) => {
-      const planContactMailingAddress = plan.address.find(
+      const planContactMailingAddress = plan.address?.find(
         (contact) => contact.type === plan.mailAddressType,
       );
       return {
@@ -36,9 +36,13 @@ export const getAllPlansData = async (): Promise<
         medicalEffectiveDate: plan.medicalEffectiveDate,
         dentalEffectiveDate: plan.dentalEffectiveDate,
         visionEffectiveDate: plan.visionEffectiveDate,
-        address:
+        address1:
           planContactMailingAddress != null
-            ? `${planContactMailingAddress?.address1 ?? ''} ${planContactMailingAddress?.city ?? ''}, ${planContactMailingAddress?.state ?? ''} ${planContactMailingAddress?.zipcode ?? ''}`
+            ? `${planContactMailingAddress?.address1 ?? ''} `
+            : '',
+        address2:
+          planContactMailingAddress != null
+            ? `${planContactMailingAddress?.city ?? ''}, ${planContactMailingAddress?.state ?? ''} ${planContactMailingAddress?.zipcode ?? ''}`
             : '',
         primaryPhoneNumber: plan.primaryPhoneNumber,
         secondaryPhoneNumber: 'N/A',

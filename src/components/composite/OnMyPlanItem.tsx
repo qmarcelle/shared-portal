@@ -1,5 +1,7 @@
 import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
 import { ToolTip } from '@/components/foundation/Tooltip';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { capitalizeName } from '@/utils/capitalizeName';
 import Image from 'next/image';
 import editIcon from '../../../public/assets/edit.svg';
@@ -13,7 +15,6 @@ import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
 import { Title } from '../foundation/Title';
-
 interface OnMyPlanItemProps extends IComponent {
   memberName: string;
   DOB: string;
@@ -27,6 +28,11 @@ interface OnMyPlanItemProps extends IComponent {
   dentalEffectiveDate?: string;
   visionEffectiveDate?: string;
   isLoggedInMember?: string;
+  allowUpdates?: boolean;
+  isGATrackEligible?: boolean;
+  analyticsEvent?: string;
+  selectionType?: string;
+  elementCategory?: string;
 }
 
 export const OnMyPlanItem = ({
@@ -42,7 +48,29 @@ export const OnMyPlanItem = ({
   medicalEffectiveDate,
   dentalEffectiveDate,
   visionEffectiveDate,
+  allowUpdates = true,
+  isGATrackEligible,
+  analyticsEvent,
+  selectionType,
+  elementCategory,
 }: OnMyPlanItemProps) => {
+  function trackPlanItemUpdateAnalytics(
+    gaEvent?: string,
+    selectionType?: string,
+    elementCategory?: string,
+  ) {
+    const analytics: AnalyticsData = {
+      event: gaEvent,
+      click_text: 'Update',
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: selectionType,
+      element_category: elementCategory,
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
+
   const getSharingText = (sharingType: string) => {
     switch (sharingType) {
       case 'Full Access':
@@ -81,7 +109,7 @@ export const OnMyPlanItem = ({
       <Column>
         <Row>
           <Spacer axis="horizontal" size={8} />
-          <TextBox className="body-1 " text={getSharingText(sharingType)} />
+          <TextBox className="body-1 " text={sharingType} />
           {infoButton && (
             <ToolTip
               showTooltip={true}
@@ -124,6 +152,12 @@ export const OnMyPlanItem = ({
                 text="Update"
                 suffix={icon}
                 callback={() => {
+                  isGATrackEligible &&
+                    trackPlanItemUpdateAnalytics(
+                      analyticsEvent,
+                      selectionType,
+                      elementCategory,
+                    );
                   showAppModal({
                     content: (
                       <EditLevelOfAccess
@@ -131,6 +165,7 @@ export const OnMyPlanItem = ({
                         memberName={memberName}
                         targetType={targetType ?? ''}
                         isMaturedMinor={isMinor}
+                        disableSubmit={!allowUpdates}
                       />
                     ),
                   });
@@ -148,7 +183,9 @@ export const OnMyPlanItem = ({
     <Card
       className={`cursor-pointer ${className}`}
       type="elevated"
-      onClick={onClick}
+      onClick={() => {
+        if (allowUpdates && onClick) onClick();
+      }}
     >
       <Column className="m-4">
         <Spacer size={16} />

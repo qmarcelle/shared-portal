@@ -96,7 +96,7 @@ exports[`OrderId Card should render the screens correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                     <h1
-                      class="title-1 title-2"
+                      class="title-1 title-2 text-center"
                     >
                       Order Complete
                     </h1>

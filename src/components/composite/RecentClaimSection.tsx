@@ -2,6 +2,7 @@ import { ClaimItem } from '@/components/composite/ClaimItem';
 import { Header } from '@/components/foundation/Header';
 import { ClaimDetails } from '@/models/claim_details';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
 import { Card } from '../foundation/Card';
@@ -10,37 +11,49 @@ import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
 interface RecentClaimSectionProps extends IComponent {
-  claims: ClaimDetails[];
+  claimDetails?: ClaimDetails[]; // Add the claims property
   title: string;
   linkText: string;
   linkUrl?: string;
 }
 
 export const RecentClaimSection = ({
-  claims,
+  claimDetails,
   className,
   title,
   linkText,
-  linkUrl = '/member/myplan/claims',
+  linkUrl,
 }: RecentClaimSectionProps) => {
-  const renderSection = (
-    claims: ClaimDetails[],
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ): any => {
-    const claimsList = claims.length > 3 ? claims.splice(0, 3) : claims;
+  const router = useRouter();
+  const renderSection = (claimDetails: ClaimDetails[] | undefined) => {
+    const claimDetailsLength = (claimDetails ?? []).length;
+    const claimsList =
+      claimDetailsLength > 3
+        ? (claimDetails ?? []).slice(claimDetailsLength - 3, claimDetailsLength)
+        : (claimDetails ?? []);
+    claimsList.reverse();
+    const updatedClaimsList = claimsList.map((claim) => ({
+      ...claim,
+      isMiniCard: true,
+    }));
+
+    const navigateToClaimDetails = (claimId: string) => {
+      const claimType = updatedClaimsList.find(
+        (claim) => claim.encryptedClaimId === claimId,
+      )?.type;
+      router.push(`/claims/${claimId}?type=${claimType}`);
+    };
     switch (true) {
-      case claims && !!claims.length:
-        return claimsList.map((item) => (
+      case updatedClaimsList && !!claimDetailsLength:
+        return (updatedClaimsList ?? []).map((item) => (
           <ClaimItem
             key={item.id}
             className="mb-4"
             claimInfo={item}
-            callBack={(claimId: string) => {
-              item.callBack?.(claimId);
-            }}
+            callBack={navigateToClaimDetails}
           />
         ));
-      case claims && claims.length === 0:
+      case updatedClaimsList && claimDetailsLength === 0:
         return (
           <div className="recentClaimsException">
             <Row className="p-2">
@@ -58,7 +71,7 @@ export const RecentClaimSection = ({
           </div>
         );
 
-      case claims === null || claims === undefined:
+      case updatedClaimsList === null || updatedClaimsList === undefined:
         return (
           <div className="recentClaimsException">
             <Row className="p-2">
@@ -83,7 +96,7 @@ export const RecentClaimSection = ({
         <Header type="title-2" text={title} />
         <Spacer size={32} />
 
-        {renderSection(claims)}
+        {renderSection(claimDetails)}
         <Spacer size={16} />
         <AppLink label={linkText} url={linkUrl} />
       </div>

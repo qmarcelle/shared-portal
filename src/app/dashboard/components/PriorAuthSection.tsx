@@ -7,7 +7,7 @@ import { BlankPriorAuthSection } from './BlankPriorAuthSection';
 import { PriorAuthCard } from './PrioAuthCard';
 
 interface PriorAuthSectionProps extends IComponent {
-  priorauth: DashboardPriorAuthDetails;
+  priorauth: DashboardPriorAuthDetails | null;
 }
 
 export const PriorAuthSection = ({

@@ -18,7 +18,8 @@ export const PlanContactCardDetails = ({
           name={item.memberName}
           dob={item.dob}
           age={item.age}
-          address={item.address}
+          address1={item.address1 || 'N/A'}
+          address2={item.address2 || 'N/A'}
           primaryPhoneNumber={item.primaryPhoneNumber}
           secondaryPhoneNumber={item.secondaryPhoneNumber}
         />

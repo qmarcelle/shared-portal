@@ -1,4 +1,5 @@
 import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
+import { RichText } from '@/components/foundation/RichText';
 import AlertIcon from '@/public/assets/alert_gray.svg';
 import MedicalIcon from '@/public/assets/medical.svg';
 import { formatDate } from '@/utils/inputValidator';
@@ -109,12 +110,17 @@ export const PriorAuthDetailItem = ({
                       send you a letter explaining why and details on how to ask
                       for an appeal."
                     ></TextBox>
-                    <TextBox
+                    <RichText
                       type="body-1"
                       className="mt-4"
-                      text="For more information,Please start to chart or call
-                      [1-800-000-000]."
-                    ></TextBox>
+                      spans={[
+                        <span key={0}>For more information,Please</span>,
+                        <span className="link" key={1}>
+                          <a> start a chat </a>
+                        </span>,
+                        <span key={2}>or call us at [{contact}]</span>,
+                      ]}
+                    />
                   </Row>
                 </Column>
               </Card>
