@@ -454,13 +454,28 @@ export function buildGenesysChatConfig({
   if (process.env.NODE_ENV === 'development') {
     logger.info('[buildGenesysChatConfig] Full config for debugging', {
       key_fields: {
+        clickToChatToken: mergedConfig.clickToChatToken,
         clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
+        clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
         gmsChatUrl: mergedConfig.gmsChatUrl,
         userID: mergedConfig.userID,
         planId: mergedConfig.memberMedicalPlanID,
         chatMode: mergedConfig.chatMode,
       },
     });
+    // Extra: Console log for browser debugging
+    if (typeof window !== 'undefined') {
+      // eslint-disable-next-line no-console
+      console.log('[GenesysChatConfig] Key fields:', {
+        clickToChatToken: mergedConfig.clickToChatToken,
+        clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
+        clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
+        gmsChatUrl: mergedConfig.gmsChatUrl,
+        userID: mergedConfig.userID,
+        planId: mergedConfig.memberMedicalPlanID,
+        chatMode: mergedConfig.chatMode,
+      });
+    }
   }
 
   return mergedConfig;
