@@ -61,6 +61,11 @@ export default function ChatWidget({
     initialIsChatEnabled: useChatStore.getState().config.chatData?.isEligible,
   });
 
+  // Add a mount tracking ref to prevent double initialization
+  const isMounted = useRef(false);
+  // Add a global component instance tracker to prevent multiple instances
+  const instanceId = useRef(`chat-widget-${Date.now()}`);
+
   // Get state from store using selectors for optimized rendering
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const chatMode = useChatStore(chatConfigSelectors.chatMode);
@@ -96,7 +101,78 @@ export default function ChatWidget({
 
   // Ref to track whether we've set up CXBus subscriptions
   const cxBusSubscriptionsSetup = useRef(false);
-  const cxBusPollTimer = useRef<NodeJS.Timeout | null>(null); // Ref for CXBus polling timer
+  const cxBusPollTimer = useRef<NodeJS.Timeout | null>(null);
+
+  // Add a mechanism to prevent multiple component instances from initializing simultaneously
+  useEffect(() => {
+    // Check if there's already a ChatWidget component instance active
+    if (typeof window !== 'undefined') {
+      if (
+        window._chatWidgetInstanceId &&
+        window._chatWidgetInstanceId !== instanceId.current
+      ) {
+        logger.warn(
+          `${LOG_PREFIX} Another ChatWidget instance already exists (${window._chatWidgetInstanceId}). This instance (${instanceId.current}) will be passive.`,
+        );
+        return;
+      }
+
+      // Register this instance
+      window._chatWidgetInstanceId = instanceId.current;
+      logger.info(
+        `${LOG_PREFIX} Registered as the active ChatWidget instance: ${instanceId.current}`,
+      );
+
+      return () => {
+        // Only clear if this instance is still the active one
+        if (window._chatWidgetInstanceId === instanceId.current) {
+          window._chatWidgetInstanceId = undefined;
+          logger.info(
+            `${LOG_PREFIX} Unregistered as the active ChatWidget instance: ${instanceId.current}`,
+          );
+        }
+      };
+    }
+  }, []);
+
+  // Ensure the container div exists and is properly configured - Run only once on mount
+  useEffect(() => {
+    // Skip if already mounted or if another instance is active
+    if (
+      isMounted.current ||
+      (window._chatWidgetInstanceId &&
+        window._chatWidgetInstanceId !== instanceId.current)
+    ) {
+      return;
+    }
+
+    isMounted.current = true;
+
+    // Check if container already exists, if not create it
+    let containerElement = document.getElementById(containerId);
+    if (!containerElement) {
+      logger.info(
+        `${LOG_PREFIX} Creating missing container element with id: ${containerId}`,
+      );
+      containerElement = document.createElement('div');
+      containerElement.id = containerId;
+      containerElement.setAttribute('data-chat-container', 'true');
+      document.body.appendChild(containerElement);
+    } else {
+      logger.info(
+        `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
+      );
+    }
+
+    // Ensure container has proper styling
+    containerElement.style.position = 'relative';
+    containerElement.style.zIndex = '999';
+    containerElement.style.minHeight = '10px';
+    containerElement.style.minWidth = '10px';
+
+    // Add a data attribute that scripts can check for
+    containerElement.dataset.initialized = 'true';
+  }, [containerId]);
 
   // Function to handle clearing the error and reopening chat
   const handleClearErrorAndReopen = useCallback(() => {
@@ -522,38 +598,6 @@ export default function ChatWidget({
   logger.info(
     `${LOG_PREFIX} Chat is enabled and config is available. Rendering GenesysScriptLoader.`,
   );
-
-  // Ensure the container div exists and is properly configured
-  useEffect(() => {
-    // Check if container already exists, if not create it
-    let containerElement = document.getElementById(containerId);
-    if (!containerElement) {
-      logger.info(
-        `${LOG_PREFIX} Creating missing container element with id: ${containerId}`,
-      );
-      containerElement = document.createElement('div');
-      containerElement.id = containerId;
-      containerElement.setAttribute('data-chat-container', 'true');
-      document.body.appendChild(containerElement);
-    } else {
-      logger.info(
-        `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
-      );
-    }
-
-    // Ensure container has proper styling
-    containerElement.style.position = 'relative';
-    containerElement.style.zIndex = '999';
-    containerElement.style.minHeight = '10px';
-    containerElement.style.minWidth = '10px';
-
-    // Add a data attribute that scripts can check for
-    containerElement.dataset.initialized = 'true';
-
-    return () => {
-      // Don't remove the container on unmount as Genesys might still need it
-    };
-  }, [containerId]);
 
   return (
     <>

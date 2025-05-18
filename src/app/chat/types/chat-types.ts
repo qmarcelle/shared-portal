@@ -240,11 +240,15 @@ export interface GenesysWindow {
   _genesysButtonCreationInProgress?: boolean;
   _genesysScriptLoadExplicitlyInProgress?: boolean;
   _genesysWidgetsInitializationInProgress?: boolean;
+  _genesysLastCXBusCommandTime?: number;
   _genesysScriptLoadingState?: {
     widgetsScriptLoaded: boolean;
     widgetsScriptFailed: boolean;
     initializedWidgets: boolean;
   };
+
+  // ChatWidget instance tracking
+  _chatWidgetInstanceId?: string;
 
   // CoBrowse
   CobrowseIO?: any;

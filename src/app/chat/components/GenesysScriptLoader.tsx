@@ -47,6 +47,7 @@ const GenesysLoadingState = {
   scriptLoaded: false,
   scriptId: 'genesys-chat-script',
   cssIds: [] as string[],
+  activeInstanceId: null as string | null,
 };
 
 // Define structure for Genesys Cloud initial config
@@ -170,6 +171,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const initialized = useRef(false); // Prevents re-initialization on re-renders
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null); // For polling timer
+    const instanceId = useRef<string>(`genesys-script-loader-${Date.now()}`);
 
     // Log the props received by the component instance
     logger.info(`${LOG_PREFIX} Component instance created/rendered. Props:`, {
@@ -182,7 +184,38 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       existingStatus: ChatLoadingState.scriptState.isComplete
         ? 'already-loaded'
         : 'not-started',
+      instanceId: instanceId.current,
     });
+
+    // Check if this should be the active instance
+    useEffect(() => {
+      // If there's already an active instance and it's not us, become passive
+      if (
+        GenesysLoadingState.activeInstanceId &&
+        GenesysLoadingState.activeInstanceId !== instanceId.current
+      ) {
+        logger.info(
+          `${LOG_PREFIX} Another instance is active (${GenesysLoadingState.activeInstanceId}). This instance (${instanceId.current}) will be passive.`,
+        );
+        return;
+      }
+
+      // Register as the active instance
+      GenesysLoadingState.activeInstanceId = instanceId.current;
+      logger.info(
+        `${LOG_PREFIX} Registered as active GenesysScriptLoader instance: ${instanceId.current}`,
+      );
+
+      return () => {
+        // Only unregister if we're still the active instance
+        if (GenesysLoadingState.activeInstanceId === instanceId.current) {
+          GenesysLoadingState.activeInstanceId = null;
+          logger.info(
+            `${LOG_PREFIX} Unregistered as active GenesysScriptLoader instance: ${instanceId.current}`,
+          );
+        }
+      };
+    }, []);
 
     // Determine effective URLs based on chat mode
     const effectiveScriptUrl = useMemo(() => {
@@ -310,6 +343,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     }, [onLoad, onError, status, chatMode]); // Added chatMode to dependencies
 
     const loadScript = useCallback(async () => {
+      // Skip if not the active instance
+      if (GenesysLoadingState.activeInstanceId !== instanceId.current) {
+        logger.info(
+          `${LOG_PREFIX} Not the active instance, skipping script loading.`,
+        );
+        return;
+      }
+
       // First check if we should load scripts based on our sequential loader state
       const canLoadScripts = shouldLoadScripts();
       logger.info(
@@ -346,164 +387,233 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         return;
       }
 
-      // Mark as initialized for this attempt
-      initialized.current = true;
-
-      // Update sequential loader state
-      markScriptLoadStarted();
-
-      logger.info(
-        `${LOG_PREFIX} loadScript: Starting script loading sequence. Current status: ${status}`,
-      );
-      setStatus('loading-css'); // Set status early in the process
-
-      try {
-        // 0. Add resource hints
-        logger.info(`${LOG_PREFIX} Adding resource hints...`);
-        addResourceHints();
-
-        // 1. Load CSS files first
+      // Check if a script is already in the DOM - prevent duplicate loading
+      const existingScript = document.getElementById('genesys-chat-script');
+      if (existingScript && !ChatLoadingState.scriptState.isComplete) {
         logger.info(
-          `${LOG_PREFIX} Effective CSS URLs to load (stableCssUrls value just before loop):`,
-          { urls: stableCssUrls },
+          `${LOG_PREFIX} Script already in DOM but not marked complete. Waiting for completion.`,
         );
-        logger.info(
-          `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS file(s)...`,
-          { urls: stableCssUrls },
-        );
-        if (stableCssUrls.length === 0) {
-          logger.info(`${LOG_PREFIX} No CSS URLs to load.`);
-        }
-        for (const cssUrl of stableCssUrls) {
-          if (!cssUrl) {
-            logger.warn(`${LOG_PREFIX} Empty CSS URL found, skipping.`);
-            continue;
-          }
-          logger.info(`${LOG_PREFIX} Attempting to load CSS: ${cssUrl}`);
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = cssUrl;
 
-          await new Promise<void>((resolve, reject) => {
-            link.onload = () => {
-              logger.info(`${LOG_PREFIX} Loaded CSS successfully: ${cssUrl}`);
-              resolve();
-            };
-            link.onerror = (errEvent) => {
-              const errMsg = `Failed to load CSS: ${cssUrl}`;
-              logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: errEvent });
-              reject(new Error(errMsg));
-            };
-            document.head.appendChild(link);
-          });
-        }
-        logger.info(`${LOG_PREFIX} All CSS files loaded successfully.`);
-
-        // 2. Set window.chatSettings (for legacy mode)
-        if (chatMode === 'legacy') {
-          setStatus('setting-config');
-          logger.info(
-            `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings with legacyConfig:`,
-            legacyConfig,
-          );
-          if (typeof window !== 'undefined') {
-            window.chatSettings = legacyConfig;
+        // Wait a bit then check if the script is loaded
+        setTimeout(() => {
+          if (window._genesysCXBus || window._forceChatButtonCreate) {
+            logger.info(
+              `${LOG_PREFIX} Script appears to be loaded, proceeding to ready check.`,
+            );
+            setStatus('polling-ready');
+            checkReadyWithBackoff();
           } else {
-            logger.warn(
-              `${LOG_PREFIX} Legacy Mode: window object not available. Cannot set window.chatSettings.`,
+            logger.info(
+              `${LOG_PREFIX} Script still not ready, continuing with load process.`,
+            );
+            continueLoadProcess();
+          }
+        }, 500);
+        return;
+      }
+
+      // Proceed with the load process
+      continueLoadProcess();
+
+      function continueLoadProcess() {
+        // Mark as initialized for this attempt
+        initialized.current = true;
+
+        // Update sequential loader state
+        markScriptLoadStarted();
+
+        logger.info(
+          `${LOG_PREFIX} loadScript: Starting script loading sequence. Current status: ${status}`,
+        );
+        setStatus('loading-css');
+
+        // Load the script and set up everything
+        loadCssFiles()
+          .then(() => {
+            // Continue with the rest of the loading process
+            configureAndLoadScript();
+          })
+          .catch((err) => {
+            const error = err instanceof Error ? err : new Error(String(err));
+            logger.error(`${LOG_PREFIX} Error in CSS loading:`, {
+              message: error.message,
+              originalError: err,
+            });
+            setStatus('error');
+            setErrorMessage(error.message || 'Failed to load CSS files');
+
+            // Mark as failed in the sequential loader
+            markScriptLoadComplete(false);
+
+            if (onError) onError(error);
+          });
+      }
+
+      // 1. Load CSS files
+      const loadCssFiles = async () => {
+        // Skip if CSS files are already loaded
+        if (GenesysLoadingState.cssIds.length === stableCssUrls.length) {
+          logger.info(
+            `${LOG_PREFIX} All CSS files already loaded (${GenesysLoadingState.cssIds.length}). Skipping.`,
+          );
+          return;
+        }
+
+        if (stableCssUrls.length > 0) {
+          logger.info(
+            `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS files:`,
+            stableCssUrls,
+          );
+
+          for (let i = 0; i < stableCssUrls.length; i++) {
+            const cssUrl = stableCssUrls[i];
+            try {
+              // Generate a unique ID for this CSS
+              const cssId = `genesys-chat-css-${i}`;
+
+              // Skip if this specific CSS is already loaded
+              if (
+                document.getElementById(cssId) ||
+                GenesysLoadingState.cssIds.includes(cssId)
+              ) {
+                logger.info(
+                  `${LOG_PREFIX} CSS ${cssId} already loaded. Skipping.`,
+                );
+                continue;
+              }
+
+              // Create link element
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.type = 'text/css';
+              link.href = cssUrl;
+              link.id = cssId;
+
+              // Add to document
+              document.head.appendChild(link);
+              GenesysLoadingState.cssIds.push(cssId);
+              logger.info(
+                `${LOG_PREFIX} Added CSS: ${cssUrl} with ID ${cssId}`,
+              );
+            } catch (cssErr) {
+              logger.warn(`${LOG_PREFIX} Error loading CSS ${cssUrl}:`, cssErr);
+              // Continue despite CSS errors - they're not critical
+            }
+          }
+        } else {
+          logger.info(`${LOG_PREFIX} No CSS files to load.`);
+        }
+      };
+
+      // 2. Configure and load the script
+      const configureAndLoadScript = () => {
+        try {
+          // 2. Set window.chatSettings (for legacy mode)
+          if (chatMode === 'legacy') {
+            setStatus('setting-config');
+            logger.info(
+              `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings with legacyConfig:`,
+              legacyConfig,
+            );
+            if (typeof window !== 'undefined') {
+              window.chatSettings = legacyConfig;
+            } else {
+              logger.warn(
+                `${LOG_PREFIX} Legacy Mode: window object not available. Cannot set window.chatSettings.`,
+              );
+            }
+          } else {
+            logger.info(
+              `${LOG_PREFIX} Cloud Mode: Skipping window.chatSettings. Config passed in script tag or via Genesys object post-load.`,
+              { cloudConfig },
             );
           }
-        } else {
+
+          // 3. Load the main Genesys script
+          setStatus('loading-script');
           logger.info(
-            `${LOG_PREFIX} Cloud Mode: Skipping window.chatSettings. Config passed in script tag or via Genesys object post-load.`,
-            { cloudConfig },
-          );
-        }
-
-        // 3. Load the main Genesys script
-        setStatus('loading-script');
-        logger.info(
-          `${LOG_PREFIX} Attempting to load main script for ${chatMode} mode: ${effectiveScriptUrl}`,
-        );
-
-        const scriptElement: HTMLScriptElement =
-          document.createElement('script');
-
-        if (chatMode === 'cloud') {
-          // Cloud mode script setup
-          scriptElement.id = 'genesys-cloud-bootstrap-script';
-          scriptElement.type = 'text/javascript';
-          scriptElement.charset = 'utf-8';
-          scriptElement.textContent = `
-            (function (g, e, n, es, ys) {
-              g['_genesysJs'] = e;
-              g[e] = g[e] || function () {
-                (g[e].q = g[e].q || []).push(arguments)
-              };
-              g[e].t = 1 * new Date();
-              g[e].c = es;
-              ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-            })(window, 'Genesys', '${effectiveScriptUrl}', {
-              environment: '${cloudConfig?.environment || ''}',
-              deploymentId: '${cloudConfig?.deploymentId || ''}'
-            });
-          `;
-        } else {
-          // Legacy mode
-          scriptElement.src = effectiveScriptUrl;
-          scriptElement.id = 'genesys-chat-script';
-          scriptElement.async = false;
-        }
-
-        scriptElement.onload = () => {
-          logger.info(
-            `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode.`,
+            `${LOG_PREFIX} Attempting to load main script for ${chatMode} mode: ${effectiveScriptUrl}`,
           );
 
-          setStatus('polling-ready');
-          logger.info(
-            `${LOG_PREFIX} Script processed. Now polling for widget readiness.`,
-          );
-          checkReadyWithBackoff();
-        };
+          const scriptElement: HTMLScriptElement =
+            document.createElement('script');
 
-        scriptElement.onerror = (e) => {
-          const errMsg = `Main Genesys script element failed for ${chatMode} mode.`;
-          logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
+          if (chatMode === 'cloud') {
+            // Cloud mode script setup
+            scriptElement.id = 'genesys-cloud-bootstrap-script';
+            scriptElement.type = 'text/javascript';
+            scriptElement.charset = 'utf-8';
+            scriptElement.textContent = `
+              (function (g, e, n, es, ys) {
+                g['_genesysJs'] = e;
+                g[e] = g[e] || function () {
+                  (g[e].q = g[e].q || []).push(arguments)
+                };
+                g[e].t = 1 * new Date();
+                g[e].c = es;
+                ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+              })(window, 'Genesys', '${effectiveScriptUrl}', {
+                environment: '${cloudConfig?.environment || ''}',
+                deploymentId: '${cloudConfig?.deploymentId || ''}'
+              });
+            `;
+          } else {
+            // Legacy mode
+            scriptElement.src = effectiveScriptUrl;
+            scriptElement.id = 'genesys-chat-script';
+            scriptElement.async = false;
+          }
+
+          scriptElement.onload = () => {
+            logger.info(
+              `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode.`,
+            );
+
+            setStatus('polling-ready');
+            logger.info(
+              `${LOG_PREFIX} Script processed. Now polling for widget readiness.`,
+            );
+            checkReadyWithBackoff();
+          };
+
+          scriptElement.onerror = (e) => {
+            const errMsg = `Main Genesys script element failed for ${chatMode} mode.`;
+            logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
+            setStatus('error');
+            setErrorMessage(errMsg);
+
+            // Mark as failed in the sequential loader
+            markScriptLoadComplete(false);
+
+            if (onError) onError(new Error(errMsg));
+          };
+
+          // Remove existing script if present
+          const existingScript = document.getElementById('genesys-chat-script');
+          if (existingScript) {
+            logger.info(`${LOG_PREFIX} Removing existing script.`);
+            existingScript.remove();
+          }
+
+          document.head.appendChild(scriptElement);
+          logger.info(
+            `${LOG_PREFIX} Added script element: ${scriptElement.id}`,
+          );
+        } catch (err: any) {
+          const error = err instanceof Error ? err : new Error(String(err));
+          logger.error(`${LOG_PREFIX} Error in script loading:`, {
+            message: error.message,
+            originalError: err,
+          });
           setStatus('error');
-          setErrorMessage(errMsg);
+          setErrorMessage(error.message || 'Failed to load script');
 
           // Mark as failed in the sequential loader
           markScriptLoadComplete(false);
 
-          if (onError) onError(new Error(errMsg));
-        };
-
-        // Remove existing script if present
-        const existingScript = document.getElementById('genesys-chat-script');
-        if (existingScript) {
-          logger.info(`${LOG_PREFIX} Removing existing script.`);
-          existingScript.remove();
+          if (onError) onError(error);
         }
-
-        document.head.appendChild(scriptElement);
-        logger.info(`${LOG_PREFIX} Added script element: ${scriptElement.id}`);
-      } catch (err: any) {
-        logger.error(`${LOG_PREFIX} Error in loadScript sequence:`, {
-          message: err?.message,
-          originalError: err,
-        });
-        setStatus('error');
-        setErrorMessage(
-          err?.message || 'An unknown error occurred during script loading.',
-        );
-
-        // Mark as failed in the sequential loader
-        markScriptLoadComplete(false);
-
-        if (onError)
-          onError(err instanceof Error ? err : new Error(String(err)));
-      }
+      };
     }, [
       chatMode,
       effectiveScriptUrl,
@@ -514,6 +624,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       onError,
       status,
       checkReadyWithBackoff,
+      instanceId,
     ]);
 
     // Error handling function
