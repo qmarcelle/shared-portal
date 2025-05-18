@@ -15,6 +15,7 @@ import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
+import { getDashboarPriorAuthData } from './getDashboarPriorAuthData';
 
 export const getDashboardData = async (): Promise<
   ActionResponse<number, DashboardData>
@@ -114,6 +115,7 @@ export const getDashboardData = async (): Promise<
             : null,
         role: session?.user.currUsr?.role,
         visibilityRules: session?.user.vRules,
+        priorAuthDetail: getDashboarPriorAuthData(),
       },
     };
   } catch (error) {

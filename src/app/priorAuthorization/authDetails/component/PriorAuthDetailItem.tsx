@@ -1,4 +1,7 @@
 import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
+import AlertIcon from '@/public/assets/alert_gray.svg';
+import MedicalIcon from '@/public/assets/medical.svg';
+import { formatDate } from '@/utils/inputValidator';
 import { formatPhone } from '@/utils/phone_formatter';
 import Image from 'next/image';
 import { PriorAuthorizationHelp } from '../../../../components/composite/PriorAuthorizationHelp';
@@ -11,15 +14,17 @@ import { Spacer } from '../../../../components/foundation/Spacer';
 import { StatusLabel } from '../../../../components/foundation/StatusLabel';
 import { TextBox } from '../../../../components/foundation/TextBox';
 import { IComponent } from '../../../../components/IComponent';
-import AlertIcon from '../../../public/assets/alert_gray.svg';
-import MedicalIcon from '../../../public/assets/medical.svg';
 
 interface priorAuthDetailProps extends IComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   authInfo: MemberPriorAuthDetail;
+  contact: string;
 }
 
-export const PriorAuthDetailItem = ({ authInfo }: priorAuthDetailProps) => {
+export const PriorAuthDetailItem = ({
+  authInfo,
+  contact,
+}: priorAuthDetailProps) => {
   function getSuccessStatus() {
     switch (authInfo.statusDescription) {
       case 'Processed':
@@ -66,12 +71,12 @@ export const PriorAuthDetailItem = ({ authInfo }: priorAuthDetailProps) => {
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'Visited on ' + authInfo.fromDate.replaceAll('-', '/')}
+            text={'Visited on ' + formatDate(authInfo.fromDate)}
           ></TextBox>
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'For ' + authInfo.memberName}
+            text={'For ' + authInfo.firstName + ' ' + authInfo.lastName}
           ></TextBox>
           <TextBox
             type="body-1"
@@ -279,7 +284,7 @@ export const PriorAuthDetailItem = ({ authInfo }: priorAuthDetailProps) => {
             </Card>
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch md:mt-0">
-            <PriorAuthorizationHelp />
+            <PriorAuthorizationHelp contact={contact} />
           </Column>
         </section>
         <Spacer size={32}></Spacer>

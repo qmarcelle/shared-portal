@@ -1,4 +1,4 @@
-export enum ClaimStatus {
+export enum PriorAuthStatus {
   Processed = 'Processed',
   Denied = 'Denied',
   Pending = 'Pending',
