@@ -576,6 +576,35 @@ export const useChatStore = create<ChatState>((set, get) => {
               config: {
                 ...get().config,
                 genesysChatConfig: finalGenesysConfig,
+                // Set the appropriate config based on chat mode
+                legacyConfig:
+                  finalGenesysConfig.chatMode === 'legacy'
+                    ? (finalGenesysConfig as unknown as ChatSettings)
+                    : undefined,
+                cloudConfig:
+                  finalGenesysConfig.chatMode === 'cloud'
+                    ? {
+                        environment:
+                          (rawApiDataForConfig.genesysCloudConfig as any)
+                            ?.environment || '',
+                        deploymentId: finalGenesysConfig.deploymentId || '',
+                        // Only include properties defined in the ChatState interface for cloudConfig
+                        customAttributes: {
+                          Firstname:
+                            finalGenesysConfig.formattedFirstName ||
+                            finalGenesysConfig.memberFirstname,
+                          lastname: finalGenesysConfig.memberLastName,
+                          MEMBER_ID:
+                            finalGenesysConfig.MEMBER_ID ||
+                            `${finalGenesysConfig.subscriberID || ''}-${finalGenesysConfig.sfx || ''}`,
+                          MEMBER_DOB: finalGenesysConfig.memberDOB,
+                          GROUP_ID: finalGenesysConfig.groupId,
+                          PLAN_ID: finalGenesysConfig.memberMedicalPlanID,
+                          INQ_TYPE: finalGenesysConfig.INQ_TYPE,
+                          LOB: finalGenesysConfig.LOB,
+                        },
+                      }
+                    : undefined,
                 isLoading: false,
                 error: null,
                 chatData: {
