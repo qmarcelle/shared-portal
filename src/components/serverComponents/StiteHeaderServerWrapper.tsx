@@ -1,13 +1,15 @@
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
-import { getVisibilityRules } from '@/actions/getVisibilityRules';
 import { getUserProfiles } from '@/actions/profileData';
+import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
 import SiteHeader from '../foundation/SiteHeader';
 import SiteHeaderPBEError from '../foundation/SiteHeaderPBEError';
 
 export const SiteHeaderServerWrapper = async () => {
-  const visibityRules = await getVisibilityRules();
+  //const visibityRules = await getVisibilityRules();
+  const session = await auth();
+  const visibityRules = session?.user.vRules;
   if (visibityRules) {
     try {
       const profiles = await getUserProfiles();
@@ -33,11 +35,14 @@ export const SiteHeaderServerWrapper = async () => {
 
       return (
         <SiteHeader
+          isLoggedIn={!!session?.user.id}
           visibilityRules={visibityRules}
           profiles={profiles}
           plans={plans}
           selectedPlan={selectedPlan}
           selectedProfile={selectedProfile}
+          userId={session?.user.id}
+          groupId={session?.user.currUsr.plan?.grpId}
         />
       );
     } catch (error) {

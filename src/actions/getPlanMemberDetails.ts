@@ -3,6 +3,7 @@
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import {
+  AccessStatus,
   ShareMyPlanDetails,
   SharePlanInformationDetails,
 } from '@/models/app/getSharePlanDetails';
@@ -60,7 +61,7 @@ const computeMemberDetails = (
         isOnline: true,
         requesteeFHRID: item.relatedPersonPatientFHIRID,
         requesteeUMPID: item.relatedPersonUMPID,
-        accessStatus: item.name,
+        accessStatus: item.name ? item.name : AccessStatus.NoAccess,
         memberCk: item.relatedPersonMemeCk,
         accessStatusIsPending: false,
         isMatureMinor: isMatureMinor,

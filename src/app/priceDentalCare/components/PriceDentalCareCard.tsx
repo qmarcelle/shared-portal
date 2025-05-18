@@ -11,11 +11,17 @@ import { ProcedureCard } from './ProcedureCard';
 interface PriceDentalCareCardProps extends IComponent {
   procedures: PriceDentalCareData[];
   showEstimateCost: boolean;
+  customaryCost: string;
+  networkAllowanceCost: string;
+  procedureSelected: string;
 }
 
 export const PriceDentalCareCard = ({
   procedures,
   showEstimateCost,
+  customaryCost,
+  networkAllowanceCost,
+  procedureSelected,
 }: PriceDentalCareCardProps) => {
   function getDentalCost() {
     return (
@@ -26,7 +32,7 @@ export const PriceDentalCareCard = ({
               <TextBox className="body-1 center" text="Procedure" />
               <TextBox
                 className="title-3 center mt-2"
-                text="Topical fluoride varnish"
+                text={procedureSelected}
               />
             </Column>
             <Column className="flex flex-col mr-4 ml-4">
@@ -34,14 +40,17 @@ export const PriceDentalCareCard = ({
                 className="body-1 decoration-dashed underline center"
                 text="Customary Cost"
               />
-              <TextBox className="title-3 center mt-2" text="$48.51" />
+              <TextBox className="title-3 center mt-2" text={customaryCost} />
             </Column>
             <Column className="flex flex-col mr-4 ml-4">
               <TextBox
                 className="body-1 decoration-dashed underline center"
                 text="Network Allowance"
               />
-              <TextBox className="title-3 center mt-2" text="$30.00" />
+              <TextBox
+                className="title-3 center mt-2"
+                text={networkAllowanceCost}
+              />
             </Column>
           </Row>
           <Spacer size={32} />

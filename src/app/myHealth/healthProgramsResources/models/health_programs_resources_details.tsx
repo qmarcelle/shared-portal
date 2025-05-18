@@ -1,9 +1,7 @@
 import { VirtualHealthCareDetails } from '@/app/mentalHealthOptions/models/mental_health_care_options_details';
 import { HealthProgramType } from '../myHealthPrograms/models/health_program_type';
 import { HealthProgramsResourcesName } from './health_programs_resources_names';
-const urlRedirect =
-  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
-
+const urlRedirect = '/member/myhealth/healthprograms/';
 export const myHealthProgramsandResourcesDetails: Map<
   HealthProgramsResourcesName,
   VirtualHealthCareDetails
@@ -45,7 +43,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Respiratory health',
         'Mental health',
       ],
-      url: `${urlRedirect}careTN`,
+      url: `${urlRedirect}caremanagement`,
     },
   ],
   [
@@ -218,7 +216,7 @@ export const myHealthProgramsandResourcesDetails: Map<
         'Pregnancy health advice',
         'Immunization needs and schedules',
       ],
-      url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
+      url: `${urlRedirect + HealthProgramType.HealthyMaternity.toLowerCase()}`,
     },
   ],
   [

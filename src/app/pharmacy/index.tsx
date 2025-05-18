@@ -66,7 +66,22 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
   );
   return (
     <main className="flex flex-col justify-center items-center page">
-      <WelcomeBanner name="Pharmacy" />
+      <WelcomeBanner
+        name="Pharmacy"
+        body={
+          <RichText
+            spans={[
+              <>
+                <span>
+                  Your prescription and medical plan work together. CVS Caremark
+                  <sup>TM</sup> helps manage your pharmacy benefits, but you
+                  don’t have to go to a CVS retail pharmacy.
+                </span>
+              </>,
+            ]}
+          />
+        }
+      />
       {(isBlueCare || isFreedomMaBlueAdvantageMember) && (
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body ">
@@ -133,26 +148,28 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
               </Column>
             </section>
           )}
-          <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-63_33 items-stretch">
-              <RecentClaimSection
-                className="large-section"
-                title="My Recent Pharmacy Claims"
-                linkText="View All Pharmacy Claims"
-                claims={claims}
-                linkUrl="member/myplan/claims?type=pharmacy"
-              />
-            </Column>
-            <Column className=" flex-grow page-section-36_67 items-stretch">
-              <PharmacySpendingSummary
-                className="large-section md:w-[352px] md:h-[248px]"
-                title="My Pharmacy Spending Summary"
-                description="View your annual statement for your pharmacy claims."
-                linkLabel="View Pharmacy Spending Summary"
-                url="/member/myplan/spendingsummary?type=Pharmacy"
-              />
-            </Column>
-          </section>
+          {isPharmacyBenefitsEligible(data.visibilityRules) && (
+            <section className="flex flex-row items-start app-body">
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                <RecentClaimSection
+                  className="large-section"
+                  title="My Recent Pharmacy Claims"
+                  linkText="View All Pharmacy Claims"
+                  claimDetails={claims}
+                  linkUrl="/claims?type=pharmacy"
+                />
+              </Column>
+              <Column className=" flex-grow page-section-36_67 items-stretch">
+                <PharmacySpendingSummary
+                  className="large-section md:w-[352px] md:h-[248px]"
+                  title="My Pharmacy Spending Summary"
+                  description="View your annual statement for your pharmacy claims."
+                  linkLabel="View Pharmacy Spending Summary"
+                  url="/member/myplan/spendingsummary?type=Pharmacy"
+                />
+              </Column>
+            </section>
+          )}
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow">
               <Title
@@ -218,7 +235,8 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                             'Request for Medicare Prescription Drug Coverage Determination',
                           linkDescription:
                             'You can request an exception for prescription drug coverage.',
-                          linkIcon: (
+                            linkURL: '/forms/redetermination',
+                            linkIcon: (
                             <Image
                               src={rightIcon}
                               alt="right arrow Icon"

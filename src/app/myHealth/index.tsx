@@ -23,12 +23,14 @@ import {
   isBiometricScreening,
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
+  isBlueCareNotEligible,
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
   isMemberWellnessCenterEligible,
   isPrimaryCarePhysicianEligible,
   isQuestSelectEligible,
+  isSilverAndFitnessEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
@@ -49,8 +51,7 @@ import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
 import { WellnessRewards } from './components/WellnessRewards';
 import { HealthProgramType } from './healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { MyHealthData } from './models/app/my_health_data';
-const urlRedirect =
-  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
+const urlRedirect = '/member/myhealth/healthprograms/';
 
 const memberWellnessCenterDetails = [
   {
@@ -208,50 +209,47 @@ const MyHealth = ({ data }: MyHealthProps) => {
             <WellnessRewards
               memberRewards={data.memberRewards}
               className="section"
+              isMemRelation={data.isMemRelation}
             />
           </section>
         )}
 
-        <section className="flex flex-row items-start app-body">
-          <Column className="flex-grow page-section-36_67 items-stretch">
-            {isPrimaryCarePhysicianEligible(data.visibilityRules) && (
-              <PrimaryCareProvider
-                className="large-section"
-                providerDetails={data.primaryCareProvider}
-                label="Primary Care Provider"
-                linkLabel="View or Update Primary Care Provider"
-                title="My Primary Care Provider"
-              />
-            )}
-          </Column>
-          <Column className="flex-grow page-section-63_33 items-stretch">
-            {isBlueCareMember && (
-              <Column>
-                <MyHealthOffsiteLinkCard
-                  icon={healthSurveyIcon}
-                  title="Fill-out The Health History & Needs Survey"
-                  description="Help us get a clear picture of your health needs. We need this info once a year from all our members. Please take a few minutes to complete this survey."
-                  url={
-                    process.env.NEXT_PUBLIC_FILL_OUT_THE_HEALTH_HISTORY_URL ??
-                    ''
-                  }
-                />
-                <MyHealthOffsiteLinkCard
-                  icon={healthSupportIcon}
-                  title="Get One-on-One Health Support"
-                  description="We offer a health program that’s designed just for you. Whether you need support for healthy living or help with a long- or short-term illness or injury, you can rely on us."
-                  url={
-                    process.env.NEXT_PUBLIC_ONE_ON_ONE_HEALTH_SUPPORT_URL ?? ''
-                  }
-                />
-              </Column>
-            )}
-          </Column>
-        </section>
+        {isBiometricScreeningVisible && (
+          <section>
+            <MyHealthOffsiteLinkCard
+              icon={biometricScreeningIcon}
+              title="Schedule a Biometric Screening"
+              description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
+              url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}&target=schedule`}
+            />
+          </section>
+        )}
 
+        {!isBlueCareMember && (
+          <>
+            {isMemberWellnessCenterEligible(data.visibilityRules) && (
+              <section>
+                <MemberWellnessCenterOptions
+                  className="large-section"
+                  options={memberWellnessCenterDetails}
+                />
+              </section>
+            )}
+          </>
+        )}
+        {isBlue365FitnessYourWayEligible(data.visibilityRules) && (
+          <MemberDiscounts
+            linkTitle={'View All Member Discounts'}
+            showOffsiteIcon={true}
+            title={'Member Discounts'}
+            copy={
+              'Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.'
+            }
+            discountCards={discountCardDetails}
+            linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
+          />
+        )}
         <Spacer size={64} />
-        <Header text="Other Programs & Resources" type="title-1" />
-        <Spacer size={32} />
         {isHealthProgamAndResourceEligible(data.visibilityRules) && (
           <>
             <section className="flex-row items-start app-body">
@@ -264,7 +262,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
                     title: 'CareTN One-on-One Health Support ',
                     description:
                       'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                    url: `${urlRedirect}careTN`,
+                    url: `${urlRedirect}caremanagement`,
                   },
                   {
                     id: '2',
@@ -316,61 +314,79 @@ const MyHealth = ({ data }: MyHealthProps) => {
                     description:
                       'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
                     url: `${urlRedirect + HealthProgramType.SilverFit}`,
+                    isHidden: !isSilverAndFitnessEligible(data.visibilityRules),
                   },
                 ]}
               />
             </section>
           </>
         )}
-        <section>
-          <MyHealthOffsiteLinkCard
-            icon={wellTunedBlogIcon}
-            title="WellTuned Blog"
-            description="Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health."
-            url={process.env.NEXT_PUBLIC_WELLTUNED_BLOCK_URL ?? ''}
-          />
-        </section>
-        <section>
-          {isBlue365FitnessYourWayEligible(data.visibilityRules) && (
-            <MemberDiscounts
-              linkTitle={'View All Member Discounts'}
-              showOffsiteIcon={true}
-              title={'Member Discounts'}
-              copy={
-                'Want access to new healthy living discounts every week? Find savings on nutrition programs, fitness accessories, medical supplies and services like hearing aids and LASIK eye surgey.'
-              }
-              discountCards={discountCardDetails}
-              linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
-            />
-          )}
-        </section>
-        <section>
-          <HealthLibraryOptions
-            className="large-section"
-            options={healthLibraryDetails}
-          />
-        </section>
-        {isBiometricScreeningVisible && (
+        <Spacer size={32} />
+        <Header text="Other Programs & Resources" type="title-1" />
+        <Spacer size={32} />
+        {isBlueCareNotEligible(data.visibilityRules) && (
           <section>
             <MyHealthOffsiteLinkCard
-              icon={biometricScreeningIcon}
-              title="Schedule a Biometric Screening"
-              description="We'll help you schedule this important health screening and walk you through the steps to prepare for your doctor visit."
-              url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH}&target=schedule`}
+              icon={wellTunedBlogIcon}
+              title="WellTuned Blog"
+              description="Visit our WellTuned blog to stay up-to-date on health and wellness news, health care developments and tips for managing your health."
+              url={process.env.NEXT_PUBLIC_WELLTUNED_BLOCK_URL ?? ''}
             />
           </section>
         )}
+        <section></section>
         {!isBlueCareMember && (
-          <>
-            {isMemberWellnessCenterEligible(data.visibilityRules) && (
-              <section>
-                <MemberWellnessCenterOptions
-                  className="large-section"
-                  options={memberWellnessCenterDetails}
-                />
-              </section>
+          <section>
+            <HealthLibraryOptions
+              className="large-section"
+              options={healthLibraryDetails}
+            />
+          </section>
+        )}
+
+        <section className="flex flex-row items-start app-body">
+          <Column className="flex-grow page-section-36_67 items-stretch">
+            {isPrimaryCarePhysicianEligible(data.visibilityRules) && (
+              <PrimaryCareProvider
+                className="large-section"
+                providerDetails={data.primaryCareProvider}
+                label="Primary Care Provider"
+                linkLabel="View or Update Primary Care Provider"
+                title="My Primary Care Provider"
+              />
             )}
-          </>
+          </Column>
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            {isBlueCareMember && (
+              <Column>
+                <MyHealthOffsiteLinkCard
+                  icon={healthSurveyIcon}
+                  title="Fill-out The Health History & Needs Survey"
+                  description="Help us get a clear picture of your health needs. We need this info once a year from all our members. Please take a few minutes to complete this survey."
+                  url={
+                    process.env.NEXT_PUBLIC_FILL_OUT_THE_HEALTH_HISTORY_URL ??
+                    ''
+                  }
+                />
+                <MyHealthOffsiteLinkCard
+                  icon={healthSupportIcon}
+                  title="Get One-on-One Health Support"
+                  description="We offer a health program that’s designed just for you. Whether you need support for healthy living or help with a long- or short-term illness or injury, you can rely on us."
+                  url={
+                    process.env.NEXT_PUBLIC_ONE_ON_ONE_HEALTH_SUPPORT_URL ?? ''
+                  }
+                />
+              </Column>
+            )}
+          </Column>
+        </section>
+        {isBlueCareMember && (
+          <section>
+            <HealthLibraryOptions
+              className="large-section"
+              options={healthLibraryDetails}
+            />
+          </section>
         )}
       </Column>
     </main>

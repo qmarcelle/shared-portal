@@ -1,7 +1,7 @@
 import { HealthProgramsResources } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/components/HealthProgramsResources';
 import { HealthProgramType } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { healthProgramsandResourcesDetails } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/models/health_programs_resources';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderUI = () => {
   return render(
@@ -9,9 +9,40 @@ const renderUI = () => {
       healthProgramDetails={healthProgramsandResourcesDetails.get(
         HealthProgramType.TeladocMentalHealth,
       )}
+      sessionData={null}
     />,
   );
 };
+const vRules = {
+  user: {
+    currUsr: {
+      plan: {
+        memCk: '123456',
+      },
+    },
+    vRules: {
+      myStrengthCompleteEligible: false,
+      terminated: false,
+      wellnessOnly: false,
+      fsaOnly: false,
+      vision: true,
+      futureEffective: false,
+      katieBeckNoBenefitsElig: false,
+    },
+  },
+};
+jest.mock('src/auth', () => ({
+  auth: jest.fn(),
+}));
+
+// @ts-ignore
+delete window.location;
+// @ts-ignore
+window.location = new URL('https://localhost');
+const setHref = jest
+  .spyOn(window.location, 'href', 'set')
+  .mockImplementation(() => {});
+process.env.NEXT_PUBLIC_IDP_TELADOC = 'teladoc.com';
 
 describe('Teladoc Mental Health Program', () => {
   it('should render the UI correctly', async () => {
@@ -47,6 +78,22 @@ describe('Teladoc Mental Health Program', () => {
     screen.getByText('Mood swings');
     screen.getByText('Not wanting to get out of bed');
     screen.getByText('Medication management (Psychiatry only)');
+
+    expect(component).toMatchSnapshot();
+  });
+  it('should redirect to SSO link on click of Use Teladoc Health button', async () => {
+    const component = renderUI();
+    const mockAuth = jest.requireMock('src/auth').auth;
+    vRules.user.vRules.myStrengthCompleteEligible = true;
+    mockAuth.mockResolvedValueOnce(vRules);
+
+    const button = screen.getByRole('button', {
+      name: 'Use Teladoc Health',
+    });
+
+    fireEvent.click(button);
+
+    expect(setHref).toHaveBeenCalledWith('/sso/launch?PartnerSpId=teladoc.com');
 
     expect(component).toMatchSnapshot();
   });

@@ -201,6 +201,42 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
+                  <div
+                    class="card-main undefined"
+                  >
+                    <div
+                      class="flex flex-col items-stretch"
+                    >
+                      <div
+                        class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                      >
+                        <div
+                          class="flex flex-row m-1 accordion-head"
+                        >
+                          <p
+                            class="mr-2 flex-grow"
+                          >
+                            View Plan Contact Information
+                          </p>
+                          <img
+                            alt="Down Chevron"
+                            class="pl-2 w-6"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </div>
+                        <div
+                          class="mr-2 flex-grow"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -788,6 +824,42 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
+                <div
+                  class="card-main undefined"
+                >
+                  <div
+                    class="flex flex-col items-stretch"
+                  >
+                    <div
+                      class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4"
+                    >
+                      <div
+                        class="flex flex-row m-1 accordion-head"
+                      >
+                        <p
+                          class="mr-2 flex-grow"
+                        >
+                          View Plan Contact Information
+                        </p>
+                        <img
+                          alt="Down Chevron"
+                          class="pl-2 w-6"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </div>
+                      <div
+                        class="mr-2 flex-grow"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

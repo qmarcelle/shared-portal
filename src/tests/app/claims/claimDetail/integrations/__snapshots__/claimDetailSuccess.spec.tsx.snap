@@ -609,12 +609,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                   aria-checked="false"
                   aria-disabled="false"
                   aria-invalid="false"
+                  aria-label="Mark as Paid"
                   aria-required="false"
-                  class="flex flex-col  "
+                  class="flex flex-col   "
                   role="checkbox"
                 >
                   <div
-                    class="flex flex-row items-center"
+                    class="flex flex-row"
                     tabindex="0"
                   >
                     <input
@@ -624,7 +625,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                       type="checkbox"
                     />
                     <label
-                      class="ml-2 "
+                      class="ml-2  cursor-pointer"
                       for="mark-as-paid-checkbox"
                     >
                       Mark as Paid

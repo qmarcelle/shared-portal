@@ -4,18 +4,49 @@ import { AccordionListCard } from '@/components/composite/AccordionListCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import {
+  AccessStatus,
+  ShareOutsideMyPlanDetails,
+  SharePlanInformationDetails,
+} from '@/models/app/getSharePlanDetails';
+import { googleAnalytics } from '@/utils/analytics';
 import { ShareMyPlanComponent } from './components/ShareMyPlanComponent';
+import { ShareOutsideMyPlanComponent } from './components/ShareOutsideMyPlanComponent';
 
 export type ShareMyInformationProps = {
   data?: SharePlanInformationDetails;
+  isImpersonated?: boolean;
 };
 
 const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
+  function trackShareMyInformationAccessAnalytics(clickText: string): void {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'accordion',
+      element_category: 'Understanding Sharing My Information',
+      action: 'expand',
+    };
+    googleAnalytics(analytics);
+  }
+
+  const testMember: ShareOutsideMyPlanDetails[] = [
+    {
+      memberName: 'JILL VALENTINE',
+      DOB: '01/19/1985',
+      accessStatus: AccessStatus.FullAccess,
+    },
+  ];
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
+        <Header type="title-1" text="Share My Information" />
+        <Spacer size={16} />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-36_67 items-stretch">
             <AccordionListCard
@@ -36,6 +67,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('Full Sharing'),
                 },
                 {
                   title: 'Basic Sharing',
@@ -47,6 +80,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       prescriptions.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('Basic Sharing'),
                 },
                 {
                   title: 'None',
@@ -56,6 +91,8 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                       account information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackShareMyInformationAccessAnalytics('None'),
                 },
               ]}
             ></AccordionListCard>
@@ -75,6 +112,21 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                 }
                 infoIcon={false}
                 ShareMyPlanDetails={data!.memberData}
+              />
+            </Card>
+            <Card className="large-section">
+              <ShareOutsideMyPlanComponent
+                header={
+                  <Column>
+                    <Header type="title-2" text="Outside My Plan" />
+                  </Column>
+                }
+                subHeader={
+                  <Column>
+                    <TextBox text="Share your information with individuals not on your health plan." />
+                  </Column>
+                }
+                ShareOutsideMyPlanDetails={testMember}
               />
             </Card>
           </Column>

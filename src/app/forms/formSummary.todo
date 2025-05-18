@@ -1,0 +1,171 @@
+// Form Summary PDF Generator
+// This code will generate a PDF from the form JSON data
+ 
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable'; // Optional: For better table support
+ 
+/**
+* Generates a PDF from form data
+* @param {Object} formData - The JSON form data
+* @returns {jsPDF} - The PDF document object
+*/
+function generateFormSummaryPDF(formData : any) {
+  // Initialize PDF document
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'a4'
+  });
+ 
+  // Set colors
+  const primaryBlue = [0, 86, 179]; // #0056b3 converted to RGB
+  const lightBlue = [230, 242, 255]; // #e6f2ff converted to RGB
+  // Add header
+  doc.setFillColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+  doc.rect(0, 0, 210, 20, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(16);
+  doc.text('Member Request Summary', 10, 13);
+ 
+  // Member ID Banner
+  doc.setFillColor(lightBlue[0], lightBlue[1], lightBlue[2]);
+  doc.rect(0, 20, 210, 12, 'F');
+  doc.setTextColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+  doc.setFontSize(12);
+  doc.text(`Member ID: ${formData.enrolleeInfo.enrolleeMemberId}`, 10, 28);
+  // Current date in the right corner
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString('en-US');
+  doc.text(`Date: ${formattedDate}`, 150, 28);
+ 
+  // Reset text color for content
+  doc.setTextColor(60, 60, 60);
+  // Enrollee Information Section
+  let yPos = 40;
+  addSectionHeader(doc, 'Enrollee Information', yPos, primaryBlue);
+  yPos += 15;
+  doc.setFontSize(11);
+  doc.text('Name:', 15, yPos);
+  doc.setFont(undefined, 'bold');
+  doc.text(`${formData.enrolleeInfo.enrolleeFirstName} ${formData.enrolleeInfo.enrolleeMiddleInitial} ${formData.enrolleeInfo.enrolleeLastName}`, 40, yPos);
+  doc.setFont(undefined, 'normal');
+  yPos += 8;
+  doc.text('Phone:', 15, yPos);
+  // Format phone number if needed
+  const phone = formData.enrolleeInfo.enrolleePhone;
+  const formattedPhone = phone.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  doc.text(formattedPhone, 40, yPos);
+  doc.text('Member ID:', 100, yPos - 8);
+  doc.text(formData.enrolleeInfo.enrolleeMemberId, 135, yPos - 8);
+  doc.text('Requestor:', 100, yPos);
+  doc.text(formData.enrolleeInfo.isEnrolleeRequestor ? 'Yes (Self)' : 'No', 135, yPos);
+  // Prescriber Information Section
+  yPos += 20;
+  addSectionHeader(doc, 'Prescriber Information', yPos, primaryBlue);
+  yPos += 15;
+  doc.text('Name:', 15, yPos);
+  doc.text(formData.prescriberInfo.prescriberName, 40, yPos);
+  yPos += 8;
+  doc.text('Address:', 15, yPos);
+  doc.text(formData.prescriberInfo.prescriberAddress1, 40, yPos);
+  if (formData.prescriberInfo.prescriberAddress2) {
+    yPos += 6;
+    doc.text(formData.prescriberInfo.prescriberAddress2, 40, yPos);
+  }
+  yPos += 6;
+  doc.text(`${formData.prescriberInfo.prescriberCity}, ${formData.prescriberInfo.prescriberState} ${formData.prescriberInfo.prescriberZipCode}`, 40, yPos);
+  const prescriberPhone = formData.prescriberInfo.prescriberPhoneNumber;
+  const formattedPrescriberPhone = prescriberPhone.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  doc.text('Phone:', 100, yPos - 14);
+  doc.text(formattedPrescriberPhone, 130, yPos - 14);
+  const prescriberFax = formData.prescriberInfo.prescriberFax;
+  const formattedPrescriberFax = prescriberFax.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  doc.text('Fax:', 100, yPos - 6);
+  doc.text(formattedPrescriberFax, 130, yPos - 6);
+  // Drug Information Section
+  yPos += 20;
+  addSectionHeader(doc, 'Drug Information', yPos, primaryBlue);
+  yPos += 15;
+  doc.text('Drug Name:', 15, yPos);
+  doc.setFont(undefined, 'bold');
+  doc.text(formData.drugInfo.drugName, 50, yPos);
+  doc.setFont(undefined, 'normal');
+  yPos += 8;
+  doc.text('Strength:', 15, yPos);
+  doc.text(formData.drugInfo.drugStrength, 50, yPos);
+  yPos += 8;
+  doc.text('Pharmacy:', 15, yPos);
+  doc.text(formData.drugInfo.pharmacyInfo, 50, yPos);
+  doc.text('Already Purchased:', 100, yPos - 16);
+  doc.text(formData.drugInfo.purchasedDrug ? 'Yes' : 'No', 150, yPos - 16);
+  doc.text('Date Purchased:', 100, yPos - 8);
+  doc.text(formData.drugInfo.datePurchased, 150, yPos - 8);
+  doc.text('Amount Paid:', 100, yPos);
+  doc.text(`$${formData.drugInfo.amountPaid}`, 150, yPos);
+  // Additional Information Section
+  yPos += 20;
+  addSectionHeader(doc, 'Additional Information', yPos, primaryBlue);
+  yPos += 15;
+  doc.text('Expedited Decision:', 15, yPos);
+  doc.text(formData.additionalInfo.expeditedDecision ? 'Yes' : 'No', 60, yPos);
+  yPos += 8;
+  doc.text('Signature:', 15, yPos);
+  doc.setFont(undefined, 'italic');
+  doc.text(formData.additionalInfo.signature, 60, yPos);
+  doc.setFont(undefined, 'normal');
+  doc.text('Date:', 100, yPos);
+  doc.text(formData.additionalInfo.signatureDate, 120, yPos);
+  // Footer Banner
+  doc.setFillColor(primaryBlue[0], primaryBlue[1], primaryBlue[2]);
+  doc.rect(0, 280, 210, 10, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(10);
+  const formId = `REQ-${new Date().toISOString().split('T')[0]}`;
+  doc.text(`Form ID: ${formId} • Status: Submitted • Review Time: 24-48 hours`, 10, 286);
+  return doc;
+}
+ 
+/**
+* Helper function to add section headers
+*/
+function addSectionHeader(doc, title, yPos, primaryColor) {
+  doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+  doc.rect(10, yPos, 190, 10, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(12);
+  doc.text(title, 15, yPos + 7);
+  doc.setTextColor(60, 60, 60);
+}
+ 
+/**
+* Function to generate and download the PDF
+*/
+export function downloadFormSummaryPDF(formData) {
+  const doc = generateFormSummaryPDF(formData);
+  const memberName = `${formData.enrolleeInfo.enrolleeFirstName}_${formData.enrolleeInfo.enrolleeLastName}`;
+  const fileName = `Form_Summary_${memberName}_${formData.enrolleeMemberId}.pdf`;
+  doc.save(fileName);
+}
+ 
+// Example usage in a React component
+// This assumes formData is available in the component
+ 
+/*
+import React from 'react';
+import { downloadFormSummaryPDF } from './pdfGenerator';
+ 
+function FormSummaryPage({ formData }) {
+  return (
+<div>
+<h1>Form Summary</h1>
+<button 
+        onClick={() => downloadFormSummaryPDF(formData)}
+        className="btn-primary"
+>
+        Download PDF
+</button>
+</div>
+  );
+}
+ 
+export default FormSummaryPage;

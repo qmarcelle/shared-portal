@@ -9,10 +9,58 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
         class="flex flex-col justify-center items-center page"
       >
         <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+               
+              Find Care & Costs
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Looking for care or estimating costs for a procedure? Use our
+                 
+              </span>
+              <span
+                class="link !text-white"
+              >
+                <a>
+                  Find Care & Costs tool.
+                </a>
+              </span>
+            </span>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-2 undefined"
+            >
+              <span>
+                In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+              </span>
+            </span>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
           class="flex flex-col app-content app-base-font-color md:p-0 p-4"
         >
           <section
-            class="card-main max-sm:mt-24 mt-8 "
+            class="card-main mt-4"
           >
             <div
               class="flex flex-row items-center input   "
@@ -214,118 +262,331 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
           >
             <div
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
-            >
-              <div
-                class="flex flex-col  cursor-pointer"
-              >
-                <div
-                  class="flex flex-col flex flex-col"
-                >
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="title-1"
-                    >
-                      View Care Options
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="card-elevated mb-4"
-                  >
-                    <div
-                      class="flex flex-row align-top m-4 mt-8"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <img
-                          alt="Primary Care"
-                          class="max-md:w-[80px] max-md:h-[80px]"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold primary-color"
-                          style="display: block;"
-                        >
-                          Primary Care Options
-                        </p>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Learn more about Primary Care Providers and view your options.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="card-elevated mb-4"
-                  >
-                    <div
-                      class="flex flex-row align-top m-4 mt-8"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <img
-                          alt="Mental Care"
-                          class="max-md:w-[80px] max-md:h-[80px]"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold primary-color"
-                          style="display: block;"
-                        >
-                          Mental Care Options
-                        </p>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Learn more about Mental Health Providers and view your options.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           </section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
+          <section>
+            <div
+              class="card-main p-8"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Virtual Care Options
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  The following options offer quick, high-quality care for a range of non-emergency needs.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="slider-container carousel flex flex-col"
+                >
+                  <div
+                    class="slick-slider slick-initialized"
+                    dir="ltr"
+                  >
+                    <div
+                      class="slick-list"
+                    >
+                      <div
+                        class="slick-track"
+                        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                      >
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active slick-current"
+                          data-index="0"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    AbleTo
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active"
+                          data-index="1"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Hinge Health Back & Joint Care
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="false"
+                          class="slick-slide slick-active"
+                          data-index="2"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Talk to a Nurse
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="3"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href="null"
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health General & Urgent Care
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="4"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health Primary Care Provider
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="5"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Mental Health
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slick-arrow slick-next"
+                    >
+                      <button
+                        class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                        type="button"
+                      >
+                        <img
+                          alt="scroll right"
+                          class="icon-sm"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </button>
+                      ,
+                    </div>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <div
+                    class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+                  >
+                    <div
+                      class="primary-bg-color h-1.5 rounded-full"
+                      style="width: 50%;"
+                    />
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+                />
+                <a
+                  aria-label="Learn More & Compare Virtual Care Options"
+                  style="display: block;"
+                >
+                  <button
+                    class="flex flex-row link-container undefined"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      Learn More & Compare Virtual Care Options
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -338,10 +599,58 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
       class="flex flex-col justify-center items-center page"
     >
       <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Find Care & Costs
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Looking for care or estimating costs for a procedure? Use our
+               
+            </span>
+            <span
+              class="link !text-white"
+            >
+              <a>
+                Find Care & Costs tool.
+              </a>
+            </span>
+          </span>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-2 undefined"
+          >
+            <span>
+              In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+            </span>
+          </span>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
         class="flex flex-col app-content app-base-font-color md:p-0 p-4"
       >
         <section
-          class="card-main max-sm:mt-24 mt-8 "
+          class="card-main mt-4"
         >
           <div
             class="flex flex-row items-center input   "
@@ -543,118 +852,331 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
         >
           <div
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
-          >
-            <div
-              class="flex flex-col  cursor-pointer"
-            >
-              <div
-                class="flex flex-col flex flex-col"
-              >
-                <div
-                  class="flex flex-row"
-                >
-                  <p
-                    class="title-1"
-                  >
-                    View Care Options
-                  </p>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="card-elevated mb-4"
-                >
-                  <div
-                    class="flex flex-row align-top m-4 mt-8"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <img
-                        alt="Primary Care"
-                        class="max-md:w-[80px] max-md:h-[80px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 font-bold primary-color"
-                        style="display: block;"
-                      >
-                        Primary Care Options
-                      </p>
-                      <p
-                        class="body-1 mt-2"
-                        style="display: block;"
-                      >
-                        Learn more about Primary Care Providers and view your options.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="card-elevated mb-4"
-                >
-                  <div
-                    class="flex flex-row align-top m-4 mt-8"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <img
-                        alt="Mental Care"
-                        class="max-md:w-[80px] max-md:h-[80px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 font-bold primary-color"
-                        style="display: block;"
-                      >
-                        Mental Care Options
-                      </p>
-                      <p
-                        class="body-1 mt-2"
-                        style="display: block;"
-                      >
-                        Learn more about Mental Health Providers and view your options.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         </section>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
+        <section>
+          <div
+            class="card-main p-8"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <h2
+                class="title-2"
+              >
+                Virtual Care Options
+              </h2>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <p
+                class="body-1"
+                style="display: block;"
+              >
+                The following options offer quick, high-quality care for a range of non-emergency needs.
+              </p>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="slider-container carousel flex flex-col"
+              >
+                <div
+                  class="slick-slider slick-initialized"
+                  dir="ltr"
+                >
+                  <div
+                    class="slick-list"
+                  >
+                    <div
+                      class="slick-track"
+                      style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+                    >
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active slick-current"
+                        data-index="0"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  AbleTo
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="1"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Hinge Health Back & Joint Care
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="2"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Talk to a Nurse
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="3"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href="null"
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health General & Urgent Care
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="4"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health Primary Care Provider
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="5"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Mental Health
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="slick-arrow slick-next"
+                  >
+                    <button
+                      class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
+                      type="button"
+                    >
+                      <img
+                        alt="scroll right"
+                        class="icon-sm"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </button>
+                    ,
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center"
+                >
+                  <div
+                    class="primary-bg-color h-1.5 rounded-full"
+                    style="width: 50%;"
+                  />
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 23px; min-height: 23px;"
+              />
+              <a
+                aria-label="Learn More & Compare Virtual Care Options"
+                style="display: block;"
+              >
+                <button
+                  class="flex flex-row link-container undefined"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <p
+                    class="link undefined"
+                  >
+                    Learn More & Compare Virtual Care Options
+                  </p>
+                </button>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -724,10 +1246,58 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
         class="flex flex-col justify-center items-center page"
       >
         <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+               
+              Find Care & Costs
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Looking for care or estimating costs for a procedure? Use our
+                 
+              </span>
+              <span
+                class="link !text-white"
+              >
+                <a>
+                  Find Care & Costs tool.
+                </a>
+              </span>
+            </span>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-2 undefined"
+            >
+              <span>
+                In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+              </span>
+            </span>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
           class="flex flex-col app-content app-base-font-color md:p-0 p-4"
         >
           <section
-            class="card-main max-sm:mt-24 mt-8 "
+            class="card-main mt-4"
           >
             <div
               class="flex flex-row items-center input   "
@@ -1183,7 +1753,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Blue of Tennessee Medical Centers Virtual Visits 
+                                    Hinge Health Back & Joint Care
                                   </p>
                                 </div>
                                 <span
@@ -1193,7 +1763,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                                  You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                                 </p>
                               </a>
                             </div>
@@ -1212,7 +1782,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                             >
                               <a
                                 class="p-4 block"
-                                href="null"
+                                href=""
                               >
                                 <div
                                   class="flex flex-row"
@@ -1220,7 +1790,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Hinge Health Back & Joint Care
+                                    Talk to a Nurse
                                   </p>
                                 </div>
                                 <span
@@ -1230,7 +1800,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                                  Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                                 </p>
                               </a>
                             </div>
@@ -1257,7 +1827,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    yyt
+                                    Teladoc Health General & Urgent Care
                                   </p>
                                 </div>
                                 <span
@@ -1267,7 +1837,81 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  xxx
+                                  Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="4"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health Primary Care Provider
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="5"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Mental Health
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                                 </p>
                               </a>
                             </div>
@@ -1306,7 +1950,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                   >
                     <div
                       class="primary-bg-color h-1.5 rounded-full"
-                      style="width: 75%;"
+                      style="width: 50%;"
                     />
                   </div>
                 </div>
@@ -1345,10 +1989,58 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
       class="flex flex-col justify-center items-center page"
     >
       <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Find Care & Costs
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Looking for care or estimating costs for a procedure? Use our
+               
+            </span>
+            <span
+              class="link !text-white"
+            >
+              <a>
+                Find Care & Costs tool.
+              </a>
+            </span>
+          </span>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-2 undefined"
+          >
+            <span>
+              In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+            </span>
+          </span>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
         class="flex flex-col app-content app-base-font-color md:p-0 p-4"
       >
         <section
-          class="card-main max-sm:mt-24 mt-8 "
+          class="card-main mt-4"
         >
           <div
             class="flex flex-row items-center input   "
@@ -1804,7 +2496,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Blue of Tennessee Medical Centers Virtual Visits 
+                                  Hinge Health Back & Joint Care
                                 </p>
                               </div>
                               <span
@@ -1814,7 +2506,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 class="body-1"
                                 style="display: block;"
                               >
-                                At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                                You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                               </p>
                             </a>
                           </div>
@@ -1833,7 +2525,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href=""
                             >
                               <div
                                 class="flex flex-row"
@@ -1841,7 +2533,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Hinge Health Back & Joint Care
+                                  Talk to a Nurse
                                 </p>
                               </div>
                               <span
@@ -1851,7 +2543,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 class="body-1"
                                 style="display: block;"
                               >
-                                You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                                Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                               </p>
                             </a>
                           </div>
@@ -1878,7 +2570,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  yyt
+                                  Teladoc Health General & Urgent Care
                                 </p>
                               </div>
                               <span
@@ -1888,7 +2580,81 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 class="body-1"
                                 style="display: block;"
                               >
-                                xxx
+                                Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="4"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health Primary Care Provider
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="5"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Mental Health
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                               </p>
                             </a>
                           </div>
@@ -1927,7 +2693,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 75%;"
+                    style="width: 50%;"
                   />
                 </div>
               </div>
@@ -2023,10 +2789,58 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
         class="flex flex-col justify-center items-center page"
       >
         <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+               
+              Find Care & Costs
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Looking for care or estimating costs for a procedure? Use our
+                 
+              </span>
+              <span
+                class="link !text-white"
+              >
+                <a>
+                  Find Care & Costs tool.
+                </a>
+              </span>
+            </span>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-2 undefined"
+            >
+              <span>
+                In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+              </span>
+            </span>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
           class="flex flex-col app-content app-base-font-color md:p-0 p-4"
         >
           <section
-            class="card-main max-sm:mt-24 mt-8 "
+            class="card-main mt-4"
           >
             <div
               class="flex flex-row items-center input   "
@@ -2228,114 +3042,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
           >
             <div
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
-            >
-              <div
-                class="flex flex-col  cursor-pointer"
-              >
-                <div
-                  class="flex flex-col flex flex-col"
-                >
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="title-1"
-                    >
-                      View Care Options
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="card-elevated mb-4"
-                  >
-                    <div
-                      class="flex flex-row align-top m-4 mt-8"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <img
-                          alt="Primary Care"
-                          class="max-md:w-[80px] max-md:h-[80px]"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold primary-color"
-                          style="display: block;"
-                        >
-                          Primary Care Options
-                        </p>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Learn more about Primary Care Providers and view your options.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="card-elevated mb-4"
-                  >
-                    <div
-                      class="flex flex-row align-top m-4 mt-8"
-                    >
-                      <div
-                        class="flex flex-col"
-                      >
-                        <img
-                          alt="Mental Care"
-                          class="max-md:w-[80px] max-md:h-[80px]"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col"
-                      >
-                        <p
-                          class="body-1 font-bold primary-color"
-                          style="display: block;"
-                        >
-                          Mental Care Options
-                        </p>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Learn more about Mental Health Providers and view your options.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           </section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -2352,10 +3059,58 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
       class="flex flex-col justify-center items-center page"
     >
       <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Find Care & Costs
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Looking for care or estimating costs for a procedure? Use our
+               
+            </span>
+            <span
+              class="link !text-white"
+            >
+              <a>
+                Find Care & Costs tool.
+              </a>
+            </span>
+          </span>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-2 undefined"
+          >
+            <span>
+              In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+            </span>
+          </span>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
         class="flex flex-col app-content app-base-font-color md:p-0 p-4"
       >
         <section
-          class="card-main max-sm:mt-24 mt-8 "
+          class="card-main mt-4"
         >
           <div
             class="flex flex-row items-center input   "
@@ -2557,114 +3312,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
         >
           <div
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
-          >
-            <div
-              class="flex flex-col  cursor-pointer"
-            >
-              <div
-                class="flex flex-col flex flex-col"
-              >
-                <div
-                  class="flex flex-row"
-                >
-                  <p
-                    class="title-1"
-                  >
-                    View Care Options
-                  </p>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="card-elevated mb-4"
-                >
-                  <div
-                    class="flex flex-row align-top m-4 mt-8"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <img
-                        alt="Primary Care"
-                        class="max-md:w-[80px] max-md:h-[80px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 font-bold primary-color"
-                        style="display: block;"
-                      >
-                        Primary Care Options
-                      </p>
-                      <p
-                        class="body-1 mt-2"
-                        style="display: block;"
-                      >
-                        Learn more about Primary Care Providers and view your options.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="card-elevated mb-4"
-                >
-                  <div
-                    class="flex flex-row align-top m-4 mt-8"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <img
-                        alt="Mental Care"
-                        class="max-md:w-[80px] max-md:h-[80px]"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <span
-                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 font-bold primary-color"
-                        style="display: block;"
-                      >
-                        Mental Care Options
-                      </p>
-                      <p
-                        class="body-1 mt-2"
-                        style="display: block;"
-                      >
-                        Learn more about Mental Health Providers and view your options.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         </section>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -2738,10 +3386,58 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
         class="flex flex-col justify-center items-center page"
       >
         <div
+          class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+        >
+          <div
+            class="flex flex-col items-start w-full app-content px-4"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <h1
+              class="title-1 font-thin"
+            >
+               
+              Find Care & Costs
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <span>
+                Looking for care or estimating costs for a procedure? Use our
+                 
+              </span>
+              <span
+                class="link !text-white"
+              >
+                <a>
+                  Find Care & Costs tool.
+                </a>
+              </span>
+            </span>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <span
+              class="rich-text body-2 undefined"
+            >
+              <span>
+                In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+              </span>
+            </span>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
           class="flex flex-col app-content app-base-font-color md:p-0 p-4"
         >
           <section
-            class="card-main max-sm:mt-24 mt-8 "
+            class="card-main mt-4"
           >
             <div
               class="flex flex-row items-center input   "
@@ -3197,7 +3893,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Blue of Tennessee Medical Centers Virtual Visits 
+                                    Hinge Health Back & Joint Care
                                   </p>
                                 </div>
                                 <span
@@ -3207,7 +3903,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                                  You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                                 </p>
                               </a>
                             </div>
@@ -3226,7 +3922,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                             >
                               <a
                                 class="p-4 block"
-                                href="null"
+                                href=""
                               >
                                 <div
                                   class="flex flex-row"
@@ -3234,7 +3930,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    Hinge Health Back & Joint Care
+                                    Talk to a Nurse
                                   </p>
                                 </div>
                                 <span
@@ -3244,7 +3940,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                                  Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                                 </p>
                               </a>
                             </div>
@@ -3271,7 +3967,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   <p
                                     class="font-bold primary-color"
                                   >
-                                    yyt
+                                    Teladoc Health General & Urgent Care
                                   </p>
                                 </div>
                                 <span
@@ -3281,7 +3977,81 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                   class="body-1"
                                   style="display: block;"
                                 >
-                                  xxx
+                                  Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="4"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Health Primary Care Provider
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                                </p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          aria-hidden="true"
+                          class="slick-slide"
+                          data-index="5"
+                          style="outline: none; width: 0px;"
+                          tabindex="-1"
+                        >
+                          <div>
+                            <div
+                              class="card-elevated cursor-pointer mr-4 shrink-0 "
+                            >
+                              <a
+                                class="p-4 block"
+                                href=""
+                              >
+                                <div
+                                  class="flex flex-row"
+                                >
+                                  <p
+                                    class="font-bold primary-color"
+                                  >
+                                    Teladoc Mental Health
+                                  </p>
+                                </div>
+                                <span
+                                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                                />
+                                <p
+                                  class="body-1"
+                                  style="display: block;"
+                                >
+                                  Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                                 </p>
                               </a>
                             </div>
@@ -3320,7 +4090,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                   >
                     <div
                       class="primary-bg-color h-1.5 rounded-full"
-                      style="width: 75%;"
+                      style="width: 50%;"
                     />
                   </div>
                 </div>
@@ -3359,10 +4129,58 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
       class="flex flex-col justify-center items-center page"
     >
       <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient px-4 "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+            Find Care & Costs
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <span>
+              Looking for care or estimating costs for a procedure? Use our
+               
+            </span>
+            <span
+              class="link !text-white"
+            >
+              <a>
+                Find Care & Costs tool.
+              </a>
+            </span>
+          </span>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <span
+            class="rich-text body-2 undefined"
+          >
+            <span>
+              In case of medical emergency, call 911. In case of a mental health crisis, call 988.
+            </span>
+          </span>
+        </div>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <div
         class="flex flex-col app-content app-base-font-color md:p-0 p-4"
       >
         <section
-          class="card-main max-sm:mt-24 mt-8 "
+          class="card-main mt-4"
         >
           <div
             class="flex flex-row items-center input   "
@@ -3818,7 +4636,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Blue of Tennessee Medical Centers Virtual Visits 
+                                  Hinge Health Back & Joint Care
                                 </p>
                               </div>
                               <span
@@ -3828,7 +4646,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 class="body-1"
                                 style="display: block;"
                               >
-                                At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                                You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                               </p>
                             </a>
                           </div>
@@ -3847,7 +4665,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href=""
                             >
                               <div
                                 class="flex flex-row"
@@ -3855,7 +4673,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  Hinge Health Back & Joint Care
+                                  Talk to a Nurse
                                 </p>
                               </div>
                               <span
@@ -3865,7 +4683,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 class="body-1"
                                 style="display: block;"
                               >
-                                You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
+                                Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                               </p>
                             </a>
                           </div>
@@ -3892,7 +4710,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 <p
                                   class="font-bold primary-color"
                                 >
-                                  yyt
+                                  Teladoc Health General & Urgent Care
                                 </p>
                               </div>
                               <span
@@ -3902,7 +4720,81 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 class="body-1"
                                 style="display: block;"
                               >
-                                xxx
+                                Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="4"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Health Primary Care Provider
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        aria-hidden="true"
+                        class="slick-slide"
+                        data-index="5"
+                        style="outline: none; width: 0px;"
+                        tabindex="-1"
+                      >
+                        <div>
+                          <div
+                            class="card-elevated cursor-pointer mr-4 shrink-0 "
+                          >
+                            <a
+                              class="p-4 block"
+                              href=""
+                            >
+                              <div
+                                class="flex flex-row"
+                              >
+                                <p
+                                  class="font-bold primary-color"
+                                >
+                                  Teladoc Mental Health
+                                </p>
+                              </div>
+                              <span
+                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                              />
+                              <p
+                                class="body-1"
+                                style="display: block;"
+                              >
+                                Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                               </p>
                             </a>
                           </div>
@@ -3941,7 +4833,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 75%;"
+                    style="width: 50%;"
                   />
                 </div>
               </div>

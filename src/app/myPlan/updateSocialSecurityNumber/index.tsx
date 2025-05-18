@@ -9,14 +9,18 @@ import { getMemberSSNData } from './actions/getMemberSSNData';
 import { AboutSocialSecurityNumberCard } from './components/AboutSocialSecurityNumberCard';
 import { MemberListCard } from './components/MemberListCard';
 import { MemberList } from './models/app/memberList';
+
 export type UpdateSocialSecurityNumberProps = {
   data: MemberList;
+  isImpersonated: boolean; // Added isAdmin prop
 };
 
 const UpdateSocialSecurityNumber = ({
   data,
+  isImpersonated,
 }: UpdateSocialSecurityNumberProps) => {
   const [sSNMemberData, setStateSSNMemberData] = useState<MemberList>(data);
+
   async function updateMemberList() {
     const result = await getMemberSSNData();
     setStateSSNMemberData(result.data!);
@@ -45,6 +49,7 @@ const UpdateSocialSecurityNumber = ({
               <MemberListCard
                 memberListDetails={sSNMemberData.members}
                 successCallback={updateMemberList}
+                isImpersonated={isImpersonated} // Pass the isImpersonated prop to MemberListCard
               />
             </Column>
           )}

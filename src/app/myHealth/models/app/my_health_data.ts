@@ -5,6 +5,7 @@ export interface MyHealthData {
   memberRewards: MemberRewards | null;
   primaryCareProvider: PrimaryCareProviderDetails | null;
   visibilityRules?: VisibilityRules;
+  isMemRelation: string;
 }
 
 export interface MemberRewards {

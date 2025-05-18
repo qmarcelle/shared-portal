@@ -956,7 +956,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
             />
             <img
-              alt="Search"
+              alt=""
               class="icon items-end ml-1"
               data-nimg="1"
               decoding="async"
@@ -995,7 +995,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
           />
           <img
-            alt="Search"
+            alt=""
             class="icon items-end ml-1"
             data-nimg="1"
             decoding="async"

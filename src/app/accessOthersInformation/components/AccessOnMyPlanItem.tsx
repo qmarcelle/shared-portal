@@ -33,6 +33,7 @@ interface AccessOnMyPlanItemProps extends IComponent {
   infoButton: boolean;
   icon1?: JSX.Element;
   pendingIcon?: JSX.Element;
+  allowUpdates?: boolean;
 }
 
 export const AccessOnMyPlanItem = ({
@@ -47,6 +48,7 @@ export const AccessOnMyPlanItem = ({
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
   pendingIcon = <Image src={pendingLogo} alt="link" />,
+  allowUpdates = true,
 }: AccessOnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
@@ -152,6 +154,7 @@ export const AccessOnMyPlanItem = ({
                           content: (
                             <RequestAccessOnMyPlan
                               memberDetails={memberDetails}
+                              disableSubmit={!allowUpdates}
                               onRequestSuccessCallBack={
                                 onRequestSuccessCallBack
                               }

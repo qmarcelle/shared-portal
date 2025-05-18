@@ -2,6 +2,7 @@ import downIcon from '@/public/assets/down.svg';
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { resolveMaxWidth } from '../MaxWidthResolver';
 import { checkBlueIcon } from './Icons';
 import { Row } from './Row';
 import { Spacer } from './Spacer';
@@ -11,12 +12,17 @@ export type SelectItem = {
   value: string;
 };
 
-interface DropDownProps {
+export interface DropDownProps {
   items: SelectItem[];
   onSelectCallback: (val: string) => void;
   initialSelectedValue: string;
   icon?: JSX.Element;
   showSelected?: boolean;
+  className?: string;
+  error?: string;
+  maxWidth?: number | string; // Allow both number and string for flexibility
+  iconAlignment?: 'flex' | 'right'; // New prop for icon alignment
+  scrollThreshold?: number; // New prop for scroll threshold
 }
 
 export const Dropdown = ({
@@ -25,6 +31,11 @@ export const Dropdown = ({
   onSelectCallback,
   showSelected = true,
   icon = <Image src={downIcon} alt="down icon" />,
+  className = '',
+  error,
+  maxWidth,
+  iconAlignment = 'flex', // Default to 'flex'
+  scrollThreshold = 10, // Default threshold for scrollable dropdown
 }: DropDownProps) => {
   const mappedItems = new Map(items.map((item) => [item.value, item.label]));
   const [selectedVal, setSelectedVal] = useState(initialSelectedValue);
@@ -45,10 +56,14 @@ export const Dropdown = ({
     setShowDrop(false);
   });
 
+  const resolvedMaxWidth = resolveMaxWidth(maxWidth);
+
+  const isScrollable = items.length > scrollThreshold;
+
   return (
     <div className="relative">
       <div
-        className="flex flex-row link"
+        className={`flex flex-row link ${className}`}
         onClick={() => setShowDrop((prev) => !prev)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
@@ -56,15 +71,25 @@ export const Dropdown = ({
           }
         }}
         tabIndex={0}
+        style={{ ...(resolvedMaxWidth && { maxWidth: resolvedMaxWidth }) }}
       >
         <p className="body-bold">{mappedItems.get(selectedVal)}</p>
         <Spacer axis="horizontal" size={8} />
-        {icon}
+        {iconAlignment === 'flex' ? (
+          icon
+        ) : (
+          <div style={{ marginLeft: 'auto' }}>{icon}</div> // Right-aligned icon
+        )}
       </div>
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
       <section
         ref={listRef}
         className="card-elevated z-20 dropdown-section"
-        style={{ display: showDrop ? 'block' : 'none', position: 'absolute' }}
+        style={{
+          display: showDrop ? 'block' : 'none',
+          position: 'absolute',
+          ...(isScrollable && { maxHeight: '350px', overflowY: 'auto' }), // Add scrollable styles
+        }}
       >
         {items.map((item) => {
           const isSelcted = selectedVal == item.value && showSelected;

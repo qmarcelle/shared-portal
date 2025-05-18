@@ -15,7 +15,7 @@ export type LoggedInUserInfo = {
   coverageTypes: CoverageType[];
   addresses: Address[];
   authFunctions: AuthFunction[];
-  healthCareAccounts: any[];
+  healthCareAccounts: HealthCareAccount[];
   esigroupNum: string;
   cmcondition: string[];
 };
@@ -91,4 +91,9 @@ export type PlanDetail = {
   planStartDate: number;
   planClassID: string;
   networkPlanName: string;
+};
+
+export type HealthCareAccount = {
+  accountType: string;
+  bankName: string;
 };

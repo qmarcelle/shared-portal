@@ -12,6 +12,7 @@ interface OnMyPlanDropDownProps extends IComponent {
   subHeader?: ReactElement;
   planType?: ReactElement;
   infoIcon: boolean;
+  allowUpdates?: boolean;
 }
 
 export const OnMyPlanComponent = ({
@@ -20,6 +21,7 @@ export const OnMyPlanComponent = ({
   subHeader,
   planType,
   infoIcon,
+  allowUpdates = true,
 }: OnMyPlanDropDownProps) => {
   return (
     <Column className="flex flex-col">
@@ -49,6 +51,7 @@ export const OnMyPlanComponent = ({
             medicalEffectiveDate={item.medicalEffectiveDate}
             dentalEffectiveDate={item.dentalEffectiveDate}
             visionEffectiveDate={item.visionEffectiveDate}
+            allowUpdates={allowUpdates}
           />
         ))}
       </Column>

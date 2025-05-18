@@ -10,6 +10,7 @@ interface OnMyPlanDropDownProps extends IComponent {
   header?: ReactElement;
   subHeader?: ReactElement;
   infoIcon: boolean;
+  allowUpdates?: boolean;
 }
 
 export const ShareMyPlanComponent = ({
@@ -17,6 +18,7 @@ export const ShareMyPlanComponent = ({
   header,
   subHeader,
   infoIcon,
+  allowUpdates = true,
 }: OnMyPlanDropDownProps) => {
   return (
     <Column className="flex flex-col">
@@ -40,6 +42,14 @@ export const ShareMyPlanComponent = ({
             sharingType={item.accessStatus}
             isMinor={item.isMinor}
             targetType={item.roleType}
+            medicalEffectiveDate={''}
+            dentalEffectiveDate={''}
+            visionEffectiveDate={''}
+            allowUpdates={allowUpdates}
+            isGATrackEligible={true}
+            analyticsEvent={'select_content'}
+            selectionType={'modal'}
+            elementCategory={'On My Plan'}
           />
         ))}
       </Column>

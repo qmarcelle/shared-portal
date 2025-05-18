@@ -41,6 +41,10 @@ export const getPersonalRepresentativeData = async (): Promise<
             : computePRProfile(pbeResponse, selectedPlan),
         visibilityRules: session?.user.vRules,
         isRepresentativeLoggedIn: session?.user.currUsr.role === 'PR',
+        isMatureMinor:
+          session?.user.currUsr.role === 'PR'
+            ? false
+            : computeMemberAge(new Date(pbeResponse.getPBEDetails[0].dob)),
       },
     };
   } catch (error) {
@@ -51,6 +55,7 @@ export const getPersonalRepresentativeData = async (): Promise<
         representativeData: null,
         visibilityRules: undefined,
         isRepresentativeLoggedIn: true,
+        isMatureMinor: false,
       },
     };
   }
@@ -76,11 +81,13 @@ const computeMemberData = async (item: RelatedPerson) => {
     DOB: formatDateToLocale(new Date(item.relatedPersonDob)),
     isOnline: await isAccountOnline(item.relatedPersonUMPID),
     fullAccess: item.name === 'Full Access' ? true : false,
+    isMatureMinor: computeMemberAge(new Date(item.relatedPersonDob)),
     memeck: item.relatedPersonMemeCk,
     requesteeFHRID: item.relatedPersonFHIRID,
     requesteeUMPID: item.relatedPersonUMPID,
     accessStatus: item.name,
     accessStatusIsPending: false,
+    createdAt: item.createdAt,
   };
 };
 
@@ -100,11 +107,15 @@ const computePRProfile = (
       isOnline: true,
       fullAccess: item.name === 'Full Access' ? true : false,
       id: item.id,
+      isMatureMinor: computeMemberAge(
+        new Date(pbeResponse.getPBEDetails[0].dob),
+      ),
       effectiveOn: item.effectiveOn,
       expiresOn: item.expiresOn,
       policyId: item.policyId,
       firstName: item.relatedPersonFirstName,
       lastName: item.relatedPersonLastName,
+      createdAt: item.createdAt,
     }),
   );
   return representativesData;
@@ -114,6 +125,19 @@ const isAccountOnline = async (umpiID: string) => {
   const pbeResponse = await getPersonBusinessEntity(umpiID);
   return pbeResponse.getPBEDetails[0].hasAccount;
 };
+
+function computeMemberAge(memberDOB: Date) {
+  const birthDate = memberDOB;
+  const today = new Date();
+  //Calculate age
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  const dayDiff = today.getDate() - birthDate.getDate();
+
+  //Adjust age if birthday hasn't occured this year yet
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age--;
+  return age >= 13 && age <= 17;
+}
 
 export async function updateConsentDataAction({
   request,

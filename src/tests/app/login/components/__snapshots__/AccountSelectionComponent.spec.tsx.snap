@@ -82,23 +82,24 @@ exports[`Account selection Component should render all the required details 1`] 
           aria-checked="false"
           aria-disabled="false"
           aria-invalid="false"
+          aria-label="Checkbox"
           aria-required="false"
-          class="flex flex-col  "
+          class="flex flex-col   "
           role="checkbox"
         >
           <div
-            class="flex flex-row items-center"
+            class="flex flex-row"
             tabindex="0"
           >
             <input
               aria-label=""
               class="checkbox    "
-              id="checkbox-"
+              id="checkbox-checkbox"
               type="checkbox"
             />
             <label
-              class="ml-2 "
-              for="checkbox-"
+              class="ml-2  cursor-pointer"
+              for="checkbox-checkbox"
             >
               <div
                 class="flex flex-col"
@@ -127,6 +128,9 @@ exports[`Account selection Component should render all the required details 1`] 
                   </span>
                 </span>
               </div>
+              <span
+                class="sr-only"
+              />
             </label>
           </div>
         </div>
@@ -297,23 +301,24 @@ exports[`Account selection Component should render all the required details 1`] 
         aria-checked="false"
         aria-disabled="false"
         aria-invalid="false"
+        aria-label="Checkbox"
         aria-required="false"
-        class="flex flex-col  "
+        class="flex flex-col   "
         role="checkbox"
       >
         <div
-          class="flex flex-row items-center"
+          class="flex flex-row"
           tabindex="0"
         >
           <input
             aria-label=""
             class="checkbox    "
-            id="checkbox-"
+            id="checkbox-checkbox"
             type="checkbox"
           />
           <label
-            class="ml-2 "
-            for="checkbox-"
+            class="ml-2  cursor-pointer"
+            for="checkbox-checkbox"
           >
             <div
               class="flex flex-col"
@@ -342,6 +347,9 @@ exports[`Account selection Component should render all the required details 1`] 
                 </span>
               </span>
             </div>
+            <span
+              class="sr-only"
+            />
           </label>
         </div>
       </div>

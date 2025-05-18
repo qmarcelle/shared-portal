@@ -21,6 +21,17 @@ const opeInNewTab = (url: string) => {
 };
 
 const termsAndConditionsPDF = '/assets/terms_and_conditions.pdf';
+const trackLinkAnalytics = (clickText: string) => {
+  const analytics: AnalyticsData = {
+    click_text: clickText.toLowerCase(),
+    click_url: window.location.href,
+    event: 'internal_link_click',
+    action: 'click',
+    element_category: 'content interaction',
+    content_type: undefined,
+  };
+  googleAnalytics(analytics);
+};
 
 const headerText = () => {
   return (
@@ -33,6 +44,7 @@ const headerText = () => {
           'https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf'
         }
         target="_blank"
+        onClick={trackLinkAnalytics('fact sheet') ?? undefined}
       >
         fact sheet
       </a>

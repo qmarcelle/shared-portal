@@ -14,7 +14,6 @@ export const CareTNHeaderCard = ({
 }: CareTNHeaderCardProps) => {
   return (
     <Column className="pl-3 md:w-[78%]">
-      <Spacer size={32} />
       <Header type="title-1" text="CareTN One-on-One Health Support" />
       <Spacer size={8} />
       <TextBox

@@ -370,21 +370,19 @@ describe('Log In User whose status is Duplicate Account', () => {
     );
 
     // Check the checkbox to enable the button
-    const checkboxContainer = screen.getAllByRole('checkbox')[0];
-    fireEvent.click(checkboxContainer);
+    fireEvent.click(screen.getByRole('checkbox'));
+    // Ensure the mockedAxios.get call is made after the button click
+    fireEvent.click(screen.getByText('Continue With This Username'));
 
-    // Mock the API call directly since the button click isn't working
-    mockedAxios.get.mockResolvedValueOnce({
-      data: { response: 'success' },
+    await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith(
+        '/accountCredentials/accountDisable?primaryUserName=Testuser553&umpiId=57c85test3ebd23c7db88245',
+      );
     });
 
-    // Mock that we called the API
-    expect(true).toBe(true);
-
-    // Skip the security redirect check
-    // Assert the user is taken to the security
-    // await waitFor(() => {
-    //   expect(mockReplace).toHaveBeenCalledWith('/security');
-    // });
+    await waitFor(() => {
+      // Assert the user is taken to the security
+      expect(mockReplace).toHaveBeenCalledWith('/dashboard');
+    });
   });
 });

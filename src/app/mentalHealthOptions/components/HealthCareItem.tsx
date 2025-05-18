@@ -6,11 +6,13 @@ import { ListOrder } from '@/components/foundation/ListOrder';
 import { Row } from '@/components/foundation/Row';
 import { Spacer, SpacerX } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { Session } from 'next-auth';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ableToIcon from '../../../../public/assets/able_to.svg';
 import alightIcon from '../../../../public/assets/alight.svg';
+import blueTennesseIcon from '../../../../public/assets/blueTennesee.svg';
 import careTNIcon from '../../../../public/assets/caretn.svg';
 import healthyMaternityIcon from '../../../../public/assets/healthy_maternity.svg';
 import hingeHealthIcon from '../../../../public/assets/hinge_health.svg';
@@ -18,13 +20,15 @@ import questSelectIcon from '../../../../public/assets/quest_select.svg';
 import sanitasIcon from '../../../../public/assets/sanitas_bot.svg';
 import silverFitIcon from '../../../../public/assets/silver_fit.svg';
 import teladocIcon from '../../../../public/assets/teladoc_health.svg';
-
 import { VirtualHealthCareDetails } from '../models/mental_health_care_options_details';
 
 interface HealthCareItemProps extends IComponent {
   healthCareInfo: VirtualHealthCareDetails;
   itemData: string[];
   itemDataTitle: string;
+  redirectLink?: (groupId: Session | null) => string;
+  sessionData?: Session | null;
+  url?: string;
 }
 
 export const HealthCareItem = ({
@@ -32,6 +36,9 @@ export const HealthCareItem = ({
   onClick,
   itemDataTitle,
   itemData,
+  redirectLink,
+  sessionData,
+  url,
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);
@@ -59,6 +66,8 @@ export const HealthCareItem = ({
       return hingeHealthIcon;
     } else if (healthCareInfo.icon == 'HealthyMaternity') {
       return healthyMaternityIcon;
+    } else if (healthCareInfo.icon == 'BlueTennesseIcon') {
+      return blueTennesseIcon;
     }
   }
 
@@ -66,7 +75,7 @@ export const HealthCareItem = ({
     return (
       <Row className={'flex flex-col align-top m-4 mt-8'}>
         <TextBox
-          className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4"
+          className="body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
           text={healthCareInfo.healthcareType}
         ></TextBox>
         {healthCareInfo.icon && (
@@ -92,6 +101,9 @@ export const HealthCareItem = ({
           <AppLink
             className="text-left"
             label={healthCareInfo.link}
+            callback={() => {
+              window.location.href = redirectLink?.(sessionData!) ?? ' ';
+            }}
             url={healthCareInfo.url}
           />
         </Column>
@@ -127,7 +139,14 @@ export const HealthCareItem = ({
             ></TextBox>
             <SpacerX size={8} />
             <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
-            <AppLink className="text-left" label={healthCareInfo.link} />
+            <AppLink
+              className="text-left"
+              label={healthCareInfo.link}
+              callback={() => {
+                window.location.href = redirectLink?.(sessionData!) ?? ' ';
+              }}
+              url={healthCareInfo.url}
+            />
           </Column>
         </Row>
       </Column>

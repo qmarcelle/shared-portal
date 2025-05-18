@@ -14,8 +14,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import { formatDateToLocale } from '@/utils/date_formatter';
-import { isMatureMinor } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -30,6 +28,7 @@ interface MembersRepresentativeItemProps extends IComponent {
   memberName: string;
   DOB: string;
   isOnline: boolean;
+  isMatureMinor: boolean;
   icon?: JSX.Element;
   fullAccess: boolean;
   icon1?: JSX.Element;
@@ -47,6 +46,8 @@ interface MembersRepresentativeItemProps extends IComponent {
   onRequestSuccessCallBack: () => void;
   onInviteSuccessCallBack: () => void;
   pendingIcon?: JSX.Element;
+  allowUpdates?: boolean;
+  createdAt?: string;
 }
 
 export const MembersRepresentativeItem = ({
@@ -58,6 +59,7 @@ export const MembersRepresentativeItem = ({
   memberName,
   DOB,
   isOnline = true,
+  isMatureMinor,
   onClick,
   className,
   fullAccess,
@@ -65,7 +67,6 @@ export const MembersRepresentativeItem = ({
   memberMemeCk,
   requesteeFHRID,
   requesteeUMPID,
-  visibilityRules,
   id,
   policyId,
   expiresOn,
@@ -75,17 +76,17 @@ export const MembersRepresentativeItem = ({
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
   pendingIcon = <Image src={pendingLogo} alt="link" />,
+  allowUpdates = true,
+  createdAt,
 }: MembersRepresentativeItemProps) => {
   const { showAppModal } = useAppModalStore();
-  const matureMinor = isMatureMinor(visibilityRules);
-  const currentDate: string = formatDateToLocale(new Date());
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
           <TextBox
             className="pt-1 ml-1"
-            text={`Basic Access as of ${currentDate}`}
+            text={`Basic Access as of ${createdAt}`}
           />
           <Spacer axis="horizontal" size={32} />
         </Row>
@@ -103,19 +104,19 @@ export const MembersRepresentativeItem = ({
                 className="!flex pl-0"
                 label="Invite to Register"
                 icon={icon1}
-                callback={() =>
+                callback={() => {
                   showAppModal({
                     content: (
                       <InviteToRegister
-                        isMaturedMinor={matureMinor}
+                        isMaturedMinor={isMatureMinor}
                         memberName={memberName}
                         memeCk={memberMemeCk!}
                         requesteeFHRID={requesteeFHRID!}
                         onRequestSuccessCallBack={onInviteSuccessCallBack}
                       />
                     ),
-                  })
-                }
+                  });
+                }}
               />
             ) : (
               <div className="flex flex-row">
@@ -146,24 +147,25 @@ export const MembersRepresentativeItem = ({
             <Row>
               <TextBox
                 className="ml-2"
-                text={`Basic Access as of ${currentDate}`}
+                text={`Basic Access as of ${createdAt}`}
               />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && matureMinor && (
+            {!isRepresentative && isMatureMinor && (
               <Row>
                 <Spacer size={42} />
                 <Title
                   className="font-bold primary-color ml-2"
                   text="Update"
                   suffix={icon}
-                  callback={() =>
+                  callback={() => {
                     showAppModal({
                       content: (
                         <EditLevelOfAccess
                           memberName={memberName}
-                          isMaturedMinor={matureMinor}
+                          isMaturedMinor={isMatureMinor}
                           currentAccessType="basic"
+                          disableSubmit={!allowUpdates}
                           id={id}
                           policyId={policyId}
                           expiresOn={expiresOn}
@@ -172,8 +174,8 @@ export const MembersRepresentativeItem = ({
                           lastName={lastName}
                         />
                       ),
-                    })
-                  }
+                    });
+                  }}
                 />
               </Row>
             )}
@@ -190,7 +192,7 @@ export const MembersRepresentativeItem = ({
                           content: (
                             <PersonalRepRequestAccessOnMyPlan
                               memberName={memberName}
-                              isMaturedMinor={matureMinor}
+                              isMaturedMinor={isMatureMinor}
                               memeCk={memberMemeCk!}
                               requesteeFHRID={requesteeFHRID!}
                               requesteeUMPID={requesteeUMPID!}
@@ -230,11 +232,7 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          {matureMinor ? (
-            <TextBox className="font-bold body-1" text="[Mature Minor]" />
-          ) : (
-            <TextBox className="font-bold body-1" text={memberName} />
-          )}
+          <TextBox className="font-bold body-1" text={memberName} />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />

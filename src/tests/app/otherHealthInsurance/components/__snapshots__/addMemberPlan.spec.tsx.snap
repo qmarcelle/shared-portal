@@ -179,12 +179,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part A"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -194,7 +195,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 !p-0"
+                  class="ml-2 !p-0 cursor-pointer"
                   for="medicare-part-a"
                 >
                   Medicare Part A
@@ -208,12 +209,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part B"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -223,7 +225,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="medicare-part-b"
                 >
                   Medicare Part B
@@ -237,12 +239,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Medicare Part D"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -252,139 +255,142 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="medicare-part-d"
                 >
                   Medicare Part D
                 </label>
               </div>
             </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-            />
-            <div
-              class="flex flex-col relative inline-block w-full text-field "
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col relative inline-block w-full text-field "
+          >
+            <p
+              class="mb-2 mt-3"
             >
-              <p
-                class="mb-2 mt-3"
-              >
-                Policy Effective Date (MM/DD/YYYY)
-              </p>
+              Policy Effective Date (MM/DD/YYYY)
+            </p>
+            <div
+              class="flex flex-row items-center input relative w-full left-0 top-full   "
+            >
+              <input
+                aria-label="Policy Effective Date (MM/DD/YYYY)"
+                class=""
+                maxlength="10"
+                placeholder="__  / __  /  ____"
+                type="text"
+                value=""
+              />
               <div
-                class="flex flex-row items-center input relative w-full left-0 top-full   "
-              >
-                <input
-                  aria-label="Policy Effective Date (MM/DD/YYYY)"
-                  class=""
-                  maxlength="10"
-                  placeholder="__  / __  /  ____"
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="cursor-pointer"
-                >
-                  <div
-                    class="flex flex-row items-center relative inline-block"
-                  >
-                    <div
-                      class="separator"
-                    />
-                    <div>
-                      <img
-                        alt="calenderIcon"
-                        class="icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="w-full"
+                class="cursor-pointer"
               >
                 <div
-                  class="react-datepicker-wrapper"
+                  class="flex flex-row items-center relative inline-block"
                 >
                   <div
-                    class="react-datepicker__input-container"
-                  >
-                    <input
-                      class="hidden"
-                      type="text"
-                      value=""
+                    class="separator"
+                  />
+                  <div>
+                    <img
+                      alt="calenderIcon"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
                     />
                   </div>
                 </div>
               </div>
             </div>
             <div
-              class="flex flex-col relative inline-block w-full text-field "
+              class="w-full"
             >
-              <p
-                class="mb-2 mt-3"
-              >
-                Policy End Date (MM/DD/YYYY) (optional)
-              </p>
               <div
-                class="flex flex-row items-center input relative w-full left-0 top-full   "
+                class="react-datepicker-wrapper"
               >
-                <input
-                  aria-label="Policy End Date (MM/DD/YYYY) (optional)"
-                  class=""
-                  maxlength="10"
-                  placeholder="__  / __  /  ____"
-                  type="text"
-                  value=""
-                />
                 <div
-                  class="cursor-pointer"
+                  class="react-datepicker__input-container"
+                >
+                  <input
+                    class="hidden"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-col relative inline-block w-full text-field "
+          >
+            <p
+              class="mb-2 mt-3"
+            >
+              Policy End Date (MM/DD/YYYY) (optional)
+            </p>
+            <div
+              class="flex flex-row items-center input relative w-full left-0 top-full   "
+            >
+              <input
+                aria-label="Policy End Date (MM/DD/YYYY) (optional)"
+                class=""
+                maxlength="10"
+                placeholder="__  / __  /  ____"
+                type="text"
+                value=""
+              />
+              <div
+                class="cursor-pointer"
+              >
+                <div
+                  class="flex flex-row items-center relative inline-block"
                 >
                   <div
-                    class="flex flex-row items-center relative inline-block"
-                  >
-                    <div
-                      class="separator"
+                    class="separator"
+                  />
+                  <div>
+                    <img
+                      alt="calenderIcon"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
                     />
-                    <div>
-                      <img
-                        alt="calenderIcon"
-                        class="icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              class="w-full"
+            >
               <div
-                class="w-full"
+                class="react-datepicker-wrapper"
               >
                 <div
-                  class="react-datepicker-wrapper"
+                  class="react-datepicker__input-container"
                 >
-                  <div
-                    class="react-datepicker__input-container"
-                  >
-                    <input
-                      class="hidden"
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    class="hidden"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>
@@ -703,12 +709,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
               aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="This member is over 65."
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
@@ -718,7 +725,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
+                  class="ml-2  cursor-pointer"
                   for="checkbox-this-member-is-over-65."
                 >
                   This member is over 65.
@@ -908,12 +915,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part A"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row"
               tabindex="0"
             >
               <input
@@ -923,7 +931,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 !p-0"
+                class="ml-2 !p-0 cursor-pointer"
                 for="medicare-part-a"
               >
                 Medicare Part A
@@ -937,12 +945,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part B"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row"
               tabindex="0"
             >
               <input
@@ -952,7 +961,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="medicare-part-b"
               >
                 Medicare Part B
@@ -966,12 +975,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="Medicare Part D"
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row"
               tabindex="0"
             >
               <input
@@ -981,139 +991,142 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="medicare-part-d"
               >
                 Medicare Part D
               </label>
             </div>
           </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            class="flex flex-col relative inline-block w-full text-field "
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col relative inline-block w-full text-field "
+        >
+          <p
+            class="mb-2 mt-3"
           >
-            <p
-              class="mb-2 mt-3"
-            >
-              Policy Effective Date (MM/DD/YYYY)
-            </p>
+            Policy Effective Date (MM/DD/YYYY)
+          </p>
+          <div
+            class="flex flex-row items-center input relative w-full left-0 top-full   "
+          >
+            <input
+              aria-label="Policy Effective Date (MM/DD/YYYY)"
+              class=""
+              maxlength="10"
+              placeholder="__  / __  /  ____"
+              type="text"
+              value=""
+            />
             <div
-              class="flex flex-row items-center input relative w-full left-0 top-full   "
-            >
-              <input
-                aria-label="Policy Effective Date (MM/DD/YYYY)"
-                class=""
-                maxlength="10"
-                placeholder="__  / __  /  ____"
-                type="text"
-                value=""
-              />
-              <div
-                class="cursor-pointer"
-              >
-                <div
-                  class="flex flex-row items-center relative inline-block"
-                >
-                  <div
-                    class="separator"
-                  />
-                  <div>
-                    <img
-                      alt="calenderIcon"
-                      class="icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="w-full"
+              class="cursor-pointer"
             >
               <div
-                class="react-datepicker-wrapper"
+                class="flex flex-row items-center relative inline-block"
               >
                 <div
-                  class="react-datepicker__input-container"
-                >
-                  <input
-                    class="hidden"
-                    type="text"
-                    value=""
+                  class="separator"
+                />
+                <div>
+                  <img
+                    alt="calenderIcon"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="flex flex-col relative inline-block w-full text-field "
+            class="w-full"
           >
-            <p
-              class="mb-2 mt-3"
-            >
-              Policy End Date (MM/DD/YYYY) (optional)
-            </p>
             <div
-              class="flex flex-row items-center input relative w-full left-0 top-full   "
+              class="react-datepicker-wrapper"
             >
-              <input
-                aria-label="Policy End Date (MM/DD/YYYY) (optional)"
-                class=""
-                maxlength="10"
-                placeholder="__  / __  /  ____"
-                type="text"
-                value=""
-              />
               <div
-                class="cursor-pointer"
+                class="react-datepicker__input-container"
+              >
+                <input
+                  class="hidden"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <div
+          class="flex flex-col relative inline-block w-full text-field "
+        >
+          <p
+            class="mb-2 mt-3"
+          >
+            Policy End Date (MM/DD/YYYY) (optional)
+          </p>
+          <div
+            class="flex flex-row items-center input relative w-full left-0 top-full   "
+          >
+            <input
+              aria-label="Policy End Date (MM/DD/YYYY) (optional)"
+              class=""
+              maxlength="10"
+              placeholder="__  / __  /  ____"
+              type="text"
+              value=""
+            />
+            <div
+              class="cursor-pointer"
+            >
+              <div
+                class="flex flex-row items-center relative inline-block"
               >
                 <div
-                  class="flex flex-row items-center relative inline-block"
-                >
-                  <div
-                    class="separator"
+                  class="separator"
+                />
+                <div>
+                  <img
+                    alt="calenderIcon"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
                   />
-                  <div>
-                    <img
-                      alt="calenderIcon"
-                      class="icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="w-full"
+          >
             <div
-              class="w-full"
+              class="react-datepicker-wrapper"
             >
               <div
-                class="react-datepicker-wrapper"
+                class="react-datepicker__input-container"
               >
-                <div
-                  class="react-datepicker__input-container"
-                >
-                  <input
-                    class="hidden"
-                    type="text"
-                    value=""
-                  />
-                </div>
+                <input
+                  class="hidden"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
           </div>
@@ -1432,12 +1445,13 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
             aria-checked="false"
             aria-disabled="false"
             aria-invalid="false"
+            aria-label="This member is over 65."
             aria-required="false"
-            class="flex flex-col  "
+            class="flex flex-col   "
             role="checkbox"
           >
             <div
-              class="flex flex-row items-center"
+              class="flex flex-row"
               tabindex="0"
             >
               <input
@@ -1447,7 +1461,7 @@ exports[`AddMemberPlan should render the UI correctly 1`] = `
                 type="checkbox"
               />
               <label
-                class="ml-2 "
+                class="ml-2  cursor-pointer"
                 for="checkbox-this-member-is-over-65."
               >
                 This member is over 65.

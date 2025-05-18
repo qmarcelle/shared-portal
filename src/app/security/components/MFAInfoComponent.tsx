@@ -24,12 +24,16 @@ import { googleAnalytics } from '@/utils/analytics';
 
 interface MFAInfoComponentProps {
   mfaDevices: Map<MfaDeviceType, MfaDevice>;
+  allowUpdates?: boolean;
 }
 
 const getMethodName = (enabled: boolean) =>
   enabled ? 'Remove Method' : 'Set Up Method';
 
-export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
+export const MFAInfoComponent = ({
+  mfaDevices,
+  allowUpdates = true,
+}: MFAInfoComponentProps) => {
   const { showAppModal } = useAppModalStore();
   const { getDeviceError, mfaDevicesEnabled } = useSecuritySettingsStore();
   const getOnClickContent = (mfa: MfaDevice) => {
@@ -77,9 +81,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
         <div className="flex flex-col">
           <Header type="title-2" text="Multi-Factor Authentication (MFA)" />
           <Spacer size={16} />
-          <TextBox
-            text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information."
-          />
+          <TextBox text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information." />
           <Spacer size={32} />
           <Loader items={10} />
         </div>
@@ -91,9 +93,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
         <div className="flex flex-col">
           <Header type="title-2" text="Multi-Factor Authentication (MFA)" />
           <Spacer size={16} />
-          <TextBox
-            text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information."
-          />
+          <TextBox text=" Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information." />
           <Spacer size={32} />
           {getDeviceError && (
             <ErrorInfoCard
@@ -116,6 +116,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                 <UpdateRowWithStatus
                   className="mb-8"
                   onClick={() => {
+                    if (!allowUpdates) return;
                     getMFAContentModal(
                       mfaDevices.get(MfaDeviceType.authenticator)!,
                     );
@@ -153,6 +154,7 @@ export const MFAInfoComponent = ({ mfaDevices }: MFAInfoComponentProps) => {
                     <UpdateRowWithStatus
                       className="mb-8"
                       onClick={() => {
+                        if (!allowUpdates) return;
                         getMFAContentModal(device);
                       }}
                       label={

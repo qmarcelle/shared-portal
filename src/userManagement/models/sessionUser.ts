@@ -27,4 +27,6 @@ export type SessionUser = {
   };
   rules?: string;
   vRules?: VisibilityRules;
+  impersonated: boolean;
+  impersonator?: string;
 };

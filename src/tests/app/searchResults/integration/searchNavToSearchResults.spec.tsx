@@ -34,7 +34,7 @@ describe('SearchNavigation', () => {
     renderUI();
     //Search Text with search Icon should be visible in UI
     expect(screen.getByText('Search')).toBeVisible();
-    fireEvent.click(screen.getByAltText('Search'));
+    fireEvent.click(screen.getByText('Search'));
     //On Click on Search Icon, we need to see search textBox
     expect(screen.getByRole('textbox')).toBeVisible();
     await act(async () => {

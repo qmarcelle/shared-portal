@@ -12,12 +12,12 @@ import { Spacer } from '../../../components/foundation/Spacer';
 interface SpendingAccountProps extends IComponent {
   details: SelectItem[];
   selectedDetailId: string;
-
-  contributionsAmount: number;
-  distributionsAmount: number;
-  balanceAmount: number;
+  contributionsAmount: string;
+  distributionsAmount: string;
+  balanceAmount: string;
   transactionsLabel: string;
   spendingBalanceTitle: string;
+  accountTypeText: string;
   onSelectedDetailChange: () => void;
 }
 
@@ -30,13 +30,14 @@ export const SpendingAccountsBalance = ({
   balanceAmount,
   transactionsLabel,
   spendingBalanceTitle,
+  accountTypeText,
   onSelectedDetailChange,
 }: SpendingAccountProps) => {
   return (
     <Card className={className}>
       <Column>
         <Row>
-          <PlansLabel label={'HSA'} color={'bg-sky-100'} />
+          <PlansLabel label={accountTypeText} color={'bg-sky-100'} />
           <Column className="justify-center items-center ml-2">
             <Header text={spendingBalanceTitle} className="title-2" />
           </Column>
@@ -56,20 +57,20 @@ export const SpendingAccountsBalance = ({
 
         <Row>
           <Column className="flex-grow">Contributions</Column>
-          <Column className="items-end">${contributionsAmount}.00</Column>
+          <Column className="items-end">{contributionsAmount}.00</Column>
         </Row>
         <Row>
           <Column className="flex-grow">Distributions</Column>
-          <Column className="items-end">-${distributionsAmount}.00</Column>
+          <Column className="items-end">-{distributionsAmount}.00</Column>
         </Row>
         <Spacer size={32} />
         <Divider></Divider>
         <Spacer size={32} />
         <Row>
           <Column className="flex-grow font-bold">Balance</Column>
-          <Column className="font-bold items-end">${balanceAmount}.00</Column>
+          <Column className="font-bold items-end">{balanceAmount}.00</Column>
         </Row>
-        <AppLink label={transactionsLabel} />
+        {accountTypeText != 'HRA' && <AppLink label={transactionsLabel} />}
         <Spacer size={32} />
       </Column>
     </Card>

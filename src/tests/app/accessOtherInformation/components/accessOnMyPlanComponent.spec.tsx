@@ -18,6 +18,9 @@ const renderUI = () => {
           memberCk: '',
           accessStatus: AccessStatus.FullAccess,
           accessStatusIsPending: false,
+          isMinor: false,
+          isMatureMinor: false,
+          roleType: '',
         },
         {
           memberName: 'Forest Hall',
@@ -28,6 +31,9 @@ const renderUI = () => {
           memberCk: '',
           accessStatus: AccessStatus.FullAccess,
           accessStatusIsPending: false,
+          isMinor: false,
+          isMatureMinor: false,
+          roleType: '',
         },
         {
           memberName: 'Corey Hall',
@@ -38,6 +44,9 @@ const renderUI = () => {
           memberCk: '',
           accessStatus: AccessStatus.FullAccess,
           accessStatusIsPending: false,
+          isMinor: false,
+          isMatureMinor: false,
+          roleType: '',
         },
         {
           memberName: 'Telly Hall',
@@ -48,6 +57,9 @@ const renderUI = () => {
           memberCk: '',
           accessStatus: AccessStatus.FullAccess,
           accessStatusIsPending: false,
+          isMinor: false,
+          isMatureMinor: false,
+          roleType: '',
         },
         {
           memberName: 'Janie Hall',
@@ -58,6 +70,9 @@ const renderUI = () => {
           memberCk: '',
           accessStatus: AccessStatus.FullAccess,
           accessStatusIsPending: false,
+          isMinor: false,
+          isMatureMinor: false,
+          roleType: '',
         },
       ]}
     />,

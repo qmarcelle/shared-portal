@@ -83,6 +83,7 @@ export const Filter = ({
     const filterList = JSON.parse(JSON.stringify(filterItems)) as FilterItem[];
     if (filterList[index]) {
       filterList[index].value = value;
+      filterList[index].selectedInputValue = value;
     }
     onSelectCallback(index, filterList);
   };
@@ -122,7 +123,6 @@ export const Filter = ({
                 <TextField
                   type="text"
                   label={item.label}
-                  value={item.value as string}
                   valueCallback={(value) => {
                     handleInputUpdate(value, index);
                   }}

@@ -27,7 +27,9 @@ export type AllMyPlanData<T = Address[]> = {
   medicalEffectiveDate: string;
   dentalEffectiveDate: string;
   visionEffectiveDate: string;
-  address: T;
+  address?: T;
+  address1?: string;
+  address2?: string;
   primaryPhoneNumber: string;
   age?: number | undefined;
   secondaryPhoneNumber: string;

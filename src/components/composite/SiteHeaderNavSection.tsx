@@ -65,14 +65,14 @@ export const SiteHeaderNavSection = ({
               <Image
                 className="block lg:hidden ml-auto"
                 src={rightIcon}
-                alt="Chevron icon"
+                alt=""
               />
               <Image
                 data-accordion-icon
                 aria-expanded="false"
                 className="hidden lg:block ml-auto rotate-180 group-hover:rotate-0 group-focus:rotate-0"
                 src={upIcon}
-                alt="Chevron icon"
+                alt=""
               />
             </button>
           </div>

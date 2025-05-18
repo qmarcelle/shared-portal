@@ -353,27 +353,27 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-checked="true"
+              aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Checkbox"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
                   aria-label=""
-                  checked=""
-                  class="checkbox  checked  "
-                  id="checkbox-"
+                  class="checkbox    "
+                  id="checkbox-checkbox"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
-                  for="checkbox-"
+                  class="ml-2  cursor-pointer"
+                  for="checkbox-checkbox"
                 >
                   <span
                     class="rich-text body-1 undefined"
@@ -402,6 +402,9 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                        
                     </span>
                   </span>
+                  <span
+                    class="sr-only"
+                  />
                 </label>
               </div>
             </div>
@@ -524,6 +527,11 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
             >
               <span>
                 You are asking BlueCross BlueShield of Tennessee (BlueCross or BCBSTN), and the people and other companies who work with BlueCross, to give the person you have selected through your Member Portal account or BCBSTN mobile application Full Access to the selected Member's health information, including highly sensitive health information. Full Access means that we can share any information we have about the Member anywhere in our company with this person. Any part of our company can share the information (including Member Portal, the BCBSTN mobile application, and Member Services) and we can share it in any way, including through phone, fax, and email. By clicking the
+              </span>
+              <span
+                class="font-bold"
+              >
+                 "I Agree" 
               </span>
               <span>
                 button after reading this, you are electronically signing this authorization form.
@@ -857,27 +865,27 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <div
-              aria-checked="true"
+              aria-checked="false"
               aria-disabled="false"
               aria-invalid="false"
+              aria-label="Checkbox"
               aria-required="false"
-              class="flex flex-col  "
+              class="flex flex-col   "
               role="checkbox"
             >
               <div
-                class="flex flex-row items-center"
+                class="flex flex-row"
                 tabindex="0"
               >
                 <input
                   aria-label=""
-                  checked=""
-                  class="checkbox  checked  "
-                  id="checkbox-"
+                  class="checkbox    "
+                  id="checkbox-checkbox"
                   type="checkbox"
                 />
                 <label
-                  class="ml-2 "
-                  for="checkbox-"
+                  class="ml-2  cursor-pointer"
+                  for="checkbox-checkbox"
                 >
                   <span
                     class="rich-text body-1 undefined"
@@ -907,6 +915,9 @@ exports[`Edit Level Of Access Component should render the UI correctly for HIPPA
                        including the Member's highly sensitive health information.
                     </span>
                   </span>
+                  <span
+                    class="sr-only"
+                  />
                 </label>
               </div>
             </div>
@@ -970,7 +981,7 @@ exports[`Edit Level Of Access Component should render the UI correctly for Succe
         style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
       />
       <h1
-        class="title-1 title-2"
+        class="title-1 title-2 text-center"
       >
         Level Of Access Saved
       </h1>

@@ -16,6 +16,7 @@ import { UpdateSSNRequest } from '../../models/app/updateSSNRequest';
 interface UpdateSocialSecurityNumberJourneyProps {
   memberName: string;
   successCallback: () => void;
+  disableSubmit?: boolean; // Renamed prop
 }
 const headerText = 'Update or Add a Social Security Number';
 
@@ -24,6 +25,7 @@ export const UpdateSocialSecurityNumberJourney = ({
   pageIndex,
   memberName,
   successCallback,
+  disableSubmit = false, // Updated prop name
 }: ModalChildProps & UpdateSocialSecurityNumberJourneyProps) => {
   const { dismissModal } = useAppModalStore();
   const [securityNumber, setSecurityNumber] = useState('***-**-****');
@@ -39,6 +41,10 @@ export const UpdateSocialSecurityNumberJourney = ({
   }
 
   const submitSSNCode = async () => {
+    if (disableSubmit) {
+      return;
+    }
+
     try {
       const request: UpdateSSNRequest = {
         ssn: securityNumber,
@@ -77,6 +83,7 @@ export const UpdateSocialSecurityNumberJourney = ({
       }
       cancelCallback={() => dismissModal()}
       buttonLabel="Save Changes"
+      disableSubmit={disableSubmit}
     />,
 
     <SuccessSlide

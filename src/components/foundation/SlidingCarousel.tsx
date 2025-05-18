@@ -17,14 +17,16 @@ const PreviousBtn = (props: any) => {
     <>
       {currentSlide !== 0 && (
         <div className={className} onClick={onClick}>
-          <Button
-            className="max-w-fit max-h-fit p-2 m-auto"
-            type="elevated"
-            callback={() => {}}
-            icon={
-              <Image className="icon-sm" src={leftIcon} alt="scroll left" />
-            }
-          />
+          <div className="relative right-5">
+            <Button
+              className="max-w-fit max-h-fit p-2 m-auto"
+              type="elevated"
+              callback={() => {}}
+              icon={
+                <Image className="icon-sm" src={leftIcon} alt="scroll left" />
+              }
+            />
+          </div>
         </div>
       )}
     </>

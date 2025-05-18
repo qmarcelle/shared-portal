@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import MyHealthPrograms from '.';
-import { getAccessCodeDetails } from './actions/getCareTNAccessCode';
+import MyHealthPrograms from '..';
+import { getAccessCodeDetails } from '../actions/getCareTNAccessCode';
 
 export const metadata: Metadata = {
   title: 'My Health Programs',
