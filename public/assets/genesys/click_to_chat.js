@@ -1167,8 +1167,10 @@
         return;
       }
 
-      console.log('[Genesys] Loading widgets script explicitly');
-      // First try to load from the local plugins directory
+      console.log(
+        '[Genesys] Loading widgets script explicitly for legacy mode',
+      );
+      // Only use the local plugins directory in legacy mode
       const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
 
       const script = document.createElement('script');
@@ -1184,33 +1186,37 @@
       };
       script.onerror = function (err) {
         console.error(
-          '[Genesys] Failed to load local widgets script, trying fallback URL:',
+          '[Genesys] Failed to load local widgets script explicitly:',
           err,
         );
+        console.warn(
+          '[Genesys] Attempting minimal button creation despite script loading failure',
+        );
 
-        // If local fails, try the remote URL as fallback
-        const fallbackUrl =
-          cfg.genesysWidgetUrl ||
-          'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
-        const fallbackScript = document.createElement('script');
-        fallbackScript.id = 'genesys-widgets-script-explicit-fallback';
-        fallbackScript.src = fallbackUrl;
-        fallbackScript.async = true;
-        fallbackScript.onload = function () {
-          console.log(
-            '[Genesys] Remote widgets script loaded as fallback, now initializing',
-          );
-          window._genesysChatButtonRetryCount = 0; // Reset retry count
-          initializeWidgetsExplicitly();
-        };
-        fallbackScript.onerror = function (fallbackErr) {
-          console.error(
-            '[Genesys] Failed to load widgets script from all sources:',
-            fallbackErr,
-          );
-        };
-
-        document.head.appendChild(fallbackScript);
+        // Only try a basic fallback in legacy mode - just create a simple button element
+        const container = document.getElementById(cfg.targetContainer);
+        if (container) {
+          const fallbackButton = document.createElement('button');
+          fallbackButton.id = 'genesys-minimal-button';
+          fallbackButton.textContent = 'Chat with Us';
+          fallbackButton.className =
+            'cx-widget cx-webchat-chat-button cx-minimal-button';
+          fallbackButton.style.backgroundColor = '#0056b3';
+          fallbackButton.style.color = 'white';
+          fallbackButton.style.padding = '10px 20px';
+          fallbackButton.style.borderRadius = '30px';
+          fallbackButton.style.border = 'none';
+          fallbackButton.style.position = 'fixed';
+          fallbackButton.style.bottom = '20px';
+          fallbackButton.style.right = '20px';
+          fallbackButton.style.zIndex = '9999';
+          fallbackButton.style.cursor = 'pointer';
+          fallbackButton.style.boxShadow = '0px 2px 10px rgba(0,0,0,0.2)';
+          fallbackButton.addEventListener('click', function () {
+            alert('Chat is currently unavailable. Please try again later.');
+          });
+          container.appendChild(fallbackButton);
+        }
       };
 
       document.head.appendChild(script);
@@ -1500,9 +1506,6 @@
 
     // Load widgets.min.js script if in legacy mode
     const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
-    const remoteWidgetsUrl =
-      cfg.genesysWidgetUrl ||
-      'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
 
     console.log(
       '[Genesys] Attempting to load local widgets script from',
@@ -1577,104 +1580,25 @@
       })
       .catch((err) => {
         console.error(
-          '[Genesys] Failed to load local widgets script, trying remote:',
+          '[Genesys] Failed to load local widgets script for legacy mode:',
           err,
         );
         window._genesysScriptLoadingState.widgetsScriptFailed = true;
 
-        // Try remote widgets URL as fallback
-        console.log(
-          '[Genesys] Attempting to load remote widgets script from',
-          remoteWidgetsUrl,
+        // Trigger error event and notify user that widgets failed to load
+        document.dispatchEvent(
+          new CustomEvent('genesys:script:error', {
+            detail: { error: err },
+          }),
         );
-        loadResource
-          .script(remoteWidgetsUrl, { id: 'genesys-widgets-script-remote' })
-          .then((scriptEl) => {
-            console.log('[Genesys] Remote widgets script loaded successfully');
-            window._genesysScriptLoadingState.widgetsScriptLoaded = true;
 
-            // Set up a timeout to verify widgets initialization
-            let checkCount = 0;
-            const maxChecks = 20; // Increase max check attempts
-            const checkInterval = 500; // Increase check interval for more time
-
-            const checkWidgetsReady = function () {
-              checkCount++;
-
-              if (window._genesysCheckWidgetsReady()) {
-                console.log(
-                  '[Genesys] Widgets successfully initialized after remote script load',
-                );
-                window._genesysScriptLoadingState.initializedWidgets = true;
-
-                // Check for button after widgets are ready
-                if (
-                  !document.querySelector('.cx-widget.cx-webchat-chat-button')
-                ) {
-                  console.log(
-                    '[Genesys] No button after widgets ready, creating one',
-                  );
-                  if (window.forceCreateChatButton) {
-                    window.forceCreateChatButton();
-                  }
-                }
-
-                return;
-              }
-
-              if (checkCount < maxChecks) {
-                console.log(
-                  `[Genesys] Widgets not initialized yet, check ${checkCount}/${maxChecks}`,
-                );
-
-                // If we're at a specific threshold, try explicit initialization
-                if (checkCount === 5) {
-                  console.log(
-                    '[Genesys] Triggering explicit initialization to help loading process',
-                  );
-                  initializeWidgetsExplicitly();
-                }
-
-                setTimeout(checkWidgetsReady, checkInterval);
-              } else {
-                console.warn(
-                  '[Genesys] Widgets failed to initialize after maximum checks, using fallback initialization',
-                );
-
-                // Last resort: try full explicit initialization
-                initializeWidgetsExplicitly();
-
-                // Try to force button creation anyway after a short delay
-                setTimeout(function () {
-                  if (window.forceCreateChatButton) {
-                    window.forceCreateChatButton();
-                  }
-                }, 1000);
-              }
-            };
-
-            // Start checking if widgets are initialized
-            setTimeout(checkWidgetsReady, checkInterval);
-          })
-          .catch((remoteErr) => {
-            console.error(
-              '[Genesys] Failed to load widgets script from all sources:',
-              remoteErr,
-            );
-            window._genesysScriptLoadingState.widgetsScriptFailed = true;
-
-            // Attempt fallback button creation on failure
-            if (window.forceCreateChatButton) {
-              window.forceCreateChatButton();
-            }
-
-            // Trigger error event
-            document.dispatchEvent(
-              new CustomEvent('genesys:script:error', {
-                detail: { error: remoteErr },
-              }),
-            );
-          });
+        console.warn(
+          '[Genesys] Attempting fallback button creation despite script loading failure',
+        );
+        // Attempt fallback button creation on failure
+        if (window.forceCreateChatButton) {
+          window.forceCreateChatButton();
+        }
       });
   })();
 
