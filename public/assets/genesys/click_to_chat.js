@@ -1091,61 +1091,47 @@
     // === Fallback Button Creation ===
     // Add function to force create chat button as fallback
     window.forceCreateChatButton = function () {
-      console.log('[Genesys] Forcing chat button creation');
+      console.log('[Genesys] Forcing official button initialization');
 
-      // Only create if it doesn't exist
+      // Only attempt if the official button doesn't exist
       const existingButton = document.querySelector(
         '.cx-widget.cx-webchat-chat-button',
       );
 
       if (!existingButton) {
-        const targetContainer =
-          document.getElementById(cfg.targetContainer) || document.body;
-        const button = document.createElement('div');
-        button.className =
-          'cx-widget cx-webchat-chat-button fallback-chat-button';
-        button.textContent = isAmplifyMem ? 'Chat with an advisor' : 'Chat Now';
-        button.setAttribute('role', 'button');
-        button.setAttribute('tabindex', '0');
-        button.setAttribute('aria-label', 'Open chat');
-
-        button.addEventListener('click', () => {
-          try {
-            if (window._genesysCXBus) {
-              window._genesysCXBus.command('WebChat.open');
-            } else if (
-              window._genesys &&
-              window._genesys.widgets &&
-              window._genesys.widgets.main
-            ) {
-              window._genesys.widgets.main.startChat();
-            } else {
-              console.error('[Genesys] No chat method available');
-              alert('Chat is currently unavailable. Please try again later.');
-            }
-          } catch (err) {
-            console.error('[Genesys] Error opening chat:', err);
-            alert('Chat is currently unavailable. Please try again later.');
+        // Instead of creating a fallback, try to trigger the official button creation
+        try {
+          if (
+            window._genesys &&
+            window._genesys.widgets &&
+            window._genesys.widgets.main
+          ) {
+            console.log(
+              '[Genesys] Attempting to initialize official button via widgets.main',
+            );
+            window._genesys.widgets.main.initialise();
+            return true;
+          } else if (window._genesysCXBus) {
+            console.log(
+              '[Genesys] CXBus exists but no button, attempting command',
+            );
+            // If CXBus exists but no button, try to render the WebChat
+            window._genesysCXBus.command('WebChat.render');
+            return true;
+          } else {
+            console.log(
+              '[Genesys] No Genesys libraries available to initialize button',
+            );
+            return false;
           }
-        });
-
-        // Add keyboard support
-        button.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            button.click();
-          }
-        });
-
-        targetContainer.appendChild(button);
-        console.log('[Genesys] Fallback button created');
-        return true;
+        } catch (err) {
+          console.error('[Genesys] Error initializing official button:', err);
+          return false;
+        }
       }
 
-      console.log(
-        '[Genesys] Button already exists, skipping fallback creation',
-      );
-      return false;
+      console.log('[Genesys] Button already exists, no initialization needed');
+      return true;
     };
 
     // Make accessible globally
@@ -1155,11 +1141,11 @@
     setTimeout(() => {
       if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
         console.log(
-          '[Genesys] No chat button found after timeout, forcing creation',
+          '[Genesys] No chat button found after timeout, initializing official button',
         );
         window.forceCreateChatButton();
       }
-    }, 5000);
+    }, 2000);
 
     // Define global functions for opening the plan switcher
     window.openPlanSwitcher = function () {
