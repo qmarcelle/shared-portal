@@ -87,7 +87,7 @@ interface GenesysScriptLoaderProps {
   /** Whether to show the status indicator */
   showStatus?: boolean;
   /** Explicitly set chat mode to determine loading strategy */
-  chatMode?: 'legacy' | 'cloud';
+  chatMode?: 'legacy' | 'cloud' | 'standard';
 }
 
 /**
@@ -341,6 +341,62 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
       checkFn(); // Start the first check
     }, [onLoad, onError, status, chatMode]); // Added chatMode to dependencies
+
+    const config = chatMode === 'legacy' ? legacyConfig : cloudConfig;
+
+    // Function to load CSS
+    const loadCssFiles = async () => {
+      // Skip if CSS files are already loaded
+      if (GenesysLoadingState.cssIds.length === stableCssUrls.length) {
+        logger.info(
+          `${LOG_PREFIX} All CSS files already loaded (${GenesysLoadingState.cssIds.length}). Skipping.`,
+        );
+        return;
+      }
+
+      if (stableCssUrls.length > 0) {
+        logger.info(
+          `${LOG_PREFIX} Loading ${stableCssUrls.length} CSS files:`,
+          stableCssUrls,
+        );
+
+        for (let i = 0; i < stableCssUrls.length; i++) {
+          const cssUrl = stableCssUrls[i];
+          try {
+            // Generate a unique ID for this CSS
+            const cssId = `genesys-chat-css-${i}`;
+
+            // Skip if this specific CSS is already loaded
+            if (
+              document.getElementById(cssId) ||
+              GenesysLoadingState.cssIds.includes(cssId)
+            ) {
+              logger.info(
+                `${LOG_PREFIX} CSS ${cssId} already loaded. Skipping.`,
+              );
+              continue;
+            }
+
+            // Create link element
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = cssUrl;
+            link.id = cssId;
+
+            // Add to document
+            document.head.appendChild(link);
+            GenesysLoadingState.cssIds.push(cssId);
+            logger.info(`${LOG_PREFIX} Added CSS: ${cssUrl} with ID ${cssId}`);
+          } catch (cssErr) {
+            logger.warn(`${LOG_PREFIX} Error loading CSS ${cssUrl}:`, cssErr);
+            // Continue despite CSS errors - they're not critical
+          }
+        }
+      } else {
+        logger.info(`${LOG_PREFIX} No CSS files to load.`);
+      }
+    };
 
     const loadScript = useCallback(async () => {
       // Skip if not the active instance
