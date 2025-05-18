@@ -4,6 +4,7 @@ import { useLoginStore } from '@/app/login/stores/loginStore';
 import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
+import { setVisiblePageList } from '@/store/PageHierarchy';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { logger } from '@/utils/logger';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -87,6 +88,20 @@ export default function SiteHeader({
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
     : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+
+  const pageList = [];
+  for (let i = 0; i < menuNavigation.length; i++) {
+    if (menuNavigation[i]?.showOnMenu) {
+      const parent = menuNavigation[i];
+      pageList.push(menuNavigation[i].url);
+      for (let j = 0; j < parent?.childPages.length; j++) {
+        if (parent.childPages[j]?.showOnMenu(visibilityRules)) {
+          pageList.push(parent.childPages[j].url);
+        }
+      }
+    }
+  }
+  setVisiblePageList(pageList);
 
   const toggleMenu = () => {
     if (!isOpen) {

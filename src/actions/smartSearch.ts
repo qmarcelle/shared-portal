@@ -31,11 +31,13 @@ export async function invokeSmartSearch(
       },
       apps: 'MAIN',
     };
-
+    logger.info('smartSearchsuggestion ' + JSON.stringify(smartSearchRequest));
     const resp = await esApi.post<ESResponse<SmartSearchResponse>>(
       '/smartSearch/suggestion',
       smartSearchRequest,
     );
+    //    console.log(resp.headers);
+
     return {
       status: 200,
       data: JSON.parse(resp.data!.data!.suggestionResponse),
@@ -62,26 +64,31 @@ export async function invokeSmartSearch(
 export async function invokeSmartSearchInquiry(
   searchString: string,
   sortBy = '',
+  visibilePageList = '',
 ): Promise<ActionResponse<number, SmartSearchInquiryResponse>> {
   try {
-    logger.info('Making call to SmartSearch Inquiry API');
+    const smartSearchInquiryRequest = {
+      params: {
+        inquiry: searchString,
+        fieldList:
+          'score,id,mime_type,parent_s,fetchedDate_dt,title,highlighting,description,data_source,BCBS_SEC_FILTERS_s',
+        numberOfRows: 30,
+        cursorValue: 0,
+        qpParams: 'member',
+        apps: 'MAIN',
+        qryPipeLine: 'MembersBlue',
+        collections: 'MAIN',
+        filterQuery: 'data_source:(STAGE_BCBST_MEMBER_CSV OR BCBST_MEMBER_CSV)',
+        // sortBy: 'desc',
+        membersDocAllowList: visibilePageList,
+      },
+    };
+    logger.info(
+      'smartSearchInquiry ' + JSON.stringify(smartSearchInquiryRequest),
+    );
     const resp = await esApi.get<ESResponse<SmartSearchInquiryResult>>(
       '/smartSearch/inquiry',
-      {
-        params: {
-          inquiry: searchString,
-          fieldList:
-            'score,id,mime_type,parent_s,fetchedDate_dt,title,highlighting,description,data_source,BCBS_SEC_FILTERS_s',
-          numberOfRows: 30,
-          cursorValue: 0,
-          qpParams: 'member',
-          apps: 'MAIN',
-          qryPipeline: 'MAIN',
-          collections: 'MAIN',
-          sortBy,
-          membersDocAllowList: '',
-        },
-      },
+      smartSearchInquiryRequest,
     );
 
     return {
