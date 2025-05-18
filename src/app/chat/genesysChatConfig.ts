@@ -114,12 +114,13 @@ export interface GenesysChatConfig {
   timestamp?: string;
   /** Data to pre-populate in the chat widget, typically user-specific. */
   userData?: Record<string, string>;
-  /** Form inputs for pre-chat or offline forms, if applicable. */
-  formInputs?: { id: string; value: string }[];
+
   /** Number of plans the user has */
   numberOfPlans?: number;
   /** Name of the current selected plan */
   currentPlanName?: string;
+  /** ID of the HTML element where the chat widget will be injected */
+  targetContainer?: string;
   // ...any other custom fields from JSP mapping
 }
 
@@ -281,10 +282,13 @@ export function buildGenesysChatConfig({
     // From API Config (getChatInfo response)
     clickToChatToken: apiConfig.clickToChatToken as string,
     isChatEligibleMember:
-      apiConfig.isChatEligibleMember ?? apiConfig.isEligible ?? true,
+      (apiConfig.isChatEligibleMember as string | boolean | undefined) ??
+      (apiConfig.isEligible as string | boolean | undefined) ??
+      true,
     isChatAvailable:
-      apiConfig.isChatAvailable ?? apiConfig.chatAvailable ?? true,
-    cloudChatEligible: apiConfig.cloudChatEligible as boolean, // Ensure this is present in apiConfig type
+      (apiConfig.isChatAvailable as string | boolean | undefined) ??
+      (apiConfig.chatAvailable as string | boolean | undefined) ??
+      true,
     chatGroup: apiConfig.chatGroup as string,
     workingHours: apiConfig.workingHours as string,
     chatHours: (apiConfig.workingHours ||
@@ -338,6 +342,10 @@ export function buildGenesysChatConfig({
     // Consult Genesys Cloud documentation for appropriate dataURL if click_to_chat.js uses it for cloud.
     config.gmsChatUrl = `https://api.${(apiConfig.genesysCloudConfig as any)?.environment?.split('-').pop()}.pure.cloud`; // Example, might need adjustment
   }
+
+  // Add targetContainer, defaulting to 'genesys-chat-container'
+  config.targetContainer =
+    staticConfig?.targetContainer || 'genesys-chat-container';
 
   // Other static/defaultable fields from the original JSP mapping, if needed
   config.coBrowseLicence =

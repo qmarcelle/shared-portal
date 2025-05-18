@@ -14,8 +14,8 @@ import { SideBarModal } from '../foundation/SideBarModal';
 export const ClientInitComponent = () => {
   useEffect(() => {
     // Log environment configuration at startup
-    logger.logEnvironmentConfig();
-    
+    logger.info('Initializing ClientInitComponent');
+
     const TagManagerArgs = {
       gtmId: GTM_ID,
       dataLayer: {
