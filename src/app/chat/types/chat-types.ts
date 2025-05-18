@@ -193,9 +193,10 @@ export interface GenesysChatConfig {
  * Interface for GenesysChat public API exposed to window
  */
 export interface GenesysChat {
-  forceCreateChatButton?: () => boolean;
   openChat?: () => void;
   closeChat?: () => void;
+  showButton?: () => void;
+  hideButton?: () => void;
   startCoBrowse?: () => void;
   [key: string]: any;
 }
