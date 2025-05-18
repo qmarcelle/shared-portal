@@ -9,6 +9,7 @@ import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { FilterItem } from '@/models/filter_dropdown_details';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useState } from 'react';
 import { PriorAuthData } from './models/app/priorAuthAppData';
@@ -17,11 +18,43 @@ export type PriorAuthorizationProps = {
   data: PriorAuthData;
   initialFilters: FilterItem[];
 };
+const onClickCallBack = (url: string) => {
+  window.open(url, '_blank');
+};
 const PriorAuthorization = ({
   data,
   initialFilters,
 }: PriorAuthorizationProps) => {
   const [filters, setFilters] = useState(initialFilters);
+
+  function getAuthorizationLanguage() {
+    return (
+      <Row className="body-1 flex-grow align-top mt-4 md:!flex !block" key={2}>
+        {isBlueCareEligible(data.visibilityRules)
+          ? 'Looking for a prescription drug pre-approval? Go to your'
+          : // eslint-disable-next-line quotes
+            "We've put together a list of how and when to get referrals and authorizations for specific services"}
+        {isBlueCareEligible(data.visibilityRules) ? (
+          <AppLink
+            label="See what we cover"
+            className="link !flex caremark pt-0"
+            callback={() => {
+              onClickCallBack(
+                process.env.NEXT_PUBLIC_BLUECARE_LANGUAGE_URL ?? '',
+              );
+            }}
+            icon={<Image src={externalIcon} alt="external" />}
+          />
+        ) : (
+          <AppLink
+            label="caremark.com account"
+            className="link !flex caremark pt-0"
+            icon={<Image src={externalIcon} alt="external" />}
+          />
+        )}
+      </Row>
+    );
+  }
 
   /*function onFilterSelect(index: number, filter: FilterItem[]) {
     setFilters(filter);
@@ -45,17 +78,7 @@ const PriorAuthorization = ({
                 />
                 or call us at [{data.phoneNumber}].
               </Row>,
-              <Row
-                className="body-1 flex-grow align-top mt-4 md:!flex !block"
-                key={2}
-              >
-                Looking for a prescription drug pre-approval? Go to your{' '}
-                <AppLink
-                  label="caremark.com account"
-                  className="link !flex caremark pt-0"
-                  icon={<Image src={externalIcon} alt="external" />}
-                />
-              </Row>,
+              getAuthorizationLanguage(),
             ]}
           />
         </section>

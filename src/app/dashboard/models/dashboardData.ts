@@ -4,6 +4,7 @@ import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { BenefitsProviderInfo } from './BenefitsProviderInfo';
+import { DashboardPriorAuthDetails } from './priorAuth_details';
 
 export type DashboardData = {
   memberDetails: DashboardMemberDetails | null;
@@ -12,6 +13,7 @@ export type DashboardData = {
   profiles?: UserProfile[];
   visibilityRules?: VisibilityRules;
   employerProvidedBenefits?: BenefitsProviderInfo[] | null;
+  priorAuthDetail?: DashboardPriorAuthDetails | null;
 };
 
 export interface DashboardMemberDetails {

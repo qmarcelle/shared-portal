@@ -1,7 +1,8 @@
-export interface PriorAuthDetails {
+export interface DashboardPriorAuthDetails {
   priorAuthType: 'Medical' | 'Pharmacy' | 'Dental';
   priorAuthName: string;
   dateOfVisit: string;
-  priorAuthStatus: 'Processed' | 'Denied' | 'Pending' | 'Approved';
+  priorAuthStatus: string;
   member: string;
+  referenceId: string;
 }

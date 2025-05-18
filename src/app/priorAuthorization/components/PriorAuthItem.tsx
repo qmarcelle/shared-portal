@@ -6,8 +6,9 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { StatusLabel } from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
+import { encrypt } from '@/utils/encryption';
 import Image from 'next/image';
-import MedicalIcon from '../../../public/assets/medical.svg';
+import MedicalIcon from '../../../../public/assets/medical.svg';
 import { PriorAuthDetails } from '../models/priorAuthDetails';
 
 interface ClaimItemProps extends IComponent {
@@ -21,7 +22,7 @@ export const PriorAuthItem = ({
   className,
   callBack,
 }: ClaimItemProps) => {
-  function getSuccessStatus() {
+  function getAuthStatus() {
     switch (priorAuthDetails.priorAuthStatus) {
       case 'Processed':
         return 'success';
@@ -70,7 +71,7 @@ export const PriorAuthItem = ({
             <section className="flex flex-row justify-between md:flex-col max-lg:mr-[5px]">
               <StatusLabel
                 label={priorAuthDetails.priorAuthStatus}
-                status={getSuccessStatus()}
+                status={getAuthStatus()}
               />
               {priorAuthDetails.isMiniCard && (
                 <Column className="md:hidden">
@@ -157,11 +158,11 @@ export const PriorAuthItem = ({
     <Card
       className={`cursor-pointer ${className}`}
       type="button"
-      onClick={() => callBack?.(priorAuthDetails.referenceId ?? '')}
+      onClick={() => callBack?.(encrypt(priorAuthDetails.referenceId ?? ''))}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          callBack?.(priorAuthDetails.referenceId ?? '');
+          callBack?.(encrypt(priorAuthDetails.referenceId ?? ''));
         }
       }}
       role="button"

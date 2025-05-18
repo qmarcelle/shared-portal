@@ -6,14 +6,16 @@ import { PriorAuthDetailItem } from './PriorAuthDetailItem';
 
 interface priorauthDetailsProps extends IComponent {
   priorAuthDetail: MemberPriorAuthDetail;
+  contact: string;
 }
 
 export const PriorAuthDetailsSection = ({
   priorAuthDetail,
+  contact,
 }: priorauthDetailsProps) => {
   return (
     <Column className="max-sm:m-4">
-      <PriorAuthDetailItem authInfo={priorAuthDetail} />
+      <PriorAuthDetailItem authInfo={priorAuthDetail} contact={contact} />
       <Spacer size={16} />
     </Column>
   );

@@ -36,7 +36,7 @@ export type DashboardProps = {
 };
 
 const MemberDashboard = ({ data }: DashboardProps) => {
-  const { memberDetails, visibilityRules, primaryCareProvider } = data;
+  const { visibilityRules, primaryCareProvider } = data;
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -166,15 +166,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             )}
             <PriorAuthSection
               className="large-section"
-              priorauth={[
-                {
-                  priorAuthStatus: 'Approved',
-                  priorAuthName: 'Magnetic Resonance Images(MRI)',
-                  member: 'Chris Hall',
-                  dateOfVisit: '01/23/23',
-                  priorAuthType: 'Medical',
-                },
-              ]}
+              priorauth={data.priorAuthDetail}
             />
           </Column>
         </section>

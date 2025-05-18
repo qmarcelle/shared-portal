@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
-import { PriorAuthFilterDetails } from '../models/prior_AuthFilterDetails';
+import { PriorAuthFilterDetails } from '../models/priorAuthFilterDetails';
 import { PriorAuthItem } from './PriorAuthItem';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {

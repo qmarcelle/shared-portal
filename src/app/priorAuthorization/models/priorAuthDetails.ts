@@ -11,6 +11,7 @@ export interface PriorAuthDetails {
   callBack?: (claimId: string) => void;
   columns?: ColumnInfo[];
   referenceId?: string;
+  memberCk?: string;
 }
 
 export interface ColumnInfo {
