@@ -28,6 +28,7 @@ import {
   GenesysCXBus,
   ScriptLoadPhase,
 } from '../types/chat-types';
+import { ChatLoadingState } from '../utils/chatSequentialLoader';
 import GenesysScriptLoader from './GenesysScriptLoader';
 
 const LOG_PREFIX = '[ChatWidget]';
@@ -442,6 +443,23 @@ export default function ChatWidget({
       // setError(new Error('Failed to command Genesys widget via CXBus.'));
     }
   }, [isOpen, scriptLoadPhase]); // Dependency: isOpen and scriptLoadPhase
+
+  // Ensure we re-check config availability when API state changes
+  useEffect(() => {
+    const loadingState = ChatLoadingState.scriptState.isLoading;
+    const loadingComplete = ChatLoadingState.scriptState.isComplete;
+    const apiComplete = ChatLoadingState.apiState.isComplete;
+    const apiEligible = ChatLoadingState.apiState.isEligible;
+
+    logger.info(`${LOG_PREFIX} Monitoring sequential loader state changes:`, {
+      scriptLoadPhase,
+      apiComplete,
+      apiEligible,
+      loadingState,
+      loadingComplete,
+      hasGenesysConfig: !!genesysChatConfig,
+    });
+  }, [scriptLoadPhase, genesysChatConfig]);
 
   // Log critical state just before rendering GenesysScriptLoader decision
   const chatDataFromStore = useChatStore.getState().config.chatData;

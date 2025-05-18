@@ -66,19 +66,52 @@ export default function ClientLayout({
       hasInitialized.current = true;
     }
 
-    // Short timeout to ensure DOM is fully ready before loading chat components
-    const timer = setTimeout(() => {
-      setIsClientReady(true);
-      logger.info(
-        '[ClientLayout] Client ready, ChatWidget can now be rendered',
-        {
-          hasGenesysConfig: !!genesysChatConfig,
-          configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
-        },
-      );
-    }, 1000);
+    // Log the current state of the sequential loader and chat config
+    logger.info('[ClientLayout] Current system state:', {
+      apiState: {
+        isComplete: ChatLoadingState.apiState.isComplete,
+        isEligible: ChatLoadingState.apiState.isEligible,
+      },
+      scriptState: {
+        isComplete: ChatLoadingState.scriptState.isComplete,
+        isLoading: ChatLoadingState.scriptState.isLoading,
+      },
+      hasGenesysConfig: !!genesysChatConfig,
+      configKeyCount: genesysChatConfig
+        ? Object.keys(genesysChatConfig).length
+        : 0,
+    });
 
-    return () => clearTimeout(timer);
+    // Short timeout to ensure DOM is fully ready before loading chat components
+    // Only proceed if we have verified both the sequential loader state AND the chat config
+    const readyForRender =
+      (ChatLoadingState.apiState.isComplete && !!genesysChatConfig) ||
+      ChatLoadingState.scriptState.isComplete;
+
+    // Only set client ready if we have the configuration or if we've determined we're not eligible
+    if (
+      readyForRender ||
+      (ChatLoadingState.apiState.isComplete &&
+        !ChatLoadingState.apiState.isEligible)
+    ) {
+      const timer = setTimeout(() => {
+        setIsClientReady(true);
+        logger.info(
+          '[ClientLayout] Client ready, ChatWidget can now be rendered',
+          {
+            hasGenesysConfig: !!genesysChatConfig,
+            apiStateComplete: ChatLoadingState.apiState.isComplete,
+            apiStateEligible: ChatLoadingState.apiState.isEligible,
+            configKeys: genesysChatConfig ? Object.keys(genesysChatConfig) : [],
+          },
+        );
+      }, 500); // Reduced delay for faster rendering once config is ready
+
+      return () => clearTimeout(timer);
+    }
+
+    // If not ready for render, log that we're waiting
+    logger.info('[ClientLayout] Still waiting for complete configuration data');
   }, [genesysChatConfig]);
 
   // Get session data

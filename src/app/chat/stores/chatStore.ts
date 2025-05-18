@@ -29,6 +29,7 @@ import {
 } from '../genesysChatConfig';
 import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 import { ChatSettings, ScriptLoadPhase } from '../types/chat-types';
+import { updateApiState } from '../utils/chatSequentialLoader';
 
 const LOG_STORE_PREFIX = '[ChatStore]'; // General store lifecycle/setup logs
 const LOG_UI_PREFIX = '[ChatStore:UI]';
@@ -570,6 +571,17 @@ export const useChatStore = create<ChatState>((set, get) => {
               chatMode: finalGenesysConfig.chatMode,
               userID: finalGenesysConfig.userID,
             });
+
+            // Update sequential loader state with final config
+            logger.info(
+              `${LOG_CONFIG_PREFIX} Explicitly updating sequential loader state with eligibility check.`,
+            );
+            const isEligible =
+              finalGenesysConfig.isChatEligibleMember as boolean;
+            const mode =
+              finalGenesysConfig.chatMode === 'cloud' ? 'cloud' : 'legacy';
+            // Ensure the sequential loader is updated with correct state
+            updateApiState(isEligible, mode);
 
             // 5. Update Zustand state with the final configuration
             set({
