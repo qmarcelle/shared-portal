@@ -150,6 +150,22 @@
     bottom: 20px !important;
     z-index: 999 !important;
     cursor: pointer !important;
+    /* Enhanced button styling */
+    background-color: #0056b3 !important;
+    color: white !important;
+    border-radius: 50px !important;
+    padding: 10px 20px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+    transition: all 0.3s ease !important;
+    min-width: 100px !important;
+    min-height: 45px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .cx-widget.cx-webchat-chat-button:hover {
+    background-color: #003d7a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
   }
   /* Modal styles */
   .cobrowse-card {
@@ -1226,6 +1242,62 @@
       console.log('[Genesys] Attempting explicit widgets initialization');
 
       try {
+        // For legacy mode, we need to use the v1 webchat configuration
+        if (cfg.chatMode === 'legacy') {
+          console.log(
+            '[Genesys] Setting up legacy mode v1 webchat configuration',
+          );
+
+          // Ensure minimal _genesys structure
+          window._genesys = window._genesys || {};
+          window._genesys.widgets = window._genesys.widgets || {};
+          window._genesys.widgets.main = window._genesys.widgets.main || {
+            theme: 'light',
+            lang: 'en',
+            preload: ['webchat'],
+            header: { Authorization: `Bearer ${clickToChatToken}` },
+          };
+
+          // Configure webchat properly
+          window._genesys.widgets.webchat =
+            window._genesys.widgets.webchat || {};
+          const webchatConfig = {
+            transport: {
+              type: 'purecloud-v1-xhr',
+              dataURL: isDemoMember
+                ? clickToChatDemoEndPoint
+                : clickToChatEndpoint,
+              deploymentKey: clickToChatToken,
+            },
+            userData: {
+              firstName: cfg.firstname || cfg.formattedFirstName || 'Guest',
+              lastName: cfg.lastname || cfg.memberLastName || 'User',
+            },
+            targetContainer: cfg.targetContainer || 'genesys-chat-container',
+            chatButton: {
+              enabled: true,
+              template:
+                '<div class="cx-widget cx-webchat-chat-button cx-side-button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true"><span class="cx-icon" data-icon="chat"></span><span class="i18n cx-chat-button-label" data-message="ChatButton"></span></div>',
+              openDelay: 1000,
+              effectDuration: 300,
+              hideDuringInvite: true,
+            },
+          };
+
+          // Apply webchat configuration
+          Object.assign(window._genesys.widgets.webchat, webchatConfig);
+
+          // Add a completed callback to show button
+          window._genesys.widgets.onReady = function () {
+            console.log(
+              '[Genesys] Widgets onReady event fired, explicitly showing button',
+            );
+            if (window._genesysCXBus) {
+              window._genesysCXBus.command('WebChat.showChatButton');
+            }
+          };
+        }
+
         // Attempt to get the "widgets.main" object
         console.log('[Genesys] Checking for widget options');
 
@@ -1240,32 +1312,32 @@
               window._genesys.widgets.main.initialise();
               setTimeout(function () {
                 window._genesysWidgetsInitializationInProgress = false;
-                window.forceCreateChatButton();
+
+                // Explicitly force button visibility after initialization
+                console.log(
+                  '[Genesys] Explicitly showing chat button after initialization',
+                );
+                if (window._genesysCXBus) {
+                  window._genesysCXBus.command('WebChat.showChatButton');
+                }
               }, 1000);
             } catch (err) {
               console.error('[Genesys] Error initializing widgets:', err);
-              setTimeout(function () {
-                window._genesysWidgetsInitializationInProgress = false;
-                window.forceCreateChatButton();
-              }, 1000);
+              window._genesysWidgetsInitializationInProgress = false;
             }
           } else {
             console.log(
-              '[Genesys] No initialise function found, but CXBus may still be available',
+              '[Genesys] widgets.main.initialise is not a function, checking widgets readiness',
             );
-            setTimeout(function () {
-              window._genesysWidgetsInitializationInProgress = false;
-              window.forceCreateChatButton();
-            }, 1000);
+            checkWidgetsReady();
           }
-        }, 500);
-      } catch (err) {
-        console.error('[Genesys] Error in widgets initialization:', err);
-        // Retry one more time after a delay
-        setTimeout(function () {
-          window._genesysWidgetsInitializationInProgress = false;
-          window.forceCreateChatButton();
-        }, 1500);
+        }, 100);
+      } catch (error) {
+        console.error(
+          '[Genesys] Error in explicit widgets initialization:',
+          error,
+        );
+        window._genesysWidgetsInitializationInProgress = false;
       }
     }
 
@@ -1324,89 +1396,108 @@
       window._genesysCheckWidgetsReady = function () {
         console.log('[Genesys] Checking widgets readiness');
 
-        // For legacy mode, need different checks
-        if (cfg.chatMode === 'legacy') {
-          console.log('[Genesys] Using legacy mode widgets readiness checks');
+        try {
+          if (cfg.chatMode === 'legacy') {
+            console.log('[Genesys] Using legacy mode widgets readiness checks');
 
-          // Method 1: Check for widgets.main.initialise function
-          const hasMainFunction =
-            window._genesys &&
-            window._genesys.widgets &&
-            window._genesys.widgets.main &&
-            typeof window._genesys.widgets.main.initialise === 'function';
+            // Legacy mode checks for different indicators
+            let hasMainFunction = false;
+            let hasCXBus = false;
+            let hasV1Transport = undefined;
+            let hasUIComponents = false;
+            let hasChatButton = false;
 
-          // Method 2: Check for CXBus availability
-          const hasCXBus =
-            window._genesysCXBus &&
-            typeof window._genesysCXBus.command === 'function';
+            try {
+              hasMainFunction =
+                typeof window._genesys?.widgets?.main?.initialise ===
+                'function';
+              hasCXBus = Boolean(window._genesysCXBus?.command);
+              hasV1Transport =
+                window._genesys?.widgets?.webchat?.transport?.type ===
+                'purecloud-v1-xhr';
+              hasUIComponents = Boolean(
+                window._genesys?.widgets?.webChat?.renderer?.create,
+              );
+              hasChatButton = Boolean(
+                document.querySelector('.cx-widget.cx-webchat-chat-button'),
+              );
+            } catch (e) {
+              console.error('[Genesys] Error checking widget status:', e);
+            }
 
-          // Method 3: Check for v1 transport object
-          const hasV1Transport =
-            window._genesys &&
-            window._genesys.widgets &&
-            window._genesys.widgets.webchat &&
-            window._genesys.widgets.webchat.transport &&
-            window._genesys.widgets.webchat.transport.type ===
-              'purecloud-v1-xhr';
+            console.log('[Genesys] Legacy mode initialization indicators:', {
+              hasMainFunction,
+              hasCXBus,
+              hasV1Transport,
+              hasUIComponents,
+              hasChatButton,
+            });
 
-          // Method 4: Check for Genesys UI widgets loaded
-          const hasUIComponents = document.querySelector('.cx-widget') !== null;
+            // If CXBus is available, that's usually sufficient to proceed
+            if (hasCXBus) {
+              console.log(
+                '[Genesys] Widgets successfully initialized after script load',
+              );
+              window._genesysWidgetsInitializationInProgress = false;
 
-          // Method 5: Check if chat button exists (strongest indicator)
-          const hasChatButton =
-            document.querySelector('.cx-widget.cx-webchat-chat-button') !==
-            null;
+              // Explicitly show the button
+              console.log(
+                '[Genesys] Explicitly showing chat button after widgets ready',
+              );
+              try {
+                window._genesysCXBus.command('WebChat.showChatButton');
+              } catch (e) {
+                console.error('[Genesys] Error showing chat button:', e);
+              }
 
-          // Log all available initialization indicators
-          console.log('[Genesys] Legacy mode initialization indicators:', {
-            hasMainFunction,
-            hasCXBus,
-            hasV1Transport,
-            hasUIComponents,
-            hasChatButton,
-          });
+              // But still check if we need to create a button if none exists
+              setTimeout(function () {
+                if (
+                  !document.querySelector('.cx-widget.cx-webchat-chat-button')
+                ) {
+                  console.log(
+                    '[Genesys] No button after widgets ready, creating one',
+                  );
+                  window.forceCreateChatButton();
+                }
+              }, 500);
 
-          // For legacy mode, be more lenient - if ANY of these are true, consider ready
-          return (
-            hasMainFunction ||
-            hasCXBus ||
-            hasV1Transport ||
-            hasUIComponents ||
-            hasChatButton
-          );
+              return;
+            }
+
+            // No CXBus yet, continue polling
+            setTimeout(checkWidgetsReady, 250);
+          }
+          // Cloud mode readiness checks
+          else if (cfg.chatMode === 'cloud') {
+            console.log('[Genesys] Using cloud mode widget readiness checks');
+
+            // If Genesys Cloud API is available, try using it
+            if (window._genesys?.widgets?.bus) {
+              console.log('[Genesys] Widgets bus detected for cloud mode');
+              window._genesysWidgetsInitializationInProgress = false;
+
+              // Explicit show button call
+              try {
+                window._genesys.widgets.bus.command('WebChat.showChatButton');
+              } catch (e) {
+                console.error(
+                  '[Genesys] Error showing button in cloud mode:',
+                  e,
+                );
+              }
+
+              return;
+            }
+
+            // Continue polling
+            setTimeout(checkWidgetsReady, 250);
+          }
+        } catch (err) {
+          console.error('[Genesys] Error in widget readiness check:', err);
+          // Try again
+          setTimeout(checkWidgetsReady, 500);
         }
-
-        // Standard mode checks
-        // Method 1: Check for widgets.main.initialise function
-        const hasMainFunction =
-          window._genesys &&
-          window._genesys.widgets &&
-          window._genesys.widgets.main &&
-          typeof window._genesys.widgets.main.initialise === 'function';
-
-        // Method 2: Check for CXBus availability
-        const hasCXBus =
-          window._genesysCXBus &&
-          typeof window._genesysCXBus.command === 'function';
-
-        // Method 3: Check for Genesys UI widgets loaded
-        const hasUIComponents = document.querySelector('.cx-widget') !== null;
-
-        // Method 4: Check if chat button exists (strongest indicator)
-        const hasChatButton =
-          document.querySelector('.cx-widget.cx-webchat-chat-button') !== null;
-
-        // Log all available initialization indicators
-        console.log('[Genesys] Initialization indicators:', {
-          hasMainFunction,
-          hasCXBus,
-          hasUIComponents,
-          hasChatButton,
-        });
-
-        // Consider widgets ready if we have either the main function or CXBus
-        // or if we can see UI components already
-        return hasMainFunction || hasCXBus || hasUIComponents || hasChatButton;
       };
 
       // Load widgets.min.js script if in legacy mode
@@ -1508,6 +1599,17 @@
           }
         });
     })();
+
+    // Script loaded successfully, now initialize the widget
+    console.log(
+      '[Genesys] Widgets script loaded successfully, proceeding with initialization',
+    );
+
+    // Schedule readiness check to ensure button is shown
+    setTimeout(checkWidgetsReady, 500);
+
+    // Start proper initialization
+    initializeWidgetsExplicitly();
   }
 
   // Expose key functions to window for external access
