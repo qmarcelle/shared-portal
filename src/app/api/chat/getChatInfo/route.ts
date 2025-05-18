@@ -51,10 +51,10 @@ function generateMockChatConfig(
     // CRITICAL for legacy chat - Add required Genesys configuration
     clickToChatEndpoint:
       process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-      'https://api3.bcbst.com/stge/soa/api/cci/chatbot',
+      'https://members.bcbst.com/test/soa/api/cci/genesyschat', // CORRECTED fallback
     gmsChatUrl:
       process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      'https://members.bcbst.com/test/soa/api/cci/genesyschat',
+      'https://members.bcbst.com/test/soa/api/cci/genesyschat', // CORRECTED fallback
     widgetUrl:
       process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
       '/assets/genesys/plugins/widgets.min.js',
@@ -150,7 +150,7 @@ export async function GET(request: NextRequest) {
       // Ensure legacy endpoints are set
       mockData.clickToChatEndpoint =
         process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat';
+        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
       mockData.gmsChatUrl =
         process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 
@@ -289,7 +289,7 @@ export async function GET(request: NextRequest) {
       // Ensure legacy endpoints are set
       mockData.clickToChatEndpoint =
         process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat';
+        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
       mockData.gmsChatUrl =
         process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 
@@ -354,14 +354,14 @@ export async function GET(request: NextRequest) {
       clickToChatEndpoint: !(data.cloudChatEligible || false)
         ? (data.clickToChatEndpoint as string) ||
           process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // CORRECTED fallback
         : undefined,
       gmsChatUrl: !(data.cloudChatEligible || false)
         ? (data.gmsChatUrl as string) ||
           process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
           (data.clickToChatEndpoint as string) ||
           process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // CORRECTED fallback
         : undefined,
     };
 
@@ -437,7 +437,7 @@ export async function GET(request: NextRequest) {
       // Ensure legacy endpoints are set
       mockData.clickToChatEndpoint =
         process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat';
+        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
       mockData.gmsChatUrl =
         process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
 

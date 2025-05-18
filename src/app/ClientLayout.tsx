@@ -83,7 +83,10 @@ export default function ClientLayout({
       configKeyCount: genesysChatConfig
         ? Object.keys(genesysChatConfig).length
         : 0,
-      targetContainer: genesysChatConfig?.targetContainer || 'undefined',
+      targetContainer:
+        genesysChatConfig && 'targetContainer' in genesysChatConfig
+          ? (genesysChatConfig as any).targetContainer
+          : 'undefined',
     });
 
     // Improved check for readiness - both API state and configuration must be ready
@@ -96,7 +99,11 @@ export default function ClientLayout({
       ChatLoadingState.apiState.isEligible &&
       !!genesysChatConfig &&
       Object.keys(genesysChatConfig).length > 0 &&
-      !!genesysChatConfig.targetContainer; // Ensure targetContainer exists
+      !!(
+        genesysChatConfig &&
+        'targetContainer' in genesysChatConfig &&
+        (genesysChatConfig as any).targetContainer
+      ); // Ensure targetContainer exists
 
     const scriptsAlreadyLoaded = ChatLoadingState.scriptState.isComplete;
 
@@ -115,7 +122,11 @@ export default function ClientLayout({
           '[ClientLayout] Client ready, ChatWidget can now be rendered',
           {
             hasGenesysConfig: !!genesysChatConfig,
-            configHasTargetContainer: !!genesysChatConfig?.targetContainer,
+            configHasTargetContainer: !!(
+              genesysChatConfig &&
+              'targetContainer' in genesysChatConfig &&
+              (genesysChatConfig as any).targetContainer
+            ),
             apiStateComplete: ChatLoadingState.apiState.isComplete,
             apiStateEligible: ChatLoadingState.apiState.isEligible,
             readyReason: eligibleWithConfig
@@ -218,7 +229,13 @@ export default function ClientLayout({
         planId,
         'MEM', // Default member type
         userContext,
-      );
+      ).then((chatData) => {
+        // Log the chatData that loadChatConfiguration resolves with
+        logger.info(
+          '[ClientLayout] loadChatConfiguration completed. Resolved chatData:',
+          chatData,
+        );
+      });
     }
   }, [session, loadChatConfiguration]);
 

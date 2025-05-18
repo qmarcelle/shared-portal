@@ -39,9 +39,9 @@ export interface GenesysChatConfig {
   memberLastName?: string;
   /** Session/user context: Formatted first name */
   formattedFirstName?: string;
-  /** Session/user context: Subscriber ID */
+  /** Plan/group context: Subscriber ID */
   subscriberID?: string;
-  /** Session/user context: Suffix */
+  /** Plan/group context: Suffix */
   sfx?: string;
   /** Plan/group context: Group ID */
   groupId?: string;
@@ -404,10 +404,10 @@ export function buildGenesysChatConfig({
       process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
       'https://members.bcbst.com/test/soa/api/cci/genesyschat';
 
-    // Always ensure gmsChatUrl is set when clickToChatEndpoint is set
+    // If gmsChatUrl is also missing, make it match the (potentially new) clickToChatEndpoint
     if (!config.gmsChatUrl) {
       config.gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL || config.clickToChatEndpoint;
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL || config.clickToChatEndpoint; // This ensures it uses the corrected endpoint
       logger.info(
         '[buildGenesysChatConfig] Setting gmsChatUrl to match clickToChatEndpoint',
         { gmsChatUrl: config.gmsChatUrl },
