@@ -470,6 +470,59 @@ export default function ChatWidget({
         if (typeof window._forceChatButtonCreate === 'function') {
           logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
           window._forceChatButtonCreate();
+
+          // Wait a bit more, then remove fallback button if the official one exists
+          setTimeout(() => {
+            const officialButton = document.querySelector(
+              '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
+            );
+            const fallbackButton = document.querySelector(
+              '.fallback-chat-button',
+            );
+
+            if (officialButton && fallbackButton) {
+              logger.info(
+                `${LOG_PREFIX} Found official button, removing fallback`,
+              );
+              fallbackButton.remove();
+            } else if (fallbackButton && !officialButton) {
+              logger.info(
+                `${LOG_PREFIX} Only fallback button exists, keeping it`,
+              );
+              // Enhance the fallback button to make it work better
+              fallbackButton.setAttribute(
+                'aria-label',
+                'Chat with Customer Service',
+              );
+              fallbackButton.classList.add('enhanced-fallback');
+            }
+
+            // Setup a MutationObserver to detect if the official button appears later
+            // This helps with browsers that don't support :has() CSS selector
+            const targetNode = document.body;
+            const config = { childList: true, subtree: true };
+            const callback = (mutationsList: MutationRecord[]) => {
+              const newOfficialButton = document.querySelector(
+                '.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)',
+              );
+              const newFallbackButton = document.querySelector(
+                '.fallback-chat-button',
+              );
+
+              if (newOfficialButton && newFallbackButton) {
+                logger.info(
+                  `${LOG_PREFIX} MutationObserver: Official button detected, removing fallback`,
+                );
+                newFallbackButton.remove();
+              }
+            };
+
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, config);
+
+            // Cleanup observer after 10 seconds - by then, buttons should be stable
+            setTimeout(() => observer.disconnect(), 10000);
+          }, 2000);
         }
       }, 1000);
     }
@@ -530,6 +583,15 @@ export default function ChatWidget({
       );
     }
 
+    // Ensure container has proper styling
+    containerElement.style.position = 'relative';
+    containerElement.style.zIndex = '999';
+    containerElement.style.minHeight = '10px';
+    containerElement.style.minWidth = '10px';
+
+    // Add a data attribute that scripts can check for
+    containerElement.dataset.initialized = 'true';
+
     return () => {
       // Don't remove the container on unmount as Genesys might still need it
     };
@@ -537,16 +599,8 @@ export default function ChatWidget({
 
   return (
     <>
-      {/* Container for the Genesys chat widget - explicitly rendered with z-index */}
-      <div
-        id={containerId}
-        style={{
-          position: 'relative',
-          zIndex: 999,
-          minHeight: '10px',
-          minWidth: '10px',
-        }}
-      />
+      {/* Container for the Genesys chat widget - managed by useEffect */}
+      <div id={containerId} />
 
       {/* Loader for Genesys scripts, rendered only when config is ready */}
       {isChatEnabled && (
@@ -574,9 +628,14 @@ export default function ChatWidget({
 
       {/* Add custom CSS styles to ensure chat button is visible */}
       <style>{`
-        /* Make the Genesys chat button visible */
-        .cx-widget.cx-webchat-chat-button,
-        .fallback-chat-button {
+        /* Hide fallback button if official button exists */
+        body:has(.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button)) .fallback-chat-button {
+          display: none !important;
+        }
+        
+        /* Make the Genesys chat button visible - only apply to the official button or enhanced fallback */
+        .cx-widget.cx-webchat-chat-button:not(.fallback-chat-button),
+        .fallback-chat-button.enhanced-fallback {
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
@@ -599,8 +658,22 @@ export default function ChatWidget({
           transition: background-color 0.3s ease !important;
         }
         
-        .cx-widget.cx-webchat-chat-button:hover,
-        .fallback-chat-button:hover {
+        /* Hide the unenhanced fallback button until we can check for the official button */
+        .fallback-chat-button:not(.enhanced-fallback) {
+          visibility: hidden !important;
+          opacity: 0 !important;
+          transition: visibility 0s 3s, opacity 3s linear !important;
+        }
+        
+        /* After 3 seconds, if no official button, show the fallback */
+        body:not(:has(.cx-widget.cx-webchat-chat-button:not(.fallback-chat-button))) .fallback-chat-button {
+          visibility: visible !important;
+          opacity: 1 !important;
+          transition: visibility 0s 3s, opacity 3s linear !important;
+        }
+        
+        .cx-widget.cx-webchat-chat-button:not(.fallback-chat-button):hover,
+        .fallback-chat-button.enhanced-fallback:hover {
           background-color: #003d7a !important;
         }
       `}</style>
