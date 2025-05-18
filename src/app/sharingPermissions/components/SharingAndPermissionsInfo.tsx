@@ -57,7 +57,7 @@ export const SharingAndPermissionsInfo = ({
             }}
           />
         )}
-        <LinkRow
+        {/* <LinkRow
           label="Third Party Sharing"
           link="/member/profile/accountsharing/thirdparty"
           description={
@@ -67,7 +67,7 @@ export const SharingAndPermissionsInfo = ({
             </div>
           }
           divider={false}
-        />
+        /> */}
         {/* US-33923 Removing Health Info Transfer Request */}
         {/* <LinkRow
           label="Health Information Transfer Request"
