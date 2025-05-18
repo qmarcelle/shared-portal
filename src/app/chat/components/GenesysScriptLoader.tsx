@@ -311,9 +311,20 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
     const loadScript = useCallback(async () => {
       // First check if we should load scripts based on our sequential loader state
-      if (!shouldLoadScripts()) {
+      const canLoadScripts = shouldLoadScripts();
+      logger.info(
+        `${LOG_PREFIX} Script loading check - shouldLoadScripts returned: ${canLoadScripts}`,
+        {
+          apiStateComplete: ChatLoadingState.apiState.isComplete,
+          apiStateEligible: ChatLoadingState.apiState.isEligible,
+          scriptStateComplete: ChatLoadingState.scriptState.isComplete,
+          scriptStateLoadAttempts: ChatLoadingState.scriptState.loadAttempts,
+        },
+      );
+
+      if (!canLoadScripts) {
         logger.info(
-          `${LOG_PREFIX} Script loading skipped based on sequential loader state.`,
+          `${LOG_PREFIX} Scripts loading skipped based on sequential loader state.`,
         );
 
         // If scripts are already loaded successfully, call onLoad

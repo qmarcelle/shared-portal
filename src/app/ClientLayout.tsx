@@ -2,7 +2,11 @@
 
 import { ChatClientEntry } from '@/app/chat/components';
 import { registerGlobalChatOpener } from '@/app/chat/utils/chatOpenHelpers';
-import { initializeChatSequentially } from '@/app/chat/utils/chatSequentialLoader';
+import {
+  ChatLoadingState,
+  initializeChatSequentially,
+  resetChatLoader,
+} from '@/app/chat/utils/chatSequentialLoader';
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
@@ -33,6 +37,20 @@ export default function ClientLayout({
     // Use our sequential loader to manage initialization
     if (!hasInitialized.current) {
       logger.info('[ClientLayout] Initializing chat functionality');
+
+      // Check if the API state is stalled - if API state is complete but scripts aren't allowed to load
+      // This can happen if state gets out of sync between client/server
+      if (
+        ChatLoadingState.apiState.isComplete &&
+        !ChatLoadingState.scriptState.isComplete &&
+        !ChatLoadingState.scriptState.isLoading
+      ) {
+        logger.info(
+          '[ClientLayout] Chat loader state detected as stalled - API complete but scripts not loading',
+        );
+        // Reset the loader to ensure clean state
+        resetChatLoader();
+      }
 
       // Initialize sequentially - will only run once even if ClientLayout is remounted
       if (initializeChatSequentially()) {

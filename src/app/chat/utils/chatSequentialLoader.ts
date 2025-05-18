@@ -101,17 +101,50 @@ export function updateApiState(
 export function shouldLoadScripts(): boolean {
   const { apiState, scriptState } = ChatLoadingState;
 
-  // Only load scripts if:
-  // 1. API call is complete
-  // 2. User is eligible for chat
-  // 3. Scripts haven't been successfully loaded yet
-  // 4. We haven't exceeded max retry attempts
-  return (
-    apiState.isComplete &&
-    apiState.isEligible &&
-    !scriptState.isComplete &&
-    scriptState.loadAttempts < TIME_CONSTANTS.MAX_SCRIPT_LOAD_ATTEMPTS
-  );
+  logger.info('[ChatSequentialLoader] shouldLoadScripts check', {
+    apiComplete: apiState.isComplete,
+    apiEligible: apiState.isEligible,
+    scriptComplete: scriptState.isComplete,
+    scriptLoading: scriptState.isLoading,
+    scriptAttempts: scriptState.loadAttempts,
+    maxAttempts: TIME_CONSTANTS.MAX_SCRIPT_LOAD_ATTEMPTS,
+  });
+
+  // Simple case: scripts already completed successfully
+  if (scriptState.isComplete) {
+    logger.info(
+      '[ChatSequentialLoader] Scripts already completed successfully',
+    );
+    return false;
+  }
+
+  // Current script loading in progress - don't start another
+  if (scriptState.isLoading) {
+    logger.info('[ChatSequentialLoader] Scripts currently loading');
+    return false;
+  }
+
+  // API call not complete yet - wait for it
+  if (!apiState.isComplete) {
+    logger.info('[ChatSequentialLoader] API call not complete yet');
+    return false;
+  }
+
+  // Not eligible for chat - don't load scripts
+  if (!apiState.isEligible) {
+    logger.info('[ChatSequentialLoader] User not eligible for chat');
+    return false;
+  }
+
+  // Too many failed attempts
+  if (scriptState.loadAttempts >= TIME_CONSTANTS.MAX_SCRIPT_LOAD_ATTEMPTS) {
+    logger.info('[ChatSequentialLoader] Maximum load attempts reached');
+    return false;
+  }
+
+  // If we got here, we should load scripts
+  logger.info('[ChatSequentialLoader] Script loading ALLOWED');
+  return true;
 }
 
 /**
