@@ -402,7 +402,7 @@ export function buildGenesysChatConfig({
     );
     config.clickToChatEndpoint =
       process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-      'https://chat-api.bcbst.com/api/chat/v1';
+      'https://members.bcbst.com/test/soa/api/cci/genesyschat';
 
     // Always ensure gmsChatUrl is set when clickToChatEndpoint is set
     if (!config.gmsChatUrl) {
