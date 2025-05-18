@@ -1091,6 +1091,17 @@
     // === Fallback Button Creation ===
     // Add function to force create chat button as fallback
     window.forceCreateChatButton = function () {
+      // Prevent multiple simultaneous executions
+      if (window._genesysButtonCreationInProgress) {
+        console.log(
+          '[Genesys] Button creation already in progress, skipping duplicate call',
+        );
+        return false;
+      }
+
+      // Set flag to prevent multiple executions
+      window._genesysButtonCreationInProgress = true;
+
       console.log('[Genesys] Forcing official button initialization');
 
       // Only attempt if the official button doesn't exist
@@ -1135,6 +1146,7 @@
             console.log('[Genesys] Legacy mode: Using main.initialise()');
             try {
               window._genesys.widgets.main.initialise();
+              window._genesysButtonCreationInProgress = false;
               return true;
             } catch (err) {
               console.error(
@@ -1146,6 +1158,7 @@
             console.log('[Genesys] Legacy mode: Using CXBus.command()');
             try {
               window._genesysCXBus.command('WebChat.render');
+              window._genesysButtonCreationInProgress = false;
               return true;
             } catch (err) {
               console.error(
@@ -1159,6 +1172,7 @@
             );
             // Force script reload as last resort
             loadWidgetsScriptExplicitly();
+            window._genesysButtonCreationInProgress = false;
             return false;
           }
         }
@@ -1172,6 +1186,7 @@
           console.log('[Genesys] widgets.main.initialise exists, calling it');
           try {
             window._genesys.widgets.main.initialise();
+            window._genesysButtonCreationInProgress = false;
             return true;
           } catch (err) {
             console.error(
@@ -1185,6 +1200,7 @@
           );
           try {
             window._genesysCXBus.command('WebChat.render');
+            window._genesysButtonCreationInProgress = false;
             return true;
           } catch (err) {
             console.error('[Genesys] Error calling WebChat.render:', err);
@@ -1206,6 +1222,7 @@
             );
 
             setTimeout(function () {
+              window._genesysButtonCreationInProgress = false;
               window.forceCreateChatButton();
             }, 1000);
           } else {
@@ -1213,6 +1230,7 @@
               '[Genesys] Maximum retries reached for button creation',
             );
             loadWidgetsScriptExplicitly();
+            window._genesysButtonCreationInProgress = false;
           }
 
           return false;
@@ -1220,15 +1238,26 @@
       }
 
       console.log('[Genesys] Button already exists, no initialization needed');
+      window._genesysButtonCreationInProgress = false;
       return true;
     };
 
     // Add a function to explicitly load the widgets script if needed
     function loadWidgetsScriptExplicitly() {
-      if (document.getElementById('genesys-widgets-script-explicit')) {
-        console.log('[Genesys] Widgets script already being loaded explicitly');
+      // Check if widgets script is already being loaded
+      if (
+        document.getElementById('genesys-widgets-script-explicit') ||
+        document.getElementById('genesys-widgets-script') ||
+        window._genesysScriptLoadExplicitlyInProgress
+      ) {
+        console.log(
+          '[Genesys] Widgets script already being loaded explicitly or in progress',
+        );
         return;
       }
+
+      // Set flag to prevent multiple simultaneous loads
+      window._genesysScriptLoadExplicitlyInProgress = true;
 
       console.log(
         '[Genesys] Loading widgets script explicitly for legacy mode',
@@ -1245,6 +1274,7 @@
           '[Genesys] Local widgets script loaded explicitly, now initializing',
         );
         window._genesysChatButtonRetryCount = 0; // Reset retry count
+        window._genesysScriptLoadExplicitlyInProgress = false; // Clear loading flag
         initializeWidgetsExplicitly();
       };
       script.onerror = function (err) {
@@ -1252,6 +1282,7 @@
           '[Genesys] Failed to load local widgets script explicitly:',
           err,
         );
+        window._genesysScriptLoadExplicitlyInProgress = false; // Clear loading flag
         console.warn(
           '[Genesys] Attempting minimal button creation despite script loading failure',
         );
@@ -1287,6 +1318,15 @@
 
     // Function to explicitly initialize widgets after script loading
     function initializeWidgetsExplicitly() {
+      // Guard against multiple initializations
+      if (window._genesysWidgetsInitializationInProgress) {
+        console.log(
+          '[Genesys] Widgets initialization already in progress, skipping duplicate call',
+        );
+        return;
+      }
+
+      window._genesysWidgetsInitializationInProgress = true;
       console.log('[Genesys] Attempting explicit widgets initialization');
 
       try {
@@ -1323,6 +1363,39 @@
             targetContainer: cfg.targetContainer || 'genesys-chat-container',
           };
 
+          // Add an event to track when CXBus becomes available
+          if (!window._genesysCXBusReady) {
+            // Set up the onReady handler if it doesn't exist yet
+            window._genesys.widgets.onReady = function (CXBus) {
+              console.log(
+                '[Genesys] CXBus is now available through onReady handler',
+              );
+              window._genesysCXBus = CXBus;
+              window._genesysCXBusReady = true;
+
+              // Notify any waiting components that CXBus is ready
+              document.dispatchEvent(
+                new CustomEvent('genesys:cxbus:ready', {
+                  detail: { CXBus: CXBus },
+                }),
+              );
+
+              // Continue with any original onReady logic
+              if (typeof window._originalGenesysOnReady === 'function') {
+                window._originalGenesysOnReady(CXBus);
+              }
+            };
+
+            // Store original onReady handler if it exists
+            if (
+              typeof window._genesys.widgets.onReady === 'function' &&
+              window._genesys.widgets.onReady !==
+                window._genesys.widgets.onReady
+            ) {
+              window._originalGenesysOnReady = window._genesys.widgets.onReady;
+            }
+          }
+
           // Force synchronous initialization if possible
           if (window._genesys.widgets.bus) {
             console.log('[Genesys] Using widget bus to render webchat');
@@ -1357,11 +1430,17 @@
                 }
 
                 // Try the button creation again after a delay
-                setTimeout(window.forceCreateChatButton, 1000);
+                setTimeout(function () {
+                  window._genesysWidgetsInitializationInProgress = false;
+                  window.forceCreateChatButton();
+                }, 1000);
               }, 500);
+
+              return; // Early return since we're waiting for initialization
             }
           }
 
+          window._genesysWidgetsInitializationInProgress = false;
           return;
         }
 
@@ -1399,13 +1478,19 @@
             console.log(
               '[Genesys] Still waiting for initialization, checking again...',
             );
-            setTimeout(window.forceCreateChatButton, 1000);
+            setTimeout(function () {
+              window._genesysWidgetsInitializationInProgress = false;
+              window.forceCreateChatButton();
+            }, 1000);
           }
         }, 1000);
       } catch (err) {
         console.error('[Genesys] Error during explicit initialization:', err);
         // Just try the button creation anyway after a delay
-        setTimeout(window.forceCreateChatButton, 1500);
+        setTimeout(function () {
+          window._genesysWidgetsInitializationInProgress = false;
+          window.forceCreateChatButton();
+        }, 1500);
       }
     }
 
@@ -1413,164 +1498,110 @@
     window._forceChatButtonCreate = window.forceCreateChatButton;
     window._initializeWidgetsExplicitly = initializeWidgetsExplicitly;
 
-    // Setup button check timeout
-    setTimeout(() => {
-      if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
-        console.log(
-          '[Genesys] No chat button found after timeout, initializing official button',
-        );
-        window.forceCreateChatButton();
-      }
-    }, 2000);
+    // Add a flag to prevent duplicate script loading
+    window._genesysScriptAlreadyAttempted =
+      window._genesysScriptAlreadyAttempted || false;
 
-    // Define global functions for opening the plan switcher
-    window.openPlanSwitcher = function () {
-      console.log('[Genesys] Opening Plan Switcher');
-      // Close the widget first
-      if (window._genesysCXBus) {
-        try {
-          window._genesysCXBus.command('WebChat.close');
-        } catch (err) {
-          console.error(
-            '[Genesys] Error closing chat before plan switch:',
-            err,
+    // Setup button check timeout - only do this once
+    if (!window._genesysButtonCheckTimeout) {
+      window._genesysButtonCheckTimeout = true;
+      setTimeout(() => {
+        if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
+          console.log(
+            '[Genesys] No chat button found after timeout, initializing official button',
           );
+          window.forceCreateChatButton();
         }
-      }
-
-      // Try to access the plan switcher from the store if exists
-      try {
-        if (window.__ZUSTAND_STORES__?.planStore) {
-          window.__ZUSTAND_STORES__.planStore.getState().openPlanSwitcher();
-        } else {
-          // Fallback to focusing on a plan select dropdown
-          const planSelect = document.getElementById('plan-select');
-          if (planSelect) {
-            planSelect.focus();
-          }
-        }
-      } catch (err) {
-        console.error('[Genesys] Error opening plan switcher:', err);
-        alert('Unable to switch plans at this time. Please try again later.');
-      }
-    };
-
-    // Define OpenChatDisclaimer for Terms & Conditions
-    window.OpenChatDisclaimer = function () {
-      console.log('[Genesys] Opening Chat Disclaimer');
-      let title = 'Terms and Conditions';
-      let message =
-        'By using our chat service, you agree to our terms and conditions.';
-      let url = '#';
-
-      // Use LOB to determine the appropriate T&C content
-      const lob = cfg.LOB || 'Default';
-
-      switch (lob) {
-        case 'BC': // BlueCare
-          title = 'BlueCare Chat Terms';
-          message =
-            'By using BlueCare chat services, you agree to our terms and conditions.';
-          url = '/terms/bluecare-terms';
-          break;
-        case 'BA': // SeniorCare
-          title = 'SeniorCare Chat Terms';
-          message =
-            'By using SeniorCare chat services, you agree to our terms and conditions.';
-          url = '/terms/seniorcare-terms';
-          break;
-        case 'INDV': // Individual
-          title = 'Individual Plan Chat Terms';
-          message =
-            'By using Individual Plan chat services, you agree to our terms and conditions.';
-          url = '/terms/individual-terms';
-          break;
-        case 'INDVMX': // BlueElite
-          title = 'BlueElite Chat Terms';
-          message =
-            'By using BlueElite chat services, you agree to our terms and conditions.';
-          url = '/terms/blueelite-terms';
-          break;
-        default:
-        // Use defaults already set
-      }
-
-      // Create and display the modal
-      const modal = document.createElement('div');
-      modal.style.position = 'fixed';
-      modal.style.top = '0';
-      modal.style.left = '0';
-      modal.style.width = '100%';
-      modal.style.height = '100%';
-      modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
-      modal.style.zIndex = '9999';
-      modal.style.display = 'flex';
-      modal.style.alignItems = 'center';
-      modal.style.justifyContent = 'center';
-
-      const content = document.createElement('div');
-      content.style.backgroundColor = 'white';
-      content.style.padding = '20px';
-      content.style.borderRadius = '5px';
-      content.style.maxWidth = '500px';
-      content.style.width = '80%';
-
-      content.innerHTML = `
-        <h3 style="margin-top:0">${title}</h3>
-        <p>${message}</p>
-        <div style="text-align:center">
-          <button id="terms-ok" style="padding:8px 16px;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer">OK</button>
-        </div>
-      `;
-
-      modal.appendChild(content);
-      document.body.appendChild(modal);
-
-      document
-        .getElementById('terms-ok')
-        .addEventListener('click', function () {
-          document.body.removeChild(modal);
-        });
-
-      return false; // Prevent default link behavior
-    };
-  }
-
-  // === LEGACY SCRIPT LOADER ===
-  (function () {
-    // Only load in legacy mode
-    if (cfg.chatMode === 'cloud') {
-      console.log(
-        '[Genesys] Cloud mode detected, skipping legacy script loading',
-      );
-      return;
+      }, 2000);
     }
 
-    console.log('[Genesys] Legacy mode detected, loading widgets script');
-
-    // Add event listener for manual button creation
-    document.addEventListener('genesys:create-button', () => {
-      console.log('[Genesys] Received create-button event');
-      if (window.forceCreateChatButton) {
-        window.forceCreateChatButton();
+    // === LEGACY SCRIPT LOADER ===
+    (function () {
+      // Only load in legacy mode and if not already attempted
+      if (cfg.chatMode === 'cloud' || window._genesysScriptAlreadyAttempted) {
+        console.log(
+          '[Genesys] Cloud mode or script already attempted, skipping legacy script loading',
+        );
+        return;
       }
-    });
 
-    // Track script loading state globally
-    window._genesysScriptLoadingState = {
-      widgetsScriptLoaded: false,
-      widgetsScriptFailed: false,
-      initializedWidgets: false,
-    };
+      // Mark that we've attempted loading the script
+      window._genesysScriptAlreadyAttempted = true;
 
-    // Add a function to explicitly check if widgets are ready
-    window._genesysCheckWidgetsReady = function () {
-      console.log('[Genesys] Checking widgets readiness');
+      console.log('[Genesys] Legacy mode detected, loading widgets script');
 
-      // For legacy mode, need different checks
-      if (cfg.chatMode === 'legacy') {
-        console.log('[Genesys] Using legacy mode widgets readiness checks');
+      // Add event listener for manual button creation
+      document.addEventListener('genesys:create-button', () => {
+        console.log('[Genesys] Received create-button event');
+        if (window.forceCreateChatButton) {
+          window.forceCreateChatButton();
+        }
+      });
 
+      // Track script loading state globally
+      window._genesysScriptLoadingState = {
+        widgetsScriptLoaded: false,
+        widgetsScriptFailed: false,
+        initializedWidgets: false,
+      };
+
+      // Add a function to explicitly check if widgets are ready
+      window._genesysCheckWidgetsReady = function () {
+        console.log('[Genesys] Checking widgets readiness');
+
+        // For legacy mode, need different checks
+        if (cfg.chatMode === 'legacy') {
+          console.log('[Genesys] Using legacy mode widgets readiness checks');
+
+          // Method 1: Check for widgets.main.initialise function
+          const hasMainFunction =
+            window._genesys &&
+            window._genesys.widgets &&
+            window._genesys.widgets.main &&
+            typeof window._genesys.widgets.main.initialise === 'function';
+
+          // Method 2: Check for CXBus availability
+          const hasCXBus =
+            window._genesysCXBus &&
+            typeof window._genesysCXBus.command === 'function';
+
+          // Method 3: Check for v1 transport object
+          const hasV1Transport =
+            window._genesys &&
+            window._genesys.widgets &&
+            window._genesys.widgets.webchat &&
+            window._genesys.widgets.webchat.transport &&
+            window._genesys.widgets.webchat.transport.type ===
+              'purecloud-v1-xhr';
+
+          // Method 4: Check for Genesys UI widgets loaded
+          const hasUIComponents = document.querySelector('.cx-widget') !== null;
+
+          // Method 5: Check if chat button exists (strongest indicator)
+          const hasChatButton =
+            document.querySelector('.cx-widget.cx-webchat-chat-button') !==
+            null;
+
+          // Log all available initialization indicators
+          console.log('[Genesys] Legacy mode initialization indicators:', {
+            hasMainFunction,
+            hasCXBus,
+            hasV1Transport,
+            hasUIComponents,
+            hasChatButton,
+          });
+
+          // For legacy mode, be more lenient - if ANY of these are true, consider ready
+          return (
+            hasMainFunction ||
+            hasCXBus ||
+            hasV1Transport ||
+            hasUIComponents ||
+            hasChatButton
+          );
+        }
+
+        // Standard mode checks
         // Method 1: Check for widgets.main.initialise function
         const hasMainFunction =
           window._genesys &&
@@ -1583,170 +1614,126 @@
           window._genesysCXBus &&
           typeof window._genesysCXBus.command === 'function';
 
-        // Method 3: Check for v1 transport object
-        const hasV1Transport =
-          window._genesys &&
-          window._genesys.widgets &&
-          window._genesys.widgets.webchat &&
-          window._genesys.widgets.webchat.transport &&
-          window._genesys.widgets.webchat.transport.type === 'purecloud-v1-xhr';
-
-        // Method 4: Check for Genesys UI widgets loaded
+        // Method 3: Check for Genesys UI widgets loaded
         const hasUIComponents = document.querySelector('.cx-widget') !== null;
 
-        // Method 5: Check if chat button exists (strongest indicator)
+        // Method 4: Check if chat button exists (strongest indicator)
         const hasChatButton =
           document.querySelector('.cx-widget.cx-webchat-chat-button') !== null;
 
         // Log all available initialization indicators
-        console.log('[Genesys] Legacy mode initialization indicators:', {
+        console.log('[Genesys] Initialization indicators:', {
           hasMainFunction,
           hasCXBus,
-          hasV1Transport,
           hasUIComponents,
           hasChatButton,
         });
 
-        // For legacy mode, be more lenient - if ANY of these are true, consider ready
-        return (
-          hasMainFunction ||
-          hasCXBus ||
-          hasV1Transport ||
-          hasUIComponents ||
-          hasChatButton
-        );
-      }
+        // Consider widgets ready if we have either the main function or CXBus
+        // or if we can see UI components already
+        return hasMainFunction || hasCXBus || hasUIComponents || hasChatButton;
+      };
 
-      // Standard mode checks
-      // Method 1: Check for widgets.main.initialise function
-      const hasMainFunction =
-        window._genesys &&
-        window._genesys.widgets &&
-        window._genesys.widgets.main &&
-        typeof window._genesys.widgets.main.initialise === 'function';
+      // Load widgets.min.js script if in legacy mode
+      const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
 
-      // Method 2: Check for CXBus availability
-      const hasCXBus =
-        window._genesysCXBus &&
-        typeof window._genesysCXBus.command === 'function';
+      console.log(
+        '[Genesys] Attempting to load local widgets script from',
+        localWidgetsUrl,
+      );
+      loadResource
+        .script(localWidgetsUrl, { id: 'genesys-widgets-script' })
+        .then((scriptEl) => {
+          console.log('[Genesys] Local widgets script loaded successfully');
+          window._genesysScriptLoadingState.widgetsScriptLoaded = true;
 
-      // Method 3: Check for Genesys UI widgets loaded
-      const hasUIComponents = document.querySelector('.cx-widget') !== null;
+          // Set up a timeout to verify widgets initialization
+          let checkCount = 0;
+          const maxChecks = 20; // Increase max check attempts
+          const checkInterval = 500; // Increase check interval for more time
 
-      // Method 4: Check if chat button exists (strongest indicator)
-      const hasChatButton =
-        document.querySelector('.cx-widget.cx-webchat-chat-button') !== null;
+          const checkWidgetsReady = function () {
+            checkCount++;
 
-      // Log all available initialization indicators
-      console.log('[Genesys] Initialization indicators:', {
-        hasMainFunction,
-        hasCXBus,
-        hasUIComponents,
-        hasChatButton,
-      });
-
-      // Consider widgets ready if we have either the main function or CXBus
-      // or if we can see UI components already
-      return hasMainFunction || hasCXBus || hasUIComponents || hasChatButton;
-    };
-
-    // Load widgets.min.js script if in legacy mode
-    const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
-
-    console.log(
-      '[Genesys] Attempting to load local widgets script from',
-      localWidgetsUrl,
-    );
-    loadResource
-      .script(localWidgetsUrl, { id: 'genesys-widgets-script' })
-      .then((scriptEl) => {
-        console.log('[Genesys] Local widgets script loaded successfully');
-        window._genesysScriptLoadingState.widgetsScriptLoaded = true;
-
-        // Set up a timeout to verify widgets initialization
-        let checkCount = 0;
-        const maxChecks = 20; // Increase max check attempts
-        const checkInterval = 500; // Increase check interval for more time
-
-        const checkWidgetsReady = function () {
-          checkCount++;
-
-          if (window._genesysCheckWidgetsReady()) {
-            console.log(
-              '[Genesys] Widgets successfully initialized after script load',
-            );
-            window._genesysScriptLoadingState.initializedWidgets = true;
-
-            // Check for button after widgets are ready
-            if (!document.querySelector('.cx-widget.cx-webchat-chat-button')) {
+            if (window._genesysCheckWidgetsReady()) {
               console.log(
-                '[Genesys] No button after widgets ready, creating one',
+                '[Genesys] Widgets successfully initialized after script load',
               );
-              if (window.forceCreateChatButton) {
-                window.forceCreateChatButton();
+              window._genesysScriptLoadingState.initializedWidgets = true;
+
+              // Check for button after widgets are ready
+              if (
+                !document.querySelector('.cx-widget.cx-webchat-chat-button')
+              ) {
+                console.log(
+                  '[Genesys] No button after widgets ready, creating one',
+                );
+                if (window.forceCreateChatButton) {
+                  window.forceCreateChatButton();
+                }
               }
+
+              return;
             }
 
-            return;
-          }
-
-          if (checkCount < maxChecks) {
-            console.log(
-              `[Genesys] Widgets not initialized yet, check ${checkCount}/${maxChecks}`,
-            );
-
-            // If we're at a specific threshold, try explicit initialization
-            if (checkCount === 5) {
+            if (checkCount < maxChecks) {
               console.log(
-                '[Genesys] Triggering explicit initialization to help loading process',
+                `[Genesys] Widgets not initialized yet, check ${checkCount}/${maxChecks}`,
               );
+
+              // If we're at a specific threshold, try explicit initialization
+              if (checkCount === 5) {
+                console.log(
+                  '[Genesys] Triggering explicit initialization to help loading process',
+                );
+                initializeWidgetsExplicitly();
+              }
+
+              setTimeout(checkWidgetsReady, checkInterval);
+            } else {
+              console.warn(
+                '[Genesys] Widgets failed to initialize after maximum checks, using fallback initialization',
+              );
+
+              // Last resort: try full explicit initialization
               initializeWidgetsExplicitly();
+
+              // Try to force button creation anyway after a short delay
+              setTimeout(function () {
+                if (window.forceCreateChatButton) {
+                  window.forceCreateChatButton();
+                }
+              }, 1000);
             }
+          };
 
-            setTimeout(checkWidgetsReady, checkInterval);
-          } else {
-            console.warn(
-              '[Genesys] Widgets failed to initialize after maximum checks, using fallback initialization',
-            );
+          // Start checking if widgets are initialized
+          setTimeout(checkWidgetsReady, checkInterval);
+        })
+        .catch((err) => {
+          console.error(
+            '[Genesys] Failed to load local widgets script for legacy mode:',
+            err,
+          );
+          window._genesysScriptLoadingState.widgetsScriptFailed = true;
 
-            // Last resort: try full explicit initialization
-            initializeWidgetsExplicitly();
+          // Trigger error event and notify user that widgets failed to load
+          document.dispatchEvent(
+            new CustomEvent('genesys:script:error', {
+              detail: { error: err },
+            }),
+          );
 
-            // Try to force button creation anyway after a short delay
-            setTimeout(function () {
-              if (window.forceCreateChatButton) {
-                window.forceCreateChatButton();
-              }
-            }, 1000);
+          console.warn(
+            '[Genesys] Attempting fallback button creation despite script loading failure',
+          );
+          // Attempt fallback button creation on failure
+          if (window.forceCreateChatButton) {
+            window.forceCreateChatButton();
           }
-        };
-
-        // Start checking if widgets are initialized
-        setTimeout(checkWidgetsReady, checkInterval);
-      })
-      .catch((err) => {
-        console.error(
-          '[Genesys] Failed to load local widgets script for legacy mode:',
-          err,
-        );
-        window._genesysScriptLoadingState.widgetsScriptFailed = true;
-
-        // Trigger error event and notify user that widgets failed to load
-        document.dispatchEvent(
-          new CustomEvent('genesys:script:error', {
-            detail: { error: err },
-          }),
-        );
-
-        console.warn(
-          '[Genesys] Attempting fallback button creation despite script loading failure',
-        );
-        // Attempt fallback button creation on failure
-        if (window.forceCreateChatButton) {
-          window.forceCreateChatButton();
-        }
-      });
-  })();
+        });
+    })();
+  }
 
   // Expose key functions to window for external access
   window.GenesysChat = {

@@ -17,6 +17,26 @@ export enum ScriptLoadPhase {
 }
 
 /**
+ * Enum representing the chat widget status
+ */
+export enum ChatWidgetStatus {
+  UNINITIALIZED = 'UNINITIALIZED',
+  INITIALIZING = 'INITIALIZING',
+  READY = 'READY',
+  ERROR = 'ERROR',
+  UNAVAILABLE = 'UNAVAILABLE',
+}
+
+/**
+ * Interface for CXBus ready event
+ */
+export interface CXBusReadyEvent extends CustomEvent {
+  detail: {
+    CXBus: CXBus;
+  };
+}
+
+/**
  * CXBus interface - Handles communication with Genesys widget
  */
 export interface CXBus {
@@ -199,6 +219,7 @@ export interface GenesysWindow {
   CXBus?: CXBus;
   _genesys?: GenesysGlobal;
   _genesysCXBus?: GenesysCXBus;
+  _genesysCXBusReady?: boolean;
   _gt?: any[];
   Genesys?: (command: string, ...args: any[]) => any;
 
@@ -212,6 +233,18 @@ export interface GenesysWindow {
   _forceChatButtonCreate?: () => boolean;
   forceCreateChatButton?: () => void;
   openGenesysChat?: () => void;
+
+  // Script loading state flags
+  _genesysScriptAlreadyAttempted?: boolean;
+  _genesysButtonCheckTimeout?: boolean;
+  _genesysButtonCreationInProgress?: boolean;
+  _genesysScriptLoadExplicitlyInProgress?: boolean;
+  _genesysWidgetsInitializationInProgress?: boolean;
+  _genesysScriptLoadingState?: {
+    widgetsScriptLoaded: boolean;
+    widgetsScriptFailed: boolean;
+    initializedWidgets: boolean;
+  };
 
   // CoBrowse
   CobrowseIO?: any;
