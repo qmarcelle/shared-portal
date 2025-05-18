@@ -350,18 +350,15 @@ export async function GET(request: NextRequest) {
           process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID ||
           '',
       },
-      // Provide legacy endpoint if not cloud eligible (and if available from backend `data` or env)
+      // Provide legacy endpoint if not cloud eligible, relying on environment variables primarily
       clickToChatEndpoint: !(data.cloudChatEligible || false)
-        ? (data.clickToChatEndpoint as string) ||
-          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // CORRECTED fallback
+        ? process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // Fallback if env var is missing
         : undefined,
       gmsChatUrl: !(data.cloudChatEligible || false)
-        ? (data.gmsChatUrl as string) ||
-          process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-          (data.clickToChatEndpoint as string) ||
-          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // CORRECTED fallback
+        ? process.env.NEXT_PUBLIC_GMS_CHAT_URL || // Primary env var for gmsChatUrl
+          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT || // Fallback to the main legacy endpoint env var
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // Final fallback
         : undefined,
     };
 
@@ -392,17 +389,21 @@ export async function GET(request: NextRequest) {
       {
         correlationId,
         cloudChatEligible: transformedData.cloudChatEligible,
+        // Log more key fields from transformedData for easier debugging
+        clickToChatEndpoint_InResponse: transformedData.clickToChatEndpoint,
+        gmsChatUrl_InResponse: transformedData.gmsChatUrl,
         chatGroup: transformedData.chatGroup,
         chatAvailable: transformedData.chatAvailable,
       },
     );
     // eslint-disable-next-line no-console
-    console.log('[API:chat/getChatInfo] Returning transformed chat info', {
-      correlationId,
-      cloudChatEligible: transformedData.cloudChatEligible,
-      chatGroup: transformedData.chatGroup,
-      chatAvailable: transformedData.chatAvailable,
-    });
+    console.log(
+      '[API:chat/getChatInfo] FINAL transformedData being sent to client:',
+      {
+        correlationId,
+        transformedData: JSON.parse(JSON.stringify(transformedData)), // Deep copy for logging
+      },
+    );
 
     return NextResponse.json(transformedData);
   } catch (error: any) {
