@@ -3,10 +3,10 @@
 /**
  * @file ChatLazyLoader.tsx
  * @description Component responsible for deferring the loading of the entire Genesys chat system
- * until explicit user interaction (e.g., clicking a "Chat with Us" button).
+ * until explicit user interaction (e.g., clicking a "Chat with Us" button) or automatically.
  * This is a key performance optimization, preventing heavy chat scripts from impacting
  * initial page load times. It dynamically loads ChatProvider, ChatWidget, and ChatControls.
- * As per README.md: Defers loading of the entire chat system until user interaction.
+ * As per README.md: Defers loading of the chat system until user interaction or auto-initializes.
  */
 
 import dynamic from 'next/dynamic';
@@ -73,12 +73,15 @@ interface ChatLazyLoaderProps {
   chatControlsClassName?: string;
   /** Callback when chat is initialized by user interaction */
   onChatInitialized?: () => void;
+  /** Automatically initialize chat without requiring button click */
+  autoInitialize?: boolean;
 }
 
 /**
  * ChatLazyLoader component.
- * Renders a button to initiate chat. Upon user click, it dynamically loads and renders
- * the core chat components (ChatProvider, ChatWidget, ChatControls).
+ * Either automatically initializes chat or renders a button to initiate chat.
+ * Upon initialization, it dynamically loads and renders the core chat components
+ * (ChatProvider, ChatWidget, ChatControls).
  * @param {ChatLazyLoaderProps} props - The component props.
  */
 export default function ChatLazyLoader({
@@ -86,6 +89,7 @@ export default function ChatLazyLoader({
   buttonClassName = '',
   chatControlsClassName = '',
   onChatInitialized,
+  autoInitialize = true, // Default to auto-initialize
 }: ChatLazyLoaderProps) {
   const [chatInitialized, setChatInitialized] = useState(false);
 
@@ -93,7 +97,7 @@ export default function ChatLazyLoader({
     console.log(
       `${LOG_PREFIX} Component mounted. Chat initialized: ${chatInitialized}`,
     );
-  }, [chatInitialized]); // Empty dependency array ensures this runs only on mount
+  }, [chatInitialized]);
 
   // Initialize chat components when the user clicks the button
   const initializeChat = useCallback(() => {
@@ -108,7 +112,7 @@ export default function ChatLazyLoader({
 
     // Log initialization for analytics or internal tracking
     console.log(
-      `${LOG_PREFIX} Chat components will now be rendered due to user interaction.`,
+      `${LOG_PREFIX} Chat components will now be rendered due to ${autoInitialize ? 'auto-initialization' : 'user interaction'}.`,
     );
 
     // Example of pushing to dataLayer for analytics
@@ -118,7 +122,7 @@ export default function ChatLazyLoader({
           event: 'chat_lazy_load_initialized',
           eventCategory: 'Chat',
           eventAction: 'LazyLoadInitialize',
-          eventLabel: 'User Initiated',
+          eventLabel: autoInitialize ? 'Auto Initiated' : 'User Initiated',
         });
         console.log(
           `${LOG_PREFIX} Pushed chat_lazy_load_initialized event to dataLayer.`,
@@ -130,12 +134,32 @@ export default function ChatLazyLoader({
         e,
       );
     }
-  }, [onChatInitialized]);
+  }, [onChatInitialized, autoInitialize]);
+
+  // Auto-initialize effect - will run once on component mount if autoInitialize is true
+  useEffect(() => {
+    if (autoInitialize && !chatInitialized) {
+      console.log(`${LOG_PREFIX} Auto-initializing chat...`);
+      // Small delay to ensure other components are loaded first
+      const timer = setTimeout(() => {
+        initializeChat();
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [autoInitialize, chatInitialized, initializeChat]);
 
   if (!chatInitialized) {
     console.log(
-      `${LOG_PREFIX} Chat not yet initialized. Rendering initialization button.`,
+      `${LOG_PREFIX} Chat not yet initialized. ${autoInitialize ? 'Auto-initializing...' : 'Rendering initialization button.'}`,
     );
+
+    // If auto-initializing, show nothing or a loading indicator
+    if (autoInitialize) {
+      return null; // Or return a loading indicator if desired
+    }
+
+    // Otherwise show the button
     return (
       <button
         className={`chat-init-button ${buttonClassName}`}

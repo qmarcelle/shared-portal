@@ -180,16 +180,10 @@ declare global {
  * These fields MUST be present for the widget to function properly
  */
 const REQUIRED_CONFIG_FIELDS = [
-  'clickToChatEndpoint',
-  'userID',
-  'memberMedicalPlanID',
-  'isChatEligibleMember',
-  'isChatAvailable',
-  'chatHours',
-  'rawChatHrs',
-  'widgetUrl',
-  'clickToChatJs',
-  'gmsChatUrl',
+  'userID', // Always needed for user identity
+  'isChatEligibleMember', // Needed for eligibility
+  'targetContainer', // Needed for widget rendering
+  // Removed non-critical fields that can have fallbacks
 ];
 
 /**
@@ -201,13 +195,25 @@ function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
   isValid: boolean;
   missingFields: string[];
 } {
-  const missingFields = REQUIRED_CONFIG_FIELDS.filter(
+  // First check for absolutely critical fields
+  const criticalMissingFields = REQUIRED_CONFIG_FIELDS.filter(
     (field) => !config[field as keyof GenesysChatConfig],
   );
 
+  // Then check mode-specific required fields
+  const modeSpecificMissingFields: string[] = [];
+  if (config.chatMode === 'legacy' && !config.clickToChatEndpoint) {
+    modeSpecificMissingFields.push(
+      'clickToChatEndpoint (required for legacy mode)',
+    );
+  } else if (config.chatMode === 'cloud' && !config.deploymentId) {
+    modeSpecificMissingFields.push('deploymentId (required for cloud mode)');
+  }
+
+  // Only treat truly critical fields as blocking
   return {
-    isValid: missingFields.length === 0,
-    missingFields,
+    isValid: criticalMissingFields.length === 0,
+    missingFields: [...criticalMissingFields, ...modeSpecificMissingFields],
   };
 }
 
@@ -378,6 +384,37 @@ export function buildGenesysChatConfig({
   config.isAmplifyMem = !!apiConfig.isAmplifyMem; // Coerce to boolean
   config.isCobrowseActive =
     process.env.NEXT_PUBLIC_IS_COBROWSE_ACTIVE === 'true';
+
+  // Ensure critical fields have fallbacks
+  if (!config.clickToChatToken) {
+    // This is a token for authentication, so we should log the issue
+    logger.warn(
+      '[buildGenesysChatConfig] Missing clickToChatToken, using fallback',
+    );
+    config.clickToChatToken =
+      process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN || 'fallback-token';
+  }
+
+  // Add any missing fields for critical elements
+  if (chatMode === 'legacy' && !config.clickToChatEndpoint) {
+    logger.warn(
+      '[buildGenesysChatConfig] Missing clickToChatEndpoint for legacy mode, using fallback',
+    );
+    config.clickToChatEndpoint =
+      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+      'https://legacy-chat-endpoint.example.com';
+  } else if (chatMode === 'cloud' && !config.deploymentId) {
+    logger.warn(
+      '[buildGenesysChatConfig] Missing deploymentId for cloud mode, using fallback',
+    );
+    config.deploymentId =
+      process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+      'fallback-deployment-id';
+  }
+
+  // Default chatTokenEndpoint and coBrowseEndpoint if needed
+  config.chatTokenEndpoint = config.chatTokenEndpoint || '/api/chat/token';
+  config.coBrowseEndpoint = config.coBrowseEndpoint || '/api/cobrowse';
 
   // Merge with any staticConfig overrides passed in
   const mergedConfig = { ...config, ...staticConfig } as GenesysChatConfig;

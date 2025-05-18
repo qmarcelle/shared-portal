@@ -14,7 +14,7 @@ import { ChatLazyLoader } from './index';
 export function ChatClientEntry() {
   return (
     <>
-      <ChatLazyLoader />
+      <ChatLazyLoader autoInitialize={true} />
       <ChatLinkEnhancer />
     </>
   );
