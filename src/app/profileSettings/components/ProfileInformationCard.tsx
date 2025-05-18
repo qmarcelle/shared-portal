@@ -10,7 +10,6 @@ import { IComponent } from '@/components/IComponent';
 import { isNCQAEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { EditEmailProfileSettings } from '../journeys/EditEmailProfileSettings';
-import { UpdatePhoneNumberJourney } from '../journeys/UpdatePhoneNumberJourney';
 
 /* eslint-disable */
 
@@ -53,7 +52,7 @@ export const ProfileInformationCard = ({
           </Column>
         </Card>
         <Spacer size={32} />
-        <UpdateRowWithStatus
+        {/* <UpdateRowWithStatus
           key={'Phone Number'}
           onClick={() =>
             showAppModal({
@@ -65,7 +64,7 @@ export const ProfileInformationCard = ({
           methodName="Update"
           divider={true}
           onOffLabelEnabled={false}
-        />
+        /> */}
         <Spacer size={16} />
         <UpdateRowWithStatus
           key={'Email'}
