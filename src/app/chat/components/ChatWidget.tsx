@@ -185,15 +185,18 @@ export default function ChatWidget({
         // Force visibility with stronger CSS overrides
         const buttonEl = button as HTMLElement;
 
-        // Add custom style directly
-        buttonEl.setAttribute(
+        // STRATEGY 1: Move the button to the body element to escape any parent container issues
+        // First, create a clone with all the necessary styles before moving the original
+        const buttonClone = buttonEl.cloneNode(true) as HTMLElement;
+        buttonClone.id = 'genesys-chat-button-clone';
+        buttonClone.setAttribute(
           'style',
           `
-          display: block !important;
+          display: flex !important;
           visibility: visible !important;
           opacity: 1 !important;
           position: fixed !important;
-          z-index: 9999 !important;
+          z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
           right: 20px !important;
           cursor: pointer !important;
@@ -202,12 +205,72 @@ export default function ChatWidget({
           background-color: #0078d4 !important;
           color: white !important;
           border-radius: 50% !important;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
           align-items: center !important;
           justify-content: center !important;
           font-family: sans-serif !important;
           border: none !important;
           pointer-events: auto !important;
+          transform: none !important;
+          margin: 0 !important;
+          padding: 10px !important;
+          overflow: visible !important;
+          clip: auto !important;
+          mask: none !important;
+          -webkit-mask: none !important;
+        `,
+        );
+
+        // Ensure the clone has the click functionality
+        buttonClone.addEventListener('click', () => {
+          logger.info(
+            `${LOG_PREFIX} Clone button clicked, triggering chat open`,
+          );
+          if (window._genesysCXBus) {
+            window._genesysCXBus.command('WebChat.open');
+          }
+          setOpen(true);
+        });
+
+        // Append the clone directly to the body
+        if (!document.getElementById('genesys-chat-button-clone')) {
+          document.body.appendChild(buttonClone);
+          logger.info(
+            `${LOG_PREFIX} Appended button clone directly to body for maximum visibility`,
+          );
+        }
+
+        // STRATEGY 2: Add a dramatic eye-catching style to the original button
+        buttonEl.setAttribute(
+          'style',
+          `
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: fixed !important;
+          z-index: 2147483647 !important; /* Maximum possible z-index */
+          bottom: 20px !important;
+          right: 20px !important;
+          cursor: pointer !important;
+          min-width: 60px !important;
+          min-height: 60px !important;
+          background-color: #ff0000 !important; /* Bright red for visibility testing */
+          color: white !important;
+          border-radius: 50% !important;
+          box-shadow: 0 0 20px 5px rgba(255,0,0,0.7) !important; /* Glow effect */
+          animation: genesys-pulse-animation 2s infinite !important; /* Attention-grabbing pulse */
+          align-items: center !important;
+          justify-content: center !important;
+          font-family: sans-serif !important;
+          border: 3px solid yellow !important; /* Bright contrasting border */
+          pointer-events: auto !important;
+          transform: none !important;
+          margin: 0 !important;
+          padding: 10px !important;
+          overflow: visible !important;
+          clip: auto !important;
+          mask: none !important;
+          -webkit-mask: none !important;
         `,
         );
 
@@ -217,6 +280,7 @@ export default function ChatWidget({
           (child as HTMLElement).style.visibility = 'visible';
           (child as HTMLElement).style.display = 'block';
           (child as HTMLElement).style.opacity = '1';
+          (child as HTMLElement).style.color = 'white';
         });
 
         // Log current computed styles to debug why it might not be visible
@@ -232,74 +296,126 @@ export default function ChatWidget({
           backgroundColor: computedStyle.backgroundColor,
         });
 
-        // Add a class we can target with our own CSS
-        buttonEl.classList.add('genesys-chat-button-force-visible');
+        // STRATEGY 3: Add a modal-like overlay that will have a higher z-index and position
+        // than whatever might be obscuring the chat button
+        if (!document.getElementById('genesys-chat-button-overlay')) {
+          const overlay = document.createElement('div');
+          overlay.id = 'genesys-chat-button-overlay';
+          overlay.innerHTML = `
+            <div style="
+              position: fixed;
+              bottom: 30px;
+              right: 30px;
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              background-color: rgba(0, 120, 212, 0.2);
+              z-index: 2147483645;
+              pointer-events: none;
+              animation: genesys-pulse-overlay 2s infinite;
+            "></div>
+          `;
+          document.body.appendChild(overlay);
 
-        // Add a MutationObserver to handle any dynamic style changes
-        // that might be hiding the button after we've made it visible
-        if (!window._genesysButtonObserver) {
-          logger.info(
-            `${LOG_PREFIX} Creating MutationObserver for button style monitoring`,
-          );
-          window._genesysButtonObserver = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-              if (
-                mutation.type === 'attributes' &&
-                (mutation.attributeName === 'style' ||
-                  mutation.attributeName === 'class')
-              ) {
-                const target = mutation.target as HTMLElement;
-                // If style changes make the button invisible, force visibility again
-                const style = window.getComputedStyle(target);
-                if (
-                  style.display === 'none' ||
-                  style.visibility === 'hidden' ||
-                  style.opacity === '0'
-                ) {
-                  logger.info(
-                    `${LOG_PREFIX} Button style changed to invisible, forcing visibility again`,
-                  );
-                  target.style.display = 'block !important';
-                  target.style.visibility = 'visible !important';
-                  target.style.opacity = '1 !important';
-                }
-              }
-            });
-          });
-
-          // Start observing the button
-          window._genesysButtonObserver.observe(buttonEl, {
-            attributes: true,
-            attributeFilter: ['style', 'class'],
-            childList: false,
-            subtree: false,
-          });
-        }
-
-        // Inject a style tag to ensure our button is visible
-        if (!document.getElementById('genesys-chat-button-force-style')) {
-          const styleEl = document.createElement('style');
-          styleEl.id = 'genesys-chat-button-force-style';
-          styleEl.textContent = `
-            .cx-widget.cx-webchat-chat-button,
-            .cx-webchat-chat-button,
-            [data-cx-widget="WebChat"],
-            .cx-button.cx-webchat,
-            .genesys-chat-button-force-visible {
-              display: block !important;
-              visibility: visible !important;
-              opacity: 1 !important;
-              position: fixed !important;
-              z-index: 9999 !important;
-              bottom: 20px !important;
-              right: 20px !important;
-              pointer-events: auto !important;
+          // Add the animation to the CSS
+          const animStyle = document.createElement('style');
+          animStyle.id = 'genesys-chat-animations';
+          animStyle.textContent = `
+            @keyframes genesys-pulse-animation {
+              0% { transform: scale(1); }
+              50% { transform: scale(1.1); }
+              100% { transform: scale(1); }
+            }
+            @keyframes genesys-pulse-overlay {
+              0% { opacity: 0.2; transform: scale(1); }
+              50% { opacity: 0.5; transform: scale(1.3); }
+              100% { opacity: 0.2; transform: scale(1); }
             }
           `;
-          document.head.appendChild(styleEl);
-          logger.info(
-            `${LOG_PREFIX} Injected force-visible style tag for chat button`,
-          );
+          document.head.appendChild(animStyle);
+        }
+
+        // STRATEGY 4: Create a completely separate button as absolute fallback
+        if (!document.getElementById('genesys-absolute-fallback-button')) {
+          const fallbackButton = document.createElement('button');
+          fallbackButton.id = 'genesys-absolute-fallback-button';
+          fallbackButton.innerText = '💬 Chat';
+          fallbackButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 100px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2147483647;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          `;
+          fallbackButton.onclick = () => {
+            if (window._genesysCXBus) {
+              window._genesysCXBus.command('WebChat.open');
+            }
+            setOpen(true);
+          };
+          document.body.appendChild(fallbackButton);
+          logger.info(`${LOG_PREFIX} Created absolute fallback button`);
+        }
+
+        // STRATEGY 5: Periodic check to ensure button stays visible
+        if (!window._genesysButtonVisibilityInterval) {
+          window._genesysButtonVisibilityInterval = setInterval(() => {
+            const button = document.querySelector(
+              '.cx-widget.cx-webchat-chat-button',
+            );
+            if (button) {
+              const buttonEl = button as HTMLElement;
+              const computedStyle = window.getComputedStyle(buttonEl);
+
+              // Check if button might be invisible or hidden
+              if (
+                computedStyle.display === 'none' ||
+                computedStyle.visibility === 'hidden' ||
+                computedStyle.opacity === '0' ||
+                parseFloat(computedStyle.opacity) < 0.1
+              ) {
+                logger.info(
+                  `${LOG_PREFIX} Periodic check: Button is hidden, forcing visibility`,
+                );
+                buttonEl.style.display = 'flex !important';
+                buttonEl.style.visibility = 'visible !important';
+                buttonEl.style.opacity = '1 !important';
+              }
+
+              // Check if button is positioned off-screen
+              const rect = buttonEl.getBoundingClientRect();
+              if (
+                rect.right < 0 ||
+                rect.bottom < 0 ||
+                rect.left > window.innerWidth ||
+                rect.top > window.innerHeight
+              ) {
+                logger.info(
+                  `${LOG_PREFIX} Periodic check: Button is off-screen, repositioning`,
+                  {
+                    rect,
+                    window: {
+                      width: window.innerWidth,
+                      height: window.innerHeight,
+                    },
+                  },
+                );
+                buttonEl.style.right = '20px !important';
+                buttonEl.style.bottom = '20px !important';
+                buttonEl.style.left = 'auto !important';
+                buttonEl.style.top = 'auto !important';
+              }
+            }
+          }, 2000);
+          logger.info(`${LOG_PREFIX} Set up periodic button visibility check`);
         }
       } catch (err) {
         logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
@@ -336,7 +452,7 @@ export default function ChatWidget({
         useChatStore.getState().actions.setButtonState('failed');
       }
     }
-  }, [buttonState, isCXBusReady]);
+  }, [buttonState, isCXBusReady, setOpen]);
 
   // useEffect Hooks
   useEffect(() => {
@@ -1089,6 +1205,7 @@ declare global {
     _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
     _forceChatButtonCreate?: () => boolean;
     _genesysButtonObserver?: MutationObserver; // For monitoring button visibility
+    _genesysButtonVisibilityInterval?: NodeJS.Timeout; // For periodic visibility checks
   }
 }
 
