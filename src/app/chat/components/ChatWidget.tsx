@@ -57,34 +57,25 @@ export default function ChatWidget({
   onChatClosed,
   onError,
 }: ChatWidgetProps) {
-  logger.info(`${LOG_PREFIX} Component instance created/rendered.`, {
-    containerId,
-    initialIsChatEnabled: useChatStore.getState().config.chatData?.isEligible,
-  });
-
-  // Add a mount tracking ref to prevent double initialization
+  // === ALL HOOKS MUST BE CALLED UNCONDITIONALLY AT THE TOP LEVEL ===
   const isMounted = useRef(false);
-  // Add a global component instance tracker to prevent multiple instances
   const instanceId = useRef(`chat-widget-${Date.now()}`);
-
-  // Add a command queue reference after existing refs
   const cxBusCommandQueue = useRef<Array<() => void>>([]);
-
-  // New state for tracking CXBus readiness
   const [isCXBusReady, setIsCXBusReady] = useState(false);
+  const cxBusSubscriptionsSetup = useRef(false);
+  const cxBusPollTimer = useRef<NodeJS.Timeout | null>(null);
+  const activeSubscriptions = useRef<{ [key: string]: boolean }>({});
+  const [showChatErrorModal, setShowChatErrorModal] = useState(false);
+  const [showFallbackButton, setShowFallbackButton] = useState(false);
+  const buttonCheckAttempts = useRef(0);
+  const MAX_BUTTON_CHECK_ATTEMPTS = 5;
 
-  // Get state from store using selectors for optimized rendering
+  // Get state from store using selectors
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const chatMode = useChatStore(chatConfigSelectors.chatMode);
   const buttonState = useChatStore(chatUISelectors.buttonState);
-
-  // Call useChatStore unconditionally for both configs
   const legacyConfig = useChatStore((state) => state.config.legacyConfig);
   const cloudConfig = useChatStore((state) => state.config.cloudConfig);
-
-  // Then, conditionally assign to genesysChatConfig
-  const genesysChatConfig = chatMode === 'legacy' ? legacyConfig : cloudConfig;
-
   const isLoading = useChatStore(chatConfigSelectors.isLoading);
   const error = useChatStore(chatConfigSelectors.error);
   const isChatEnabled = useChatStore(chatConfigSelectors.isChatEnabled);
@@ -92,7 +83,6 @@ export default function ChatWidget({
   const genesysCloudConfig = useChatStore(
     chatConfigSelectors.genesysCloudDeploymentConfig,
   );
-  // Get the standard error message from the store
   const standardErrorMessage = useChatStore(
     chatSessionSelectors.standardErrorMessage,
   );
@@ -104,111 +94,31 @@ export default function ChatWidget({
   const setError = useChatStore((state) => state.actions.setError);
   const setOpen = useChatStore((state) => state.actions.setOpen);
 
-  // Local state for managing UI
-  const [showChatErrorModal, setShowChatErrorModal] = useState(false);
+  // Derived state (safe to compute after hooks)
+  const genesysChatConfig = chatMode === 'legacy' ? legacyConfig : cloudConfig;
 
-  // Ref to track whether we've set up CXBus subscriptions
-  const cxBusSubscriptionsSetup = useRef(false);
-  const cxBusPollTimer = useRef<NodeJS.Timeout | null>(null);
+  // Log initial props and critical state
+  logger.info(`${LOG_PREFIX} Component instance created/rendered.`, {
+    containerId,
+    initialIsChatEnabled: useChatStore.getState().config.chatData?.isEligible, // getState is fine here for initial log
+    chatModeFromStore: chatMode,
+    hasLegacyConfig: !!legacyConfig,
+    hasCloudConfig: !!cloudConfig,
+  });
 
-  // Add a registry for tracking active CXBus subscriptions
-  const activeSubscriptions = useRef<{ [key: string]: boolean }>({});
-
-  // Local state for genesysButtonFound is now redundant with buttonState
-  // We'll use buttonState === 'created' instead
-  const [showFallbackButton, setShowFallbackButton] = useState(false);
-  const buttonCheckAttempts = useRef(0);
-  const MAX_BUTTON_CHECK_ATTEMPTS = 5;
-
-  // Add a mechanism to prevent multiple component instances from initializing simultaneously
-  useEffect(() => {
-    // Check if there's already a ChatWidget component instance active
-    if (typeof window !== 'undefined') {
-      if (
-        window._chatWidgetInstanceId &&
-        window._chatWidgetInstanceId !== instanceId.current
-      ) {
-        logger.warn(
-          `${LOG_PREFIX} Another ChatWidget instance already exists (${window._chatWidgetInstanceId}). This instance (${instanceId.current}) will be passive.`,
-        );
-        return;
-      }
-
-      // Register this instance
-      window._chatWidgetInstanceId = instanceId.current;
-      logger.info(
-        `${LOG_PREFIX} Registered as the active ChatWidget instance: ${instanceId.current}`,
-      );
-
-      return () => {
-        // Only clear if this instance is still the active one
-        if (window._chatWidgetInstanceId === instanceId.current) {
-          window._chatWidgetInstanceId = undefined;
-          logger.info(
-            `${LOG_PREFIX} Unregistered as the active ChatWidget instance: ${instanceId.current}`,
-          );
-        }
-      };
-    }
-  }, []);
-
-  // Ensure the container div exists and is properly configured - Run only once on mount
-  useEffect(() => {
-    // Skip if already mounted or if another instance is active
-    if (
-      isMounted.current ||
-      (window._chatWidgetInstanceId &&
-        window._chatWidgetInstanceId !== instanceId.current)
-    ) {
-      return;
-    }
-
-    isMounted.current = true;
-
-    // Check if container already exists, if not create it
-    let containerElement = document.getElementById(containerId);
-    if (!containerElement) {
-      logger.info(
-        `${LOG_PREFIX} Creating missing container element with id: ${containerId}`,
-      );
-      containerElement = document.createElement('div');
-      containerElement.id = containerId;
-      containerElement.setAttribute('data-chat-container', 'true');
-      document.body.appendChild(containerElement);
-    } else {
-      logger.info(
-        `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
-      );
-    }
-
-    // Ensure container has proper styling
-    containerElement.style.position = 'relative';
-    containerElement.style.zIndex = '999';
-    containerElement.style.minHeight = '10px';
-    containerElement.style.minWidth = '10px';
-
-    // Add a data attribute that scripts can check for
-    containerElement.dataset.initialized = 'true';
-  }, [containerId]);
-
-  // Function to handle clearing the error and reopening chat
+  // Callbacks (defined with useCallback)
   const handleClearErrorAndReopen = useCallback(() => {
     setError(null);
     setShowChatErrorModal(false);
-    // Re-open the chat widget
     setOpen(true);
   }, [setError, setOpen]);
 
-  // Updated: Handle script loaded now also sets isCXBusReady
-  // This is now called when GenesysScriptLoader confirms CXBus is ready
   const handleCXBusReady = useCallback(() => {
     logger.info(
       `${LOG_PREFIX} handleCXBusReady: CXBus is ready as reported by GenesysScriptLoader.`,
     );
     setIsCXBusReady(true);
     setScriptLoadPhase(ScriptLoadPhase.LOADED);
-
-    // Execute any queued commands
     if (cxBusCommandQueue.current.length > 0) {
       logger.info(
         `${LOG_PREFIX} Executing ${cxBusCommandQueue.current.length} queued CXBus commands.`,
@@ -220,7 +130,7 @@ export default function ChatWidget({
           logger.error(`${LOG_PREFIX} Error executing queued command:`, err);
         }
       });
-      cxBusCommandQueue.current = []; // Clear the queue
+      cxBusCommandQueue.current = [];
     }
   }, [setScriptLoadPhase]);
 
@@ -238,7 +148,117 @@ export default function ChatWidget({
     [setScriptLoadPhase, setError, onError, standardErrorMessage],
   );
 
-  // Effect for Legacy Event Listeners (genesys:webchat:*)
+  const checkGenesysButton = useCallback(() => {
+    if (buttonState === 'created') return;
+    buttonCheckAttempts.current += 1;
+    logger.info(
+      `${LOG_PREFIX} Checking for Genesys button (attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS})`,
+    );
+    const selectors = [
+      '.cx-widget.cx-webchat-chat-button',
+      '.cx-webchat-chat-button',
+      '[data-cx-widget="WebChat"]',
+      '.cx-button.cx-webchat',
+    ];
+    let button: Element | null = null;
+    for (const selector of selectors) {
+      button = document.querySelector(selector);
+      if (button) {
+        logger.info(
+          `${LOG_PREFIX} Found Genesys button using selector: ${selector}`,
+        );
+        break;
+      }
+    }
+    if (button) {
+      logger.info(`${LOG_PREFIX} Genesys button found, ensuring visibility`);
+      useChatStore.getState().actions.setButtonState('created');
+      try {
+        (button as HTMLElement).style.display = 'block';
+        (button as HTMLElement).style.visibility = 'visible';
+        (button as HTMLElement).style.opacity = '1';
+      } catch (err) {
+        logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
+      }
+    } else {
+      logger.warn(
+        `${LOG_PREFIX} Genesys button not found on attempt ${buttonCheckAttempts.current}`,
+      );
+      if (isCXBusReady && window._genesysCXBus) {
+        logger.info(`${LOG_PREFIX} Attempting to create button via CXBus`);
+        useChatStore.getState().actions.setButtonState('creating');
+        try {
+          window._genesysCXBus.command('WebChat.showChatButton');
+        } catch (err) {
+          logger.error(`${LOG_PREFIX} Error creating button via CXBus:`, err);
+        }
+      }
+      if (buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS) {
+        logger.warn(
+          `${LOG_PREFIX} Max button check attempts reached. Marking button creation as failed.`,
+        );
+        useChatStore.getState().actions.setButtonState('failed');
+      }
+    }
+  }, [buttonState, isCXBusReady]);
+
+  // useEffect Hooks
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (
+        window._chatWidgetInstanceId &&
+        window._chatWidgetInstanceId !== instanceId.current
+      ) {
+        logger.warn(
+          `${LOG_PREFIX} Another ChatWidget instance already exists (${window._chatWidgetInstanceId}). This instance (${instanceId.current}) will be passive.`,
+        );
+        return;
+      }
+      window._chatWidgetInstanceId = instanceId.current;
+      logger.info(
+        `${LOG_PREFIX} Registered as the active ChatWidget instance: ${instanceId.current}`,
+      );
+      return () => {
+        if (window._chatWidgetInstanceId === instanceId.current) {
+          window._chatWidgetInstanceId = undefined;
+          logger.info(
+            `${LOG_PREFIX} Unregistered as the active ChatWidget instance: ${instanceId.current}`,
+          );
+        }
+      };
+    }
+  }, [instanceId]); // instanceId.current is stable, so this runs like onMount/onUnmount
+
+  useEffect(() => {
+    if (
+      isMounted.current ||
+      (window._chatWidgetInstanceId &&
+        window._chatWidgetInstanceId !== instanceId.current)
+    ) {
+      return;
+    }
+    isMounted.current = true;
+    let containerElement = document.getElementById(containerId);
+    if (!containerElement) {
+      logger.info(
+        `${LOG_PREFIX} Creating missing container element with id: ${containerId}`,
+      );
+      containerElement = document.createElement('div');
+      containerElement.id = containerId;
+      containerElement.setAttribute('data-chat-container', 'true');
+      document.body.appendChild(containerElement);
+    } else {
+      logger.info(
+        `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
+      );
+    }
+    containerElement.style.position = 'relative';
+    containerElement.style.zIndex = '999';
+    containerElement.style.minHeight = '10px';
+    containerElement.style.minWidth = '10px';
+    containerElement.dataset.initialized = 'true';
+  }, [containerId, instanceId]); // instanceId added for active check consistency
+
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} useEffect: Setting up legacy document event listeners (genesys:webchat:*).`,
@@ -265,7 +285,6 @@ export default function ChatWidget({
         customEvent.detail?.error ||
         customEvent.detail?.message ||
         standardErrorMessage;
-
       logger.error(
         `${LOG_PREFIX} Legacy event 'genesys:script:error' or 'genesys:webchat:error' received.`,
         { error: errorDetail, eventType: e.type },
@@ -283,7 +302,6 @@ export default function ChatWidget({
             : new Error(String(errorDetail)),
         );
     };
-
     document.addEventListener('genesys:webchat:opened', handleChatOpenedEvent);
     document.addEventListener('genesys:webchat:closed', handleChatClosedEvent);
     document.addEventListener('genesys:script:error', handleErrorEvent);
@@ -292,7 +310,6 @@ export default function ChatWidget({
       'genesys:webchat:failedToStart',
       handleErrorEvent,
     );
-
     return () => {
       logger.info(
         `${LOG_PREFIX} useEffect: Cleaning up legacy document event listeners.`,
@@ -314,7 +331,6 @@ export default function ChatWidget({
     };
   }, [onChatOpened, onChatClosed, onError, setError, standardErrorMessage]);
 
-  // Effect for Backwards Compatibility (window.GenesysChat)
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} useEffect: Setting up backwards compatibility for window.GenesysChat methods.`,
@@ -323,7 +339,6 @@ export default function ChatWidget({
       const originalGenesysChat = window.GenesysChat || {};
       const originalOpenChat = originalGenesysChat.openChat;
       const originalCloseChat = originalGenesysChat.closeChat;
-
       if (!originalOpenChat) {
         logger.info(
           `${LOG_PREFIX} window.GenesysChat.openChat not found. Adding compatibility method.`,
@@ -333,7 +348,7 @@ export default function ChatWidget({
           logger.info(
             `${LOG_PREFIX} Compatibility window.GenesysChat.openChat() called. Updating store.`,
           );
-          useChatStore.getState().actions.setOpen(true); // This will trigger the CXBus command via another useEffect
+          useChatStore.getState().actions.setOpen(true);
         };
       }
       if (!originalCloseChat) {
@@ -345,20 +360,16 @@ export default function ChatWidget({
           logger.info(
             `${LOG_PREFIX} Compatibility window.GenesysChat.closeChat() called. Updating store.`,
           );
-          useChatStore.getState().actions.setOpen(false); // This will trigger the CXBus command via another useEffect
+          useChatStore.getState().actions.setOpen(false);
         };
       }
     }
-    // No specific cleanup needed here as we are augmenting the window object.
   }, []);
 
-  // Effect for CXBus Setup and Event Subscriptions
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} useEffect: CXBus setup initiated. isCXBusReady: ${isCXBusReady}`,
     );
-
-    // Skip if we're not the active instance
     if (
       window._chatWidgetInstanceId &&
       window._chatWidgetInstanceId !== instanceId.current
@@ -368,41 +379,32 @@ export default function ChatWidget({
       );
       return;
     }
-
-    // Skip if CXBus is not ready yet
     if (!isCXBusReady) {
       logger.info(
         `${LOG_PREFIX} CXBus not ready yet, skipping event subscriptions.`,
       );
       return;
     }
-
     const setupSubscriptions = () => {
       if (window._genesysCXBus && !cxBusSubscriptionsSetup.current) {
         logger.info(
           `${LOG_PREFIX} CXBus is ready. Setting up event subscriptions (WebChat.opened, WebChat.closed, WebChat.error).`,
         );
-        cxBusSubscriptionsSetup.current = true; // Mark as setup
-
-        // Helper function to register a subscription
+        cxBusSubscriptionsSetup.current = true;
         const registerSubscription = (
           event: string,
           callback: (...args: any[]) => void,
         ) => {
-          // Skip if already subscribed
           if (activeSubscriptions.current[event]) {
             logger.info(
               `${LOG_PREFIX} Already subscribed to ${event}, skipping.`,
             );
             return;
           }
-
           window._genesysCXBus?.subscribe(event, callback);
           activeSubscriptions.current[event] = true;
           logger.info(`${LOG_PREFIX} Subscribed to CXBus event: ${event}`);
         };
-
-        // Register all required subscriptions
         registerSubscription('WebChat.opened', () => {
           logger.info(
             `${LOG_PREFIX} CXBus event: WebChat.opened. Updating store.`,
@@ -411,27 +413,22 @@ export default function ChatWidget({
           useChatStore.getState().actions.startChat();
           if (onChatOpened) onChatOpened();
         });
-
-        // Add new subscriptions for connection monitoring
         registerSubscription('WebChat.agentConnected', (e) => {
           logger.info(`${LOG_PREFIX} CXBus event: Agent connected to chat.`, {
             agentDetails: e,
           });
         });
-
         registerSubscription('WebChat.agentDisconnected', (e) => {
           logger.info(
             `${LOG_PREFIX} CXBus event: Agent disconnected from chat.`,
             { reason: e },
           );
         });
-
         registerSubscription('WebChat.ended', (e) => {
           logger.info(`${LOG_PREFIX} CXBus event: Chat session ended.`, {
             reason: e,
           });
         });
-
         registerSubscription('WebChat.failedToStart', (e) => {
           logger.error(`${LOG_PREFIX} CXBus event: Chat failed to start.`, {
             error: e,
@@ -439,7 +436,6 @@ export default function ChatWidget({
           setError(new Error(standardErrorMessage));
           setShowChatErrorModal(true);
         });
-
         registerSubscription('WebChat.closed', () => {
           logger.info(
             `${LOG_PREFIX} CXBus event: WebChat.closed. Updating store.`,
@@ -448,7 +444,6 @@ export default function ChatWidget({
           useChatStore.getState().actions.endChat();
           if (onChatClosed) onChatClosed();
         });
-
         registerSubscription(
           'WebChat.error',
           (e: { data?: any; error?: any }) => {
@@ -470,26 +465,19 @@ export default function ChatWidget({
             if (onError) onError(errorToSet);
           },
         );
-
         logger.info(`${LOG_PREFIX} CXBus subscriptions complete.`);
       } else if (cxBusSubscriptionsSetup.current) {
         logger.info(`${LOG_PREFIX} CXBus subscriptions already set up.`);
       }
     };
-
-    // Now that isCXBusReady is true, set up subscriptions
     setupSubscriptions();
-
     return () => {
-      // If we are the active instance and have active subscriptions, clean them up
       if (
         window._chatWidgetInstanceId === instanceId.current &&
         cxBusSubscriptionsSetup.current &&
         window._genesysCXBus
       ) {
         logger.info(`${LOG_PREFIX} Cleaning up CXBus subscriptions.`);
-
-        // Clean up each registered subscription
         Object.keys(activeSubscriptions.current).forEach((event) => {
           if (activeSubscriptions.current[event] && window._genesysCXBus) {
             try {
@@ -506,27 +494,23 @@ export default function ChatWidget({
             }
           }
         });
-
         cxBusSubscriptionsSetup.current = false;
       }
     };
   }, [
-    isCXBusReady, // New dependency
+    isCXBusReady,
     onChatOpened,
     onChatClosed,
     onError,
     setError,
     standardErrorMessage,
-    instanceId, // Added for active instance check
+    instanceId,
   ]);
 
-  // Modify the isOpen effect to use the command queue
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} useEffect: isOpen state sync check. isOpen: ${isOpen}, isCXBusReady: ${isCXBusReady}`,
     );
-
-    // Skip if we're not the active instance
     if (
       window._chatWidgetInstanceId &&
       window._chatWidgetInstanceId !== instanceId.current
@@ -536,8 +520,6 @@ export default function ChatWidget({
       );
       return;
     }
-
-    // Create a command to execute when CXBus is ready
     const executeChatCommand = () => {
       if (!window._genesysCXBus) {
         logger.warn(
@@ -545,16 +527,13 @@ export default function ChatWidget({
         );
         return;
       }
-
       try {
-        // Type the return of 'WebChat.get' as any to avoid TS errors if structure is not strictly defined
         const currentWidgetState: any =
           window._genesysCXBus.command('WebChat.get');
         logger.info(
           `${LOG_PREFIX} Current widget state before command:`,
           currentWidgetState,
         );
-
         if (isOpen && currentWidgetState?.data?.state !== 'opened') {
           logger.info(
             `${LOG_PREFIX} Store isOpen is true. Commanding WebChat.open via CXBus.`,
@@ -571,30 +550,23 @@ export default function ChatWidget({
           `${LOG_PREFIX} Error commanding WebChat open/close via CXBus:`,
           err,
         );
-        // Potentially dispatch an error to the store if CXBus commands fail
-        // setError(new Error('Failed to command Genesys widget via CXBus.'));
       }
     };
-
     if (isCXBusReady) {
-      // CXBus is ready, execute the command immediately
       executeChatCommand();
     } else {
-      // CXBus not ready, queue the command for later execution
       logger.info(
         `${LOG_PREFIX} CXBus not ready, queuing isOpen state sync command.`,
       );
       cxBusCommandQueue.current.push(executeChatCommand);
     }
-  }, [isOpen, isCXBusReady, instanceId]); // Updated dependencies
+  }, [isOpen, isCXBusReady, instanceId]);
 
-  // Ensure we re-check config availability when API state changes
   useEffect(() => {
     const loadingState = ChatLoadingState.scriptState.isLoading;
     const loadingComplete = ChatLoadingState.scriptState.isComplete;
     const apiComplete = ChatLoadingState.apiState.isComplete;
     const apiEligible = ChatLoadingState.apiState.isEligible;
-
     logger.info(`${LOG_PREFIX} Monitoring sequential loader state changes:`, {
       scriptLoadPhase,
       apiComplete,
@@ -603,14 +575,10 @@ export default function ChatWidget({
       loadingComplete,
       hasGenesysConfig: !!genesysChatConfig,
     });
-
-    // If scripts are loaded and we're in legacy mode, just initialize the official button
     if (scriptLoadPhase === ScriptLoadPhase.LOADED && chatMode === 'legacy') {
       logger.info(
         `${LOG_PREFIX} Scripts loaded, initializing official Genesys chat button`,
       );
-
-      // First ensure container exists and is properly configured
       let containerElement = document.getElementById(containerId);
       if (!containerElement) {
         logger.info(
@@ -621,12 +589,8 @@ export default function ChatWidget({
         containerElement.setAttribute('data-chat-container', 'true');
         document.body.appendChild(containerElement);
       }
-
-      // Call the Genesys function to create the official button once
       if (typeof window._forceChatButtonCreate === 'function') {
         logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
-
-        // Try to ensure button is visible by checking if it exists first
         const existingButton = document.querySelector(
           '.cx-widget.cx-webchat-chat-button',
         );
@@ -634,9 +598,7 @@ export default function ChatWidget({
           `${LOG_PREFIX} Existing button before _forceChatButtonCreate:`,
           existingButton,
         );
-
         try {
-          // First add a style to ensure button is visible when created
           const style = document.createElement('style');
           style.textContent = `
             .cx-widget.cx-webchat-chat-button {
@@ -656,19 +618,14 @@ export default function ChatWidget({
             }
           `;
           document.head.appendChild(style);
-
-          // Add a small delay before forcing button creation to allow Genesys to fully initialize
           setTimeout(() => {
             console.log(`${LOG_PREFIX} Attempting button creation after delay`);
-            // Type safety check for _forceChatButtonCreate
             const forceChatButtonCreate = window._forceChatButtonCreate;
             const result =
               typeof forceChatButtonCreate === 'function'
                 ? forceChatButtonCreate()
                 : false;
             console.log(`${LOG_PREFIX} _forceChatButtonCreate result:`, result);
-
-            // Double-check if button now exists after a short delay
             setTimeout(() => {
               const buttonAfterCreate = document.querySelector(
                 '.cx-widget.cx-webchat-chat-button',
@@ -677,20 +634,15 @@ export default function ChatWidget({
                 `${LOG_PREFIX} Button after _forceChatButtonCreate:`,
                 buttonAfterCreate,
               );
-
               if (!buttonAfterCreate) {
                 console.log(
                   `${LOG_PREFIX} Button not found after create call - attempting alternative creation`,
                 );
-
-                // Try direct CXBus command if available
                 if (typeof window._genesysCXBus?.command === 'function') {
                   console.log(
                     `${LOG_PREFIX} Using CXBus.command("WebChat.showChatButton")`,
                   );
                   window._genesysCXBus.command('WebChat.showChatButton');
-
-                  // Check again after another delay
                   setTimeout(() => {
                     const buttonAfterCXBus = document.querySelector(
                       '.cx-widget.cx-webchat-chat-button',
@@ -699,9 +651,7 @@ export default function ChatWidget({
                       `${LOG_PREFIX} Button after CXBus command:`,
                       buttonAfterCXBus,
                     );
-
                     if (!buttonAfterCXBus) {
-                      // Last resort - use document event to trigger button creation
                       console.log(
                         `${LOG_PREFIX} Dispatching genesys:create-button event`,
                       );
@@ -713,7 +663,7 @@ export default function ChatWidget({
                 }
               }
             }, 1000);
-          }, 2000); // 2 second delay before first attempt
+          }, 2000);
         } catch (err) {
           console.error(`${LOG_PREFIX} Error in _forceChatButtonCreate:`, err);
         }
@@ -725,138 +675,86 @@ export default function ChatWidget({
     }
   }, [scriptLoadPhase, genesysChatConfig, chatMode, containerId]);
 
-  // Log critical state just before rendering GenesysScriptLoader decision
-  const chatDataFromStore = useChatStore.getState().config.chatData;
-
-  console.log('[ChatWidget] Pre-render check', {
-    isChatEnabled,
-    genesysChatConfig,
-  });
-  logger.info('[ChatWidget] Pre-render check', {
-    isChatEnabled,
-    genesysChatConfig,
-  });
-
-  logger.info(`${LOG_PREFIX} Decision Values (Pre-Render):`, {
-    isChatEnabled, // The value from the hook
-    storeChatDataIsEligible: chatDataFromStore?.isEligible,
-    storeChatDataChatAvailable: chatDataFromStore?.chatAvailable,
-    storeHasGenesysConfig: !!genesysChatConfig, // Use the component's derived variable
-    isLoading, // from hook
-    error, // from hook
-    scriptLoadPhase, // from hook
-  });
-
-  logger.info(
-    `${LOG_PREFIX} Rendering. isLoading: ${isLoading}, configError: ${error?.message}, isChatEnabled: ${isChatEnabled}, genesysChatConfig available: ${!!genesysChatConfig}`,
-  );
-
-  // Do not render GenesysScriptLoader if chat is not enabled or config is missing
-  if (!isChatEnabled || !genesysChatConfig) {
-    if (!isChatEnabled)
-      logger.warn(
-        `${LOG_PREFIX} Chat is not enabled (eligibility/consent). GenesysScriptLoader will not be rendered.`,
-      );
-    if (!genesysChatConfig)
-      logger.warn(
-        `${LOG_PREFIX} genesysChatConfig is not available. GenesysScriptLoader will not be rendered.`,
-      );
-    // Optionally render a placeholder or status message if chat is loading or errored
-    if (isLoading) return <p>Loading chat configuration...</p>;
-    if (error) return <p>Error loading chat: {error.message}</p>;
-    return null; // Or some other UI indicating chat is unavailable
-  }
-
-  logger.info(
-    `${LOG_PREFIX} Chat is enabled and config is available. Rendering GenesysScriptLoader.`,
-  );
-
   useEffect(() => {
-    logger.info(`${LOG_PREFIX} Current system state:`, {
-      apiState: {
-        isComplete: ChatLoadingState.apiState.isComplete,
-        isEligible: ChatLoadingState.apiState.isEligible,
-        chatMode: ChatLoadingState.apiState.chatMode,
+    logger.info(
+      `${LOG_PREFIX} Current system state (useEffect for fallback button):`,
+      {
+        // Renamed log for clarity
+        apiState: {
+          isComplete: ChatLoadingState.apiState.isComplete,
+          isEligible: ChatLoadingState.apiState.isEligible,
+          chatMode: ChatLoadingState.apiState.chatMode,
+        },
+        scriptState: {
+          isComplete: ChatLoadingState.scriptState.isComplete,
+          isLoading: ChatLoadingState.scriptState.isLoading,
+          attempts: ChatLoadingState.scriptState.loadAttempts,
+        },
+        hasGenesysConfig: !!genesysChatConfig,
+        configKeyCount: genesysChatConfig
+          ? Object.keys(genesysChatConfig).length
+          : 0,
+        targetContainer:
+          genesysChatConfig && 'targetContainer' in genesysChatConfig
+            ? genesysChatConfig.targetContainer
+            : 'undefined',
       },
-      scriptState: {
-        isComplete: ChatLoadingState.scriptState.isComplete,
-        isLoading: ChatLoadingState.scriptState.isLoading,
-        attempts: ChatLoadingState.scriptState.loadAttempts,
-      },
-      hasGenesysConfig: !!genesysChatConfig,
-      configKeyCount: genesysChatConfig
-        ? Object.keys(genesysChatConfig).length
-        : 0,
-      targetContainer:
-        genesysChatConfig && 'targetContainer' in genesysChatConfig
-          ? genesysChatConfig.targetContainer
-          : 'undefined',
-    });
+    );
 
-    // Add a check and fallback custom button if the Genesys button doesn't appear
+    // This is the effect that was previously identified by the line number
     if (isChatEnabled && scriptLoadPhase === ScriptLoadPhase.LOADED) {
-      // Wait 5 seconds for the button to appear, and if it doesn't, create a fallback
       const buttonCheckTimer = setTimeout(() => {
         const genesysButton = document.querySelector(
           '.cx-widget.cx-webchat-chat-button',
         );
         if (!genesysButton) {
           console.log(
-            `${LOG_PREFIX} Genesys button not found after 5s - adding fallback button`,
+            `${LOG_PREFIX} Genesys button not found after 5s - adding fallback button (from dedicated useEffect)`,
           );
-
-          // Create a custom fallback button
           const fallbackButton = document.createElement('button');
           fallbackButton.innerText = 'Chat with us';
-          fallbackButton.id = 'fallback-chat-button';
+          fallbackButton.id = 'fallback-chat-button-dedicated'; // Unique ID
           fallbackButton.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0056b3;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            z-index: 9999;
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: #0056b3; color: white; padding: 10px 20px;
+            border-radius: 4px; border: none; cursor: pointer;
+            font-size: 14px; font-weight: bold; z-index: 9999;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
           `;
-
-          // Add click handler to open chat
           fallbackButton.onclick = () => {
-            setOpen(true);
+            setOpen(true); // Use the hook from the outer scope
             if (window._genesysCXBus?.command) {
               window._genesysCXBus.command('WebChat.open');
             }
           };
-
-          // Add to the document body
-          document.body.appendChild(fallbackButton);
+          // Avoid appending if one already exists from another mechanism
+          if (!document.getElementById(fallbackButton.id)) {
+            document.body.appendChild(fallbackButton);
+          }
         } else {
-          console.log(`${LOG_PREFIX} Genesys button found:`, genesysButton);
+          console.log(
+            `${LOG_PREFIX} Genesys button found (from dedicated useEffect):`,
+            genesysButton,
+          );
         }
       }, 5000);
-
       return () => clearTimeout(buttonCheckTimer);
     }
-  }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]);
+  }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]); // setOpen added as it's used in callback
 
-  // Add effect for handling button state changes from the store
   useEffect(() => {
     logger.info(`${LOG_PREFIX} Button state changed to: ${buttonState}`);
-
-    // If button is created, no need for fallback
     if (buttonState === 'created') {
       setShowFallbackButton(false);
       logger.info(
         `${LOG_PREFIX} Genesys button created successfully, hiding fallback button`,
       );
+      // Remove fallback button if it exists
+      const fallbackBtn = document.getElementById(
+        'fallback-chat-button-dedicated',
+      );
+      if (fallbackBtn) fallbackBtn.remove();
     }
-
-    // If button creation failed and CXBus is ready, show the fallback
     if (buttonState === 'failed' && isCXBusReady) {
       setShowFallbackButton(true);
       logger.info(
@@ -865,88 +763,10 @@ export default function ChatWidget({
     }
   }, [buttonState, isCXBusReady]);
 
-  // Modify the button checking function to update the store
-  const checkGenesysButton = useCallback(() => {
-    // Don't check if button is already created
-    if (buttonState === 'created') {
-      return;
-    }
-
-    // Increment attempts
-    buttonCheckAttempts.current += 1;
-
-    logger.info(
-      `${LOG_PREFIX} Checking for Genesys button (attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS})`,
-    );
-
-    // Look for the Genesys button using various selectors
-    const selectors = [
-      '.cx-widget.cx-webchat-chat-button',
-      '.cx-webchat-chat-button',
-      '[data-cx-widget="WebChat"]',
-      '.cx-button.cx-webchat',
-    ];
-
-    let button: Element | null = null;
-    for (const selector of selectors) {
-      button = document.querySelector(selector);
-      if (button) {
-        logger.info(
-          `${LOG_PREFIX} Found Genesys button using selector: ${selector}`,
-        );
-        break;
-      }
-    }
-
-    if (button) {
-      logger.info(`${LOG_PREFIX} Genesys button found, ensuring visibility`);
-      useChatStore.getState().actions.setButtonState('created');
-
-      // Ensure the button is visible
-      try {
-        (button as HTMLElement).style.display = 'block';
-        (button as HTMLElement).style.visibility = 'visible';
-        (button as HTMLElement).style.opacity = '1';
-      } catch (err) {
-        logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
-      }
-    } else {
-      logger.warn(
-        `${LOG_PREFIX} Genesys button not found on attempt ${buttonCheckAttempts.current}`,
-      );
-
-      // Try to create the button via CXBus if available
-      if (isCXBusReady && window._genesysCXBus) {
-        logger.info(`${LOG_PREFIX} Attempting to create button via CXBus`);
-        useChatStore.getState().actions.setButtonState('creating');
-
-        try {
-          window._genesysCXBus.command('WebChat.showChatButton');
-        } catch (err) {
-          logger.error(`${LOG_PREFIX} Error creating button via CXBus:`, err);
-        }
-      }
-
-      // After max attempts, mark as failed in the store
-      if (buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS) {
-        logger.warn(
-          `${LOG_PREFIX} Max button check attempts reached. Marking button creation as failed.`,
-        );
-        useChatStore.getState().actions.setButtonState('failed');
-      }
-    }
-  }, [buttonState, isCXBusReady]);
-
-  // Add effect to perform button checks at regular intervals once CXBus is ready
   useEffect(() => {
-    if (!isCXBusReady) {
-      return; // Don't check for button until CXBus is ready
-    }
-
+    if (!isCXBusReady) return;
     logger.info(`${LOG_PREFIX} CXBus is ready, starting button checks`);
     useChatStore.getState().actions.setButtonState('creating');
-
-    // First check - try the button initialization approach
     if (window._forceChatButtonCreate) {
       try {
         logger.info(`${LOG_PREFIX} Calling _forceChatButtonCreate()`);
@@ -958,11 +778,7 @@ export default function ChatWidget({
         );
       }
     }
-
-    // Then start checking for the button
     checkGenesysButton();
-
-    // Set up timer to check for button at intervals
     const buttonCheckInterval = setInterval(() => {
       if (
         buttonState === 'created' ||
@@ -974,222 +790,230 @@ export default function ChatWidget({
         );
         return;
       }
-
       checkGenesysButton();
-    }, 2000); // Check every 2 seconds
-
+    }, 2000);
     return () => clearInterval(buttonCheckInterval);
   }, [isCXBusReady, checkGenesysButton, buttonState]);
 
-  // Add effect for enforcing chat mode and validating configuration
   useEffect(() => {
-    // Only proceed if we have a config
     if (!genesysChatConfig) {
       logger.info(`${LOG_PREFIX} No Genesys chat configuration available yet.`);
       return;
     }
-
-    // Use type assertion to access properties
     const config = genesysChatConfig as any;
-
-    // Validate chat mode
     const currentChatMode = chatMode || 'legacy';
     const serverChatMode = config.chatMode || 'legacy';
     const isCloudEligible =
       config.cloudChatEligible === 'true' || config.cloudChatEligible === true;
-
-    logger.info(`${LOG_PREFIX} Chat mode validation:`, {
-      chatMode: currentChatMode,
-      serverSpecifiedMode: serverChatMode,
-      cloudEligible: isCloudEligible,
-      usingLegacyConfig: !!legacyConfig,
-      usingCloudConfig: !!cloudConfig,
-      configSource: chatMode === 'legacy' ? 'legacyConfig' : 'cloudConfig',
+    logger.info(`${LOG_PREFIX} Validating chat mode consistency:`, {
+      currentChatMode, // From store/props
+      serverChatMode, // From fetched config
+      isCloudEligible, // From fetched config
     });
-
-    // Log important configuration values
-    logger.info(`${LOG_PREFIX} Genesys configuration:`, {
-      clickToChatEndpoint: config.clickToChatEndpoint,
-      clickToChatToken: config.clickToChatToken ? '[PRESENT]' : '[MISSING]',
-      isChatAvailable: config.isChatAvailable,
-      isChatEligibleMember: config.isChatEligibleMember,
-      targetContainer: config.targetContainer,
-      chatHours: config.chatHours,
-      rawChatHrs: config.rawChatHrs,
-      widgetUrl: config.widgetUrl,
-      clickToChatJs: config.clickToChatJs,
-      gmsChatUrl: config.gmsChatUrl,
-    });
-
-    // Mode conflict warning
-    if (serverChatMode !== currentChatMode) {
-      logger.warn(
-        `${LOG_PREFIX} Chat mode mismatch! Server specified '${serverChatMode}' but using '${currentChatMode}'. Proceeding with ${currentChatMode} mode.`,
-      );
-    }
-
-    // Warn if using cloud mode but not eligible
     if (currentChatMode === 'cloud' && !isCloudEligible) {
       logger.warn(
-        `${LOG_PREFIX} Using CLOUD mode but server indicates not cloud-eligible. This may cause issues.`,
+        `${LOG_PREFIX} Inconsistent chat mode: UI expects 'cloud', but server config indicates not cloud eligible. Potential misconfiguration.`,
+      );
+      // setError(new Error('Chat mode mismatch: UI expects cloud, but not eligible.'));
+      // setShowChatErrorModal(true);
+    } else if (currentChatMode === 'legacy' && isCloudEligible) {
+      logger.warn(
+        `${LOG_PREFIX} Inconsistent chat mode: UI expects 'legacy', but server config indicates cloud eligible. Consider updating UI to use cloud mode.`,
       );
     }
-
-    // Validate configuration for legacy mode
-    if (currentChatMode === 'legacy') {
-      const requiredFields = [
-        'clickToChatEndpoint',
-        'clickToChatToken',
-        'targetContainer',
-      ];
-
-      const missingFields = requiredFields.filter((field) => !config[field]);
-
-      if (missingFields.length > 0) {
+    // Further validation for Genesys Cloud config
+    if (currentChatMode === 'cloud') {
+      const gcConfig = genesysCloudConfig; // From store selector
+      if (!gcConfig?.deploymentId || !gcConfig?.environment) {
         logger.error(
-          `${LOG_PREFIX} Legacy mode is missing required fields: ${missingFields.join(', ')}`,
+          `${LOG_PREFIX} Critical Genesys Cloud config missing: deploymentId or environment.`,
+          { gcConfigFromStore: gcConfig },
         );
+        setError(
+          new Error(
+            'Genesys Cloud configuration is incomplete (missing deploymentId or environment).',
+          ),
+        );
+        setShowChatErrorModal(true);
       }
     }
-  }, [genesysChatConfig, chatMode, legacyConfig, cloudConfig]);
+  }, [genesysChatConfig, chatMode, genesysCloudConfig, setError]);
 
-  console.log('[ChatWidget] Component rendered');
-  logger.info('[ChatWidget] Component rendered', {});
+  // === CONDITIONAL RENDERING LOGIC STARTS HERE ===
+  // (Moved from lines 755-772)
 
+  // Log critical state just before rendering decision
+  const chatDataFromStore = useChatStore.getState().config.chatData; // getState is fine for logging
+  logger.info('[ChatWidget] Pre-render conditional check values:', {
+    isChatEnabled,
+    hasGenesysChatConfig: !!genesysChatConfig,
+    isLoading,
+    errorMsg: error?.message,
+    scriptLoadPhase,
+    storeChatDataIsEligible: chatDataFromStore?.isEligible,
+    storeChatDataChatAvailable: chatDataFromStore?.chatAvailable,
+  });
+
+  if (!isChatEnabled || !genesysChatConfig) {
+    if (!isChatEnabled)
+      logger.warn(
+        `${LOG_PREFIX} Chat is not enabled (eligibility/consent). GenesysScriptLoader will not be rendered.`,
+      );
+    if (!genesysChatConfig)
+      logger.warn(
+        `${LOG_PREFIX} genesysChatConfig is not available. GenesysScriptLoader will not be rendered.`,
+      );
+    if (isLoading) {
+      logger.info(
+        `${LOG_PREFIX} Chat config is loading. Rendering loading message.`,
+      );
+      return (
+        <p data-testid="chat-loading-config">Loading chat configuration...</p>
+      );
+    }
+    if (error) {
+      logger.error(
+        `${LOG_PREFIX} Error loading chat. Rendering error message: ${error.message}`,
+      );
+      // Do not return modal directly, let the main render path handle it if showChatErrorModal is true
+    }
+    // If not loading and no error, but chat is not enabled or no config, render null or placeholder.
+    // This path is hit if chat is explicitly disabled or config failed silently.
+    logger.info(
+      `${LOG_PREFIX} Chat not enabled or no config, and not loading/error state. Rendering null.`,
+    );
+    // return null; // Or some other UI indicating chat is unavailable
+  }
+
+  // If there's an error from the store, and we're not already showing the modal via local state,
+  // set local state to show it. This ensures errors from various sources (script, CXBus, config) are handled.
+  if (error && !showChatErrorModal) {
+    logger.info(
+      `${LOG_PREFIX} Global error detected from store. Setting showChatErrorModal to true.`,
+    );
+    setShowChatErrorModal(true); // This will cause a re-render to show the modal
+  }
+
+  logger.info(
+    `${LOG_PREFIX} Rendering main content. isChatEnabled: ${isChatEnabled}, hasConfig: ${!!genesysChatConfig}, showErrorModal: ${showChatErrorModal}`,
+  );
+
+  // === MAIN RENDER LOGIC ===
   return (
     <>
-      {/* Container for the Genesys chat widget - managed by useEffect */}
-      <div id={containerId} />
+      <div id={containerId} data-testid="chat-widget-container" />
 
-      {/* Loader for Genesys scripts, rendered only when config is ready */}
-      {isChatEnabled && (
+      {isChatEnabled && genesysChatConfig && (
         <GenesysScriptLoader
           chatMode={chatMode}
-          cloudConfig={genesysCloudConfig}
-          legacyConfig={chatMode === 'legacy' ? genesysChatConfig : undefined}
+          // Ensure legacyConfig and cloudConfig are properly passed or default to undefined
+          legacyConfig={
+            chatMode === 'legacy' ? legacyConfig || undefined : undefined
+          }
+          cloudConfig={
+            chatMode === 'cloud' ? cloudConfig || undefined : undefined
+          }
           onLoad={handleCXBusReady}
           onError={handleScriptError}
           showStatus={showLoaderStatus}
         />
       )}
 
-      {/* Updated Fallback button when Genesys button isn't found */}
-      {isCXBusReady && (buttonState === 'failed' || showFallbackButton) && (
-        <button
-          id="fallback-chat-button"
-          onClick={() => setOpen(true)}
-          aria-label="Chat with us"
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            backgroundColor: '#0056b3',
-            color: 'white',
-            padding: '10px 20px',
-            borderRadius: '30px',
-            border: 'none',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
-            zIndex: 999,
-            fontSize: '14px',
-          }}
-        >
-          Chat with us
-        </button>
-      )}
-
-      {/* Hide CoBrowse elements if needed */}
-      {hideCoBrowse && (
-        <style>{`
-          .cobrowse-card,
-          #cobrowse-sessionConfirm,
-          #cobrowse-sessionYesModal,
-          #cobrowse-contactUsScreen1,
-          #cobrowse-contactUsScreen2 {
-            display: none !important;
-          }
-        `}</style>
-      )}
-
-      {/* Add custom CSS styles for the official Genesys button */}
-      <style>{`
-        /* Make the official Genesys chat button visible and styled properly */
-        .cx-widget.cx-webchat-chat-button {
-          display: block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          position: fixed !important;
-          bottom: 20px !important;
-          right: 20px !important;
-          z-index: 9999 !important;
-          padding: 10px 20px !important;
-          background-color: #0056b3 !important;
-          color: white !important;
-          border-radius: 30px !important;
-          cursor: pointer !important;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-          font-weight: bold !important;
-          font-family: Arial, sans-serif !important;
-          font-size: 14px !important;
-          min-width: 120px !important;
-          text-align: center !important;
-          border: none !important;
-          transition: background-color 0.3s ease !important;
-        }
-        
-        .cx-widget.cx-webchat-chat-button:hover {
-          background-color: #003d7a !important;
-        }
-      `}</style>
-
-      {/* Error message display with OK button to retry */}
-      {error && showChatErrorModal && (
-        <div
-          className="genesys-chat-error"
-          data-testid="chat-error"
-          style={{
-            position: 'fixed',
-            bottom: '30px',
-            right: '30px',
-            backgroundColor: '#f8d7da',
-            color: '#721c24',
-            border: '1px solid #f5c6cb',
-            borderRadius: '5px',
-            padding: '15px 20px',
-            width: '300px',
-            zIndex: 2000,
-            boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-          }}
-        >
-          <div style={{ marginBottom: '10px' }}>{error.message}</div>
-          <button
-            onClick={handleClearErrorAndReopen}
-            style={{
-              backgroundColor: '#dc3545',
-              color: 'white',
-              border: 'none',
-              padding: '5px 10px',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              display: 'block',
-              width: '100%',
-            }}
-          >
-            OK
-          </button>
+      {showChatErrorModal && (
+        <div className="chat-error-modal" data-testid="chat-error-modal">
+          <div className="modal-content">
+            <p>{error?.message || standardErrorMessage}</p>
+            <button
+              onClick={handleClearErrorAndReopen}
+              data-testid="chat-error-reopen-button"
+            >
+              Try Again
+            </button>
+            {/* It might be useful to have a close button that doesn't try to reopen */}
+            <button
+              onClick={() => {
+                setError(null);
+                setShowChatErrorModal(false);
+              }}
+              data-testid="chat-error-close-button"
+            >
+              Close
+            </button>
+          </div>
+          {/* Basic styling for the modal - consider moving to a CSS file */}
+          <style jsx>{`
+            .chat-error-modal {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.5);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 10000; /* Ensure it's on top */
+            }
+            .modal-content {
+              background-color: white;
+              padding: 20px;
+              border-radius: 5px;
+              text-align: center;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .modal-content p {
+              margin-bottom: 15px;
+            }
+            .modal-content button {
+              margin: 0 5px;
+              padding: 8px 15px;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          `}</style>
         </div>
       )}
+
+      {showFallbackButton &&
+        !document.getElementById('fallback-chat-button-dedicated') && (
+          <button
+            id="fallback-chat-button-render"
+            onClick={() => {
+              setOpen(true);
+              if (window._genesysCXBus?.command) {
+                window._genesysCXBus.command('WebChat.open');
+              }
+            }}
+            style={{
+              position: 'fixed',
+              bottom: '20px',
+              right: '20px',
+              backgroundColor: '#0056b3',
+              color: 'white',
+              padding: '10px 20px',
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              zIndex: '9999',
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            }}
+            data-testid="chat-fallback-button-render"
+          >
+            Chat with us (Fallback)
+          </button>
+        )}
     </>
   );
 }
 
-// Add TypeScript interfaces for Genesys objects
+// Extend window interface for Genesys specific properties
 declare global {
   interface Window {
     GenesysChat?: GenesysChat;
     _genesysCXBus?: GenesysCXBus;
-    _chatWidgetInstanceId?: string;
+    _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
     _forceChatButtonCreate?: () => boolean;
   }
 }
