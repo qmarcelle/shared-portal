@@ -233,8 +233,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
         );
       }
-      // Legacy mode - use widgets.min.js directly instead of click_to_chat.js
-      return scriptUrl || '/assets/genesys/plugins/widgets.min.js';
+      // Legacy mode - load click_to_chat.js which will handle loading widgets.min.js
+      return scriptUrl || '/assets/genesys/click_to_chat.js';
     }, [chatMode, scriptUrl]);
 
     // Determine CSS URLs based on chat mode
