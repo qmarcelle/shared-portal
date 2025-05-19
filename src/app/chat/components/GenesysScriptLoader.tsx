@@ -730,7 +730,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             );
 
             if (chatMode === 'legacy') {
-              // Legacy Mode: jQuery -> widgets.min.js -> click_to_chat.js
+              // Legacy Mode: jQuery -> widgets.min.js -> CXBus Ready -> click_to_chat.js
               try {
                 logger.info(`${LOG_PREFIX} Legacy Mode: Loading jQuery...`);
                 await loadScriptAsync(
@@ -745,13 +745,18 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   '/assets/genesys/plugins/widgets.min.js',
                   'genesys-widgets-min-script',
                   true,
-                ); // widgets.min.js can be async
+                );
+
+                logger.info(
+                  `${LOG_PREFIX} Legacy Mode: Polling for CXBus after widgets.min.js load attempt...`,
+                );
+                await waitForCXBus(); // Polls for _genesysCXBus
+                logger.info(`${LOG_PREFIX} Legacy Mode: CXBus ready.`);
 
                 logger.info(
                   `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings...`,
                 );
                 if (typeof window !== 'undefined') {
-                  // Ensure window.chatSettings is set *before* click_to_chat.js runs
                   window.chatSettings = legacyConfig as ChatSettings;
                   logger.info(
                     `${LOG_PREFIX} Legacy Mode: window.chatSettings set with legacyConfig:`,
@@ -766,35 +771,20 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 logger.info(
                   `${LOG_PREFIX} Legacy Mode: Loading click_to_chat.js...`,
                 );
-                // click_to_chat.js should be loaded non-async to ensure it executes in order after chatSettings is set.
                 await loadScriptAsync(
                   effectiveScriptUrl,
                   'genesys-chat-script',
                   false,
                 );
 
-                // At this point, all legacy scripts are loaded.
-                // The original onload logic for click_to_chat.js (polling CXBus) will be triggered by its own execution.
                 logger.info(
-                  `${LOG_PREFIX} All legacy scripts loaded. click_to_chat.js will handle CXBus polling.`,
+                  `${LOG_PREFIX} All legacy scripts loaded and CXBus confirmed ready.`,
                 );
-                GenesysLoadingState.scriptLoaded = true; // Mark as loaded
+                GenesysLoadingState.scriptLoaded = true;
                 markScriptLoadComplete(true);
-                // The waitForCXBus will be initiated by the useEffect that watches for scriptState.isComplete
-                // or can be called directly if needed, but click_to_chat.js also has polling.
-                // For now, let's rely on the existing mechanisms to detect CXBus.
-                // If onLoad is present, it will be called once CXBus is ready via waitForCXBus.
-                // We can consider calling waitForCXBus().then(onLoad).catch(onError) here if direct control is needed.
-                // For now, aligning with original flow: script load sets stage, then CXBus polling happens.
-                // The scriptElement.onload for the main script is effectively achieved by awaiting loadScriptAsync.
-                // Start polling for CXBus directly here as the main script is now loaded.
-                waitForCXBus()
-                  .then(() => {
-                    if (onLoad) onLoad();
-                  })
-                  .catch((error) => {
-                    if (onError) onError(error);
-                  });
+
+                // All scripts loaded and CXBus is ready, call the main onLoad prop.
+                if (onLoad) onLoad();
               } catch (error) {
                 const errMsg = `Failed during legacy script loading sequence.`;
                 logger.error(`${LOG_PREFIX} ${errMsg}`, { error });
@@ -831,38 +821,35 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 });
               `;
 
-              // Remove existing script if present
-              const existingLegacyScript = document.getElementById(
-                'genesys-chat-script',
+              scriptElement.onload = () => {
+                logger.info(
+                  `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode.`,
+                );
+                GenesysLoadingState.scriptLoaded = true;
+                markScriptLoadComplete(true);
+                // For cloud, CXBus might come from the main script. Polling is appropriate here.
+                waitForCXBus()
+                  .then(() => {
+                    if (onLoad) onLoad();
+                  })
+                  .catch((error) => {
+                    if (onError) onError(error);
+                  });
+              };
+              scriptElement.onerror = (e) => {
+                const errMsg = `Main Genesys script element failed for ${chatMode} mode.`;
+                logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
+                setStatus('error');
+                setErrorMessage(errMsg);
+                GenesysLoadingState.scriptLoaded = false;
+                GenesysLoadingState.cxBusReady = false;
+                markScriptLoadComplete(false);
+                if (onError) onError(new Error(errMsg));
+              };
+              document.head.appendChild(scriptElement);
+              logger.info(
+                `${LOG_PREFIX} Added script element for cloud: ${scriptElement.id}`,
               );
-              if (existingLegacyScript) {
-                logger.info(
-                  `${LOG_PREFIX} Removing existing legacy script (genesys-chat-script).`,
-                );
-                existingLegacyScript.remove();
-              }
-              const existingJQuery = document.getElementById('jquery-script');
-              if (existingJQuery) {
-                logger.info(`${LOG_PREFIX} Removing existing jQuery script.`);
-                existingJQuery.remove();
-              }
-              const existingWidgetsMin = document.getElementById(
-                'genesys-widgets-min-script',
-              );
-              if (existingWidgetsMin) {
-                logger.info(
-                  `${LOG_PREFIX} Removing existing widgets.min.js script.`,
-                );
-                existingWidgetsMin.remove();
-              }
-
-              // Only append cloud script here, legacy is handled by loadScriptAsync
-              if (chatMode === 'cloud') {
-                document.head.appendChild(scriptElement);
-                logger.info(
-                  `${LOG_PREFIX} Added script element for cloud: ${scriptElement.id}`,
-                );
-              }
             }
           } catch (err: any) {
             const error = err instanceof Error ? err : new Error(String(err));
