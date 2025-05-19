@@ -25,7 +25,7 @@ export const ManageMyPlan = ({
 }: ManageMyPlanProps) => {
   let manageMyPlanDetails;
   if (
-    isBlueCareEligible(visibilityRules) ||
+    isBlueCareEligible(visibilityRules) &&
     isKatieBeckettEligible(visibilityRules)
   ) {
     manageMyPlanDetails = [
