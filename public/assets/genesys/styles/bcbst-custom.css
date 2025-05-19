@@ -14,7 +14,12 @@
 
 /* Chat button (collapsed state) */
 .cx-widget.cx-webchat-chat-button {
-  background-color: #0056B3 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  background-color: #0056b3 !important;
   color: white !important;
   border-radius: 4px !important;
   padding: 10px 20px !important;
@@ -22,6 +27,12 @@
   font-weight: 500 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   border: none !important;
+  z-index: 2147483647 !important; /* Maximum z-index to ensure visibility */
+  width: auto !important;
+  min-width: 60px !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .cx-widget.cx-webchat-chat-button .cx-icon {
@@ -34,7 +45,7 @@
 
 /* Chat header */
 .cx-widget.cx-webchat .cx-titlebar {
-  background-color: #0056B3 !important;
+  background-color: #0056b3 !important;
   color: white !important;
   padding: 15px !important;
   font-size: 16px !important;
@@ -152,13 +163,13 @@
 }
 
 .cx-widget.cx-webchat .cx-message-input:focus {
-  border-color: #0056B3 !important;
+  border-color: #0056b3 !important;
   outline: none !important;
 }
 
 /* Send button */
 .cx-widget.cx-webchat .cx-send {
-  background-color: #0056B3 !important;
+  background-color: #0056b3 !important;
   color: white !important;
   border-radius: 50% !important;
   width: 36px !important;
@@ -214,7 +225,7 @@
 /* Start chat button */
 .cx-widget.cx-webchat .cx-btn-primary,
 .cx-widget.cx-webchat .cx-submit {
-  background-color: #0056B3 !important;
+  background-color: #0056b3 !important;
   color: white !important;
   border-radius: 4px !important;
   padding: 10px 20px !important;
@@ -242,7 +253,7 @@
 }
 
 .cx-widget.cx-webchat .cx-terms-text a {
-  color: #0056B3 !important;
+  color: #0056b3 !important;
   text-decoration: none !important;
 }
 
@@ -312,7 +323,7 @@
 
 .cx-widget.cx-webchat .cx-avatar {
   border-radius: 50% !important;
-  background-color: #0056B3 !important;
+  background-color: #0056b3 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
