@@ -3,7 +3,6 @@
 /**
  * @file GenesysScriptLoader.tsx
  * @description This component is dedicated to the orchestrated loading of Genesys chat scripts and their dependencies.
- * As per README.md: "Loads `click_to_chat.js`, sets `window.chatSettings`, manages script lifecycle."
  * Key Responsibilities:
  * - Accepts `genesysChatConfig` (as `config` prop).
  * - Adds DNS prefetch and preconnect resource hints for Genesys domains and jQuery.
@@ -11,10 +10,8 @@
  * - Sets the fully assembled `genesysChatConfig` onto `window.chatSettings` immediately before injecting `click_to_chat.js`.
  * - Injects and loads the main `public/assets/genesys/click_to_chat.js` script (or a configurable URL).
  * - Handles `onload` and `onerror` for the script tag.
- * - Implements robust polling with exponential backoff to detect when `click_to_chat.js` is ready
- *   (e.g., `window._forceChatButtonCreate` or `window._genesysCXBus` is available).
- * - Calls `window._forceChatButtonCreate()` if available to ensure the chat button is rendered.
- * - Invokes `onLoad` or `onError` callbacks based on the script loading outcome.
+ * - Polls for `window._genesysCXBus` to become available after script loading.
+ * - Invokes `onLoad` or `onError` callbacks based on script loading and CXBus readiness outcome.
  * - Optionally displays a visual status indicator.
  */
 
@@ -45,6 +42,7 @@ const LOG_PREFIX = '[GenesysScriptLoader]';
 // This persists across component instances
 const GenesysLoadingState = {
   scriptLoaded: false,
+  cxBusReady: false, // New flag to track CXBus availability
   scriptId: 'genesys-chat-script',
   cssIds: [] as string[],
   activeInstanceId: null as string | null,
@@ -164,7 +162,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       | 'loading-css'
       | 'setting-config'
       | 'loading-script'
-      | 'polling-ready'
+      | 'polling-cxbus' // New state for polling CXBus
       | 'loaded'
       | 'error'
     >('idle');
@@ -260,16 +258,17 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     const stableCssUrls = useMemo(() => effectiveCssUrls, [effectiveCssUrls]);
 
     /**
-     * Checks if Genesys is ready with exponential backoff
-     * This reduces CPU usage while still ensuring we detect when scripts are ready
+     * Wait for CXBus to be available with exponential backoff
      */
-    const checkReadyWithBackoff = useCallback(() => {
+    const waitForCXBus = useCallback(() => {
       logger.info(
-        `${LOG_PREFIX} checkReadyWithBackoff: Starting polling for widget readiness.`,
+        `${LOG_PREFIX} waitForCXBus: Starting polling for CXBus availability`,
       );
+      setStatus('polling-cxbus');
+
       let attempts = 0;
-      const maxAttempts = 10;
-      let timeout = 100; // Start with 100ms
+      const maxAttempts = 20;
+      let timeout = 250; // Start with 250ms
 
       // Clear any existing interval
       if (checkIntervalRef.current) {
@@ -277,21 +276,34 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         checkIntervalRef.current = null;
       }
 
-      const checkFn = () => {
-        // For cloud, readiness might be just window.Genesys object and its methods.
-        // For legacy, it's _forceChatButtonCreate or _genesysCXBus
-        const isReady =
-          chatMode === 'cloud'
-            ? typeof window.Genesys === 'function' &&
-              typeof window.Genesys.command === 'function'
-            : window._forceChatButtonCreate || window._genesysCXBus;
-
-        if (isReady) {
+      const checkCXBus = () => {
+        // Check if CXBus is available
+        if (typeof window._genesysCXBus !== 'undefined') {
           logger.info(
-            `${LOG_PREFIX} Widget readiness detected. Mode: ${chatMode}. Attempts: ${attempts}`,
+            `${LOG_PREFIX} CXBus detected after ${attempts} attempts. CXBus ready.`,
           );
 
-          if (chatMode === 'legacy' && window._forceChatButtonCreate) {
+          // Mark CXBus as ready in global state
+          GenesysLoadingState.cxBusReady = true;
+
+          setStatus('loaded');
+
+          // Clear any running timeout
+          if (checkIntervalRef.current) {
+            clearTimeout(checkIntervalRef.current);
+            checkIntervalRef.current = null;
+          }
+
+          // Call onLoad callback
+          if (onLoad) {
+            logger.info(
+              `${LOG_PREFIX} Calling onLoad callback now that CXBus is ready`,
+            );
+            onLoad();
+          }
+
+          // Try to call _forceChatButtonCreate if available
+          if (window._forceChatButtonCreate) {
             try {
               logger.info(
                 `${LOG_PREFIX} Calling window._forceChatButtonCreate() for legacy mode.`,
@@ -304,51 +316,43 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               );
             }
           }
-          // For cloud mode, further configuration via Genesys('config.set', ...) or Genesys('command', ...)
-          // would typically happen *after* this onLoad, triggered by the calling component.
-          // Or, we could pass a full config object to be applied here.
 
-          setStatus('loaded');
-          // Update the sequential loading state
-          markScriptLoadComplete(true);
-
-          logger.info(
-            `${LOG_PREFIX} Status set to LOADED. Calling onLoad callback.`,
-          );
-          if (onLoad) onLoad();
           return;
         }
 
         attempts++;
         if (attempts >= maxAttempts) {
           logger.error(
-            `${LOG_PREFIX} Failed to detect widget readiness after ${maxAttempts} attempts. Polling stopped.`,
+            `${LOG_PREFIX} Failed to detect CXBus after ${maxAttempts} attempts. Giving up.`,
           );
-          if (status !== 'error') {
-            // Avoid overwriting an earlier script load error
-            setStatus('error');
-            const errMsg =
-              'Timeout waiting for chat widget initialization after script load.';
-            setErrorMessage(errMsg);
 
-            // Mark as failed in the sequential loader
-            markScriptLoadComplete(false);
+          setStatus('error');
+          const errMsg = 'Timeout waiting for CXBus after script was loaded.';
+          setErrorMessage(errMsg);
 
-            logger.warn(`${LOG_PREFIX} ${errMsg}. Calling onError callback.`);
-            if (onError) onError(new Error(errMsg));
+          // Do not change scriptLoaded flag, as the script did load
+          // Just mark that CXBus is not ready
+          GenesysLoadingState.cxBusReady = false;
+
+          if (onError) {
+            onError(new Error(errMsg));
           }
           return;
         }
 
+        // Exponential backoff with a maximum delay
         timeout = Math.min(timeout * 1.5, 2000);
+
         logger.info(
-          `${LOG_PREFIX} Widget not ready. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
+          `${LOG_PREFIX} CXBus not ready yet. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
         );
-        checkIntervalRef.current = setTimeout(checkFn, timeout);
+
+        checkIntervalRef.current = setTimeout(checkCXBus, timeout);
       };
 
-      checkFn(); // Start the first check
-    }, [onLoad, onError, status, chatMode]); // Added chatMode to dependencies
+      // Start the first check
+      checkCXBus();
+    }, [onLoad, onError]);
 
     const config = chatMode === 'legacy' ? legacyConfig : cloudConfig;
 
@@ -448,14 +452,36 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           `${LOG_PREFIX} Scripts loading skipped based on sequential loader state.`,
         );
 
-        // If scripts are already loaded successfully, call onLoad
-        if (ChatLoadingState.scriptState.isComplete) {
+        // If scripts are already loaded successfully, we should still check for CXBus
+        if (
+          ChatLoadingState.scriptState.isComplete &&
+          GenesysLoadingState.scriptLoaded
+        ) {
           logger.info(
-            `${LOG_PREFIX} Scripts already loaded, calling onLoad callback.`,
+            `${LOG_PREFIX} Scripts already loaded, checking for CXBus.`,
           );
-          if (onLoad) onLoad();
-        }
 
+          // Check if CXBus is also ready
+          if (GenesysLoadingState.cxBusReady) {
+            logger.info(
+              `${LOG_PREFIX} CXBus already marked as ready, calling onLoad callback.`,
+            );
+            if (onLoad) onLoad();
+          } else if (typeof window._genesysCXBus !== 'undefined') {
+            // CXBus exists but wasn't marked as ready
+            logger.info(
+              `${LOG_PREFIX} CXBus found but not marked as ready. Marking as ready and calling onLoad.`,
+            );
+            GenesysLoadingState.cxBusReady = true;
+            if (onLoad) onLoad();
+          } else {
+            // Script loaded but CXBus not ready yet, start polling
+            logger.info(
+              `${LOG_PREFIX} Scripts loaded but CXBus not ready. Starting polling for CXBus.`,
+            );
+            waitForCXBus();
+          }
+        }
         return;
       }
 
@@ -476,12 +502,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
         // Wait a bit then check if the script is loaded
         setTimeout(() => {
-          if (window._genesysCXBus || window._forceChatButtonCreate) {
+          if (window._genesysCXBus) {
             logger.info(
-              `${LOG_PREFIX} Script appears to be loaded, proceeding to ready check.`,
+              `${LOG_PREFIX} Script appears to be loaded, proceeding to CXBus polling.`,
             );
-            setStatus('polling-ready');
-            checkReadyWithBackoff();
+            setStatus('polling-cxbus');
+            waitForCXBus();
           } else {
             logger.info(
               `${LOG_PREFIX} Script still not ready, continuing with load process.`,
@@ -648,11 +674,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 );
               }
 
-              setStatus('polling-ready');
-              logger.info(
-                `${LOG_PREFIX} Script processed. Now polling for widget readiness.`,
-              );
-              checkReadyWithBackoff();
+              // Mark script as loaded
+              GenesysLoadingState.scriptLoaded = true;
+
+              // Update sequential loader state
+              markScriptLoadComplete(true);
+
+              // Start polling for CXBus
+              waitForCXBus();
             };
 
             scriptElement.onerror = (e) => {
@@ -670,6 +699,10 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   e,
                 );
               }
+
+              // Update state flags
+              GenesysLoadingState.scriptLoaded = false;
+              GenesysLoadingState.cxBusReady = false;
 
               // Mark as failed in the sequential loader
               markScriptLoadComplete(false);
@@ -736,7 +769,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       onLoad,
       onError,
       status,
-      checkReadyWithBackoff,
+      waitForCXBus,
       instanceId,
     ]);
 
@@ -759,13 +792,42 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
     // Initialization logic
     useEffect(() => {
-      // Check if scripts are already loaded according to our sequential loader
-      if (ChatLoadingState.scriptState.isComplete) {
+      // Only proceed if this is the active instance
+      if (GenesysLoadingState.activeInstanceId !== instanceId.current) {
         logger.info(
-          `${LOG_PREFIX} Scripts already loaded according to ChatLoadingState, skipping initialization.`,
+          `${LOG_PREFIX} This is not the active instance. Skipping initialization.`,
         );
-        setStatus('loaded');
-        if (onLoad) onLoad();
+        return;
+      }
+
+      // Check if scripts are already loaded according to our sequential loader
+      if (
+        ChatLoadingState.scriptState.isComplete &&
+        GenesysLoadingState.scriptLoaded
+      ) {
+        logger.info(
+          `${LOG_PREFIX} Scripts already loaded according to ChatLoadingState.`,
+        );
+
+        if (GenesysLoadingState.cxBusReady) {
+          logger.info(
+            `${LOG_PREFIX} CXBus already ready. Setting status to loaded and calling onLoad.`,
+          );
+          setStatus('loaded');
+          if (onLoad) onLoad();
+        } else if (typeof window._genesysCXBus !== 'undefined') {
+          logger.info(
+            `${LOG_PREFIX} CXBus detected but not marked as ready. Marking as ready and calling onLoad.`,
+          );
+          GenesysLoadingState.cxBusReady = true;
+          setStatus('loaded');
+          if (onLoad) onLoad();
+        } else {
+          logger.info(
+            `${LOG_PREFIX} Scripts loaded but CXBus not ready. Starting polling for CXBus.`,
+          );
+          waitForCXBus();
+        }
         return;
       }
 
@@ -794,7 +856,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           clearTimeout(checkIntervalRef.current);
         }
       };
-    }, [loadScript, onLoad, shouldLoadScripts, checkIntervalRef]);
+    }, [loadScript, onLoad, waitForCXBus, shouldLoadScripts, checkIntervalRef]);
 
     if (!showStatus) {
       return null; // Render nothing if status indicator is hidden
@@ -816,8 +878,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         {status === 'loading-css' && <p>Genesys Chat: Loading CSS...</p>}
         {status === 'setting-config' && <p>Genesys Chat: Configuring...</p>}
         {status === 'loading-script' && <p>Genesys Chat: Loading script...</p>}
-        {status === 'polling-ready' && (
-          <p>Genesys Chat: Verifying widget readiness...</p>
+        {status === 'polling-cxbus' && (
+          <p>Genesys Chat: Waiting for CXBus...</p>
         )}
         {status === 'loaded' && (
           <p style={{ color: 'green' }}>Genesys Chat: Loaded successfully.</p>
@@ -843,5 +905,6 @@ declare global {
     _genesysCXBus?: GenesysCXBus;
     chatSettings?: ChatSettings | GenesysChatConfig; // Reflecting that we set it for legacy
     Genesys?: any; // For Genesys Cloud
+    _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
   }
 }
