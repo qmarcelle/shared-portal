@@ -704,20 +704,28 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                     `${LOG_PREFIX} Legacy Mode: widgets.min.js SUCCEEDED or ALREADY LOADED (according to loadScriptAsync).`,
                   );
                   // IMMEDIATE CHECK AFTER WIDGETS.MIN.JS LOAD
+                  const checkTime = Date.now();
+                  const genesysGlobalsState = {
+                    timestamp: checkTime,
+                    has_genesys: typeof window._genesys !== 'undefined',
+                    has_genesys_widgets:
+                      typeof window._genesys?.widgets !== 'undefined',
+                    has_genesys_widgets_main:
+                      typeof window._genesys?.widgets?.main !== 'undefined',
+                    has_genesys_widgets_main_initialise:
+                      typeof window._genesys?.widgets?.main?.initialise ===
+                      'function',
+                    has_genesysCXBus:
+                      typeof window._genesysCXBus !== 'undefined',
+                  };
                   logger.info(
-                    `${LOG_PREFIX} Legacy Mode: IMMEDIATELY AFTER widgets.min.js load. Checking globals...`,
-                    {
-                      has_genesys: typeof window._genesys !== 'undefined',
-                      has_genesys_widgets:
-                        typeof window._genesys?.widgets !== 'undefined',
-                      has_genesys_widgets_main:
-                        typeof window._genesys?.widgets?.main !== 'undefined',
-                      has_genesys_widgets_main_initialise:
-                        typeof window._genesys?.widgets?.main?.initialise ===
-                        'function',
-                      has_genesysCXBus:
-                        typeof window._genesysCXBus !== 'undefined',
-                    },
+                    `${LOG_PREFIX} IMMEDIATE CHECK after widgets.min.js load attempt. State: `,
+                    genesysGlobalsState,
+                  );
+                  // eslint-disable-next-line no-console
+                  console.log(
+                    `%c[GenesysScriptLoader] IMMEDIATE CHECK after widgets.min.js load. CXBus present: ${genesysGlobalsState.has_genesysCXBus}`,
+                    'color: red; background: yellow; font-size: 1.2em; font-weight: bold;',
                   );
                 } catch (widgetsError) {
                   logger.error(
