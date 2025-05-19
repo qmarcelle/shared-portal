@@ -1292,115 +1292,98 @@
 
     // Function to explicitly initialize widgets after script loading
     function initializeWidgetsExplicitly() {
-      // Guard against multiple initializations
-      if (window._genesysWidgetsInitializationInProgress) {
+      // More specific check for the initialise function
+      if (
+        window._genesys &&
+        window._genesys.widgets &&
+        window._genesys.widgets.main &&
+        typeof window._genesys.widgets.main.initialise === 'function'
+      ) {
         console.log(
-          '[Genesys] Widgets initialization already in progress, skipping duplicate call',
+          '[Genesys] Explicitly initializing widgets.main with config:',
+          cfg.genesys,
         );
-        return;
-      }
-
-      window._genesysWidgetsInitializationInProgress = true;
-      console.log('[Genesys] Attempting explicit widgets initialization');
-
-      try {
-        // For legacy mode, we need to use the v1 webchat configuration
-        if (cfg.chatMode === 'legacy') {
-          console.log(
-            '[Genesys] Setting up legacy mode v1 webchat configuration',
-          );
-
-          // Ensure minimal _genesys structure
-          window._genesys = window._genesys || {};
-          window._genesys.widgets = window._genesys.widgets || {};
-          window._genesys.widgets.main = window._genesys.widgets.main || {
-            theme: 'light',
-            lang: 'en',
-            preload: ['webchat'],
-            header: { Authorization: `Bearer ${clickToChatToken}` },
-          };
-
-          // Configure webchat properly
-          window._genesys.widgets.webchat =
-            window._genesys.widgets.webchat || {};
-          const webchatConfig = {
-            transport: {
-              type: 'purecloud-v1-xhr',
-              dataURL: isDemoMember
-                ? clickToChatDemoEndPoint
-                : clickToChatEndpoint,
-              deploymentKey: clickToChatToken,
-            },
-            userData: {
-              firstName: cfg.firstname || cfg.formattedFirstName || 'Guest',
-              lastName: cfg.lastname || cfg.memberLastName || 'User',
-            },
-            targetContainer: cfg.targetContainer || 'genesys-chat-container',
-            chatButton: {
-              enabled: true,
-              template:
-                '<div class="cx-widget cx-webchat-chat-button cx-side-button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true"><span class="cx-icon" data-icon="chat"></span><span class="i18n cx-chat-button-label" data-message="ChatButton"></span></div>',
-              openDelay: 1000,
-              effectDuration: 300,
-              hideDuringInvite: true,
-            },
-          };
-
-          // Apply webchat configuration
-          Object.assign(window._genesys.widgets.webchat, webchatConfig);
-
-          // Add a completed callback to show button
-          window._genesys.widgets.onReady = function () {
-            console.log(
-              '[Genesys] Widgets onReady event fired, explicitly showing button',
-            );
-            if (window._genesysCXBus) {
-              window._genesysCXBus.command('WebChat.showChatButton');
-            }
-          };
-        }
-
-        // Attempt to get the "widgets.main" object
-        console.log('[Genesys] Checking for widget options');
-
-        // Delay slightly to allow widgets to initialize internally
-        setTimeout(function () {
-          if (typeof window._genesys.widgets.main.initialise === 'function') {
-            console.log(
-              '[Genesys] Found widgets.main.initialise, triggering it',
-            );
-            try {
-              // Attempt to initialize
-              window._genesys.widgets.main.initialise();
-              setTimeout(function () {
-                window._genesysWidgetsInitializationInProgress = false;
-
-                // Explicitly force button visibility after initialization
-                console.log(
-                  '[Genesys] Explicitly showing chat button after initialization',
-                );
-                if (window._genesysCXBus) {
-                  window._genesysCXBus.command('WebChat.showChatButton');
-                }
-              }, 1000);
-            } catch (err) {
-              console.error('[Genesys] Error initializing widgets:', err);
-              window._genesysWidgetsInitializationInProgress = false;
-            }
-          } else {
-            console.log(
-              '[Genesys] widgets.main.initialise is not a function, checking widgets readiness',
-            );
-            checkWidgetsReady();
-          }
-        }, 100);
-      } catch (error) {
-        console.error(
-          '[Genesys] Error in explicit widgets initialization:',
-          error,
+        window._genesys.widgets.main.initialise(cfg.genesys);
+      } else {
+        console.log(
+          '[Genesys] widgets.main.initialise is not a function or not found. Current state:',
+          {
+            'window._genesys': typeof window._genesys,
+            'window._genesys.widgets':
+              window._genesys && typeof window._genesys.widgets,
+            'window._genesys.widgets.main':
+              window._genesys &&
+              window._genesys.widgets &&
+              typeof window._genesys.widgets.main,
+            'window._genesys.widgets.main.initialise':
+              window._genesys &&
+              window._genesys.widgets &&
+              window._genesys.widgets.main &&
+              typeof window._genesys.widgets.main.initialise,
+          },
+          'Checking widgets readiness via _genesysCheckWidgetsReady.',
         );
-        window._genesysWidgetsInitializationInProgress = false;
+        window._genesysCheckWidgetsReady(); // Corrected to use window reference
       }
+    }
+
+    // Function to check if Genesys widgets are ready and then initialize
+    // Renamed to avoid conflict if widgets.min.js defines its own
+    window._genesysCheckWidgetsReady = function () {
+      // Ensure it's on window for setTimeout
+      console.log(
+        '[Genesys] _genesysCheckWidgetsReady: Checking for widgets main and initialise function...',
+      );
+      // More specific check for the initialise function
+      if (
+        window._genesys &&
+        window._genesys.widgets &&
+        window._genesys.widgets.main &&
+        typeof window._genesys.widgets.main.initialise === 'function'
+      ) {
+        console.log(
+          '[Genesys] _genesysCheckWidgetsReady: Widgets ready, calling initialise with config:',
+          cfg.genesys,
+        );
+        window._genesys.widgets.main.initialise(cfg.genesys);
+        // If button needs to be shown after this, ensure logic is here or called
+        showChatButtonWhenReady(); // Assuming this function exists and handles button visibility
+      } else {
+        console.log(
+          '[Genesys] _genesysCheckWidgetsReady: Widgets not ready yet. Current state:',
+          {
+            'window._genesys': typeof window._genesys,
+            'window._genesys.widgets':
+              window._genesys && typeof window._genesys.widgets,
+            'window._genesys.widgets.main':
+              window._genesys &&
+              window._genesys.widgets &&
+              typeof window._genesys.widgets.main,
+            'window._genesys.widgets.main.initialise':
+              window._genesys &&
+              window._genesys.widgets &&
+              window._genesys.widgets.main &&
+              typeof window._genesys.widgets.main.initialise,
+          },
+          'Retrying in 1 second...',
+        );
+        // Retry after a delay
+        setTimeout(window._genesysCheckWidgetsReady, 1000); // Ensure calling the window-scoped function
+      }
+    };
+
+    // Ensure onWidgetsLoad also calls the window-scoped version if it uses setTimeout for _genesysCheckWidgetsReady
+    function onWidgetsLoad() {
+      console.log(
+        '[Genesys] Widgets script loaded successfully, proceeding with initialization',
+      );
+
+      // Schedule readiness check to ensure button is shown
+      // This will now use the more detailed _genesysCheckWidgetsReady
+      setTimeout(window._genesysCheckWidgetsReady, 500);
+
+      // Attempt initialisation, which will also use the new checks and logging
+      initializeWidgetsExplicitly();
     }
 
     // Make accessible globally
@@ -1659,7 +1642,7 @@
     );
 
     // Schedule readiness check to ensure button is shown
-    setTimeout(checkWidgetsReady, 500);
+    setTimeout(window._genesysCheckWidgetsReady, 500);
 
     // Start proper initialization
     initializeWidgetsExplicitly();
