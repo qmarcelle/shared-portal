@@ -13,7 +13,7 @@
 
 import { logger } from '@/utils/logger';
 import { useSession } from 'next-auth/react';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const LOG_PREFIX = '[usePlanContext]';
 
@@ -51,111 +51,84 @@ export function usePlanContext(): PlanContextReturn {
   const [planContext, setPlanContext] = useState<PlanContext | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true); // Internal loading state
+
+  // Use refs for values that shouldn't trigger re-renders
   const retryCount = useRef(0);
   const MAX_RETRIES = 3; // Maximum number of retries
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    logger.info(
-      `${LOG_PREFIX} useEffect triggered. Session status: ${status}, Internal loading: ${loading}, Retry count: ${retryCount.current}`,
-    );
-    let timer: NodeJS.Timeout | null = null;
-    setError(null); // Clear previous errors on new attempt
+  // Create a memoized function to extract plan context from session
+  const extractPlanContext = useCallback((session: ExtendedSession | null) => {
+    if (!session?.user?.currUsr?.plan) return null;
+
+    const planId = session.user.currUsr.plan.grpId;
+    const subId = session.user.currUsr.plan.subId;
+
+    if (!planId || !subId) return null;
+
+    return {
+      planId,
+      groupId: planId, // Assuming groupId is same as planId from grpId
+      memberMedicalPlanID: subId,
+    };
+  }, []);
+
+  // Process the session data and update state
+  const processSessionData = useCallback(() => {
+    if (status === 'loading') {
+      setLoading(true);
+      return;
+    }
+
+    // Clear errors on each new attempt
+    setError(null);
 
     try {
-      if (status === 'loading') {
-        logger.info(
-          `${LOG_PREFIX} Session status is 'loading'. Waiting for session...`,
-        );
-        setLoading(true); // Ensure internal loading reflects session loading
+      if (status !== 'authenticated') {
+        setPlanContext(null);
+        setLoading(false);
+        if (status === 'unauthenticated') {
+          setError(new Error('User is unauthenticated.'));
+          retryCount.current = MAX_RETRIES; // Prevent retries
+        }
         return;
       }
 
-      if (status !== 'authenticated' || !session?.user?.currUsr?.plan) {
-        logger.warn(
-          `${LOG_PREFIX} Session not authenticated or plan data path not available.`,
-          {
-            status,
-            sessionAvailable: !!session,
-            currUsrAvailable: !!session?.user?.currUsr,
-            planPathAvailable: !!session?.user?.currUsr?.plan,
-          },
-        );
-        if (status === 'unauthenticated') {
-          setPlanContext(null);
-          setLoading(false);
-          setError(new Error('User is unauthenticated.'));
-          retryCount.current = MAX_RETRIES; // Prevent retries
-          logger.warn(
-            `${LOG_PREFIX} Session is unauthenticated. Plan context will be null.`,
-          );
-          return;
-        }
-        // If authenticated but plan path is missing, keep loading to allow for retries
-        setLoading(true);
-      }
+      // Extract plan context
+      const extractedContext = extractPlanContext(session);
 
-      const planId = session?.user?.currUsr?.plan?.grpId;
-      const subId = session?.user?.currUsr?.plan?.subId; // Extracted subId
-
-      if (planId && subId) {
-        // Still gate by planId as primary identifier for context validity
+      if (extractedContext) {
         logger.info(
-          `${LOG_PREFIX} Plan data (planId, subId) found in session. Setting planContext.`,
-          {
-            planId: planId?.substring(0, 3) + '...',
-            memberMedicalPlanID: subId,
-          },
+          `${LOG_PREFIX} Plan data found in session. Setting planContext.`,
         );
-        setPlanContext({
-          planId: planId,
-          groupId: planId, // Assuming groupId is the same as planId from grpId
-          memberMedicalPlanID: subId, // Set memberMedicalPlanID from subId
-        });
+        setPlanContext(extractedContext);
         setLoading(false);
-        setError(null); // Clear error on success
-        retryCount.current = 0; // Reset retry count
-      } else if (
-        retryCount.current < MAX_RETRIES &&
-        status === 'authenticated'
-      ) {
-        // Only retry if authenticated and planId is still not found
+        retryCount.current = 0; // Reset retry count on success
+      } else if (retryCount.current < MAX_RETRIES) {
+        // Only retry if authenticated and data not found
         const timeoutDuration = Math.pow(2, retryCount.current) * 1000;
         logger.warn(
-          `${LOG_PREFIX} Essential plan data (planId, subId) not available in authenticated session. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
-          {
-            currentPlanDataInSession: session?.user?.currUsr?.plan,
-            expected: { planId: !!planId, subId: !!subId },
-          },
+          `${LOG_PREFIX} Essential plan data not available. Will retry (${retryCount.current + 1}/${MAX_RETRIES}) in ${timeoutDuration}ms.`,
         );
-        timer = setTimeout(() => {
+
+        // Clear any existing timer
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+        }
+
+        // Set new timer
+        timerRef.current = setTimeout(() => {
           retryCount.current += 1;
-          logger.info(
-            `${LOG_PREFIX} Retrying fetch for plan context. Attempt ${retryCount.current}`,
-          );
           // Force re-evaluation by toggling loading state
-          // This is a common pattern to trigger useEffect re-run when dependencies might not change reference
           setLoading((prev) => !prev);
+          timerRef.current = null;
         }, timeoutDuration);
-      } else if (status === 'authenticated') {
-        // Max retries reached while authenticated but planId not found
-        const errMsg = `Failed to load essential plan data (planId, subId) after ${MAX_RETRIES} retries, despite session being authenticated.`;
-        logger.error(`${LOG_PREFIX} ${errMsg}`, {
-          sessionPlanData: session?.user?.currUsr?.plan,
-          expected: { planId: !!planId, subId: !!subId },
-        });
+      } else {
+        // Max retries reached
+        const errMsg = `Failed to load essential plan data after ${MAX_RETRIES} retries.`;
+        logger.error(`${LOG_PREFIX} ${errMsg}`);
         setPlanContext(null);
         setError(new Error(errMsg));
-        setLoading(false);
-      } else {
-        // Covers other cases like unauthenticated and max retries already attempted, or other non-loading statuses
-        logger.info(
-          `${LOG_PREFIX} Plan data not loaded. Final state check before returning null context.`,
-          { status, retries: retryCount.current },
-        );
-        setPlanContext(null);
-        if (!error && status === 'unauthenticated') {
-          setError(new Error('User is unauthenticated.')); // Ensure error is set if somehow missed
-        }
         setLoading(false);
       }
     } catch (err: any) {
@@ -165,6 +138,7 @@ export function usePlanContext(): PlanContextReturn {
           : new Error(
               String(err?.message || 'Unknown error getting plan context'),
             );
+
       logger.error(
         `${LOG_PREFIX} Exception while getting plan context:`,
         errorObj,
@@ -173,30 +147,45 @@ export function usePlanContext(): PlanContextReturn {
       setPlanContext(null);
       setLoading(false);
     }
+  }, [status, session, extractPlanContext]);
 
+  // Watch for session changes and process data
+  useEffect(() => {
+    processSessionData();
+
+    // Clean up timer on unmount
     return () => {
-      if (timer) {
-        logger.info(`${LOG_PREFIX} Clearing retry timer on unmount/re-effect.`);
-        clearTimeout(timer);
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
       }
     };
-    // Add error to dependency array so if it's set externally or by a previous run, it can be cleared if conditions change.
-  }, [session, status, loading, error]);
+  }, [processSessionData]);
 
-  const finalLoadingState = status === 'loading' || loading;
-  logger.info(
-    `${LOG_PREFIX} Hook returning. isPlanContextLoading: ${finalLoadingState}`,
-    {
+  // Memoize the final loading state to maintain a stable reference
+  const finalLoadingState = useMemo(
+    () => status === 'loading' || loading,
+    [status, loading],
+  );
+
+  // Log only on context or loading changes to reduce noise
+  useEffect(() => {
+    logger.info(`${LOG_PREFIX} Context or loading state changed:`, {
       planContextAvailable: !!planContext,
       error: error?.message,
       status,
       internalLoading: loading,
-    },
-  );
+      isLoading: finalLoadingState,
+    });
+  }, [planContext, error, status, loading, finalLoadingState]);
 
-  return {
-    planContext,
-    error,
-    isPlanContextLoading: finalLoadingState,
-  };
+  // Return a memoized value to prevent unnecessary re-renders in consumers
+  return useMemo(
+    () => ({
+      planContext,
+      error,
+      isPlanContextLoading: finalLoadingState,
+    }),
+    [planContext, error, finalLoadingState],
+  );
 }
