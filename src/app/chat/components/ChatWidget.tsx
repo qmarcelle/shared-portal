@@ -93,6 +93,7 @@ export default function ChatWidget({
   );
   const setError = useChatStore((state) => state.actions.setError);
   const setOpen = useChatStore((state) => state.actions.setOpen);
+  const setButtonState = useChatStore((state) => state.actions.setButtonState);
 
   // Derived state (safe to compute after hooks)
   const genesysChatConfig = chatMode === 'legacy' ? legacyConfig : cloudConfig;
@@ -149,10 +150,15 @@ export default function ChatWidget({
   );
 
   const checkGenesysButton = useCallback(() => {
-    if (buttonState === 'created') return;
+    if (buttonState === 'created') {
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Button already created, skipping checks`,
+      );
+      return;
+    }
     buttonCheckAttempts.current += 1;
     logger.info(
-      `${LOG_PREFIX} Checking for Genesys button (attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS})`,
+      `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Starting button check (attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS}), current buttonState: ${buttonState}`,
     );
     const selectors = [
       '.cx-widget.cx-webchat-chat-button',
@@ -165,13 +171,15 @@ export default function ChatWidget({
       button = document.querySelector(selector);
       if (button) {
         logger.info(
-          `${LOG_PREFIX} Found Genesys button using selector: ${selector}`,
+          `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Found button using selector: ${selector}`,
         );
         break;
       }
     }
     if (button) {
-      logger.info(`${LOG_PREFIX} Genesys button found, ensuring visibility`);
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Button found, setting state to 'created' from ${buttonState}`,
+      );
       useChatStore.getState().actions.setButtonState('created');
       try {
         (button as HTMLElement).style.display = 'block';
@@ -182,11 +190,23 @@ export default function ChatWidget({
       }
     } else {
       logger.warn(
-        `${LOG_PREFIX} Genesys button not found on attempt ${buttonCheckAttempts.current}`,
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Button NOT found on attempt ${buttonCheckAttempts.current}, current buttonState: ${buttonState}`,
       );
       if (isCXBusReady && window._genesysCXBus) {
-        logger.info(`${LOG_PREFIX} Attempting to create button via CXBus`);
-        useChatStore.getState().actions.setButtonState('creating');
+        logger.info(
+          `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Attempting to create button via CXBus`,
+        );
+        // CRITICAL FIX: Only update state if not already 'creating' - prevents loop
+        if (buttonState !== 'creating') {
+          logger.info(
+            `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Setting state to 'creating' from ${buttonState}`,
+          );
+          useChatStore.getState().actions.setButtonState('creating');
+        } else {
+          logger.info(
+            `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: NOT changing state, already 'creating'`,
+          );
+        }
         try {
           window._genesysCXBus.command('WebChat.showChatButton');
         } catch (err) {
@@ -195,7 +215,7 @@ export default function ChatWidget({
       }
       if (buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS) {
         logger.warn(
-          `${LOG_PREFIX} Max button check attempts reached. Marking button creation as failed.`,
+          `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** checkGenesysButton: Max attempts reached, setting state to 'failed' from ${buttonState}`,
         );
         useChatStore.getState().actions.setButtonState('failed');
       }
@@ -690,8 +710,23 @@ export default function ChatWidget({
 
   useEffect(() => {
     if (!isCXBusReady) return;
-    logger.info(`${LOG_PREFIX} CXBus is ready, starting button checks`);
-    useChatStore.getState().actions.setButtonState('creating');
+    logger.info(
+      `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** CXBus is ready, current buttonState: ${buttonState}`,
+    );
+
+    // CRITICAL FIX: Only set buttonState to 'creating' if it's not already 'creating' or 'created'
+    // This prevents the unnecessary state updates causing the loop
+    if (buttonState !== 'creating' && buttonState !== 'created') {
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Setting buttonState to 'creating' from '${buttonState}'`,
+      );
+      useChatStore.getState().actions.setButtonState('creating');
+    } else {
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** NOT changing buttonState, already: ${buttonState}`,
+      );
+    }
+
     checkGenesysButton();
     const buttonCheckInterval = setInterval(() => {
       if (
@@ -704,9 +739,17 @@ export default function ChatWidget({
         );
         return;
       }
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Running periodic checkGenesysButton, current buttonState: ${buttonState}`,
+      );
       checkGenesysButton();
     }, 2000);
-    return () => clearInterval(buttonCheckInterval);
+    return () => {
+      logger.info(
+        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Cleanup of button check effect, final buttonState: ${buttonState}`,
+      );
+      clearInterval(buttonCheckInterval);
+    };
   }, [isCXBusReady, checkGenesysButton, buttonState]);
 
   useEffect(() => {
