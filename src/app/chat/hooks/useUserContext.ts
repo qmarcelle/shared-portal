@@ -12,6 +12,11 @@ interface UserContext {
   suffix?: string;
   memberType?: string;
   userID?: string;
+  memberFirstname?: string;
+  memberLastName?: string;
+  formattedFirstName?: string;
+  subscriberID?: string;
+  sfx?: string;
 }
 
 // Define the expected session structure based on what we see in the logs
@@ -119,6 +124,11 @@ export function useUserContext(): UserContextReturn {
           suffix: suffix,
           memberType: role,
           userID: umpi,
+          memberFirstname: firstName,
+          memberLastName: lastName,
+          formattedFirstName: firstName,
+          subscriberID: subscriberId,
+          sfx: suffix,
         });
         setLoading(false);
         retryCount.current = 0; // Reset retry count on success

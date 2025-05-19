@@ -140,6 +140,10 @@ export interface UserConfig {
   subscriberID?: string;
   sfx?: string;
   memberDOB?: string;
+  firstName?: string;
+  lastName?: string;
+  subscriberId?: string;
+  suffix?: string;
 }
 
 export interface PlanConfig {
@@ -278,12 +282,13 @@ export function buildGenesysChatConfig({
   const config: Partial<GenesysChatConfig> = {
     // From User Context
     userID: user.userID,
-    memberFirstname: user.memberFirstname,
-    memberLastName: user.memberLastName,
-    formattedFirstName: user.formattedFirstName || user.memberFirstname,
-    subscriberID: user.subscriberID,
-    sfx: user.sfx,
-    MEMBER_ID: `${user.subscriberID || ''}-${user.sfx || ''}`,
+    // Map from user context with appropriate fallbacks
+    memberFirstname: user.memberFirstname || user.firstName,
+    memberLastName: user.memberLastName || user.lastName,
+    formattedFirstName: user.formattedFirstName || user.firstName,
+    subscriberID: user.subscriberID || user.subscriberId,
+    sfx: user.sfx || user.suffix,
+    MEMBER_ID: `${user.subscriberID || user.subscriberId || ''}-${user.sfx || user.suffix || ''}`,
     memberDOB: user.memberDOB || plan.memberDOB,
 
     // From Plan Context

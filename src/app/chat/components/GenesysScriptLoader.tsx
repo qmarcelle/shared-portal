@@ -698,10 +698,34 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               }
 
               if (typeof window !== 'undefined') {
-                // Make sure chatMode is properly set in the legacyConfig
+                // Make sure chatMode is properly set in the legacyConfig with all required fields
                 const configWithMode = {
                   ...legacyConfig,
                   chatMode: 'legacy', // Explicitly set chatMode to legacy
+
+                  // Ensure all required user/member fields are set
+                  memberFirstname:
+                    legacyConfig?.memberFirstname ||
+                    legacyConfig?.firstName ||
+                    '',
+                  memberLastName:
+                    legacyConfig?.memberLastName ||
+                    legacyConfig?.lastName ||
+                    '',
+                  subscriberID:
+                    legacyConfig?.subscriberID ||
+                    legacyConfig?.subscriberId ||
+                    '',
+                  sfx: legacyConfig?.sfx || legacyConfig?.suffix || '',
+                  formattedFirstName:
+                    legacyConfig?.formattedFirstName ||
+                    legacyConfig?.firstName ||
+                    '',
+                  MEMBER_ID:
+                    legacyConfig?.MEMBER_ID ||
+                    `${legacyConfig?.subscriberID || legacyConfig?.subscriberId || ''}-${legacyConfig?.sfx || legacyConfig?.suffix || ''}`,
+                  memberMedicalPlanID: legacyConfig?.memberMedicalPlanID || '',
+                  groupId: legacyConfig?.groupId || '',
                 };
                 window.chatSettings = configWithMode as ChatSettings;
                 // Verify after setting
