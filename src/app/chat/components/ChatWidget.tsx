@@ -113,6 +113,12 @@ export default function ChatWidget({
   // Add a registry for tracking active CXBus subscriptions
   const activeSubscriptions = useRef<{ [key: string]: boolean }>({});
 
+  // Add state and refs for button handling
+  const [genesysButtonFound, setGenesysButtonFound] = useState(false);
+  const [showFallbackButton, setShowFallbackButton] = useState(false);
+  const buttonCheckAttempts = useRef(0);
+  const MAX_BUTTON_CHECK_ATTEMPTS = 5;
+
   // Add a mechanism to prevent multiple component instances from initializing simultaneously
   useEffect(() => {
     // Check if there's already a ChatWidget component instance active
@@ -837,6 +843,120 @@ export default function ChatWidget({
     }
   }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]);
 
+  // Add a function to check for the Genesys button and create a fallback if needed
+  const checkGenesysButton = useCallback(() => {
+    // Don't check if we already found the button
+    if (genesysButtonFound) {
+      return;
+    }
+
+    // Increment attempts
+    buttonCheckAttempts.current += 1;
+
+    logger.info(
+      `${LOG_PREFIX} Checking for Genesys button (attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS})`,
+    );
+
+    // Look for the Genesys button using various selectors
+    const selectors = [
+      '.cx-widget.cx-webchat-chat-button',
+      '.cx-webchat-chat-button',
+      '[data-cx-widget="WebChat"]',
+      '.cx-button.cx-webchat',
+    ];
+
+    let button: Element | null = null;
+    for (const selector of selectors) {
+      button = document.querySelector(selector);
+      if (button) {
+        logger.info(
+          `${LOG_PREFIX} Found Genesys button using selector: ${selector}`,
+        );
+        break;
+      }
+    }
+
+    if (button) {
+      logger.info(`${LOG_PREFIX} Genesys button found, ensuring visibility`);
+      setGenesysButtonFound(true);
+      setShowFallbackButton(false);
+
+      // Ensure the button is visible
+      try {
+        (button as HTMLElement).style.display = 'block';
+        (button as HTMLElement).style.visibility = 'visible';
+        (button as HTMLElement).style.opacity = '1';
+      } catch (err) {
+        logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
+      }
+    } else {
+      logger.warn(
+        `${LOG_PREFIX} Genesys button not found on attempt ${buttonCheckAttempts.current}`,
+      );
+
+      // Try to create the button via CXBus if available
+      if (isCXBusReady && window._genesysCXBus) {
+        logger.info(`${LOG_PREFIX} Attempting to create button via CXBus`);
+        try {
+          window._genesysCXBus.command('WebChat.showChatButton');
+        } catch (err) {
+          logger.error(`${LOG_PREFIX} Error creating button via CXBus:`, err);
+        }
+      }
+
+      // After max attempts, show the fallback button
+      if (buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS) {
+        logger.warn(
+          `${LOG_PREFIX} Max button check attempts reached. Showing fallback button.`,
+        );
+        setShowFallbackButton(true);
+      }
+    }
+  }, [genesysButtonFound, isCXBusReady]);
+
+  // Add effect to perform button checks at regular intervals once CXBus is ready
+  useEffect(() => {
+    if (!isCXBusReady) {
+      return; // Don't check for button until CXBus is ready
+    }
+
+    logger.info(`${LOG_PREFIX} CXBus is ready, starting button checks`);
+
+    // First check - try the button initialization approach
+    if (window._forceChatButtonCreate) {
+      try {
+        logger.info(`${LOG_PREFIX} Calling _forceChatButtonCreate()`);
+        window._forceChatButtonCreate();
+      } catch (err) {
+        logger.error(
+          `${LOG_PREFIX} Error calling _forceChatButtonCreate():`,
+          err,
+        );
+      }
+    }
+
+    // Then start checking for the button
+    checkGenesysButton();
+
+    // Set up timer to check for button at intervals
+    const buttonCheckInterval = setInterval(() => {
+      if (
+        genesysButtonFound ||
+        buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS
+      ) {
+        clearInterval(buttonCheckInterval);
+        logger.info(
+          `${LOG_PREFIX} Button check interval cleared: ${genesysButtonFound ? 'button found' : 'max attempts reached'}`,
+        );
+        return;
+      }
+
+      checkGenesysButton();
+    }, 2000); // Check every 2 seconds
+
+    return () => clearInterval(buttonCheckInterval);
+  }, [isCXBusReady, checkGenesysButton, genesysButtonFound]);
+
   console.log('[ChatWidget] Component rendered');
   logger.info('[ChatWidget] Component rendered', {});
 
@@ -856,6 +976,32 @@ export default function ChatWidget({
           showStatus={showLoaderStatus}
         />
       )}
+
+      {/* Fallback button when Genesys button isn't found */}
+      {isCXBusReady && showFallbackButton && (
+        <button
+          id="fallback-chat-button"
+          onClick={() => setOpen(true)}
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            backgroundColor: '#0056b3',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '30px',
+            border: 'none',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            zIndex: 999,
+            fontSize: '14px',
+          }}
+        >
+          Chat with us
+        </button>
+      )}
+
       {/* Hide CoBrowse elements if needed */}
       {hideCoBrowse && (
         <style>{`

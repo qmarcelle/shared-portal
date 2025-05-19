@@ -17,8 +17,10 @@ export function ChatClientEntry() {
   // Generate a unique ID on first render to prevent multiple initializations
   const instanceId = useRef(`chat-client-${Date.now()}`);
 
-  console.log('[ChatClientEntry] Component rendered');
-  logger.info('[ChatClientEntry] Component rendered');
+  logger.info(
+    '[ChatClientEntry] Chat client entry rendering with instance ID:',
+    instanceId.current,
+  );
 
   return (
     <>
