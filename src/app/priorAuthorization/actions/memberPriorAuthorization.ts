@@ -1,6 +1,6 @@
 'use server';
-import { getMemberAndDependents } from '@/actions/memberDetails';
 import { auth } from '@/auth';
+import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
 import { getFormatDate } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
@@ -11,9 +11,15 @@ import { PriorAuthDetails } from '../models/priorAuthDetails';
 export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
   try {
     const session = await auth();
-    const memberList = await getMemberAndDependents(
-      session?.user.currUsr.plan?.memCk ?? '',
+    const memberList: string[] = [];
+    const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
+      (item) => item?.memeCk === session?.user.currUsr?.plan?.memCk,
     );
+    memberList.push(session?.user.currUsr?.plan?.memCk ?? '');
+    selectedPlan?.relatedPersons.forEach((item) => {
+      memberList.push(item.relatedPersonMemeCk.toString());
+    });
     const dateRange = getDateRange(
       process.env.PRIOR_AUTH_FILTER_DATE_RANGE ?? 'A',
     );
@@ -22,7 +28,7 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
     const priorAuthresponseList: any[] = [];
     for (const memberData of memberList) {
       const apiResponse = await esApi.get(
-        `/memberPriorAuthDetails?memberKey=${memberData.memberCK}&fromDate=${dateRange.fromDate}&toDate=${dateRange.toDate}`, // froDate and toDate is dependant on filter integration
+        `/memberPriorAuthDetails?memberKey=${memberData}&fromDate=${dateRange.fromDate}&toDate=${dateRange.toDate}`, // froDate and toDate is dependant on filter integration
       );
       if (
         apiResponse?.data?.data?.memberPriorAuthDetails
