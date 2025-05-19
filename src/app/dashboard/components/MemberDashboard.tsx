@@ -6,7 +6,6 @@ import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalance
 import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
-import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
 import {
   CVS_DEEPLINK_MAP,
@@ -24,6 +23,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
   isAHAdvisorpage,
+  isAnnualStatementEligible,
   isBlueCareEligible,
   isEmboldHealthEligible,
   isLifePointGrp,
@@ -31,7 +31,6 @@ import {
   isPharmacyBenefitsEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
-  isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
@@ -41,6 +40,7 @@ import FindCare from '../../../../public/assets/find_care_search.svg';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
 import { DashboardData } from '../models/dashboardData';
+import { AnnualSpendingCompact } from './AnnualSpendingCompact';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
 export type DashboardProps = {
@@ -124,21 +124,20 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 />
               )}
 
-            {!isBlueCareEligible(visibilityRules) &&
-              isSpendingAccountsEligible(visibilityRules) && (
-                <SpendingAccountSummary
-                  className="large-section"
-                  title="Spending Summary"
-                  linkLabel="View Spending Summary"
-                  subTitle={'October 12, 2023'}
-                  amountPaid={1199.19}
-                  totalBilledAmount={9804.31}
-                  amountSaved={8605.12}
-                  amountSavedPercentage={89}
-                  color1={'#005EB9'}
-                  color2={'#5DC1FD'}
-                />
-              )}
+            {isAnnualStatementEligible(visibilityRules) && (
+              <AnnualSpendingCompact
+                className="large-section"
+                title="Spending Summary"
+                linkLabel="Download Summary"
+                subTitle={'October 12, 2023'}
+                amountPaid={1199.19}
+                totalBilledAmount={9804.31}
+                amountSaved={8605.12}
+                amountSavedPercentage={89}
+                color1={'#005EB9'}
+                color2={'#5DC1FD'}
+              />
+            )}
             <PriorAuthSection
               className="large-section"
               priorauth={[
