@@ -702,6 +702,7 @@
       window._genesys = window._genesys || {};
       window._gt = window._gt || [];
       window._genesys.widgets = window._genesys.widgets || {};
+      window._genesys.widgets.main = window._genesys.widgets.main || {}; // Ensure main object exists
 
       // Main configuration
       window._genesys.widgets.main = {
