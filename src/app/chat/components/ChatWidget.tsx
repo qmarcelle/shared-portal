@@ -182,9 +182,125 @@ export default function ChatWidget({
       );
       useChatStore.getState().actions.setButtonState('created');
       try {
-        (button as HTMLElement).style.display = 'block';
-        (button as HTMLElement).style.visibility = 'visible';
-        (button as HTMLElement).style.opacity = '1';
+        // Force visibility with stronger CSS overrides
+        const buttonEl = button as HTMLElement;
+
+        // Add custom style directly
+        buttonEl.setAttribute(
+          'style',
+          `
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          position: fixed !important;
+          z-index: 9999 !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          cursor: pointer !important;
+          min-width: 60px !important;
+          min-height: 60px !important;
+          background-color: #0078d4 !important;
+          color: white !important;
+          border-radius: 50% !important;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+          align-items: center !important;
+          justify-content: center !important;
+          font-family: sans-serif !important;
+          border: none !important;
+          pointer-events: auto !important;
+        `,
+        );
+
+        // Also ensure any child elements are visible
+        const children = buttonEl.querySelectorAll('*');
+        children.forEach((child) => {
+          (child as HTMLElement).style.visibility = 'visible';
+          (child as HTMLElement).style.display = 'block';
+          (child as HTMLElement).style.opacity = '1';
+        });
+
+        // Log current computed styles to debug why it might not be visible
+        const computedStyle = window.getComputedStyle(buttonEl);
+        logger.info(`${LOG_PREFIX} Button computed styles:`, {
+          display: computedStyle.display,
+          visibility: computedStyle.visibility,
+          opacity: computedStyle.opacity,
+          position: computedStyle.position,
+          zIndex: computedStyle.zIndex,
+          right: computedStyle.right,
+          bottom: computedStyle.bottom,
+          backgroundColor: computedStyle.backgroundColor,
+        });
+
+        // Add a class we can target with our own CSS
+        buttonEl.classList.add('genesys-chat-button-force-visible');
+
+        // Add a MutationObserver to handle any dynamic style changes
+        // that might be hiding the button after we've made it visible
+        if (!window._genesysButtonObserver) {
+          logger.info(
+            `${LOG_PREFIX} Creating MutationObserver for button style monitoring`,
+          );
+          window._genesysButtonObserver = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (
+                mutation.type === 'attributes' &&
+                (mutation.attributeName === 'style' ||
+                  mutation.attributeName === 'class')
+              ) {
+                const target = mutation.target as HTMLElement;
+                // If style changes make the button invisible, force visibility again
+                const style = window.getComputedStyle(target);
+                if (
+                  style.display === 'none' ||
+                  style.visibility === 'hidden' ||
+                  style.opacity === '0'
+                ) {
+                  logger.info(
+                    `${LOG_PREFIX} Button style changed to invisible, forcing visibility again`,
+                  );
+                  target.style.display = 'block !important';
+                  target.style.visibility = 'visible !important';
+                  target.style.opacity = '1 !important';
+                }
+              }
+            });
+          });
+
+          // Start observing the button
+          window._genesysButtonObserver.observe(buttonEl, {
+            attributes: true,
+            attributeFilter: ['style', 'class'],
+            childList: false,
+            subtree: false,
+          });
+        }
+
+        // Inject a style tag to ensure our button is visible
+        if (!document.getElementById('genesys-chat-button-force-style')) {
+          const styleEl = document.createElement('style');
+          styleEl.id = 'genesys-chat-button-force-style';
+          styleEl.textContent = `
+            .cx-widget.cx-webchat-chat-button,
+            .cx-webchat-chat-button,
+            [data-cx-widget="WebChat"],
+            .cx-button.cx-webchat,
+            .genesys-chat-button-force-visible {
+              display: block !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+              position: fixed !important;
+              z-index: 9999 !important;
+              bottom: 20px !important;
+              right: 20px !important;
+              pointer-events: auto !important;
+            }
+          `;
+          document.head.appendChild(styleEl);
+          logger.info(
+            `${LOG_PREFIX} Injected force-visible style tag for chat button`,
+          );
+        }
       } catch (err) {
         logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
       }
@@ -972,6 +1088,7 @@ declare global {
     _genesysCXBus?: GenesysCXBus;
     _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
     _forceChatButtonCreate?: () => boolean;
+    _genesysButtonObserver?: MutationObserver; // For monitoring button visibility
   }
 }
 
