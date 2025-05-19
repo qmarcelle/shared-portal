@@ -776,18 +776,31 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   'https://code.jquery.com/jquery-3.6.0.min.js',
                   'jquery-script',
                 );
+                logger.info(`${LOG_PREFIX} Legacy Mode: jQuery LOADED.`);
 
                 logger.info(
-                  `${LOG_PREFIX} Legacy Mode: Loading widgets.min.js...`,
+                  `${LOG_PREFIX} Legacy Mode: ATTEMPTING to load widgets.min.js...`,
                 );
-                await loadScriptAsync(
-                  '/assets/genesys/plugins/widgets.min.js',
-                  'genesys-widgets-min-script',
-                  true,
-                );
+                try {
+                  await loadScriptAsync(
+                    '/assets/genesys/plugins/widgets.min.js',
+                    'genesys-widgets-min-script',
+                    true, // true for async
+                  );
+                  logger.info(
+                    `${LOG_PREFIX} Legacy Mode: widgets.min.js SUCCEEDED or ALREADY LOADED (according to loadScriptAsync).`,
+                  );
+                } catch (widgetsError) {
+                  logger.error(
+                    `${LOG_PREFIX} Legacy Mode: CRITICAL - FAILED to load widgets.min.js. Error: `,
+                    widgetsError,
+                  );
+                  // Propagate this critical error
+                  throw widgetsError;
+                }
 
                 logger.info(
-                  `${LOG_PREFIX} Legacy Mode: Polling for CXBus after widgets.min.js load attempt...`,
+                  `${LOG_PREFIX} Legacy Mode: Polling for CXBus and Genesys core after widgets.min.js load attempt...`,
                 );
                 await waitForCXBus(); // Polls for _genesysCXBus
                 logger.info(`${LOG_PREFIX} Legacy Mode: CXBus ready.`);
