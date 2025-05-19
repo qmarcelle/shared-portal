@@ -140,10 +140,6 @@ export interface UserConfig {
   subscriberID?: string;
   sfx?: string;
   memberDOB?: string;
-  firstName?: string;
-  lastName?: string;
-  subscriberId?: string;
-  suffix?: string;
 }
 
 export interface PlanConfig {
@@ -282,19 +278,18 @@ export function buildGenesysChatConfig({
   const config: Partial<GenesysChatConfig> = {
     // From User Context
     userID: user.userID,
-    // Map from user context with appropriate fallbacks
-    memberFirstname: user.memberFirstname || user.firstName,
-    memberLastName: user.memberLastName || user.lastName,
-    formattedFirstName: user.formattedFirstName || user.firstName,
-    subscriberID: user.subscriberID || user.subscriberId,
-    sfx: user.sfx || user.suffix,
-    MEMBER_ID: `${user.subscriberID || user.subscriberId || ''}-${user.sfx || user.suffix || ''}`,
+    memberFirstname: user.memberFirstname,
+    memberLastName: user.memberLastName,
+    formattedFirstName: user.formattedFirstName || user.memberFirstname,
+    subscriberID: user.subscriberID,
+    sfx: user.sfx,
+    MEMBER_ID: `${user.subscriberID || ''}-${user.sfx || ''}`,
     memberDOB: user.memberDOB || plan.memberDOB,
 
     // From Plan Context
     memberMedicalPlanID: plan.memberMedicalPlanID,
     groupId: plan.groupId,
-    memberClientID: plan.memberClientID,
+    memberClientID: plan.memberClientID, // LOB can be derived from this or groupType
     groupType: plan.groupType,
 
     // From API Config (getChatInfo response)
@@ -346,7 +341,7 @@ export function buildGenesysChatConfig({
   // Populate from environment variables / static defaults
   config.widgetUrl =
     process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-    '/assets/genesys/plugins/widgets.min.js';
+    'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
   config.clickToChatJs =
     process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
     '/assets/genesys/click_to_chat.js';

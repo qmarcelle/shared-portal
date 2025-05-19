@@ -21,21 +21,15 @@ interface PlanContext {
   planId: string;
   groupId?: string; // Typically same as planId from grpId in current structure
   memberMedicalPlanID?: string; // Added memberMedicalPlanID
-  memberClientID?: string; // Added for client ID
-  memberDOB?: string; // Added for DOB
-  groupType?: string; // Added for group type
   // Add other plan-specific fields if needed, e.g., clientId, groupType
 }
 
 interface ExtendedSession {
   user: {
     currUsr?: {
-      memberDOB?: string; // Added DOB at user level
       plan?: {
         grpId: string; // This is used as planId
         subId?: string; // Added subId for memberMedicalPlanID
-        clientId?: string; // Added clientId
-        groupType?: string; // Added groupType
         // Other plan fields if available and needed by chat
       };
     };
@@ -102,9 +96,6 @@ export function usePlanContext(): PlanContextReturn {
 
       const planId = session?.user?.currUsr?.plan?.grpId;
       const subId = session?.user?.currUsr?.plan?.subId; // Extracted subId
-      const clientId = session?.user?.currUsr?.plan?.clientId; // Extract clientId
-      const groupType = session?.user?.currUsr?.plan?.groupType; // Extract groupType
-      const memberDOB = session?.user?.currUsr?.memberDOB; // Extract DOB from user level
 
       if (planId && subId) {
         // Still gate by planId as primary identifier for context validity
@@ -113,18 +104,12 @@ export function usePlanContext(): PlanContextReturn {
           {
             planId: planId?.substring(0, 3) + '...',
             memberMedicalPlanID: subId,
-            memberClientID: clientId,
-            groupType: groupType,
-            memberDOB: memberDOB,
           },
         );
         setPlanContext({
           planId: planId,
           groupId: planId, // Assuming groupId is the same as planId from grpId
           memberMedicalPlanID: subId, // Set memberMedicalPlanID from subId
-          memberClientID: clientId, // Set memberClientID from clientId
-          groupType: groupType, // Set groupType from session
-          memberDOB: memberDOB, // Set memberDOB from user level
         });
         setLoading(false);
         setError(null); // Clear error on success
