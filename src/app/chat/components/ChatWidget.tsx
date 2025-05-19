@@ -207,7 +207,7 @@ export default function ChatWidget({
               visibility: visible !important;
               opacity: 1 !important;
               
-              /* Ensure any parent container's overflow settings don't hide the button */
+              /* Ensure any parent containers' overflow settings don't hide the button */
               overflow: visible !important;
               clip: auto !important;
               clip-path: none !important;
@@ -423,78 +423,46 @@ export default function ChatWidget({
         // STRATEGY 5: Periodic check to ensure button stays visible
         if (!window._genesysButtonVisibilityInterval) {
           window._genesysButtonVisibilityInterval = setInterval(() => {
-            const button = document.querySelector(
-              '.cx-widget.cx-webchat-chat-button',
+            const buttons = document.querySelectorAll(
+              '.cx-widget.cx-webchat-chat-button, .cx-webchat-chat-button, [data-cx-widget="WebChat"], .cx-button.cx-webchat',
             );
-            if (button) {
-              const buttonEl = button as HTMLElement;
-              const computedStyle = window.getComputedStyle(buttonEl);
 
-              // Check if button might be invisible or hidden
-              if (
-                computedStyle.display === 'none' ||
-                computedStyle.visibility === 'hidden' ||
-                computedStyle.opacity === '0' ||
-                parseFloat(computedStyle.opacity) < 0.1
-              ) {
+            if (buttons.length > 0) {
+              buttons.forEach((button, index) => {
+                const buttonEl = button as HTMLElement;
                 logger.info(
-                  `${LOG_PREFIX} Periodic check: Button is hidden, forcing visibility`,
+                  `${LOG_PREFIX} Visibility check ${index + 1}: Ensuring button stays visible`,
                 );
-                buttonEl.style.display = 'flex !important';
+
+                // Force these critical properties regardless of what's set
+                buttonEl.style.display = 'block !important';
                 buttonEl.style.visibility = 'visible !important';
-                buttonEl.style.opacity = '1 !important';
-              }
+                buttonEl.style.opacity = '1';
+                buttonEl.style.position = 'fixed';
+                buttonEl.style.zIndex = '2147483647';
+                buttonEl.style.bottom = '20px';
+                buttonEl.style.left = '50%';
+                buttonEl.style.transform = 'translateX(-50%)';
 
-              // Check if button is positioned incorrectly
-              const position = computedStyle.position;
-              const bottom = computedStyle.bottom;
-              const left = computedStyle.left;
-              const transform = computedStyle.transform;
+                // Attempt to make button visible through different approaches
+                buttonEl.setAttribute('aria-hidden', 'false');
+                buttonEl.hidden = false;
 
-              // Force centering if position is wrong
-              if (
-                position !== 'fixed' ||
-                !bottom.includes('20px') ||
-                !left.includes('50%') ||
-                !transform.includes('translateX(-50%)')
-              ) {
-                logger.info(
-                  `${LOG_PREFIX} Periodic check: Button position is incorrect, forcing center positioning`,
-                );
-                buttonEl.style.position = 'fixed !important';
-                buttonEl.style.bottom = '20px !important';
-                buttonEl.style.left = '50% !important';
-                buttonEl.style.right = 'auto !important';
-                buttonEl.style.transform = 'translateX(-50%) !important';
-              }
+                // Ensure pointer events work
+                buttonEl.style.pointerEvents = 'auto';
 
-              // Check if button is off-screen
-              const rect = buttonEl.getBoundingClientRect();
-              if (
-                rect.right < 0 ||
-                rect.bottom < 0 ||
-                rect.left > window.innerWidth ||
-                rect.top > window.innerHeight
-              ) {
-                logger.info(
-                  `${LOG_PREFIX} Periodic check: Button is off-screen, repositioning`,
-                  {
-                    rect,
-                    window: {
-                      width: window.innerWidth,
-                      height: window.innerHeight,
-                    },
-                  },
-                );
-                buttonEl.style.position = 'fixed !important';
-                buttonEl.style.bottom = '20px !important';
-                buttonEl.style.left = '50% !important';
-                buttonEl.style.right = 'auto !important';
-                buttonEl.style.transform = 'translateX(-50%) !important';
-              }
+                // Make any container visible too
+                let parent = buttonEl.parentElement;
+                while (parent) {
+                  parent.style.overflow = 'visible';
+                  parent.style.display = 'block';
+                  parent.style.visibility = 'visible';
+                  parent.style.opacity = '1';
+                  parent = parent.parentElement;
+                }
+              });
             }
           }, 2000);
-          logger.info(`${LOG_PREFIX} Set up periodic button visibility check`);
         }
       } catch (err) {
         logger.warn(`${LOG_PREFIX} Error ensuring button visibility:`, err);
@@ -1019,6 +987,102 @@ export default function ChatWidget({
     }
   }, [buttonState, isCXBusReady]);
 
+  // Replace the guaranteed button useEffect with a targeted visibility fix
+  useEffect(() => {
+    // Don't do anything if chat is not enabled
+    if (!isChatEnabled) return;
+
+    // Function to aggressively make the button visible
+    const forceButtonVisibility = () => {
+      // Try multiple selectors to find the button
+      const selectors = [
+        '.cx-widget.cx-webchat-chat-button',
+        '.cx-webchat-chat-button',
+        '[data-cx-widget="WebChat"]',
+        '.cx-button.cx-webchat',
+        '.cx-widget[data-cx-widget="WebChat"]',
+      ];
+
+      for (const selector of selectors) {
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+          logger.info(
+            `${LOG_PREFIX} Found ${elements.length} elements matching ${selector}`,
+          );
+
+          elements.forEach((el, index) => {
+            const buttonEl = el as HTMLElement;
+            logger.info(
+              `${LOG_PREFIX} Forcing visibility for element ${index + 1}`,
+            );
+
+            // Direct style modification approach - most immediate
+            buttonEl.style.cssText = `
+              display: block !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+              position: fixed !important;
+              z-index: 2147483647 !important;
+              bottom: 20px !important;
+              left: 50% !important;
+              transform: translateX(-50%) !important;
+              background-color: #0056B3 !important;
+              color: white !important;
+              border-radius: 4px !important;
+              padding: 10px 20px !important;
+              font-weight: 500 !important;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+              border: none !important;
+              pointer-events: auto !important;
+              width: auto !important;
+              min-width: 100px !important;
+              min-height: 40px !important;
+            `;
+
+            // Ensure all children are also visible
+            const children = buttonEl.querySelectorAll('*');
+            children.forEach((child) => {
+              (child as HTMLElement).style.cssText = `
+                visibility: visible !important;
+                display: block !important;
+                opacity: 1 !important;
+                color: white !important;
+              `;
+            });
+
+            // Log the computed style for debugging
+            const computedStyle = window.getComputedStyle(buttonEl);
+            logger.info(`${LOG_PREFIX} Post-fix computed styles:`, {
+              display: computedStyle.display,
+              visibility: computedStyle.visibility,
+              opacity: computedStyle.opacity,
+              position: computedStyle.position,
+              zIndex: computedStyle.zIndex,
+            });
+          });
+
+          return true; // Button found and fixed
+        }
+      }
+
+      logger.warn(`${LOG_PREFIX} No chat button elements found in DOM`);
+      return false;
+    };
+
+    // Try immediately
+    forceButtonVisibility();
+
+    // Then periodically check and fix
+    const visibilityInterval = setInterval(() => {
+      forceButtonVisibility();
+    }, 2000);
+
+    return () => {
+      clearInterval(visibilityInterval);
+    };
+  }, [isChatEnabled]);
+
+  // Add back the CXBus ready hook for button creation
   useEffect(() => {
     if (!isCXBusReady) return;
     logger.info(
@@ -1063,6 +1127,7 @@ export default function ChatWidget({
     };
   }, [isCXBusReady, checkGenesysButton, buttonState]);
 
+  // Add back config validation effect
   useEffect(() => {
     if (!genesysChatConfig) {
       logger.info(`${LOG_PREFIX} No Genesys chat configuration available yet.`);
