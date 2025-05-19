@@ -703,150 +703,106 @@
       window._gt = window._gt || [];
       window._genesys.widgets = window._genesys.widgets || {};
       window._genesys.widgets.main = window._genesys.widgets.main || {}; // Ensure main object exists
+      window._genesys.widgets.webchat = window._genesys.widgets.webchat || {}; // Ensure webchat object exists
 
-      // Main configuration
-      window._genesys.widgets.main = {
-        debug: false,
-        theme: 'light',
-        lang: 'en',
+      // Main configuration - MERGE new settings
+      Object.assign(window._genesys.widgets.main, {
+        debug: window.chatSettings.debug || false,
+        theme: window.chatSettings.theme || 'light',
+        lang: window.chatSettings.lang || 'en',
         mobileMode: 'auto',
         downloadGoogleFont: false,
-        plugins: [],
-        i18n: { en: {} },
-        header: { Authorization: `Bearer ${clickToChatToken}` },
-        size: {
-          width: 400,
-          height: 600,
-          minWidth: 400,
-          minHeight: 600,
-          windowWidth: '400px',
-          windowHeight: '600px',
+        preload: ['webchat'],
+        // Any other main settings from chatSettings
+      });
+
+      console.log(
+        '[click_to_chat.js] Main config after Object.assign:',
+        JSON.parse(JSON.stringify(window._genesys.widgets.main)),
+      );
+
+      // WebChat configuration - MERGE new settings
+      Object.assign(window._genesys.widgets.webchat, {
+        userData: {
+          ...mapChatSettingsToUserData(window.chatSettings),
+          // Add any other user data fields here
         },
-        showPoweredBy: false,
-        customStylesheetID: 'genesys-widgets-custom',
-        preload: ['webchat'], // webchat will be loaded by widgets.min.js
-        actionsBar: { showPoweredBy: false },
-      };
-
-      // CallUs configuration
-      window._genesys.widgets.main.i18n.en.callus = {
-        CallUsTitle: 'Call Us',
-        SubTitle: '',
-        CancelButtonText: '',
-        CoBrowseText:
-          "<span class='cx-cobrowse-offer'>Already on a call? <a role='link' class='cx-cobrowse-link'>Share your screen</a></span>",
-        CoBrowse: 'Start screen sharing',
-        CoBrowseWarning:
-          'Co-browse allows your agent to see and control your desktop…',
-        AriaWindowLabel: 'Call Us Window',
-        AriaCallUsClose: 'Call Us Close',
-        AriaBusinessHours: 'Business Hours',
-        AriaCallUsPhoneApp: 'Opens the phone application',
-        AriaCobrowseLink: 'Opens the Co-browse Session',
-        AriaCancelButtonText: 'Call Us Cancel',
-      };
-
-      window._genesys.widgets.callus = {
-        contacts: [
-          {
-            displayName: 'Call us at',
-            i18n: 'opsPhoneNumber',
-            number: opsPhone,
-          },
-        ],
-        hours: [opsPhoneHours],
-      };
-
-      // Add chat plugins if eligible
-      if (isChatEligibleMember || isDemoMember) {
-        window._genesys.widgets.main.plugins.push(
-          'cx-webchat-service',
-          'cx-webchat',
-        );
-
-        // Common text strings
-        const commonText = {
-          ChatButton: 'Chat with us',
-          ChatTitle: 'Chat with us',
-          BotConnected: '',
-          BotDisconnected: '',
-          ChatFormSubmit: 'START CHAT',
-          ConfirmCloseWindow:
-            "<div class='modalTitle'>We\'ll be right here if we can</br>help with anything else.</div>",
-          ChatEndCancel: 'STAY',
-          ChatEndConfirm: 'CLOSE CHAT',
-          ConfirmCloseCancel: 'STAY',
-          ActionsCobrowseStart: 'Share Screen',
-          ConfirmCloseConfirm: 'CLOSE CHAT',
-          ChatEndQuestion:
-            "<div class='modalTitle'>We\'ll be right here if we can</br>help with anything else.</div>",
-        };
-
-        // Set i18n text based on demo status
-        window._genesys.widgets.main.i18n.en.webchat = isDemoMember
-          ? {
-              ...commonText,
-              Errors: {
-                StartFailed:
-                  "<div class='modalTitle'>This is a Demo only chat.</div>",
-              },
-            }
-          : commonText;
-
-        // Customize for Amplify members
-        if (isAmplifyMem) {
-          const w = window._genesys.widgets.main.i18n.en.webchat;
-          w.ChatButton = 'Chat with an advisor';
-          w.ChatTitle = 'Chat with an advisor';
-        }
-
-        // Base webchat configuration
-        const base = {
-          dataURL: gmsServicesConfig.GMSChatURL(),
-          enableCustomHeader: true,
-          emojis: false,
-          uploadsEnabled: false,
-          maxMessageLength: 10000,
-          autoInvite: {
-            enabled: false,
-            timeToInviteSeconds: 5,
-            inviteTimeoutSeconds: 30,
-          },
-          chatButton: {
-            enabled: true, // Button should be enabled by default, visibility controlled by showChatButton
-            openDelay: 100,
-            effectDuration: 100,
-            hideDuringInvite: true,
-          },
-          composerFooter: { showPoweredBy: false },
-        };
-
-        // Configure for chat availability
-        if (cfg.isChatAvailable === 'false') {
-          window._genesys.widgets.webchat = {
-            ...base,
-            form: {
-              inputs: [
-                {
-                  custom:
-                    "<tr><td colspan='2' class='i18n' data-message='You&#39;ve reached us after business hours,<br>but we&#39;ll be ready to chat again soon.'></td></tr>",
-                },
-                {
-                  custom: `<tr><td id='reachUs' colspan='2' class='i18n'>Reach us ${cfg.chatHours}</td></tr>`,
-                },
-              ],
+        autoInvite: {
+          enabled: false, // Assuming autoInvite is generally off unless specified
+          timeToInviteSeconds: 20,
+          inviteTimeoutSeconds: 30,
+        },
+        chatButton: {
+          enabled: true, // This should make the button appear by default
+          template:
+            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
+          effectDuration: 300,
+          openDelay: 1000,
+          hideDuringInvite: true,
+        },
+        transport: {
+          type: 'purecloud-v2-sockets',
+          dataURL: window.chatSettings.clickToChatEndpoint,
+          deploymentKey: window.chatSettings.deploymentId, // Assuming this is how deploymentId is passed
+          orgGuid: window.chatSettings.orgId, // Assuming this is how orgId is passed
+          interactionData: {
+            routing: {
+              targetType: 'QUEUE',
+              targetAddress:
+                window.chatSettings.targetQueue || 'Member_Services_Chat_Queue', // Default or from settings
+              priority: 0,
             },
-          };
-        } else {
-          window._genesys.widgets.webchat = {
-            ...base,
-            userData: {
-              firstname: cfg.formattedFirstName,
-              lastname: cfg.memberLastName,
+          },
+        },
+        form: {
+          wrapper: '<table></table>',
+          inputs: [
+            {
+              name: 'nickname',
+              maxlength: '100',
+              placeholder: '@i18n:webchat.ChatFormPlaceholderNickname',
+              label: '@i18n:webchat.ChatFormNickname',
+              value: window.chatSettings.formattedFirstName || '',
             },
-            form: { inputs: buildActiveChatInputs() },
-          };
-        }
+            {
+              name: 'firstname',
+              maxlength: '100',
+              placeholder: '@i18n:webchat.ChatFormPlaceholderFirstName',
+              label: '@i18n:webchat.ChatFormFirstName',
+              value: window.chatSettings.firstname || '',
+              isHidden: true, // Standard Genesys field, often hidden if nickname is used
+            },
+            {
+              name: 'lastname',
+              maxlength: '100',
+              placeholder: '@i18n:webchat.ChatFormPlaceholderLastName',
+              label: '@i18n:webchat.ChatFormLastName',
+              value: window.chatSettings.lastname || '',
+              isHidden: true, // Standard Genesys field, often hidden
+            },
+            {
+              name: 'subject',
+              maxlength: '100',
+              placeholder: '@i18n:webchat.ChatFormPlaceholderSubject',
+              label: '@i18n:webchat.ChatFormSubject',
+              value: 'Member Inquiry', // Default subject
+              isHidden: true,
+            },
+          ],
+        },
+        // Any other webchat settings from chatSettings
+      });
+
+      console.log(
+        '[click_to_chat.js] WebChat config after Object.assign:',
+        JSON.parse(JSON.stringify(window._genesys.widgets.webchat)),
+      );
+
+      // Apply other specific widget configurations if needed from chatSettings
+      if (window.chatSettings.position) {
+        Object.assign(window._genesys.widgets.webchat, {
+          position: window.chatSettings.position,
+        });
       }
     }
 
