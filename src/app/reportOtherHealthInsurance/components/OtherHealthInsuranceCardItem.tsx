@@ -78,7 +78,7 @@ export const OtherHealthInsuranceCardItem = ({
       type="elevated"
       onClick={onClick}
     >
-      {cobDetails != null && Object.keys(cobDetails).length > 0 ? (
+      {cobDetails != null ? (
         <Column className="m-4">
           <Spacer size={16} />
           <Row className="justify-between">
@@ -198,6 +198,17 @@ export const OtherHealthInsuranceCardItem = ({
                   />
                 </>
               )}
+              <Spacer size={12} />
+              <TextBox
+                className="ml-2 body-1 inline"
+                text="Last Updated:"
+                display="inline"
+              />
+              <TextBox
+                className="ml-2 body-1 inline"
+                text={cobDetails.lastUpdated?.toString() ?? 'N/A'}
+                display="inline"
+              />
             </Row>
           ) : (
             <Row>
@@ -205,16 +216,30 @@ export const OtherHealthInsuranceCardItem = ({
                 className="ml-2 body-1"
                 text="Not covered by other health insurance."
               />
+              <Spacer size={12} />
+              <TextBox
+                className="ml-2 body-1 inline"
+                text="Last Updated:"
+                display="inline"
+              />
+              <TextBox
+                className="ml-2 body-1 inline"
+                text="N/A"
+                display="inline"
+              />
             </Row>
           )}
           <Spacer size={16} />
           {getHealthInsuranceContent(cobDetails.memberName)}
         </Column>
       ) : (
-        <ErrorInfoCard
-          className="mt-4"
-          errorText="Oops, it looks like something went wrong. Try again later."
-        />
+        <>
+          <Column>
+            <section className="flex justify-start self-start p-4">
+              <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+            </section>
+          </Column>
+        </>
       )}
     </Card>
   );

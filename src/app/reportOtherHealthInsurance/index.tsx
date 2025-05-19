@@ -1,7 +1,6 @@
 'use client';
 
 import { MemberData } from '@/actions/loggedUserInfo';
-import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
@@ -48,25 +47,13 @@ const ReportOtherHealthInsurance = ({
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <AboutOtherInsurance />
           </Column>
-          {cobData.cobList != null ? (
-            <>
-              <Column className="flex-grow page-section-63_33 items-stretch">
-                <OtherHealthInsuranceCard
-                  otherHealthInsuranceDetails={cobData}
-                  memberDetails={data}
-                  membersData={membersData}
-                />
-              </Column>
-            </>
-          ) : (
-            <>
-              <Column>
-                <section className="flex justify-start self-start p-4">
-                  <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
-                </section>
-              </Column>
-            </>
-          )}
+          <Column className="flex-grow page-section-63_33 items-stretch">
+            <OtherHealthInsuranceCard
+              otherHealthInsuranceDetails={cobData}
+              memberDetails={data}
+              membersData={membersData}
+            />
+          </Column>
         </section>
       </Column>
     </main>
