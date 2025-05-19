@@ -660,6 +660,15 @@ export default function ChatWidget({
   // Log critical state just before rendering GenesysScriptLoader decision
   const chatDataFromStore = useChatStore.getState().config.chatData;
 
+  console.log('[ChatWidget] Pre-render check', {
+    isChatEnabled,
+    genesysChatConfig,
+  });
+  logger.info('[ChatWidget] Pre-render check', {
+    isChatEnabled,
+    genesysChatConfig,
+  });
+
   logger.info(`${LOG_PREFIX} Decision Values (Pre-Render):`, {
     isChatEnabled, // The value from the hook
     storeChatDataIsEligible: chatDataFromStore?.isEligible,
@@ -766,6 +775,9 @@ export default function ChatWidget({
       return () => clearTimeout(buttonCheckTimer);
     }
   }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]);
+
+  console.log('[ChatWidget] Component rendered');
+  logger.info('[ChatWidget] Component rendered', {});
 
   return (
     <>

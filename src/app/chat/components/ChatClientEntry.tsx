@@ -9,6 +9,7 @@
  */
 
 import { ChatLinkEnhancer } from '@/components/foundation/ChatLinkEnhancer';
+import { logger } from '@/utils/logger';
 import { useRef } from 'react';
 import { ChatLazyLoader } from './index';
 
@@ -30,6 +31,9 @@ export function ChatClientEntry() {
     window._chatClientInitialized = true;
     console.log('[ChatClientEntry] Initializing chat client entry');
   }
+
+  console.log('[ChatClientEntry] Component rendered');
+  logger.info('[ChatClientEntry] Component rendered');
 
   return (
     <>
