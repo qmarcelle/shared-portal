@@ -59,6 +59,18 @@ function generateMockChatConfig(
       process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
       '/assets/genesys/plugins/widgets.min.js',
     clickToChatJs: '/assets/genesys/click_to_chat.js',
+    // Add mock member information
+    memberFirstname: 'Demo',
+    memberLastName: 'User',
+    formattedFirstName: 'Demo',
+    subscriberID: memberId || '123456789',
+    sfx: '01',
+    MEMBER_ID: `${memberId || '123456789'}-01`,
+    memberDOB: '1980-01-01',
+    memberMedicalPlanID: planId || 'MOCK-PLAN',
+    groupId: 'MOCK-GROUP',
+    memberClientID: 'MOCK-CLIENT',
+    groupType: 'MOCK-GROUP-TYPE',
     genesysCloudConfig: {
       deploymentId:
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
@@ -320,6 +332,22 @@ export async function GET(request: NextRequest) {
       // Ensure chatBotEligibility is set to isEligible
       chatBotEligibility: data.isEligible ?? true,
       routingChatBotEligibility: data.routingChatBotEligibility || false,
+
+      // Member information - extract from the API response or use defaults
+      memberFirstname: data.memberFirstname || 'Member',
+      memberLastName: data.memberLastName || 'User',
+      formattedFirstName:
+        data.formattedFirstName || data.memberFirstname || 'Member',
+      subscriberID: data.subscriberID || memeck,
+      sfx: data.sfx || '01',
+      MEMBER_ID:
+        data.MEMBER_ID ||
+        `${data.subscriberID || memeck || ''}-${data.sfx || '01'}`,
+      memberDOB: data.memberDOB || '1980-01-01', // Default if no DOB available
+      memberMedicalPlanID: data.memberMedicalPlanID || planId,
+      groupId: data.groupId || planId,
+      memberClientID: data.memberClientID || 'DEFAULT-CLIENT',
+      groupType: data.groupType || 'DEFAULT-TYPE',
 
       // Genesys config required fields
       isChatEligibleMember:

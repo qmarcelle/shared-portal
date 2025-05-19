@@ -97,6 +97,8 @@ interface ChatState {
         IsVisionEligible?: string;
         IDCardBotName?: string;
         LOB?: string;
+        memberClientID?: string;
+        groupType?: string;
       };
     };
     chatData: ChatData | null;
@@ -629,6 +631,18 @@ export const useChatStore = create<ChatState>((set, get) => {
                           PLAN_ID: finalGenesysConfig.memberMedicalPlanID,
                           INQ_TYPE: finalGenesysConfig.INQ_TYPE,
                           LOB: finalGenesysConfig.LOB,
+                          // Additional fields only if they can be cast to existing properties
+                          isMedicalEligible: finalGenesysConfig.isMedical
+                            ? 'true'
+                            : 'false',
+                          IsDentalEligible: finalGenesysConfig.isDental
+                            ? 'true'
+                            : 'false',
+                          IsVisionEligible: finalGenesysConfig.isVision
+                            ? 'true'
+                            : 'false',
+                          memberClientID: finalGenesysConfig.memberClientID,
+                          groupType: finalGenesysConfig.groupType,
                         },
                       }
                     : undefined,

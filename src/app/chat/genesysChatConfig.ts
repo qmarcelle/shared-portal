@@ -294,7 +294,7 @@ export function buildGenesysChatConfig({
     // From Plan Context
     memberMedicalPlanID: plan.memberMedicalPlanID,
     groupId: plan.groupId,
-    memberClientID: plan.memberClientID, // LOB can be derived from this or groupType
+    memberClientID: plan.memberClientID,
     groupType: plan.groupType,
 
     // From API Config (getChatInfo response)

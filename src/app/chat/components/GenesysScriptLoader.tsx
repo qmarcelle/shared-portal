@@ -726,9 +726,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                     `${legacyConfig?.subscriberID || legacyConfig?.subscriberId || ''}-${legacyConfig?.sfx || legacyConfig?.suffix || ''}`,
                   memberMedicalPlanID: legacyConfig?.memberMedicalPlanID || '',
                   groupId: legacyConfig?.groupId || '',
+                  memberClientID: legacyConfig?.memberClientID || '',
+                  groupType: legacyConfig?.groupType || '',
+                  memberDOB: legacyConfig?.memberDOB || '',
                 };
                 window.chatSettings = configWithMode as ChatSettings;
-                // Verify after setting
+                // Verify after setting with detailed member information
                 logger.info(
                   `${LOG_PREFIX} Legacy Mode: window.chatSettings set, verifying:`,
                   {
@@ -736,6 +739,22 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                     keysCount: window.chatSettings
                       ? Object.keys(window.chatSettings).length
                       : 0,
+                    memberInfo: {
+                      firstName:
+                        window.chatSettings?.memberFirstname ||
+                        window.chatSettings?.firstName,
+                      lastName:
+                        window.chatSettings?.memberLastName ||
+                        window.chatSettings?.lastName,
+                      subscriberId:
+                        window.chatSettings?.subscriberID ||
+                        window.chatSettings?.subscriberId,
+                      memberDOB: window.chatSettings?.memberDOB,
+                      memberClientID: window.chatSettings?.memberClientID,
+                      groupId: window.chatSettings?.groupId,
+                      groupType: window.chatSettings?.groupType,
+                      MEMBER_ID: window.chatSettings?.MEMBER_ID,
+                    },
                   },
                 );
               } else {
