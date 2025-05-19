@@ -1303,7 +1303,7 @@
           '[Genesys] Explicitly initializing widgets.main with config:',
           cfg.genesys,
         );
-        window._genesys.widgets.main.initialise(cfg.genesys);
+        window._genesys.widgets.main.initialise();
       } else {
         console.log(
           '[Genesys] widgets.main.initialise is not a function or not found. Current state:',
@@ -1345,7 +1345,7 @@
           '[Genesys] _genesysCheckWidgetsReady: Widgets ready, calling initialise with config:',
           cfg.genesys,
         );
-        window._genesys.widgets.main.initialise(cfg.genesys);
+        window._genesys.widgets.main.initialise();
         // If button needs to be shown after this, ensure logic is here or called
         showChatButtonWhenReady(); // Assuming this function exists and handles button visibility
       } else {
