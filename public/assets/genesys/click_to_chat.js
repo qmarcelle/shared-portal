@@ -1346,6 +1346,7 @@
     };
     window._forceChatButtonCreate = window.forceCreateChatButton; // Expose globally
 
+    /*
     function initializeWidgetsExplicitly() {
       // This function is called after widgets.min.js is presumed to be loaded.
       console.log('[click_to_chat.js] initializeWidgetsExplicitly called.');
@@ -1382,17 +1383,19 @@
               typeof window._genesys?.widgets?.main?.initialise === 'function',
           },
         );
-        if (typeof window._genesysCheckWidgetsReady === 'function') {
-          setTimeout(window._genesysCheckWidgetsReady, 250); // Retry check
-        } else {
-          console.error(
-            '[click_to_chat.js] _genesysCheckWidgetsReady is not defined. Cannot retry initialization.',
-          );
-        }
+        // if (typeof window._genesysCheckWidgetsReady === 'function') { // This check would be against a now-commented function
+        //   setTimeout(window._genesysCheckWidgetsReady, 250); // Retry check
+        // } else {
+        //   console.error(
+        //     '[click_to_chat.js] _genesysCheckWidgetsReady is not defined. Cannot retry initialization.',
+        //   );
+        // }
       }
     }
-    window._initializeWidgetsExplicitly = initializeWidgetsExplicitly; // Expose globally
+    */
+    // window._initializeWidgetsExplicitly = initializeWidgetsExplicitly; // Expose globally
 
+    /*
     window._genesysCheckWidgetsReady = function () {
       console.log(
         '[click_to_chat.js] _genesysCheckWidgetsReady: Checking for widgets main and initialise function...',
@@ -1406,7 +1409,7 @@
         console.log(
           '[click_to_chat.js] _genesysCheckWidgetsReady: Widgets ready. Calling initializeWidgetsExplicitly.',
         );
-        initializeWidgetsExplicitly(); // This will call initialise()
+        // initializeWidgetsExplicitly(); // This would call a now-commented function
       } else {
         console.log(
           '[click_to_chat.js] _genesysCheckWidgetsReady: Widgets not ready yet. Retrying in 1s. State:',
@@ -1418,9 +1421,10 @@
               typeof window._genesys?.widgets?.main?.initialise === 'function',
           },
         );
-        setTimeout(window._genesysCheckWidgetsReady, 1000);
+        // setTimeout(window._genesysCheckWidgetsReady, 1000); // Self-recursion for a commented function
       }
     };
+    */
 
     // The original onWidgetsLoad function is effectively replaced by the .then() block
     // of the loadResource.script(widgetsMinJsUrl) call.
