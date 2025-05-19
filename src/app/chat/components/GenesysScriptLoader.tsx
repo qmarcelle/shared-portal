@@ -1162,7 +1162,7 @@ declare global {
     _forceChatButtonCreate?: () => boolean;
     _genesysCXBus?: GenesysCXBus;
     chatSettings?: ChatSettings | GenesysChatConfig; // Reflecting that we set it for legacy
-    Genesys?: any; // For Genesys Cloud
+    Genesys?: (command: string, ...args: unknown[]) => unknown; // For Genesys Cloud
     _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
     checkWidgetsReady?: () => boolean; // For checking if widgets are ready
     BCBST?: {

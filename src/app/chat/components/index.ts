@@ -3,6 +3,7 @@
 
 import { ChatClientEntry } from './ChatClientEntry';
 import { ChatLazyLoader } from './ChatLazyLoader';
+import GenesysCloudLoader from './GenesysCloudLoader';
 // Remove ChatControls export as it's deprecated
 
-export { ChatClientEntry, ChatLazyLoader };
+export { ChatClientEntry, ChatLazyLoader, GenesysCloudLoader };

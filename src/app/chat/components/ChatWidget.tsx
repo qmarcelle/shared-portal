@@ -30,6 +30,7 @@ import {
   ScriptLoadPhase,
 } from '../types/chat-types';
 import { ChatLoadingState } from '../utils/chatSequentialLoader';
+import GenesysCloudLoader from './GenesysCloudLoader';
 import GenesysScriptLoader from './GenesysScriptLoader';
 
 const LOG_PREFIX = '[ChatWidget]';
@@ -951,360 +952,124 @@ export default function ChatWidget({
     }
   }, [buttonState, isCXBusReady]);
 
-  // Replace the guaranteed button useEffect with a targeted visibility fix
+  // Add a dedicated effect for positioning the chat button properly
   useEffect(() => {
     if (!isChatEnabled) return;
 
-    // Function to aggressively make the button visible
-    const forceButtonVisibility = () => {
-      // Try multiple selectors to find the button
+    const positionChatButton = () => {
+      // Find the button using multiple selectors
       const selectors = [
         '.cx-widget.cx-webchat-chat-button',
         '.cx-webchat-chat-button',
         '[data-cx-widget="WebChat"]',
         '.cx-button.cx-webchat',
-        '.cx-widget[data-cx-widget="WebChat"]',
       ];
 
+      let buttonFound = false;
+
       for (const selector of selectors) {
-        const elements = document.querySelectorAll(selector);
-        if (elements.length > 0) {
-          logger.info(
-            `${LOG_PREFIX} Found ${elements.length} elements matching ${selector}`,
-          );
+        const buttons = document.querySelectorAll(selector);
+        if (buttons.length > 0) {
+          buttonFound = true;
+          buttons.forEach((button) => {
+            const buttonEl = button as HTMLElement;
 
-          elements.forEach((el, index) => {
-            const buttonEl = el as HTMLElement;
-            logger.info(
-              `${LOG_PREFIX} Forcing visibility for element ${index + 1}`,
-            );
-
-            // Direct style modification approach - most immediate
+            // Apply precise positioning styles
             buttonEl.style.cssText = `
+              position: fixed !important;
+              bottom: 20px !important;
+              right: 20px !important;
+              z-index: 2147483647 !important;
               display: block !important;
               visibility: visible !important;
               opacity: 1 !important;
-              position: fixed !important;
-              z-index: 2147483647 !important;
-              bottom: 20px !important;
-              right: 20px !important; /* Position at bottom right corner */
-              background-color: #0056B3 !important;
-              color: white !important;
-              border-radius: 4px !important;
-              padding: 10px 20px !important;
-              font-weight: 500 !important;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-              border: none !important;
+              min-width: 60px !important;
+              min-height: 45px !important;
               pointer-events: auto !important;
-              width: auto !important;
-              min-width: 100px !important;
-              min-height: 40px !important;
+              background-color: #0078d4 !important;
+              border-radius: 4px !important;
+              border: none !important;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+              transform: none !important;
+              margin: 0 !important;
+              padding: 10px !important;
             `;
 
-            // Ensure all children are also visible
+            // Also ensure any child elements are visible
             const children = buttonEl.querySelectorAll('*');
             children.forEach((child) => {
               (child as HTMLElement).style.cssText = `
                 visibility: visible !important;
-                display: block !important;
                 opacity: 1 !important;
-                color: white !important;
+                display: inline-block !important;
               `;
             });
-
-            // Log the computed style for debugging
-            const computedStyle = window.getComputedStyle(buttonEl);
-            logger.info(`${LOG_PREFIX} Post-fix computed styles:`, {
-              display: computedStyle.display,
-              visibility: computedStyle.visibility,
-              opacity: computedStyle.opacity,
-              position: computedStyle.position,
-              zIndex: computedStyle.zIndex,
-            });
           });
 
-          return true; // Button found and fixed
+          logger.info(
+            `${LOG_PREFIX} Successfully positioned ${buttons.length} chat button(s)`,
+          );
         }
       }
 
-      logger.warn(`${LOG_PREFIX} No chat button elements found in DOM`);
-      return false;
-    };
-
-    // Try immediately
-    forceButtonVisibility();
-
-    // Then periodically check and fix
-    const visibilityInterval = setInterval(() => {
-      forceButtonVisibility();
-    }, 2000);
-
-    return () => {
-      clearInterval(visibilityInterval);
-    };
-  }, [isChatEnabled]);
-
-  // Add back the CXBus ready hook for button creation
-  useEffect(() => {
-    if (!isCXBusReady) return;
-    logger.info(
-      `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** CXBus is ready, current buttonState: ${buttonState}`,
-    );
-
-    // CRITICAL FIX: Only set buttonState to 'creating' if it's not already 'creating' or 'created'
-    // This prevents the unnecessary state updates causing the loop
-    if (buttonState !== 'creating' && buttonState !== 'created') {
-      logger.info(
-        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Setting buttonState to 'creating' from '${buttonState}'`,
-      );
-      useChatStore.getState().actions.setButtonState('creating');
-    } else {
-      logger.info(
-        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** NOT changing buttonState, already: ${buttonState}`,
-      );
-    }
-
-    checkGenesysButton();
-    const buttonCheckInterval = setInterval(() => {
-      if (
-        buttonState === 'created' ||
-        buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS
-      ) {
-        clearInterval(buttonCheckInterval);
-        logger.info(
-          `${LOG_PREFIX} Button check interval cleared: ${buttonState === 'created' ? 'button found' : 'max attempts reached'}`,
-        );
-        return;
+      if (!buttonFound) {
+        logger.warn(`${LOG_PREFIX} No chat button found to position`);
       }
-      logger.info(
-        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Running periodic checkGenesysButton, current buttonState: ${buttonState}`,
-      );
-      checkGenesysButton();
-    }, 2000);
-    return () => {
-      logger.info(
-        `${LOG_PREFIX} *** LOOP DIAGNOSTIC *** Cleanup of button check effect, final buttonState: ${buttonState}`,
-      );
-      clearInterval(buttonCheckInterval);
+
+      return buttonFound;
     };
-  }, [isCXBusReady, checkGenesysButton, buttonState]);
 
-  // Replace the diagnostic effect that creates the Extreme Test chat button
-  useEffect(() => {
-    if (!isChatEnabled) return;
-
-    // New simplified diagnostic function to help identify what's preventing button visibility
-    const runChatButtonDiagnostics = () => {
-      if (!ENABLE_CHAT_BUTTON_DIAGNOSTICS) return;
-
-      logger.info(`${LOG_PREFIX} Running chat button diagnostics`);
-
-      // Check for elements at the chat button's position
-      const elementsAtPosition = document.elementsFromPoint(
-        window.innerWidth - 20, // Right X (offset from right edge)
-        window.innerHeight - 20, // Bottom Y where chat button should be
-      );
-
-      logger.info(
-        `${LOG_PREFIX} Elements at chat button position:`,
-        elementsAtPosition.map((el) => ({
-          tag: el.tagName,
-          id: el.id,
-          class: el.className,
-          zIndex: window.getComputedStyle(el).zIndex,
-          position: window.getComputedStyle(el).position,
-        })),
-      );
-
-      // Scan for elements with high z-index that might be overlapping
-      const highZIndexElements: Array<{
-        tag: string;
-        id: string;
-        class: string;
-        zIndex: number;
-        position: string;
-      }> = [];
-
-      const allElements = document.querySelectorAll('*');
-      allElements.forEach((el) => {
-        const style = window.getComputedStyle(el);
-        const zIndex = parseInt(style.zIndex);
-        if (zIndex > 1000) {
-          highZIndexElements.push({
-            tag: el.tagName,
-            id: el.id,
-            class: el.className,
-            zIndex: zIndex,
-            position: style.position,
-          });
-        }
-      });
-
-      logger.info(
-        `${LOG_PREFIX} High z-index elements (>1000) that might be overlapping:`,
-        highZIndexElements.sort((a, b) => b.zIndex - a.zIndex).slice(0, 10),
-      );
-
-      // Check if the button is in a stacking context with lower z-index
-      const button = document.querySelector(
-        '.cx-widget.cx-webchat-chat-button',
-      );
-      if (button) {
-        let parent = button.parentElement;
-        const parentStackingContexts = [];
-
-        while (parent) {
-          const style = window.getComputedStyle(parent);
-          const zIndex = parseInt(style.zIndex);
-          const position = style.position;
-
-          // Check if this parent creates a stacking context with lower z-index
-          if (
-            (position === 'absolute' ||
-              position === 'relative' ||
-              position === 'fixed') &&
-            !isNaN(zIndex) &&
-            zIndex < 2147483647
-          ) {
-            parentStackingContexts.push({
-              tag: parent.tagName,
-              id: parent.id,
-              class: parent.className,
-              zIndex: zIndex,
-              position: position,
-            });
+    // Add global styles to ensure button visibility
+    const addGlobalStyles = () => {
+      if (!document.getElementById('genesys-chat-position-styles')) {
+        const style = document.createElement('style');
+        style.id = 'genesys-chat-position-styles';
+        style.textContent = `
+          /* Global styles for chat button positioning */
+          .cx-widget.cx-webchat-chat-button,
+          .cx-webchat-chat-button,
+          [data-cx-widget="WebChat"],
+          .cx-button.cx-webchat {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 20px !important;
+            z-index: 2147483647 !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transform: none !important;
           }
-          parent = parent.parentElement;
-        }
-
-        logger.info(
-          `${LOG_PREFIX} Parent stacking contexts that might be limiting button z-index:`,
-          parentStackingContexts,
-        );
+          
+          /* Fix for stacking contexts */
+          body * {
+            transform-style: flat !important;
+          }
+          
+          /* Open chat window needs high z-index too */
+          .cx-widget.cx-webchat {
+            z-index: 2147483646 !important;
+          }
+        `;
+        document.head.appendChild(style);
+        logger.info(`${LOG_PREFIX} Added global chat button position styles`);
       }
     };
 
-    // Run diagnostics after initial load
-    if (ENABLE_CHAT_BUTTON_DIAGNOSTICS) {
-      setTimeout(runChatButtonDiagnostics, 3000); // Give a few seconds for initial loading
-    }
+    // Run immediately and then set up interval
+    addGlobalStyles();
+    positionChatButton();
 
-    // Periodically run diagnostics
-    const diagnosticsInterval = setInterval(() => {
-      // Run diagnostics occasionally
-      if (ENABLE_CHAT_BUTTON_DIAGNOSTICS && Math.random() < 0.2) {
-        // 20% chance each check
-        runChatButtonDiagnostics();
-      }
-    }, 5000);
+    const positionInterval = setInterval(() => {
+      positionChatButton();
+    }, 2000);
 
     return () => {
-      clearInterval(diagnosticsInterval);
-    };
-  }, [isChatEnabled]);
-
-  // Modify the global style element to ensure fixed positioning works correctly
-  useEffect(() => {
-    if (!isChatEnabled) return;
-
-    // Create global styles for the Genesys chat button
-    if (!document.getElementById('genesys-global-reset-styles')) {
-      const globalStyles = document.createElement('style');
-      globalStyles.id = 'genesys-global-reset-styles';
-      globalStyles.textContent = `
-        /* Reset any potential parent container interference */
-        .cx-widget.cx-webchat-chat-button,
-        .cx-webchat-chat-button,
-        [data-cx-widget="WebChat"],
-        .cx-button.cx-webchat,
-        #genesys-absolute-fallback-button {
-          position: fixed !important;
-          z-index: 2147483647 !important;
-          right: 20px !important;
-          bottom: 20px !important;
-          left: auto !important;
-          transform: none !important;
-          display: flex !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          
-          /* Ensure any parent containers' overflow settings don't hide the button */
-          overflow: visible !important;
-          clip: auto !important;
-          clip-path: none !important;
-          -webkit-clip-path: none !important;
-          
-          /* Prevent parent containers from affecting the button position */
-          margin: 0 !important;
-          width: auto !important;
-          min-width: 60px !important;
-          min-height: 60px !important;
-          
-          /* Make sure pointer events work */
-          pointer-events: auto !important;
-        }
-
-        /* Ensure no parent transforms affect the fixed positioning */
-        html, body {
-          overflow-x: hidden;
-        }
-      `;
-      document.head.appendChild(globalStyles);
-      logger.info(
-        `${LOG_PREFIX} Added global reset styles to ensure button visibility`,
-      );
-    }
-
-    return () => {
-      const styles = document.getElementById('genesys-global-reset-styles');
+      clearInterval(positionInterval);
+      const styles = document.getElementById('genesys-chat-position-styles');
       if (styles) styles.remove();
     };
   }, [isChatEnabled]);
-
-  // Add back the config validation effect
-  useEffect(() => {
-    if (!genesysChatConfig) {
-      logger.info(`${LOG_PREFIX} No Genesys chat configuration available yet.`);
-      return;
-    }
-    const config = genesysChatConfig as any;
-    const currentChatMode = chatMode || 'legacy';
-    const serverChatMode = config.chatMode || 'legacy';
-    const isCloudEligible =
-      config.cloudChatEligible === 'true' || config.cloudChatEligible === true;
-    logger.info(`${LOG_PREFIX} Validating chat mode consistency:`, {
-      currentChatMode, // From store/props
-      serverChatMode, // From fetched config
-      isCloudEligible, // From fetched config
-    });
-    if (currentChatMode === 'cloud' && !isCloudEligible) {
-      logger.warn(
-        `${LOG_PREFIX} Inconsistent chat mode: UI expects 'cloud', but server config indicates not cloud eligible. Potential misconfiguration.`,
-      );
-      // setError(new Error('Chat mode mismatch: UI expects cloud, but not eligible.'));
-      // setShowChatErrorModal(true);
-    } else if (currentChatMode === 'legacy' && isCloudEligible) {
-      logger.warn(
-        `${LOG_PREFIX} Inconsistent chat mode: UI expects 'legacy', but server config indicates cloud eligible. Consider updating UI to use cloud mode.`,
-      );
-    }
-    // Further validation for Genesys Cloud config
-    if (currentChatMode === 'cloud') {
-      const gcConfig = genesysCloudConfig; // From store selector
-      if (!gcConfig?.deploymentId || !gcConfig?.environment) {
-        logger.error(
-          `${LOG_PREFIX} Critical Genesys Cloud config missing: deploymentId or environment.`,
-          { gcConfigFromStore: gcConfig },
-        );
-        setError(
-          new Error(
-            'Genesys Cloud configuration is incomplete (missing deploymentId or environment).',
-          ),
-        );
-        setShowChatErrorModal(true);
-      }
-    }
-  }, [genesysChatConfig, chatMode, genesysCloudConfig, setError]);
 
   // === CONDITIONAL RENDERING LOGIC STARTS HERE ===
   // (Moved from lines 755-772)
@@ -1370,21 +1135,28 @@ export default function ChatWidget({
     <>
       <div id={containerId} data-testid="chat-widget-container" />
 
-      {isChatEnabled && genesysChatConfig && (
-        <GenesysScriptLoader
-          chatMode={chatMode}
-          // Ensure legacyConfig and cloudConfig are properly passed or default to undefined
-          legacyConfig={
-            chatMode === 'legacy' ? legacyConfig || undefined : undefined
-          }
-          cloudConfig={
-            chatMode === 'cloud' ? cloudConfig || undefined : undefined
-          }
-          onLoad={handleCXBusReady}
-          onError={handleScriptError}
-          showStatus={showLoaderStatus}
-        />
-      )}
+      {isChatEnabled &&
+        genesysChatConfig &&
+        (chatMode === 'cloud' ? (
+          <GenesysCloudLoader
+            useProdDeployment={process.env.NODE_ENV === 'production'}
+            onLoad={handleCXBusReady}
+            onError={handleScriptError}
+            userData={
+              // Cast userData to the right type or provide a default empty object
+              (genesysChatConfig as any).userData || {}
+            }
+          />
+        ) : (
+          <GenesysScriptLoader
+            chatMode="legacy" // Force legacy mode when not using cloud
+            legacyConfig={legacyConfig || undefined}
+            cloudConfig={undefined}
+            onLoad={handleCXBusReady}
+            onError={handleScriptError}
+            showStatus={showLoaderStatus}
+          />
+        ))}
 
       {showChatErrorModal && (
         <div className="chat-error-modal" data-testid="chat-error-modal">
