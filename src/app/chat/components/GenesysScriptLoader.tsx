@@ -703,6 +703,22 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   logger.info(
                     `${LOG_PREFIX} Legacy Mode: widgets.min.js SUCCEEDED or ALREADY LOADED (according to loadScriptAsync).`,
                   );
+                  // IMMEDIATE CHECK AFTER WIDGETS.MIN.JS LOAD
+                  logger.info(
+                    `${LOG_PREFIX} Legacy Mode: IMMEDIATELY AFTER widgets.min.js load. Checking globals...`,
+                    {
+                      has_genesys: typeof window._genesys !== 'undefined',
+                      has_genesys_widgets:
+                        typeof window._genesys?.widgets !== 'undefined',
+                      has_genesys_widgets_main:
+                        typeof window._genesys?.widgets?.main !== 'undefined',
+                      has_genesys_widgets_main_initialise:
+                        typeof window._genesys?.widgets?.main?.initialise ===
+                        'function',
+                      has_genesysCXBus:
+                        typeof window._genesysCXBus !== 'undefined',
+                    },
+                  );
                 } catch (widgetsError) {
                   logger.error(
                     `${LOG_PREFIX} Legacy Mode: CRITICAL - FAILED to load widgets.min.js. Error: `,
