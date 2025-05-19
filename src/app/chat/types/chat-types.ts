@@ -111,8 +111,6 @@ export interface BaseGenesysChatConfig {
   isChatEligibleMember: string | boolean;
   targetContainer?: string;
   cloudChatEligible?: string | boolean;
-
-  // User identification fields
   firstname?: string;
   lastname?: string;
   formattedFirstName?: string;
@@ -124,22 +122,6 @@ export interface BaseGenesysChatConfig {
   chatHours?: string;
   rawChatHrs?: string;
   selfServiceLinks?: Array<any>;
-
-  // Member information fields (both forms for compatibility)
-  memberFirstname?: string;
-  memberLastName?: string;
-  firstName?: string;
-  lastName?: string;
-  subscriberID?: string;
-  subscriberId?: string;
-  sfx?: string;
-  suffix?: string;
-  MEMBER_ID?: string;
-  memberDOB?: string;
-  groupId?: string;
-  memberClientID?: string;
-  groupType?: string;
-
   [key: string]: any; // For flexibility with unknown properties
 }
 

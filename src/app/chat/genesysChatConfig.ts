@@ -140,6 +140,10 @@ export interface UserConfig {
   subscriberID?: string;
   sfx?: string;
   memberDOB?: string;
+  firstName?: string;
+  lastName?: string;
+  subscriberId?: string;
+  suffix?: string;
 }
 
 export interface PlanConfig {
@@ -274,39 +278,17 @@ export function buildGenesysChatConfig({
   // Determine chatMode
   const chatMode = apiConfig.cloudChatEligible ? 'cloud' : 'legacy';
 
-  logger.info('[buildGenesysChatConfig] User and plan contexts received:', {
-    userContext: {
-      userID: user.userID,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      memberFirstname: user.memberFirstname,
-      memberLastName: user.memberLastName,
-      formattedFirstName: user.formattedFirstName,
-      subscriberId: user.subscriberId,
-      subscriberID: user.subscriberID,
-      suffix: user.suffix,
-      sfx: user.sfx,
-      memberDOB: user.memberDOB,
-    },
-    planContext: {
-      memberMedicalPlanID: plan.memberMedicalPlanID,
-      groupId: plan.groupId,
-      memberClientID: plan.memberClientID,
-      groupType: plan.groupType,
-      memberDOB: plan.memberDOB,
-    },
-  });
-
   // Base config from API and context
   const config: Partial<GenesysChatConfig> = {
     // From User Context
     userID: user.userID,
-    memberFirstname: user.memberFirstname,
-    memberLastName: user.memberLastName,
-    formattedFirstName: user.formattedFirstName || user.memberFirstname,
-    subscriberID: user.subscriberID,
-    sfx: user.sfx,
-    MEMBER_ID: `${user.subscriberID || ''}-${user.sfx || ''}`,
+    // Map from user context with appropriate fallbacks
+    memberFirstname: user.memberFirstname || user.firstName,
+    memberLastName: user.memberLastName || user.lastName,
+    formattedFirstName: user.formattedFirstName || user.firstName,
+    subscriberID: user.subscriberID || user.subscriberId,
+    sfx: user.sfx || user.suffix,
+    MEMBER_ID: `${user.subscriberID || user.subscriberId || ''}-${user.sfx || user.suffix || ''}`,
     memberDOB: user.memberDOB || plan.memberDOB,
 
     // From Plan Context
@@ -364,7 +346,7 @@ export function buildGenesysChatConfig({
   // Populate from environment variables / static defaults
   config.widgetUrl =
     process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-    'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
+    '/assets/genesys/plugins/widgets.min.js';
   config.clickToChatJs =
     process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
     '/assets/genesys/click_to_chat.js';
@@ -500,21 +482,6 @@ export function buildGenesysChatConfig({
       });
     }
   }
-
-  // Log the final merged config with detailed member fields
-  logger.info('[buildGenesysChatConfig] Final member fields in config:', {
-    memberFirstname: mergedConfig.memberFirstname,
-    memberLastName: mergedConfig.memberLastName,
-    formattedFirstName: mergedConfig.formattedFirstName,
-    subscriberID: mergedConfig.subscriberID,
-    sfx: mergedConfig.sfx,
-    MEMBER_ID: mergedConfig.MEMBER_ID,
-    memberDOB: mergedConfig.memberDOB,
-    memberMedicalPlanID: mergedConfig.memberMedicalPlanID,
-    groupId: mergedConfig.groupId,
-    memberClientID: mergedConfig.memberClientID,
-    groupType: mergedConfig.groupType,
-  });
 
   return mergedConfig;
 }
