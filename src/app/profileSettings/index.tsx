@@ -7,10 +7,11 @@ import { UserRole } from '@/userManagement/models/sessionUser';
 import { ProfileSettingsAppData } from './models/app/profileSettingsAppData';
 
 export type ProfileSettingsProps = {
+  status: number;
   data: ProfileSettingsAppData;
   userRole: UserRole | undefined;
 };
-const ProfileSettings = ({ data, userRole }: ProfileSettingsProps) => {
+const ProfileSettings = ({ status, data, userRole }: ProfileSettingsProps) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -23,6 +24,9 @@ const ProfileSettings = ({ data, userRole }: ProfileSettingsProps) => {
               phoneNumber={data.phone}
               email={data.email}
               visibilityRules={data.visibilityRules}
+              status={status}
+              emailVerified={data.emailVerified}
+              phoneVerified={data.phoneVerified}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
