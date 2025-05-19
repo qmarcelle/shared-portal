@@ -11,16 +11,20 @@ import { Row } from '@/components/foundation/Row';
 import { Section } from '@/components/foundation/Section';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { isEmboldHealthEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 
 type EmployerProvidedBenefitsPageProps = {
   benefits?: BenefitsProviderInfo[];
   groupId?: string;
+  visibilityRules?: VisibilityRules;
 };
 
 export const EmployerProvidedBenfitsPage = ({
   benefits,
   groupId,
+  visibilityRules,
 }: EmployerProvidedBenefitsPageProps) => {
   return (
     <AppPage>
@@ -85,7 +89,9 @@ export const EmployerProvidedBenfitsPage = ({
                 />
               </Column>
             </Card>
-            <FindMedicalProvidersComponent />
+            {isEmboldHealthEligible(visibilityRules) && (
+              <FindMedicalProvidersComponent />
+            )}
           </Column>
         </Section>
       </Body>
