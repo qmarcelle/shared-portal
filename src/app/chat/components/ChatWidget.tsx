@@ -315,37 +315,137 @@ export default function ChatWidget({
                 '.cx-webchat-chat-button',
                 '[data-cx-widget="WebChat"]',
                 '.cx-button.cx-webchat',
+                // Add any other selectors that Genesys might use for its button
               ];
 
+              let buttonElement: HTMLElement | null = null;
               for (const selector of selectors) {
-                if (node.matches(selector) || node.querySelector(selector)) {
-                  logger.info(
-                    `${LOG_PREFIX} MutationObserver detected chat button added to DOM`,
-                  );
-                  // Apply our styles directly to the button
-                  (node.matches(selector)
-                    ? node
-                    : node.querySelector(selector)
-                  )?.classList.add('genesys-chat-button-fixed');
-                  setButtonState('created');
+                if (node.matches(selector)) {
+                  buttonElement = node;
+                  break;
+                }
+                const childButton = node.querySelector(selector);
+                if (childButton && childButton instanceof HTMLElement) {
+                  buttonElement = childButton;
+                  break;
+                }
+              }
 
-                  // If we have a fallback button and the real one is visible, remove the fallback
+              if (buttonElement) {
+                logger.info(
+                  `${LOG_PREFIX} MutationObserver detected chat button. Applying aggressive styles.`,
+                  {
+                    tagName: buttonElement.tagName,
+                    id: buttonElement.id,
+                    className: buttonElement.className,
+                  },
+                );
+
+                // AGGRESSIVE JAVASCRIPT STYLING
+                buttonElement.style.setProperty(
+                  'display',
+                  'block',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'visibility',
+                  'visible',
+                  'important',
+                );
+                buttonElement.style.setProperty('opacity', '1', 'important');
+                buttonElement.style.setProperty(
+                  'position',
+                  'fixed',
+                  'important',
+                );
+                buttonElement.style.setProperty('bottom', '20px', 'important');
+                buttonElement.style.setProperty('right', '20px', 'important');
+                buttonElement.style.setProperty(
+                  'z-index',
+                  '2147483647',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'min-width',
+                  '60px',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'min-height',
+                  '60px',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'background-color',
+                  'lime',
+                  'important',
+                ); // Use a very obvious color
+                buttonElement.style.setProperty('color', 'black', 'important');
+                buttonElement.style.setProperty(
+                  'border-radius',
+                  '50%',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'box-shadow',
+                  '0 4px 8px rgba(0,0,0,0.3)',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'cursor',
+                  'pointer',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'pointer-events',
+                  'auto',
+                  'important',
+                );
+                buttonElement.style.setProperty(
+                  'border',
+                  '3px solid red',
+                  'important',
+                ); // Make border super obvious
+                buttonElement.style.setProperty(
+                  'transform',
+                  'scale(1)',
+                  'important',
+                );
+                buttonElement.style.setProperty('padding', '10px', 'important');
+                // Ensure it has some content if Genesys fails to add it
+                if (
+                  !buttonElement.innerText &&
+                  !buttonElement.innerHTML.includes('<svg')
+                ) {
+                  buttonElement.innerText = 'CHAT';
+                }
+
+                setButtonState('created');
+
+                // If we have a fallback button and the real one is visible, remove the fallback
+                if (
+                  fallbackButtonRef.current &&
+                  document.body.contains(fallbackButtonRef.current)
+                ) {
+                  // Check if the real button is actually visible (basic check)
+                  const realButtonStyles =
+                    window.getComputedStyle(buttonElement);
                   if (
-                    fallbackButtonRef.current &&
-                    document.body.contains(fallbackButtonRef.current)
+                    realButtonStyles.display !== 'none' &&
+                    realButtonStyles.visibility === 'visible'
                   ) {
                     setTimeout(() => {
                       if (fallbackButtonRef.current) {
                         fallbackButtonRef.current.remove();
                         fallbackButtonRef.current = null;
                         logger.info(
-                          `${LOG_PREFIX} Removed fallback button after detecting real button`,
+                          `${LOG_PREFIX} Removed fallback button after detecting and styling real button.`,
                         );
                       }
-                    }, 1000); // Wait a second to make sure the real button is visible
+                    }, 500); // Short delay to ensure styles applied
                   }
-                  return;
                 }
+                return; // Found and styled the button
               }
             }
           }
