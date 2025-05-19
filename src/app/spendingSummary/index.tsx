@@ -16,7 +16,7 @@ import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { useAppModalStore } from '../../components/foundation/AppModal';
-import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
+import { AnnualSpendingSummary } from '../dashboard/components/AnnualSpendingSummary';
 import { DownloadPdf } from '../spendingSummary/journeys/DownloadPdf';
 
 /* eslint-disable */
@@ -83,7 +83,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
           </Column>
 
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <SpendingAccountSummary
+            <AnnualSpendingSummary
               className="large-section statementSummary"
               title="Statement Summary up to November 8, 2023"
               subTitle="View Medical, Pharmacy, Dental and Vision for All Members"

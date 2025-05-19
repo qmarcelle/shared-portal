@@ -41,7 +41,6 @@ import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation'
 import PharmacyBenefits from './components/PharmacyBenefits';
 import { PharmacyDocuments } from './components/PharmacyDocuments';
 import { PharmacyFAQ } from './components/PharmacyFAQ';
-import { PharmacySpendingSummary } from './components/PharmacySpendingSummary';
 import { PrescriptionPaymentsOptions } from './components/PrescriptionPaymentOptions';
 import { ShopOverCounterItemsCard } from './components/ShopOverCounterItems';
 import { PharmacyData } from './models/app/pharmacyData';
@@ -159,7 +158,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                   linkUrl="/claims?type=pharmacy"
                 />
               </Column>
-              <Column className=" flex-grow page-section-36_67 items-stretch">
+              {/* <Column className=" flex-grow page-section-36_67 items-stretch">
                 <PharmacySpendingSummary
                   className="large-section md:w-[352px] md:h-[248px]"
                   title="My Pharmacy Spending Summary"
@@ -167,7 +166,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                   linkLabel="View Pharmacy Spending Summary"
                   url="/member/myplan/spendingsummary?type=Pharmacy"
                 />
-              </Column>
+              </Column> */}
             </section>
           )}
           <section className="flex flex-row items-start app-body">
