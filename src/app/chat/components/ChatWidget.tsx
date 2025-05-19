@@ -185,6 +185,55 @@ export default function ChatWidget({
         // Force visibility with stronger CSS overrides
         const buttonEl = button as HTMLElement;
 
+        // Add a global style to ensure fixed positioning works correctly
+        if (!document.getElementById('genesys-global-reset-styles')) {
+          const globalStyles = document.createElement('style');
+          globalStyles.id = 'genesys-global-reset-styles';
+          globalStyles.textContent = `
+            /* Reset any potential parent container interference */
+            .cx-widget.cx-webchat-chat-button,
+            .cx-webchat-chat-button,
+            [data-cx-widget="WebChat"],
+            .cx-button.cx-webchat,
+            #genesys-chat-button-clone,
+            #genesys-absolute-fallback-button {
+              position: fixed !important;
+              z-index: 2147483647 !important;
+              left: 50% !important;
+              right: auto !important;
+              transform: translateX(-50%) !important;
+              bottom: 20px !important;
+              display: flex !important;
+              visibility: visible !important;
+              opacity: 1 !important;
+              
+              /* Ensure any parent container's overflow settings don't hide the button */
+              overflow: visible !important;
+              clip: auto !important;
+              clip-path: none !important;
+              -webkit-clip-path: none !important;
+              
+              /* Prevent parent containers from affecting the button position */
+              margin: 0 !important;
+              width: auto !important;
+              min-width: 60px !important;
+              min-height: 60px !important;
+              
+              /* Make sure pointer events work */
+              pointer-events: auto !important;
+            }
+
+            /* Ensure no parent transforms affect the fixed positioning */
+            html, body {
+              overflow-x: hidden;
+            }
+          `;
+          document.head.appendChild(globalStyles);
+          logger.info(
+            `${LOG_PREFIX} Added global reset styles to ensure button visibility`,
+          );
+        }
+
         // STRATEGY 1: Move the button to the body element to escape any parent container issues
         // First, create a clone with all the necessary styles before moving the original
         const buttonClone = buttonEl.cloneNode(true) as HTMLElement;
@@ -198,12 +247,10 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
-          left: 20px !important;
-          right: 20px !important;
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%) !important;
           width: auto !important;
-          margin-left: auto !important; 
-          margin-right: auto !important;
-          cursor: pointer !important;
           min-width: 60px !important;
           min-height: 60px !important;
           background-color: #0078d4 !important;
@@ -215,8 +262,7 @@ export default function ChatWidget({
           font-family: sans-serif !important;
           border: none !important;
           pointer-events: auto !important;
-          transform: none !important;
-          margin: 0 auto !important;  /* Center horizontally */
+          margin: 0 !important;
           padding: 10px !important;
           overflow: visible !important;
           clip: auto !important;
@@ -254,12 +300,10 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
-          left: 20px !important;
-          right: 20px !important;
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%) !important;
           width: auto !important;
-          margin-left: auto !important; 
-          margin-right: auto !important;
-          cursor: pointer !important;
           min-width: 60px !important;
           min-height: 60px !important;
           background-color: #0078d4 !important; /* Back to standard blue color */
@@ -271,8 +315,7 @@ export default function ChatWidget({
           font-family: sans-serif !important;
           border: none !important;
           pointer-events: auto !important;
-          transform: none !important;
-          margin: 0 auto !important;  /* Center horizontally */
+          margin: 0 !important;
           padding: 10px !important;
           overflow: visible !important;
           clip: auto !important;
@@ -350,11 +393,11 @@ export default function ChatWidget({
           fallbackButton.style.cssText = `
             position: fixed !important;
             bottom: 70px !important; /* Position above the main button */
-            left: 20px !important;
-            right: 20px !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) !important;
             width: auto !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+            max-width: 200px !important;
             background-color: #0078d4;
             color: white;
             border: none;
@@ -366,8 +409,6 @@ export default function ChatWidget({
             z-index: 2147483646;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             text-align: center;
-            max-width: 200px; /* Limit the width of the fallback button */
-            margin: 0 auto !important;
           `;
           fallbackButton.onclick = () => {
             if (window._genesysCXBus) {
@@ -404,7 +445,30 @@ export default function ChatWidget({
                 buttonEl.style.opacity = '1 !important';
               }
 
-              // Check if button is positioned off-screen
+              // Check if button is positioned incorrectly
+              const position = computedStyle.position;
+              const bottom = computedStyle.bottom;
+              const left = computedStyle.left;
+              const transform = computedStyle.transform;
+
+              // Force centering if position is wrong
+              if (
+                position !== 'fixed' ||
+                !bottom.includes('20px') ||
+                !left.includes('50%') ||
+                !transform.includes('translateX(-50%)')
+              ) {
+                logger.info(
+                  `${LOG_PREFIX} Periodic check: Button position is incorrect, forcing center positioning`,
+                );
+                buttonEl.style.position = 'fixed !important';
+                buttonEl.style.bottom = '20px !important';
+                buttonEl.style.left = '50% !important';
+                buttonEl.style.right = 'auto !important';
+                buttonEl.style.transform = 'translateX(-50%) !important';
+              }
+
+              // Check if button is off-screen
               const rect = buttonEl.getBoundingClientRect();
               if (
                 rect.right < 0 ||
@@ -422,10 +486,11 @@ export default function ChatWidget({
                     },
                   },
                 );
-                buttonEl.style.right = '20px !important';
+                buttonEl.style.position = 'fixed !important';
                 buttonEl.style.bottom = '20px !important';
-                buttonEl.style.left = 'auto !important';
-                buttonEl.style.top = 'auto !important';
+                buttonEl.style.left = '50% !important';
+                buttonEl.style.right = 'auto !important';
+                buttonEl.style.transform = 'translateX(-50%) !important';
               }
             }
           }, 2000);
@@ -518,8 +583,8 @@ export default function ChatWidget({
         `${LOG_PREFIX} Container element already exists with id: ${containerId}`,
       );
     }
-    containerElement.style.position = 'relative';
-    containerElement.style.zIndex = '999';
+    containerElement.style.position = 'static';
+    containerElement.style.zIndex = 'auto';
     containerElement.style.minHeight = '10px';
     containerElement.style.minWidth = '10px';
     containerElement.dataset.initialized = 'true';
