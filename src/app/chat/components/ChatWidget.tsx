@@ -370,8 +370,19 @@ export default function ChatWidget({
   useEffect(() => {
     if (!isChatEnabled) return;
 
+    let lastProcessedTime = 0;
+    const DEBOUNCE_TIME = 100; // ms between processing mutations
+    const stylingAppliedFlags = new WeakMap();
+
     // Setup observer to watch for button creation
     const observer = new MutationObserver((mutations) => {
+      // Debounce to avoid excessive processing
+      const now = Date.now();
+      if (now - lastProcessedTime < DEBOUNCE_TIME) {
+        return;
+      }
+      lastProcessedTime = now;
+
       for (const mutation of mutations) {
         if (mutation.type === 'childList') {
           for (const node of Array.from(mutation.addedNodes)) {
@@ -408,6 +419,14 @@ export default function ChatWidget({
               }
 
               if (buttonElement) {
+                // Check if we've already styled this button
+                if (stylingAppliedFlags.get(buttonElement)) {
+                  logger.info(
+                    `${LOG_PREFIX} MutationObserver detected chat button but styling already applied, skipping`,
+                  );
+                  continue;
+                }
+
                 logger.info(
                   `${LOG_PREFIX} MutationObserver detected chat button added to DOM`,
                   {
@@ -416,6 +435,9 @@ export default function ChatWidget({
                     className: buttonElement.className,
                   },
                 );
+
+                // Mark this button as styled to prevent loops
+                stylingAppliedFlags.set(buttonElement, true);
 
                 // AGGRESSIVE JAVASCRIPT STYLING
                 buttonElement.style.setProperty(
@@ -484,6 +506,9 @@ export default function ChatWidget({
                   'important',
                 );
 
+                // Add a data attribute to mark it as processed by our code
+                buttonElement.setAttribute('data-genesys-styled', 'true');
+
                 // Ensure it has some content if Genesys fails to add it
                 if (
                   !buttonElement.innerText &&
@@ -529,12 +554,11 @@ export default function ChatWidget({
       }
     });
 
-    // Start observing with a comprehensive configuration
+    // Start observing with a comprehensive configuration that reduces the chance of loops
     observer.observe(document.body, {
       childList: true,
       subtree: true,
-      attributes: true,
-      attributeFilter: ['style', 'class', 'id', 'hidden'],
+      attributes: false, // Don't observe attribute changes to avoid loops
     });
 
     logger.info(
@@ -556,8 +580,11 @@ export default function ChatWidget({
     // Add global styles first
     addChatButtonStyles();
 
+    // Track intervals for cleanup
+    const intervals: NodeJS.Timeout[] = [];
+
     // Create button immediately after a short delay to let Genesys initialize
-    setTimeout(() => {
+    const initialTimeout = setTimeout(() => {
       forceButtonCreation();
     }, 100);
 
@@ -596,13 +623,23 @@ export default function ChatWidget({
       }
     }, 1000);
 
+    intervals.push(intervalId);
+
     return () => {
-      clearInterval(intervalId);
+      // Clear all intervals to prevent memory leaks
+      clearTimeout(initialTimeout);
+      intervals.forEach((id) => clearInterval(id));
+
+      // Reset attempt counter to prevent it from carrying over to next mount
+      buttonCheckAttempts.current = 0;
+
       // Remove fallback button when component unmounts
       if (fallbackButtonRef.current) {
         fallbackButtonRef.current.remove();
         fallbackButtonRef.current = null;
       }
+
+      logger.info(`${LOG_PREFIX} Cleaned up button creation resources`);
     };
   }, [isChatEnabled, addChatButtonStyles, forceButtonCreation]);
 
@@ -645,6 +682,13 @@ export default function ChatWidget({
         logger.error(
           `${LOG_PREFIX} Genesys widgets.main.initialise not available after ${MAX_GENESYS_INIT_CHECK_ATTEMPTS} attempts - falling back to custom button`,
         );
+        // Log the current state of _genesys for debugging
+        logger.error(`${LOG_PREFIX} Current _genesys state:`, {
+          exists: !!window._genesys,
+          widgets: !!window._genesys?.widgets,
+          main: !!window._genesys?.widgets?.main,
+          initialise_type: typeof window._genesys?.widgets?.main?.initialise,
+        });
         // Ensure fallback button is shown
         forceButtonCreation();
         return false;
@@ -660,13 +704,23 @@ export default function ChatWidget({
 
     // Set up interval to check for full initialization
     const initCheckInterval = setInterval(() => {
-      if (checkGenesysInitialization()) {
+      if (
+        checkGenesysInitialization() ||
+        genesysInitCheckAttempts.current >= MAX_GENESYS_INIT_CHECK_ATTEMPTS
+      ) {
         clearInterval(initCheckInterval);
+        // Reset counter to prevent it affecting future mounts
+        genesysInitCheckAttempts.current = 0;
       }
     }, 200); // Check every 200ms
 
     return () => {
       clearInterval(initCheckInterval);
+      // Reset counter on unmount
+      genesysInitCheckAttempts.current = 0;
+      logger.info(
+        `${LOG_PREFIX} Cleared Genesys initialization check interval`,
+      );
     };
   }, [isChatEnabled, forceButtonCreation]);
 
@@ -1352,12 +1406,15 @@ export default function ChatWidget({
     // Cleanup function
     return () => {
       if (buttonState === 'created' && window._genesysButtonObserver) {
-        // Only cleanup on unmount if we need to
+        // Clean up the observer when the component unmounts
+        window._genesysButtonObserver.disconnect();
+        window._genesysButtonObserver = undefined;
+        logger.info(`${LOG_PREFIX} Disconnected button observer on cleanup`);
       }
     };
   }, [buttonState, isCXBusReady, isGenesysFullyInitialized, setOpen]);
 
-  // Modify the positionChatButton function to only run when Genesys is fully initialized
+  // Define the positionChatButton function to only run when Genesys is fully initialized
   const positionChatButton = useCallback(() => {
     // Skip positioning if Genesys isn't fully initialized yet
     if (!isGenesysFullyInitialized && isCXBusReady) {
@@ -1443,40 +1500,58 @@ export default function ChatWidget({
 
   // Modify the positioning and CSS effect to account for full initialization
   useEffect(() => {
-    if (isChatEnabled) {
-      // Add global styles once, regardless of Genesys initialization
-      addGlobalStyles();
+    if (!isChatEnabled) return;
 
-      // Wait for Genesys to be fully initialized before setting up MutationObserver
-      if (!isGenesysFullyInitialized && isCXBusReady) {
-        logger.info(
-          `${LOG_PREFIX} Waiting for Genesys to fully initialize before setting up button observers`,
-        );
+    // Add global styles once, regardless of Genesys initialization
+    addGlobalStyles();
 
-        // Set up a check for initialization
-        const waitForInitInterval = setInterval(() => {
-          if (isGenesysFullyInitialized) {
-            clearInterval(waitForInitInterval);
-            // Initial position check once fully initialized
-            positionChatButton();
-          }
-        }, 200);
+    let waitForInitInterval: NodeJS.Timeout | null = null;
+    let observer: MutationObserver | null = null;
+    let checkInterval: NodeJS.Timeout | null = null;
 
-        return () => {
-          clearInterval(waitForInitInterval);
-        };
-      }
-
-      // Only proceed with positioning and observers when Genesys is fully initialized
+    // Wait for Genesys to be fully initialized before setting up MutationObserver
+    if (!isGenesysFullyInitialized && isCXBusReady) {
       logger.info(
-        `${LOG_PREFIX} Genesys is fully initialized, setting up button positioning and observers`,
+        `${LOG_PREFIX} Waiting for Genesys to fully initialize before setting up button observers`,
+      );
+
+      // Set up a check for initialization
+      waitForInitInterval = setInterval(() => {
+        if (isGenesysFullyInitialized) {
+          if (waitForInitInterval) {
+            clearInterval(waitForInitInterval);
+            waitForInitInterval = null;
+          }
+          // Initial position check once fully initialized
+          positionChatButton();
+        }
+      }, 200);
+    } else if (isGenesysFullyInitialized || !isCXBusReady) {
+      // Only proceed with positioning and observers when Genesys is fully initialized
+      // or if CXBus isn't ready (in which case we'll rely on our own button)
+      logger.info(
+        `${LOG_PREFIX} ${isGenesysFullyInitialized ? 'Genesys is fully initialized' : 'CXBus not ready, using fallback'}, setting up button positioning and observers`,
       );
 
       // Initial position check
       positionChatButton();
 
       // Setup MutationObserver to detect DOM changes that might affect button
-      const observer = new MutationObserver((mutations) => {
+      observer = new MutationObserver((mutations) => {
+        // Skip if any mutations are coming from our own styling operations
+        const isFromOurOwnStyling = mutations.some(
+          (mutation) =>
+            mutation.target &&
+            (mutation.target as Element).matches?.(
+              '#genesys-button-css-fix, .genesys-chat-button-positioned',
+            ),
+        );
+
+        if (isFromOurOwnStyling) {
+          // Skip to prevent loops
+          return;
+        }
+
         const shouldCheckButton = mutations.some((mutation) =>
           Array.from(mutation.addedNodes).some(
             (node) =>
@@ -1497,8 +1572,7 @@ export default function ChatWidget({
       observer.observe(document.body, {
         childList: true,
         subtree: true,
-        attributes: true,
-        attributeFilter: ['style', 'class'],
+        attributes: false, // Reduced to avoid loops
       });
 
       // Periodic check with limited attempts instead of infinite interval
@@ -1506,21 +1580,33 @@ export default function ChatWidget({
       const MAX_PERIODIC_CHECKS = 10;
       const INTERVAL_DELAY = 2000;
 
-      const checkInterval = setInterval(() => {
+      checkInterval = setInterval(() => {
         attempts++;
         const buttonFound = positionChatButton();
 
         // Clear interval if button is found or max attempts reached
         if (buttonFound || attempts >= MAX_PERIODIC_CHECKS) {
-          clearInterval(checkInterval);
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            checkInterval = null;
+          }
         }
       }, INTERVAL_DELAY);
-
-      return () => {
-        observer.disconnect();
-        clearInterval(checkInterval);
-      };
     }
+
+    return () => {
+      // Clean up all timers and observers on unmount
+      if (waitForInitInterval) {
+        clearInterval(waitForInitInterval);
+      }
+      if (observer) {
+        observer.disconnect();
+      }
+      if (checkInterval) {
+        clearInterval(checkInterval);
+      }
+      logger.info(`${LOG_PREFIX} Cleaned up all timers and observers`);
+    };
   }, [
     isChatEnabled,
     addGlobalStyles,
