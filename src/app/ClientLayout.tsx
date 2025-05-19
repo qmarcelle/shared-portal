@@ -259,7 +259,6 @@ export default function ClientLayout({
     console.log(`[ClientLayout] isClientReady changed: ${isClientReady}`);
   }, [isClientReady]);
 
-  // hasInitialized is a ref, so we log its .current property
   useEffect(() => {
     logger.info(
       `[ClientLayout] hasInitialized.current changed: ${hasInitialized.current}`,
@@ -267,17 +266,9 @@ export default function ClientLayout({
     console.log(
       `[ClientLayout] hasInitialized.current changed: ${hasInitialized.current}`,
     );
-  }, [hasInitialized.current]); // Ensure this dependency is correct based on how hasInitialized is used/updated
+  }, [hasInitialized]); // Corrected dependency to the ref object itself if monitoring its assignment, though typically not needed. Or remove if only for direct mutation logging.
 
-  // Don't render any client components while not ready
-  if (!isClientReady) {
-    return <>{children}</>;
-  }
-
-  // Only render ChatClientEntry when client is ready
-  const chatClientEntry = isClientReady ? <ChatClientEntry /> : null;
-
-  // Manage _chatClientInitialized flag
+  // Manage _chatClientInitialized flag - MOVED HERE
   useEffect(() => {
     if (isClientReady && !window._chatClientInitialized) {
       console.log(
@@ -292,8 +283,15 @@ export default function ClientLayout({
     }
     // We might want to reset _chatClientInitialized if isClientReady becomes false,
     // but that depends on the desired behavior if the client becomes "not ready" again.
-    // For now, this aligns with the user's proposal.
-  }, [isClientReady]); // Dependency array ensures this runs when isClientReady changes
+  }, [isClientReady]);
+
+  // Don't render any client components while not ready
+  if (!isClientReady) {
+    return <>{children}</>;
+  }
+
+  // Only render ChatClientEntry when client is ready
+  const chatClientEntry = isClientReady ? <ChatClientEntry /> : null;
 
   return (
     <>
