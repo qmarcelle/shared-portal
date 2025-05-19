@@ -552,11 +552,11 @@ export default function ChatWidget({
         );
       }
     };
-    if (isCXBusReady) {
+    if (isCXBusReady && window._genesysCXBus) {
       executeChatCommand();
     } else {
       logger.info(
-        `${LOG_PREFIX} CXBus not ready, queuing isOpen state sync command.`,
+        `${LOG_PREFIX} CXBus not ready OR window._genesysCXBus not yet available, queuing isOpen state sync command. isCXBusReady: ${isCXBusReady}`,
       );
       cxBusCommandQueue.current.push(executeChatCommand);
     }
