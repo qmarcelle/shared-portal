@@ -682,9 +682,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             );
 
             if (chatMode === 'legacy') {
-              // Legacy Mode: jQuery -> widgets.min.js -> CXBus Ready -> click_to_chat.js
+              // Legacy Mode: jQuery -> click_to_chat.js
+              // click_to_chat.js is now responsible for loading widgets.min.js and full Genesys init.
               try {
-                logger.info(`${LOG_PREFIX} Legacy Mode: Loading jQuery...`);
+                logger.info(
+                  `${LOG_PREFIX} Legacy Mode: Loading jQuery (prerequisite for click_to_chat.js)...`,
+                );
                 await loadScriptAsync(
                   'https://code.jquery.com/jquery-3.6.0.min.js',
                   'jquery-script',
@@ -692,90 +695,30 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 logger.info(`${LOG_PREFIX} Legacy Mode: jQuery LOADED.`);
 
                 logger.info(
-                  `${LOG_PREFIX} Legacy Mode: ATTEMPTING to load widgets.min.js...`,
-                );
-                try {
-                  await loadScriptAsync(
-                    '/assets/genesys/plugins/widgets.min.js',
-                    'genesys-widgets-min-script',
-                    true, // true for async
-                  );
-                  logger.info(
-                    `${LOG_PREFIX} Legacy Mode: widgets.min.js SUCCEEDED or ALREADY LOADED (according to loadScriptAsync).`,
-                  );
-                  // IMMEDIATE CHECK AFTER WIDGETS.MIN.JS LOAD
-                  const checkTime = Date.now();
-                  const genesysGlobalsState = {
-                    timestamp: checkTime,
-                    has_genesys: typeof window._genesys !== 'undefined',
-                    has_genesys_widgets:
-                      typeof window._genesys?.widgets !== 'undefined',
-                    has_genesys_widgets_main:
-                      typeof window._genesys?.widgets?.main !== 'undefined',
-                    has_genesys_widgets_main_initialise:
-                      typeof window._genesys?.widgets?.main?.initialise ===
-                      'function',
-                    has_genesysCXBus:
-                      typeof window._genesysCXBus !== 'undefined',
-                  };
-                  logger.info(
-                    `${LOG_PREFIX} IMMEDIATE CHECK after widgets.min.js load attempt. State: `,
-                    genesysGlobalsState,
-                  );
-                  // eslint-disable-next-line no-console
-                  console.log(
-                    `%c[GenesysScriptLoader] IMMEDIATE CHECK after widgets.min.js load. CXBus present: ${genesysGlobalsState.has_genesysCXBus}`,
-                    'color: red; background: yellow; font-size: 1.2em; font-weight: bold;',
-                  );
-                } catch (widgetsError) {
-                  logger.error(
-                    `${LOG_PREFIX} Legacy Mode: CRITICAL - FAILED to load widgets.min.js. Error: `,
-                    widgetsError,
-                  );
-                  // Propagate this critical error
-                  throw widgetsError;
-                }
-
-                logger.info(
-                  `${LOG_PREFIX} Legacy Mode: Polling for CXBus and Genesys core after widgets.min.js load attempt...`,
-                );
-                await waitForCXBus(); // Polls for _genesysCXBus
-                logger.info(`${LOG_PREFIX} Legacy Mode: CXBus ready.`);
-
-                logger.info(
-                  `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings...`,
-                );
-                if (typeof window !== 'undefined') {
-                  window.chatSettings = legacyConfig as ChatSettings;
-                  logger.info(
-                    `${LOG_PREFIX} Legacy Mode: window.chatSettings set with legacyConfig:`,
-                    legacyConfig,
-                  );
-                } else {
-                  logger.warn(
-                    `${LOG_PREFIX} Legacy Mode: window object not available. Cannot set window.chatSettings.`,
-                  );
-                }
-
-                logger.info(
-                  `${LOG_PREFIX} Legacy Mode: Loading click_to_chat.js...`,
+                  `${LOG_PREFIX} Legacy Mode: ATTEMPTING to load click_to_chat.js (will handle widgets.min.js)...`,
                 );
                 await loadScriptAsync(
-                  effectiveScriptUrl,
-                  'genesys-chat-script',
-                  false,
+                  effectiveScriptUrl, // This should be '/assets/genesys/click_to_chat.js'
+                  GenesysLoadingState.scriptId, // 'genesys-chat-script'
+                  false, // click_to_chat.js is often not designed to be fully async itself
                 );
-
                 logger.info(
-                  `${LOG_PREFIX} All legacy scripts loaded and CXBus confirmed ready.`,
+                  `${LOG_PREFIX} Legacy Mode: click_to_chat.js script tag added/loaded. Full initialization is now up to click_to_chat.js.`,
                 );
-                GenesysLoadingState.scriptLoaded = true;
-                markScriptLoadComplete(true);
 
-                // All scripts loaded and CXBus is ready, call the main onLoad prop.
+                // NO LONGER WAITING FOR CXBUS HERE - click_to_chat.js handles all Genesys readiness.
+                // NO LONGER LOADING widgets.min.js HERE - click_to_chat.js handles it.
+
+                GenesysLoadingState.scriptLoaded = true; // Mark that the entry script is loaded
+                // GenesysLoadingState.cxBusReady = true; // We can't guarantee CXBus is ready yet. click_to_chat.js manages this.
+
+                markScriptLoadComplete(true); // Mark this stage of loading as complete in sequential loader
+
+                // The onLoad prop now signifies that click_to_chat.js has been initiated.
+                // Actual Genesys readiness will be managed by click_to_chat.js.
                 if (onLoad) onLoad();
               } catch (error) {
-                const errMsg = `Failed during legacy script loading sequence.`;
+                const errMsg = `Failed during legacy script loading sequence (jQuery or click_to_chat.js entry point).`;
                 logger.error(`${LOG_PREFIX} ${errMsg}`, { error });
                 setStatus('error');
                 setErrorMessage(
@@ -788,7 +731,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   );
               }
             } else {
-              // Cloud Mode
+              // Cloud Mode (remains largely the same, but waitForCXBus might need review if cloud has similar issues)
               // Cloud mode script setup (original logic)
               const scriptElement: HTMLScriptElement =
                 document.createElement('script');
