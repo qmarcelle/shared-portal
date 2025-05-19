@@ -341,7 +341,7 @@ export function buildGenesysChatConfig({
   // Populate from environment variables / static defaults
   config.widgetUrl =
     process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-    'https://apps.mypurecloud.com/widgets/9.0/widgets.min.js';
+    '/assets/genesys/plugins/widgets.min.js';
   config.clickToChatJs =
     process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
     '/assets/genesys/click_to_chat.js';
