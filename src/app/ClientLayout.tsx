@@ -249,21 +249,51 @@ export default function ClientLayout({
     });
   }, [genesysChatConfig]);
 
+  useEffect(() => {
+    logger.info('[ClientLayout] ClientLayout mounted or updated.');
+    console.log('[ClientLayout] ClientLayout mounted or updated.');
+  });
+
+  useEffect(() => {
+    logger.info(`[ClientLayout] isClientReady changed: ${isClientReady}`);
+    console.log(`[ClientLayout] isClientReady changed: ${isClientReady}`);
+  }, [isClientReady]);
+
+  // hasInitialized is a ref, so we log its .current property
+  useEffect(() => {
+    logger.info(
+      `[ClientLayout] hasInitialized.current changed: ${hasInitialized.current}`,
+    );
+    console.log(
+      `[ClientLayout] hasInitialized.current changed: ${hasInitialized.current}`,
+    );
+  }, [hasInitialized.current]); // Ensure this dependency is correct based on how hasInitialized is used/updated
+
   // Don't render any client components while not ready
   if (!isClientReady) {
     return <>{children}</>;
   }
 
-  // Always render ChatClientEntry at least once
-  const chatClientEntry = <ChatClientEntry />;
+  // Only render ChatClientEntry when client is ready
+  const chatClientEntry = isClientReady ? <ChatClientEntry /> : null;
 
-  // Mark as initialized for subsequent renders
-  if (!isChatClientInitialized) {
-    console.log('[ClientLayout] First time rendering ChatClientEntry');
-    isChatClientInitialized = true;
-  } else {
-    console.log('[ClientLayout] ChatClientEntry already initialized');
-  }
+  // Manage _chatClientInitialized flag
+  useEffect(() => {
+    if (isClientReady && !window._chatClientInitialized) {
+      console.log(
+        '[ClientLayout] First time rendering and initializing ChatClientEntry via useEffect',
+      );
+      window._chatClientInitialized = true; // Set the global flag
+    } else if (isClientReady && window._chatClientInitialized) {
+      // Added isClientReady here too
+      console.log(
+        '[ClientLayout] ChatClientEntry already initialized (checked in useEffect)',
+      );
+    }
+    // We might want to reset _chatClientInitialized if isClientReady becomes false,
+    // but that depends on the desired behavior if the client becomes "not ready" again.
+    // For now, this aligns with the user's proposal.
+  }, [isClientReady]); // Dependency array ensures this runs when isClientReady changes
 
   return (
     <>
