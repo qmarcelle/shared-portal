@@ -8,7 +8,7 @@ import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/routes';
+import { DEFAULT_LOGOUT_REDIRECT } from '@/utils/client_routes';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import DashboardLoader from './DashboardLoader';

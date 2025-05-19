@@ -5,24 +5,32 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import estimateCost from '@/public/assets/estimate_cost.svg';
 import servicesUsed from '@/public/assets/services_used.svg';
-import { BalanceSectionWrapper } from '../balances/components/BalanceSection';
+import { BalanceSectionWrapper } from './balances/components/BalanceSection';
 import {
   SpendingAccountSection,
   SpendingAccountSectionProps,
-} from '../balances/components/SpendingAccountsSection';
-import { BalanceData } from '../balances/models/app/balancesData';
-import { BenefitDetailSection } from '../components/BenefitDetailSection';
-import { BenefitTypeHeaderSection } from '../components/BenefitTypeHeaderSection';
-import { BenefitTypeDetail } from '../models/benefit_details';
-import { BenefitLevelDetails } from '../models/benefit_type_header_details';
-import { BenefitType } from '../models/benefitConsts';
-import { useBenefitsStore } from '../stores/benefitsStore';
+} from './balances/components/SpendingAccountsSection';
+import { BalanceData } from './balances/models/app/balancesData';
+import { BenefitDetailSection } from './components/BenefitDetailSection';
+import { BenefitTypeHeaderSection } from './components/BenefitTypeHeaderSection';
+import { BenefitTypeDetail } from './models/benefit_details';
+import { BenefitLevelDetails } from './models/benefit_type_header_details';
+import { BenefitType } from './models/benefitConsts';
+import { useBenefitsStore } from './stores/benefitsStore';
+
+export interface BenefitDetailsParams {
+  productType: string;
+  serviceClass: string;
+}
 
 export const Details = ({
+  /* We will update this to populate the details from the URL params post-release */
+  params, //eslint-disable-line
   balanceData,
   spendingAccountInfo,
   contact,
 }: {
+  params: BenefitDetailsParams;
   balanceData: BalanceData | undefined;
   spendingAccountInfo: SpendingAccountSectionProps;
   contact: string;

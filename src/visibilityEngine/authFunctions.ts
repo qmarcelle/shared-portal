@@ -15,6 +15,7 @@ export const AUTH_FUNCTION_MAP = {
   individualSBCEligible: 'INDIVIDUAL_SBC_ELIGIBLE',
   medicareAdvantageGroupIndicator: 'MedicareAdvantageGroupIndicator',
   isCondensedExperience: 'CONDENSED_EXPERIENCE', //TODO duplicate
+  otherInsuranceEligible: 'COBUPDATEELIGIBLE',
   enRollEligible: 'ENROLLELIGIBLE',
   enableBenefitChange: 'ENABLE_BENEFIT_CHANGE_TAB',
   dentalCostEligible: 'DENTALCOSTELIGIBLE',

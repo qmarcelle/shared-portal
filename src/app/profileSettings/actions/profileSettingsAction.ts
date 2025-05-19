@@ -34,7 +34,7 @@ export async function invokePhoneNumberAction(): Promise<string> {
     const phoneNumberResponse = await idCardService.get(
       `/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDetials=${effectiveDetials}`,
     );
-    console.log('Rohit' + phoneNumberResponse?.data.memberServicePhoneNumber);
+    //console.log('Rohit' + phoneNumberResponse?.data.memberServicePhoneNumber);
     if (phoneNumberResponse?.data.memberServicePhoneNumber != null) {
       return phoneNumberResponse?.data.memberServicePhoneNumber;
     } else {

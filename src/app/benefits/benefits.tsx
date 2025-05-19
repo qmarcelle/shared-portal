@@ -50,6 +50,13 @@ interface BenefitsProps {
   loggedInMemeck: string;
 }
 
+const benefitDetailsUrlMapping: Record<string, string> = {
+  M: 'medical',
+  D: 'dental',
+  V: 'vision',
+  S: 'wellness',
+};
+
 const Benefits = ({
   memberInfo,
   benefitsBean,
@@ -131,9 +138,10 @@ const Benefits = ({
         serviceCategory: category,
         benefitType: benefitType,
       });
-      let path = pathName(category);
-
-      router.push(`/member/myplan/benefits/${path}`);
+      const path = pathName(category);
+      router.push(
+        `/member/myplan/benefits/${benefitDetailsUrlMapping[benefitType]}/${path}`,
+      );
     },
     [router, setSelectedBenefitDetails],
   );
@@ -169,8 +177,7 @@ const Benefits = ({
           BenefitType.DENTAL,
         ),
       );
-    }
-    else setDentalBenefitsItems([]);
+    } else setDentalBenefitsItems([]);
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(

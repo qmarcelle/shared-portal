@@ -11,6 +11,7 @@ import {
   isBlueCareEligible,
   isKatieBeckettEligible,
   isManageMyPolicyEligible,
+  isOtherInsuranceEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import External from '../../../../public/assets/external.svg';
@@ -38,12 +39,6 @@ export const ManageMyPlan = ({
     ];
   } else if (isManageMyPolicyEligible(visibilityRules))
     manageMyPlanDetails = [
-      {
-        title: 'Report Other Health Insurance',
-        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
-        externalLink: false,
-        url: '/member/myplan/otherinsurance',
-      },
       {
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
@@ -78,6 +73,18 @@ export const ManageMyPlan = ({
         url: 'url',
       },
     ];
+
+  if (isOtherInsuranceEligible(visibilityRules)) {
+    manageMyPlanDetails = [
+      {
+        title: 'Report Other Health Insurance',
+        body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
+        externalLink: false,
+        url: '/member/myplan/otherinsurance',
+      },
+      ...manageMyPlanDetails,
+    ];
+  }
 
   return (
     <Card className={className}>
