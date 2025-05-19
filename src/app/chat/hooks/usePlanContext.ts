@@ -32,6 +32,7 @@ interface ExtendedSession {
         subId?: string; // Added subId for memberMedicalPlanID
         // Other plan fields if available and needed by chat
       };
+      memberDOB?: string;
     };
   };
 }
@@ -96,21 +97,18 @@ export function usePlanContext(): PlanContextReturn {
 
       const planId = session?.user?.currUsr?.plan?.grpId;
       const subId = session?.user?.currUsr?.plan?.subId; // Extracted subId
+      const memberDOB = session?.user?.currUsr?.memberDOB;
 
       // Log all available session data for debugging
       logger.info(`${LOG_PREFIX} Raw session data useful for plan context:`, {
         full_session_path: {
           currUsr: session?.user?.currUsr ? 'exists' : 'missing',
           currUsr_plan: session?.user?.currUsr?.plan ? 'exists' : 'missing',
-          currUsr_memberDOB: session?.user?.currUsr?.memberDOB
-            ? 'exists'
-            : 'missing',
+          currUsr_memberDOB: memberDOB ? 'exists' : 'missing',
         },
         available_plan_data: {
           grpId: planId,
           subId: subId,
-          clientId: clientId,
-          groupType: groupType,
         },
         available_user_data: {
           memberDOB: memberDOB,
