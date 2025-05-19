@@ -1244,23 +1244,28 @@
     // Add a function to explicitly load the widgets script if needed
     function loadWidgetsScriptExplicitly() {
       // Check if widgets script is already being loaded
+      // This check is less relevant now as GenesysScriptLoader.tsx handles loading widgets.min.js
+      /*
       if (
         document.getElementById('genesys-widgets-script-explicit') ||
         document.getElementById('genesys-widgets-script') ||
         window._genesysScriptLoadExplicitlyInProgress
       ) {
         console.log(
-          '[Genesys] Widgets script already being loaded explicitly or in progress',
+          '[Genesys] Widgets script already being loaded explicitly or in progress (loadWidgetsScriptExplicitly check - now redundant)',
         );
-        return;
+        // return; // If it was already loaded by GenesysScriptLoader, we might want to proceed to initialize
       }
+      */
 
-      // Set flag to prevent multiple simultaneous loads
-      window._genesysScriptLoadExplicitlyInProgress = true;
+      // window._genesysScriptLoadExplicitlyInProgress = true; // This flag may no longer be needed here
 
       console.log(
-        '[Genesys] Loading widgets script explicitly for legacy mode',
+        '[Genesys] loadWidgetsScriptExplicitly: Assuming widgets.min.js is pre-loaded by GenesysScriptLoader.tsx. Proceeding to initialize.',
       );
+
+      // ---- START: REMOVE WIDGETS.MIN.JS LOADING ----
+      /*
       // Only use the local plugins directory in legacy mode
       const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
 
@@ -1270,7 +1275,7 @@
       script.async = true;
       script.onload = function () {
         console.log(
-          '[Genesys] Local widgets script loaded explicitly, now initializing',
+          '[Genesys] Local widgets script loaded explicitly, now initializing (loadWidgetsScriptExplicitly - now redundant)',
         );
         window._genesysChatButtonRetryCount = 0; // Reset retry count
         window._genesysScriptLoadExplicitlyInProgress = false; // Clear loading flag
@@ -1278,16 +1283,21 @@
       };
       script.onerror = function (err) {
         console.error(
-          '[Genesys] Failed to load local widgets script explicitly:',
+          '[Genesys] Failed to load local widgets script explicitly (loadWidgetsScriptExplicitly - now redundant):',
           err,
         );
         window._genesysScriptLoadExplicitlyInProgress = false; // Clear loading flag
         console.warn(
-          '[Genesys] Script loading failed - unable to initialize chat widget',
+          '[Genesys] Script loading failed - unable to initialize chat widget (loadWidgetsScriptExplicitly - now redundant)',
         );
       };
 
       document.head.appendChild(script);
+      */
+      // ---- END: REMOVE WIDGETS.MIN.JS LOADING ----
+
+      // Directly call initialize since GenesysScriptLoader.tsx handled the loading of widgets.min.js
+      initializeWidgetsExplicitly();
     }
 
     // Function to explicitly initialize widgets after script loading
@@ -1541,59 +1551,15 @@
         }
       }; // End of legacyInnerCheckWidgetsReady
 
-      // IMPORTANT: Ensure that if this IIFE previously called window._genesysCheckWidgetsReady
-      // for its own purposes, it now calls legacyInnerCheckWidgetsReady.
-      // For example, if there was: setTimeout(window._genesysCheckWidgetsReady, 500)
-      // It should become: setTimeout(legacyInnerCheckWidgetsReady, 500)
-
-      // Load the actual widgets.min.js script
-      const widgetsScriptUrl =
-        cfg.widgetUrl || '/assets/genesys/plugins/widgets.min.js';
-      const scriptElement = document.createElement('script');
-      scriptElement.id = 'genesys-widgets-script'; // Consistent ID
-      scriptElement.src = widgetsScriptUrl;
-      scriptElement.async = true;
-
-      scriptElement.onload = () => {
-        console.log(
-          '[Genesys] Legacy widgets.min.js script loaded successfully.',
-        );
-        window._genesysScriptLoadingState.widgetsScriptLoaded = true;
-        // Instead of directly calling an internal check, rely on the global mechanism if appropriate,
-        // or call the specifically named legacyInnerCheckWidgetsReady if this IIFE has its own init flow.
-        // Original problematic area might be here if it called a global check that was then broken.
-        // Calling the local one if this IIFE is self-contained for this check:
-        legacyInnerCheckWidgetsReady();
-        // OR if the outer one is preferred for all init steps after script load:
-        // if(typeof window._genesysCheckWidgetsReady === 'function') window._genesysCheckWidgetsReady();
-
-        // Consider if onWidgetsLoad (the global one) should be called here or if this IIFE handles its own post-load steps.
-        // if (typeof onWidgetsLoad === 'function') onWidgetsLoad();
-      };
-
-      scriptElement.onerror = (err) => {
-        console.error(
-          '[Genesys] Failed to load legacy widgets.min.js script:',
-          err,
-          'URL:',
-          widgetsScriptUrl,
-        );
-        window._genesysScriptLoadingState.widgetsScriptFailed = true;
-        document.dispatchEvent(
-          new CustomEvent('genesys:script:error', {
-            detail: {
-              message: 'Failed to load Genesys widgets script.',
-              error: err,
-            },
-          }),
-        );
-      };
-
+      // Since widgets.min.js is now pre-loaded by GenesysScriptLoader.tsx,
+      // we can assume it's available (or will be shortly) and proceed to check readiness.
+      // The main script body already calls window._genesysCheckWidgetsReady and initializeWidgetsExplicitly.
+      // However, this IIFE had its own `legacyInnerCheckWidgetsReady`.
+      // Let's call it to maintain its original flow, assuming widgets.min.js is already there.
       console.log(
-        '[Genesys] Appending legacy widgets.min.js script to head:',
-        widgetsScriptUrl,
+        '[Genesys] Legacy IIFE: Assuming widgets.min.js is pre-loaded. Initiating legacyInnerCheckWidgetsReady.',
       );
-      document.head.appendChild(scriptElement);
+      legacyInnerCheckWidgetsReady();
     })(); // End of Legacy Script Loader IIFE
 
     // Script loaded successfully, now initialize the widget
