@@ -265,7 +265,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
      */
     const waitForCXBus = useCallback(() => {
       logger.info(
-        `${LOG_PREFIX} waitForCXBus: Starting polling for CXBus availability`,
+        `${LOG_PREFIX} waitForCXBus: Starting polling for CXBus and Genesys core readiness (initialise function).`,
       );
       setStatus('polling-cxbus');
 
@@ -276,18 +276,26 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       }
 
       let attempts = 0;
-      const maxAttempts = 20;
+      const maxAttempts = 20; // Keep this, but the effective timeout might be longer due to script loading
       let timeout = 250; // Start with 250ms
 
-      // Create a promise that resolves when CXBus is available
+      // Create a promise that resolves when CXBus and initialise function are available
       return new Promise<void>((resolve, reject) => {
-        const checkCXBus = () => {
-          // Primary check: Is CXBus available?
-          if (typeof window._genesysCXBus !== 'undefined') {
+        const checkGenesysReady = () => {
+          const cxBusAvailable = typeof window._genesysCXBus !== 'undefined';
+          const genesysCoreAvailable =
+            typeof window._genesys !== 'undefined' &&
+            typeof window._genesys.widgets !== 'undefined' &&
+            typeof window._genesys.widgets.main !== 'undefined' &&
+            typeof window._genesys.widgets.main.initialise === 'function';
+
+          if (cxBusAvailable && genesysCoreAvailable) {
             logger.info(
-              `${LOG_PREFIX} CXBus detected after ${attempts} attempts. CXBus ready.`,
+              `${LOG_PREFIX} CXBus and Genesys core (initialise function) detected after ${attempts} attempts. Genesys ready.`,
               {
                 cxBusObject: !!window._genesysCXBus,
+                genesysInitialiseFunction:
+                  typeof window._genesys?.widgets?.main?.initialise,
                 commandFunction:
                   typeof window._genesysCXBus?.command === 'function',
                 subscribeFunction:
@@ -300,7 +308,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             );
 
             // Mark CXBus as ready in global state
-            GenesysLoadingState.cxBusReady = true;
+            GenesysLoadingState.cxBusReady = true; // This flag might need renaming if it implies full readiness
             setStatus('loaded');
 
             // Clear any running timeout
@@ -309,8 +317,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               checkIntervalRef.current = null;
             }
 
-            // Check if there's any BCBST-specific readiness function provided
-            // Note: This is a placeholder - only use if BCBST provides an official API
+            // BCBST-specific readiness check (remains as is)
             if (typeof window.BCBST?.isChatReady === 'function') {
               logger.info(
                 `${LOG_PREFIX} BCBST-specific readiness check found. Checking...`,
@@ -321,22 +328,20 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 );
                 resolve();
               } else {
-                // If BCBST says not ready, retry with longer timeout
                 logger.warn(
                   `${LOG_PREFIX} BCBST.isChatReady() returned false. Waiting longer.`,
                 );
-                checkIntervalRef.current = setTimeout(checkCXBus, 1000);
+                checkIntervalRef.current = setTimeout(checkGenesysReady, 1000); // Use checkGenesysReady
                 return;
               }
             } else {
-              // No BCBST-specific check, resolve based on CXBus alone
               logger.info(
-                `${LOG_PREFIX} No BCBST-specific readiness check found. Using CXBus readiness.`,
+                `${LOG_PREFIX} No BCBST-specific readiness check found. Using CXBus and Genesys core readiness.`,
               );
               resolve();
             }
 
-            // Try to call _forceChatButtonCreate if available
+            // Call _forceChatButtonCreate (remains as is)
             if (window._forceChatButtonCreate) {
               try {
                 logger.info(
@@ -350,21 +355,27 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 );
               }
             }
-
             return;
           }
 
           attempts++;
           if (attempts >= maxAttempts) {
             logger.error(
-              `${LOG_PREFIX} Failed to detect CXBus after ${maxAttempts} attempts. Giving up.`,
+              `${LOG_PREFIX} Failed to detect CXBus and/or Genesys core (initialise function) after ${maxAttempts} attempts. Giving up.`,
               {
                 existingScriptTag: !!document.getElementById(
-                  'genesys-chat-script',
+                  GenesysLoadingState.scriptId, // Use the dynamic scriptId
                 ),
                 scriptLoadState: ChatLoadingState.scriptState,
                 windowObjects: {
                   hasGenesysGlobal: typeof window._genesys !== 'undefined',
+                  hasGenesysWidgets:
+                    typeof window._genesys?.widgets !== 'undefined',
+                  hasGenesysMain:
+                    typeof window._genesys?.widgets?.main !== 'undefined',
+                  hasInitialiseFunction:
+                    typeof window._genesys?.widgets?.main?.initialise ===
+                    'function',
                   hasCXBus: typeof window._genesysCXBus !== 'undefined',
                   hasGenesysChat: typeof window.GenesysChat !== 'undefined',
                   hasBCBST: typeof window.BCBST !== 'undefined',
@@ -378,24 +389,29 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             );
 
             setStatus('error');
-            const errMsg = 'Timeout waiting for CXBus after script was loaded.';
+            const errMsg =
+              'Timeout waiting for CXBus and Genesys core (initialise function) after script was loaded.';
             setErrorMessage(errMsg);
 
-            // Do not change scriptLoaded flag, as the script did load
-            // Just mark that CXBus is not ready
-            GenesysLoadingState.cxBusReady = false;
+            GenesysLoadingState.cxBusReady = false; // CXBus might be ready but core isn't, or vice versa
             reject(new Error(errMsg));
             return;
           }
 
-          // Exponential backoff with a maximum delay
           timeout = Math.min(timeout * 1.5, 2000);
 
           logger.info(
-            `${LOG_PREFIX} CXBus not ready yet. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
+            `${LOG_PREFIX} CXBus and/or Genesys core not ready yet. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
             {
               windowObjects: {
                 hasGenesysGlobal: typeof window._genesys !== 'undefined',
+                hasGenesysWidgets:
+                  typeof window._genesys?.widgets !== 'undefined',
+                hasGenesysMain:
+                  typeof window._genesys?.widgets?.main !== 'undefined',
+                hasInitialiseFunction:
+                  typeof window._genesys?.widgets?.main?.initialise ===
+                  'function',
                 hasCXBus: typeof window._genesysCXBus !== 'undefined',
                 hasGenesysChat: typeof window.GenesysChat !== 'undefined',
                 scriptLoaded: GenesysLoadingState.scriptLoaded,
@@ -405,11 +421,11 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
             },
           );
 
-          checkIntervalRef.current = setTimeout(checkCXBus, timeout);
+          checkIntervalRef.current = setTimeout(checkGenesysReady, timeout); // Use checkGenesysReady
         };
 
         // Start the first check
-        checkCXBus();
+        checkGenesysReady(); // Use checkGenesysReady
       });
     }, [setStatus, setErrorMessage]);
 
