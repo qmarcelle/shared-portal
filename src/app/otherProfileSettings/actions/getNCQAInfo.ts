@@ -68,7 +68,7 @@ export async function updateHealthEquityPreference(
     return {
       status: 400,
       data: {
-        message: 'Update PCPInfo Failed :' + error,
+        message: 'Update NCQA Failed :' + error,
       },
     };
   }
