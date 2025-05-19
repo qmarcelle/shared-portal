@@ -30,6 +30,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { useChatStore } from '../stores/chatStore';
 import {
   ChatSettings,
   GenesysChatConfig,
@@ -46,6 +47,7 @@ const GenesysLoadingState = {
   scriptId: 'genesys-chat-script',
   cssIds: [] as string[],
   activeInstanceId: null as string | null,
+  buttonDetected: false,
 };
 
 // Define structure for Genesys Cloud initial config
@@ -696,7 +698,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               }
 
               if (typeof window !== 'undefined') {
-                window.chatSettings = legacyConfig;
+                window.chatSettings = legacyConfig as ChatSettings;
                 // Verify after setting
                 logger.info(
                   `${LOG_PREFIX} Legacy Mode: window.chatSettings set, verifying:`,
@@ -974,6 +976,192 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       };
     }, [loadScript, onLoad, waitForCXBus, shouldLoadScripts, checkIntervalRef]);
 
+    // Add early validation of chat mode to ensure it's properly enforced
+    useEffect(() => {
+      // Skip if we're not the active instance
+      if (
+        GenesysLoadingState.activeInstanceId &&
+        GenesysLoadingState.activeInstanceId !== instanceId.current
+      ) {
+        logger.info(
+          `${LOG_PREFIX} Not the active instance, skipping chat mode validation.`,
+        );
+        return;
+      }
+
+      // Early validation of chat mode and configuration
+      logger.info(`${LOG_PREFIX} Validating chat mode: ${chatMode}`);
+
+      if (chatMode !== 'legacy' && chatMode !== 'cloud') {
+        const errorMsg = `Invalid chat mode: ${chatMode}. Only 'legacy' or 'cloud' are supported.`;
+        logger.error(`${LOG_PREFIX} ${errorMsg}`);
+        setStatus('error');
+        setErrorMessage(errorMsg);
+        if (onError) onError(new Error(errorMsg));
+        return;
+      }
+
+      // Validate config matches mode
+      if (chatMode === 'legacy' && !legacyConfig) {
+        const errorMsg = 'Legacy mode specified but legacyConfig is missing.';
+        logger.error(`${LOG_PREFIX} ${errorMsg}`);
+        setStatus('error');
+        setErrorMessage(errorMsg);
+        if (onError) onError(new Error(errorMsg));
+        return;
+      }
+
+      if (chatMode === 'cloud' && !cloudConfig) {
+        const errorMsg = 'Cloud mode specified but cloudConfig is missing.';
+        logger.error(`${LOG_PREFIX} ${errorMsg}`);
+        setStatus('error');
+        setErrorMessage(errorMsg);
+        if (onError) onError(new Error(errorMsg));
+        return;
+      }
+
+      logger.info(
+        `${LOG_PREFIX} Chat mode validation successful for mode: ${chatMode}`,
+      );
+    }, [
+      chatMode,
+      legacyConfig,
+      cloudConfig,
+      onError,
+      instanceId,
+      setStatus,
+      setErrorMessage,
+    ]);
+
+    // Add event tracking for Genesys events
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
+
+      logger.info(`${LOG_PREFIX} Setting up Genesys event listeners`);
+
+      // Track BCBST script events
+      const events = [
+        'genesys:loaded',
+        'genesys:ready',
+        'genesys:error',
+        'genesys:webchat:ready',
+        'genesys:webchat:opened',
+        'genesys:webchat:closed',
+        'genesys:webchat:error',
+        'genesys:webchat:failedToStart',
+      ];
+
+      const eventHandlers: { [key: string]: (e: Event) => void } = {};
+
+      events.forEach((eventName) => {
+        const handler = (e: Event) => {
+          logger.info(`${LOG_PREFIX} Event detected: ${eventName}`, {
+            detail: (e as CustomEvent).detail || 'no detail',
+            timestamp: new Date().toISOString(),
+          });
+        };
+
+        eventHandlers[eventName] = handler;
+        document.addEventListener(eventName, handler);
+      });
+
+      // Watch for DOM changes that might affect widget elements
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            const chatButtons = document.querySelectorAll(
+              '.cx-widget.cx-webchat-chat-button',
+            );
+            if (chatButtons.length > 0 && !GenesysLoadingState.buttonDetected) {
+              GenesysLoadingState.buttonDetected = true;
+              logger.info(
+                `${LOG_PREFIX} Chat button elements found in DOM: ${chatButtons.length}`,
+                {
+                  buttonClasses: Array.from(chatButtons).map(
+                    (btn) => (btn as HTMLElement).className,
+                  ),
+                  buttonIds: Array.from(chatButtons).map(
+                    (btn) => (btn as HTMLElement).id,
+                  ),
+                  buttonVisible: Array.from(chatButtons).map((btn) => {
+                    const style = window.getComputedStyle(btn as HTMLElement);
+                    return (
+                      style.display !== 'none' && style.visibility !== 'hidden'
+                    );
+                  }),
+                },
+              );
+
+              // Update button state in store
+              if (typeof window !== 'undefined' && window.useChatStore) {
+                window.useChatStore
+                  .getState()
+                  .actions.setButtonState('created');
+              }
+            }
+          }
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Expose diagnostics for BCBST developers in development mode
+      if (process.env.NODE_ENV === 'development') {
+        const currentConfig =
+          chatMode === 'legacy' ? legacyConfig : cloudConfig;
+
+        window._chatDiagnostics = {
+          getState: () => ({
+            scriptLoaded: GenesysLoadingState.scriptLoaded,
+            cxBusReady: GenesysLoadingState.cxBusReady,
+            buttonDetected: GenesysLoadingState.buttonDetected,
+            chatMode,
+            config: currentConfig as any, // Use any type to avoid type errors
+            chatLoadingState: { ...ChatLoadingState } as any,
+            domState: {
+              scriptElement: !!document.getElementById('genesys-chat-script'),
+              cssElements: GenesysLoadingState.cssIds.map(
+                (id) => !!document.getElementById(id),
+              ),
+              chatButton: !!document.querySelector(
+                '.cx-widget.cx-webchat-chat-button',
+              ),
+              widgetContainer: !!document.getElementById(
+                'genesys-chat-container',
+              ),
+            },
+          }),
+          forceButtonCreate: () => {
+            if (window._forceChatButtonCreate)
+              return window._forceChatButtonCreate();
+            return false;
+          },
+          logCXBusState: () => {
+            if (window._genesysCXBus) {
+              console.log('CXBus available:', window._genesysCXBus);
+              try {
+                const state = window._genesysCXBus.command('WebChat.get');
+                console.log('WebChat state:', state);
+              } catch (e) {
+                console.error('Error getting WebChat state:', e);
+              }
+            } else {
+              console.log('CXBus not available');
+            }
+          },
+        };
+      }
+
+      return () => {
+        // Clean up event listeners
+        events.forEach((eventName) => {
+          document.removeEventListener(eventName, eventHandlers[eventName]);
+        });
+
+        observer.disconnect();
+      };
+    }, [chatMode, legacyConfig, cloudConfig]);
+
     if (!showStatus) {
       return null; // Render nothing if status indicator is hidden
     }
@@ -1027,5 +1215,6 @@ declare global {
       isChatReady?: () => boolean;
       [key: string]: any;
     };
+    useChatStore?: typeof useChatStore;
   }
 }

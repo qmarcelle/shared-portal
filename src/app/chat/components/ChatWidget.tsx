@@ -76,6 +76,7 @@ export default function ChatWidget({
   // Get state from store using selectors for optimized rendering
   const isOpen = useChatStore(chatUISelectors.isOpen);
   const chatMode = useChatStore(chatConfigSelectors.chatMode);
+  const buttonState = useChatStore(chatUISelectors.buttonState);
 
   // Call useChatStore unconditionally for both configs
   const legacyConfig = useChatStore((state) => state.config.legacyConfig);
@@ -113,8 +114,8 @@ export default function ChatWidget({
   // Add a registry for tracking active CXBus subscriptions
   const activeSubscriptions = useRef<{ [key: string]: boolean }>({});
 
-  // Add state and refs for button handling
-  const [genesysButtonFound, setGenesysButtonFound] = useState(false);
+  // Local state for genesysButtonFound is now redundant with buttonState
+  // We'll use buttonState === 'created' instead
   const [showFallbackButton, setShowFallbackButton] = useState(false);
   const buttonCheckAttempts = useRef(0);
   const MAX_BUTTON_CHECK_ATTEMPTS = 5;
@@ -843,10 +844,31 @@ export default function ChatWidget({
     }
   }, [genesysChatConfig, scriptLoadPhase, isChatEnabled, setOpen]);
 
-  // Add a function to check for the Genesys button and create a fallback if needed
+  // Add effect for handling button state changes from the store
+  useEffect(() => {
+    logger.info(`${LOG_PREFIX} Button state changed to: ${buttonState}`);
+
+    // If button is created, no need for fallback
+    if (buttonState === 'created') {
+      setShowFallbackButton(false);
+      logger.info(
+        `${LOG_PREFIX} Genesys button created successfully, hiding fallback button`,
+      );
+    }
+
+    // If button creation failed and CXBus is ready, show the fallback
+    if (buttonState === 'failed' && isCXBusReady) {
+      setShowFallbackButton(true);
+      logger.info(
+        `${LOG_PREFIX} Button creation failed, showing fallback button`,
+      );
+    }
+  }, [buttonState, isCXBusReady]);
+
+  // Modify the button checking function to update the store
   const checkGenesysButton = useCallback(() => {
-    // Don't check if we already found the button
-    if (genesysButtonFound) {
+    // Don't check if button is already created
+    if (buttonState === 'created') {
       return;
     }
 
@@ -878,8 +900,7 @@ export default function ChatWidget({
 
     if (button) {
       logger.info(`${LOG_PREFIX} Genesys button found, ensuring visibility`);
-      setGenesysButtonFound(true);
-      setShowFallbackButton(false);
+      useChatStore.getState().actions.setButtonState('created');
 
       // Ensure the button is visible
       try {
@@ -897,6 +918,8 @@ export default function ChatWidget({
       // Try to create the button via CXBus if available
       if (isCXBusReady && window._genesysCXBus) {
         logger.info(`${LOG_PREFIX} Attempting to create button via CXBus`);
+        useChatStore.getState().actions.setButtonState('creating');
+
         try {
           window._genesysCXBus.command('WebChat.showChatButton');
         } catch (err) {
@@ -904,15 +927,15 @@ export default function ChatWidget({
         }
       }
 
-      // After max attempts, show the fallback button
+      // After max attempts, mark as failed in the store
       if (buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS) {
         logger.warn(
-          `${LOG_PREFIX} Max button check attempts reached. Showing fallback button.`,
+          `${LOG_PREFIX} Max button check attempts reached. Marking button creation as failed.`,
         );
-        setShowFallbackButton(true);
+        useChatStore.getState().actions.setButtonState('failed');
       }
     }
-  }, [genesysButtonFound, isCXBusReady]);
+  }, [buttonState, isCXBusReady]);
 
   // Add effect to perform button checks at regular intervals once CXBus is ready
   useEffect(() => {
@@ -921,6 +944,7 @@ export default function ChatWidget({
     }
 
     logger.info(`${LOG_PREFIX} CXBus is ready, starting button checks`);
+    useChatStore.getState().actions.setButtonState('creating');
 
     // First check - try the button initialization approach
     if (window._forceChatButtonCreate) {
@@ -941,12 +965,12 @@ export default function ChatWidget({
     // Set up timer to check for button at intervals
     const buttonCheckInterval = setInterval(() => {
       if (
-        genesysButtonFound ||
+        buttonState === 'created' ||
         buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS
       ) {
         clearInterval(buttonCheckInterval);
         logger.info(
-          `${LOG_PREFIX} Button check interval cleared: ${genesysButtonFound ? 'button found' : 'max attempts reached'}`,
+          `${LOG_PREFIX} Button check interval cleared: ${buttonState === 'created' ? 'button found' : 'max attempts reached'}`,
         );
         return;
       }
@@ -955,7 +979,7 @@ export default function ChatWidget({
     }, 2000); // Check every 2 seconds
 
     return () => clearInterval(buttonCheckInterval);
-  }, [isCXBusReady, checkGenesysButton, genesysButtonFound]);
+  }, [isCXBusReady, checkGenesysButton, buttonState]);
 
   // Add effect for enforcing chat mode and validating configuration
   useEffect(() => {
@@ -1049,11 +1073,12 @@ export default function ChatWidget({
         />
       )}
 
-      {/* Fallback button when Genesys button isn't found */}
-      {isCXBusReady && showFallbackButton && (
+      {/* Updated Fallback button when Genesys button isn't found */}
+      {isCXBusReady && (buttonState === 'failed' || showFallbackButton) && (
         <button
           id="fallback-chat-button"
           onClick={() => setOpen(true)}
+          aria-label="Chat with us"
           style={{
             position: 'fixed',
             bottom: '20px',

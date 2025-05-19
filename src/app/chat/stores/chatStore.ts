@@ -70,6 +70,7 @@ interface ChatState {
     isOpen: boolean;
     isMinimized: boolean;
     newMessageCount: number;
+    buttonState: 'not-attempted' | 'creating' | 'created' | 'failed';
   };
 
   // Config state domain
@@ -126,6 +127,9 @@ interface ChatState {
     maximizeChat: () => void;
     incrementMessageCount: () => void;
     resetMessageCount: () => void;
+    setButtonState: (
+      buttonState: 'not-attempted' | 'creating' | 'created' | 'failed',
+    ) => void;
 
     // Config actions
     setError: (err: Error | null) => void;
@@ -193,6 +197,7 @@ export const chatUISelectors = {
   isOpen: (state: ChatState) => state.ui.isOpen,
   isMinimized: (state: ChatState) => state.ui.isMinimized,
   newMessageCount: (state: ChatState) => state.ui.newMessageCount,
+  buttonState: (state: ChatState) => state.ui.buttonState,
 };
 
 export const chatConfigSelectors = {
@@ -250,6 +255,7 @@ export const useChatStore = create<ChatState>((set, get) => {
       isOpen: false,
       isMinimized: false,
       newMessageCount: 0,
+      buttonState: 'not-attempted',
     },
 
     // Config state
@@ -280,15 +286,13 @@ export const useChatStore = create<ChatState>((set, get) => {
     // Actions implementation
     actions: {
       // UI actions
-      setOpen: (isOpen) => {
-        logger.info(`${LOG_UI_PREFIX} setOpen called`, { isOpen });
-        set((state) => ({
-          ui: {
-            ...state.ui,
-            isOpen,
-          },
-        }));
-      },
+      setOpen: makeStable((isOpen: boolean) => {
+        const prevState = get().ui.isOpen;
+        logger.info(
+          `${LOG_UI_PREFIX} setOpen(${isOpen}), previous state: ${prevState}`,
+        );
+        set((state) => ({ ui: { ...state.ui, isOpen } }));
+      }),
 
       setMinimized: (min) => {
         logger.info(`${LOG_UI_PREFIX} setMinimized called`, { min });
@@ -339,6 +343,17 @@ export const useChatStore = create<ChatState>((set, get) => {
           },
         }));
       },
+
+      // Add button state action
+      setButtonState: makeStable(
+        (buttonState: 'not-attempted' | 'creating' | 'created' | 'failed') => {
+          const prevState = get().ui.buttonState;
+          logger.info(
+            `${LOG_UI_PREFIX} setButtonState(${buttonState}), previous state: ${prevState}`,
+          );
+          set((state) => ({ ui: { ...state.ui, buttonState } }));
+        },
+      ),
 
       // Config actions
       setError: (error) => {

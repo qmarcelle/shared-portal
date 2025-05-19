@@ -72,6 +72,17 @@ export default function ChatProvider({
       isLoadingConfig,
     });
 
+    // Expose chatStore to window in development mode for debugging
+    if (
+      process.env.NODE_ENV === 'development' &&
+      typeof window !== 'undefined'
+    ) {
+      window.useChatStore = useChatStore;
+      logger.info(
+        `${LOG_PREFIX} Exposed useChatStore to window for debugging.`,
+      );
+    }
+
     if (!autoInitialize || initialized || isLoadingConfig) {
       if (isLoadingConfig)
         logger.info(
