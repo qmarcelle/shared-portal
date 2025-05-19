@@ -190,8 +190,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     if (typeof window !== 'undefined') {
       // eslint-disable-next-line no-console
       console.log(
-        '[GenesysScriptLoader] Component mounted. InstanceId:',
-        instanceId.current,
+        `%c[GenesysScriptLoader] MOUNTED. InstanceId: ${instanceId.current}`,
+        'color: blue; font-weight: bold;',
       );
     }
 
@@ -203,7 +203,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         GenesysLoadingState.activeInstanceId !== instanceId.current
       ) {
         logger.info(
-          `${LOG_PREFIX} Another instance is active (${GenesysLoadingState.activeInstanceId}). This instance (${instanceId.current}) will be passive.`,
+          `${LOG_PREFIX} Instance ${instanceId.current} will be PASSIVE. Active instance is ${GenesysLoadingState.activeInstanceId}.`,
+        );
+        // eslint-disable-next-line no-console
+        console.log(
+          `%c[GenesysScriptLoader] Instance ${instanceId.current} will be PASSIVE. Active: ${GenesysLoadingState.activeInstanceId}`,
+          'color: orange;',
         );
         return;
       }
@@ -211,7 +216,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       // Register as the active instance
       GenesysLoadingState.activeInstanceId = instanceId.current;
       logger.info(
-        `${LOG_PREFIX} Registered as active GenesysScriptLoader instance: ${instanceId.current}`,
+        `${LOG_PREFIX} Instance ${instanceId.current} registered as ACTIVE.`,
+      );
+      // eslint-disable-next-line no-console
+      console.log(
+        `%c[GenesysScriptLoader] Instance ${instanceId.current} registered as ACTIVE.`,
+        'color: green; font-weight: bold;',
       );
 
       return () => {
@@ -219,7 +229,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         if (GenesysLoadingState.activeInstanceId === instanceId.current) {
           GenesysLoadingState.activeInstanceId = null;
           logger.info(
-            `${LOG_PREFIX} Unregistered as active GenesysScriptLoader instance: ${instanceId.current}`,
+            `${LOG_PREFIX} Instance ${instanceId.current} UNREGISTERED as active.`,
+          );
+          // eslint-disable-next-line no-console
+          console.log(
+            `%c[GenesysScriptLoader] Instance ${instanceId.current} UNREGISTERED as active.`,
+            'color: red; font-weight: bold;',
           );
         }
       };
@@ -527,10 +542,13 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       // Extra: Log before shouldLoadScripts
       if (typeof window !== 'undefined') {
         // eslint-disable-next-line no-console
-        console.log('[GenesysScriptLoader] About to check shouldLoadScripts');
+        console.log(
+          `%c[GenesysScriptLoader] ${instanceId.current} ENTERING loadScript function. Status: ${status}`,
+          'color: purple; font-weight: bold;',
+        );
         // eslint-disable-next-line no-console
         console.log(
-          '[GenesysScriptLoader] ChatLoadingState:',
+          '[GenesysScriptLoader] About to check shouldLoadScripts. Current ChatLoadingState:',
           JSON.stringify(ChatLoadingState),
         );
       }
@@ -556,7 +574,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
       if (!canLoadScripts) {
         logger.info(
-          `${LOG_PREFIX} Scripts loading skipped based on sequential loader state.`,
+          `${LOG_PREFIX} Scripts loading SKIPPED for instance ${instanceId.current} based on sequential loader state.`,
+        );
+        // eslint-disable-next-line no-console
+        console.log(
+          `%c[GenesysScriptLoader] ${instanceId.current} Scripts loading SKIPPED. shouldLoadScripts was false.`,
+          'color: brown;',
         );
 
         // If scripts are already loaded successfully, we should still check for CXBus
@@ -1010,13 +1033,25 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         GenesysLoadingState.activeInstanceId !== instanceId.current
       ) {
         logger.info(
-          `${LOG_PREFIX} Not the active instance, skipping chat mode validation.`,
+          `${LOG_PREFIX} Instance ${instanceId.current} is NOT ACTIVE, skipping chat mode validation.`,
+        );
+        // eslint-disable-next-line no-console
+        console.log(
+          `%c[GenesysScriptLoader] ${instanceId.current} NOT ACTIVE (in validation useEffect). Skipping chat mode validation.`,
+          'color: orange;',
         );
         return;
       }
 
       // Early validation of chat mode and configuration
-      logger.info(`${LOG_PREFIX} Validating chat mode: ${chatMode}`);
+      logger.info(
+        `${LOG_PREFIX} Validating chat mode for instance ${instanceId.current}: ${chatMode}`,
+      );
+      // eslint-disable-next-line no-console
+      console.log(
+        `%c[GenesysScriptLoader] ${instanceId.current} Validating chat mode: ${chatMode}`,
+        'color: blue;',
+      );
 
       if (chatMode !== 'legacy' && chatMode !== 'cloud') {
         const errorMsg = `Invalid chat mode: ${chatMode}. Only 'legacy' or 'cloud' are supported.`;
