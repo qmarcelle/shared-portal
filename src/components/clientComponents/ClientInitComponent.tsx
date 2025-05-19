@@ -1,7 +1,7 @@
 'use client';
 import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { GTM_ID } from '@/utils/analytics';
-import { noHeaderAndFooterRoutes } from '@/utils/routes';
+import { noHeaderAndFooterRoutes } from '@/utils/client_routes';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';

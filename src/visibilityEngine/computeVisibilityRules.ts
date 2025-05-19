@@ -34,7 +34,6 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let healthCareAccountEligible: any[] | null;
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
@@ -54,7 +53,6 @@ export function computeVisibilityRules(
   rules.isLifePointGrp = lifePointGroup.includes(groupId);
   rules.isAmplifyHealthGroupEnabled = isAHAdvisorEnabled(groupId);
 
-  healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -67,11 +65,15 @@ export function computeVisibilityRules(
 
   computeAuthFunctions(loggedUserInfo, rules);
 
+  rules.externalSpendingAcct =
+    loggedUserInfo.healthCareAccounts &&
+    loggedUserInfo.healthCareAccounts.length > 0;
+
   rules.isCondensedExperienceProfileHorizon =
     rules?.isCondensedExperience &&
     condensedExperienceProfileHorizonGroups.includes(groupId);
 
-  rules.isWellnessProfileWellnessOnly =
+  rules.cityOfMemphisWellnessOnly =
     rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
 
   rules.isWellnessQa =
@@ -112,13 +114,23 @@ const isLobCommercial = (rules: VisibilityRules | undefined) => {
   return rules?.commercial || rules?.individual;
 };
 
-const isActiveAndNotFSAOnly = (rules: VisibilityRules | undefined) => {
+export function isOtherInsuranceEligible(rules?: VisibilityRules) {
+  return rules?.otherInsuranceEligible && activeAndHealthPlanMember(rules);
+}
+
+export function isActiveAndNotFSAOnly(
+  rules: VisibilityRules | undefined,
+): boolean {
   return (
     !rules?.futureEffective &&
     !rules?.fsaOnly &&
     !rules?.terminated &&
     !rules?.katieBeckNoBenefitsElig
   );
+}
+
+const isNonCondensedExperience = (rules: VisibilityRules) => {
+  return !rules.katieBeckNoBenefitsElig && !rules.cityOfMemphisWellnessOnly;
 };
 
 export const isChipRewardsEligible = (rules: VisibilityRules | undefined) => {
@@ -130,13 +142,7 @@ export const isChipRewardsEligible = (rules: VisibilityRules | undefined) => {
   );
 };
 
-async function getRoles() {}
-
-async function getPermissions() {}
-
-async function getFunctionsAvailability() {}
-
-function activeAndHealthPlanMember(rules: VisibilityRules | undefined) {
+export function activeAndHealthPlanMember(rules: VisibilityRules | undefined) {
   return (
     !rules?.futureEffective &&
     !rules?.fsaOnly &&
@@ -233,6 +239,21 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
   );
 }
 
+export function isBalancesPageVisible(rules: VisibilityRules): boolean {
+  return (
+    ((rules.individual ||
+      rules.commercial ||
+      rules.allMedicareAdvantageEligible) &&
+      hasCondensesedExperienceProfiler(rules) != 'Quantum' &&
+      activeAndHealthPlanMember(rules)) ||
+    false
+  );
+}
+
+export function isClaimsPageVisible(rules: VisibilityRules): boolean {
+  return !rules.katieBeckNoBenefitsElig && !rules.cityOfMemphisWellnessOnly;
+}
+
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
   if (rules?.isCondensedExperienceProfileHorizon) return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
@@ -270,6 +291,15 @@ export function isDentalCostEstimator(rules: VisibilityRules | undefined) {
   return rules?.enableCostTools && rules?.dentalCostsEligible && rules?.dental;
 }
 
+export function isFindCareEligible(rules: VisibilityRules) {
+  return (
+    !rules.fsaOnly &&
+    !rules.terminated &&
+    (!rules.wellnessOnly || nurseChatEnabler(rules) == 'enabled') &&
+    isNonCondensedExperience(rules)
+  );
+}
+
 export function isPriceDentalCareMenuOptions(
   rules: VisibilityRules | undefined,
 ) {
@@ -300,7 +330,11 @@ export function isNewMentalHealthSupportAbleToEligible(
 export function isNewMentalHealthSupportMyStrengthCompleteEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.myStrengthCompleteEligible && activeAndHealthPlanMember(rules);
+  return (
+    rules?.teladocEligible &&
+    rules?.myStrengthCompleteEligible &&
+    activeAndHealthPlanMember(rules)
+  );
 }
 
 export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
@@ -362,12 +396,20 @@ export function isPriceVisionCareMenuOptions(
 export function isDiabetesPreventionEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.diabetesPreventionEligible && activeAndHealthPlanMember(rules);
+  return (
+    rules?.teladocEligible &&
+    rules?.diabetesPreventionEligible &&
+    activeAndHealthPlanMember(rules)
+  );
 }
 export function isDiabetesManagementEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.diabetesManagementEligible && activeAndHealthPlanMember(rules);
+  return (
+    rules?.teladocEligible &&
+    rules?.diabetesManagementEligible &&
+    activeAndHealthPlanMember(rules)
+  );
 }
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
@@ -398,11 +440,7 @@ export function isSpendingAccountsMenuOptions(
 
 export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
   if (rules?.subscriber) {
-    if (
-      rules?.fsaOnly ||
-      (healthCareAccountEligible != null &&
-        healthCareAccountEligible.length != 0)
-    ) {
+    if (rules?.fsaOnly || rules?.externalSpendingAcct) {
       if (rules?.fsaHraEligible && rules?.commercial) {
         if (
           rules?.flexibleSpendingAccount ||
@@ -438,13 +476,21 @@ export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
 }
 
 export function isBloodPressureManagementEligible(rules: VisibilityRules) {
-  return rules.hypertensionMgmt && activeAndHealthPlanMember(rules);
+  return (
+    rules.teladocEligible &&
+    rules.hypertensionMgmt &&
+    activeAndHealthPlanMember(rules)
+  );
 }
 
 export function isTeladocSecondOpinionAdviceAndSupportEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return isActiveAndNotFSAOnly(rules) && rules?.consumerMedicalEligible;
+  return (
+    rules?.teladocEligible &&
+    isActiveAndNotFSAOnly(rules) &&
+    rules?.consumerMedicalEligible
+  );
 }
 
 export function isIndividualMaBlueAdvantageEligible(
@@ -513,7 +559,7 @@ export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
 function isCityOfMemphisWellnessOnlyProfiler(
   rules: VisibilityRules | undefined,
 ) {
-  if (rules?.isWellnessProfileWellnessOnly) return 'IsWellnessOnly';
+  if (rules?.cityOfMemphisWellnessOnly) return 'IsWellnessOnly';
 }
 
 export function isMemberWellnessCenterEligible(
