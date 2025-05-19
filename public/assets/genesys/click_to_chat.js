@@ -1428,13 +1428,15 @@
         initializedWidgets: false,
       };
 
-      // Add a function to explicitly check if widgets are ready
-      window._genesysCheckWidgetsReady = function () {
-        console.log('[Genesys] Checking widgets readiness');
+      // Use a locally scoped name for the IIFE's readiness check to avoid conflict
+      const legacyInnerCheckWidgetsReady = function () {
+        console.log('[Genesys] Checking widgets readiness (legacy IIFE scope)');
 
         try {
           if (cfg.chatMode === 'legacy') {
-            console.log('[Genesys] Using legacy mode widgets readiness checks');
+            console.log(
+              '[Genesys] Using legacy mode widgets readiness checks (legacy IIFE scope)',
+            );
 
             // Legacy mode checks for different indicators
             let hasMainFunction = false;
@@ -1502,7 +1504,7 @@
             }
 
             // No CXBus yet, continue polling
-            setTimeout(checkWidgetsReady, 250);
+            setTimeout(legacyInnerCheckWidgetsReady, 250);
           }
           // Cloud mode readiness checks
           else if (cfg.chatMode === 'cloud') {
@@ -1527,114 +1529,72 @@
             }
 
             // Continue polling
-            setTimeout(checkWidgetsReady, 250);
+            setTimeout(legacyInnerCheckWidgetsReady, 250);
           }
         } catch (err) {
-          console.error('[Genesys] Error in widget readiness check:', err);
-          // Try again
-          setTimeout(checkWidgetsReady, 500);
-        }
-      };
-
-      // Load widgets.min.js script if in legacy mode
-      const localWidgetsUrl = '/assets/genesys/plugins/widgets.min.js';
-
-      console.log(
-        '[Genesys] Attempting to load local widgets script from',
-        localWidgetsUrl,
-      );
-      loadResource
-        .script(localWidgetsUrl, { id: 'genesys-widgets-script' })
-        .then((scriptEl) => {
-          console.log('[Genesys] Local widgets script loaded successfully');
-          window._genesysScriptLoadingState.widgetsScriptLoaded = true;
-
-          // Set up a timeout to verify widgets initialization
-          let checkCount = 0;
-          const maxChecks = 20; // Increase max check attempts
-          const checkInterval = 500; // Increase check interval for more time
-
-          const checkWidgetsReady = function () {
-            checkCount++;
-
-            if (window._genesysCheckWidgetsReady()) {
-              console.log(
-                '[Genesys] Widgets successfully initialized after script load',
-              );
-              window._genesysScriptLoadingState.initializedWidgets = true;
-
-              // Check for button after widgets are ready
-              if (
-                !document.querySelector('.cx-widget.cx-webchat-chat-button')
-              ) {
-                console.log(
-                  '[Genesys] No button after widgets ready, creating one',
-                );
-                if (window.forceCreateChatButton) {
-                  window.forceCreateChatButton();
-                }
-              }
-
-              return;
-            }
-
-            if (checkCount < maxChecks) {
-              console.log(
-                `[Genesys] Widgets not initialized yet, check ${checkCount}/${maxChecks}`,
-              );
-
-              // If we're at a specific threshold, try explicit initialization
-              if (checkCount === 5) {
-                console.log(
-                  '[Genesys] Triggering explicit initialization to help loading process',
-                );
-                initializeWidgetsExplicitly();
-              }
-
-              setTimeout(checkWidgetsReady, checkInterval);
-            } else {
-              console.warn(
-                '[Genesys] Widgets failed to initialize after maximum checks, using fallback initialization',
-              );
-
-              // Last resort: try full explicit initialization
-              initializeWidgetsExplicitly();
-
-              // Try to force button creation anyway after a short delay
-              setTimeout(function () {
-                if (window.forceCreateChatButton) {
-                  window.forceCreateChatButton();
-                }
-              }, 1000);
-            }
-          };
-
-          // Start checking if widgets are initialized
-          setTimeout(checkWidgetsReady, checkInterval);
-        })
-        .catch((err) => {
           console.error(
-            '[Genesys] Failed to load local widgets script for legacy mode:',
+            '[Genesys] Error in widget readiness check (legacy IIFE scope):',
             err,
           );
-          window._genesysScriptLoadingState.widgetsScriptFailed = true;
+          // Try again
+          setTimeout(legacyInnerCheckWidgetsReady, 500);
+        }
+      }; // End of legacyInnerCheckWidgetsReady
 
-          // Trigger error event and notify user that widgets failed to load
-          document.dispatchEvent(
-            new CustomEvent('genesys:script:error', {
-              detail: { error: err },
-            }),
-          );
+      // IMPORTANT: Ensure that if this IIFE previously called window._genesysCheckWidgetsReady
+      // for its own purposes, it now calls legacyInnerCheckWidgetsReady.
+      // For example, if there was: setTimeout(window._genesysCheckWidgetsReady, 500)
+      // It should become: setTimeout(legacyInnerCheckWidgetsReady, 500)
 
-          console.warn(
-            '[Genesys] Attempting fallback button creation despite script loading failure',
-          );
-          // Attempt fallback button creation on failure
-          if (window.forceCreateChatButton) {
-            window.forceCreateChatButton();
-          }
-        });
-    })();
+      // Load the actual widgets.min.js script
+      const widgetsScriptUrl =
+        cfg.widgetUrl || '/assets/genesys/plugins/widgets.min.js';
+      const scriptElement = document.createElement('script');
+      scriptElement.id = 'genesys-widgets-script'; // Consistent ID
+      scriptElement.src = widgetsScriptUrl;
+      scriptElement.async = true;
+
+      scriptElement.onload = () => {
+        console.log(
+          '[Genesys] Legacy widgets.min.js script loaded successfully.',
+        );
+        window._genesysScriptLoadingState.widgetsScriptLoaded = true;
+        // Instead of directly calling an internal check, rely on the global mechanism if appropriate,
+        // or call the specifically named legacyInnerCheckWidgetsReady if this IIFE has its own init flow.
+        // Original problematic area might be here if it called a global check that was then broken.
+        // Calling the local one if this IIFE is self-contained for this check:
+        legacyInnerCheckWidgetsReady();
+        // OR if the outer one is preferred for all init steps after script load:
+        // if(typeof window._genesysCheckWidgetsReady === 'function') window._genesysCheckWidgetsReady();
+
+        // Consider if onWidgetsLoad (the global one) should be called here or if this IIFE handles its own post-load steps.
+        // if (typeof onWidgetsLoad === 'function') onWidgetsLoad();
+      };
+
+      scriptElement.onerror = (err) => {
+        console.error(
+          '[Genesys] Failed to load legacy widgets.min.js script:',
+          err,
+          'URL:',
+          widgetsScriptUrl,
+        );
+        window._genesysScriptLoadingState.widgetsScriptFailed = true;
+        document.dispatchEvent(
+          new CustomEvent('genesys:script:error', {
+            detail: {
+              message: 'Failed to load Genesys widgets script.',
+              error: err,
+            },
+          }),
+        );
+      };
+
+      console.log(
+        '[Genesys] Appending legacy widgets.min.js script to head:',
+        widgetsScriptUrl,
+      );
+      document.head.appendChild(scriptElement);
+    })(); // End of Legacy Script Loader IIFE
 
     // Script loaded successfully, now initialize the widget
     console.log(
