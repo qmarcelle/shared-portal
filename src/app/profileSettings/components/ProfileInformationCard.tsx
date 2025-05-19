@@ -121,7 +121,10 @@ export const ProfileInformationCard = ({
           <>
             <Spacer size={16} />
             <Column>
-              <LinkRow label="Other Profile Settings" />
+              <LinkRow
+                label="Other Profile Settings"
+                link={'/member/profile/othersettings'}
+              />
               <TextBox
                 className="ml-3"
                 text="Add or update details about yourself, including ethnicity, race and language preferences."
