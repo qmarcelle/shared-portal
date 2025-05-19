@@ -9,6 +9,7 @@
  * As per README.md: Defers loading of the chat system until user interaction or auto-initializes.
  */
 
+import { logger } from '@/utils/logger';
 import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -184,6 +185,8 @@ export default function ChatLazyLoader({
     `${LOG_PREFIX} Chat initialized. Rendering ChatProvider and ChatWidget.`,
   );
   // Once initialized, render the chat components - removed ChatControls
+  console.log('[ChatLazyLoader] About to render ChatProvider');
+  logger.info('[ChatLazyLoader] About to render ChatProvider');
   return (
     <ChatProvider>
       <ChatWidget />

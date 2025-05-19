@@ -196,5 +196,7 @@ export default function ChatProvider({
   }, [configError]);
 
   logger.info(`${LOG_PREFIX} Rendering children.`);
+  console.log('[ChatProvider] Component rendered');
+  logger.info('[ChatProvider] Component rendered');
   return <>{children}</>;
 }
