@@ -280,7 +280,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
      */
     const waitForCXBus = useCallback(() => {
       logger.info(
-        `${LOG_PREFIX} waitForCXBus: Starting polling for CXBus and Genesys core readiness (initialise function).`,
+        `${LOG_PREFIX} waitForCXBus: Starting polling for CXBus availability (simplified check).`,
       );
       setStatus('polling-cxbus');
 
@@ -291,156 +291,69 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       }
 
       let attempts = 0;
-      const maxAttempts = 20; // Keep this, but the effective timeout might be longer due to script loading
-      let timeout = 250; // Start with 250ms
+      const maxAttempts = 20;
+      let timeout = 250;
 
-      // Create a promise that resolves when CXBus and initialise function are available
+      // Create a promise that resolves when CXBus is available
       return new Promise<void>((resolve, reject) => {
-        const checkGenesysReady = () => {
-          const cxBusAvailable = typeof window._genesysCXBus !== 'undefined';
-          const genesysCoreAvailable =
-            typeof window._genesys !== 'undefined' &&
-            typeof window._genesys.widgets !== 'undefined' &&
-            typeof window._genesys.widgets.main !== 'undefined' &&
-            typeof window._genesys.widgets.main.initialise === 'function';
-
-          if (cxBusAvailable && genesysCoreAvailable) {
+        const checkCXBusOnly = () => {
+          if (typeof window._genesysCXBus !== 'undefined') {
             logger.info(
-              `${LOG_PREFIX} CXBus and Genesys core (initialise function) detected after ${attempts} attempts. Genesys ready.`,
+              `${LOG_PREFIX} CXBus detected after ${attempts} attempts. CXBus ready (simplified check).`,
               {
                 cxBusObject: !!window._genesysCXBus,
-                genesysInitialiseFunction:
-                  typeof window._genesys?.widgets?.main?.initialise,
                 commandFunction:
                   typeof window._genesysCXBus?.command === 'function',
                 subscribeFunction:
                   typeof window._genesysCXBus?.subscribe === 'function',
-                widgetInfo:
-                  typeof window._genesysCXBus?.command === 'function'
-                    ? window._genesysCXBus.command('WebChat.get')
-                    : 'command not available',
               },
             );
+            GenesysLoadingState.cxBusReady = true;
+            setStatus('loaded'); // Or a new state like 'cxbus-ready-waiting-for-click-to-chat'
 
-            // Mark CXBus as ready in global state
-            GenesysLoadingState.cxBusReady = true; // This flag might need renaming if it implies full readiness
-            setStatus('loaded');
-
-            // Clear any running timeout
             if (checkIntervalRef.current) {
               clearTimeout(checkIntervalRef.current);
               checkIntervalRef.current = null;
             }
-
-            // BCBST-specific readiness check (remains as is)
-            if (typeof window.BCBST?.isChatReady === 'function') {
-              logger.info(
-                `${LOG_PREFIX} BCBST-specific readiness check found. Checking...`,
-              );
-              if (window.BCBST.isChatReady()) {
-                logger.info(
-                  `${LOG_PREFIX} BCBST chat ready according to BCBST.isChatReady()`,
-                );
-                resolve();
-              } else {
-                logger.warn(
-                  `${LOG_PREFIX} BCBST.isChatReady() returned false. Waiting longer.`,
-                );
-                checkIntervalRef.current = setTimeout(checkGenesysReady, 1000); // Use checkGenesysReady
-                return;
-              }
-            } else {
-              logger.info(
-                `${LOG_PREFIX} No BCBST-specific readiness check found. Using CXBus and Genesys core readiness.`,
-              );
-              resolve();
-            }
-
-            // Call _forceChatButtonCreate (remains as is)
-            if (window._forceChatButtonCreate) {
-              try {
-                logger.info(
-                  `${LOG_PREFIX} Calling window._forceChatButtonCreate() for legacy mode.`,
-                );
-                window._forceChatButtonCreate();
-              } catch (err: any) {
-                logger.error(
-                  `${LOG_PREFIX} Error calling _forceChatButtonCreate():`,
-                  { message: err?.message, error: err },
-                );
-              }
-            }
+            resolve(); // Resolve as soon as CXBus is found
             return;
           }
 
           attempts++;
           if (attempts >= maxAttempts) {
             logger.error(
-              `${LOG_PREFIX} Failed to detect CXBus and/or Genesys core (initialise function) after ${maxAttempts} attempts. Giving up.`,
+              `${LOG_PREFIX} Failed to detect CXBus after ${maxAttempts} attempts (simplified check). Giving up.`,
               {
                 existingScriptTag: !!document.getElementById(
-                  GenesysLoadingState.scriptId, // Use the dynamic scriptId
+                  GenesysLoadingState.scriptId,
                 ),
                 scriptLoadState: ChatLoadingState.scriptState,
                 windowObjects: {
-                  hasGenesysGlobal: typeof window._genesys !== 'undefined',
-                  hasGenesysWidgets:
-                    typeof window._genesys?.widgets !== 'undefined',
-                  hasGenesysMain:
-                    typeof window._genesys?.widgets?.main !== 'undefined',
-                  hasInitialiseFunction:
-                    typeof window._genesys?.widgets?.main?.initialise ===
-                    'function',
                   hasCXBus: typeof window._genesysCXBus !== 'undefined',
-                  hasGenesysChat: typeof window.GenesysChat !== 'undefined',
-                  hasBCBST: typeof window.BCBST !== 'undefined',
-                  hasWidgetElements:
-                    document.querySelectorAll('.cx-widget').length > 0,
-                  chatContainerExists: !!document.getElementById(
-                    'genesys-chat-container',
-                  ),
                 },
               },
             );
-
             setStatus('error');
             const errMsg =
-              'Timeout waiting for CXBus and Genesys core (initialise function) after script was loaded.';
+              'Timeout waiting for CXBus (simplified check) after widgets.min.js was loaded.';
             setErrorMessage(errMsg);
-
-            GenesysLoadingState.cxBusReady = false; // CXBus might be ready but core isn't, or vice versa
+            GenesysLoadingState.cxBusReady = false;
             reject(new Error(errMsg));
             return;
           }
 
           timeout = Math.min(timeout * 1.5, 2000);
-
           logger.info(
-            `${LOG_PREFIX} CXBus and/or Genesys core not ready yet. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
+            `${LOG_PREFIX} CXBus not ready yet (simplified check). Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
             {
               windowObjects: {
-                hasGenesysGlobal: typeof window._genesys !== 'undefined',
-                hasGenesysWidgets:
-                  typeof window._genesys?.widgets !== 'undefined',
-                hasGenesysMain:
-                  typeof window._genesys?.widgets?.main !== 'undefined',
-                hasInitialiseFunction:
-                  typeof window._genesys?.widgets?.main?.initialise ===
-                  'function',
                 hasCXBus: typeof window._genesysCXBus !== 'undefined',
-                hasGenesysChat: typeof window.GenesysChat !== 'undefined',
-                scriptLoaded: GenesysLoadingState.scriptLoaded,
-                chatSettingsAvailable: !!window.chatSettings,
-                hasBCBST: typeof window.BCBST !== 'undefined',
               },
             },
           );
-
-          checkIntervalRef.current = setTimeout(checkGenesysReady, timeout); // Use checkGenesysReady
+          checkIntervalRef.current = setTimeout(checkCXBusOnly, timeout);
         };
-
-        // Start the first check
-        checkGenesysReady(); // Use checkGenesysReady
+        checkCXBusOnly();
       });
     }, [setStatus, setErrorMessage]);
 
