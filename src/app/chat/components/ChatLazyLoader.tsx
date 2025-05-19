@@ -23,7 +23,7 @@ const ChatProvider = dynamic(
     return import('./ChatProvider')
       .then((mod) => {
         console.log(`${LOG_PREFIX} ChatProvider imported successfully.`);
-        return mod;
+        return mod.default;
       })
       .catch((err) => {
         console.error(`${LOG_PREFIX} Failed to import ChatProvider:`, err);
@@ -39,7 +39,7 @@ const ChatWidget = dynamic(
     return import('./ChatWidget')
       .then((mod) => {
         console.log(`${LOG_PREFIX} ChatWidget imported successfully.`);
-        return mod;
+        return mod.default;
       })
       .catch((err) => {
         console.error(`${LOG_PREFIX} Failed to import ChatWidget:`, err);

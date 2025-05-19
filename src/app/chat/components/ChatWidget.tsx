@@ -887,3 +887,5 @@ declare global {
     _genesysCXBus?: GenesysCXBus;
   }
 }
+
+console.log('[ChatWidget] Module loaded');
