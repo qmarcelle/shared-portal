@@ -68,7 +68,7 @@ export default function ChatWidget({
   const [showChatErrorModal, setShowChatErrorModal] = useState(false);
   const [showFallbackButton, setShowFallbackButton] = useState(false);
   const buttonCheckAttempts = useRef(0);
-  const MAX_BUTTON_CHECK_ATTEMPTS = 5;
+  const MAX_BUTTON_CHECK_ATTEMPTS = 20;
 
   // Get state from store using selectors
   const isOpen = useChatStore(chatUISelectors.isOpen);
@@ -577,101 +577,26 @@ export default function ChatWidget({
     });
     if (scriptLoadPhase === ScriptLoadPhase.LOADED && chatMode === 'legacy') {
       logger.info(
-        `${LOG_PREFIX} Scripts loaded, initializing official Genesys chat button`,
+        `${LOG_PREFIX} scriptLoadPhase is LOADED and chatMode is legacy. Button creation is now primarily handled by the isCXBusReady effect.`,
       );
+      // Ensure container exists, but do not force button creation here.
       let containerElement = document.getElementById(containerId);
       if (!containerElement) {
         logger.info(
-          `${LOG_PREFIX} Creating container element with id: ${containerId}`,
+          `${LOG_PREFIX} Creating container element with id: ${containerId} (from scriptLoadPhase effect)`,
         );
         containerElement = document.createElement('div');
         containerElement.id = containerId;
         containerElement.setAttribute('data-chat-container', 'true');
         document.body.appendChild(containerElement);
-      }
-      if (typeof window._forceChatButtonCreate === 'function') {
-        logger.info(`${LOG_PREFIX} Calling window._forceChatButtonCreate()`);
-        const existingButton = document.querySelector(
-          '.cx-widget.cx-webchat-chat-button',
-        );
-        console.log(
-          `${LOG_PREFIX} Existing button before _forceChatButtonCreate:`,
-          existingButton,
-        );
-        try {
-          const style = document.createElement('style');
-          style.textContent = `
-            .cx-widget.cx-webchat-chat-button {
-              display: block !important;
-              visibility: visible !important;
-              opacity: 1 !important;
-              position: fixed !important;
-              bottom: 20px !important;
-              right: 20px !important;
-              z-index: 9999 !important;
-              background-color: #0056b3 !important;
-              color: white !important;
-              padding: 10px 20px !important;
-              border-radius: 4px !important;
-              cursor: pointer !important;
-              font-weight: bold !important;
-            }
-          `;
-          document.head.appendChild(style);
-          setTimeout(() => {
-            console.log(`${LOG_PREFIX} Attempting button creation after delay`);
-            const forceChatButtonCreate = window._forceChatButtonCreate;
-            const result =
-              typeof forceChatButtonCreate === 'function'
-                ? forceChatButtonCreate()
-                : false;
-            console.log(`${LOG_PREFIX} _forceChatButtonCreate result:`, result);
-            setTimeout(() => {
-              const buttonAfterCreate = document.querySelector(
-                '.cx-widget.cx-webchat-chat-button',
-              );
-              console.log(
-                `${LOG_PREFIX} Button after _forceChatButtonCreate:`,
-                buttonAfterCreate,
-              );
-              if (!buttonAfterCreate) {
-                console.log(
-                  `${LOG_PREFIX} Button not found after create call - attempting alternative creation`,
-                );
-                if (typeof window._genesysCXBus?.command === 'function') {
-                  console.log(
-                    `${LOG_PREFIX} Using CXBus.command("WebChat.showChatButton")`,
-                  );
-                  window._genesysCXBus.command('WebChat.showChatButton');
-                  setTimeout(() => {
-                    const buttonAfterCXBus = document.querySelector(
-                      '.cx-widget.cx-webchat-chat-button',
-                    );
-                    console.log(
-                      `${LOG_PREFIX} Button after CXBus command:`,
-                      buttonAfterCXBus,
-                    );
-                    if (!buttonAfterCXBus) {
-                      console.log(
-                        `${LOG_PREFIX} Dispatching genesys:create-button event`,
-                      );
-                      document.dispatchEvent(
-                        new CustomEvent('genesys:create-button'),
-                      );
-                    }
-                  }, 1000);
-                }
-              }
-            }, 1000);
-          }, 2000);
-        } catch (err) {
-          console.error(`${LOG_PREFIX} Error in _forceChatButtonCreate:`, err);
-        }
       } else {
-        logger.warn(
-          `${LOG_PREFIX} _forceChatButtonCreate function not available`,
+        logger.info(
+          `${LOG_PREFIX} Container element ${containerId} already exists (checked in scriptLoadPhase effect)`,
         );
       }
+      // The complex logic involving _forceChatButtonCreate, timeouts, and style injection
+      // has been removed from this useEffect hook. The useEffect hook dependent on `isCXBusReady`
+      // is now the primary place where button checking and creation attempts are orchestrated.
     }
   }, [scriptLoadPhase, genesysChatConfig, chatMode, containerId]);
 
