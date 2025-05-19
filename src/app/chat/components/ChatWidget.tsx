@@ -144,7 +144,7 @@ export default function ChatWidget({
           position: fixed !important;
           bottom: 20px !important;
           right: 20px !important;
-          z-index: 2147483647 !important;
+          z-index: 2147483647 !important; /* Max z-index value */
           min-width: 60px !important;
           min-height: 60px !important;
           background-color: #0078d4 !important;
@@ -183,19 +183,37 @@ export default function ChatWidget({
           justify-content: center !important;
           font-size: 24px !important;
         }
+        
+        /* Default text for empty buttons */
+        .cx-widget.cx-webchat-chat-button:empty::after,
+        .cx-webchat-chat-button:empty::after,
+        [data-cx-widget="WebChat"]:empty::after,
+        .cx-button.cx-webchat:empty::after {
+          content: "💬";
+          font-size: 24px;
+        }
       `;
       document.head.appendChild(style);
       logger.info(`${LOG_PREFIX} Added enhanced chat button CSS fixes`);
     }
   }, []);
 
+  // Alias for addChatButtonStyles for compatibility with existing code
+  const addGlobalStyles = useCallback(() => {
+    addChatButtonStyles();
+  }, [addChatButtonStyles]);
+
   // Improved force button create and fallback
   const forceButtonCreation = useCallback(() => {
+    logger.info(`${LOG_PREFIX} Forcing button creation...`);
+
     // First try to use CXBus command to show button
     if (window._genesysCXBus) {
       try {
+        logger.info(
+          `${LOG_PREFIX} Using CXBus to show button via WebChat.showChatButton`,
+        );
         window._genesysCXBus.command('WebChat.showChatButton');
-        logger.info(`${LOG_PREFIX} Executed WebChat.showChatButton command`);
       } catch (e) {
         logger.error(
           `${LOG_PREFIX} Error executing WebChat.showChatButton: ${e}`,
@@ -203,11 +221,39 @@ export default function ChatWidget({
       }
     }
 
+    // Try to use official Genesys methods if available
+    if (window._genesys?.widgets?.webchat?.chatButton) {
+      try {
+        logger.info(`${LOG_PREFIX} Using legacy mode button creation approach`);
+        if (
+          typeof window._genesys.widgets.webchat.chatButton.override ===
+          'function'
+        ) {
+          logger.info(`${LOG_PREFIX} Legacy mode: Using override()`);
+          window._genesys.widgets.webchat.chatButton.override({
+            enabled: true,
+          });
+        }
+      } catch (e) {
+        logger.error(`${LOG_PREFIX} Error with legacy button creation: ${e}`);
+      }
+    }
+
+    // Try direct CXBus approach if available
+    if (window.CXBus && typeof window.CXBus.command === 'function') {
+      try {
+        logger.info(`${LOG_PREFIX} Legacy mode: Using CXBus.command()`);
+        window.CXBus.command('WebChat.showChatButton');
+      } catch (e) {
+        logger.error(`${LOG_PREFIX} Error with CXBus direct command: ${e}`);
+      }
+    }
+
     // Also try using window.forceCreateChatButton if available
     if (typeof window.forceCreateChatButton === 'function') {
       try {
-        window.forceCreateChatButton();
         logger.info(`${LOG_PREFIX} Called window.forceCreateChatButton`);
+        window.forceCreateChatButton();
       } catch (e) {
         logger.error(
           `${LOG_PREFIX} Error calling window.forceCreateChatButton: ${e}`,
@@ -221,16 +267,41 @@ export default function ChatWidget({
       '.cx-webchat-chat-button',
       '[data-cx-widget="WebChat"]',
       '.cx-button.cx-webchat',
+      '.cx-button',
+      '[class*="cx-button"]',
     ];
 
     let existingButton: Element | null = null;
     for (const selector of selectors) {
-      const button = document.querySelector(selector);
-      if (button) {
-        existingButton = button;
-        logger.info(`${LOG_PREFIX} Found button using selector: ${selector}`);
-        break;
+      const buttons = document.querySelectorAll(selector);
+      for (const button of Array.from(buttons)) {
+        if (button instanceof HTMLElement) {
+          existingButton = button;
+          logger.info(
+            `${LOG_PREFIX} Found button using selector: ${selector}`,
+            {
+              id: button.id,
+              className: button.className,
+              visibility: button.style.visibility,
+              display: button.style.display,
+              computed: window.getComputedStyle(button).display,
+            },
+          );
+
+          // Apply direct styling to ensure visibility
+          button.style.setProperty('display', 'block', 'important');
+          button.style.setProperty('visibility', 'visible', 'important');
+          button.style.setProperty('opacity', '1', 'important');
+          button.style.setProperty('position', 'fixed', 'important');
+          button.style.setProperty('bottom', '20px', 'important');
+          button.style.setProperty('right', '20px', 'important');
+          button.style.setProperty('z-index', '2147483647', 'important');
+
+          setButtonState('created');
+          break;
+        }
       }
+      if (existingButton) break;
     }
 
     // Count how many buttons are in the DOM (for diagnostic purposes)
@@ -287,17 +358,13 @@ export default function ChatWidget({
       fallbackButtonRef.current = fallbackButton;
       setHasCreatedFallbackButton(true);
       logger.info(`${LOG_PREFIX} Created fallback chat button`);
+
+      // Set the button state to created even though this is our fallback
+      setButtonState('created');
     }
 
     return !!existingButton;
-  }, [hasCreatedFallbackButton, setOpen, forceFallbackButton]);
-
-  // Callbacks (defined with useCallback)
-  const handleClearErrorAndReopen = useCallback(() => {
-    setError(null);
-    setShowChatErrorModal(false);
-    setOpen(true);
-  }, [setError, setOpen]);
+  }, [hasCreatedFallbackButton, setOpen, setButtonState, forceFallbackButton]);
 
   // Setup MutationObserver to detect when Genesys adds a button to the DOM
   useEffect(() => {
@@ -315,25 +382,34 @@ export default function ChatWidget({
                 '.cx-webchat-chat-button',
                 '[data-cx-widget="WebChat"]',
                 '.cx-button.cx-webchat',
-                // Add any other selectors that Genesys might use for its button
+                '.cx-button',
+                '[class*="cx-button"]',
               ];
 
               let buttonElement: HTMLElement | null = null;
+
+              // First check if the node itself is a button
               for (const selector of selectors) {
                 if (node.matches(selector)) {
                   buttonElement = node;
                   break;
                 }
-                const childButton = node.querySelector(selector);
-                if (childButton && childButton instanceof HTMLElement) {
-                  buttonElement = childButton;
-                  break;
+              }
+
+              // If not, check its children
+              if (!buttonElement) {
+                for (const selector of selectors) {
+                  const childElements = node.querySelectorAll(selector);
+                  if (childElements.length > 0) {
+                    buttonElement = childElements[0] as HTMLElement;
+                    break;
+                  }
                 }
               }
 
               if (buttonElement) {
                 logger.info(
-                  `${LOG_PREFIX} MutationObserver detected chat button. Applying aggressive styles.`,
+                  `${LOG_PREFIX} MutationObserver detected chat button added to DOM`,
                   {
                     tagName: buttonElement.tagName,
                     id: buttonElement.id,
@@ -377,10 +453,10 @@ export default function ChatWidget({
                 );
                 buttonElement.style.setProperty(
                   'background-color',
-                  'lime',
+                  '#0078d4',
                   'important',
-                ); // Use a very obvious color
-                buttonElement.style.setProperty('color', 'black', 'important');
+                );
+                buttonElement.style.setProperty('color', 'white', 'important');
                 buttonElement.style.setProperty(
                   'border-radius',
                   '50%',
@@ -401,23 +477,19 @@ export default function ChatWidget({
                   'auto',
                   'important',
                 );
-                buttonElement.style.setProperty(
-                  'border',
-                  '3px solid red',
-                  'important',
-                ); // Make border super obvious
+                buttonElement.style.setProperty('border', 'none', 'important');
                 buttonElement.style.setProperty(
                   'transform',
                   'scale(1)',
                   'important',
                 );
-                buttonElement.style.setProperty('padding', '10px', 'important');
+
                 // Ensure it has some content if Genesys fails to add it
                 if (
                   !buttonElement.innerText &&
-                  !buttonElement.innerHTML.includes('<svg')
+                  !buttonElement.innerHTML.includes('<')
                 ) {
-                  buttonElement.innerText = 'CHAT';
+                  buttonElement.innerHTML = '💬';
                 }
 
                 setButtonState('created');
@@ -427,24 +499,28 @@ export default function ChatWidget({
                   fallbackButtonRef.current &&
                   document.body.contains(fallbackButtonRef.current)
                 ) {
-                  // Check if the real button is actually visible (basic check)
-                  const realButtonStyles =
-                    window.getComputedStyle(buttonElement);
-                  if (
-                    realButtonStyles.display !== 'none' &&
-                    realButtonStyles.visibility === 'visible'
-                  ) {
-                    setTimeout(() => {
-                      if (fallbackButtonRef.current) {
-                        fallbackButtonRef.current.remove();
-                        fallbackButtonRef.current = null;
-                        logger.info(
-                          `${LOG_PREFIX} Removed fallback button after detecting and styling real button.`,
-                        );
-                      }
-                    }, 500); // Short delay to ensure styles applied
-                  }
+                  setTimeout(() => {
+                    if (fallbackButtonRef.current) {
+                      fallbackButtonRef.current.remove();
+                      fallbackButtonRef.current = null;
+                      logger.info(
+                        `${LOG_PREFIX} Removed fallback button after detecting and styling real button.`,
+                      );
+                    }
+                  }, 500); // Short delay to ensure styles applied
                 }
+
+                // Log info about the newly added button's layout and styles
+                const computedStyle = window.getComputedStyle(buttonElement);
+                logger.info(`${LOG_PREFIX} Applied styles to button:`, {
+                  display: computedStyle.display,
+                  visibility: computedStyle.visibility,
+                  opacity: computedStyle.opacity,
+                  position: computedStyle.position,
+                  zIndex: computedStyle.zIndex,
+                  rect: buttonElement.getBoundingClientRect(),
+                });
+
                 return; // Found and styled the button
               }
             }
@@ -458,38 +534,66 @@ export default function ChatWidget({
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['style', 'class'],
+      attributeFilter: ['style', 'class', 'id', 'hidden'],
     });
+
+    logger.info(
+      `${LOG_PREFIX} Added MutationObserver to detect chat button in DOM`,
+    );
 
     return () => {
       observer.disconnect();
+      logger.info(`${LOG_PREFIX} Disconnected MutationObserver`);
     };
   }, [isChatEnabled, setButtonState]);
 
-  // Setup effect to ensure button is created
+  // Setup effect to ensure button is created and add global styles
   useEffect(() => {
     if (!isChatEnabled) return;
+
+    logger.info(`${LOG_PREFIX} Setting up button creation mechanism`);
 
     // Add global styles first
     addChatButtonStyles();
 
-    // Create button immediately
-    forceButtonCreation();
+    // Create button immediately after a short delay to let Genesys initialize
+    setTimeout(() => {
+      forceButtonCreation();
+    }, 100);
 
-    // Set up an interval to check for button existence and create if missing
+    // Set up an interval to periodically check for button existence and create if missing
     const intervalId = setInterval(() => {
       const found = forceButtonCreation();
+      buttonCheckAttempts.current += 1;
 
-      // If found, we might still clear the interval, but let's keep checking
-      // a bit longer to ensure the button stays visible
-      if (found && buttonCheckAttempts.current > 5) {
+      // Log every few attempts
+      if (buttonCheckAttempts.current % 5 === 0) {
         logger.info(
-          `${LOG_PREFIX} Found existing chat button, clearing interval`,
+          `${LOG_PREFIX} Button check attempt ${buttonCheckAttempts.current}/${MAX_BUTTON_CHECK_ATTEMPTS}, button found: ${found}`,
         );
-        clearInterval(intervalId);
       }
 
-      buttonCheckAttempts.current += 1;
+      // If found or reached max attempts, clear interval
+      if (
+        (found && buttonCheckAttempts.current > 3) ||
+        buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS
+      ) {
+        logger.info(
+          `${LOG_PREFIX} ${found ? 'Found existing chat button' : 'Reached max attempts'}, clearing interval`,
+        );
+        clearInterval(intervalId);
+
+        // If we reached max attempts and still can't find a button, ensure fallback is created
+        if (
+          !found &&
+          buttonCheckAttempts.current >= MAX_BUTTON_CHECK_ATTEMPTS
+        ) {
+          logger.info(
+            `${LOG_PREFIX} Failed to find Genesys button after ${MAX_BUTTON_CHECK_ATTEMPTS} attempts, using fallback`,
+          );
+          forceButtonCreation(); // This will create fallback if needed
+        }
+      }
     }, 1000);
 
     return () => {
@@ -532,8 +636,7 @@ export default function ChatWidget({
 
       if (isFullyInitialized) {
         setIsGenesysFullyInitialized(true);
-        // Even when fully initialized, ensure our button CSS is applied
-        addChatButtonStyles();
+        // Even when fully initialized, ensure our button creation logic runs
         forceButtonCreation();
         return true;
       }
@@ -543,7 +646,6 @@ export default function ChatWidget({
           `${LOG_PREFIX} Genesys widgets.main.initialise not available after ${MAX_GENESYS_INIT_CHECK_ATTEMPTS} attempts - falling back to custom button`,
         );
         // Ensure fallback button is shown
-        setShowFallbackButton(true);
         forceButtonCreation();
         return false;
       }
@@ -566,7 +668,98 @@ export default function ChatWidget({
     return () => {
       clearInterval(initCheckInterval);
     };
-  }, [isChatEnabled, addChatButtonStyles, forceButtonCreation]);
+  }, [isChatEnabled, forceButtonCreation]);
+
+  // Add window.forceCreateChatButton global method for external forcing
+  useEffect(() => {
+    if (!isChatEnabled) return;
+
+    // Define a global function that can be called from anywhere to force button creation
+    window.forceCreateChatButton = () => {
+      logger.info(`${LOG_PREFIX} Called window.forceCreateChatButton`);
+      return forceButtonCreation();
+    };
+
+    // Also expose a diagnostic tool on window for debugging
+    if (ENABLE_CHAT_BUTTON_DIAGNOSTICS) {
+      // Define the selectors we're using to find buttons
+      const selectors = [
+        '.cx-widget.cx-webchat-chat-button',
+        '.cx-webchat-chat-button',
+        '[data-cx-widget="WebChat"]',
+        '.cx-button.cx-webchat',
+        '.cx-button',
+        '[class*="cx-button"]',
+      ];
+
+      window._chatDiagnostics = {
+        getState: () => ({
+          scriptLoaded: scriptLoadPhase === ScriptLoadPhase.LOADED,
+          cxBusReady: isCXBusReady,
+          chatMode,
+          config: {
+            legacyConfig,
+            cloudConfig,
+          },
+          chatLoadingState: ChatLoadingState,
+          domState: {
+            scriptElement: !!document.querySelector('script[src*="genesys"]'),
+            cssElements: [
+              !!document.getElementById('genesys-button-css-fix'),
+              !!document.getElementById('genesys-chat-styles'),
+            ],
+            chatButton: selectors.some(
+              (selector: string) => !!document.querySelector(selector),
+            ),
+            widgetContainer: !!document.getElementById(containerId),
+          },
+        }),
+        forceButtonCreate: forceButtonCreation,
+        logCXBusState: () => {
+          if (window._genesysCXBus) {
+            console.log('[ChatDiagnostics] CXBus state:', window._genesysCXBus);
+            try {
+              console.log(
+                '[ChatDiagnostics] WebChat state:',
+                window._genesysCXBus.command('WebChat.get'),
+              );
+            } catch (e) {
+              console.error(
+                '[ChatDiagnostics] Error getting WebChat state:',
+                e,
+              );
+            }
+          } else {
+            console.log('[ChatDiagnostics] CXBus not available');
+          }
+        },
+      };
+    }
+
+    return () => {
+      // Clean up
+      delete window.forceCreateChatButton;
+      if (ENABLE_CHAT_BUTTON_DIAGNOSTICS) {
+        delete window._chatDiagnostics;
+      }
+    };
+  }, [
+    isChatEnabled,
+    forceButtonCreation,
+    scriptLoadPhase,
+    isCXBusReady,
+    chatMode,
+    legacyConfig,
+    cloudConfig,
+    containerId,
+  ]);
+
+  // Callback for error modal "Try Again" button
+  const handleClearErrorAndReopen = useCallback(() => {
+    setError(null);
+    setShowChatErrorModal(false);
+    setOpen(true);
+  }, [setError, setOpen, setShowChatErrorModal]);
 
   const handleCXBusReady = useCallback(() => {
     logger.info(
@@ -1180,6 +1373,8 @@ export default function ChatWidget({
       '.cx-webchat-chat-button',
       '[data-cx-widget="WebChat"]',
       '.cx-button.cx-webchat',
+      '.cx-button',
+      '[class*="cx-button"]',
     ];
 
     let buttonFound = false;
@@ -1196,7 +1391,31 @@ export default function ChatWidget({
           buttons.forEach((button) => {
             const buttonEl = button as HTMLElement;
 
-            // Don't apply styles directly, use class names instead
+            // Apply direct styling to ensure visibility
+            buttonEl.style.setProperty('display', 'block', 'important');
+            buttonEl.style.setProperty('visibility', 'visible', 'important');
+            buttonEl.style.setProperty('opacity', '1', 'important');
+            buttonEl.style.setProperty('position', 'fixed', 'important');
+            buttonEl.style.setProperty('bottom', '20px', 'important');
+            buttonEl.style.setProperty('right', '20px', 'important');
+            buttonEl.style.setProperty('z-index', '2147483647', 'important');
+            buttonEl.style.setProperty('min-width', '60px', 'important');
+            buttonEl.style.setProperty('min-height', '60px', 'important');
+            buttonEl.style.setProperty(
+              'background-color',
+              '#0078d4',
+              'important',
+            );
+            buttonEl.style.setProperty('color', 'white', 'important');
+            buttonEl.style.setProperty('border-radius', '50%', 'important');
+            buttonEl.style.setProperty(
+              'box-shadow',
+              '0 4px 8px rgba(0,0,0,0.3)',
+              'important',
+            );
+            buttonEl.style.setProperty('cursor', 'pointer', 'important');
+
+            // Also add the class for backwards compatibility
             buttonEl.classList.add('genesys-chat-button-positioned');
           });
         }
@@ -1221,167 +1440,6 @@ export default function ChatWidget({
 
     return buttonFound;
   }, [buttonState, isGenesysFullyInitialized, isCXBusReady]);
-
-  // Add global styles only once instead of repeatedly
-  const addGlobalStyles = useCallback(() => {
-    if (!document.getElementById('genesys-chat-position-styles')) {
-      const style = document.createElement('style');
-      style.id = 'genesys-chat-position-styles';
-      style.textContent = `
-        /* Global styles for chat button positioning */
-        .cx-widget.cx-webchat-chat-button,
-        .cx-webchat-chat-button,
-        [data-cx-widget="WebChat"],
-        .cx-button.cx-webchat,
-        .genesys-chat-button-positioned {
-          position: fixed !important;
-          bottom: 20px !important;
-          right: 20px !important;
-          z-index: 2147483647 !important;
-          display: block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          pointer-events: auto !important;
-          transform: none !important;
-          min-width: 60px !important;
-          min-height: 45px !important;
-          background-color: #0078d4 !important;
-          border-radius: 4px !important;
-          border: none !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
-          margin: 0 !important;
-          padding: 10px !important;
-          
-          /* These additional properties ensure the button is always visible */
-          clip: auto !important;
-          clip-path: none !important;
-          -webkit-clip-path: none !important;
-          top: auto !important;
-          left: auto !important;
-        }
-        
-        /* Ensure child elements are visible */
-        .genesys-chat-button-positioned *,
-        .cx-widget.cx-webchat-chat-button *,
-        .cx-webchat-chat-button *,
-        [data-cx-widget="WebChat"] *,
-        .cx-button.cx-webchat * {
-          visibility: visible !important;
-          opacity: 1 !important;
-          display: inline-block !important;
-        }
-        
-        /* Fix for stacking contexts */
-        body * {
-          transform-style: flat !important;
-        }
-        
-        /* Open chat window needs high z-index too */
-        .cx-widget.cx-webchat {
-          z-index: 2147483646 !important;
-        }
-      `;
-      document.head.appendChild(style);
-      logger.info(`${LOG_PREFIX} Added global chat button position styles`);
-    }
-  }, []);
-
-  // Modify the button state effect to also check for full initialization
-  useEffect(() => {
-    logger.info(
-      `${LOG_PREFIX} Button state changed to: ${buttonState}, Genesys fully initialized: ${isGenesysFullyInitialized}`,
-    );
-
-    if (buttonState === 'created') {
-      // Button is created and positioned, we can do any additional setup here
-      // This is a good place to ensure the button remains visible
-
-      // Add a MutationObserver to monitor the button's visibility and position
-      if (!window._genesysButtonObserver) {
-        const buttonSelectors =
-          '.cx-widget.cx-webchat-chat-button, .cx-webchat-chat-button, [data-cx-widget="WebChat"], .cx-button.cx-webchat';
-        const observer = new MutationObserver((mutations) => {
-          const buttons = document.querySelectorAll(buttonSelectors);
-          if (buttons.length > 0) {
-            buttons.forEach((button) => {
-              // Ensure the button has our positioning class
-              button.classList.add('genesys-chat-button-positioned');
-            });
-          }
-        });
-
-        // Observe the entire document for any changes to attributes or DOM structure
-        observer.observe(document.body, {
-          attributes: true,
-          childList: true,
-          subtree: true,
-          attributeFilter: ['style', 'class', 'display', 'visibility'],
-        });
-
-        window._genesysButtonObserver = observer;
-
-        logger.info(
-          `${LOG_PREFIX} Added MutationObserver to monitor chat button visibility`,
-        );
-      }
-    }
-
-    if (buttonState === 'failed' && isCXBusReady) {
-      // Add fallback button for emergency cases
-      setShowFallbackButton(true);
-
-      // Create a simple fallback button that will trigger the chat
-      if (!document.getElementById('genesys-fallback-button')) {
-        const fallbackButton = document.createElement('button');
-        fallbackButton.id = 'genesys-fallback-button';
-        fallbackButton.textContent = '💬 Chat Support';
-        fallbackButton.className = 'genesys-chat-button-positioned';
-        fallbackButton.style.cssText = `
-          position: fixed !important;
-          bottom: 20px !important;
-          right: 20px !important;
-          z-index: 2147483647 !important;
-          min-width: 120px !important;
-          min-height: 45px !important;
-          background-color: #0078d4 !important;
-          color: white !important;
-          border-radius: 4px !important;
-          border: none !important;
-          cursor: pointer !important;
-          font-family: system-ui, sans-serif !important;
-          font-size: 14px !important;
-          padding: 10px 15px !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
-        `;
-
-        fallbackButton.onclick = () => {
-          if (window._genesysCXBus) {
-            try {
-              window._genesysCXBus.command('WebChat.open');
-            } catch (err) {
-              logger.error(
-                `${LOG_PREFIX} Error opening chat from fallback button:`,
-                err,
-              );
-            }
-          }
-          setOpen(true);
-        };
-
-        document.body.appendChild(fallbackButton);
-        logger.info(
-          `${LOG_PREFIX} Created fallback button due to failed Genesys button creation`,
-        );
-      }
-    }
-
-    // Cleanup function
-    return () => {
-      if (buttonState === 'created' && window._genesysButtonObserver) {
-        // Only cleanup on unmount if we need to
-      }
-    };
-  }, [buttonState, isCXBusReady, isGenesysFullyInitialized, setOpen]);
 
   // Modify the positioning and CSS effect to account for full initialization
   useEffect(() => {
@@ -1568,7 +1626,6 @@ export default function ChatWidget({
             >
               Try Again
             </button>
-            {/* It might be useful to have a close button that doesn't try to reopen */}
             <button
               onClick={() => {
                 setError(null);
