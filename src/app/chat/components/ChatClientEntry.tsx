@@ -17,21 +17,6 @@ export function ChatClientEntry() {
   // Generate a unique ID on first render to prevent multiple initializations
   const instanceId = useRef(`chat-client-${Date.now()}`);
 
-  // Track if we've already initialized
-  if (typeof window !== 'undefined' && window._chatClientInitialized) {
-    console.log(
-      '[ChatClientEntry] Already initialized. Skipping duplicate initialization.',
-    );
-    // Return empty fragment to prevent multiple instances
-    return null;
-  }
-
-  // Mark as initialized
-  if (typeof window !== 'undefined') {
-    window._chatClientInitialized = true;
-    console.log('[ChatClientEntry] Initializing chat client entry');
-  }
-
   console.log('[ChatClientEntry] Component rendered');
   logger.info('[ChatClientEntry] Component rendered');
 
