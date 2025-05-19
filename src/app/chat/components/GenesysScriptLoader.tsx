@@ -281,6 +281,17 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         if (typeof window._genesysCXBus !== 'undefined') {
           logger.info(
             `${LOG_PREFIX} CXBus detected after ${attempts} attempts. CXBus ready.`,
+            {
+              cxBusObject: !!window._genesysCXBus,
+              commandFunction:
+                typeof window._genesysCXBus?.command === 'function',
+              subscribeFunction:
+                typeof window._genesysCXBus?.subscribe === 'function',
+              widgetsReady:
+                typeof window.checkWidgetsReady === 'function'
+                  ? 'available'
+                  : 'not available',
+            },
           );
 
           // Mark CXBus as ready in global state
@@ -324,6 +335,19 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         if (attempts >= maxAttempts) {
           logger.error(
             `${LOG_PREFIX} Failed to detect CXBus after ${maxAttempts} attempts. Giving up.`,
+            {
+              existingScriptTag: !!document.getElementById(
+                'genesys-chat-script',
+              ),
+              scriptLoadState: ChatLoadingState.scriptState,
+              windowObjects: {
+                hasGenesysGlobal: typeof window._genesys !== 'undefined',
+                hasCXBus: typeof window._genesysCXBus !== 'undefined',
+                hasGenesysChat: typeof window.GenesysChat !== 'undefined',
+                hasWidgetReadyCheck:
+                  typeof window.checkWidgetsReady === 'function',
+              },
+            },
           );
 
           setStatus('error');
@@ -345,6 +369,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
         logger.info(
           `${LOG_PREFIX} CXBus not ready yet. Retrying in ${timeout}ms (Attempt ${attempts}/${maxAttempts}).`,
+          {
+            windowObjects: {
+              hasGenesysGlobal: typeof window._genesys !== 'undefined',
+              hasCXBus: typeof window._genesysCXBus !== 'undefined',
+              hasGenesysChat: typeof window.GenesysChat !== 'undefined',
+              scriptLoaded: GenesysLoadingState.scriptLoaded,
+              chatSettingsAvailable: !!window.chatSettings,
+            },
+          },
         );
 
         checkIntervalRef.current = setTimeout(checkCXBus, timeout);
@@ -906,5 +939,6 @@ declare global {
     chatSettings?: ChatSettings | GenesysChatConfig; // Reflecting that we set it for legacy
     Genesys?: any; // For Genesys Cloud
     _chatWidgetInstanceId?: string; // For tracking active ChatWidget instance
+    checkWidgetsReady?: () => boolean; // For checking if widgets are ready
   }
 }
