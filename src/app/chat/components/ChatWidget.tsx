@@ -198,7 +198,11 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
+          left: 20px !important;
           right: 20px !important;
+          width: auto !important;
+          margin-left: auto !important; 
+          margin-right: auto !important;
           cursor: pointer !important;
           min-width: 60px !important;
           min-height: 60px !important;
@@ -212,7 +216,7 @@ export default function ChatWidget({
           border: none !important;
           pointer-events: auto !important;
           transform: none !important;
-          margin: 0 !important;
+          margin: 0 auto !important;  /* Center horizontally */
           padding: 10px !important;
           overflow: visible !important;
           clip: auto !important;
@@ -240,7 +244,7 @@ export default function ChatWidget({
           );
         }
 
-        // STRATEGY 2: Add a dramatic eye-catching style to the original button
+        // STRATEGY 2: Add a better horizontal positioning style to the original button
         buttonEl.setAttribute(
           'style',
           `
@@ -250,22 +254,25 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
+          left: 20px !important;
           right: 20px !important;
+          width: auto !important;
+          margin-left: auto !important; 
+          margin-right: auto !important;
           cursor: pointer !important;
           min-width: 60px !important;
           min-height: 60px !important;
-          background-color: #ff0000 !important; /* Bright red for visibility testing */
+          background-color: #0078d4 !important; /* Back to standard blue color */
           color: white !important;
           border-radius: 50% !important;
-          box-shadow: 0 0 20px 5px rgba(255,0,0,0.7) !important; /* Glow effect */
-          animation: genesys-pulse-animation 2s infinite !important; /* Attention-grabbing pulse */
+          box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
           align-items: center !important;
           justify-content: center !important;
           font-family: sans-serif !important;
-          border: 3px solid yellow !important; /* Bright contrasting border */
+          border: none !important;
           pointer-events: auto !important;
           transform: none !important;
-          margin: 0 !important;
+          margin: 0 auto !important;  /* Center horizontally */
           padding: 10px !important;
           overflow: visible !important;
           clip: auto !important;
@@ -341,9 +348,13 @@ export default function ChatWidget({
           fallbackButton.id = 'genesys-absolute-fallback-button';
           fallbackButton.innerText = '💬 Chat';
           fallbackButton.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 100px;
+            position: fixed !important;
+            bottom: 70px !important; /* Position above the main button */
+            left: 20px !important;
+            right: 20px !important;
+            width: auto !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
             background-color: #0078d4;
             color: white;
             border: none;
@@ -352,8 +363,11 @@ export default function ChatWidget({
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 2147483647;
+            z-index: 2147483646;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 200px; /* Limit the width of the fallback button */
+            margin: 0 auto !important;
           `;
           fallbackButton.onclick = () => {
             if (window._genesysCXBus) {
