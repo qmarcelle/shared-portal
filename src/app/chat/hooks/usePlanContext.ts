@@ -106,6 +106,28 @@ export function usePlanContext(): PlanContextReturn {
       const groupType = session?.user?.currUsr?.plan?.groupType; // Extract groupType
       const memberDOB = session?.user?.currUsr?.memberDOB; // Extract DOB from user level
 
+      // Log all available session data for debugging
+      logger.info(`${LOG_PREFIX} Raw session data useful for plan context:`, {
+        full_session_path: {
+          currUsr: session?.user?.currUsr ? 'exists' : 'missing',
+          currUsr_plan: session?.user?.currUsr?.plan ? 'exists' : 'missing',
+          currUsr_memberDOB: session?.user?.currUsr?.memberDOB
+            ? 'exists'
+            : 'missing',
+        },
+        available_plan_data: {
+          grpId: planId,
+          subId: subId,
+          clientId: clientId,
+          groupType: groupType,
+        },
+        available_user_data: {
+          memberDOB: memberDOB,
+        },
+        debug_raw_plan: session?.user?.currUsr?.plan,
+        debug_raw_user: session?.user?.currUsr,
+      });
+
       if (planId && subId) {
         // Still gate by planId as primary identifier for context validity
         logger.info(

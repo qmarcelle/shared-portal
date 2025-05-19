@@ -278,6 +278,29 @@ export function buildGenesysChatConfig({
   // Determine chatMode
   const chatMode = apiConfig.cloudChatEligible ? 'cloud' : 'legacy';
 
+  logger.info('[buildGenesysChatConfig] User and plan contexts received:', {
+    userContext: {
+      userID: user.userID,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      memberFirstname: user.memberFirstname,
+      memberLastName: user.memberLastName,
+      formattedFirstName: user.formattedFirstName,
+      subscriberId: user.subscriberId,
+      subscriberID: user.subscriberID,
+      suffix: user.suffix,
+      sfx: user.sfx,
+      memberDOB: user.memberDOB,
+    },
+    planContext: {
+      memberMedicalPlanID: plan.memberMedicalPlanID,
+      groupId: plan.groupId,
+      memberClientID: plan.memberClientID,
+      groupType: plan.groupType,
+      memberDOB: plan.memberDOB,
+    },
+  });
+
   // Base config from API and context
   const config: Partial<GenesysChatConfig> = {
     // From User Context
@@ -482,6 +505,21 @@ export function buildGenesysChatConfig({
       });
     }
   }
+
+  // Log the final merged config with detailed member fields
+  logger.info('[buildGenesysChatConfig] Final member fields in config:', {
+    memberFirstname: mergedConfig.memberFirstname,
+    memberLastName: mergedConfig.memberLastName,
+    formattedFirstName: mergedConfig.formattedFirstName,
+    subscriberID: mergedConfig.subscriberID,
+    sfx: mergedConfig.sfx,
+    MEMBER_ID: mergedConfig.MEMBER_ID,
+    memberDOB: mergedConfig.memberDOB,
+    memberMedicalPlanID: mergedConfig.memberMedicalPlanID,
+    groupId: mergedConfig.groupId,
+    memberClientID: mergedConfig.memberClientID,
+    groupType: mergedConfig.groupType,
+  });
 
   return mergedConfig;
 }

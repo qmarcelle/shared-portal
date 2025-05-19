@@ -161,6 +161,20 @@ export default function ChatProvider({
         attempt: initAttempts + 1,
         userContext,
         planContext,
+        userDetails: {
+          userID: userContext.userID,
+          firstName: userContext.firstName,
+          lastName: userContext.lastName,
+          subscriberId: userContext.subscriberId,
+          memberDOB: userContext.memberDOB,
+        },
+        planDetails: {
+          memberMedicalPlanID: planContext.memberMedicalPlanID,
+          groupId: planContext.groupId,
+          memberClientID: planContext.memberClientID,
+          groupType: planContext.groupType,
+          memberDOB: planContext.memberDOB,
+        },
       },
     );
 

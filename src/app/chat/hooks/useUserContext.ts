@@ -110,9 +110,27 @@ export function useUserContext(): UserContextReturn {
       const role = session?.user?.currUsr?.role;
       const umpi = session?.user?.currUsr?.umpi;
       const memberDOB = session?.user?.currUsr?.memberDOB; // Extract DOB from session
-      logger.info(`${LOG_PREFIX} Raw UMPI value from session: `, {
-        umpiValue: session?.user?.currUsr?.umpi,
-      }); // Added specific log for umpi
+
+      // Log all available session data for debugging
+      logger.info(`${LOG_PREFIX} Raw session data useful for user context:`, {
+        full_session_path: {
+          currUsr: session?.user?.currUsr ? 'exists' : 'missing',
+          currUsr_plan: session?.user?.currUsr?.plan ? 'exists' : 'missing',
+          currUsr_memberDOB: session?.user?.currUsr?.memberDOB
+            ? 'exists'
+            : 'missing',
+        },
+        available_user_data: {
+          firstName: firstName,
+          lastName: lastName,
+          subscriberId: subscriberId,
+          suffix: suffix,
+          role: role,
+          umpi: umpi,
+          memberDOB: memberDOB,
+        },
+        debug_raw_user: session?.user?.currUsr,
+      });
 
       if (memberId && role && umpi) {
         logger.info(

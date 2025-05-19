@@ -178,6 +178,24 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       scriptUrlProp: scriptUrl,
       cssUrlsProp: cssUrls,
       legacyConfigProp: legacyConfig,
+      // Add detailed logging for member fields in legacyConfig
+      legacyConfigFields: legacyConfig
+        ? {
+            memberFirstname: legacyConfig.memberFirstname,
+            firstName: legacyConfig.firstName,
+            memberLastName: legacyConfig.memberLastName,
+            lastName: legacyConfig.lastName,
+            subscriberID: legacyConfig.subscriberID,
+            subscriberId: legacyConfig.subscriberId,
+            sfx: legacyConfig.sfx,
+            suffix: legacyConfig.suffix,
+            memberDOB: legacyConfig.memberDOB,
+            memberMedicalPlanID: legacyConfig.memberMedicalPlanID,
+            memberClientID: legacyConfig.memberClientID,
+            groupId: legacyConfig.groupId,
+            groupType: legacyConfig.groupType,
+          }
+        : 'legacyConfig not provided',
       cloudConfigProp: cloudConfig,
       showStatus,
       chatMode,
@@ -703,7 +721,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   ...legacyConfig,
                   chatMode: 'legacy', // Explicitly set chatMode to legacy
 
-                  // Ensure all required user/member fields are set
+                  // Ensure all required user/member fields are set with detailed logging of source values
                   memberFirstname:
                     legacyConfig?.memberFirstname ||
                     legacyConfig?.firstName ||
@@ -724,12 +742,44 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                   MEMBER_ID:
                     legacyConfig?.MEMBER_ID ||
                     `${legacyConfig?.subscriberID || legacyConfig?.subscriberId || ''}-${legacyConfig?.sfx || legacyConfig?.suffix || ''}`,
+                  memberDOB: legacyConfig?.memberDOB || '',
                   memberMedicalPlanID: legacyConfig?.memberMedicalPlanID || '',
                   groupId: legacyConfig?.groupId || '',
                   memberClientID: legacyConfig?.memberClientID || '',
                   groupType: legacyConfig?.groupType || '',
-                  memberDOB: legacyConfig?.memberDOB || '',
                 };
+
+                // Log the values before setting them on window.chatSettings
+                logger.info(
+                  `${LOG_PREFIX} Legacy Mode: Detailed member values being set:`,
+                  {
+                    memberFirstnameFrom: {
+                      legacyConfig_memberFirstname:
+                        legacyConfig?.memberFirstname,
+                      legacyConfig_firstName: legacyConfig?.firstName,
+                      finalValue: configWithMode.memberFirstname,
+                    },
+                    memberLastNameFrom: {
+                      legacyConfig_memberLastName: legacyConfig?.memberLastName,
+                      legacyConfig_lastName: legacyConfig?.lastName,
+                      finalValue: configWithMode.memberLastName,
+                    },
+                    subscriberIDFrom: {
+                      legacyConfig_subscriberID: legacyConfig?.subscriberID,
+                      legacyConfig_subscriberId: legacyConfig?.subscriberId,
+                      finalValue: configWithMode.subscriberID,
+                    },
+                    memberDOBFrom: {
+                      legacyConfig_memberDOB: legacyConfig?.memberDOB,
+                      finalValue: configWithMode.memberDOB,
+                    },
+                    memberClientIDFrom: {
+                      legacyConfig_memberClientID: legacyConfig?.memberClientID,
+                      finalValue: configWithMode.memberClientID,
+                    },
+                  },
+                );
+
                 window.chatSettings = configWithMode as ChatSettings;
                 // Verify after setting with detailed member information
                 logger.info(
