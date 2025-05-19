@@ -233,8 +233,8 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
         );
       }
-      // Legacy mode - use click_to_chat.js
-      return scriptUrl || '/assets/genesys/click_to_chat.js';
+      // Legacy mode - use widgets.min.js directly instead of click_to_chat.js
+      return scriptUrl || '/assets/genesys/plugins/widgets.min.js';
     }, [chatMode, scriptUrl]);
 
     // Determine CSS URLs based on chat mode
@@ -698,7 +698,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               }
 
               if (typeof window !== 'undefined') {
-                window.chatSettings = legacyConfig as ChatSettings;
+                // Make sure chatMode is properly set in the legacyConfig
+                const configWithMode = {
+                  ...legacyConfig,
+                  chatMode: 'legacy', // Explicitly set chatMode to legacy
+                };
+                window.chatSettings = configWithMode as ChatSettings;
                 // Verify after setting
                 logger.info(
                   `${LOG_PREFIX} Legacy Mode: window.chatSettings set, verifying:`,
@@ -767,9 +772,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               scriptElement.id = 'genesys-chat-script';
               scriptElement.async = false;
 
-              // Add additional attributes that might be needed for BCBST script
-              // Uncomment and use if BCBST requires specific attributes
-              // scriptElement.setAttribute('data-genesys-init', 'true');
+              // Remove all custom attributes since we're using click_to_chat.js
             }
 
             scriptElement.onload = () => {
