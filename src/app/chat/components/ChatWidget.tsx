@@ -34,6 +34,9 @@ import GenesysScriptLoader from './GenesysScriptLoader';
 
 const LOG_PREFIX = '[ChatWidget]';
 
+// Add a constant for diagnostic mode (enable by default for now)
+const ENABLE_CHAT_BUTTON_DIAGNOSTICS = true;
+
 interface ChatWidgetProps {
   /** Custom container ID (default: 'genesys-chat-container') */
   containerId?: string;
@@ -1126,6 +1129,224 @@ export default function ChatWidget({
       clearInterval(buttonCheckInterval);
     };
   }, [isCXBusReady, checkGenesysButton, buttonState]);
+
+  // Add diagnostic effect
+  useEffect(() => {
+    if (!isChatEnabled) return;
+
+    // New diagnostic function to help identify what's preventing button visibility
+    const runChatButtonDiagnostics = () => {
+      if (!ENABLE_CHAT_BUTTON_DIAGNOSTICS) return;
+
+      logger.info(`${LOG_PREFIX} Running chat button diagnostics`);
+
+      // 1. Create an absolute positioned detector element at the same position as the chat button
+      if (!document.getElementById('chat-button-detector')) {
+        const detector = document.createElement('div');
+        detector.id = 'chat-button-detector';
+        detector.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 50px;
+          background-color: rgba(255, 0, 0, 0.5);
+          border: 2px dashed red;
+          z-index: 2147483646;
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          color: white;
+          text-align: center;
+        `;
+        detector.innerText = 'Chat button should be here';
+        document.body.appendChild(detector);
+        logger.info(
+          `${LOG_PREFIX} Added chat button detector at expected position`,
+        );
+      }
+
+      // 2. Check for elements at the chat button's position
+      const elementsAtPosition = document.elementsFromPoint(
+        window.innerWidth / 2, // Center X
+        window.innerHeight - 20, // Bottom Y where chat button should be
+      );
+
+      logger.info(
+        `${LOG_PREFIX} Elements at chat button position:`,
+        elementsAtPosition.map((el) => ({
+          tag: el.tagName,
+          id: el.id,
+          class: el.className,
+          zIndex: window.getComputedStyle(el).zIndex,
+          position: window.getComputedStyle(el).position,
+        })),
+      );
+
+      // 3. Scan for elements with high z-index that might be overlapping
+      const highZIndexElements: Array<{
+        tag: string;
+        id: string;
+        class: string;
+        zIndex: number;
+        position: string;
+      }> = [];
+
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach((el) => {
+        const style = window.getComputedStyle(el);
+        const zIndex = parseInt(style.zIndex);
+        if (zIndex > 1000) {
+          highZIndexElements.push({
+            tag: el.tagName,
+            id: el.id,
+            class: el.className,
+            zIndex: zIndex,
+            position: style.position,
+          });
+        }
+      });
+
+      logger.info(
+        `${LOG_PREFIX} High z-index elements (>1000) that might be overlapping:`,
+        highZIndexElements.sort((a, b) => b.zIndex - a.zIndex).slice(0, 10),
+      );
+
+      // 4. Check if the button is in a stacking context with lower z-index
+      const button = document.querySelector(
+        '.cx-widget.cx-webchat-chat-button',
+      );
+      if (button) {
+        let parent = button.parentElement;
+        const parentStackingContexts = [];
+
+        while (parent) {
+          const style = window.getComputedStyle(parent);
+          const zIndex = parseInt(style.zIndex);
+          const position = style.position;
+
+          // Check if this parent creates a stacking context with lower z-index
+          if (
+            (position === 'absolute' ||
+              position === 'relative' ||
+              position === 'fixed') &&
+            !isNaN(zIndex) &&
+            zIndex < 2147483647
+          ) {
+            parentStackingContexts.push({
+              tag: parent.tagName,
+              id: parent.id,
+              class: parent.className,
+              zIndex: zIndex,
+              position: position,
+            });
+          }
+          parent = parent.parentElement;
+        }
+
+        logger.info(
+          `${LOG_PREFIX} Parent stacking contexts that might be limiting button z-index:`,
+          parentStackingContexts,
+        );
+
+        // 5. Create a cloned button directly on the body
+        const buttonClone = button.cloneNode(true) as HTMLElement;
+        buttonClone.id = 'chat-button-extreme-clone';
+        buttonClone.style.cssText = `
+          position: fixed !important;
+          bottom: 80px !important; /* Position above the normal button position */
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          z-index: 2147483647 !important;
+          background-color: #FF5733 !important; /* Different color to distinguish it */
+          color: white !important;
+          border-radius: 4px !important;
+          padding: 10px 20px !important;
+          font-weight: 500 !important;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.5) !important;
+          border: 4px solid yellow !important;
+          width: auto !important;
+          min-width: 120px !important;
+          min-height: 40px !important;
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          pointer-events: auto !important;
+        `;
+
+        // Add text to make it super obvious
+        const textSpan = document.createElement('span');
+        textSpan.innerText = '💬 EXTREME TEST CHAT';
+        textSpan.style.cssText = `
+          color: white !important;
+          font-weight: bold !important;
+          font-size: 12px !important;
+          visibility: visible !important;
+          display: block !important;
+        `;
+        buttonClone.innerHTML = '';
+        buttonClone.appendChild(textSpan);
+
+        // Add click handler
+        buttonClone.addEventListener('click', () => {
+          logger.info(
+            `${LOG_PREFIX} Extreme clone button clicked, attempting to open chat`,
+          );
+          // Use the store directly to avoid dependency issues
+          useChatStore.getState().actions.setOpen(true);
+          if (window._genesysCXBus) {
+            try {
+              window._genesysCXBus.command('WebChat.open');
+            } catch (err) {
+              logger.error(
+                `${LOG_PREFIX} Error opening chat from extreme clone:`,
+                err,
+              );
+            }
+          }
+        });
+
+        // Only add if not already present
+        if (!document.getElementById('chat-button-extreme-clone')) {
+          document.body.appendChild(buttonClone);
+          logger.info(
+            `${LOG_PREFIX} Added extreme test button clone directly to body`,
+          );
+        }
+      }
+    };
+
+    // Run diagnostics after initial load
+    if (ENABLE_CHAT_BUTTON_DIAGNOSTICS) {
+      setTimeout(runChatButtonDiagnostics, 3000); // Give a few seconds for initial loading
+    }
+
+    // Periodically run diagnostics
+    const diagnosticsInterval = setInterval(() => {
+      // Run diagnostics occasionally
+      if (ENABLE_CHAT_BUTTON_DIAGNOSTICS && Math.random() < 0.2) {
+        // 20% chance each check
+        runChatButtonDiagnostics();
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(diagnosticsInterval);
+
+      // Clean up diagnostic elements
+      const detector = document.getElementById('chat-button-detector');
+      if (detector) detector.remove();
+
+      const extremeClone = document.getElementById('chat-button-extreme-clone');
+      if (extremeClone) extremeClone.remove();
+    };
+  }, [isChatEnabled]);
 
   // Add back config validation effect
   useEffect(() => {
