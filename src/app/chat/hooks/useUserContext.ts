@@ -12,12 +12,6 @@ interface UserContext {
   suffix?: string;
   memberType?: string;
   userID?: string;
-  memberFirstname?: string;
-  memberLastName?: string;
-  formattedFirstName?: string;
-  subscriberID?: string;
-  sfx?: string;
-  memberDOB?: string;
 }
 
 // Define the expected session structure based on what we see in the logs
@@ -31,7 +25,6 @@ interface ExtendedSession {
       lastName?: string;
       subscriberId?: string;
       suffix?: string;
-      memberDOB?: string;
       plan?: {
         memCk: string;
         sbsbCk: string;
@@ -109,38 +102,14 @@ export function useUserContext(): UserContextReturn {
       const suffix = session?.user?.currUsr?.suffix;
       const role = session?.user?.currUsr?.role;
       const umpi = session?.user?.currUsr?.umpi;
-      const memberDOB = session?.user?.currUsr?.memberDOB; // Extract DOB from session
-
-      // Log all available session data for debugging
-      logger.info(`${LOG_PREFIX} Raw session data useful for user context:`, {
-        full_session_path: {
-          currUsr: session?.user?.currUsr ? 'exists' : 'missing',
-          currUsr_plan: session?.user?.currUsr?.plan ? 'exists' : 'missing',
-          currUsr_memberDOB: session?.user?.currUsr?.memberDOB
-            ? 'exists'
-            : 'missing',
-        },
-        available_user_data: {
-          firstName: firstName,
-          lastName: lastName,
-          subscriberId: subscriberId,
-          suffix: suffix,
-          role: role,
-          umpi: umpi,
-          memberDOB: memberDOB,
-        },
-        debug_raw_user: session?.user?.currUsr,
-      });
+      logger.info(`${LOG_PREFIX} Raw UMPI value from session: `, {
+        umpiValue: session?.user?.currUsr?.umpi,
+      }); // Added specific log for umpi
 
       if (memberId && role && umpi) {
         logger.info(
           `${LOG_PREFIX} User data (memberId, role, umpi) found in session. Setting userContext.`,
-          {
-            memberId: memberId?.substring(0, 3) + '...',
-            role,
-            userID: umpi,
-            memberDOB,
-          },
+          { memberId: memberId?.substring(0, 3) + '...', role, userID: umpi },
         );
         setContext({
           memberId: memberId,
@@ -150,12 +119,6 @@ export function useUserContext(): UserContextReturn {
           suffix: suffix,
           memberType: role,
           userID: umpi,
-          memberFirstname: firstName,
-          memberLastName: lastName,
-          formattedFirstName: firstName,
-          subscriberID: subscriberId,
-          sfx: suffix,
-          memberDOB: memberDOB, // Set memberDOB field
         });
         setLoading(false);
         retryCount.current = 0; // Reset retry count on success

@@ -1413,6 +1413,15 @@
 
     // === LEGACY SCRIPT LOADER ===
     (function () {
+      // Only load in legacy mode and if not already attempted
+      if (cfg.chatMode === 'cloud' || window._genesysScriptAlreadyAttempted) {
+        console.log(
+          '[Genesys] Cloud mode or script already attempted, skipping legacy script loading',
+        );
+        return;
+      }
+
+      // Mark that we've attempted loading the script
       window._genesysScriptAlreadyAttempted = true;
 
       console.log('[Genesys] Legacy mode detected, loading widgets script');
