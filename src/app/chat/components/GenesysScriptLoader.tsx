@@ -186,6 +186,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         : 'not-started',
       instanceId: instanceId.current,
     });
+    // Extra: Log when component is mounted
+    if (typeof window !== 'undefined') {
+      // eslint-disable-next-line no-console
+      console.log(
+        '[GenesysScriptLoader] Component mounted. InstanceId:',
+        instanceId.current,
+      );
+    }
 
     // Check if this should be the active instance
     useEffect(() => {
@@ -377,6 +385,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               continue;
             }
 
+            // Extra: Log before appending CSS
+            if (typeof window !== 'undefined') {
+              // eslint-disable-next-line no-console
+              console.log('[GenesysScriptLoader] Appending CSS:', cssUrl);
+            }
+
             // Create link element
             const link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -399,16 +413,26 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     };
 
     const loadScript = useCallback(async () => {
-      // Skip if not the active instance
-      if (GenesysLoadingState.activeInstanceId !== instanceId.current) {
-        logger.info(
-          `${LOG_PREFIX} Not the active instance, skipping script loading.`,
+      // Extra: Log before shouldLoadScripts
+      if (typeof window !== 'undefined') {
+        // eslint-disable-next-line no-console
+        console.log('[GenesysScriptLoader] About to check shouldLoadScripts');
+        // eslint-disable-next-line no-console
+        console.log(
+          '[GenesysScriptLoader] ChatLoadingState:',
+          JSON.stringify(ChatLoadingState),
         );
-        return;
       }
-
       // First check if we should load scripts based on our sequential loader state
       const canLoadScripts = shouldLoadScripts();
+      // Extra: Log after shouldLoadScripts
+      if (typeof window !== 'undefined') {
+        // eslint-disable-next-line no-console
+        console.log(
+          '[GenesysScriptLoader] shouldLoadScripts returned:',
+          canLoadScripts,
+        );
+      }
       logger.info(
         `${LOG_PREFIX} Script loading check - shouldLoadScripts returned: ${canLoadScripts}`,
         {
@@ -572,6 +596,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               `${LOG_PREFIX} Attempting to load main script for ${chatMode} mode: ${effectiveScriptUrl}`,
             );
 
+            // Extra: Log before appending script
+            if (typeof window !== 'undefined') {
+              // eslint-disable-next-line no-console
+              console.log(
+                '[GenesysScriptLoader] Appending script:',
+                effectiveScriptUrl,
+              );
+            }
+
             const scriptElement: HTMLScriptElement =
               document.createElement('script');
 
@@ -606,6 +639,15 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 `${LOG_PREFIX} Main Genesys script element processed for ${chatMode} mode.`,
               );
 
+              // Extra: Log script loaded
+              if (typeof window !== 'undefined') {
+                // eslint-disable-next-line no-console
+                console.log(
+                  '[GenesysScriptLoader] Script loaded successfully:',
+                  effectiveScriptUrl,
+                );
+              }
+
               setStatus('polling-ready');
               logger.info(
                 `${LOG_PREFIX} Script processed. Now polling for widget readiness.`,
@@ -618,6 +660,16 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               logger.error(`${LOG_PREFIX} ${errMsg}`, { errorEvent: e });
               setStatus('error');
               setErrorMessage(errMsg);
+
+              // Extra: Log script load error
+              if (typeof window !== 'undefined') {
+                // eslint-disable-next-line no-console
+                console.error(
+                  '[GenesysScriptLoader] Script failed to load:',
+                  effectiveScriptUrl,
+                  e,
+                );
+              }
 
               // Mark as failed in the sequential loader
               markScriptLoadComplete(false);
