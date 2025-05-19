@@ -1,6 +1,13 @@
 (function (window, document) {
   'use strict';
 
+  console.log('[click_to_chat.js] STARTING EXECUTION');
+  console.log(
+    '[click_to_chat.js] Initial window.chatSettings:',
+    JSON.parse(JSON.stringify(window.chatSettings || {})),
+  );
+  // debugger; // Optionally add a debugger statement here
+
   // === CONFIG SECTION ===
   // Validate and set configuration with defaults
   const validateConfig = (cfg) => {
@@ -19,6 +26,12 @@
         missingFields,
       );
     }
+
+    console.log(
+      '[click_to_chat.js] Validated cfg:',
+      JSON.parse(JSON.stringify(cfg)),
+    );
+    // debugger;
 
     return {
       ...cfg,
