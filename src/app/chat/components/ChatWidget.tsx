@@ -198,14 +198,13 @@ export default function ChatWidget({
             .cx-webchat-chat-button,
             [data-cx-widget="WebChat"],
             .cx-button.cx-webchat,
-            #genesys-chat-button-clone,
             #genesys-absolute-fallback-button {
               position: fixed !important;
               z-index: 2147483647 !important;
-              left: 50% !important;
-              right: auto !important;
-              transform: translateX(-50%) !important;
+              right: 20px !important;
               bottom: 20px !important;
+              left: auto !important;
+              transform: none !important;
               display: flex !important;
               visibility: visible !important;
               opacity: 1 !important;
@@ -250,9 +249,9 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
-          left: 50% !important;
-          right: auto !important;
-          transform: translateX(-50%) !important;
+          right: 20px !important;
+          left: auto !important;
+          transform: none !important;
           width: auto !important;
           min-width: 60px !important;
           min-height: 60px !important;
@@ -303,9 +302,9 @@ export default function ChatWidget({
           position: fixed !important;
           z-index: 2147483647 !important; /* Maximum possible z-index */
           bottom: 20px !important;
-          left: 50% !important;
-          right: auto !important;
-          transform: translateX(-50%) !important;
+          right: 20px !important;
+          left: auto !important;
+          transform: none !important;
           width: auto !important;
           min-width: 60px !important;
           min-height: 60px !important;
@@ -349,45 +348,6 @@ export default function ChatWidget({
           backgroundColor: computedStyle.backgroundColor,
         });
 
-        // STRATEGY 3: Add a modal-like overlay that will have a higher z-index and position
-        // than whatever might be obscuring the chat button
-        if (!document.getElementById('genesys-chat-button-overlay')) {
-          const overlay = document.createElement('div');
-          overlay.id = 'genesys-chat-button-overlay';
-          overlay.innerHTML = `
-            <div style="
-              position: fixed;
-              bottom: 30px;
-              right: 30px;
-              width: 70px;
-              height: 70px;
-              border-radius: 50%;
-              background-color: rgba(0, 120, 212, 0.2);
-              z-index: 2147483645;
-              pointer-events: none;
-              animation: genesys-pulse-overlay 2s infinite;
-            "></div>
-          `;
-          document.body.appendChild(overlay);
-
-          // Add the animation to the CSS
-          const animStyle = document.createElement('style');
-          animStyle.id = 'genesys-chat-animations';
-          animStyle.textContent = `
-            @keyframes genesys-pulse-animation {
-              0% { transform: scale(1); }
-              50% { transform: scale(1.1); }
-              100% { transform: scale(1); }
-            }
-            @keyframes genesys-pulse-overlay {
-              0% { opacity: 0.2; transform: scale(1); }
-              50% { opacity: 0.5; transform: scale(1.3); }
-              100% { opacity: 0.2; transform: scale(1); }
-            }
-          `;
-          document.head.appendChild(animStyle);
-        }
-
         // STRATEGY 4: Create a completely separate button as absolute fallback
         if (!document.getElementById('genesys-absolute-fallback-button')) {
           const fallbackButton = document.createElement('button');
@@ -396,9 +356,9 @@ export default function ChatWidget({
           fallbackButton.style.cssText = `
             position: fixed !important;
             bottom: 70px !important; /* Position above the main button */
-            left: 50% !important;
-            right: auto !important;
-            transform: translateX(-50%) !important;
+            right: 20px !important;
+            left: auto !important;
+            transform: none !important;
             width: auto !important;
             max-width: 200px !important;
             background-color: #0078d4;
@@ -444,8 +404,9 @@ export default function ChatWidget({
                 buttonEl.style.position = 'fixed';
                 buttonEl.style.zIndex = '2147483647';
                 buttonEl.style.bottom = '20px';
-                buttonEl.style.left = '50%';
-                buttonEl.style.transform = 'translateX(-50%)';
+                buttonEl.style.right = '20px';
+                buttonEl.style.left = 'auto';
+                buttonEl.style.transform = 'none';
 
                 // Attempt to make button visible through different approaches
                 buttonEl.setAttribute('aria-hidden', 'false');
@@ -992,7 +953,6 @@ export default function ChatWidget({
 
   // Replace the guaranteed button useEffect with a targeted visibility fix
   useEffect(() => {
-    // Don't do anything if chat is not enabled
     if (!isChatEnabled) return;
 
     // Function to aggressively make the button visible
@@ -1027,8 +987,7 @@ export default function ChatWidget({
               position: fixed !important;
               z-index: 2147483647 !important;
               bottom: 20px !important;
-              left: 50% !important;
-              transform: translateX(-50%) !important;
+              right: 20px !important; /* Position at bottom right corner */
               background-color: #0056B3 !important;
               color: white !important;
               border-radius: 4px !important;
@@ -1130,48 +1089,19 @@ export default function ChatWidget({
     };
   }, [isCXBusReady, checkGenesysButton, buttonState]);
 
-  // Add diagnostic effect
+  // Replace the diagnostic effect that creates the Extreme Test chat button
   useEffect(() => {
     if (!isChatEnabled) return;
 
-    // New diagnostic function to help identify what's preventing button visibility
+    // New simplified diagnostic function to help identify what's preventing button visibility
     const runChatButtonDiagnostics = () => {
       if (!ENABLE_CHAT_BUTTON_DIAGNOSTICS) return;
 
       logger.info(`${LOG_PREFIX} Running chat button diagnostics`);
 
-      // 1. Create an absolute positioned detector element at the same position as the chat button
-      if (!document.getElementById('chat-button-detector')) {
-        const detector = document.createElement('div');
-        detector.id = 'chat-button-detector';
-        detector.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 100px;
-          height: 50px;
-          background-color: rgba(255, 0, 0, 0.5);
-          border: 2px dashed red;
-          z-index: 2147483646;
-          pointer-events: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 10px;
-          color: white;
-          text-align: center;
-        `;
-        detector.innerText = 'Chat button should be here';
-        document.body.appendChild(detector);
-        logger.info(
-          `${LOG_PREFIX} Added chat button detector at expected position`,
-        );
-      }
-
-      // 2. Check for elements at the chat button's position
+      // Check for elements at the chat button's position
       const elementsAtPosition = document.elementsFromPoint(
-        window.innerWidth / 2, // Center X
+        window.innerWidth - 20, // Right X (offset from right edge)
         window.innerHeight - 20, // Bottom Y where chat button should be
       );
 
@@ -1186,7 +1116,7 @@ export default function ChatWidget({
         })),
       );
 
-      // 3. Scan for elements with high z-index that might be overlapping
+      // Scan for elements with high z-index that might be overlapping
       const highZIndexElements: Array<{
         tag: string;
         id: string;
@@ -1215,7 +1145,7 @@ export default function ChatWidget({
         highZIndexElements.sort((a, b) => b.zIndex - a.zIndex).slice(0, 10),
       );
 
-      // 4. Check if the button is in a stacking context with lower z-index
+      // Check if the button is in a stacking context with lower z-index
       const button = document.querySelector(
         '.cx-widget.cx-webchat-chat-button',
       );
@@ -1251,74 +1181,6 @@ export default function ChatWidget({
           `${LOG_PREFIX} Parent stacking contexts that might be limiting button z-index:`,
           parentStackingContexts,
         );
-
-        // 5. Create a cloned button directly on the body
-        const buttonClone = button.cloneNode(true) as HTMLElement;
-        buttonClone.id = 'chat-button-extreme-clone';
-        buttonClone.style.cssText = `
-          position: fixed !important;
-          bottom: 80px !important; /* Position above the normal button position */
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          z-index: 2147483647 !important;
-          background-color: #FF5733 !important; /* Different color to distinguish it */
-          color: white !important;
-          border-radius: 4px !important;
-          padding: 10px 20px !important;
-          font-weight: 500 !important;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.5) !important;
-          border: 4px solid yellow !important;
-          width: auto !important;
-          min-width: 120px !important;
-          min-height: 40px !important;
-          display: flex !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-          align-items: center !important;
-          justify-content: center !important;
-          cursor: pointer !important;
-          pointer-events: auto !important;
-        `;
-
-        // Add text to make it super obvious
-        const textSpan = document.createElement('span');
-        textSpan.innerText = '💬 EXTREME TEST CHAT';
-        textSpan.style.cssText = `
-          color: white !important;
-          font-weight: bold !important;
-          font-size: 12px !important;
-          visibility: visible !important;
-          display: block !important;
-        `;
-        buttonClone.innerHTML = '';
-        buttonClone.appendChild(textSpan);
-
-        // Add click handler
-        buttonClone.addEventListener('click', () => {
-          logger.info(
-            `${LOG_PREFIX} Extreme clone button clicked, attempting to open chat`,
-          );
-          // Use the store directly to avoid dependency issues
-          useChatStore.getState().actions.setOpen(true);
-          if (window._genesysCXBus) {
-            try {
-              window._genesysCXBus.command('WebChat.open');
-            } catch (err) {
-              logger.error(
-                `${LOG_PREFIX} Error opening chat from extreme clone:`,
-                err,
-              );
-            }
-          }
-        });
-
-        // Only add if not already present
-        if (!document.getElementById('chat-button-extreme-clone')) {
-          document.body.appendChild(buttonClone);
-          logger.info(
-            `${LOG_PREFIX} Added extreme test button clone directly to body`,
-          );
-        }
       }
     };
 
@@ -1338,17 +1200,68 @@ export default function ChatWidget({
 
     return () => {
       clearInterval(diagnosticsInterval);
-
-      // Clean up diagnostic elements
-      const detector = document.getElementById('chat-button-detector');
-      if (detector) detector.remove();
-
-      const extremeClone = document.getElementById('chat-button-extreme-clone');
-      if (extremeClone) extremeClone.remove();
     };
   }, [isChatEnabled]);
 
-  // Add back config validation effect
+  // Modify the global style element to ensure fixed positioning works correctly
+  useEffect(() => {
+    if (!isChatEnabled) return;
+
+    // Create global styles for the Genesys chat button
+    if (!document.getElementById('genesys-global-reset-styles')) {
+      const globalStyles = document.createElement('style');
+      globalStyles.id = 'genesys-global-reset-styles';
+      globalStyles.textContent = `
+        /* Reset any potential parent container interference */
+        .cx-widget.cx-webchat-chat-button,
+        .cx-webchat-chat-button,
+        [data-cx-widget="WebChat"],
+        .cx-button.cx-webchat,
+        #genesys-absolute-fallback-button {
+          position: fixed !important;
+          z-index: 2147483647 !important;
+          right: 20px !important;
+          bottom: 20px !important;
+          left: auto !important;
+          transform: none !important;
+          display: flex !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          
+          /* Ensure any parent containers' overflow settings don't hide the button */
+          overflow: visible !important;
+          clip: auto !important;
+          clip-path: none !important;
+          -webkit-clip-path: none !important;
+          
+          /* Prevent parent containers from affecting the button position */
+          margin: 0 !important;
+          width: auto !important;
+          min-width: 60px !important;
+          min-height: 60px !important;
+          
+          /* Make sure pointer events work */
+          pointer-events: auto !important;
+        }
+
+        /* Ensure no parent transforms affect the fixed positioning */
+        html, body {
+          overflow-x: hidden;
+        }
+      `;
+      document.head.appendChild(globalStyles);
+      logger.info(
+        `${LOG_PREFIX} Added global reset styles to ensure button visibility`,
+      );
+    }
+
+    return () => {
+      const styles = document.getElementById('genesys-global-reset-styles');
+      if (styles) styles.remove();
+    };
+  }, [isChatEnabled]);
+
+  // Add back the config validation effect
   useEffect(() => {
     if (!genesysChatConfig) {
       logger.info(`${LOG_PREFIX} No Genesys chat configuration available yet.`);
