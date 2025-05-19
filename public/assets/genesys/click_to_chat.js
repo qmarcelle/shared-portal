@@ -858,21 +858,73 @@
       .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
       .then(() => {
         console.log(
-          `[click_to_chat.js] ${widgetsMinJsUrl} dynamically loaded.`,
+          `[click_to_chat.js] ${widgetsMinJsUrl} dynamically loaded. Defining onReady callback.`,
         );
 
-        // 1. Configure _genesys.widgets (MUST happen after widgets.min.js is loaded but BEFORE initialise)
-        initLocalWidgetConfiguration();
-
-        // 2. Define onReady AFTER _genesys.widgets is populated by widgets.min.js and initLocalWidgetConfiguration
-        // This callback is triggered by widgets.min.js when CXBus is ready.
+        // Define onReady. initLocalWidgetConfiguration and initialise() will be called INSIDE it.
         if (window._genesys && window._genesys.widgets) {
           window._genesys.widgets.onReady = (CXBus) => {
             console.log(
-              '[click_to_chat.js] CXBus ready (via onReady callback), registering plugins and handlers',
+              '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. main.initialise, 3. CXBus commands/plugins.',
+            );
+
+            // 1. Call initLocalWidgetConfiguration()
+            console.log(
+              '[click_to_chat.js] onReady: Calling initLocalWidgetConfiguration().',
+            );
+            initLocalWidgetConfiguration();
+            console.log(
+              '[click_to_chat.js] onReady: initLocalWidgetConfiguration() completed.',
+            );
+
+            // 2. Call _genesys.widgets.main.initialise()
+            console.log(
+              '[click_to_chat.js] onReady: Calling _genesys.widgets.main.initialise().',
+            );
+            if (
+              window._genesys.widgets.main &&
+              typeof window._genesys.widgets.main.initialise === 'function'
+            ) {
+              try {
+                window._genesys.widgets.main.initialise();
+                console.log(
+                  '[click_to_chat.js] onReady: _genesys.widgets.main.initialise() called successfully.',
+                );
+              } catch (initError) {
+                console.error(
+                  '[click_to_chat.js] onReady: Error calling _genesys.widgets.main.initialise():',
+                  initError,
+                );
+                // Dispatch an error event for the app to potentially pick up
+                document.dispatchEvent(
+                  new CustomEvent('genesys:error', {
+                    detail: {
+                      message: 'Error during main.initialise() in onReady',
+                      error: initError,
+                    },
+                  }),
+                );
+              }
+            } else {
+              console.error(
+                '[click_to_chat.js] onReady: _genesys.widgets.main.initialise is NOT a function. Cannot initialize. Current _genesys.widgets.main:',
+                JSON.parse(JSON.stringify(window._genesys.widgets.main || {})),
+              );
+              document.dispatchEvent(
+                new CustomEvent('genesys:error', {
+                  detail: {
+                    message:
+                      '_genesys.widgets.main.initialise not found in onReady',
+                  },
+                }),
+              );
+            }
+
+            // 3. Register CXBus plugins, event subscriptions, and show button
+            console.log(
+              '[click_to_chat.js] onReady: Storing CXBus reference and registering plugins.',
             );
             window._genesysCXBus = CXBus; // Store CXBus reference globally
-
             const plugin = CXBus.registerPlugin('LocalCustomization');
 
             // WebChat.opened handler
@@ -1058,38 +1110,43 @@
 
             // After CXBus is ready and handlers are set up, try to show the chat button
             console.log(
-              '[click_to_chat.js] CXBus ready. Attempting to show chat button.',
+              '[click_to_chat.js] onReady: CXBus plugins registered. Attempting to show chat button.',
             );
             try {
               CXBus.command('WebChat.showChatButton');
               document.dispatchEvent(new CustomEvent('genesys:ready')); // Signal overall readiness
+              console.log(
+                '[click_to_chat.js] onReady: WebChat.showChatButton commanded successfully.',
+              );
             } catch (e) {
               console.error(
-                '[click_to_chat.js] Error showing chat button via CXBus after onReady:',
+                '[click_to_chat.js] onReady: Error showing chat button via CXBus:',
                 e,
               );
             }
           };
+          console.log(
+            '[click_to_chat.js] window._genesys.widgets.onReady has been defined.',
+          );
         } else {
           console.error(
-            '[click_to_chat.js] _genesys.widgets object not available to set onReady after widgets.min.js load.',
+            '[click_to_chat.js] _genesys.widgets object not available to set onReady after widgets.min.js load. Chat will likely fail.',
+          );
+          document.dispatchEvent(
+            new CustomEvent('genesys:error', {
+              detail: {
+                message: '_genesys.widgets not available to define onReady.',
+                error: new Error('_genesys.widgets undefined post load'),
+              },
+            }),
           );
         }
 
-        // 3. Initialize Genesys Widgets (this will call _genesys.widgets.main.initialise())
-        // The existing initializeWidgetsExplicitly and _genesysCheckWidgetsReady logic can be leveraged.
-        // These functions should be defined in a scope accessible here.
+        // Rely on widgets.min.js internal load and onReady event to trigger further initialization.
+        // No longer need to explicitly call initializeWidgetsExplicitly() from here.
         console.log(
-          '[click_to_chat.js] Proceeding with explicit widget initialization after dynamic load.',
+          '[click_to_chat.js] Relying on widgets.min.js internal preloading and its onReady event to trigger configured initialization steps.',
         );
-        if (typeof initializeWidgetsExplicitly === 'function') {
-          initializeWidgetsExplicitly(); // This should eventually call _genesys.widgets.main.initialise()
-        } else {
-          console.error(
-            '[click_to_chat.js] initializeWidgetsExplicitly function not found!',
-          );
-          // Fallback or error handling if critical functions are missing
-        }
       })
       .catch((err) => {
         console.error(
