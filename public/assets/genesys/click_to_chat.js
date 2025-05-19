@@ -866,21 +866,12 @@
         if (window._genesys && window._genesys.widgets) {
           window._genesys.widgets.onReady = (CXBus) => {
             console.log(
-              '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. main.initialise, 3. CXBus commands/plugins.',
+              '[click_to_chat.js] CXBus ready (via onReady callback). DIAGNOSTIC ORDER: 1. main.initialise, 2. initLocalWidgetConfiguration, 3. CXBus commands/plugins.',
             );
 
-            // 1. Call initLocalWidgetConfiguration()
+            // DIAGNOSTIC: 1. Call _genesys.widgets.main.initialise() FIRST
             console.log(
-              '[click_to_chat.js] onReady: Calling initLocalWidgetConfiguration().',
-            );
-            initLocalWidgetConfiguration();
-            console.log(
-              '[click_to_chat.js] onReady: initLocalWidgetConfiguration() completed.',
-            );
-
-            // 2. Call _genesys.widgets.main.initialise()
-            console.log(
-              '[click_to_chat.js] onReady: Calling _genesys.widgets.main.initialise().',
+              '[click_to_chat.js] onReady: DIAGNOSTIC - Calling _genesys.widgets.main.initialise() BEFORE initLocalWidgetConfiguration.',
             );
             if (
               window._genesys.widgets.main &&
@@ -889,18 +880,18 @@
               try {
                 window._genesys.widgets.main.initialise();
                 console.log(
-                  '[click_to_chat.js] onReady: _genesys.widgets.main.initialise() called successfully.',
+                  '[click_to_chat.js] onReady: DIAGNOSTIC - _genesys.widgets.main.initialise() called successfully (before local config).',
                 );
               } catch (initError) {
                 console.error(
-                  '[click_to_chat.js] onReady: Error calling _genesys.widgets.main.initialise():',
+                  '[click_to_chat.js] onReady: DIAGNOSTIC - Error calling _genesys.widgets.main.initialise() (before local config):',
                   initError,
                 );
-                // Dispatch an error event for the app to potentially pick up
                 document.dispatchEvent(
                   new CustomEvent('genesys:error', {
                     detail: {
-                      message: 'Error during main.initialise() in onReady',
+                      message:
+                        'Error during main.initialise() in onReady (diagnostic order)',
                       error: initError,
                     },
                   }),
@@ -908,18 +899,27 @@
               }
             } else {
               console.error(
-                '[click_to_chat.js] onReady: _genesys.widgets.main.initialise is NOT a function. Cannot initialize. Current _genesys.widgets.main:',
+                '[click_to_chat.js] onReady: DIAGNOSTIC - _genesys.widgets.main.initialise is NOT a function (before local config). Current _genesys.widgets.main:',
                 JSON.parse(JSON.stringify(window._genesys.widgets.main || {})),
               );
               document.dispatchEvent(
                 new CustomEvent('genesys:error', {
                   detail: {
                     message:
-                      '_genesys.widgets.main.initialise not found in onReady',
+                      '_genesys.widgets.main.initialise not found in onReady (diagnostic order)',
                   },
                 }),
               );
             }
+
+            // DIAGNOSTIC: 2. Call initLocalWidgetConfiguration()
+            console.log(
+              '[click_to_chat.js] onReady: DIAGNOSTIC - Calling initLocalWidgetConfiguration() AFTER attempting initialise.',
+            );
+            initLocalWidgetConfiguration();
+            console.log(
+              '[click_to_chat.js] onReady: DIAGNOSTIC - initLocalWidgetConfiguration() completed (after attempting initialise).',
+            );
 
             // 3. Register CXBus plugins, event subscriptions, and show button
             console.log(
