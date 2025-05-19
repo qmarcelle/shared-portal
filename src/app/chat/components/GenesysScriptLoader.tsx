@@ -673,8 +673,40 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
                 `${LOG_PREFIX} Legacy Mode: Setting window.chatSettings with legacyConfig:`,
                 legacyConfig,
               );
+
+              // Log detailed legacy configuration for troubleshooting
+              if (legacyConfig) {
+                logger.info(
+                  `${LOG_PREFIX} Legacy Mode - Critical Configuration Details:`,
+                  {
+                    clickToChatEndpoint:
+                      legacyConfig.clickToChatEndpoint || 'NOT SET',
+                    clickToChatToken: legacyConfig.clickToChatToken
+                      ? 'PRESENT'
+                      : 'MISSING',
+                    targetContainer: legacyConfig.targetContainer || 'NOT SET',
+                    isChatAvailable: legacyConfig.isChatAvailable,
+                    isChatEligibleMember: legacyConfig.isChatEligibleMember,
+                    isCobrowseActive: legacyConfig.isCobrowseActive,
+                    cobrowseSource: legacyConfig.cobrowseSource,
+                    widgetUrl: legacyConfig.widgetUrl,
+                    genesysWidgetUrl: legacyConfig.genesysWidgetUrl,
+                  },
+                );
+              }
+
               if (typeof window !== 'undefined') {
                 window.chatSettings = legacyConfig;
+                // Verify after setting
+                logger.info(
+                  `${LOG_PREFIX} Legacy Mode: window.chatSettings set, verifying:`,
+                  {
+                    isSet: !!window.chatSettings,
+                    keysCount: window.chatSettings
+                      ? Object.keys(window.chatSettings).length
+                      : 0,
+                  },
+                );
               } else {
                 logger.warn(
                   `${LOG_PREFIX} Legacy Mode: window object not available. Cannot set window.chatSettings.`,
@@ -726,9 +758,16 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               `;
             } else {
               // Legacy mode
+              logger.info(
+                `${LOG_PREFIX} Legacy Mode: Creating script element with src: ${effectiveScriptUrl}`,
+              );
               scriptElement.src = effectiveScriptUrl;
               scriptElement.id = 'genesys-chat-script';
               scriptElement.async = false;
+
+              // Add additional attributes that might be needed for BCBST script
+              // Uncomment and use if BCBST requires specific attributes
+              // scriptElement.setAttribute('data-genesys-init', 'true');
             }
 
             scriptElement.onload = () => {

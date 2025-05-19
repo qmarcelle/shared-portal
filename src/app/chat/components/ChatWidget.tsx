@@ -957,6 +957,78 @@ export default function ChatWidget({
     return () => clearInterval(buttonCheckInterval);
   }, [isCXBusReady, checkGenesysButton, genesysButtonFound]);
 
+  // Add effect for enforcing chat mode and validating configuration
+  useEffect(() => {
+    // Only proceed if we have a config
+    if (!genesysChatConfig) {
+      logger.info(`${LOG_PREFIX} No Genesys chat configuration available yet.`);
+      return;
+    }
+
+    // Use type assertion to access properties
+    const config = genesysChatConfig as any;
+
+    // Validate chat mode
+    const currentChatMode = chatMode || 'legacy';
+    const serverChatMode = config.chatMode || 'legacy';
+    const isCloudEligible =
+      config.cloudChatEligible === 'true' || config.cloudChatEligible === true;
+
+    logger.info(`${LOG_PREFIX} Chat mode validation:`, {
+      chatMode: currentChatMode,
+      serverSpecifiedMode: serverChatMode,
+      cloudEligible: isCloudEligible,
+      usingLegacyConfig: !!legacyConfig,
+      usingCloudConfig: !!cloudConfig,
+      configSource: chatMode === 'legacy' ? 'legacyConfig' : 'cloudConfig',
+    });
+
+    // Log important configuration values
+    logger.info(`${LOG_PREFIX} Genesys configuration:`, {
+      clickToChatEndpoint: config.clickToChatEndpoint,
+      clickToChatToken: config.clickToChatToken ? '[PRESENT]' : '[MISSING]',
+      isChatAvailable: config.isChatAvailable,
+      isChatEligibleMember: config.isChatEligibleMember,
+      targetContainer: config.targetContainer,
+      chatHours: config.chatHours,
+      rawChatHrs: config.rawChatHrs,
+      widgetUrl: config.widgetUrl,
+      clickToChatJs: config.clickToChatJs,
+      gmsChatUrl: config.gmsChatUrl,
+    });
+
+    // Mode conflict warning
+    if (serverChatMode !== currentChatMode) {
+      logger.warn(
+        `${LOG_PREFIX} Chat mode mismatch! Server specified '${serverChatMode}' but using '${currentChatMode}'. Proceeding with ${currentChatMode} mode.`,
+      );
+    }
+
+    // Warn if using cloud mode but not eligible
+    if (currentChatMode === 'cloud' && !isCloudEligible) {
+      logger.warn(
+        `${LOG_PREFIX} Using CLOUD mode but server indicates not cloud-eligible. This may cause issues.`,
+      );
+    }
+
+    // Validate configuration for legacy mode
+    if (currentChatMode === 'legacy') {
+      const requiredFields = [
+        'clickToChatEndpoint',
+        'clickToChatToken',
+        'targetContainer',
+      ];
+
+      const missingFields = requiredFields.filter((field) => !config[field]);
+
+      if (missingFields.length > 0) {
+        logger.error(
+          `${LOG_PREFIX} Legacy mode is missing required fields: ${missingFields.join(', ')}`,
+        );
+      }
+    }
+  }, [genesysChatConfig, chatMode, legacyConfig, cloudConfig]);
+
   console.log('[ChatWidget] Component rendered');
   logger.info('[ChatWidget] Component rendered', {});
 
