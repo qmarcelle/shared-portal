@@ -499,6 +499,56 @@
   function initializeChatWidget($, cfg) {
     console.log('[Genesys] Beginning chat widget initialization');
 
+    // Define mapChatSettingsToUserData here
+    function mapChatSettingsToUserData(settings) {
+      if (!settings) {
+        console.warn(
+          '[click_to_chat.js] mapChatSettingsToUserData: chatSettings is undefined. Returning empty userData.',
+        );
+        return {};
+      }
+      const userData = {
+        // Genesys standard fields (names might need adjustment based on specific Genesys widget version/config)
+        firstName: settings.formattedFirstName || settings.firstname || '',
+        lastName: settings.memberLastName || settings.lastname || '',
+        email: settings.email || '', // Assuming email might be in settings
+        subject: 'Member Inquiry', // Default or could be from settings if available
+        phone: settings.phone || '', // Assuming phone might be in settings
+
+        // Custom data fields - these can be used for routing or display in agent desktop
+        userID: settings.userID || '',
+        memberMedicalPlanID: settings.memberMedicalPlanID || '',
+        subscriberID: settings.subscriberID || '',
+        sfx: settings.sfx || '',
+        groupId: settings.groupId || '',
+        isDemoMember: String(
+          settings.isDemoMember === true || settings.isDemoMember === 'true',
+        ),
+        isAmplifyMem: String(
+          settings.isAmplifyMem === true || settings.isAmplifyMem === 'true',
+        ),
+        currentPlanName: settings.currentPlanName || '', // Added this as it seems useful
+        // Add any other relevant fields from chatSettings that should be passed
+      };
+
+      // Clean up userData: remove any properties that are empty strings, null, or undefined
+      Object.keys(userData).forEach((key) => {
+        if (
+          userData[key] === undefined ||
+          userData[key] === null ||
+          userData[key] === ''
+        ) {
+          delete userData[key];
+        }
+      });
+
+      console.log(
+        '[click_to_chat.js] mapChatSettingsToUserData generated:',
+        JSON.parse(JSON.stringify(userData)),
+      );
+      return userData;
+    }
+
     // === Constants & Utilities ===
     const clientIdConst = {
       BlueCare: 'BC',
