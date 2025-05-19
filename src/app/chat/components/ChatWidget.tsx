@@ -692,17 +692,6 @@ export default function ChatWidget({
     if (!isCXBusReady) return;
     logger.info(`${LOG_PREFIX} CXBus is ready, starting button checks`);
     useChatStore.getState().actions.setButtonState('creating');
-    if (window._forceChatButtonCreate) {
-      try {
-        logger.info(`${LOG_PREFIX} Calling _forceChatButtonCreate()`);
-        window._forceChatButtonCreate();
-      } catch (err) {
-        logger.error(
-          `${LOG_PREFIX} Error calling _forceChatButtonCreate():`,
-          err,
-        );
-      }
-    }
     checkGenesysButton();
     const buttonCheckInterval = setInterval(() => {
       if (
