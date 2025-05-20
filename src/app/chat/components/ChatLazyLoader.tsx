@@ -47,14 +47,16 @@ interface ChatWidgetProps {
 }
 
 const ChatProvider = lazy(() =>
-  import('@/app/chat/components/ChatProvider').then((mod) => ({
-    default: mod.default as ComponentType<ChatProviderProps>,
-  })),
+  import('@/app/chat/components/ChatProvider').then((mod) => {
+    logger.info(`${LOG_PREFIX} Dynamic import for ChatProvider resolved.`);
+    return { default: mod.default as ComponentType<ChatProviderProps> };
+  }),
 );
 const ChatWidget = lazy(() =>
-  import('@/app/chat/components/ChatWidget').then((mod) => ({
-    default: mod.default as ComponentType<ChatWidgetProps>,
-  })),
+  import('@/app/chat/components/ChatWidget').then((mod) => {
+    logger.info(`${LOG_PREFIX} Dynamic import for ChatWidget resolved.`);
+    return { default: mod.default as ComponentType<ChatWidgetProps> };
+  }),
 );
 
 // Global check (use with caution, ref is preferred)
@@ -69,83 +71,109 @@ export const ChatLazyLoader: React.FC<ChatLazyLoaderProps> = ({
   autoInitialize = true,
 }) => {
   const [chatInitialized, setChatInitialized] = useState(false);
-  const isInitialized = useRef(false); // Ref to track initialization
+  const isInstanceInitialized = useRef(false); // Tracks if THIS instance has completed its initialization attempt
+  const instanceId = useRef(
+    `lazy-loader-${Date.now()}-${Math.random().toString(36).substring(7)}`,
+  ).current;
+
+  // Log mount and unmount of ChatLazyLoader
+  useEffect(() => {
+    logger.info(
+      `${LOG_PREFIX} ========== ChatLazyLoader MOUNTED ========== Instance: ${instanceId}, autoInitialize: ${autoInitialize}`,
+    );
+    return () => {
+      logger.warn(
+        `${LOG_PREFIX} ========== ChatLazyLoader UNMOUNTING ========== Instance: ${instanceId}`,
+      );
+    };
+  }, [instanceId, autoInitialize]);
 
   const initializeChat = useCallback(() => {
-    logger.info(`${LOG_PREFIX} initializeChat triggered`);
-    setChatInitialized(true);
-  }, [setChatInitialized]);
+    logger.info(
+      `${LOG_PREFIX} initializeChat called for instance ${instanceId}. Current chatInitialized (from state): ${chatInitialized}, isInstanceInitialized (ref): ${isInstanceInitialized.current}`,
+    );
+    if (!isInstanceInitialized.current) {
+      setChatInitialized(true);
+      isInstanceInitialized.current = true;
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId}: Set chatInitialized to true. isInstanceInitialized set to true.`,
+      );
+    } else {
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId}: initializeChat called but isInstanceInitialized was already true. No action taken.`,
+      );
+    }
+  }, [instanceId]);
 
   useEffect(() => {
-    if (autoInitialize && !isInitialized.current) {
-      const timer = setTimeout(() => {
-        logger.info(`${LOG_PREFIX} Auto-initialization timer fired.`);
+    logger.info(
+      `${LOG_PREFIX} Effect for auto-initialization running for instance ${instanceId}. autoInitialize: ${autoInitialize}, isInstanceInitialized (ref): ${isInstanceInitialized.current}, window._chatLazyLoaderInitialized: ${typeof window !== 'undefined' ? window._chatLazyLoaderInitialized : 'undefined'}`,
+    );
+
+    let timerId: NodeJS.Timeout | undefined;
+
+    if (autoInitialize && !isInstanceInitialized.current) {
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId}: autoInitialize is true and this instance is not yet initialized. Starting timer.`,
+      );
+      timerId = setTimeout(() => {
+        logger.info(
+          `${LOG_PREFIX} Instance ${instanceId}: Auto-initialization timer fired. Calling initializeChat.`,
+        );
         try {
           initializeChat();
-          logger.info(`${LOG_PREFIX} initializeChat called successfully`);
-          isInitialized.current = true; // Mark as initialized
-        } catch (error) {
-          logger.error(`${LOG_PREFIX} Error in auto-initialization:`, error);
-        }
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-
-    // Global check (use with caution, ref is preferred)
-    // Ensure window is defined before accessing _chatLazyLoaderInitialized
-    if (
-      autoInitialize &&
-      typeof window !== 'undefined' &&
-      !window._chatLazyLoaderInitialized
-    ) {
-      const timer = setTimeout(() => {
-        logger.info(`${LOG_PREFIX} Global auto-initialization timer fired.`);
-        try {
-          initializeChat();
-          logger.info(
-            `${LOG_PREFIX} Global initializeChat called successfully`,
-          );
-          isInitialized.current = true; // Mark as initialized
-          window._chatLazyLoaderInitialized = true;
+          if (typeof window !== 'undefined')
+            window._chatLazyLoaderInitialized = true;
         } catch (error) {
           logger.error(
-            `${LOG_PREFIX} Global Error in auto-initialization:`,
+            `${LOG_PREFIX} Instance ${instanceId}: Error in auto-initialization timer callback:`,
             error,
           );
         }
       }, 3000);
-      return () => clearTimeout(timer);
+    } else if (isInstanceInitialized.current) {
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId}: Already initialized by this instance. No timer needed.`,
+      );
+    } else if (!autoInitialize) {
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId}: autoInitialize is false. Waiting for manual trigger if any.`,
+      );
     }
-  }, [autoInitialize, initializeChat]);
+
+    return () => {
+      if (timerId) {
+        clearTimeout(timerId);
+        logger.info(
+          `${LOG_PREFIX} Instance ${instanceId}: Cleared auto-initialization timer on unmount/re-effect.`,
+        );
+      }
+    };
+  }, [autoInitialize, initializeChat, instanceId]);
+
+  logger.info(
+    `${LOG_PREFIX} Rendering for instance ${instanceId}. chatInitialized (state): ${chatInitialized}, autoInitialize: ${autoInitialize}`,
+  );
 
   if (!chatInitialized) {
-    logger.info(
-      `${LOG_PREFIX} Chat not yet initialized. ${
-        autoInitialize
-          ? 'Auto-initializing...'
-          : 'Rendering initialization button.'
-      }`,
-    );
     return autoInitialize ? (
       <div data-testid="chat-lazy-loader-auto-initializing">
-        Initializing Chat...
+        {/* Chat will initialize automatically... (Silent for user unless error) */}
       </div>
     ) : (
       <button onClick={initializeChat} data-testid="chat-lazy-loader-button">
-        Open Chat
+        Open Chat (Manual Init)
       </button>
     );
   }
 
   logger.info(
-    `${LOG_PREFIX} Chat initialized. Rendering ChatProvider and ChatWidget.`,
+    `${LOG_PREFIX} Instance ${instanceId}: chatInitialized is true. Rendering ChatProvider and ChatWidget.`,
   );
-  logger.info('[ChatLazyLoader] About to render ChatProvider');
 
   return (
-    <Suspense fallback={<div>Loading Chat UI...</div>}>
-      <ChatProvider>
+    <Suspense fallback={<div>Loading Chat Modules...</div>}>
+      <ChatProvider key={`chat-provider-${instanceId}`} autoInitialize={true}>
         <ChatWidget />
       </ChatProvider>
     </Suspense>
