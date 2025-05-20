@@ -17,7 +17,6 @@ import { Column } from '../../../components/foundation/Column';
 import { Header } from '../../../components/foundation/Header';
 import { externalIcon } from '../../../components/foundation/Icons';
 import { MemberRewards } from '../models/app/my_health_data';
-import { WellnessInfo } from './WellnessInfo';
 
 interface WellnessRewardsProps extends IComponent {
   color1?: string;
@@ -205,13 +204,13 @@ export const WellnessRewards = ({
           )}
         </>
       </Card>
-      <WellnessInfo
+      {/* <WellnessInfo
         header="Active Rewards - Employer Provided Reward"
         subHeader="Wellness Rewards"
         bodyText="Complete wellness tasks to earn rewards provided by your employer."
         buttonText="Learn More"
         className="section"
-      />
+      /> */}
     </>
   );
 };
