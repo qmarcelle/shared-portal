@@ -86,7 +86,7 @@ export const MembersRepresentativeItem = ({
         <Row>
           <TextBox
             className="pt-1 ml-1"
-            text={`Basic Access as of ${createdAt}`}
+            text={`${accessStatus} as of ${createdAt}`}
           />
           <Spacer axis="horizontal" size={32} />
         </Row>
@@ -147,7 +147,7 @@ export const MembersRepresentativeItem = ({
             <Row>
               <TextBox
                 className="ml-2"
-                text={`Basic Access as of ${createdAt}`}
+                text={`${accessStatus} as of ${createdAt}`}
               />
               <Spacer size={42} />
             </Row>
