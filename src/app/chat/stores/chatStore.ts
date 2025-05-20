@@ -302,6 +302,10 @@ export const useChatStore = create<ChatState>((set, get) => {
               memberTypeForApi,
             );
             logger.info(
+              `${LOG_CONFIG_PREFIX} Raw chatInfoResponse from getChatInfo API:`,
+              JSON.parse(JSON.stringify(chatInfoResponse)), // Deep clone for reliable logging of the raw object
+            );
+            logger.info(
               `${LOG_CONFIG_PREFIX} Raw chatInfoResponse (ApiConfig source):`,
               {
                 data: chatInfoResponse,
