@@ -190,13 +190,24 @@ export default function ChatProvider({
   }, [session?.user?.id, sessionStatus]);
 
   useEffect(() => {
+    logger.info(
+      `${LOG_PREFIX} UserProfile useEffect triggered. Deps - sessionStatus: ${sessionStatus}, isLoadingPbeData: ${isLoadingPbeData}, pbeData available: ${!!pbeData}, session.user.currUsr.umpi: ${session?.user?.currUsr?.umpi}`,
+    );
     // Ensures isLoadingUserProfile is reliably set to false once profile sourcing is attempted.
     if (sessionStatus === 'loading' || isLoadingPbeData) {
+      // Condition A
+      logger.info(
+        `${LOG_PREFIX} UserProfile useEffect: Condition A met (session loading or PBE loading). Setting isLoadingUserProfile: true.`,
+      );
       setIsLoadingUserProfile(true);
       return;
     }
 
     if (sessionStatus === 'unauthenticated') {
+      // Condition B
+      logger.info(
+        `${LOG_PREFIX} UserProfile useEffect: Condition B met (unauthenticated). Setting isLoadingUserProfile: false.`,
+      );
       setUserProfileData(null);
       setIsLoadingUserProfile(false);
       return;
@@ -204,28 +215,44 @@ export default function ChatProvider({
 
     // Session is authenticated, and PBE data is no longer loading.
     if (!pbeData) {
+      // Condition C
       logger.warn(
-        `${LOG_PREFIX} PBEData is null/undefined after its loading phase. Cannot compute UserProfile.`,
+        `${LOG_PREFIX} UserProfile useEffect: Condition C met (PBEData is null/undefined). Setting isLoadingUserProfile: false.`,
       );
       setUserProfileData(null);
-      setIsLoadingUserProfile(false);
+      setIsLoadingUserProfile(false); // Good: sets to false
       return;
     }
 
     // Attempt to compute profile. Set loading true now.
-    setIsLoadingUserProfile(true);
+    logger.info(
+      `${LOG_PREFIX} UserProfile useEffect: Attempting to compute profile. Setting isLoadingUserProfile: true (Condition D).`,
+    );
+    setIsLoadingUserProfile(true); // Condition D: Sets to true before computation
     if (session?.user?.currUsr?.umpi) {
+      // Condition E
+      logger.info(
+        `${LOG_PREFIX} UserProfile useEffect: UMPI found (${session.user.currUsr.umpi}). Entering try/catch/finally for computeUserProfilesFromPbe.`,
+      );
       try {
         const profiles = computeUserProfilesFromPbe(
           pbeData,
           session.user.currUsr.umpi,
           session.user.currUsr.plan?.memCk,
         );
+        logger.info(
+          `${LOG_PREFIX} UserProfile useEffect: computeUserProfilesFromPbe returned profiles:`,
+          profiles,
+        );
         const currentUserProfile = profiles.find(
           (p) => p.id === session.user.currUsr.umpi && p.selected,
         );
         if (currentUserProfile) {
           setUserProfileData(currentUserProfile);
+          logger.info(
+            `${LOG_PREFIX} UserProfile useEffect: currentUserProfile found and set.`,
+            currentUserProfile,
+          );
         } else {
           const fallbackProfile = profiles.find(
             (p) => p.id === session.user.currUsr.umpi,
@@ -233,76 +260,109 @@ export default function ChatProvider({
           setUserProfileData(fallbackProfile || null);
           if (!fallbackProfile) {
             logger.warn(
-              `${LOG_PREFIX} UserProfile not found for umpi: ${session.user.currUsr.umpi}. Attempted fallback.`,
+              `${LOG_PREFIX} UserProfile useEffect: UserProfile not found for umpi: ${session.user.currUsr.umpi}. Attempted fallback, result:`,
+              fallbackProfile,
+            );
+          } else {
+            logger.info(
+              `${LOG_PREFIX} UserProfile useEffect: Fallback profile found and set.`,
+              fallbackProfile,
             );
           }
         }
       } catch (error) {
         logger.error(
-          `${LOG_PREFIX} Error computing UserProfile from PBEData:`,
+          `${LOG_PREFIX} UserProfile useEffect: Error computing UserProfile from PBEData:`,
           error,
         );
         setUserProfileData(null);
       } finally {
-        setIsLoadingUserProfile(false); // Critical: ensure this is always called after attempt
+        logger.info(
+          `${LOG_PREFIX} UserProfile useEffect: In finally block. Setting isLoadingUserProfile: false.`,
+        );
+        setIsLoadingUserProfile(false); // CRITICAL: Good, this is in a finally block
       }
     } else {
+      // Condition F: Else for (session?.user?.currUsr?.umpi)
       logger.warn(
-        `${LOG_PREFIX} session.user.currUsr.umpi missing. Cannot compute UserProfile.`,
+        `${LOG_PREFIX} UserProfile useEffect: Condition F met (session.user.currUsr.umpi missing). Setting isLoadingUserProfile: false.`,
       );
       setUserProfileData(null);
-      setIsLoadingUserProfile(false); // UMPI missing, computation attempt over
+      setIsLoadingUserProfile(false); // GOOD: Sets to false if UMPI is missing
     }
   }, [session, sessionStatus, pbeData, isLoadingPbeData]);
 
   useEffect(() => {
+    logger.info(
+      `${LOG_PREFIX} mainAppPlanData useEffect triggered. Deps - sessionStatus: ${sessionStatus}, storePlans count: ${storePlans?.length}, storeSelectedPlanId: ${storeSelectedPlanId}, isPlanStoreLoading: ${isPlanStoreLoading}`,
+    );
     const sourceMainAppPlanData = () => {
       if (isPlanStoreLoading) {
-        logger.info(`${LOG_PREFIX} Waiting for planStore to finish loading...`);
+        logger.info(
+          `${LOG_PREFIX} mainAppPlanData: Waiting for planStore to finish loading... Setting isLoadingMainAppPlanData: true.`,
+        );
         setIsLoadingMainAppPlanData(true); // Explicitly set loading if planStore is loading
         return;
       }
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: PlanStore not loading. Starting processing. Setting isLoadingMainAppPlanData: true.`,
+      );
       setIsLoadingMainAppPlanData(true); // Start of processing
+
       if (storePlans && storeSelectedPlanId) {
         const selectedPlan = storePlans.find(
           (p) => p.id === storeSelectedPlanId,
         );
         if (selectedPlan) {
-          setMainAppPlanData({
+          const newMainAppPlanData = {
             numberOfPlans: storePlans.length,
             selectedPlan: selectedPlan, // Store the selected plan
             isLoaded: true,
-          });
-        } else {
-          logger.warn(
-            `${LOG_PREFIX} SelectedPlanId (${storeSelectedPlanId}) not found in storePlans. Using fallback.`,
+          };
+          logger.info(
+            `${LOG_PREFIX} mainAppPlanData: storePlans and storeSelectedPlanId found. Selected plan: ${selectedPlan.id}. Setting mainAppPlanData:`,
+            newMainAppPlanData,
           );
-          setMainAppPlanData({
+          setMainAppPlanData(newMainAppPlanData);
+        } else {
+          const newMainAppPlanData = {
             numberOfPlans: storePlans.length,
             selectedPlan: null, // No plan found
             isLoaded: false, // Indicate not fully loaded or error state
-          });
+          };
+          logger.warn(
+            `${LOG_PREFIX} mainAppPlanData: SelectedPlanId (${storeSelectedPlanId}) not found in storePlans. Using fallback. Setting mainAppPlanData:`,
+            newMainAppPlanData,
+          );
+          setMainAppPlanData(newMainAppPlanData);
         }
       } else if (storePlans && storePlans.length > 0 && !storeSelectedPlanId) {
-        logger.warn(
-          `${LOG_PREFIX} planStore has ${storePlans.length} plans, but no selectedPlanId. Using first plan as default.`,
-        );
         const defaultPlan = storePlans[0];
-        setMainAppPlanData({
+        const newMainAppPlanData = {
           numberOfPlans: storePlans.length,
           selectedPlan: defaultPlan || null, // Store the default plan
           isLoaded: true,
-        });
-      } else {
+        };
         logger.warn(
-          `${LOG_PREFIX} planStore data not fully available (plans empty: ${!storePlans || storePlans.length === 0}, no selectedId: ${!storeSelectedPlanId}).`,
+          `${LOG_PREFIX} mainAppPlanData: planStore has ${storePlans.length} plans, but no selectedPlanId. Using first plan as default (${defaultPlan?.id}). Setting mainAppPlanData:`,
+          newMainAppPlanData,
         );
-        setMainAppPlanData({
+        setMainAppPlanData(newMainAppPlanData);
+      } else {
+        const newMainAppPlanData = {
           numberOfPlans: 0,
           selectedPlan: null, // No plan available
           isLoaded: false,
-        });
+        };
+        logger.warn(
+          `${LOG_PREFIX} mainAppPlanData: planStore data not fully available (plans empty: ${!storePlans || storePlans.length === 0}, no selectedId: ${!storeSelectedPlanId}). Setting mainAppPlanData:`,
+          newMainAppPlanData,
+        );
+        setMainAppPlanData(newMainAppPlanData);
       }
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: Processing finished. Setting isLoadingMainAppPlanData: false.`,
+      );
       setIsLoadingMainAppPlanData(false);
     };
 
