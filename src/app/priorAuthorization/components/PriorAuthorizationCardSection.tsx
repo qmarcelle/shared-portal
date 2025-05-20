@@ -1,5 +1,4 @@
 import { IComponent } from '@/components/IComponent';
-import { ClaimItem } from '@/components/composite/ClaimItem';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
@@ -7,12 +6,14 @@ import { TextBox } from '@/components/foundation/TextBox';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
-import { PriorAuthFilterDetails } from '../models/prior_AuthFilterDetails';
+import { PriorAuthFilterDetails } from '../models/priorAuthFilterDetails';
+import { PriorAuthItem } from './PriorAuthItem';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
-  claims: any;
+  priorAuthDetails: any;
   sortBy: PriorAuthFilterDetails[];
   selectedDate: any;
   onSelectedDateChange: () => any;
@@ -41,23 +42,24 @@ const PriorAuthFilterHead = ({ user }: { user: PriorAuthFilterDetails }) => {
   );
 };
 export const PriorAuthorizationCardSection = ({
-  claims,
+  priorAuthDetails,
   sortBy,
   selectedDate,
 }: ClaimsSnapshotCardSectionProps) => {
+  const router = useRouter();
   const [claimList, setClaimList] = useState([]);
   const [selected, setSelected] = useState(selectedDate);
   useEffect(() => {
     setClaimList(
-      claims &&
-        claims.sort((a: any, b: any) => {
+      priorAuthDetails &&
+        priorAuthDetails.sort((a: any, b: any) => {
           return (
             new Date(b.serviceDate).getTime() -
             new Date(a.serviceDate).getTime()
           );
         }),
     );
-  }, [claims]);
+  }, [priorAuthDetails]);
   const setSortingOption = (option: any) => {
     setSelected(option);
     getData(option.label);
@@ -85,6 +87,9 @@ export const PriorAuthorizationCardSection = ({
     setClaimList(sortedData);
   };
   console.log('claimList', claimList);
+  const navigateToPriorAuthDetails = (referenceId: string) => {
+    router.push(`/priorAuthorization/authDetails?referenceId=${referenceId}`);
+  };
 
   function priorAuthErrorMessage() {
     return (
@@ -133,7 +138,12 @@ export const PriorAuthorizationCardSection = ({
         {claimList == null && priorAuthErrorMessage()}
         {claimList &&
           claimList.map((item: any) => (
-            <ClaimItem key={item.memberId} className="mb-4" claimInfo={item} />
+            <PriorAuthItem
+              key={item.referenceId}
+              className="mb-4"
+              priorAuthDetails={item}
+              callBack={navigateToPriorAuthDetails}
+            />
           ))}
         <Spacer size={16} />
       </div>

@@ -1,11 +1,9 @@
-import { ClaimStatus } from '@/app/authDetail/models/claim-status';
-import { ClaimType } from '@/app/authDetail/models/claim-type';
+import { PriorAuthStatus } from './priorAuthStatus';
 
 export interface PriorAuthDetailsStatus {
-  priorAuthDetailType: ClaimType;
   priorAuthDetailName: string;
   dateOfVisit: string;
-  priorAuthDetailStatus: ClaimStatus;
+  priorAuthDetailStatus: PriorAuthStatus;
   member: string;
   PriorAuthReferenceId: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
