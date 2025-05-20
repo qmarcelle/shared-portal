@@ -376,7 +376,8 @@ export function buildGenesysChatConfig({
     INQ_TYPE: (apiConfig.INQ_TYPE as string) || 'General Inquiry',
 
     // From API Config (getChatInfo response)
-    clickToChatToken: apiConfig.clickToChatToken as string,
+    clickToChatToken: (apiConfig.getToken ||
+      apiConfig.clickToChatToken) as string,
     isChatEligibleMember:
       (apiConfig.isChatEligibleMember as string | boolean | undefined) ??
       (apiConfig.isEligible as string | boolean | undefined) ??
