@@ -9,29 +9,11 @@ import { logger } from '@/utils/logger';
 import { NextRequest, NextResponse } from 'next/server';
 
 /**
- * Maps frontend member types to backend-compatible member ID types
- * @param frontendType The member type passed from the frontend (e.g., 'MEM')
- * @returns A backend-compatible member ID type
- */
-const mapMemberType = (frontendType: string | null): string => {
-  if (!frontendType) return 'subscriberId'; // Default fallback
-
-  // Map frontend member types to backend types
-  const typeMap: Record<string, string> = {
-    MEM: 'subscriberId', // Map 'MEM' to 'subscriberId' as specified
-    SUB: 'subscriberId',
-    // Add more mappings as needed
-  };
-
-  return typeMap[frontendType] || frontendType; // Return mapped value or original if no mapping exists
-};
-
-/**
  * Generates mock chat configuration data for development/testing
  * This is used when the real API is unavailable or there's an error
  */
 function generateMockChatConfig(
-  memberId: string | null,
+  memberId: string | null, // memeck is passed here
   planId: string | null,
 ) {
   return {
@@ -48,13 +30,13 @@ function generateMockChatConfig(
     chatHours: 'M-F 8am-5pm EST',
     rawChatHrs: '8_17',
     clickToChatToken: 'mock-token-for-testing-purposes',
-    // CRITICAL for legacy chat - Add required Genesys configuration
     clickToChatEndpoint:
       process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-      'https://members.bcbst.com/test/soa/api/cci/genesyschat', // CORRECTED fallback
+      'https://members.bcbst.com/test/soa/api/cci/genesyschat',
     gmsChatUrl:
       process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      'https://members.bcbst.com/test/soa/api/cci/genesyschat', // CORRECTED fallback
+      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT || // Fallback to main legacy endpoint if GMS_CHAT_URL is not set
+      'https://members.bcbst.com/test/soa/api/cci/genesyschat',
     widgetUrl:
       process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
       '/assets/genesys/plugins/widgets.min.js',
@@ -65,14 +47,35 @@ function generateMockChatConfig(
         'mock-deployment-id',
       environment:
         process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
-      orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || '',
+      orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id', // Ensured fallback
     },
-    // Additional debugging info
     _mockData: true,
     _timestamp: new Date().toISOString(),
     _memberId: memberId,
     _planId: planId,
   };
+}
+
+/**
+ * Helper function to generate and return a fallback mock data response.
+ */
+function createFallbackResponse(
+  memeck: string | null,
+  planId: string | null,
+  reason: string,
+  correlationId: string,
+  status: number = 200, // Mock data can still be a 200 if it's an intentional fallback
+): NextResponse {
+  logger.info(`[API:chat/getChatInfo] Returning mock data. Reason: ${reason}`, {
+    correlationId,
+  });
+  const mockData = generateMockChatConfig(memeck, planId);
+  // Note: generateMockChatConfig already includes fallbacks for orgId, clickToChatEndpoint, and gmsChatUrl
+  updateApiState(
+    mockData.isEligible,
+    mockData.cloudChatEligible ? 'cloud' : 'legacy',
+  );
+  return NextResponse.json(mockData, { status });
 }
 
 /**
@@ -82,44 +85,37 @@ function generateMockChatConfig(
  * information for a specific member.
  */
 export async function GET(request: NextRequest) {
-  const memberId = request.nextUrl.searchParams.get('memberId');
-  const memeck = request.nextUrl.searchParams.get('memeck') || memberId; // Look for memeck or fall back to memberId
-  const memberType = request.nextUrl.searchParams.get('memberType');
+  const memberIdQuery = request.nextUrl.searchParams.get('memberId');
+  const memeck = request.nextUrl.searchParams.get('memeck') || memberIdQuery;
   const planId = request.nextUrl.searchParams.get('planId');
   const correlationId =
     request.headers.get('x-correlation-id') || Date.now().toString();
 
-  // Mark API call started in our sequential loader
   markApiCallStarted();
 
+  // Prominent entry log
   console.log('⭐ [API:chat/getChatInfo] Endpoint CALLED ⭐', {
     correlationId,
-    memberId,
-    memeck,
-    memberType,
+    memberIdQuery, // Log the original memberId from query
+    memeck, // Log the derived memeck
     planId,
     timestamp: new Date().toISOString(),
     url: request.url,
-    headers: Object.fromEntries(request.headers.entries()),
+    // headers: Object.fromEntries(request.headers.entries()), // Can be verbose
   });
 
   logger.info('[API:chat/getChatInfo] Incoming request', {
     correlationId,
-    memberId,
+    memberIdQuery,
     memeck,
-    memberType,
-    planId,
-  });
-  // eslint-disable-next-line no-console
-  console.log('[API:chat/getChatInfo] Incoming request', {
-    correlationId,
-    memberId,
-    memeck,
-    memberType,
     planId,
   });
 
   if (!memeck) {
+    logger.warn(
+      '[API:chat/getChatInfo] Missing required parameter: memeck or memberId',
+      { correlationId },
+    );
     return NextResponse.json(
       { message: 'Missing required parameter: memeck or memberId' },
       { status: 400 },
@@ -128,77 +124,34 @@ export async function GET(request: NextRequest) {
 
   try {
     const token = await getAuthToken();
-
-    // Check if environment variables are available
     const portalServicesUrl = process.env.PORTAL_SERVICES_URL;
     const memberServiceRoot = process.env.MEMBERSERVICE_CONTEXT_ROOT;
 
     if (!portalServicesUrl || !memberServiceRoot) {
       logger.error(
-        '[API:chat/getChatInfo] Missing required environment variables',
+        '[API:chat/getChatInfo] Missing required environment variables for backend API.',
         {
           correlationId,
           hasPortalServicesUrl: !!portalServicesUrl,
           hasMemberServiceRoot: !!memberServiceRoot,
         },
       );
-
-      // Generate mock data as fallback for missing environment variables
-      const mockData = generateMockChatConfig(memeck, planId);
-      mockData.genesysCloudConfig.orgId =
-        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
-      // Ensure legacy endpoints are set
-      mockData.clickToChatEndpoint =
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
-      mockData.gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
-
-      // Update sequential loader state
-      updateApiState(
-        mockData.isEligible,
-        mockData.cloudChatEligible ? 'cloud' : 'legacy',
+      return createFallbackResponse(
+        memeck,
+        planId,
+        'Missing environment variables',
+        correlationId,
       );
-
-      logger.info(
-        '[API:chat/getChatInfo] Returning mock data due to missing environment variables',
-      );
-      return NextResponse.json(mockData);
     }
 
-    // Use direct environment variables instead of serverConfig
     const baseURL = `${portalServicesUrl}${memberServiceRoot}`;
-
-    logger.info('[API:chat/getChatInfo] Member service configuration', {
-      correlationId,
-      baseURL,
-      portalServicesUrl,
-      memberServiceContext: memberServiceRoot,
-    });
-    // eslint-disable-next-line no-console
-    console.log('[API:chat/getChatInfo] Member service configuration', {
-      correlationId,
-      baseURL,
-      portalServicesUrl,
-      memberServiceContext: memberServiceRoot,
-    });
-
-    // Build the URL using the correct format: /api/member/v1/members/byMemberCk/${memberCk}
     const url = `${baseURL}/api/member/v1/members/byMemberCk/${memeck}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
       url,
-      memeck,
-      planId,
-    });
-    // eslint-disable-next-line no-console
-    console.log('[API:chat/getChatInfo] Calling member service API', {
-      correlationId,
-      url,
     });
 
-    // Make the request with the auth token
     const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -207,40 +160,70 @@ export async function GET(request: NextRequest) {
       cache: 'no-store',
     });
 
-    // Try to parse JSON, but handle cases where it might not be JSON (e.g. plain text error)
     let data;
-    try {
-      data = await response.json();
-      // Log the raw data received from the member service to inspect its structure
-      logger.info('[API:chat/getChatInfo] Raw data from member service:', {
-        correlationId,
-        rawDataFromService: data, // Log the entire data object
-      });
-      // eslint-disable-next-line no-console
-      console.log(
-        '[API:chat/getChatInfo] Raw data from member service (console):',
-        {
-          correlationId,
-          rawDataFromService: data, // Log the entire data object via console too
-        },
-      );
-    } catch (e) {
-      // If response is not JSON, try to get text
-      const textResponse = await response.text();
+    let responseTextForError = ''; // To store text response in case of JSON parse error
+    if (response.headers.get('content-type')?.includes('application/json')) {
+      try {
+        data = await response.json();
+      } catch (e) {
+        // Attempt to read text if JSON parsing failed, for better error info
+        try {
+          responseTextForError = await response.text();
+        } catch (textErr) {
+          // Ignore error from text reading if it also fails
+        }
+        logger.warn(
+          '[API:chat/getChatInfo] Member service response was not valid JSON, despite content-type.',
+          {
+            correlationId,
+            status: response.status,
+            responseAttemptedText: responseTextForError.substring(0, 500),
+            jsonParseError: e instanceof Error ? e.message : String(e),
+          },
+        );
+        data = {
+          // Construct an error-like object
+          error: 'Invalid JSON response from member service',
+          description: responseTextForError.substring(0, 500),
+          status: response.status,
+        };
+        // Force treating this as a non-ok response if it wasn't already
+        if (response.ok) {
+          // This creates a synthetic non-ok scenario for our logic below
+          return createFallbackResponse(
+            memeck,
+            planId,
+            `Invalid JSON from upstream (status ${response.status})`,
+            correlationId,
+          );
+        }
+      }
+    } else {
+      // Handle non-JSON content types
+      responseTextForError = await response.text();
       logger.warn(
-        '[API:chat/getChatInfo] Member service response was not JSON.',
+        '[API:chat/getChatInfo] Member service response was not JSON (based on content-type header).',
         {
           correlationId,
           status: response.status,
-          textResponse: textResponse.substring(0, 500), // Log first 500 chars
+          contentType: response.headers.get('content-type'),
+          textResponse: responseTextForError.substring(0, 500),
         },
       );
-      // Construct a data object that mimics the error structure if possible
       data = {
-        error: 'Non-JSON response from member service',
-        description: textResponse.substring(0, 500),
+        error: 'Non-JSON content type from member service',
+        description: responseTextForError.substring(0, 500),
         status: response.status,
       };
+      // Force treating this as a non-ok response if it wasn't already
+      if (response.ok) {
+        return createFallbackResponse(
+          memeck,
+          planId,
+          `Non-JSON content-type from upstream (status ${response.status})`,
+          correlationId,
+        );
+      }
     }
 
     logger.info(
@@ -248,66 +231,32 @@ export async function GET(request: NextRequest) {
       {
         correlationId,
         status: response.status,
-        // Log the full data if status is not OK, otherwise just keys for brevity on success
-        responseData: !response.ok
-          ? data
-          : data
+        responseDataPreview: data
+          ? response.ok
             ? Object.keys(data)
-            : 'no data object',
-      },
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      '[API:chat/getChatInfo] Response received from member service',
-      {
-        correlationId,
-        status: response.status,
-        // Log the full data if status is not OK, otherwise just keys for brevity on success
-        responseData: !response.ok
-          ? data
-          : data
-            ? Object.keys(data)
-            : 'no data object',
+            : data
+          : 'no data object',
       },
     );
 
-    // IMPORTANT: Check if the call to member service failed (e.g. 400, 500)
     if (!response.ok) {
       logger.error(
-        '[API:chat/getChatInfo] Member service call failed. Returning error to client.',
+        '[API:chat/getChatInfo] Member service call failed (non-OK status).',
         {
           correlationId,
           status: response.status,
-          errorDataFromService: data, // This will now contain the detailed error from member service
+          errorDataFromService: data, // Contains error info or parsed text
         },
       );
-
-      // Generate mock data as fallback
-      const mockData = generateMockChatConfig(memeck, planId);
-      mockData.genesysCloudConfig.orgId =
-        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
-      // Ensure legacy endpoints are set
-      mockData.clickToChatEndpoint =
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
-      mockData.gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
-
-      // Update sequential loader state with mock data
-      updateApiState(
-        mockData.isEligible,
-        mockData.cloudChatEligible ? 'cloud' : 'legacy',
+      return createFallbackResponse(
+        memeck,
+        planId,
+        `Member service API error (status ${response.status})`,
+        correlationId,
       );
-
-      logger.info(
-        '[API:chat/getChatInfo] Returning mock data due to API error',
-      );
-      return NextResponse.json(mockData);
     }
 
-    // Transform the data if needed (only if response.ok)
     const transformedData = {
-      // Existing mappings
       cloudChatEligible: data.cloudChatEligible || false,
       chatGroup: data.chatGroup || '',
       chatAvailable: data.chatAvailable ?? true,
@@ -317,11 +266,8 @@ export async function GET(request: NextRequest) {
         process.env.NEXT_PUBLIC_CHAT_HOURS ||
         'M-F 8am-5pm',
       chatIDChatBotName: data.chatIDChatBotName || '',
-      // Ensure chatBotEligibility is set to isEligible
-      chatBotEligibility: data.isEligible ?? true,
+      chatBotEligibility: data.isEligible ?? true, // Ensure chatBotEligibility defaults based on isEligible
       routingChatBotEligibility: data.routingChatBotEligibility || false,
-
-      // Genesys config required fields
       isChatEligibleMember:
         data.isChatEligibleMember ?? data.isEligible ?? true,
       isChatAvailable: data.isChatAvailable ?? data.chatAvailable ?? true,
@@ -331,11 +277,7 @@ export async function GET(request: NextRequest) {
         'M-F 8am-5pm',
       rawChatHrs:
         data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
-
-      // Use the Ping auth token as the clickToChatToken
       clickToChatToken: token || '',
-
-      // Add Genesys Cloud configuration (even if cloudChatEligible is false, provide structure)
       genesysCloudConfig: {
         deploymentId:
           (data.genesysCloudConfig as any)?.deploymentId ||
@@ -350,20 +292,17 @@ export async function GET(request: NextRequest) {
           process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID ||
           '',
       },
-      // Provide legacy endpoint if not cloud eligible, relying on environment variables primarily
       clickToChatEndpoint: !(data.cloudChatEligible || false)
         ? process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // Fallback if env var is missing
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
         : undefined,
       gmsChatUrl: !(data.cloudChatEligible || false)
-        ? process.env.NEXT_PUBLIC_GMS_CHAT_URL || // Primary env var for gmsChatUrl
-          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT || // Fallback to the main legacy endpoint env var
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat' // Final fallback
+        ? process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
         : undefined,
     };
 
-    // Forcing legacy for testing if a query param is set, for example
-    // This is a DEV utility, remove for production
     if (request.nextUrl.searchParams.get('forceLegacy') === 'true') {
       (transformedData as any).cloudChatEligible = false;
       (transformedData as any).clickToChatEndpoint =
@@ -375,114 +314,41 @@ export async function GET(request: NextRequest) {
         'forced-legacy-gms';
       logger.warn(
         '[API:chat/getChatInfo] Forcing legacy mode via query parameter.',
+        { correlationId },
       );
     }
 
-    // Update sequential loader state with API result
     updateApiState(
       transformedData.isEligible,
       transformedData.cloudChatEligible ? 'cloud' : 'legacy',
     );
 
-    logger.info(
-      '[API:chat/getChatInfo] Returning transformed chat info (using Ping token as clickToChatToken)',
-      {
-        correlationId,
-        cloudChatEligible: transformedData.cloudChatEligible,
-        // Log more key fields from transformedData for easier debugging
-        clickToChatEndpoint_InResponse: transformedData.clickToChatEndpoint,
-        gmsChatUrl_InResponse: transformedData.gmsChatUrl,
-        chatGroup: transformedData.chatGroup,
-        chatAvailable: transformedData.chatAvailable,
-      },
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      '[API:chat/getChatInfo] FINAL transformedData being sent to client:',
-      {
-        correlationId,
-        transformedData: JSON.parse(JSON.stringify(transformedData)), // Deep copy for logging
-      },
-    );
+    logger.info('[API:chat/getChatInfo] Returning transformed chat info', {
+      correlationId,
+      cloudChatEligible: transformedData.cloudChatEligible,
+      chatAvailable: transformedData.chatAvailable,
+      isEligible: transformedData.isEligible,
+    });
 
     return NextResponse.json(transformedData);
   } catch (error: any) {
-    // Detailed error logging with additional context
-    logger.error('[API:chat/getChatInfo] Error calling member service', {
+    logger.error('[API:chat/getChatInfo] Unhandled error in GET handler', {
       correlationId,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      errorMessage: error instanceof Error ? error.message : 'Unknown error',
       stack: error instanceof Error ? error.stack : undefined,
-      memberId,
-      memberType,
+      memeck, // memeck was 'memberId' in the original error log here
       planId,
-      statusCode: error.response?.status,
-      responseData: error.response?.data,
-    });
-    // eslint-disable-next-line no-console
-    console.error('[API:chat/getChatInfo] Error calling member service', {
-      correlationId,
-      error: error instanceof Error ? error.message : 'Unknown error',
-      stack: error instanceof Error ? error.stack : undefined,
-      memberId,
-      memberType,
-      planId,
-      statusCode: error.response?.status,
-      responseData: error.response?.data,
     });
 
-    try {
-      // Generate mock data as fallback for error cases
-      const mockData = generateMockChatConfig(memeck, planId);
-      mockData.genesysCloudConfig.orgId =
-        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id';
-      // Ensure legacy endpoints are set
-      mockData.clickToChatEndpoint =
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat'; // CORRECTED fallback
-      mockData.gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL || mockData.clickToChatEndpoint;
-
-      // Update sequential loader state with mock data for error case
-      updateApiState(
-        mockData.isEligible,
-        mockData.cloudChatEligible ? 'cloud' : 'legacy',
-      );
-
-      logger.info(
-        '[API:chat/getChatInfo] Returning mock data due to error condition',
-      );
-      return NextResponse.json(mockData);
-    } catch (logError) {
-      logger.error('[API:chat/getChatInfo] Error generating mock data', {
-        correlationId,
-        logError,
-      });
-      // eslint-disable-next-line no-console
-      console.error('[API:chat/getChatInfo] Error generating mock data', {
-        correlationId,
-        logError,
-      });
-
-      // Last resort fallback
-      const basicMockData = {
-        isEligible: true,
-        cloudChatEligible: false,
-        chatAvailable: true,
-        genesysCloudConfig: {
-          deploymentId:
-            process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
-            'mock-deployment-id',
-          environment:
-            process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT || 'prod-usw2',
-          orgId: process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID || 'mock-org-id',
-        },
-        _error: 'Error handling failed, basic fallback provided',
-      };
-
-      // Update sequential loader with basic fallback
-      updateApiState(true, 'legacy');
-
-      return NextResponse.json(basicMockData);
-    }
+    // Attempt to return mock data even for unexpected errors
+    // The status code for the response itself might be 500 if we reach here due to an internal server error.
+    // However, the mock data is still intended to allow the frontend to function in a degraded state.
+    return createFallbackResponse(
+      memeck,
+      planId,
+      'Unhandled exception in API handler',
+      correlationId,
+      500,
+    );
   }
 }

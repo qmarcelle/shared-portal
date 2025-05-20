@@ -55,11 +55,11 @@
 
   // --- TEMP: FORCE LEGACY MODE FOR TESTING ---
   // TODO: Remove this line after testing legacy mode
-  cfg.chatMode = 'legacy';
-  console.log(
-    '[click_to_chat.js] TEMP OVERRIDE: chatMode forced to legacy',
-    JSON.parse(JSON.stringify(cfg)),
-  );
+  // cfg.chatMode = 'legacy'; // REMOVED THIS LINE
+  // console.log(
+  //   '[click_to_chat.js] TEMP OVERRIDE: chatMode forced to legacy',
+  //   JSON.parse(JSON.stringify(cfg)),
+  // );
   // --- END TEMP ---
 
   // Backwards compatibility: mirror all JSP-injected values directly on window
@@ -841,7 +841,7 @@
               : window.chatSettings.chatButtonEnabled,
           template:
             window.chatSettings.chatButtonTemplate ||
-            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
+            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           effectDuration: window.chatSettings.chatButtonEffectDuration || 300,
           openDelay: window.chatSettings.chatButtonOpenDelay || 1000,
           hideDuringInvite:
@@ -1588,4 +1588,124 @@
   console.log(
     '[Genesys] click_to_chat.js script execution complete. Widget initialization is asynchronous.',
   );
+
+  window.handleChatSettingsUpdate = function (newSettings) {
+    console.log(
+      '[click_to_chat.js] handleChatSettingsUpdate called with new settings:',
+      JSON.parse(JSON.stringify(newSettings || {})),
+    );
+
+    // 1. Optionally try to clean up/destroy existing widget
+    if (
+      window._genesysCXBus &&
+      typeof window._genesysCXBus.command === 'function'
+    ) {
+      try {
+        console.log(
+          '[click_to_chat.js] Attempting to close and hide chat button via CXBus.',
+        );
+        window._genesysCXBus.command('WebChat.close');
+        window._genesysCXBus.command('WebChat.hideChatButton');
+        // If a more thorough destruction is needed and available:
+        // window._genesysCXBus.command('WebChat.destroy');
+      } catch (e) {
+        console.warn(
+          '[click_to_chat.js] Error during CXBus cleanup in handleChatSettingsUpdate:',
+          e,
+        );
+      }
+    }
+
+    // If main.shutdown exists (good for a more complete reset)
+    if (
+      window._genesys &&
+      window._genesys.widgets &&
+      window._genesys.widgets.main &&
+      typeof window._genesys.widgets.main.shutdown === 'function'
+    ) {
+      try {
+        console.log(
+          '[click_to_chat.js] Calling _genesys.widgets.main.shutdown().',
+        );
+        window._genesys.widgets.main.shutdown();
+        // After shutdown, CXBus might be invalid or widgets object might be reset.
+        // Clear related globals to allow re-initialization by widgets.min.js
+        window._genesysCXBus = undefined;
+        window._genesysCXBusReady = false;
+        if (window._genesys.widgets) {
+          window._genesys.widgets.onReady = undefined; // Allow onReady to be redefined by new widgets.min.js instance if it reloads
+        }
+      } catch (e) {
+        console.warn(
+          '[click_to_chat.js] Error during _genesys.widgets.main.shutdown():',
+          e,
+        );
+      }
+    }
+
+    // 2. Re-validate and update the internal cfg for this call
+    // We need to update the top-level `cfg` or ensure initializeChatWidget uses the new one.
+    // For simplicity, as `initializeChatWidget` is self-contained with its jQuery and cfg parameters,
+    // we can just pass a new cfg to it.
+    const newValidatedCfg = validateConfig(newSettings || {});
+    console.log(
+      '[click_to_chat.js] New validated config for re-initialization:',
+      JSON.parse(JSON.stringify(newValidatedCfg)),
+    );
+
+    // 3. Re-run initialization logic.
+    // The `initializeChatWidget` function itself contains the logic to load widgets.min.js via `loadResource.script`
+    // if it sets up `window._genesys.widgets.onReady` and then calls `main.initialise()`.
+    // The original script structure has `loadJQuery().then(($) => initializeChatWidget($, cfg))` at the top level.
+    // `initializeChatWidget` then proceeds to load `widgets.min.js` and sets `onReady`.
+    // For re-initialization, we need to replicate this process.
+
+    // Crucially, widgets.min.js might guard against multiple loads or its onReady might only fire once.
+    // A robust way is to ensure widgets.min.js can be reloaded or its initialization re-triggered.
+    // Forcing a re-run of initializeChatWidget with new config:
+    if (window.jQuery) {
+      console.log(
+        '[click_to_chat.js] Re-initializing chat widget logic with new config.',
+      );
+      // Ensure widgets.min.js is reloaded or its initialization path is re-triggered
+      // This might involve removing the old script tag for widgets.min.js if it exists
+      const oldWidgetsScript = document.getElementById(
+        'genesys-widgets-min-script-dynamic',
+      );
+      if (oldWidgetsScript) {
+        console.log(
+          '[click_to_chat.js] Removing old widgets.min.js script tag.',
+        );
+        oldWidgetsScript.remove();
+      }
+      // Reset flags that widgets.min.js might use to prevent re-initialization
+      if (window._genesys && window._genesys.widgets) {
+        window._genesys.widgets.loaded = false; // Example flag, actual flags depend on widgets.min.js internals
+        window._genesys.widgets.initialized = false; // Example
+      }
+      initializeChatWidget(window.jQuery, newValidatedCfg); // This will again try to load widgets.min.js and set up onReady
+    } else {
+      console.error(
+        '[click_to_chat.js] jQuery not found for re-initialization. Attempting to load jQuery first.',
+      );
+      loadJQuery()
+        .then(($) => {
+          const oldWidgetsScript = document.getElementById(
+            'genesys-widgets-min-script-dynamic',
+          );
+          if (oldWidgetsScript) oldWidgetsScript.remove();
+          if (window._genesys && window._genesys.widgets) {
+            window._genesys.widgets.loaded = false;
+            window._genesys.widgets.initialized = false;
+          }
+          initializeChatWidget($, newValidatedCfg);
+        })
+        .catch((err) =>
+          console.error(
+            '[click_to_chat.js] Failed to re-initialize after jQuery load attempt:',
+            err,
+          ),
+        );
+    }
+  };
 })(window, document);

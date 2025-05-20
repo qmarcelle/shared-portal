@@ -45,6 +45,86 @@ export interface CXBusReadyEvent extends CustomEvent {
     CXBus: CXBus;
   };
 }
+// ... (Enums remain the same) ...
+
+// export interface CXBusReadyEvent extends CustomEvent {
+//   detail: {
+//     CXBus: GenesysCXBus; // Often the CXBus instance is the specific GenesysCXBus
+//   };
+// }
+
+export interface CXBus {
+  // Generic/Base CXBus definition
+  command: (command: string, ...args: any[]) => any;
+  subscribe: (event: string, callback: (...args: any[]) => void) => void;
+  unsubscribe: (event: string) => void;
+  registerPlugin: (pluginName: string) => {
+    subscribe: (event: string, callback: (...args: any[]) => void) => void;
+  };
+}
+
+// ... (GenesysWidgets, GenesysGlobal remain largely the same, consider FormInputConfig if applicable) ...
+// For GenesysWidgets.webchat.form.inputs, using Array<Record<string, any>> is a bit safer than Array<any>
+// if you don't want to define a full FormInputConfig yet.
+// e.g., inputs?: Array<Record<string, any>>;
+
+export interface BaseGenesysChatConfig {
+  chatMode?: 'legacy' | 'cloud';
+  isChatAvailable: string | boolean;
+  isChatEligibleMember: string | boolean;
+  targetContainer?: string;
+  cloudChatEligible?: string | boolean;
+  firstname?: string;
+  lastname?: string;
+  formattedFirstName?: string;
+  userID?: string;
+  memberMedicalPlanID?: string;
+  isDemoMember?: string | boolean;
+  isAmplifyMem?: string | boolean;
+  isCobrowseActive?: string | boolean;
+  chatHours?: string;
+  rawChatHrs?: string;
+  selfServiceLinks?: Array<{ key: string; value: string }>; // Made more specific
+  [key: string]: any;
+}
+
+// ... (LegacyChatConfig, CloudChatConfig, type guards, ChatSettings, GenesysChatConfig, GenesysChat remain the same) ...
+
+/**
+ * GenesysCXBus interface - Represents the specific CXBus instance used by Genesys in this app
+ * (e.g., window._genesysCXBus)
+ */
+export interface GenesysCXBus {
+  command: (command: string, params?: any) => void; // Specific signature if _genesysCXBus.command returns void
+  subscribe: (event: string, callback: (...args: any[]) => void) => void;
+  unsubscribe: (event: string) => void; // Added unsubscribe
+  registerPlugin: (pluginName: string) => {
+    subscribe: (event: string, callback: (...args: any[]) => void) => void;
+  };
+}
+
+// ... (ChatDiagnostics remains the same) ...
+
+export interface GenesysWindow {
+  // Assumes this augments global Window
+  CXBus?: CXBus; // A generic CXBus reference, if needed separately
+  _genesys?: GenesysGlobal;
+  _genesysCXBus?: GenesysCXBus; // The specific instance from click_to_chat.js
+  _genesysCXBusReady?: boolean;
+  _gt?: any[];
+  Genesys?: (command: string, ...args: any[]) => any; // Cloud Messenger's typical global
+
+  chatSettings?: ChatSettings;
+  GenesysChat?: GenesysChat;
+
+  _forceChatButtonCreate?: () => boolean;
+  forceCreateChatButton?: () => boolean; // Corrected return type & primary name
+
+  // ... (other window properties remain the same) ...
+  gmsServicesConfig?: {
+    GMSChatURL: () => string;
+  };
+}
 
 /**
  * CXBus interface - Handles communication with Genesys widget
@@ -100,29 +180,6 @@ export interface GenesysGlobal {
   widgets: GenesysWidgets;
   loaded?: boolean;
   [key: string]: any;
-}
-
-/**
- * Base interface for chat configuration with common properties
- */
-export interface BaseGenesysChatConfig {
-  chatMode?: 'legacy' | 'cloud';
-  isChatAvailable: string | boolean;
-  isChatEligibleMember: string | boolean;
-  targetContainer?: string;
-  cloudChatEligible?: string | boolean;
-  firstname?: string;
-  lastname?: string;
-  formattedFirstName?: string;
-  userID?: string;
-  memberMedicalPlanID?: string;
-  isDemoMember?: string | boolean;
-  isAmplifyMem?: string | boolean;
-  isCobrowseActive?: string | boolean;
-  chatHours?: string;
-  rawChatHrs?: string;
-  selfServiceLinks?: Array<any>;
-  [key: string]: any; // For flexibility with unknown properties
 }
 
 /**
@@ -254,8 +311,6 @@ export interface GenesysWindow {
   GenesysChat?: GenesysChat;
 
   // Helper functions
-  _forceChatButtonCreate?: () => boolean;
-  forceCreateChatButton?: () => void;
   openGenesysChat?: () => void;
 
   // Script loading state flags

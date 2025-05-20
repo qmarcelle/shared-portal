@@ -154,13 +154,17 @@ export interface PlanConfig {
   memberDOB?: string;
 }
 
-interface ApiConfig {
+export interface ApiConfig {
   [key: string]: unknown;
 }
 
+import { LoggedInMember } from '@/models/app/loggedin_member';
+import { UserProfile } from '@/models/user_profile';
 import { MemberPlan } from '@/userManagement/models/plan';
+import { SessionUser } from '@/userManagement/models/sessionUser';
 import { logger } from '@/utils/logger';
-import { ChatSettings } from './types/chat-types';
+import type { CurrentPlanDetails } from '../stores/chatStore';
+import { ChatSettings } from '../types/chat-types';
 
 // Add this interface declaration after the existing interfaces
 interface ZustandStores {
@@ -223,79 +227,148 @@ function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
 
 /**
  * Build a GenesysChatConfig from user/session, plan/group, and API/static config sources.
- * @param user - user/session context (from auth/session)
- * @param plan - plan/group context (from plan store or API)
+ * @param loggedInMember - user/session context (from auth/session)
+ * @param sessionUser - user/session context (from auth/session)
+ * @param userProfile - user/session context (from auth/session)
  * @param apiConfig - config/flags from API (eligibility, endpoints, etc)
+ * @param currentPlanDetails - current plan details from session
  * @param staticConfig - static config (env, hardcoded, etc)
  */
 export function buildGenesysChatConfig({
-  user,
-  plan,
+  loggedInMember,
+  sessionUser,
+  userProfile,
   apiConfig,
+  currentPlanDetails,
   staticConfig = {},
 }: {
-  user: UserConfig;
-  plan: PlanConfig;
+  loggedInMember: LoggedInMember;
+  sessionUser: SessionUser;
+  userProfile: UserProfile;
   apiConfig: ApiConfig;
+  currentPlanDetails: CurrentPlanDetails;
   staticConfig?: Partial<GenesysChatConfig>;
 }): GenesysChatConfig {
   // Validate input parameters
-  if (!user) {
+  if (!loggedInMember) {
     const error = new Error(
-      'User context is required for building chat config',
+      'LoggedInMember context is required for building chat config',
     );
-    logger.error('[buildGenesysChatConfig] Missing user context', { error });
+    logger.error('[buildGenesysChatConfig] Missing loggedInMember context', {
+      error,
+    });
     throw error;
   }
-
-  if (!user.userID) {
-    const error = new Error('User ID is required in user context');
-    logger.error('[buildGenesysChatConfig] Missing userID in user context', {
+  if (!sessionUser) {
+    const error = new Error(
+      'SessionUser context is required for building chat config',
+    );
+    logger.error('[buildGenesysChatConfig] Missing sessionUser context', {
+      error,
+    });
+    throw error;
+  }
+  if (!userProfile) {
+    const error = new Error(
+      'UserProfile context is required for building chat config',
+    );
+    logger.error('[buildGenesysChatConfig] Missing userProfile context', {
+      error,
+    });
+    throw error;
+  }
+  if (!currentPlanDetails) {
+    const error = new Error(
+      'CurrentPlanDetails is required for building chat config',
+    );
+    logger.error('[buildGenesysChatConfig] Missing currentPlanDetails', {
       error,
     });
     throw error;
   }
 
-  if (!plan) {
-    const error = new Error(
-      'Plan context is required for building chat config',
-    );
-    logger.error('[buildGenesysChatConfig] Missing plan context', { error });
+  // --- Begin derived context mapping ---
+  const finalUserID = loggedInMember.userId || userProfile.id || sessionUser.id;
+  if (!finalUserID) {
+    const error = new Error('User ID is required and could not be determined');
+    logger.error('[buildGenesysChatConfig] Missing derived userID', { error });
     throw error;
   }
 
-  if (!plan.memberMedicalPlanID) {
+  const finalFirstName = loggedInMember.firstName || userProfile.firstName;
+  const finalLastName = loggedInMember.lastName || userProfile.lastName;
+  // formattedFirstName can be the same as firstName or have specific logic if needed
+  const finalFormattedFirstName = finalFirstName;
+
+  const finalSubscriberID = loggedInMember.subscriberId;
+  const finalSfx =
+    loggedInMember.suffix !== undefined
+      ? String(loggedInMember.suffix)
+      : undefined;
+
+  const finalMemberDOB = loggedInMember.dateOfBirth || userProfile.dob;
+
+  const currentPlanContext = sessionUser.currUsr?.plan;
+  if (!currentPlanContext) {
     const error = new Error(
-      'Member Medical Plan ID is required in plan context',
+      'Current plan context (sessionUser.currUsr.plan) is required',
+    );
+    logger.error('[buildGenesysChatConfig] Missing sessionUser.currUsr.plan', {
+      error,
+    });
+    throw error;
+  }
+
+  const finalMemberMedicalPlanID = currentPlanContext.subId; // Assuming subId from active plan context is the relevant plan ID
+  if (!finalMemberMedicalPlanID) {
+    const error = new Error(
+      'Member Medical Plan ID is required (from sessionUser.currUsr.plan.subId)',
     );
     logger.error(
-      '[buildGenesysChatConfig] Missing memberMedicalPlanID in plan context',
+      '[buildGenesysChatConfig] Missing derived memberMedicalPlanID',
       { error },
     );
     throw error;
   }
+
+  const finalGroupId = currentPlanContext.grpId || loggedInMember.groupId;
+  const finalMemberClientID =
+    currentPlanContext.ntwkId ||
+    loggedInMember.lineOfBusiness ||
+    loggedInMember.lob;
+  // groupType derivation can be complex; using a simple source for now
+  const finalGroupType = loggedInMember.groupName || currentPlanContext.grpId; // Example, might need more specific logic
+
+  // --- End derived context mapping ---
 
   // Determine chatMode
   const chatMode = apiConfig.cloudChatEligible ? 'cloud' : 'legacy';
 
   // Base config from API and context
   const config: Partial<GenesysChatConfig> = {
-    // From User Context
-    userID: user.userID,
-    // Map from user context with appropriate fallbacks
-    memberFirstname: user.memberFirstname || user.firstName,
-    memberLastName: user.memberLastName || user.lastName,
-    formattedFirstName: user.formattedFirstName || user.firstName,
-    subscriberID: user.subscriberID || user.subscriberId,
-    sfx: user.sfx || user.suffix,
-    MEMBER_ID: `${user.subscriberID || user.subscriberId || ''}-${user.sfx || user.suffix || ''}`,
-    memberDOB: user.memberDOB || plan.memberDOB,
+    // From Derived Context
+    userID: finalUserID,
+    memberFirstname: finalFirstName,
+    memberLastName: finalLastName,
+    formattedFirstName: finalFormattedFirstName,
+    subscriberID: finalSubscriberID,
+    sfx: finalSfx,
+    MEMBER_ID: `${finalSubscriberID || ''}-${finalSfx || ''}`, // Ensure fallback for potentially undefined parts
+    memberDOB: finalMemberDOB,
 
-    // From Plan Context
-    memberMedicalPlanID: plan.memberMedicalPlanID,
-    groupId: plan.groupId,
-    memberClientID: plan.memberClientID, // LOB can be derived from this or groupType
-    groupType: plan.groupType,
+    memberMedicalPlanID: finalMemberMedicalPlanID,
+    groupId: finalGroupId,
+    memberClientID: finalMemberClientID,
+    groupType: finalGroupType,
+
+    // From CurrentPlanDetails
+    numberOfPlans: currentPlanDetails.numberOfPlans,
+    currentPlanName: currentPlanDetails.currentPlanName,
+    LOB:
+      currentPlanDetails.currentPlanLOB ||
+      loggedInMember.lineOfBusiness ||
+      loggedInMember.lob,
+    INQ_TYPE: (apiConfig.INQ_TYPE as string) || 'General Inquiry',
 
     // From API Config (getChatInfo response)
     clickToChatToken: apiConfig.clickToChatToken as string,
@@ -451,7 +524,7 @@ export function buildGenesysChatConfig({
   logger.info('[buildGenesysChatConfig] Successfully built GenesysChatConfig', {
     chatMode: mergedConfig.chatMode,
     userID: mergedConfig.userID,
-    planId: mergedConfig.memberMedicalPlanID || plan.memberMedicalPlanID,
+    planId: mergedConfig.memberMedicalPlanID || finalMemberMedicalPlanID,
     isEligible: mergedConfig.isChatEligibleMember,
   });
 
