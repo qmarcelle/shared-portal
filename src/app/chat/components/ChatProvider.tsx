@@ -410,12 +410,10 @@ export default function ChatProvider({
     );
 
     const apiCallMemberId = userContext.userID;
-    // Ensure mainAppPlanData.selectedPlan is not null before accessing its id
     const apiCallPlanId =
       planContext.planId ||
       (mainAppPlanData.selectedPlan ? mainAppPlanData.selectedPlan.id : '');
 
-    // Ensure mainAppPlanData.selectedPlan is not null before accessing its properties
     const currentPlanDetailsForBuild: CurrentPlanDetails =
       mainAppPlanData.selectedPlan
         ? {
@@ -425,13 +423,22 @@ export default function ChatProvider({
             currentPlanLOB: mainAppPlanData.selectedPlan.lob,
           }
         : {
-            // Fallback if selectedPlan is null - though prior checks should prevent this
             numberOfPlans: mainAppPlanData.numberOfPlans,
-            currentPlanName: 'Plan Not Available',
+            currentPlanName: 'Plan Not Available', // This case might be problematic
             currentPlanLOB: undefined,
           };
 
-    initializedRef.current = true; // Set before async call to prevent re-entry for THIS data set
+    // Log the exact details being passed to loadChatConfiguration
+    logger.info(`${LOG_PREFIX} Preparing to call loadChatConfiguration with:`, {
+      apiCallMemberId,
+      apiCallPlanId,
+      loggedInMemberDetailsUserId: loggedInMemberDetails?.userId,
+      sessionUserId: session.user?.id,
+      userProfileDataId: userProfileData?.id,
+      currentPlanDetailsForBuild,
+    });
+
+    initializedRef.current = true;
 
     loadChatConfiguration(
       apiCallMemberId,
@@ -441,12 +448,22 @@ export default function ChatProvider({
       userProfileData,
       currentPlanDetailsForBuild,
     ).catch((e) => {
+      const errorContext = {
+        detailsPassedToLoadChatConfiguration: {
+          apiCallMemberId,
+          apiCallPlanId,
+          loggedInMemberDetailsUserId: loggedInMemberDetails?.userId,
+          sessionUserId: session.user?.id,
+          userProfileDataId: userProfileData?.id,
+          currentPlanDetailsForBuild,
+        },
+        originalError: e,
+      };
       logger.error(
-        `${LOG_PREFIX} loadChatConfiguration call failed externally (promise rejected).`,
-        e,
+        `${LOG_PREFIX} loadChatConfiguration call failed externally (promise rejected). Context:`,
+        errorContext,
       );
       if (!useChatStore.getState().config.error) {
-        // Check fresh store state
         setErrorStore(
           e instanceof Error
             ? e
