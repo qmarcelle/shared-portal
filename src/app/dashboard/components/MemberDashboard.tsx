@@ -1,8 +1,8 @@
 'use client';
 
+import { BalanceSectionWrapper } from '@/app/benefits/balances/components/BalanceSection';
 import { BenefitsAndCoverageSection } from '@/app/dashboard/components/BenefitsAndCoverageSection';
 import { EmployeeProvidedBenefitsTile } from '@/app/dashboard/components/EmployeeProvidedBenefitsTile';
-import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalanceSection';
 import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
@@ -41,7 +41,8 @@ export type DashboardProps = {
 
 const MemberDashboard = ({ data }: DashboardProps) => {
   const router = useRouter();
-  const { visibilityRules, primaryCareProvider, memberClaims } = data;
+  const { visibilityRules, primaryCareProvider, memberClaims, balanceData } =
+    data;
 
   const benefitsCoverageOptions: BenefitDetails[] =
     getBenefitsAndCoverageOptions(visibilityRules!);
@@ -83,34 +84,13 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               )}
             {!isBlueCareEligible(visibilityRules) &&
               !isQuantumHealthEligible(visibilityRules) && (
-                <MedicalBalanceSection
-                  className="large-section"
-                  members={[
-                    {
-                      label: 'Chris Hall',
-                      value: '0',
-                    },
-                    {
-                      label: 'Megan Chaler',
-                      value: '43',
-                    },
-                  ]}
-                  balanceNetworks={[
-                    {
-                      label: 'In-Network',
-                      value: '0',
-                    },
-                    { label: 'Out-of-Network', value: '1' },
-                  ]}
-                  deductibleLimit={2000}
-                  deductibleSpent={1800}
-                  onSelectedMemberChange={() => {}}
-                  onSelectedNetworkChange={() => {}}
-                  outOfPocketLimit={3000}
-                  outOfPocketSpent={1500}
-                  selectedMemberId="43"
-                  selectedNetworkId="1"
-                  displayDisclaimerText={false}
+                <BalanceSectionWrapper
+                  key="Medical"
+                  title="Medical & Pharmacy Balance"
+                  product={balanceData?.medical}
+                  phone={'phone'}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
           </Column>
@@ -124,7 +104,6 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                   visibilityRules={visibilityRules}
                 />
               )}
-
             {isAnnualStatementEligible(visibilityRules) && (
               <AnnualSpendingCompact
                 className="large-section"

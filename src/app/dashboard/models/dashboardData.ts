@@ -1,3 +1,4 @@
+import { BalanceData } from '@/app/benefits/balances/models/app/balancesData';
 import { PrimaryCareProviderDetails } from '@/app/findcare/primaryCareOptions/model/api/primary_care_provider';
 import { ClaimDetails } from '@/models/claim_details';
 import { PlanDetails } from '@/models/plan_details';
@@ -14,6 +15,7 @@ export type DashboardData = {
   visibilityRules?: VisibilityRules;
   employerProvidedBenefits?: BenefitsProviderInfo[] | null;
   memberClaims?: ClaimDetails[];
+  balanceData?: BalanceData;
 };
 
 export interface DashboardMemberDetails {
