@@ -140,41 +140,33 @@ export default function ChatProvider({
       }
     };
     fetchPbeData();
-  }, [session, sessionStatus]);
+  }, [session, sessionStatus, pbeData, isLoadingPbeData]); // Restored pbeData and isLoadingPbeData for correct dependency tracking
 
   useEffect(() => {
-    // Refined logic for sourcing UserProfile
+    // Ensures isLoadingUserProfile is reliably set to false once profile sourcing is attempted.
     if (sessionStatus === 'loading' || isLoadingPbeData) {
-      // If session is still loading OR PBE data is still loading, then user profile is implicitly loading.
-      // Avoid prematurely setting userProfileData or its loading state if core dependencies aren't ready.
       setIsLoadingUserProfile(true);
       return;
     }
 
     if (sessionStatus === 'unauthenticated') {
-      // If unauthenticated, there's no profile to load from PBE.
       setUserProfileData(null);
-      setIsLoadingUserProfile(false); // Definitively not loading a profile.
+      setIsLoadingUserProfile(false);
       return;
     }
 
-    // At this point, session is 'authenticated' and pbeData is NOT loading.
+    // Session is authenticated, and PBE data is no longer loading.
     if (!pbeData) {
-      // PBE data fetch might have completed but returned null (e.g., error).
-      // This check is important if getPersonBusinessEntity can return null on error
-      // instead of throwing.
       logger.warn(
-        `${LOG_PREFIX} PBEData not available for UserProfile computation after its loading phase completed.`,
+        `${LOG_PREFIX} PBEData is null/undefined after its loading phase. Cannot compute UserProfile.`,
       );
       setUserProfileData(null);
-      setIsLoadingUserProfile(false); // Not loading because PBE data is missing post-load.
+      setIsLoadingUserProfile(false);
       return;
     }
 
-    // Now, session is 'authenticated', pbeData is loaded and available (not null).
-    // Proceed with UserProfile computation.
-    setIsLoadingUserProfile(true); // Set true just before the computation.
-
+    // Attempt to compute profile. Set loading true now.
+    setIsLoadingUserProfile(true);
     if (session?.user?.currUsr?.umpi) {
       try {
         const profiles = computeUserProfilesFromPbe(
@@ -205,18 +197,16 @@ export default function ChatProvider({
         );
         setUserProfileData(null);
       } finally {
-        setIsLoadingUserProfile(false); // CRITICAL: Set to false after computation attempt.
+        setIsLoadingUserProfile(false); // Critical: ensure this is always called after attempt
       }
     } else {
-      // UMPI is missing, cannot compute profile.
-      setUserProfileData(null);
-      // sessionStatus is 'authenticated' here as per earlier checks.
       logger.warn(
         `${LOG_PREFIX} session.user.currUsr.umpi missing. Cannot compute UserProfile.`,
       );
-      setIsLoadingUserProfile(false); // No umpi, so profile computation attempt is complete (as a failure).
+      setUserProfileData(null);
+      setIsLoadingUserProfile(false); // UMPI missing, computation attempt over
     }
-  }, [session, sessionStatus, pbeData, isLoadingPbeData]); // Dependencies: session object for user.currUsr, sessionStatus, pbeData object, and its loading flag.
+  }, [session, sessionStatus, pbeData, isLoadingPbeData]);
 
   useEffect(() => {
     const sourceMainAppPlanData = () => {
