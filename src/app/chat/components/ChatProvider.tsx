@@ -66,10 +66,16 @@ export default function ChatProvider({
   } = usePlanStore();
 
   useEffect(() => {
-    logger.info(`${LOG_PREFIX} Component instance created/mounted. Props:`, {
-      autoInitialize,
-    });
-  }, [autoInitialize]);
+    const instanceId = Math.random().toString(36).substring(7);
+    logger.info(
+      `${LOG_PREFIX} ========== ChatProvider MOUNTED ========== Instance: ${instanceId}`,
+    );
+    return () => {
+      logger.warn(
+        `${LOG_PREFIX} ========== ChatProvider UNMOUNTING ========== Instance: ${instanceId}`,
+      );
+    };
+  }, []); // Empty dependency array means this runs once on mount and cleanup on unmount
 
   const fetchLoggedInMemberData = useCallback(async () => {
     // Check if data already exists for the current user and we are not in a loading state
