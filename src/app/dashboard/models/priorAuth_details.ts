@@ -1,8 +1,11 @@
+import { PriorAuthType } from '@/app/priorAuthorization/models/priorAuthType';
+import { AuthStatus } from '@/app/priorAuthorization/utils/authStatus';
+
 export interface DashboardPriorAuthDetails {
-  priorAuthType: 'Medical' | 'Pharmacy' | 'Dental';
+  priorAuthType: PriorAuthType;
   priorAuthName: string;
   dateOfVisit: string;
-  priorAuthStatus: string;
+  priorAuthStatus: AuthStatus;
   member: string;
   referenceId: string;
 }

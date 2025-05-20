@@ -50,6 +50,7 @@ const PriorAuthorization = ({
             label="caremark.com account"
             className="link !flex caremark pt-0"
             icon={<Image src={externalIcon} alt="external" />}
+            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
           />
         )}
       </Row>

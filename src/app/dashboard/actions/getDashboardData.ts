@@ -16,7 +16,7 @@ import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
-import { getDashboarPriorAuthData } from './getDashboarPriorAuthData';
+import { getDashboardPriorAuthData } from './getDashboardPriorAuthData';
 
 export const getDashboardData = async (): Promise<
   ActionResponse<number, DashboardData>
@@ -91,7 +91,7 @@ export const getDashboardData = async (): Promise<
       )
         throw 'NoPlansAvailable';
     }
-    const priorAuthResponse = await getDashboarPriorAuthData();
+    const priorAuthResponse = await getDashboardPriorAuthData();
     return {
       status: 200,
       data: {

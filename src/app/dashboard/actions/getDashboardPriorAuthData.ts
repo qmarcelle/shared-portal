@@ -2,14 +2,16 @@
 
 import { invokePriorAuthDetails } from '@/app/priorAuthorization/actions/memberPriorAuthorization';
 import { PriorAuthDetails } from '@/app/priorAuthorization/models/priorAuthDetails';
+import { PriorAuthType } from '@/app/priorAuthorization/models/priorAuthType';
+import { getAuthStatus } from '@/app/priorAuthorization/utils/authStatus';
 import { logger } from '@/utils/logger';
 import { DashboardPriorAuthDetails } from '../models/priorAuth_details';
 
-export async function getDashboarPriorAuthData(): Promise<DashboardPriorAuthDetails | null> {
+export async function getDashboardPriorAuthData(): Promise<DashboardPriorAuthDetails | null> {
   try {
-    const priorAuthresponse = await invokePriorAuthDetails();
-    if (priorAuthresponse.length > 0)
-      return computePriorAuthDetail(priorAuthresponse[0]);
+    const priorAuthResponse = await invokePriorAuthDetails();
+    if (priorAuthResponse.length > 0)
+      return computePriorAuthDetail(priorAuthResponse[0]);
     return null;
   } catch (error) {
     logger.error('Error in Prior Authorization Service - Dashboar{} ', error);
@@ -22,9 +24,9 @@ function computePriorAuthDetail(
 ): DashboardPriorAuthDetails {
   return {
     priorAuthName: priorAuthDetails.issuer,
-    priorAuthType: 'Medical',
+    priorAuthType: PriorAuthType.MEDICAL,
     dateOfVisit: priorAuthDetails.serviceDate,
-    priorAuthStatus: priorAuthDetails.priorAuthStatus,
+    priorAuthStatus: getAuthStatus(priorAuthDetails.priorAuthStatus),
     member: priorAuthDetails.memberName,
     referenceId: priorAuthDetails.referenceId ?? '',
   };

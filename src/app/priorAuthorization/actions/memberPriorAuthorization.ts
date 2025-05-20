@@ -2,7 +2,7 @@
 import { auth } from '@/auth';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
-import { getFormatDate } from '@/utils/date_formatter';
+import { formatDateToShortYear } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 import { format, startOfYear, subDays, subYears } from 'date-fns';
 import { MemberPriorAuthDetail } from '../models/priorAuthData';
@@ -21,7 +21,7 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
       memberList.push(item.relatedPersonMemeCk.toString());
     });
     const dateRange = getDateRange(
-      process.env.PRIOR_AUTH_FILTER_DATE_RANGE ?? 'A',
+      process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
     );
     logger.info('Prior Auth Date Range', dateRange);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,7 +39,7 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
             (item: MemberPriorAuthDetail) => ({
               issuer: item['serviceGroupDescription'],
               priorAuthStatus: item['statusDescription'],
-              serviceDate: getFormatDate(item['fromDate']),
+              serviceDate: formatDateToShortYear(item['fromDate']),
               memberName: item['firstName'] + ' ' + item['lastName'],
               referenceId: item['referenceId'],
               columns: [

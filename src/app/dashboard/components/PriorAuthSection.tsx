@@ -4,14 +4,14 @@ import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
 import { DashboardPriorAuthDetails } from '../models/priorAuth_details';
 import { BlankPriorAuthSection } from './BlankPriorAuthSection';
-import { PriorAuthCard } from './PrioAuthCard';
+import { PriorAuthCard } from './PriorAuthCard';
 
 interface PriorAuthSectionProps extends IComponent {
-  priorauth: DashboardPriorAuthDetails | null;
+  priorAuth: DashboardPriorAuthDetails | null;
 }
 
 export const PriorAuthSection = ({
-  priorauth,
+  priorAuth,
   className,
 }: PriorAuthSectionProps) => {
   return (
@@ -20,15 +20,15 @@ export const PriorAuthSection = ({
         <h2 className="title-2">Prior Authorization</h2>
         <Spacer size={32} />
         {(() => {
-          if (priorauth !== null) {
+          if (priorAuth === null) {
+            return <BlankPriorAuthSection />;
+          } else {
             return (
               <PriorAuthCard
-                key={priorauth.priorAuthName + priorauth.priorAuthStatus}
-                priorauth={priorauth}
+                key={priorAuth.referenceId}
+                priorAuth={priorAuth}
               />
             );
-          } else {
-            return <BlankPriorAuthSection />;
           }
         })()}
         <Spacer size={32} />

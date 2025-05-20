@@ -141,7 +141,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               )}
             <PriorAuthSection
               className="large-section"
-              priorauth={data.priorAuthDetail ?? null}
+              priorAuth={data.priorAuthDetail ?? null}
             />
           </Column>
         </section>
