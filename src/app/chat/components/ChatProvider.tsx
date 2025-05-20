@@ -391,6 +391,23 @@ export default function ChatProvider({
   );
   const setErrorStore = useChatStore((state) => state.actions.setError);
 
+  // Consolidated flag to check if all necessary data is loaded
+  const allDataLoaded =
+    sessionStatus === 'authenticated' &&
+    !isUserContextLoading &&
+    !isPlanContextLoading &&
+    !isLoadingLoggedInMember &&
+    !isLoadingUserProfile &&
+    !isLoadingPbeData &&
+    !isLoadingMainAppPlanData && // Derived from isPlanStoreLoading
+    !!userContext && // Ensure contexts themselves are populated
+    !!planContext &&
+    !!loggedInMemberDetails &&
+    !!userProfileData?.id &&
+    !!pbeData &&
+    !!mainAppPlanData?.isLoaded &&
+    !!mainAppPlanData.selectedPlan;
+
   // Effect to reset initialization flags if the selected plan ID changes
   useEffect(() => {
     const currentPlanId = storeSelectedPlanId;
@@ -416,32 +433,38 @@ export default function ChatProvider({
   }, [storeSelectedPlanId]);
 
   const initializeChatConfig = useCallback(() => {
+    // This function is now simpler as the readiness check is mostly handled by allDataLoaded
+    // and the calling useEffect's conditions.
+
     logger.info(
-      `${LOG_PREFIX} Attempting initializeChatConfig. autoInitialize: ${autoInitialize}, initializedRef: ${initializedRef.current}, isLoadingStore: ${isLoadingConfigStore}, Attempts: ${initAttemptsRef.current}`,
+      `${LOG_PREFIX} Attempting initializeChatConfig. autoInitialize: ${autoInitialize}, initializedRef: ${initializedRef.current}, isLoadingStore: ${isLoadingConfigStore}, Attempts: ${initAttemptsRef.current}, allDataLoaded: ${allDataLoaded}`,
     );
 
-    if (!autoInitialize || initializedRef.current || isLoadingConfigStore) {
-      return;
-    }
-
-    const allLoadingStates = {
-      sessionStatus,
-      isUserContextLoading,
-      isPlanContextLoading,
-      isLoadingLoggedInMember,
-      isLoadingUserProfile,
-      isLoadingPbeData,
-      isLoadingMainAppPlanData, // Derived from isPlanStoreLoading
-    };
-    const someDataStillLoading =
-      Object.values(allLoadingStates).some((val) => val === true) ||
-      sessionStatus === 'loading';
-
-    if (someDataStillLoading) {
-      logger.info(
-        `${LOG_PREFIX} Waiting for data contexts to load...`,
-        allLoadingStates,
+    // The primary guard is now in the calling useEffect.
+    // This function proceeds assuming it was called when appropriate.
+    // Additional safety checks for type narrowing, even if allDataLoaded should cover them.
+    if (
+      !session?.user ||
+      !userContext ||
+      !planContext ||
+      !loggedInMemberDetails ||
+      !userProfileData?.id ||
+      !pbeData ||
+      !mainAppPlanData?.selectedPlan
+    ) {
+      logger.error(
+        `${LOG_PREFIX} initializeChatConfig was called but essential data is missing. This shouldn't happen if allDataLoaded is true. Bailing.`,
+        {
+          sessionUser: !!session?.user,
+          userContext: !!userContext,
+          planContext: !!planContext,
+          loggedInMemberDetails: !!loggedInMemberDetails,
+          userProfileDataId: userProfileData?.id,
+          pbeData: !!pbeData,
+          mainAppSelectedPlan: !!mainAppPlanData?.selectedPlan,
+        },
       );
+      // Optionally set an error state here
       return;
     }
 
@@ -454,7 +477,7 @@ export default function ChatProvider({
     }
     initAttemptsRef.current += 1;
     logger.info(
-      `${LOG_PREFIX} Past loading checks. Init Attempt: ${initAttemptsRef.current}`,
+      `${LOG_PREFIX} Past loading checks (delegated to allDataLoaded). Init Attempt: ${initAttemptsRef.current}`,
     );
 
     if (planContextError) {
@@ -467,47 +490,14 @@ export default function ChatProvider({
       return;
     }
 
-    if (sessionStatus === 'unauthenticated') {
-      logger.warn(
-        `${LOG_PREFIX} User is unauthenticated. Chat initialization aborted during data checks.`,
-      );
-      if (!configErrorStore)
-        setErrorStore(
-          new Error('User unauthenticated, cannot initialize chat.'),
-        );
-      initializedRef.current = true;
-      return;
-    }
+    // Redundant check, as allDataLoaded covers sessionStatus === 'authenticated'
+    // if (sessionStatus === 'unauthenticated') { ... }
 
-    // Final data object validation
-    if (
-      !session?.user ||
-      !userContext ||
-      !planContext ||
-      !loggedInMemberDetails ||
-      !userProfileData?.id ||
-      !pbeData ||
-      !mainAppPlanData?.isLoaded ||
-      !mainAppPlanData.selectedPlan
-    ) {
-      logger.warn(
-        `${LOG_PREFIX} Data objects not yet fully populated. Attempt: ${initAttemptsRef.current}.`,
-        {
-          sessionUser: !!session?.user,
-          userContext: !!userContext,
-          planContext: !!planContext,
-          loggedInMemberDetails: !!loggedInMemberDetails,
-          userProfileData: !!userProfileData?.id,
-          pbeData: !!pbeData,
-          mainAppPlanDataLoaded: mainAppPlanData?.isLoaded,
-          mainAppSelectedPlan: !!mainAppPlanData?.selectedPlan,
-        },
-      );
-      return;
-    }
+    // Redundant check, as allDataLoaded covers the data object population
+    // if (!session?.user || !userContext || ... ) { ... }
 
     logger.info(
-      `${LOG_PREFIX} All data sources appear ready. Calling loadChatConfiguration.`,
+      `${LOG_PREFIX} All data sources appear ready (verified by allDataLoaded and local checks). Calling loadChatConfiguration.`,
     );
 
     const apiCallMemberId = userContext.userID;
@@ -516,7 +506,7 @@ export default function ChatProvider({
       (mainAppPlanData.selectedPlan ? mainAppPlanData.selectedPlan.id : '');
 
     const currentPlanDetailsForBuild: CurrentPlanDetails =
-      mainAppPlanData.selectedPlan
+      mainAppPlanData.selectedPlan // This is now guaranteed non-null by the check above
         ? {
             numberOfPlans: mainAppPlanData.numberOfPlans,
             currentPlanName:
@@ -524,8 +514,9 @@ export default function ChatProvider({
             currentPlanLOB: mainAppPlanData.selectedPlan.lob,
           }
         : {
+            // This path should be unreachable due to the check for mainAppPlanData.selectedPlan
             numberOfPlans: mainAppPlanData.numberOfPlans,
-            currentPlanName: 'Plan Not Available', // This case might be problematic
+            currentPlanName: 'Plan Not Available',
             currentPlanLOB: undefined,
           };
 
@@ -544,9 +535,9 @@ export default function ChatProvider({
     loadChatConfiguration(
       apiCallMemberId,
       apiCallPlanId,
-      loggedInMemberDetails,
-      session.user as SessionUser,
-      userProfileData,
+      loggedInMemberDetails, // Already checked for non-null
+      session.user as SessionUser, // Already checked for non-null
+      userProfileData, // Already checked for non-null (specifically userProfileData.id)
       currentPlanDetailsForBuild,
     ).catch((e) => {
       const errorContext = {
@@ -599,21 +590,54 @@ export default function ChatProvider({
   ]);
 
   // This useEffect is the main trigger for initializeChatConfig.
-  // It runs when any of its numerous dependencies change, allowing retries as data loads.
   useEffect(() => {
     logger.info(
-      `${LOG_PREFIX} Main initialization useEffect triggered. sessionStatus: ${sessionStatus}, initializedRef: ${initializedRef.current}`,
+      `${LOG_PREFIX} Main initialization useEffect triggered. allDataLoaded: ${allDataLoaded}, sessionStatus: ${sessionStatus}, initializedRef: ${initializedRef.current}, autoInitialize: ${autoInitialize}, isLoadingConfigStore: ${isLoadingConfigStore}, initAttempts: ${initAttemptsRef.current}`,
     );
-    if (sessionStatus === 'authenticated' && !initializedRef.current) {
+
+    if (
+      allDataLoaded &&
+      !initializedRef.current &&
+      autoInitialize &&
+      !isLoadingConfigStore
+    ) {
+      logger.info(
+        `${LOG_PREFIX} All conditions met in main useEffect. Calling initializeChatConfig.`,
+      );
       initializeChatConfig();
     } else if (sessionStatus === 'unauthenticated' && !initializedRef.current) {
       logger.warn(
-        `${LOG_PREFIX} Session unauthenticated in main useEffect. Chat initialization not performed.`,
+        `${LOG_PREFIX} Session unauthenticated in main useEffect. Chat initialization not performed. Setting error.`,
       );
       if (!configErrorStore) setErrorStore(new Error('User unauthenticated.'));
-      initializedRef.current = true;
+      initializedRef.current = true; // Mark as "handled" for unauthenticated
+    } else if (
+      initAttemptsRef.current >= maxInitAttempts &&
+      !initializedRef.current &&
+      !configErrorStore
+    ) {
+      // This case handles if max attempts are reached *before* allDataLoaded becomes true.
+      // initializeChatConfig also has a max attempts check, but this is a safety net.
+      logger.warn(
+        `${LOG_PREFIX} Main useEffect: Max init attempts reached (${initAttemptsRef.current}) before allDataLoaded was consistently true. Halting and setting error.`,
+      );
+      setErrorStore(
+        new Error('ChatProvider: Max init attempts (main useEffect).'),
+      );
+      initializedRef.current = true; // Prevent further attempts
     }
-  }, [initializeChatConfig, sessionStatus, configErrorStore, setErrorStore]); // Key dependencies
+  }, [
+    allDataLoaded,
+    sessionStatus,
+    autoInitialize,
+    isLoadingConfigStore,
+    initializeChatConfig, // useCallback ensures this is stable unless its own deep deps change
+    configErrorStore, // Added to prevent re-running setError if already set
+    setErrorStore, // Added as it's used
+    // initAttemptsRef.current is not a state variable, so it won't trigger re-runs.
+    // If we needed to react to attempt changes, it should be a useState.
+    // For now, the logic inside initializeChatConfig handles attempt counting.
+  ]);
 
   return <>{children}</>;
 }
