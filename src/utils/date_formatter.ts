@@ -99,7 +99,7 @@ export function getDifferenceInDays(date1: Date, date2: Date) {
 /**
  * convert the date format from mm/dd/yyyy to mm/dd/yy.
  */
-export function getFormatDate(date: string) {
+export function formatDateToShortYear(date: string) {
   const [month, day, year] = date.split('/');
   const shortYear = year.slice(-2); //Get last two digits
 

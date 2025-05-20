@@ -21,7 +21,7 @@ export async function populatePriorAuthDetails(
       memberList.push(item.relatedPersonMemeCk.toString());
     });
     const dateRange = getDateRange(
-      process.env.PRIOR_AUTH_FILTER_DATE_RANGE ?? 'A',
+      process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
     );
     let priorAuthDetail;
     for (const memberData of memberList) {
