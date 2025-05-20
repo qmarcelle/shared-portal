@@ -50,6 +50,8 @@ interface GenesysCloudConfig
   // GenesysConfig is the base
   deploymentId?: string; // Make optional to match usage
   environment?: string; // Make optional to match usage
+  widgetUrl?: string; // Added to satisfy effectiveScriptUrl
+  cssUrls?: string[]; // Added to satisfy effectiveCssUrls
   customAttributes?: {
     Firstname?: string;
     lastname?: string; // Note: inconsistent casing with Firstname
@@ -138,15 +140,18 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     onLoad,
     onError,
     showStatus = process.env.NODE_ENV === 'development',
-    chatMode: originalChatModeProp = 'legacy', // Capture original prop
+    chatMode: chatModeProp = 'legacy', // Use the passed prop, default to legacy if not provided
   }) => {
+    // const chatMode = 'legacy'; // REMOVED: Force chatMode to legacy for testing
+    // Use chatModeProp directly or assign it to a const if preferred for clarity for the rest of the component
+    const chatMode = chatModeProp;
+
     // TODO: Remove this hardcoding to 'legacy' after testing.
-    const chatMode = 'legacy'; // Force chatMode to legacy for testing
-    if (originalChatModeProp !== chatMode) {
-      logger.warn(
-        `${LOG_PREFIX} TEMP OVERRIDE: chatMode prop was '${originalChatModeProp}', but is forced to '${chatMode}' for legacy testing.`,
-      );
-    }
+    // if (originalChatModeProp !== chatMode) { // This log is no longer needed if we use the prop directly
+    //   logger.warn(
+    //     `${LOG_PREFIX} TEMP OVERRIDE: chatMode prop was '${originalChatModeProp}', but is forced to '${chatMode}' for legacy testing.`,
+    //   );
+    // }
 
     const [status, setStatus] = useState<
       | 'idle'
@@ -236,24 +241,29 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     }, [instanceId]); // instanceId ref is stable, effect runs once per instance
 
     const effectiveScriptUrl = useMemo(() => {
-      // TODO: Restore this block when legacy testing is complete
-      // if (chatMode === 'cloud')
-      //   return (
-      //     scriptUrl ||
-      //     'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
-      //   );
-      return scriptUrl || '/assets/genesys/click_to_chat.js';
-    }, [chatMode, scriptUrl]);
+      if (chatMode === 'cloud') {
+        return (
+          scriptUrl ||
+          cloudConfig?.widgetUrl || // Prefer cloudConfig specific URL if provided
+          'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js' // Default cloud bootstrap
+        );
+      }
+      // Legacy mode or default
+      return (
+        scriptUrl ||
+        legacyConfig?.clickToChatJs ||
+        '/assets/genesys/click_to_chat.js'
+      );
+    }, [chatMode, scriptUrl, legacyConfig, cloudConfig]);
 
     const effectiveCssUrls = useMemo(() => {
-      // TODO: Restore this block when legacy testing is complete
-      // if (chatMode === 'cloud') return cssUrls || [];
-      const defaultCssUrls = [
-        '/assets/genesys/plugins/widgets.min.css',
-        '/assets/genesys/styles/bcbst-custom.css',
-      ];
-      return cssUrls || defaultCssUrls;
-    }, [chatMode, cssUrls]);
+      if (chatMode === 'cloud') {
+        // Cloud mode might have its own CSS or inject it via its bootstrap script
+        return cssUrls || cloudConfig?.cssUrls || []; // Prefer cloudConfig specific URLs
+      }
+      // Legacy mode or default
+      return cssUrls || legacyConfig?.cssUrls || [];
+    }, [chatMode, cssUrls, legacyConfig]);
     // REMOVED: const stableCssUrls = useMemo(() => effectiveCssUrls, [effectiveCssUrls]);
 
     logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
@@ -575,6 +585,29 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               }
             } else {
               /* Cloud mode logging */
+            }
+
+            // Ensure window.chatSettings is populated BEFORE loading the script for legacy mode
+            if (chatMode === 'legacy' && legacyConfig) {
+              logger.info(
+                `${LOG_PREFIX} Instance ${instanceId.current} (Active): Setting window.chatSettings for legacy mode.`,
+                legacyConfig,
+              );
+              // eslint-disable-next-line no-console
+              console.log(
+                `%c[GenesysScriptLoader] Instance ${instanceId.current} (Active): Populating window.chatSettings for legacy mode.`,
+                'color: green; font-weight: bold;',
+                legacyConfig,
+              );
+              window.chatSettings = legacyConfig as ChatSettings; // Make sure legacyConfig has all needed fields
+            } else if (chatMode === 'cloud' && cloudConfig) {
+              logger.info(
+                `${LOG_PREFIX} Instance ${instanceId.current} (Active): Setting window.genesysCloudConfig for cloud mode (if needed by bootstrap).`,
+                cloudConfig,
+              );
+              // For cloud, configuration is typically handled by the bootstrap script itself via window.genesysExtension or similar.
+              // However, if click_to_chat.js or a similar wrapper were used for cloud (not recommended), it might look for this.
+              // window.genesysCloudConfig = cloudConfig; // Example if a global config object specific to cloud was needed by a wrapper
             }
 
             setStatus('loading-script');
