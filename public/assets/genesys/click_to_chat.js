@@ -1708,7 +1708,7 @@
     );
     // debugger; // Good place to stop if _genesys is missing
     // Optionally, try to bail out or trigger a more robust error display
-    hideLoadingIndicator();
+    // hideLoadingIndicator(); // REMOVED
     ensureChatButtonVisibility(); // Attempt to show a fallback button
     // Consider dispatching a custom error event that the main app can listen to
     // document.dispatchEvent(new CustomEvent('genesys:error', { detail: { message: 'window._genesys not defined by widgets.min.js' } }));
@@ -1741,7 +1741,7 @@
       window._genesys, // Log current state
     );
     // debugger;
-    hideLoadingIndicator();
+    // hideLoadingIndicator(); // REMOVED
     ensureChatButtonVisibility();
     return;
   }
@@ -1751,7 +1751,7 @@
       '[click_to_chat.js] FATAL: window._genesys.widgets.onReady is not a function after loading widgets.min.js. Halting chat initialization.',
     );
     // debugger;
-    hideLoadingIndicator();
+    // hideLoadingIndicator(); // REMOVED
     ensureChatButtonVisibility();
     return;
   }
