@@ -120,15 +120,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             )}
             <PriorAuthSection
               className="large-section"
-              priorauth={[
-                {
-                  priorAuthStatus: 'Approved',
-                  priorAuthName: 'Magnetic Resonance Images(MRI)',
-                  member: 'Chris Hall',
-                  dateOfVisit: '01/23/23',
-                  priorAuthType: 'Medical',
-                },
-              ]}
+              priorAuth={data.priorAuthDetail ?? null}
             />
           </Column>
         </section>

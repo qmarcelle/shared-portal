@@ -95,3 +95,13 @@ export function getDifferenceInDays(date1: Date, date2: Date) {
 
   return Math.floor(diffInMs / millisecondsPerDay); // Calculate and round down to the nearest whole number
 }
+
+/**
+ * convert the date format from mm/dd/yyyy to mm/dd/yy.
+ */
+export function formatDateToShortYear(date: string) {
+  const [month, day, year] = date.split('/');
+  const shortYear = year.slice(-2); //Get last two digits
+
+  return `${month}/${day}/${shortYear}`;
+}

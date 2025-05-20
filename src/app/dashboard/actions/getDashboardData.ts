@@ -17,6 +17,7 @@ import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
+import { getDashboardPriorAuthData } from './getDashboardPriorAuthData';
 
 export const getDashboardData = async (): Promise<
   ActionResponse<number, DashboardData>
@@ -70,6 +71,7 @@ export const getDashboardData = async (): Promise<
       planDetails,
       claims,
       balanceData,
+      priorAuthResponse,
     ] = await Promise.allSettled([
       getLoggedInMember(session),
       getPCPInfo(session),
@@ -77,6 +79,7 @@ export const getDashboardData = async (): Promise<
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
       getAllClaimsData(),
       getDedAndOOPBalanceForSubscriberAndDep(),
+      getDashboardPriorAuthData(),
     ]);
 
     let loggedUserInfo;
@@ -124,6 +127,10 @@ export const getDashboardData = async (): Promise<
           claims.status === 'fulfilled' && claims.value.status === 200
             ? claims.value.data?.claims
             : undefined,
+        priorAuthDetail:
+          priorAuthResponse.status === 'fulfilled'
+            ? priorAuthResponse.value
+            : null,
         balanceData:
           balanceData.status === 'fulfilled'
             ? balanceData.value.data

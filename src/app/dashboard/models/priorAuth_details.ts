@@ -1,7 +1,10 @@
-export interface PriorAuthDetails {
-  priorAuthType: 'Medical' | 'Pharmacy' | 'Dental';
+import { PriorAuthType } from '@/app/priorAuthorization/models/priorAuthType';
+
+export interface DashboardPriorAuthDetails {
+  priorAuthType: PriorAuthType;
   priorAuthName: string;
   dateOfVisit: string;
-  priorAuthStatus: 'Processed' | 'Denied' | 'Pending' | 'Approved';
+  priorAuthStatus: string;
   member: string;
+  referenceId: string;
 }
