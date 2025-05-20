@@ -616,7 +616,11 @@ export default function ChatProvider({
     // it can reset initializedRef.current = false within its catch block.
     initializedRef.current = true;
 
-    const apiCallMemberId = userContext.userID;
+    // const apiCallMemberId = userContext.userID; // Old way, using UMPI via userContext
+    // NEW WAY: Use the memCK from the selected plan, which is stored as mainAppPlanData.selectedPlan.id
+    // allDataLoaded ensures mainAppPlanData.selectedPlan is non-null here.
+    const apiCallMemberId = mainAppPlanData.selectedPlan!.id; // Use non-null assertion as allDataLoaded checks this
+
     const apiCallPlanId =
       planContext.planId ||
       (mainAppPlanData.selectedPlan ? mainAppPlanData.selectedPlan.id : '');
