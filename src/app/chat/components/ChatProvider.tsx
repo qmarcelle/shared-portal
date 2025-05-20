@@ -399,8 +399,8 @@ export default function ChatProvider({
     !isLoadingLoggedInMember &&
     !isLoadingUserProfile &&
     !isLoadingPbeData &&
-    !isLoadingMainAppPlanData && // Derived from isPlanStoreLoading
-    !!userContext && // Ensure contexts themselves are populated
+    !isLoadingMainAppPlanData &&
+    !!userContext &&
     !!planContext &&
     !!loggedInMemberDetails &&
     !!userProfileData?.id &&
@@ -493,12 +493,14 @@ export default function ChatProvider({
     // Redundant check, as allDataLoaded covers sessionStatus === 'authenticated'
     // if (sessionStatus === 'unauthenticated') { ... }
 
-    // Redundant check, as allDataLoaded covers the data object population
-    // if (!session?.user || !userContext || ... ) { ... }
-
     logger.info(
       `${LOG_PREFIX} All data sources appear ready (verified by allDataLoaded and local checks). Calling loadChatConfiguration.`,
     );
+
+    // Set initializedRef to true HERE, as we are now committing to an attempt to load the config.
+    // If loadChatConfiguration itself fails and needs a full re-attempt of initializeChatConfig,
+    // it can reset initializedRef.current = false within its catch block.
+    initializedRef.current = true;
 
     const apiCallMemberId = userContext.userID;
     const apiCallPlanId =
@@ -529,8 +531,6 @@ export default function ChatProvider({
       userProfileDataId: userProfileData?.id,
       currentPlanDetailsForBuild,
     });
-
-    initializedRef.current = true;
 
     loadChatConfiguration(
       apiCallMemberId,
@@ -625,18 +625,59 @@ export default function ChatProvider({
         new Error('ChatProvider: Max init attempts (main useEffect).'),
       );
       initializedRef.current = true; // Prevent further attempts
+    } else if (
+      !allDataLoaded &&
+      !initializedRef.current &&
+      autoInitialize &&
+      !isLoadingConfigStore
+    ) {
+      // Added this more specific else if to log why allDataLoaded might be false
+      logger.info(
+        `${LOG_PREFIX} Waiting for data contexts to load (allDataLoaded is false). Current states:`,
+        {
+          sessionStatus,
+          isUserContextLoading,
+          userContextExists: !!userContext,
+          isPlanContextLoading,
+          planContextExists: !!planContext,
+          isLoadingLoggedInMember,
+          loggedInMemberDetailsExists: !!loggedInMemberDetails,
+          isLoadingUserProfile,
+          userProfileDataIdExists: !!userProfileData?.id,
+          isLoadingPbeData,
+          pbeDataExists: !!pbeData,
+          isLoadingMainAppPlanData,
+          mainAppPlanDataIsLoaded: mainAppPlanData?.isLoaded,
+          mainAppPlanDataSelectedPlanExists: !!mainAppPlanData?.selectedPlan,
+          // Add other relevant data points contributing to allDataLoaded
+        },
+      );
     }
   }, [
-    allDataLoaded,
-    sessionStatus,
-    autoInitialize,
-    isLoadingConfigStore,
-    initializeChatConfig, // useCallback ensures this is stable unless its own deep deps change
-    configErrorStore, // Added to prevent re-running setError if already set
-    setErrorStore, // Added as it's used
-    // initAttemptsRef.current is not a state variable, so it won't trigger re-runs.
-    // If we needed to react to attempt changes, it should be a useState.
-    // For now, the logic inside initializeChatConfig handles attempt counting.
+    allDataLoaded, // Primary condition driver
+    sessionStatus, // Affects allDataLoaded & unauthenticated path
+    autoInitialize, // Condition for calling initializeChatConfig
+    isLoadingConfigStore, // Condition for calling initializeChatConfig
+    initializeChatConfig, // The action to call (stable due to useCallback)
+    configErrorStore, // To prevent re-setting error
+    setErrorStore, // To set error
+    // Explicitly add all direct data pieces and their loading flags that constitute `allDataLoaded`
+    // This makes the dependency array extremely sensitive to any change that might make allDataLoaded true.
+    isUserContextLoading,
+    userContext,
+    isPlanContextLoading,
+    planContext,
+    isLoadingLoggedInMember,
+    loggedInMemberDetails,
+    isLoadingUserProfile,
+    userProfileData,
+    isLoadingPbeData,
+    pbeData,
+    isLoadingMainAppPlanData,
+    mainAppPlanData,
+    // initAttemptsRef.current is not state, so not a dep here. initializedRef.current is also not state.
+    // The refs are mutated, but mutating a ref does not trigger re-renders/re-runs of useEffect by itself.
+    // The effect re-runs due to other state/prop changes, and then it reads the current value of the refs.
   ]);
 
   return <>{children}</>;
