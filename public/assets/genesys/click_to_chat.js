@@ -53,6 +53,15 @@
   // Load and validate config
   const cfg = validateConfig(window.chatSettings || {});
 
+  // --- TEMP: FORCE LEGACY MODE FOR TESTING ---
+  // TODO: Remove this line after testing legacy mode
+  cfg.chatMode = 'legacy';
+  console.log(
+    '[click_to_chat.js] TEMP OVERRIDE: chatMode forced to legacy',
+    JSON.parse(JSON.stringify(cfg)),
+  );
+  // --- END TEMP ---
+
   // Backwards compatibility: mirror all JSP-injected values directly on window
   // These constants provide local, convenient access to cfg properties.
   const clickToChatToken = cfg.clickToChatToken;
