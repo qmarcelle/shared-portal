@@ -56,7 +56,7 @@ export function ChatErrorDialog({
           </AlertDialogCancel>
           <AlertDialogAction
             onClick={onConfirm}
-            className="bg-primary hover:bg-primary-600 focus-visible:ring-primary/70"
+            className="bg-primary hover:bg-primary-600 text-white focus-visible:ring-primary/70"
           >
             {confirmText}
           </AlertDialogAction>

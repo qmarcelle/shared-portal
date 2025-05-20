@@ -100,7 +100,7 @@ export function PreChatModal({
             Cancel
           </Button>
           <Button
-            className="bg-primary hover:bg-primary-600"
+            className="bg-primary hover:bg-primary-600 text-white"
             onClick={onStartChatConfirm}
           >
             Start Chat
