@@ -12,6 +12,7 @@ const ProfileSettingsPage = async () => {
   const result = await getProfileSettingsData();
   return (
     <ProfileSettings
+      status={result.status}
       data={result.data!}
       userRole={session?.user.currUsr.role}
     />

@@ -1,6 +1,6 @@
 'use client';
 
-import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
+import { AnnualSpendingSummary } from '@/app/dashboard/components/AnnualSpendingSummary';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
@@ -25,7 +25,7 @@ const MemberDashboardTermedPlan = ({ data }: DashboardProps) => {
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <SpendingAccountSummary
+            <AnnualSpendingSummary
               className="large-section"
               title="Spending Summary"
               linkLabel="View Spending Summary"

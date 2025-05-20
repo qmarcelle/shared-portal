@@ -8,11 +8,11 @@ import {
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Image from 'next/image';
-import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
+import { AnnualSpendingSummary } from '../../../app/dashboard/components/AnnualSpendingSummary';
 
 const renderUI = () => {
   return render(
-    <SpendingAccountSummary
+    <AnnualSpendingSummary
       className="large-section statementSummary"
       title="Statement Summary up to November 8, 2023"
       subTitle="View Medical, Pharmacy, Dental and Vision for All Members"
@@ -84,7 +84,7 @@ const renderUI = () => {
   );
 };
 
-describe('SpendingAccountSummary', () => {
+describe('AnnualSpendingSummary', () => {
   it('should render the UI correctly', async () => {
     const component = renderUI();
     expect(

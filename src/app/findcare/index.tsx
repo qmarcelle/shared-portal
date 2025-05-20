@@ -1,4 +1,6 @@
 'use client';
+import { getFindCarePillOptions } from '@/app/dashboard/actions/getFindCarePillOptions';
+import { FindMedicalProvidersComponent } from '@/app/dashboard/components/FindMedicalProvidersComponent';
 import { ViewCareOptions } from '@/app/findcare/components/ViewCareOptions';
 import { VirtualCareOptions } from '@/app/findcare/components/VirtualCareOptions';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
@@ -6,42 +8,33 @@ import { Column } from '@/components/foundation/Column';
 import { RichText } from '@/components/foundation/RichText';
 import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
+import EstimateCost from '@/public/assets/estimate_cost.svg';
+import findCareIcon from '@/public/assets/find_care_search.svg';
+import MentalCareIcon from '@/public/assets/mental_health.svg';
+import PrimaryCareIcon from '@/public/assets/primary_care.svg';
 import {
   isEmboldHealthEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
-  isPharmacyBenefitsEligible,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
-  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import EstimateCost from '../../../public/assets/estimate_cost.svg';
-import findCareIcon from '../../../public/assets/find_care_search.svg';
-import MentalCareIcon from '../../../public/assets/mental_health.svg';
-import PrimaryCareIcon from '../../../public/assets/primary_care.svg';
-import { FindMedicalProvidersComponent } from '../dashboard/components/FindMedicalProvidersComponent';
-import {
-  CVS_DEEPLINK_MAP,
-  CVS_DRUG_SEARCH_INIT,
-  CVS_PHARMACY_SEARCH_FAST,
-  EYEMED_DEEPLINK_MAP,
-  EYEMED_PROVIDER_DIRECTORY,
-  EYEMED_VISION,
-  PROV_DIR_DEEPLINK_MAP,
-  PROV_DIR_DENTAL,
-  PROV_DIR_MEDICAL,
-  PROV_DIR_MENTAL_HEALTH,
-} from '../sso/ssoConstants';
+import { getProcedurePillOptions } from '../dashboard/actions/getProcedurePillOptions';
 import { FindCarePillBox } from './components/FindCarePillBox';
 export type FindCareProps = { visibilityRules?: VisibilityRules };
 
 const FindCare = ({ visibilityRules }: FindCareProps) => {
   const router = useRouter();
+  const findCarePillOptions = getFindCarePillOptions(visibilityRules!, router);
+  const procedurePillOptions = getProcedurePillOptions(
+    visibilityRules!,
+    router,
+  );
   return (
     <main className="flex flex-col justify-center items-center page">
       <WelcomeBanner
@@ -92,145 +85,40 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                 isButtonHorizontal={true}
               />
             )}
-            {!isEmboldHealthEligible(visibilityRules) && (
+            {!isEmboldHealthEligible(visibilityRules) &&
+              findCarePillOptions && (
+                <FindCarePillBox
+                  className="my-8  p-4"
+                  // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
+                  title="Looking for care? Find a:"
+                  icon={
+                    <Image
+                      src={findCareIcon}
+                      className="w-[40px] h-[40px]"
+                      alt=""
+                    />
+                  }
+                  pillObjects={findCarePillOptions}
+                />
+              )}
+          </Column>
+          {procedurePillOptions && (
+            <Column className="flex-grow page-section-36_67 items-stretch">
               <FindCarePillBox
                 className="my-8  p-4"
-                // className="md:w-[480px] md:h-[200px] md:my-8 p-4 w-11/12 "
-                title="Looking for care? Find a:"
+                //className="md:w-[480px] md:h-[164px] my-8 p-4 w-11/12"
+                title="Planning for a procedure? Estimate costs for:"
                 icon={
                   <Image
-                    src={findCareIcon}
+                    src={EstimateCost}
                     className="w-[40px] h-[40px]"
                     alt=""
                   />
                 }
-                pillObjects={[
-                  {
-                    label: 'Primary Care Provider',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
-                      );
-                    },
-                  },
-                  {
-                    label: 'Dentist',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`,
-                      );
-                    },
-                  },
-                  {
-                    label: 'Mental Health Provider',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`,
-                      );
-                    },
-                  },
-                  isVisionEligible(visibilityRules)
-                    ? {
-                        label: 'Eye Doctor',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
-                          );
-                        },
-                      }
-                    : {
-                        label: 'Eye Doctor',
-                        callback: () => {
-                          router.push('');
-                        },
-                      },
-                  isPharmacyBenefitsEligible(visibilityRules)
-                    ? {
-                        label: 'Pharmacy',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
-                          );
-                        },
-                      }
-                    : {
-                        label: 'Pharmacy',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
-                          );
-                        },
-                      },
-                  {
-                    label: 'Virtual Care',
-                    callback: () => {
-                      router.push('/member/findcare/virtualcare');
-                    },
-                  },
-                ]}
+                pillObjects={procedurePillOptions}
               />
-            )}
-          </Column>
-          <Column className="flex-grow page-section-36_67 items-stretch">
-            <FindCarePillBox
-              className="my-8  p-4"
-              //className="md:w-[480px] md:h-[164px] my-8 p-4 w-11/12"
-              title="Planning for a procedure? Estimate costs for:"
-              icon={
-                <Image
-                  src={EstimateCost}
-                  className="w-[40px] h-[40px]"
-                  alt=""
-                />
-              }
-              pillObjects={[
-                {
-                  label: 'Medical',
-                  callback: () => {
-                    router.push(
-                      `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MEDICAL)!)}`,
-                    );
-                  },
-                },
-                {
-                  label: 'Dental',
-                  callback: () => {
-                    router.push('/member/findcare/dentalcosts');
-                  },
-                },
-                isPharmacyBenefitsEligible(visibilityRules)
-                  ? {
-                      label: 'Prescription Drugs',
-                      callback: () => {
-                        router.push(
-                          `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
-                        );
-                      },
-                    }
-                  : {
-                      label: 'Prescription Drugs',
-                      callback: () => {
-                        router.push('');
-                      },
-                    },
-                isVisionEligible(visibilityRules)
-                  ? {
-                      label: 'Vision',
-                      callback: () => {
-                        router.push(
-                          `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET?.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_VISION)!)}`,
-                        );
-                      },
-                    }
-                  : {
-                      label: 'Vision',
-                      callback: () => {
-                        router.push('');
-                      },
-                    },
-              ]}
-            />
-          </Column>
+            </Column>
+          )}
         </section>
         <section className="flex flex-row items-start app-body mt-4">
           <Column className="flex-grow page-section-63_33 items-stretch">

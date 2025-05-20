@@ -2,6 +2,7 @@
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInMember } from '@/actions/memberDetails';
+import { getDedAndOOPBalanceForSubscriberAndDep } from '@/app/benefits/balances/actions/getDedAndOOPBalance';
 import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getAllClaimsData } from '@/app/claims/actions/getClaimsData';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
@@ -69,12 +70,16 @@ export const getDashboardData = async (): Promise<
       employerProvidedBenefits,
       planDetails,
       claims,
+      balanceData,
+      priorAuthResponse,
     ] = await Promise.allSettled([
       getLoggedInMember(session),
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
       getAllClaimsData(),
+      getDedAndOOPBalanceForSubscriberAndDep(),
+      getDashboardPriorAuthData(),
     ]);
 
     let loggedUserInfo;
@@ -91,7 +96,7 @@ export const getDashboardData = async (): Promise<
       )
         throw 'NoPlansAvailable';
     }
-    const priorAuthResponse = await getDashboardPriorAuthData();
+
     return {
       status: 200,
       data: {
@@ -122,7 +127,14 @@ export const getDashboardData = async (): Promise<
           claims.status === 'fulfilled' && claims.value.status === 200
             ? claims.value.data?.claims
             : undefined,
-        priorAuthDetail: priorAuthResponse ?? null,
+        priorAuthDetail:
+          priorAuthResponse.status === 'fulfilled'
+            ? priorAuthResponse.value
+            : null,
+        balanceData:
+          balanceData.status === 'fulfilled'
+            ? balanceData.value.data
+            : undefined,
       },
     };
   } catch (error) {

@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { ServicesRenderedInformation } from '../../claims/components/ServicesRenderedInformation';
 import { SpendingChart } from './SpendingChart';
 
-interface SpendingSummarySectionProps extends IComponent {
+export interface SpendingSummarySectionProps extends IComponent {
   title: string;
   subTitle: string;
   amountPaid: number;
@@ -28,7 +28,7 @@ interface SpendingSummarySectionProps extends IComponent {
   service?: ServiceDetails[];
 }
 
-export const SpendingAccountSummary = ({
+export const AnnualSpendingSummary = ({
   className,
   title,
   subTitle,

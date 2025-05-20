@@ -5,6 +5,8 @@ export type ProfileSettingsAppData = {
   phone: string;
   memberDetails: MemberDetails;
   visibilityRules?: VisibilityRules;
+  emailVerified: boolean;
+  phoneVerified: boolean;
 };
 
 export type MemberDetails = {

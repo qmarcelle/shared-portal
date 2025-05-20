@@ -1,7 +1,7 @@
 'use client';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
-import { noHeaderAndFooterRoutes } from '@/utils/routes';
+import { noHeaderAndFooterRoutes } from '@/utils/client_routes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

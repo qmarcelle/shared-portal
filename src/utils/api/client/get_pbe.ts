@@ -28,7 +28,7 @@ export async function getPersonBusinessEntity(
 
     const result = (await resp.json()) as ESResponse<PBEData>;
 
-    logger.info('PBE Data', result.data!);
+    //logger.info('PBE Data', result.data!);
     return result.data!;
   } catch (err) {
     logger.error('PBE Api Error', err);
