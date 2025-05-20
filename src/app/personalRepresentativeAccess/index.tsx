@@ -23,15 +23,10 @@ const PersonalRepresentativeAccess = ({
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Spacer size={52} />
-        <Header
-          className="pl-3"
-          type="title-1"
-          text="Personal Representative Access"
-        />
+        <Header type="title-1" text="Personal Representative Access" />
         <Spacer size={12} />
         <TextBox
-          className="w-2/3 ml-4"
+          className="w-2/3"
           text="Personal representatives have the legal authority to make health care decisions on behalf of the member."
         />
         <Spacer size={22} />
