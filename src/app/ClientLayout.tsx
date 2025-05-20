@@ -13,11 +13,20 @@ export default function ClientLayout({
 }) {
   const [shouldRenderChat, setShouldRenderChat] = useState(false);
   const hasInitializedGlobalOpener = useRef(false);
+  const previousSessionRef = useRef<typeof session>(null); // To track session object reference
 
   const { data: session, status: sessionStatus } = useSession();
 
+  // Log when ClientLayout re-renders
+  logger.info('[ClientLayout] Component RENDERED', {
+    status: sessionStatus,
+    sessionExists: !!session,
+    shouldRenderChatState: shouldRenderChat,
+  });
+
   useEffect(() => {
-    logger.info('[ClientLayout] Session data:', {
+    const isSessionRefDifferent = previousSessionRef.current !== session;
+    logger.info('[ClientLayout] Main useEffect RUNNING', {
       status: sessionStatus,
       isAuthenticated: sessionStatus === 'authenticated' && !!session,
       user: session?.user ? 'exists' : 'null',
@@ -28,7 +37,10 @@ export default function ClientLayout({
           }
         : 'null',
       timestamp: new Date().toISOString(),
+      isSessionRefDifferent, // Log if session object reference changed
+      shouldRenderChatState: shouldRenderChat, // Log current state
     });
+    previousSessionRef.current = session; // Update ref for next run
 
     if (sessionStatus === 'authenticated') {
       if (!shouldRenderChat) {
@@ -51,12 +63,16 @@ export default function ClientLayout({
           '[ClientLayout] User is unauthenticated and shouldRenderChat is true. Setting to false.',
         );
         setShouldRenderChat(false);
+        // Optionally reset global opener if chat is hidden due to unauthentication
+        // hasInitializedGlobalOpener.current = false;
       }
     }
   }, [session, sessionStatus, shouldRenderChat]);
 
   useEffect(() => {
-    logger.info(`[ClientLayout] shouldRenderChat changed: ${shouldRenderChat}`);
+    logger.info(
+      `[ClientLayout] shouldRenderChat state CHANGED to: ${shouldRenderChat}`,
+    );
   }, [shouldRenderChat]);
 
   return (
