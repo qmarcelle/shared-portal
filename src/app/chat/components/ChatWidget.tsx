@@ -551,6 +551,62 @@ export default function ChatWidget({
     }
   }, [activeLegacyConfig, chatMode, storeActions]); // storeActions added if re-init needs to dispatch anything, for now it's mainly window call
 
+  // Effect to show/hide native Genesys button based on PreChatModal state
+  useEffect(() => {
+    if (isPreChatModalOpen) {
+      logger.debug(
+        `${LOG_PREFIX} PreChat is open. Attempting to hide native Genesys button.`,
+      );
+      if (chatMode === 'legacy' && window._genesysCXBus) {
+        try {
+          (window._genesysCXBus as GenesysCXBus).command(
+            'WebChat.hideChatButton',
+          );
+        } catch (e) {
+          logger.warn(`${LOG_PREFIX} Error calling WebChat.hideChatButton:`, e);
+        }
+      } else if (chatMode === 'cloud') {
+        // For cloud, a direct hide command is preferable if available.
+        // Using a class as a placeholder for Messenger.hideButton() or similar.
+        // window.Genesys?.('command', 'Messenger.hideButton'); // Example, if exists
+        document.body.classList.add('prechat-panel-open');
+        logger.info(
+          `${LOG_PREFIX} Added .prechat-panel-open to body for cloud mode.`,
+        );
+      }
+    } else {
+      // PreChat is not open, decide if we need to show the button
+      if (!isChatActive) {
+        // Only show if a chat session isn't already active
+        logger.debug(
+          `${LOG_PREFIX} PreChat is closed and chat is not active. Attempting to show native Genesys button.`,
+        );
+        if (chatMode === 'legacy' && window._genesysCXBus) {
+          try {
+            (window._genesysCXBus as GenesysCXBus).command(
+              'WebChat.showChatButton',
+            );
+          } catch (e) {
+            logger.warn(
+              `${LOG_PREFIX} Error calling WebChat.showChatButton:`,
+              e,
+            );
+          }
+        } else if (chatMode === 'cloud') {
+          // window.Genesys?.('command', 'Messenger.showButton'); // Example, if exists
+          document.body.classList.remove('prechat-panel-open');
+          logger.info(
+            `${LOG_PREFIX} Removed .prechat-panel-open from body for cloud mode.`,
+          );
+        }
+      } else {
+        logger.debug(
+          `${LOG_PREFIX} PreChat is closed, but chat IS active. Native button remains hidden by Genesys widget. `,
+        );
+      }
+    }
+  }, [isPreChatModalOpen, chatMode, isChatActive]);
+
   // Conditional Rendering Logic
   if (isLoadingConfig && scriptLoadPhase === ScriptLoadPhase.INIT) {
     return (
