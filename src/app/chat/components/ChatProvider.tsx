@@ -286,20 +286,26 @@ export default function ChatProvider({
 
   // Effect to reset initialization flags if the selected plan ID changes
   useEffect(() => {
+    const currentPlanId = storeSelectedPlanId;
+    const previousPlanId = previousSelectedPlanIdRef.current;
+
+    // Only consider it a switch if previousPlanId was set (not initial load)
+    // and currentPlanId is set and different from previous.
     if (
-      previousSelectedPlanIdRef.current &&
-      storeSelectedPlanId &&
-      storeSelectedPlanId !== previousSelectedPlanIdRef.current
+      previousPlanId !== null &&
+      previousPlanId !== undefined &&
+      currentPlanId !== null &&
+      currentPlanId !== undefined &&
+      currentPlanId !== previousPlanId
     ) {
       logger.info(
-        `${LOG_PREFIX} Plan switch detected (from ${previousSelectedPlanIdRef.current} to ${storeSelectedPlanId}). Resetting chat initialization flags.`,
+        `${LOG_PREFIX} Plan switch detected (from ${previousPlanId} to ${currentPlanId}). Resetting chat initialization flags.`,
       );
       initializedRef.current = false;
       initAttemptsRef.current = 0;
-      // Optionally clear previous config from chatStore if a full reset is desired on plan switch
-      // useChatStore.getState().actions.setError(null); // Example
     }
-    previousSelectedPlanIdRef.current = storeSelectedPlanId;
+    // Always update the ref to the latest known plan ID from the store
+    previousSelectedPlanIdRef.current = currentPlanId;
   }, [storeSelectedPlanId]);
 
   const initializeChatConfig = useCallback(() => {
