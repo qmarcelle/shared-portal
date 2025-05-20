@@ -98,6 +98,8 @@ export interface GenesysChatConfig {
   deploymentId?: string;
   /** Genesys Cloud org ID (cloud mode only) */
   orgId: string;
+  /** Genesys Cloud environment (e.g., 'prod-usw2', cloud mode only) */
+  environment?: string;
   /** Override for widgets.min.js script URL */
   genesysWidgetUrl?: string;
   /** BlueElite group flag */
@@ -410,6 +412,9 @@ export function buildGenesysChatConfig({
     config.orgId =
       (apiConfig.genesysCloudConfig as any)?.orgId ||
       process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID;
+    config.environment =
+      (apiConfig.genesysCloudConfig as any)?.environment ||
+      process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT;
     // For cloud, gmsChatUrl might not be used in the same way, or could be the API endpoint base
   } else {
     // Legacy mode
