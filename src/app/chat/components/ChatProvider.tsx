@@ -118,35 +118,41 @@ export default function ChatProvider({
   useEffect(() => {
     const fetchPbeData = async () => {
       if (session?.user?.id && sessionStatus === 'authenticated') {
-        // Check if PBE data for this session user is already fetched and not loading
-        if (
-          pbeData &&
-          !isLoadingPbeData &&
-          (pbeData as any)?.userId === session.user.id
-        ) {
-          // Assuming PBEData might have a userId link
-          return;
-        }
+        logger.info(
+          `${LOG_PREFIX} Authenticated. Preparing to fetch PBEData for user ID: ${session.user.id}. Current isLoadingPbeData: ${isLoadingPbeData}`,
+        );
         setIsLoadingPbeData(true);
         try {
-          logger.info(
-            `${LOG_PREFIX} Fetching PBEData for user ID: ${session.user.id}`,
-          );
           const data = await getPersonBusinessEntity(session.user.id);
+          logger.info(
+            `${LOG_PREFIX} PBEData fetched successfully for user ID: ${session.user.id}`,
+            data,
+          );
           setPbeData(data);
+          setIsLoadingPbeData(false); // EXPLICITLY SET TO FALSE ON SUCCESS
         } catch (error) {
-          logger.error(`${LOG_PREFIX} Error fetching PBEData:`, error);
+          logger.error(
+            `${LOG_PREFIX} Error fetching PBEData for user ID: ${session.user.id}:`,
+            error,
+          );
           setPbeData(null);
-        } finally {
-          setIsLoadingPbeData(false);
+          setIsLoadingPbeData(false); // EXPLICITLY SET TO FALSE ON ERROR
         }
       } else if (sessionStatus !== 'loading') {
+        logger.info(
+          `${LOG_PREFIX} Not authenticated or session not ready. Resetting PBEData.`,
+        );
         setPbeData(null);
         setIsLoadingPbeData(false);
+      } else {
+        logger.info(
+          `${LOG_PREFIX} Session is loading. isLoadingPbeData will remain true.`,
+        );
+        if (!isLoadingPbeData) setIsLoadingPbeData(true);
       }
     };
     fetchPbeData();
-  }, [session, sessionStatus, pbeData, isLoadingPbeData]); // Restored pbeData and isLoadingPbeData for correct dependency tracking
+  }, [session?.user?.id, sessionStatus]);
 
   useEffect(() => {
     // Ensures isLoadingUserProfile is reliably set to false once profile sourcing is attempted.
