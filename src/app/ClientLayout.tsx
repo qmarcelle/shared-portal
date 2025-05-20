@@ -29,6 +29,8 @@ export default function ClientLayout({
     logger.info('[ClientLayout] Session/Auth Status useEffect RUNNING', {
       status: sessionStatus,
       currentShouldRenderChat: shouldRenderChat,
+      // Example: access session data here for logging if needed, without it being a dependency
+      // sessionUserExists: !!session?.user
     });
 
     if (sessionStatus === 'authenticated') {
@@ -50,9 +52,11 @@ export default function ClientLayout({
           '[ClientLayout] User is unauthenticated and shouldRenderChat is true. Setting to false.',
         );
         setShouldRenderChat(false);
+        // Resetting global opener might be desired if chat is strictly for authenticated users
+        // hasInitializedGlobalOpener.current = false;
       }
     }
-  }, [sessionStatus, session]);
+  }, [sessionStatus]); // Dependency changed to ONLY sessionStatus
 
   useEffect(() => {
     logger.info(
