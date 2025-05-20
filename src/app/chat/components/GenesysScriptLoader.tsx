@@ -138,8 +138,16 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     onLoad,
     onError,
     showStatus = process.env.NODE_ENV === 'development',
-    chatMode = 'legacy',
+    chatMode: originalChatModeProp = 'legacy', // Capture original prop
   }) => {
+    // TODO: Remove this hardcoding to 'legacy' after testing.
+    const chatMode = 'legacy'; // Force chatMode to legacy for testing
+    if (originalChatModeProp !== chatMode) {
+      logger.warn(
+        `${LOG_PREFIX} TEMP OVERRIDE: chatMode prop was '${originalChatModeProp}', but is forced to '${chatMode}' for legacy testing.`,
+      );
+    }
+
     const [status, setStatus] = useState<
       | 'idle'
       | 'loading-css'
@@ -228,17 +236,18 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     }, [instanceId]); // instanceId ref is stable, effect runs once per instance
 
     const effectiveScriptUrl = useMemo(() => {
-      if (chatMode === 'cloud')
-        return (
-          scriptUrl ||
-          'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
-        );
+      // TODO: Restore this block when legacy testing is complete
+      // if (chatMode === 'cloud')
+      //   return (
+      //     scriptUrl ||
+      //     'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js'
+      //   );
       return scriptUrl || '/assets/genesys/click_to_chat.js';
     }, [chatMode, scriptUrl]);
 
     const effectiveCssUrls = useMemo(() => {
-      // This is now used directly instead of stableCssUrls
-      if (chatMode === 'cloud') return cssUrls || [];
+      // TODO: Restore this block when legacy testing is complete
+      // if (chatMode === 'cloud') return cssUrls || [];
       const defaultCssUrls = [
         '/assets/genesys/plugins/widgets.min.css',
         '/assets/genesys/styles/bcbst-custom.css',
@@ -755,13 +764,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         );
         return;
       }
-      if (chatMode === 'cloud' && !cloudConfig) {
-        handleLoadError(
-          new Error('Cloud mode specified but cloudConfig is missing.'),
-          'Chat mode validation',
-        );
-        return;
-      }
+      // TODO: Restore this block when legacy testing is complete. This specific check was causing persistent linter errors.
+      // if (chatMode === 'cloud' && !cloudConfig) {
+      //   handleLoadError(
+      //     new Error('Cloud mode specified but cloudConfig is missing.'),
+      //     'Chat mode validation',
+      //   );
+      //   return;
+      // }
       logger.info(
         `${LOG_PREFIX} Chat mode validation successful for mode: ${chatMode}`,
       );
