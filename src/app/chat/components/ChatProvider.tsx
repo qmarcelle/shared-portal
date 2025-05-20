@@ -116,6 +116,9 @@ export default function ChatProvider({
   }, [fetchLoggedInMemberData]);
 
   useEffect(() => {
+    logger.info(
+      `${LOG_PREFIX} PBE useEffect triggered. Deps - userId: ${session?.user?.id}, sessionStatus: ${sessionStatus}. Current isLoadingPbeData: ${isLoadingPbeData}`,
+    );
     const fetchPbeData = async () => {
       if (session?.user?.id && sessionStatus === 'authenticated') {
         logger.info(
@@ -123,30 +126,62 @@ export default function ChatProvider({
         );
         setIsLoadingPbeData(true);
         try {
-          const data = await getPersonBusinessEntity(session.user.id);
+          const pbeFetchTimeout = 15000; // 15 seconds
+          const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(
+              () =>
+                reject(
+                  new Error(
+                    `PBE fetch for userId ${session?.user?.id} timed out after ${pbeFetchTimeout}ms`,
+                  ),
+                ),
+              pbeFetchTimeout,
+            ),
+          );
+
           logger.info(
-            `${LOG_PREFIX} PBEData fetched successfully for user ID: ${session.user.id}`,
+            `${LOG_PREFIX} About to call getPersonBusinessEntity for userId: ${session.user.id}`,
+          );
+          const data = (await Promise.race([
+            getPersonBusinessEntity(session.user.id),
+            timeoutPromise,
+          ])) as PBEData | undefined;
+
+          logger.info(
+            `${LOG_PREFIX} PBE fetch attempt successful/resolved. Data:`,
             data,
           );
-          setPbeData(data);
-          setIsLoadingPbeData(false); // EXPLICITLY SET TO FALSE ON SUCCESS
+          setPbeData(data || null);
+          logger.info(
+            `${LOG_PREFIX} About to set isLoadingPbeData to false (success path). Current value: ${isLoadingPbeData}`,
+          );
+          setIsLoadingPbeData(false);
         } catch (error) {
           logger.error(
-            `${LOG_PREFIX} Error fetching PBEData for user ID: ${session.user.id}:`,
+            `${LOG_PREFIX} PBE fetch attempt failed/rejected. Error:`,
             error,
           );
           setPbeData(null);
-          setIsLoadingPbeData(false); // EXPLICITLY SET TO FALSE ON ERROR
+          logger.info(
+            `${LOG_PREFIX} About to set isLoadingPbeData to false (error path). Current value: ${isLoadingPbeData}`,
+          );
+          setIsLoadingPbeData(false);
         }
       } else if (sessionStatus !== 'loading') {
         logger.info(
           `${LOG_PREFIX} Not authenticated or session not ready. Resetting PBEData.`,
         );
         setPbeData(null);
-        setIsLoadingPbeData(false);
+        // Ensure isLoadingPbeData is false if we are not attempting a fetch and not session loading
+        if (isLoadingPbeData) {
+          logger.info(
+            `${LOG_PREFIX} Setting isLoadingPbeData to false (not authenticated/not session loading path). Current value: ${isLoadingPbeData}`,
+          );
+          setIsLoadingPbeData(false);
+        }
       } else {
         logger.info(
-          `${LOG_PREFIX} Session is loading. isLoadingPbeData will remain true.`,
+          `${LOG_PREFIX} Session is loading. isLoadingPbeData should be true. Current value: ${isLoadingPbeData}`,
         );
         if (!isLoadingPbeData) setIsLoadingPbeData(true);
       }
