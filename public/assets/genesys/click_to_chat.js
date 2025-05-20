@@ -1709,7 +1709,7 @@
     // debugger; // Good place to stop if _genesys is missing
     // Optionally, try to bail out or trigger a more robust error display
     // hideLoadingIndicator(); // REMOVED
-    ensureChatButtonVisibility(); // Attempt to show a fallback button
+    // ensureChatButtonVisibility(); // REMOVED
     // Consider dispatching a custom error event that the main app can listen to
     // document.dispatchEvent(new CustomEvent('genesys:error', { detail: { message: 'window._genesys not defined by widgets.min.js' } }));
     return; // Halt further processing in this script if _genesys isn't there.
@@ -1742,7 +1742,7 @@
     );
     // debugger;
     // hideLoadingIndicator(); // REMOVED
-    ensureChatButtonVisibility();
+    // ensureChatButtonVisibility(); // REMOVED
     return;
   }
 
@@ -1752,7 +1752,7 @@
     );
     // debugger;
     // hideLoadingIndicator(); // REMOVED
-    ensureChatButtonVisibility();
+    // ensureChatButtonVisibility(); // REMOVED
     return;
   }
 
