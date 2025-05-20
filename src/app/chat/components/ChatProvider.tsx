@@ -71,7 +71,6 @@ export default function ChatProvider({
       );
       setIsLoadingLoggedInMember(true);
       try {
-        // Pass session directly; getLoggedInMember should handle its structure
         const details = await getLoggedInMember(session);
         setLoggedInMemberDetails(details);
         logger.info(
@@ -97,10 +96,9 @@ export default function ChatProvider({
       logger.info(
         `${LOG_PREFIX} Session is loading. Waiting to fetch loggedInMemberDetails.`,
       );
-      // Ensure loading state is true if we are waiting for session to attempt fetch
       if (!isLoadingLoggedInMember) setIsLoadingLoggedInMember(true);
     }
-  }, [session, sessionStatus, isLoadingLoggedInMember]); // Added isLoadingLoggedInMember to prevent potential loop if it was set false prematurely
+  }, [session, sessionStatus]);
 
   useEffect(() => {
     fetchMemberDetails();
