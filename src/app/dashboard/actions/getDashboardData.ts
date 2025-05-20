@@ -2,6 +2,7 @@
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInMember } from '@/actions/memberDetails';
+import { getDedAndOOPBalanceForSubscriberAndDep } from '@/app/benefits/balances/actions/getDedAndOOPBalance';
 import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getAllClaimsData } from '@/app/claims/actions/getClaimsData';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
@@ -68,12 +69,14 @@ export const getDashboardData = async (): Promise<
       employerProvidedBenefits,
       planDetails,
       claims,
+      balanceData,
     ] = await Promise.allSettled([
       getLoggedInMember(session),
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
       getAllClaimsData(),
+      getDedAndOOPBalanceForSubscriberAndDep(),
     ]);
 
     let loggedUserInfo;
@@ -120,6 +123,10 @@ export const getDashboardData = async (): Promise<
         memberClaims:
           claims.status === 'fulfilled' && claims.value.status === 200
             ? claims.value.data?.claims
+            : undefined,
+        balanceData:
+          balanceData.status === 'fulfilled'
+            ? balanceData.value.data
             : undefined,
       },
     };
