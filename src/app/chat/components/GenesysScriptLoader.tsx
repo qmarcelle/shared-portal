@@ -419,6 +419,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
           script.id = id;
           script.src = src;
           script.async = async;
+          script.defer = true;
           script.onload = () => {
             logger.info(`${LOG_PREFIX} Script loaded successfully: ${src}`);
             if (
@@ -428,11 +429,11 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
               logger.info(
                 `${LOG_PREFIX} Adding rescue script after main Genesys script`,
               );
-              const rescueScript = document.createElement('script');
-              rescueScript.id = 'genesys-rescue-script';
-              rescueScript.src = '/assets/genesys/genesys-rescue.js';
-              rescueScript.async = true;
-              document.head.appendChild(rescueScript);
+              // const rescueScript = document.createElement('script');
+              // rescueScript.src = '/assets/genesys/genesys-rescue.js';
+              // rescueScript.async = true;
+              // rescueScript.defer = true;
+              // document.head.appendChild(rescueScript);
             }
             resolve();
           };
