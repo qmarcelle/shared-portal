@@ -3,9 +3,9 @@
 import '@/app/globals.css';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
 import { FooterServerWrapper } from '@/components/serverComponents/FooterServerWrapper';
-import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import { SessionProvider } from 'next-auth/react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -20,8 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ClientInitComponent />
-        <SiteHeaderServerWrapper />
+        <SessionProvider>
         <ClientLayout>{children}</ClientLayout>
+        </SessionProvider>
         <FooterServerWrapper />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script
