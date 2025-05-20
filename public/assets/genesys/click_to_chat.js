@@ -1712,18 +1712,6 @@
   // Original onReady callback is preserved and called, but we also add our specific logic
   // The CXBus object is passed to the onReady callback.
   window._genesys.widgets.onReady = (CXBus) => {
-    console.log('[click_to_chat.js] CXBus ready!'); // Step 2 & 3
-    console.log(
-      '[click_to_chat.js] Current _genesys.widgets:',
-      window._genesys.widgets,
-    ); // Step 2 & 3
-    console.log(
-      '[click_to_chat.js] Current _genesys.widgets.main:',
-      window._genesys.widgets.main,
-    ); // Step 2 & 3
-
-    // Temporarily comment out existing initialization to test alternatives
-    /*
     console.log(
       '[click_to_chat.js] CXBus ready. Initializing chat with config:',
       JSON.parse(JSON.stringify(window._genesys.widgets.main)),
@@ -1746,7 +1734,6 @@
       );
       // debugger; // Critical point to inspect _genesys.widgets.main
       // Fallback or alternative initialization attempts could go here
-      // For example, trying CXBus.command directly if main.initialise is missing
       // if (CXBus && typeof CXBus.command === 'function' && window.chatSettings && window.chatSettings.genesysConfig) {
       //   console.log('[click_to_chat.js] Attempting CXBus.command("App.init", window.chatSettings.genesysConfig)');
       //   CXBus.command('App.init', window.chatSettings.genesysConfig);
@@ -1754,22 +1741,6 @@
       //   console.error('[click_to_chat.js] CXBus.command or window.chatSettings.genesysConfig is not available for fallback initialization.');
       // }
     }
-    */
-
-    // Try to initialize using the correct method from docs (Step 2 & 3)
-    // Example:
-    // console.log('[click_to_chat.js] Attempting CXBus.command("App.init", window.chatSettings.genesysConfig)');
-    // CXBus.command('App.init', window.chatSettings.genesysConfig); // Assuming chatSettings.genesysConfig holds the full config
-
-    // OR
-    // console.log('[click_to_chat.js] Attempting window._genesys.widgets.bus.command("App.init", window.chatSettings.genesysConfig)');
-    // window._genesys.widgets.bus.command('App.init', window.chatSettings.genesysConfig);
-
-    // OR
-    // console.log('[click_to_chat.js] Attempting CXBus.command("WebChat.open", window.chatSettings.genesysConfig)');
-    // CXBus.command('WebChat.open', window.chatSettings.genesysConfig);
-
-    // OR whatever the docs say is correct for your *specific* widgets.min.js version
 
     // Safety timeout remains important
     setTimeout(() => {
