@@ -103,7 +103,7 @@ export default function ChatProvider({
       setLoggedInMemberDetails(null);
       setIsLoadingLoggedInMember(false);
     }
-  }, [session, sessionStatus]); // Key change: Removed isLoadingLoggedInMember, loggedInMemberDetails from deps
+  }, [session, sessionStatus, isLoadingLoggedInMember, loggedInMemberDetails]); // Added missing dependencies
 
   useEffect(() => {
     fetchLoggedInMemberData();
@@ -143,71 +143,80 @@ export default function ChatProvider({
   }, [session, sessionStatus]); // Removed pbeData, isLoadingPbeData (internal check added)
 
   useEffect(() => {
-    const sourceUserProfile = () => {
-      if (!pbeData || isLoadingPbeData) {
-        // Ensure PBE data is loaded and not currently being fetched
-        if (sessionStatus === 'authenticated' && !isLoadingPbeData) {
-          // Only warn if PBE data fetch finished but it's null
-          logger.warn(
-            `${LOG_PREFIX} PBEData not available for UserProfile computation.`,
-          );
-        }
-        setUserProfileData(null); // Clear or keep previous if PBE not ready
-        setIsLoadingUserProfile(
-          isLoadingPbeData || sessionStatus === 'loading',
-        ); // Profile loading if PBE or session is loading
-        return;
-      }
-
+    // Refined logic for sourcing UserProfile
+    if (sessionStatus === 'loading' || isLoadingPbeData) {
+      // If session is still loading OR PBE data is still loading, then user profile is implicitly loading.
+      // Avoid prematurely setting userProfileData or its loading state if core dependencies aren't ready.
       setIsLoadingUserProfile(true);
-      if (session?.user?.currUsr?.umpi) {
-        try {
-          const profiles = computeUserProfilesFromPbe(
-            pbeData,
-            session.user.currUsr.umpi,
-            session.user.currUsr.plan?.memCk,
-          );
-          const currentUserProfile = profiles.find(
-            (p) => p.id === session.user.currUsr.umpi && p.selected,
-          );
-          if (currentUserProfile) {
-            setUserProfileData(currentUserProfile);
-          } else {
-            const fallbackProfile = profiles.find(
-              (p) => p.id === session.user.currUsr.umpi,
-            );
-            setUserProfileData(fallbackProfile || null);
-            if (!fallbackProfile)
-              logger.warn(
-                `${LOG_PREFIX} UserProfile not found for umpi: ${session.user.currUsr.umpi}.`,
-              );
-          }
-        } catch (error) {
-          logger.error(
-            `${LOG_PREFIX} Error computing UserProfile from PBEData:`,
-            error,
-          );
-          setUserProfileData(null);
-        }
-      } else {
-        setUserProfileData(null);
-        if (sessionStatus === 'authenticated')
-          logger.warn(
-            `${LOG_PREFIX} session.user.currUsr.umpi missing for UserProfile.`,
-          );
-      }
-      setIsLoadingUserProfile(false);
-    };
-
-    if (
-      sessionStatus === 'authenticated' ||
-      sessionStatus === 'unauthenticated'
-    ) {
-      sourceUserProfile();
-    } else if (sessionStatus === 'loading') {
-      setIsLoadingUserProfile(true); // Set loading if session is loading
+      return;
     }
-  }, [session, sessionStatus, pbeData, isLoadingPbeData]);
+
+    if (sessionStatus === 'unauthenticated') {
+      // If unauthenticated, there's no profile to load from PBE.
+      setUserProfileData(null);
+      setIsLoadingUserProfile(false); // Definitively not loading a profile.
+      return;
+    }
+
+    // At this point, session is 'authenticated' and pbeData is NOT loading.
+    if (!pbeData) {
+      // PBE data fetch might have completed but returned null (e.g., error).
+      // This check is important if getPersonBusinessEntity can return null on error
+      // instead of throwing.
+      logger.warn(
+        `${LOG_PREFIX} PBEData not available for UserProfile computation after its loading phase completed.`,
+      );
+      setUserProfileData(null);
+      setIsLoadingUserProfile(false); // Not loading because PBE data is missing post-load.
+      return;
+    }
+
+    // Now, session is 'authenticated', pbeData is loaded and available (not null).
+    // Proceed with UserProfile computation.
+    setIsLoadingUserProfile(true); // Set true just before the computation.
+
+    if (session?.user?.currUsr?.umpi) {
+      try {
+        const profiles = computeUserProfilesFromPbe(
+          pbeData,
+          session.user.currUsr.umpi,
+          session.user.currUsr.plan?.memCk,
+        );
+        const currentUserProfile = profiles.find(
+          (p) => p.id === session.user.currUsr.umpi && p.selected,
+        );
+        if (currentUserProfile) {
+          setUserProfileData(currentUserProfile);
+        } else {
+          const fallbackProfile = profiles.find(
+            (p) => p.id === session.user.currUsr.umpi,
+          );
+          setUserProfileData(fallbackProfile || null);
+          if (!fallbackProfile) {
+            logger.warn(
+              `${LOG_PREFIX} UserProfile not found for umpi: ${session.user.currUsr.umpi}. Attempted fallback.`,
+            );
+          }
+        }
+      } catch (error) {
+        logger.error(
+          `${LOG_PREFIX} Error computing UserProfile from PBEData:`,
+          error,
+        );
+        setUserProfileData(null);
+      } finally {
+        setIsLoadingUserProfile(false); // CRITICAL: Set to false after computation attempt.
+      }
+    } else {
+      // UMPI is missing, cannot compute profile.
+      setUserProfileData(null);
+      // sessionStatus is 'authenticated' here as per earlier checks.
+      logger.warn(
+        `${LOG_PREFIX} session.user.currUsr.umpi missing. Cannot compute UserProfile.`,
+      );
+      setIsLoadingUserProfile(false); // No umpi, so profile computation attempt is complete (as a failure).
+    }
+  }, [session, sessionStatus, pbeData, isLoadingPbeData]); // Dependencies: session object for user.currUsr, sessionStatus, pbeData object, and its loading flag.
 
   useEffect(() => {
     const sourceMainAppPlanData = () => {
