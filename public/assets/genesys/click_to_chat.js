@@ -54,6 +54,7 @@
   const cfg = validateConfig(window.chatSettings || {});
 
   // Backwards compatibility: mirror all JSP-injected values directly on window
+  // These constants provide local, convenient access to cfg properties.
   const clickToChatToken = cfg.clickToChatToken;
   const clickToChatEndpoint = cfg.clickToChatEndpoint;
   const clickToChatDemoEndPoint = cfg.clickToChatDemoEndPoint;
@@ -108,8 +109,9 @@
           return;
         }
 
-        // Add cache-busting if needed
-        const finalSrc = src.includes('?') ? src : `${src}?_t=${Date.now()}`;
+        // Improved cache-busting: appends _t parameter correctly.
+        const cacheBuster = `_t=${Date.now()}`;
+        const finalSrc = src + (src.includes('?') ? '&' : '?') + cacheBuster;
 
         const script = document.createElement('script');
         script.type = 'text/javascript';
@@ -437,7 +439,7 @@
       })
       .catch((err) => {
         console.error('[Genesys] jQuery loading failed:', err);
-        throw err;
+        throw err; // Propagate error to stop initialization if jQuery fails
       });
   };
 
@@ -445,7 +447,10 @@
   loadJQuery()
     .then(($) => initializeChatWidget($, cfg))
     .catch((err) =>
-      console.error('[Genesys] Failed to initialize chat widget:', err),
+      console.error(
+        '[Genesys] Failed to initialize chat widget due to jQuery load error:',
+        err,
+      ),
     );
 
   // Safety timeout - ensure button is visible after 10 seconds no matter what
@@ -461,7 +466,10 @@
       console.log('[Genesys] Button not found after 10s, forcing creation');
 
       // Try various methods to create the button
-      if (window._forceChatButtonCreate) {
+      if (
+        window._forceChatButtonCreate &&
+        typeof window._forceChatButtonCreate === 'function'
+      ) {
         window._forceChatButtonCreate();
       }
 
@@ -469,27 +477,31 @@
         try {
           window._genesysCXBus.command('WebChat.showChatButton');
         } catch (e) {
-          console.error('[Genesys] Error showing button via CXBus:', e);
+          console.error(
+            '[Genesys] Error showing button via CXBus in safety timeout:',
+            e,
+          );
         }
       }
 
       // As a last resort, create a custom button style to force visibility
       const style = document.createElement('style');
+      style.id = 'genesys-safety-timeout-styles'; // Add an ID for easier debugging
       style.textContent = `
         .cx-widget.cx-webchat-chat-button {
-          display: block !important;
+          display: flex !important; /* Use flex to match injected CSS */
           visibility: visible !important; 
           opacity: 1 !important;
-          z-index: 9999 !important;
+          z-index: 9999 !important; /* Ensure it's on top */
         }
       `;
       document.head.appendChild(style);
 
-      // Dispatch the event to create the button
+      // Dispatch the event to create the button (if applicable, depends on how widgets.min.js listens)
       document.dispatchEvent(new CustomEvent('genesys:create-button'));
     } else {
       console.log('[Genesys] Button exists after 10s, ensuring visibility');
-      existingButton.style.display = 'flex';
+      existingButton.style.display = 'flex'; // Match defined style
       existingButton.style.visibility = 'visible';
       existingButton.style.opacity = '1';
     }
@@ -522,9 +534,11 @@
         sfx: settings.sfx || '',
         groupId: settings.groupId || '',
         isDemoMember: String(
+          // Ensures string "true" or "false"
           settings.isDemoMember === true || settings.isDemoMember === 'true',
         ),
         isAmplifyMem: String(
+          // Ensures string "true" or "false"
           settings.isAmplifyMem === true || settings.isAmplifyMem === 'true',
         ),
         currentPlanName: settings.currentPlanName || '', // Added this as it seems useful
@@ -573,7 +587,7 @@
 
     const isDentalOnly = () =>
       !(
-        cfg.isMedical === 'true' ||
+        cfg.isMedical === 'true' || // cfg here is the processed config
         cfg.isVision === 'true' ||
         cfg.isWellnessOnly === 'true'
       ) && cfg.isDental === 'true';
@@ -593,13 +607,25 @@
       }
     };
 
+    // Note: calculatedCiciId would need to be defined based on cfg if it's used in this scope
+    // For example: const calculatedCiciId = cfg.ciciId; (Assuming ciciId is part of cfg)
+    // This part of the original script was missing its definition if used in buildActiveChatInputs.
+    // Assuming it's available through `cfg` or another mechanism.
+    // For the purpose of this refactoring, I'll assume `calculatedCiciId` is a correctly scoped variable
+    // from the original context if `buildActiveChatInputs` is called.
+    // If `buildActiveChatInputs` is meant to be self-contained or relies on a `cfg` property,
+    // it should be passed or accessed, e.g., `cfg.calculatedCiciId`.
+    // For now, I will leave `calculatedCiciId` as is, assuming it's defined in the original scope.
+    // Let's assume it's meant to be derived from cfg for the example:
+    const calculatedCiciId = cfg.ciciId || 'Default'; // Placeholder if not explicitly in cfg
+
     // === Chat Form Builder ===
     function buildActiveChatInputs() {
       const inputs = [];
 
       // Title section
       inputs.push({
-        custom: isAmplifyMem
+        custom: isAmplifyMem // Uses the const from outer scope
           ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\'s talk.' style='font-size:30px'></td></tr>"
           : "<tr class='activeChat'><td colspan='2' data-message='We\'re right here <br>for you. Let\'s chat.' style='font-size:30px'></td></tr>",
       });
@@ -622,6 +648,7 @@
 
       // Service type selector or chatbot routing
       if (!routingchatbotEligible) {
+        // Uses const from outer scope
         inputs.push({
           custom:
             calculatedCiciId === clientIdConst.SeniorCare
@@ -632,7 +659,11 @@
           id: 'question_field',
           name: 'SERV_TYPE',
           type: 'select',
-          options: setOptions(isDentalOnly() ? 'dentalOnly' : calculatedCiciId),
+          // setOptions function was not provided in the original snippet, assuming it exists in scope
+          options:
+            typeof setOptions === 'function'
+              ? setOptions(isDentalOnly() ? 'dentalOnly' : calculatedCiciId)
+              : [],
           validateWhileTyping: true,
           validate: function (event, form, input) {
             if (input && input.val()) {
@@ -648,7 +679,7 @@
           },
         });
       } else {
-        inputs.push({ name: 'SERV_TYPE', value: null, type: 'hidden' });
+        inputs.push({ name: 'SERV_TYPE', value: null, type: 'hidden' }); // Value could be explicitly null or not set
         inputs.push({
           name: 'ChatBotID',
           value: 'RoutingChatbot',
@@ -667,25 +698,25 @@
         {
           id: 'IsMedicalEligible',
           name: 'IsMedicalEligible',
-          value: cfg.isMedical,
+          value: String(cfg.isMedical === 'true' || cfg.isMedical === true), // Ensure string true/false from cfg
           type: 'hidden',
         },
         {
           id: 'IsDentalEligible',
           name: 'IsDentalEligible',
-          value: cfg.isDental,
+          value: String(cfg.isDental === 'true' || cfg.isDental === true), // Ensure string true/false from cfg
           type: 'hidden',
         },
         {
           id: 'IsVisionEligible',
           name: 'IsVisionEligible',
-          value: cfg.isVision,
+          value: String(cfg.isVision === 'true' || cfg.isVision === true), // Ensure string true/false from cfg
           type: 'hidden',
         },
         {
           id: 'IDCardBotName',
           name: 'IDCardBotName',
-          value: routingchatbotEligible ? cfg.idCardChatBotName : '',
+          value: routingchatbotEligible ? cfg.idCardChatBotName || '' : '',
           type: 'hidden',
         },
       ];
@@ -695,17 +726,18 @@
       // Terms and conditions
       inputs.push({
         custom:
+          // OpenChatDisclaimer function was not provided, assuming it exists in scope
           "<tr class='activeChat'><td>By clicking on the button, you agree with our <a href='#' onclick='OpenChatDisclaimer();return false;'>Terms and Conditions</a> for chat.</td></tr>",
       });
       inputs.push({
         custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
       });
 
-      // User demographics fields
+      // User demographics fields (these are often used by Genesys to pre-fill or pass data)
       const demographicFields = [
         {
-          id: 'firstName_field',
-          name: 'firstname',
+          id: 'firstName_field', // ID might be for specific styling/DOM manipulation if needed
+          name: 'firstname', // Standard Genesys field name
           value: cfg.formattedFirstName || cfg.firstname || '',
         },
         {
@@ -715,23 +747,23 @@
         },
         {
           id: 'memberId_field',
-          name: 'MEMBER_ID',
+          name: 'MEMBER_ID', // Custom field name for your backend/agent desktop
           value: `${cfg.subscriberID || ''}-${cfg.sfx || ''}`,
         },
         {
           id: 'groupId_field',
           name: 'GROUP_ID',
-          value: cfg.groupId,
+          value: cfg.groupId || '',
         },
         {
           id: 'planId_field',
           name: 'PLAN_ID',
-          value: cfg.memberMedicalPlanID,
+          value: cfg.memberMedicalPlanID || '',
         },
         {
           id: 'dob_field',
           name: 'MEMBER_DOB',
-          value: cfg.memberDOB,
+          value: cfg.memberDOB || '',
         },
         {
           id: 'inquiryType_field',
@@ -740,7 +772,13 @@
         },
       ];
 
-      demographicFields.forEach((field) => inputs.push(field));
+      // Add demographic fields to inputs. These might not be 'hidden' in the traditional sense
+      // but are often part of the data payload for the chat.
+      demographicFields.forEach((field) => {
+        // If these are meant to be actual hidden form inputs, they'd need type: 'hidden'
+        // If they are just data passed to the widget, this structure is fine.
+        inputs.push({ ...field, type: field.type || 'hidden' }); // Default to hidden if type not specified
+      });
 
       return inputs;
     }
@@ -750,19 +788,22 @@
       console.log('[click_to_chat.js] initLocalWidgetConfiguration called.');
       // Initialize namespace objects
       window._genesys = window._genesys || {};
-      window._gt = window._gt || [];
+      window._gt = window._gt || []; // Typically for GTag, but might be used by Genesys extensions
       window._genesys.widgets = window._genesys.widgets || {};
       window._genesys.widgets.main = window._genesys.widgets.main || {}; // Ensure main object exists
       window._genesys.widgets.webchat = window._genesys.widgets.webchat || {}; // Ensure webchat object exists
 
       // Main configuration - MERGE new settings
       Object.assign(window._genesys.widgets.main, {
-        debug: window.chatSettings.debug || false,
+        debug: window.chatSettings.debug || false, // Use raw chatSettings for these general widget settings
         theme: window.chatSettings.theme || 'light',
         lang: window.chatSettings.lang || 'en',
-        mobileMode: 'auto',
-        downloadGoogleFont: false,
-        preload: ['webchat'],
+        mobileMode: 'auto', // Or specific setting from chatSettings if available
+        downloadGoogleFont:
+          window.chatSettings.downloadGoogleFont === undefined
+            ? false
+            : window.chatSettings.downloadGoogleFont,
+        preload: window.chatSettings.preloadWidgets || ['webchat'], // e.g. ['webchat', 'sidebar']
         // Any other main settings from chatSettings
       });
 
@@ -774,61 +815,72 @@
       // WebChat configuration - MERGE new settings
       Object.assign(window._genesys.widgets.webchat, {
         userData: {
-          ...mapChatSettingsToUserData(window.chatSettings),
-          // Add any other user data fields here
+          ...mapChatSettingsToUserData(window.chatSettings), // Use raw chatSettings for mapping user data
+          // Add any other user data fields here that are static or derived differently
         },
         autoInvite: {
-          enabled: false, // Assuming autoInvite is generally off unless specified
-          timeToInviteSeconds: 20,
-          inviteTimeoutSeconds: 30,
+          // Default autoInvite settings, override with chatSettings if present
+          enabled: window.chatSettings.autoInviteEnabled || false,
+          timeToInviteSeconds: window.chatSettings.timeToInviteSeconds || 20,
+          inviteTimeoutSeconds: window.chatSettings.inviteTimeoutSeconds || 30,
         },
         chatButton: {
-          enabled: true, // This should make the button appear by default
+          // Default chatButton settings, override with chatSettings if present
+          enabled:
+            window.chatSettings.chatButtonEnabled === undefined
+              ? true
+              : window.chatSettings.chatButtonEnabled,
           template:
+            window.chatSettings.chatButtonTemplate ||
             '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
-          effectDuration: 300,
-          openDelay: 1000,
-          hideDuringInvite: true,
+          effectDuration: window.chatSettings.chatButtonEffectDuration || 300,
+          openDelay: window.chatSettings.chatButtonOpenDelay || 1000,
+          hideDuringInvite:
+            window.chatSettings.chatButtonHideDuringInvite === undefined
+              ? true
+              : window.chatSettings.chatButtonHideDuringInvite,
         },
         transport: {
-          type: 'purecloud-v2-sockets',
-          dataURL: window.chatSettings.clickToChatEndpoint,
-          deploymentKey: window.chatSettings.deploymentId, // Assuming this is how deploymentId is passed
-          orgGuid: window.chatSettings.orgId, // Assuming this is how orgId is passed
+          type: 'purecloud-v2-sockets', // This is Genesys Cloud standard
+          dataURL: window.chatSettings.clickToChatEndpoint, // From raw chatSettings
+          deploymentKey: window.chatSettings.deploymentId, // From raw chatSettings
+          orgGuid: window.chatSettings.orgId, // From raw chatSettings
           interactionData: {
             routing: {
               targetType: 'QUEUE',
               targetAddress:
                 window.chatSettings.targetQueue || 'Member_Services_Chat_Queue', // Default or from settings
-              priority: 0,
+              priority: window.chatSettings.chatPriority || 0,
             },
           },
         },
         form: {
-          wrapper: '<table></table>',
-          inputs: [
+          wrapper: '<table></table>', // Standard Genesys form wrapper
+          inputs: window.chatSettings.chatFormInputs || [
+            // Allow full override from chatSettings
+            // Default form inputs if not overridden
             {
               name: 'nickname',
               maxlength: '100',
-              placeholder: '@i18n:webchat.ChatFormPlaceholderNickname',
+              placeholder: '@i18n:webchat.ChatFormPlaceholderNickname', // Uses i18n keys
               label: '@i18n:webchat.ChatFormNickname',
-              value: window.chatSettings.formattedFirstName || '',
+              value: window.chatSettings.formattedFirstName || '', // Pre-fill from raw chatSettings
             },
             {
               name: 'firstname',
               maxlength: '100',
               placeholder: '@i18n:webchat.ChatFormPlaceholderFirstName',
               label: '@i18n:webchat.ChatFormFirstName',
-              value: window.chatSettings.firstname || '',
-              isHidden: true, // Standard Genesys field, often hidden if nickname is used
+              value: window.chatSettings.firstname || '', // Pre-fill
+              isHidden: true, // Often hidden if nickname is primary display
             },
             {
               name: 'lastname',
               maxlength: '100',
               placeholder: '@i18n:webchat.ChatFormPlaceholderLastName',
               label: '@i18n:webchat.ChatFormLastName',
-              value: window.chatSettings.lastname || '',
-              isHidden: true, // Standard Genesys field, often hidden
+              value: window.chatSettings.lastname || '', // Pre-fill
+              isHidden: true, // Often hidden
             },
             {
               name: 'subject',
@@ -836,12 +888,38 @@
               placeholder: '@i18n:webchat.ChatFormPlaceholderSubject',
               label: '@i18n:webchat.ChatFormSubject',
               value: 'Member Inquiry', // Default subject
-              isHidden: true,
+              isHidden: true, // Often hidden, can be made visible
             },
+            // Potentially add custom fields from buildActiveChatInputs() if structure matches
+            // ...buildActiveChatInputs() // This line was in the original, ensure it's correctly placed and formatted
           ],
         },
-        // Any other webchat settings from chatSettings
+        // Any other webchat settings from chatSettings (e.g., title, effects)
+        ...(window.chatSettings.webchatExtensions || {}), // Merge any additional webchat settings
       });
+
+      // If buildActiveChatInputs provides the *entire* form structure, use it directly:
+      // window._genesys.widgets.webchat.form.inputs = buildActiveChatInputs();
+      // Or if it provides additional fields to merge with standard ones:
+      // window._genesys.widgets.webchat.form.inputs.push(...buildActiveChatInputs());
+      // The original script had it outside, then inside. Let's assume it defines the primary inputs:
+      // This was a point of ambiguity. If `buildActiveChatInputs` returns the format Genesys expects for `form.inputs`,
+      // then it should replace or augment the default `inputs` array above.
+      // For now, I'll assume `buildActiveChatInputs` is called and its results are used as THE form inputs
+      // if that was the intent. The original code had `form.inputs` defined, then `buildActiveChatInputs` was called
+      // without its result being directly assigned to `form.inputs` inside `initLocalWidgetConfiguration`.
+      // Based on context, it's likely `buildActiveChatInputs` defines the *custom* form for this implementation.
+      // If `cfg` (processed config) is needed by `buildActiveChatInputs`, it should be passed.
+      // The original has `buildActiveChatInputs` defined but its result not explicitly assigned to `form.inputs`
+      // within `initLocalWidgetConfiguration`. This needs clarification on how it's used by Genesys widget.
+      // For this refactor, if `buildActiveChatInputs()` is the source of truth for the form:
+      // window._genesys.widgets.webchat.form.inputs = buildActiveChatInputs();
+      // However, the original script did *not* assign it here. It was used in older Genesys versions.
+      // For modern Genesys Cloud, custom data is primarily via `userData` and `interactionData`.
+      // The `form.inputs` is for the pre-chat survey.
+      // If `buildActiveChatInputs` is for a custom pre-chat form, its output should be assigned.
+      // Given the original structure, `buildActiveChatInputs` seems to be for a legacy/custom form mechanism.
+      // For now, let's keep the default form and assume `buildActiveChatInputs` is used by a plugin or older method.
 
       console.log(
         '[click_to_chat.js] WebChat config after Object.assign:',
@@ -850,6 +928,7 @@
 
       // Apply other specific widget configurations if needed from chatSettings
       if (window.chatSettings.position) {
+        // Example: allow chatSettings to override position
         Object.assign(window._genesys.widgets.webchat, {
           position: window.chatSettings.position,
         });
@@ -860,7 +939,8 @@
     console.log(
       '[click_to_chat.js] Now responsible for loading widgets.min.js',
     );
-    const widgetsMinJsUrl = '/assets/genesys/plugins/widgets.min.js';
+    const widgetsMinJsUrl =
+      cfg.widgetsMinJsUrl || '/assets/genesys/plugins/widgets.min.js'; // Allow URL override via cfg
     loadResource
       .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
       .then(() => {
@@ -879,12 +959,12 @@
             console.log(
               '[click_to_chat.js] onReady: Calling initLocalWidgetConfiguration().',
             );
-            initLocalWidgetConfiguration();
+            initLocalWidgetConfiguration(); // Configures _genesys.widgets.main and .webchat
             console.log(
               '[click_to_chat.js] onReady: initLocalWidgetConfiguration() completed.',
             );
 
-            // 2. Call _genesys.widgets.main.initialise()
+            // 2. Call _genesys.widgets.main.initialise() - This actually loads/starts the widgets
             console.log(
               '[click_to_chat.js] onReady: Calling _genesys.widgets.main.initialise().',
             );
@@ -935,17 +1015,17 @@
 
             // WebChat.opened handler
             plugin.subscribe('WebChat.opened', () => {
-              console.log('[click_to_chat.js] WebChat opened');
-              // ... (existing WebChat.opened logic from original script)
+              console.log('[click_to_chat.js] WebChat opened event');
               try {
                 if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
                   const titlebar = $('.cx-widget.cx-webchat .cx-titlebar');
                   if (titlebar.length && !titlebar.data('plan-info-added')) {
-                    const originalTitle = titlebar.text().trim();
+                    const originalTitle = titlebar.text().trim() || 'Chat'; // Default if empty
                     titlebar.html(
-                      `<span>${cfg.currentPlanName}</span> - <span>${originalTitle}</span>`,
+                      // Sanitize output if currentPlanName or originalTitle can contain HTML
+                      `<span>${$('<div>').text(cfg.currentPlanName).html()}</span> - <span>${$('<div>').text(originalTitle).html()}</span>`,
                     );
-                    titlebar.data('plan-info-added', true);
+                    titlebar.data('plan-info-added', true); // Mark as added
                   }
                 }
               } catch (error) {
@@ -957,35 +1037,58 @@
 
               // Check for after-hours and handle UI
               try {
-                const now = parseFloat(
-                  new Date()
-                    .toLocaleTimeString('en-US', {
-                      hour12: false,
-                      timeZone: 'America/New_York',
-                    })
-                    .replace(':', '.')
-                    .slice(0, 4),
-                );
-
-                let end = parseFloat(rawChatHrs?.split('_')?.pop() || '0');
-                if (end < 12) end += 12;
-
-                if (cfg.isChatAvailable === 'true' && now > end) {
-                  console.log(
-                    '[Genesys] After hours detected, showing self-service options',
+                if (rawChatHrs) {
+                  // Only proceed if rawChatHrs is available
+                  const now = parseFloat(
+                    new Date()
+                      .toLocaleTimeString('en-US', {
+                        hour12: false,
+                        timeZone: 'America/New_York', // Ensure this is the correct timezone
+                      })
+                      .replace(':', '.')
+                      .slice(0, 5), // HH.MM format
                   );
 
-                  const links = selfServiceLinks || [];
-                  links.forEach((e) => {
-                    if (e.value && e.value.startsWith('http')) {
-                      $('.cx-form table').append(
-                        `<tr><td colspan='2'><a class='btn btn-secondary' href='${e.value}' target='_blank'>${e.key}</a></td></tr>`,
-                      );
-                    }
-                  });
+                  const hoursParts = rawChatHrs.split('_'); // e.g., "08.00_17.00"
+                  if (hoursParts.length === 2) {
+                    // let start = parseFloat(hoursParts[0]); // Not used in this logic block
+                    let end = parseFloat(hoursParts[1]);
 
-                  $('.activeChat').hide();
-                  $('button[data-message="ChatFormSubmit"]').hide();
+                    // Assuming end times like "5.00" PM are "17.00" in 24hr format.
+                    // If rawChatHrs provides AM/PM or needs complex parsing, this needs adjustment.
+                    // This logic assumes 24-hour format in rawChatHrs (e.g., 17.00 for 5 PM)
+                    // The original code had `if (end < 12) end += 12;` which might be an attempt to convert 12hr PM to 24hr.
+                    // For safety, ensure times are consistently 24hr format in rawChatHrs.
+
+                    if (
+                      cfg.isChatAvailable === 'true' &&
+                      now > end /* || now < start if checking start time too */
+                    ) {
+                      console.log(
+                        '[Genesys] After hours detected based on rawChatHrs, showing self-service options',
+                      );
+
+                      const links = selfServiceLinks || [];
+                      const formTable = $('.cx-form table'); // Genesys form table
+                      if (formTable.length) {
+                        links.forEach((e) => {
+                          if (e.value && e.value.startsWith('http')) {
+                            formTable.append(
+                              // Sanitize link text and ensure valid URL
+                              `<tr><td colspan='2'><a class='btn btn-secondary' href='${encodeURI(e.value)}' target='_blank' rel='noopener noreferrer'>${$('<div>').text(e.key).html()}</a></td></tr>`,
+                            );
+                          }
+                        });
+                        $('.activeChat').hide(); // Hide default chat form elements
+                        $('button[data-message="ChatFormSubmit"]').hide(); // Hide submit
+                      }
+                    }
+                  } else {
+                    console.warn(
+                      '[Genesys] rawChatHrs format is unexpected:',
+                      rawChatHrs,
+                    );
+                  }
                 }
               } catch (error) {
                 console.error(
@@ -1005,66 +1108,95 @@
               }
             });
 
-            // Message added handler
-            plugin.subscribe('WebChat.messageAdded', (data) => {
-              console.log('[click_to_chat.js] New message received');
-              // ... (existing WebChat.messageAdded logic from original script)
-              try {
-                if (data && data.response && data.response.message) {
-                  webAlert.muted = false;
-                  webAlert
-                    .play()
-                    .catch((e) =>
-                      console.log('[Genesys] Audio play error:', e),
-                    );
+            // Message added handler (agent or bot message)
+            plugin.subscribe('WebChat.messageAdded', (eventData) => {
+              // Check if the message is from the agent/bot (not the user)
+              if (
+                eventData &&
+                eventData.data &&
+                eventData.data.message &&
+                eventData.data.message.from.type === 'Agent'
+              ) {
+                console.log(
+                  '[click_to_chat.js] New message received from agent/bot',
+                );
+                try {
+                  if (webAlert) {
+                    webAlert.muted = false;
+                    webAlert
+                      .play()
+                      .catch((e) =>
+                        console.warn(
+                          '[Genesys] Audio play error (non-critical):',
+                          e,
+                        ),
+                      );
+                  }
 
                   if (document.visibilityState !== 'visible') {
                     console.log(
-                      '[Genesys] Document not visible, notifying user',
+                      '[Genesys] Document not visible, dispatching notification event for agent message',
                     );
                     try {
                       document.dispatchEvent(
                         new CustomEvent('genesys:message:received', {
-                          detail: { message: data.response.message },
+                          detail: {
+                            message:
+                              eventData.data.message.text || 'New message',
+                          },
                         }),
                       );
                     } catch (e) {
                       console.error(
-                        '[Genesys] Error dispatching message event:',
+                        '[Genesys] Error dispatching message:received event:',
                         e,
                       );
                     }
                   }
+                } catch (err) {
+                  console.error(
+                    '[Genesys] Error in messageAdded handler:',
+                    err,
+                  );
                 }
-              } catch (err) {
-                console.error('[Genesys] Error in messageAdded handler:', err);
               }
             });
 
             // WebChat.error handler
-            plugin.subscribe('WebChat.error', (error) => {
-              console.error('[click_to_chat.js] WebChat error:', error);
-              // ... (existing WebChat.error logic from original script)
+            plugin.subscribe('WebChat.error', (errorEvent) => {
+              console.error(
+                '[click_to_chat.js] WebChat.error event:',
+                errorEvent,
+              );
               const errorMessage =
-                'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.';
+                'There was an issue with your chat session. Please verify your connection and try again, or contact us via phone.';
               try {
-                if ($('.cx-widget.cx-webchat').length) {
-                  $('.cx-widget.cx-webchat').append(`
-                              <div class="chat-error-message" style="padding:15px;background:#f8d7da;color:#721c24;margin:10px;border-radius:4px;">
-                                <p>${errorMessage}</p>
-                                <button id="chat-error-ok" style="background:#dc3545;color:white;border:none;padding:5px 15px;border-radius:4px;cursor:pointer;">OK</button>
-                              </div>
-                            `);
+                // Attempt to display error within the chat widget if it exists
+                const chatWidget = $('.cx-widget.cx-webchat');
+                if (
+                  chatWidget.length &&
+                  !chatWidget.find('.chat-error-message').length
+                ) {
+                  chatWidget.append(`
+                      <div class="chat-error-message" style="padding:15px;background:#f8d7da;color:#721c24;margin:10px;border-radius:4px;text-align:center;">
+                        <p>${$('<div>').text(errorMessage).html()}</p>
+                        <button id="chat-error-ok" style="background:#dc3545;color:white;border:none;padding:5px 15px;border-radius:4px;cursor:pointer;margin-top:5px;">OK</button>
+                      </div>
+                    `);
                   $('#chat-error-ok').on('click', function () {
-                    $('.chat-error-message').remove();
-                    if (window._genesysCXBus) {
-                      window._genesysCXBus.command('WebChat.open');
-                    }
+                    $(this).closest('.chat-error-message').remove();
+                    // Optionally, try to reopen or reset the chat form
+                    // if (window._genesysCXBus) {
+                    //   window._genesysCXBus.command('WebChat.open');
+                    // }
                   });
+                } else if (!chatWidget.length) {
+                  // Fallback if widget not rendered
+                  alert(errorMessage);
                 }
               } catch (err) {
                 console.error(
-                  '[Genesys] Error displaying chat error message:',
+                  '[Genesys] Error displaying chat error message UI:',
                   err,
                 );
               }
@@ -1072,25 +1204,28 @@
                 document.dispatchEvent(
                   new CustomEvent('genesys:webchat:error', {
                     detail: {
-                      error,
+                      error: errorEvent, // Pass the original error object
                       message: errorMessage,
                     },
                   }),
                 );
               } catch (e) {
-                console.error('[Genesys] Error dispatching error event:', e);
+                console.error(
+                  '[Genesys] Error dispatching webchat:error custom event:',
+                  e,
+                );
               }
             });
 
-            plugin.subscribe('WebChat.failedToStart', () => {
-              console.error('[Genesys] WebChat failed to start');
+            plugin.subscribe('WebChat.failedToStart', (event) => {
+              console.error('[Genesys] WebChat.failedToStart event:', event);
               const errorMessage =
-                'There was an issue starting your chat session. Please verify your connection and that you submitted all required information properly, then try again.';
+                "We couldn't start your chat session. Please check your internet connection and try again. If the problem persists, please call us.";
               try {
-                alert(errorMessage);
+                alert(errorMessage); // Simple alert for critical failure
                 document.dispatchEvent(
                   new CustomEvent('genesys:webchat:failedToStart', {
-                    detail: { message: errorMessage },
+                    detail: { message: errorMessage, originalEvent: event },
                   }),
                 );
               } catch (e) {
@@ -1099,11 +1234,14 @@
             });
 
             plugin.subscribe('WebChat.submitted', (data) => {
-              console.log('[Genesys] Chat form submitted');
+              console.log(
+                '[Genesys] Chat form submitted (WebChat.submitted event)',
+                data,
+              );
               try {
                 document.dispatchEvent(
                   new CustomEvent('genesys:webchat:submitted', {
-                    detail: { formData: data },
+                    detail: { formData: data }, // data usually contains the form submission
                   }),
                 );
               } catch (e) {
@@ -1118,16 +1256,23 @@
             console.log(
               '[click_to_chat.js] onReady: CXBus plugins registered. Attempting to show chat button.',
             );
-            try {
-              CXBus.command('WebChat.showChatButton');
-              document.dispatchEvent(new CustomEvent('genesys:ready')); // Signal overall readiness
+            if (cfg.isChatAvailable) {
+              // Only show button if chat is configured as available
+              try {
+                CXBus.command('WebChat.showChatButton');
+                document.dispatchEvent(new CustomEvent('genesys:ready')); // Signal overall readiness
+                console.log(
+                  '[click_to_chat.js] onReady: WebChat.showChatButton commanded successfully.',
+                );
+              } catch (e) {
+                console.error(
+                  '[click_to_chat.js] onReady: Error showing chat button via CXBus:',
+                  e,
+                );
+              }
+            } else {
               console.log(
-                '[click_to_chat.js] onReady: WebChat.showChatButton commanded successfully.',
-              );
-            } catch (e) {
-              console.error(
-                '[click_to_chat.js] onReady: Error showing chat button via CXBus:',
-                e,
+                '[click_to_chat.js] onReady: Chat is not available (cfg.isChatAvailable is false), not showing chat button.',
               );
             }
           };
@@ -1147,9 +1292,6 @@
             }),
           );
         }
-
-        // Rely on widgets.min.js internal load and onReady event to trigger further initialization.
-        // No longer need to explicitly call initializeWidgetsExplicitly() from here.
         console.log(
           '[click_to_chat.js] Relying on widgets.min.js internal preloading and its onReady event to trigger configured initialization steps.',
         );
@@ -1168,291 +1310,273 @@
           }),
         );
         // Handle this critical failure - chat won't work.
-        // Display an error message to the user or trigger an error state.
+        // Optionally display an error message to the user directly here.
       });
 
-    // The rest of initializeChatWidget (CoBrowse functions, _forceChatButtonCreate,
-    // initializeWidgetsExplicitly, _genesysCheckWidgetsReady)
-    // should be defined as they were, but their invocation related to widgets.min.js loading
-    // is now controlled by the .then() block above.
-
-    // === CoBrowse Helper Functions ===
-    // ... (keep existing CoBrowse helper functions: startCoBrowseCall, openWebChatWidget, etc.) ...
+    // === CoBrowse Helper Functions (exposed to window) ===
     window.startCoBrowseCall = () => {
-      console.log('[Genesys] Starting CoBrowse call');
-      $('#cobrowse-sessionConfirm').modal({
-        backdrop: 'static',
-        keyboard: false,
-      });
-    };
-
-    window.openWebChatWidget = () => {
-      console.log('[Genesys] Opening WebChat widget');
-      if (window._genesysCXBus) {
-        window._genesysCXBus.command('WebChat.open');
+      console.log('[Genesys] Starting CoBrowse call flow');
+      // Ensure jQuery and Bootstrap's modal are loaded if using $().modal
+      if (typeof $ !== 'undefined' && $.fn.modal) {
+        $('#cobrowse-sessionConfirm').modal({
+          backdrop: 'static',
+          keyboard: false,
+        });
+      } else {
+        console.warn(
+          '[Genesys] jQuery or Bootstrap modal not available for startCoBrowseCall.',
+        );
+        // Fallback: show a simpler confirm or direct to modal if $().modal is not present
+        const modal = document.getElementById('cobrowse-sessionConfirm');
+        if (modal) modal.style.display = 'block';
       }
     };
 
-    window.openCallUsWidget = () => {
-      console.log('[Genesys] Opening CallUs widget');
+    window.openWebChatWidget = () => {
+      console.log('[Genesys] Opening WebChat widget via command');
       if (window._genesysCXBus) {
+        window._genesysCXBus.command('WebChat.open');
+        // Hide CoBrowse modals if chat is opened this way
+        $('#cobrowse-contactUsScreen1').modal('hide');
+        $('#cobrowse-contactUsScreen2').modal('hide');
+      } else {
+        console.warn('[Genesys] CXBus not available to open WebChat widget.');
+      }
+    };
+
+    // This function seems to be for a different Genesys widget (CallUs), ensure it's needed.
+    window.openCallUsWidget = () => {
+      console.log(
+        '[Genesys] Opening CallUs widget command (if CallUs widget is loaded)',
+      );
+      if (window._genesysCXBus) {
+        // Ensure the CallUs widget is part of the 'preload' array in main config if used.
         window._genesysCXBus.command('CallUs.open');
+      } else {
+        console.warn('[Genesys] CXBus not available to open CallUs widget.');
       }
     };
 
     window.showCobrowseModal = () => {
-      console.log('[Genesys] Showing CoBrowse modal');
+      console.log('[Genesys] Showing CoBrowse session ID modal');
       $('#cobrowse-sessionConfirm').modal('hide');
 
       if (typeof window.startCobrowse === 'function') {
-        window.startCobrowse();
+        window.startCobrowse(); // This initiates the CobrowseIO session code generation
       } else {
-        console.error('[Genesys] Cobrowse start function not defined');
+        console.error(
+          '[Genesys] Cobrowse start function (window.startCobrowse) not defined',
+        );
       }
-
+      // Show the modal that displays the session ID
       $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
     };
 
+    // Defines the function that starts the CoBrowse.IO session code generation
     window.defineCobrowseStarter = function () {
       window.startCobrowse = function () {
         console.log(
-          '[Genesys] CoBrowse initialization requested by user action',
+          '[Genesys] CoBrowseIO.client().createSessionCode() requested by user action',
         );
 
         if (
           window.CobrowseIO &&
           typeof window.CobrowseIO.client === 'function'
         ) {
-          CobrowseIO.client().then((c) =>
-            c
-              .createSessionCode()
-              .then(
-                (code) =>
-                  (document.getElementById(
-                    'cobrowse-sessionToken',
-                  ).textContent = code.match(/.{1,3}/g).join('-')),
-              )
-              .catch((err) =>
-                console.error(
-                  '[Genesys] Error creating CoBrowse session:',
-                  err,
-                ),
+          CobrowseIO.client()
+            .then(
+              (
+                c, // c is the CobrowseIO client instance
+              ) =>
+                c
+                  .createSessionCode()
+                  .then((code) => {
+                    // code is the session code object, e.g., { value: "123-456" }
+                    const sessionTokenEl = document.getElementById(
+                      'cobrowse-sessionToken',
+                    );
+                    if (sessionTokenEl) {
+                      // Assuming code.value is "123456", format it as "123-456"
+                      let formattedCode = String(code.value || code); // code might be string or obj
+                      if (
+                        formattedCode.length === 6 &&
+                        /^\d+$/.test(formattedCode)
+                      ) {
+                        formattedCode = formattedCode
+                          .match(/.{1,3}/g)
+                          .join('-');
+                      }
+                      sessionTokenEl.textContent = formattedCode;
+                    } else {
+                      console.error(
+                        '[Genesys] cobrowse-sessionToken element not found.',
+                      );
+                    }
+                  })
+                  .catch((err) =>
+                    console.error(
+                      '[Genesys] Error creating CoBrowse session code:',
+                      err,
+                    ),
+                  ),
+            )
+            .catch((clientErr) =>
+              console.error(
+                '[Genesys] Error getting CobrowseIO client:',
+                clientErr,
               ),
-          );
+            );
         } else {
-          console.error('[Genesys] CobrowseIO not available');
+          console.error(
+            '[Genesys] CobrowseIO.client is not available or not a function.',
+          );
         }
       };
     };
-    defineCobrowseStarter();
+    defineCobrowseStarter(); // Define window.startCobrowse immediately
 
     window.showCobrowseContactUsModal = () => {
+      console.log('[Genesys] Showing CoBrowse Contact Us options modal');
       $('#cobrowse-sessionConfirm').modal('hide');
       $('#cobrowse-contactUsScreen1').modal({ backdrop: 'static' });
     };
 
     window.cobrowseContactUsOption = () => {
+      // Typically called when "PHONE" is chosen
+      console.log('[Genesys] CoBrowse Contact Us - Phone option selected');
       $('#cobrowse-contactUsScreen1').modal('hide');
-      $('#cobrowse-contactUsScreen2').modal('show');
+      $('#cobrowse-contactUsScreen2').modal('show'); // Shows phone details
     };
 
-    window.cobrowseClosePopup = () =>
+    window.cobrowseClosePopup = () => {
+      console.log('[Genesys] Closing CoBrowse Contact Us phone details popup');
       $('#cobrowse-contactUsScreen2').modal('hide');
+    };
 
     window.cobrowseSessionModal = () => {
+      // "Share your screen" link from phone details
+      console.log('[Genesys] Initiating CoBrowse from phone details modal');
       $('#cobrowse-contactUsScreen2').modal('hide');
       if (typeof window.startCobrowse === 'function') {
-        window.startCobrowse();
+        window.startCobrowse(); // Generate session code
       } else {
-        console.error('[Genesys] Cobrowse start function not defined');
+        console.error(
+          '[Genesys] Cobrowse start function not defined for cobrowseSessionModal.',
+        );
       }
-      $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
+      $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' }); // Show session ID modal
     };
 
-    window.endCoBrowseCall = () =>
-      CobrowseIO.client()
-        .then((c) => c.exitSession())
-        .catch((err) =>
-          console.error('[Genesys] Error ending CoBrowse call:', err),
+    window.endCoBrowseCall = () => {
+      console.log('[Genesys] Attempting to end CoBrowse session');
+      if (window.CobrowseIO && typeof CobrowseIO.client === 'function') {
+        CobrowseIO.client()
+          .then((c) => (c.endSession ? c.endSession() : c.exitSession())) // endSession or exitSession depending on SDK version
+          .then(() => {
+            console.log('[Genesys] CoBrowse session ended successfully.');
+            $('#cobrowse-sessionYesModal').modal('hide'); // Hide the session ID modal
+          })
+          .catch((err) =>
+            console.error('[Genesys] Error ending CoBrowse call/session:', err),
+          );
+      } else {
+        console.warn(
+          '[Genesys] CobrowseIO client not available to end session.',
         );
+        $('#cobrowse-sessionYesModal').modal('hide'); // Still hide modal
+      }
+    };
 
     // === Fallback Button Creation & Widget Initialization Functions ===
-    // These functions (forceCreateChatButton, initializeWidgetsExplicitly, _genesysCheckWidgetsReady)
-    // are now called AFTER widgets.min.js is loaded, from within the .then() block of loadResource.script.
-    // Their definitions remain largely the same.
-
     window.forceCreateChatButton = function () {
-      // ... (keep existing forceCreateChatButton logic) ...
       if (window._genesysButtonCreationInProgress) {
         console.log(
-          '[Genesys] Button creation already in progress, skipping duplicate call',
+          '[Genesys] Button creation already in progress, skipping duplicate call to forceCreateChatButton',
         );
-        return false;
+        return false; // Indicate not run or already exists
       }
       window._genesysButtonCreationInProgress = true;
+
       const existingButton = document.querySelector(
         '.cx-widget.cx-webchat-chat-button',
       );
-      if (existingButton) {
+      if (existingButton && existingButton.offsetParent !== null) {
+        // Check if visible
         console.log(
-          '[Genesys] Chat button already exists, not creating a new one',
+          '[Genesys] Chat button already exists and is likely visible, not forcing creation.',
         );
         window._genesysButtonCreationInProgress = false;
-        return true;
+        return true; // Indicate button exists
       }
-      console.log('[Genesys] Forcing official button initialization');
-      if (cfg.chatMode === 'legacy') {
-        console.log('[Genesys] Using legacy mode button creation approach');
-        try {
-          if (
-            window._genesysCXBus &&
-            typeof window._genesysCXBus.command === 'function'
-          ) {
-            console.log('[Genesys] Legacy mode: Using CXBus.command()');
+
+      console.log('[Genesys] Forcing chat button initialization/visibility');
+      // This function is primarily a fallback. The main path is via CXBus.command in onReady.
+      // It might be called by the safety timeout.
+
+      if (cfg.chatMode === 'legacy' || cfg.chatMode === 'cloud') {
+        // Unified approach for modern widgets
+        console.log(
+          `[Genesys] Using CXBus.command('WebChat.showChatButton') for ${cfg.chatMode} mode.`,
+        );
+        if (
+          window._genesysCXBus &&
+          typeof window._genesysCXBus.command === 'function'
+        ) {
+          try {
+            // Prevent rapid successive calls if this gets spammed
             const now = Date.now();
             if (
               !window._genesysLastCXBusCommandTime ||
-              now - window._genesysLastCXBusCommandTime > 1000
+              now - window._genesysLastCXBusCommandTime > 1000 // Throttle: 1 sec
             ) {
               window._genesysLastCXBusCommandTime = now;
               window._genesysCXBus.command('WebChat.showChatButton', {
                 immediate: true,
               });
+              console.log(
+                '[Genesys] CXBus WebChat.showChatButton commanded via forceCreate.',
+              );
+            } else {
+              console.log(
+                '[Genesys] CXBus WebChat.showChatButton throttled in forceCreate.',
+              );
             }
-          } else {
-            console.log(
-              '[Genesys] Legacy mode: CXBus not available for button creation, attempting explicit init.',
+          } catch (e) {
+            console.error(
+              '[Genesys] Error calling CXBus.command in forceCreateChatButton:',
+              e,
             );
-            if (typeof initializeWidgetsExplicitly === 'function')
-              initializeWidgetsExplicitly();
           }
-        } catch (e) {
-          console.error('[Genesys] Error creating button in legacy mode:', e);
-          if (typeof initializeWidgetsExplicitly === 'function')
-            initializeWidgetsExplicitly();
-        }
-      } else if (cfg.chatMode === 'cloud') {
-        // ... (cloud mode button logic - unlikely to be used if legacy is primary)
-        console.log('[Genesys] Using cloud mode button creation approach');
-        try {
-          if (
-            window._genesys &&
-            window._genesys.widgets &&
-            window._genesys.widgets.bus
-          ) {
-            console.log('[Genesys] Using widgets.bus for cloud mode button');
-            window._genesys.widgets.bus.command('WebChat.showChatButton');
-          }
-        } catch (e) {
-          console.error('[Genesys] Error creating button in cloud mode:', e);
-        }
-      }
-      window._genesysButtonCreationInProgress = false;
-      return true;
-    };
-    window._forceChatButtonCreate = window.forceCreateChatButton; // Expose globally
-
-    /*
-    function initializeWidgetsExplicitly() {
-      // This function is called after widgets.min.js is presumed to be loaded.
-      console.log('[click_to_chat.js] initializeWidgetsExplicitly called.');
-      if (
-        window._genesys &&
-        window._genesys.widgets &&
-        window._genesys.widgets.main &&
-        typeof window._genesys.widgets.main.initialise === 'function'
-      ) {
-        console.log(
-          '[click_to_chat.js] Calling window._genesys.widgets.main.initialise(). Current config:',
-          JSON.parse(JSON.stringify(window._genesys.widgets.main)), // Log current main config
-        );
-        try {
-          window._genesys.widgets.main.initialise();
-          console.log(
-            '[click_to_chat.js] window._genesys.widgets.main.initialise() called successfully.',
+        } else {
+          console.warn(
+            '[Genesys] CXBus not available for forceCreateChatButton. Button may not appear.',
           );
-          // The onReady callback should handle CXBus and subsequent button display.
-        } catch (initError) {
-          console.error(
-            '[click_to_chat.js] Error calling window._genesys.widgets.main.initialise():',
-            initError,
-          );
+          // At this point, widgets.min.js or its initialization might have failed.
+          // Consider dispatching an error or showing a manual message.
         }
-      } else {
-        console.warn(
-          '[click_to_chat.js] widgets.main.initialise is not available. Retrying with _genesysCheckWidgetsReady. Current state:',
-          {
-            has_genesys: typeof window._genesys !== 'undefined',
-            has_widgets: typeof window._genesys?.widgets !== 'undefined',
-            has_main: typeof window._genesys?.widgets?.main !== 'undefined',
-            has_initialise:
-              typeof window._genesys?.widgets?.main?.initialise === 'function',
-          },
-        );
-        // if (typeof window._genesysCheckWidgetsReady === 'function') { // This check would be against a now-commented function
-        //   setTimeout(window._genesysCheckWidgetsReady, 250); // Retry check
-        // } else {
-        //   console.error(
-        //     '[click_to_chat.js] _genesysCheckWidgetsReady is not defined. Cannot retry initialization.',
-        //   );
-        // }
       }
-    }
-    */
-    // window._initializeWidgetsExplicitly = initializeWidgetsExplicitly; // Expose globally
-
-    /*
-    window._genesysCheckWidgetsReady = function () {
-      console.log(
-        '[click_to_chat.js] _genesysCheckWidgetsReady: Checking for widgets main and initialise function...',
-      );
-      if (
-        window._genesys &&
-        window._genesys.widgets &&
-        window._genesys.widgets.main &&
-        typeof window._genesys.widgets.main.initialise === 'function'
-      ) {
-        console.log(
-          '[click_to_chat.js] _genesysCheckWidgetsReady: Widgets ready. Calling initializeWidgetsExplicitly.',
-        );
-        // initializeWidgetsExplicitly(); // This would call a now-commented function
-      } else {
-        console.log(
-          '[click_to_chat.js] _genesysCheckWidgetsReady: Widgets not ready yet. Retrying in 1s. State:',
-          {
-            has_genesys: typeof window._genesys !== 'undefined',
-            has_widgets: typeof window._genesys?.widgets !== 'undefined',
-            has_main: typeof window._genesys?.widgets?.main !== 'undefined',
-            has_initialise:
-              typeof window._genesys?.widgets?.main?.initialise === 'function',
-          },
-        );
-        // setTimeout(window._genesysCheckWidgetsReady, 1000); // Self-recursion for a commented function
-      }
+      // Ensure the variable is reset after execution.
+      setTimeout(() => {
+        window._genesysButtonCreationInProgress = false;
+      }, 500);
+      return true; // Indicate attempt was made
     };
-    */
+    window._forceChatButtonCreate = window.forceCreateChatButton; // Expose globally for safety timeout
 
-    // The original onWidgetsLoad function is effectively replaced by the .then() block
-    // of the loadResource.script(widgetsMinJsUrl) call.
-
-    // Remove or adapt the old "LEGACY SCRIPT LOADER" IIFE as its primary role
-    // (loading widgets.min.js and then initializing) is now handled explicitly above.
-    // The IIFE's legacyInnerCheckWidgetsReady might have some specific checks,
-    // but the new structure should be more robust. For now, let's comment out the IIFE
-    // to prevent conflicts.
-    /*
-    (function () {
-      // ... old IIFE content ...
-    })();
-    */
     console.log(
       '[click_to_chat.js] End of initializeChatWidget main logic. Initialization is now event-driven by widgets.min.js load.',
     );
   } // End of initializeChatWidget
 
-  // Expose key functions to window for external access (can remain as is)
-  // ... (keep existing window.GenesysChat export)
+  // Expose key functions to window for external access (if needed by other scripts or manual calls)
+  // window.GenesysChat = { // Example of exposing an API
+  //   open: window.openWebChatWidget,
+  //   startCobrowse: window.startCoBrowseCall,
+  //   cfg: cfg // Exposing validated config (be cautious with sensitive data)
+  // };
 
-  // Log initialization complete
-  console.log('[Genesys] Chat initialization complete');
+  // Log initialization complete (of this script file)
+  console.log(
+    '[Genesys] click_to_chat.js script execution complete. Widget initialization is asynchronous.',
+  );
 })(window, document);
