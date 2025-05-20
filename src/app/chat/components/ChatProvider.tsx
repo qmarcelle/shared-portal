@@ -296,86 +296,138 @@ export default function ChatProvider({
     logger.info(
       `${LOG_PREFIX} mainAppPlanData useEffect triggered. Deps - sessionStatus: ${sessionStatus}, storePlans count: ${storePlans?.length}, storeSelectedPlanId: ${storeSelectedPlanId}, isPlanStoreLoading: ${isPlanStoreLoading}`,
     );
-    const sourceMainAppPlanData = () => {
-      if (isPlanStoreLoading) {
-        logger.info(
-          `${LOG_PREFIX} mainAppPlanData: Waiting for planStore to finish loading... Setting isLoadingMainAppPlanData: true.`,
-        );
-        setIsLoadingMainAppPlanData(true); // Explicitly set loading if planStore is loading
-        return;
-      }
-      logger.info(
-        `${LOG_PREFIX} mainAppPlanData: PlanStore not loading. Starting processing. Setting isLoadingMainAppPlanData: true.`,
-      );
-      setIsLoadingMainAppPlanData(true); // Start of processing
 
-      if (storePlans && storeSelectedPlanId) {
-        const selectedPlan = storePlans.find(
-          (p) => p.id === storeSelectedPlanId,
-        );
-        if (selectedPlan) {
-          const newMainAppPlanData = {
-            numberOfPlans: storePlans.length,
-            selectedPlan: selectedPlan, // Store the selected plan
-            isLoaded: true,
-          };
-          logger.info(
-            `${LOG_PREFIX} mainAppPlanData: storePlans and storeSelectedPlanId found. Selected plan: ${selectedPlan.id}. Setting mainAppPlanData:`,
-            newMainAppPlanData,
-          );
-          setMainAppPlanData(newMainAppPlanData);
-        } else {
-          const newMainAppPlanData = {
-            numberOfPlans: storePlans.length,
-            selectedPlan: null, // No plan found
-            isLoaded: false, // Indicate not fully loaded or error state
-          };
-          logger.warn(
-            `${LOG_PREFIX} mainAppPlanData: SelectedPlanId (${storeSelectedPlanId}) not found in storePlans. Using fallback. Setting mainAppPlanData:`,
-            newMainAppPlanData,
-          );
-          setMainAppPlanData(newMainAppPlanData);
-        }
-      } else if (storePlans && storePlans.length > 0 && !storeSelectedPlanId) {
-        const defaultPlan = storePlans[0];
-        const newMainAppPlanData = {
-          numberOfPlans: storePlans.length,
-          selectedPlan: defaultPlan || null, // Store the default plan
-          isLoaded: true,
-        };
-        logger.warn(
-          `${LOG_PREFIX} mainAppPlanData: planStore has ${storePlans.length} plans, but no selectedPlanId. Using first plan as default (${defaultPlan?.id}). Setting mainAppPlanData:`,
-          newMainAppPlanData,
-        );
-        setMainAppPlanData(newMainAppPlanData);
-      } else {
-        const newMainAppPlanData = {
+    if (sessionStatus === 'loading') {
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: Session is loading. Ensuring isLoadingMainAppPlanData is true.`,
+      );
+      if (!isLoadingMainAppPlanData) setIsLoadingMainAppPlanData(true);
+      // Optionally reset mainAppPlanData if it was previously loaded
+      if (mainAppPlanData?.isLoaded) {
+        setMainAppPlanData({
           numberOfPlans: 0,
-          selectedPlan: null, // No plan available
+          selectedPlan: null,
+          isLoaded: false,
+        });
+      }
+      return;
+    }
+
+    if (sessionStatus === 'unauthenticated') {
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: Session unauthenticated. Resetting mainAppPlanData and setting loading to false.`,
+      );
+      setMainAppPlanData({
+        numberOfPlans: 0,
+        selectedPlan: null,
+        isLoaded: false,
+      });
+      if (isLoadingMainAppPlanData) setIsLoadingMainAppPlanData(false);
+      return;
+    }
+
+    // sessionStatus === 'authenticated'
+    if (isPlanStoreLoading) {
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: Waiting for planStore. Setting isLoadingMainAppPlanData: true.`,
+      );
+      if (!isLoadingMainAppPlanData) setIsLoadingMainAppPlanData(true);
+      if (mainAppPlanData?.isLoaded) {
+        // Reset if it was loaded before plan store started loading again
+        setMainAppPlanData({
+          numberOfPlans: 0,
+          selectedPlan: null,
+          isLoaded: false,
+        });
+      }
+      return;
+    }
+
+    // At this point: authenticated, and planStore is NOT loading.
+    // Now, determine if data from planStore is usable.
+    logger.info(
+      `${LOG_PREFIX} mainAppPlanData: Authenticated & planStore not loading. Processing plan data.`,
+    );
+    // Assume we are loading until proven otherwise for this cycle by setting it true if it's not.
+    // It will be set to false only if data is successfully resolved this cycle.
+    if (!isLoadingMainAppPlanData) setIsLoadingMainAppPlanData(true);
+
+    const plansArePopulated = storePlans && storePlans.length > 0;
+    const selectedPlanIdIsValid =
+      storeSelectedPlanId && storeSelectedPlanId.trim() !== '';
+
+    if (plansArePopulated && selectedPlanIdIsValid) {
+      const selectedPlan = storePlans.find((p) => p.id === storeSelectedPlanId);
+      if (selectedPlan) {
+        logger.info(
+          `${LOG_PREFIX} mainAppPlanData: Selected plan found. Data is loaded.`,
+        );
+        setMainAppPlanData({
+          numberOfPlans: storePlans.length,
+          selectedPlan,
+          isLoaded: true,
+        });
+        setIsLoadingMainAppPlanData(false); // RESOLVED SUCCESSFULLY
+      } else {
+        logger.warn(
+          `${LOG_PREFIX} mainAppPlanData: storeSelectedPlanId ('${storeSelectedPlanId}') not found in storePlans. Data considered not fully loaded.`,
+        );
+        setMainAppPlanData({
+          numberOfPlans: storePlans.length,
+          selectedPlan: null,
+          isLoaded: false,
+        });
+        setIsLoadingMainAppPlanData(false); // RESOLVED (processed, but inconsistent data - chat may not work as expected)
+      }
+    } else if (plansArePopulated && !selectedPlanIdIsValid) {
+      const defaultPlan = storePlans[0];
+      logger.warn(
+        `${LOG_PREFIX} mainAppPlanData: No valid storeSelectedPlanId. Using first plan as default. Data is loaded.`,
+      );
+      setMainAppPlanData({
+        numberOfPlans: storePlans.length,
+        selectedPlan: defaultPlan,
+        isLoaded: true,
+      });
+      setIsLoadingMainAppPlanData(false); // RESOLVED SUCCESSFULLY (with default)
+    } else {
+      // This covers:
+      // - !plansArePopulated (storePlans is null, undefined, or empty)
+      // - plansArePopulated but selectedPlanIdIsValid is false (and previous if/else if not met)
+      logger.info(
+        `${LOG_PREFIX} mainAppPlanData: storePlans empty or selectedPlanId still missing/invalid. Data not yet available. isLoadingMainAppPlanData remains true.`,
+      );
+      setMainAppPlanData((prev) => {
+        const newPlanData = {
+          numberOfPlans: storePlans?.length || 0,
+          selectedPlan: null,
           isLoaded: false,
         };
-        logger.warn(
-          `${LOG_PREFIX} mainAppPlanData: planStore data not fully available (plans empty: ${!storePlans || storePlans.length === 0}, no selectedId: ${!storeSelectedPlanId}). Setting mainAppPlanData:`,
-          newMainAppPlanData,
-        );
-        setMainAppPlanData(newMainAppPlanData);
-      }
-      logger.info(
-        `${LOG_PREFIX} mainAppPlanData: Processing finished. Setting isLoadingMainAppPlanData: false.`,
-      );
-      setIsLoadingMainAppPlanData(false);
-    };
-
-    // Run when authenticated or if plan store data changes (relevant for plan switches)
-    if (
-      sessionStatus === 'authenticated' ||
-      (sessionStatus === 'unauthenticated' && !isPlanStoreLoading)
-    ) {
-      sourceMainAppPlanData();
-    } else if (sessionStatus === 'loading') {
-      setIsLoadingMainAppPlanData(true);
+        // Avoid re-setting if it's already in this state to prevent potential loops if mainAppPlanData were a dep
+        if (
+          prev &&
+          prev.isLoaded === newPlanData.isLoaded &&
+          prev.numberOfPlans === newPlanData.numberOfPlans &&
+          prev.selectedPlan === newPlanData.selectedPlan
+        ) {
+          return prev;
+        }
+        return newPlanData;
+      });
+      // CRITICAL: Do NOT set isLoadingMainAppPlanData to false here.
+      // It was ensured to be true at the start of this authenticated block if it wasn't already.
+      // It will become false only when one of the success paths above is hit in a subsequent re-run.
     }
-  }, [sessionStatus, storePlans, storeSelectedPlanId, isPlanStoreLoading]);
+  }, [
+    sessionStatus,
+    storePlans,
+    storeSelectedPlanId,
+    isPlanStoreLoading,
+    // isLoadingMainAppPlanData and mainAppPlanData are NOT dependencies here
+    // to prevent re-render loops based on the state this effect itself manages.
+    // The effect re-runs when its listed dependencies change, and then it reads
+    // the current values of isLoadingMainAppPlanData and mainAppPlanData.
+  ]);
 
   const { userContext, isUserContextLoading } = useUserContext();
   const {
