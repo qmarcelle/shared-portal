@@ -961,7 +961,7 @@
         if (window._genesys && window._genesys.widgets) {
           window._genesys.widgets.onReady = (CXBus) => {
             console.log(
-              '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. main.initialise, 3. CXBus commands/plugins.',
+              '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. CXBus App.main, 3. Further CXBus commands/plugins.',
             );
 
             // 1. Call initLocalWidgetConfiguration()
@@ -973,43 +973,26 @@
               '[click_to_chat.js] onReady: initLocalWidgetConfiguration() completed.',
             );
 
-            // 2. Call _genesys.widgets.main.initialise() - This actually loads/starts the widgets
+            // 2. Initialize Genesys Widgets using CXBus command
             console.log(
-              '[click_to_chat.js] onReady: Calling _genesys.widgets.main.initialise().',
+              "[click_to_chat.js] onReady: Attempting to initialize widgets via CXBus.command('App.main').",
             );
-            if (
-              window._genesys.widgets.main &&
-              typeof window._genesys.widgets.main.initialise === 'function'
-            ) {
-              try {
-                window._genesys.widgets.main.initialise();
-                console.log(
-                  '[click_to_chat.js] onReady: _genesys.widgets.main.initialise() called successfully.',
-                );
-              } catch (initError) {
-                console.error(
-                  '[click_to_chat.js] onReady: Error calling _genesys.widgets.main.initialise():',
-                  initError,
-                );
-                document.dispatchEvent(
-                  new CustomEvent('genesys:error', {
-                    detail: {
-                      message: 'Error during main.initialise() in onReady',
-                      error: initError,
-                    },
-                  }),
-                );
-              }
-            } else {
+            try {
+              CXBus.command('App.main'); // Preferred way to initialize for Genesys Cloud
+              console.log(
+                "[click_to_chat.js] onReady: CXBus.command('App.main') called successfully.",
+              );
+            } catch (cxCommandError) {
               console.error(
-                '[click_to_chat.js] onReady: _genesys.widgets.main.initialise is NOT a function. Cannot initialize. Current _genesys.widgets.main:',
-                JSON.parse(JSON.stringify(window._genesys.widgets.main || {})),
+                "[click_to_chat.js] onReady: Error calling CXBus.command('App.main'):",
+                cxCommandError,
               );
               document.dispatchEvent(
                 new CustomEvent('genesys:error', {
                   detail: {
                     message:
-                      '_genesys.widgets.main.initialise not found in onReady',
+                      "Error calling CXBus.command('App.main') in onReady",
+                    error: cxCommandError,
                   },
                 }),
               );
