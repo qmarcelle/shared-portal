@@ -11,20 +11,30 @@
   // === CONFIG SECTION ===
   // Validate and set configuration with defaults
   const validateConfig = (cfg) => {
-    const required = {
-      legacy: ['clickToChatToken', 'clickToChatEndpoint'],
-      cloud: ['deploymentId', 'orgId'],
-    };
+    const requiredLegacy = ['clickToChatToken', 'clickToChatEndpoint'];
+    const requiredCloud = ['deploymentId', 'orgId']; // Added for cloud mode
 
     // Determine mode and check required fields
-    const mode = cfg.chatMode || 'legacy';
-    const missingFields = required[mode]?.filter((field) => !cfg[field]) || [];
+    const mode = cfg.chatMode || 'legacy'; // Default to legacy if chatMode is not set
+    let missingFields = [];
+
+    if (mode === 'legacy') {
+      missingFields = requiredLegacy.filter((field) => !cfg[field]);
+    } else if (mode === 'cloud') {
+      missingFields = requiredCloud.filter((field) => !cfg[field]);
+    } else {
+      console.error('[Genesys] Unknown chat mode in validateConfig:', mode);
+      // Treat unknown mode as invalid or handle as per requirements
+      missingFields = [...requiredLegacy, ...requiredCloud]; // Or some other default error state
+    }
 
     if (missingFields.length > 0) {
       console.error(
         `[Genesys] Missing required fields for ${mode} mode:`,
-        missingFields,
+        missingFields.join(', '),
       );
+      // Optionally, you could throw an error here or return an invalid status
+      // For now, it just logs the error, original behavior was to proceed.
     }
 
     console.log(
@@ -533,8 +543,6 @@
         firstName: settings.formattedFirstName || settings.firstname || '',
         lastName: settings.memberLastName || settings.lastname || '',
         email: settings.email || '', // Assuming email might be in settings
-        subject: 'Member Inquiry', // Default or could be from settings if available
-        phone: settings.phone || '', // Assuming phone might be in settings
 
         // Custom data fields - these can be used for routing or display in agent desktop
         userID: settings.userID || '',
@@ -849,20 +857,21 @@
               ? true
               : window.chatSettings.chatButtonHideDuringInvite,
         },
-        transport: {
-          type: 'purecloud-v2-sockets', // This is Genesys Cloud standard
-          dataURL: window.chatSettings.clickToChatEndpoint, // From raw chatSettings
-          deploymentKey: window.chatSettings.deploymentId, // From raw chatSettings
-          orgGuid: window.chatSettings.orgId, // From raw chatSettings
-          interactionData: {
-            routing: {
-              targetType: 'QUEUE',
-              targetAddress:
-                window.chatSettings.targetQueue || 'Member_Services_Chat_Queue', // Default or from settings
-              priority: window.chatSettings.chatPriority || 0,
-            },
-          },
-        },
+        transport:
+          cfg.chatMode === 'cloud'
+            ? {
+                type: 'purecloud-v2-sockets',
+                deploymentKey: cfg.deploymentId, // cfg is window.chatSettings via validateConfig
+                orgGuid: cfg.orgId,
+                environment: cfg.environment, // Added environment for cloud
+                // dataURL is intentionally omitted for cloud mode with purecloud-v2-sockets
+              }
+            : {
+                // Legacy mode transport configuration
+                type: 'rest', // Or whatever the legacy transport type was, default often implies REST/long-polling for older widgets
+                dataURL: cfg.clickToChatEndpoint, // Used by legacy
+                // Other legacy-specific transport settings if any
+              },
         form: {
           wrapper: '<table></table>', // Standard Genesys form wrapper
           inputs: window.chatSettings.chatFormInputs || [
