@@ -101,6 +101,8 @@ export default function ChatWidget({
     (state) => state.scripts.scriptLoadPhase,
   );
 
+  const prevActiveLegacyConfigRef = useRef<LegacyChatConfig | undefined>();
+
   // Derived active configs for type safety when passing to loaders
   const activeLegacyConfig = useMemo(() => {
     if (genesysChatConfigFull?.chatMode === 'legacy') {
@@ -177,6 +179,7 @@ export default function ChatWidget({
       );
       storeActions.setButtonState('failed');
       storeActions.setScriptLoadPhase(ScriptLoadPhase.ERROR);
+      setShowChatErrorModal(true);
     };
 
     const handleWebChatErrorEvent = (event: Event) => {
@@ -289,7 +292,7 @@ export default function ChatWidget({
 
   // Effect to define global functions needed by click_to_chat.js and general chat control
   useEffect(() => {
-    window.openPlanSwitcher = () => {
+    (window as Window & typeof globalThis).openPlanSwitcher = () => {
       logger.info(
         `${LOG_PREFIX} window.openPlanSwitcher called from Genesys UI.`,
       );
@@ -299,14 +302,14 @@ export default function ChatWidget({
       storeActions.openPlanSwitcherModal();
     };
 
-    window.OpenChatDisclaimer = () => {
+    (window as Window & typeof globalThis).OpenChatDisclaimer = () => {
       logger.info(
         `${LOG_PREFIX} window.OpenChatDisclaimer called from Genesys UI.`,
       );
       storeActions.openTnCModal(genesysChatConfigFull?.LOB || 'General');
     };
 
-    window.requestChatOpen = () => {
+    (window as Window & typeof globalThis).requestChatOpen = () => {
       logger.info(`${LOG_PREFIX} window.requestChatOpen called.`);
       if (isChatEnabled && genesysChatConfigFull) {
         storeActions.openPreChatModal();
@@ -324,9 +327,9 @@ export default function ChatWidget({
     };
 
     return () => {
-      delete window.openPlanSwitcher;
-      delete window.OpenChatDisclaimer;
-      delete window.requestChatOpen;
+      delete (window as Window & typeof globalThis).openPlanSwitcher;
+      delete (window as Window & typeof globalThis).OpenChatDisclaimer;
+      delete (window as Window & typeof globalThis).requestChatOpen;
     };
   }, [storeActions, genesysChatConfigFull, isChatEnabled]);
 
@@ -337,26 +340,63 @@ export default function ChatWidget({
   }, [configError]);
 
   const handleClearErrorAndReopen = useCallback(() => {
-    logger.info(`${LOG_PREFIX} Clearing error and attempting to reopen chat.`);
-    storeActions.setError(null);
+    logger.info(
+      `${LOG_PREFIX} ChatErrorDialog confirmed. Clearing error and attempting to reopen/re-initialize if applicable.`,
+    );
     setShowChatErrorModal(false);
-    if (isChatEnabled && genesysChatConfigFull) {
-      // Only attempt if still seems possible
-      if (window._genesysCXBus) {
-        (window._genesysCXBus as GenesysCXBus).command('WebChat.open');
-      } else if (window.Genesys && genesysChatConfigFull.chatMode === 'cloud') {
-        window.Genesys('command', 'Messenger.open');
-      } else {
-        logger.warn(
-          `${LOG_PREFIX} No CXBus or Genesys Cloud global to reopen chat after error.`,
-        );
-      }
-    } else {
-      logger.warn(
-        `${LOG_PREFIX} Cannot reopen chat: not enabled or no config.`,
+    storeActions.setError(null); // Clear the error in the store
+
+    // Attempt to re-trigger chat open or re-initialization if appropriate
+    // This logic might need to be more sophisticated based on the error cause.
+    // For now, if it was a failure to open, and chat is still enabled, try to open pre-chat modal again.
+    if (isChatEnabled && genesysChatConfigFull && !isChatActive) {
+      // If config is good and chat not active, try opening pre-chat modal again
+      // This assumes the error wasn't a fatal config error.
+      // If Genesys button exists, user can click it. If not, this provides a retry path.
+      logger.info(
+        `${LOG_PREFIX} Attempting to re-open PreChatModal after error dismissal.`,
       );
+      storeActions.openPreChatModal();
+    } else if (!isChatEnabled || !genesysChatConfigFull) {
+      logger.warn(
+        `${LOG_PREFIX} Chat cannot be reopened: chat not enabled or config missing.`,
+      );
+      // Potentially trigger a re-fetch of config if that was the issue.
+      // storeActions.loadChatConfiguration(...); // This would require parameters
     }
-  }, [storeActions, isChatEnabled, genesysChatConfigFull]);
+  }, [storeActions, isChatEnabled, genesysChatConfigFull, isChatActive]);
+
+  const handleStartChatConfirm = useCallback(() => {
+    logger.info(`${LOG_PREFIX} PreChatModal confirmed. Opening Genesys chat.`);
+    storeActions.closePreChatModal();
+
+    if (!isChatEnabled || !genesysChatConfigFull) {
+      logger.error(
+        `${LOG_PREFIX} Attempted to start chat from PreChatModal, but chat is no longer enabled or config is missing.`,
+      );
+      storeActions.setError(
+        new Error(
+          'Failed to start chat. Configuration issue or eligibility changed.',
+        ),
+      );
+      setShowChatErrorModal(true);
+      return;
+    }
+
+    if (chatMode === 'legacy' && window._genesysCXBus) {
+      (window._genesysCXBus as GenesysCXBus).command('WebChat.open');
+    } else if (chatMode === 'cloud' && window.Genesys) {
+      window.Genesys('command', 'Messenger.open');
+    } else {
+      logger.error(
+        `${LOG_PREFIX} Cannot open chat. Genesys CXBus (legacy) or Genesys global (cloud) not found. Mode: ${chatMode}`,
+      );
+      storeActions.setError(
+        new Error('Chat system components not found. Cannot initiate chat.'),
+      );
+      setShowChatErrorModal(true);
+    }
+  }, [chatMode, storeActions, isChatEnabled, genesysChatConfigFull]);
 
   const createImperativeFallback = useCallback(() => {
     // ... (implementation remains the same as previous correct version)
@@ -402,7 +442,6 @@ export default function ChatWidget({
   }, [scriptLoadPhase, createImperativeFallback, hasCreatedImperativeFallback]);
 
   // Effect to handle legacy chat re-initialization when config changes
-  const prevActiveLegacyConfigRef = useRef<LegacyChatConfig | undefined>();
   useEffect(() => {
     // Ensure this only runs for legacy mode and if activeLegacyConfig is present
     if (chatMode === 'legacy' && activeLegacyConfig) {
@@ -450,39 +489,6 @@ export default function ChatWidget({
   // Render script loaders only if chat is enabled and config is fully resolved
   const shouldRenderLoaders = isChatEnabled && genesysChatConfigFull;
 
-  // Handler for when user confirms to start chat from PreChatModal
-  const handleStartChatConfirm = useCallback(() => {
-    logger.info(`${LOG_PREFIX} PreChatModal confirmed. Opening Genesys chat.`);
-    storeActions.closePreChatModal();
-
-    if (!isChatEnabled || !genesysChatConfigFull) {
-      logger.error(
-        `${LOG_PREFIX} Attempted to start chat from PreChatModal, but chat is no longer enabled or config is missing.`,
-      );
-      storeActions.setError(
-        new Error(
-          'Failed to start chat. Configuration issue or eligibility changed.',
-        ),
-      );
-      setShowChatErrorModal(true);
-      return;
-    }
-
-    if (chatMode === 'legacy' && window._genesysCXBus) {
-      (window._genesysCXBus as GenesysCXBus).command('WebChat.open');
-    } else if (chatMode === 'cloud' && window.Genesys) {
-      window.Genesys('command', 'Messenger.open');
-    } else {
-      logger.error(
-        `${LOG_PREFIX} Cannot open chat. Genesys CXBus (legacy) or Genesys global (cloud) not found. Mode: ${chatMode}`,
-      );
-      storeActions.setError(
-        new Error('Chat system components not found. Cannot initiate chat.'),
-      );
-      setShowChatErrorModal(true);
-    }
-  }, [chatMode, storeActions, isChatEnabled, genesysChatConfigFull]);
-
   return (
     <>
       <div id={containerId} data-testid="chat-widget-container" />
@@ -502,7 +508,11 @@ export default function ChatWidget({
           }}
           onError={(err) => {
             logger.error(`${LOG_PREFIX} Genesys Cloud Loader: onError.`, err);
-            storeActions.setError(err);
+            storeActions.setError(
+              err instanceof Error
+                ? err
+                : new Error(String((err as any)?.message || err)),
+            );
             storeActions.setScriptLoadPhase(ScriptLoadPhase.ERROR);
           }}
         />
@@ -519,7 +529,11 @@ export default function ChatWidget({
           }}
           onError={(err) => {
             logger.error(`${LOG_PREFIX} Genesys Legacy Loader: onError.`, err);
-            storeActions.setError(err);
+            storeActions.setError(
+              err instanceof Error
+                ? err
+                : new Error(String((err as any)?.message || err)),
+            );
             storeActions.setScriptLoadPhase(ScriptLoadPhase.ERROR);
           }}
           showStatus={showLoaderStatus}
@@ -610,6 +624,7 @@ declare global {
     _genesys?: any;
     _genesysInitStatus?: any;
     _genesysDiagnostics?: () => void;
-    handleChatSettingsUpdate?: (newSettings: any) => void;
+    handleChatSettingsUpdate?: (newSettings: LegacyChatConfig) => void;
+    Genesys?: ((command: string, ...args: unknown[]) => unknown) | undefined;
   }
 }

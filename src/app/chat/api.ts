@@ -5,12 +5,6 @@ import { logger } from '@/utils/logger';
 
 const LOG_PREFIX = '[ChatAPI:getChatInfo]';
 
-interface ChatInfoParams {
-  memberId: string;
-  planId: string;
-  memberType?: string;
-}
-
 // Define a more specific return type if known, otherwise 'any' is a placeholder.
 // Ideally, this should match the structure of the data returned by the /api/chat/getChatInfo endpoint.
 export interface ChatInfoResponse {

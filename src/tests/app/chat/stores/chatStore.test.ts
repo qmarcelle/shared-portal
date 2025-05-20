@@ -2,7 +2,7 @@
 
 import { act } from '@testing-library/react';
 import { getChatInfo } from '../../../../app/chat/api';
-import { buildGenesysChatConfig } from '../../../../app/chat/genesysChatConfig';
+import { buildGenesysChatConfig } from '../../../../app/chat/config/genesysChatConfig';
 import {
   chatConfigSelectors,
   chatScriptSelectors,

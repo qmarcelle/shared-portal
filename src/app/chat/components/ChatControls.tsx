@@ -21,11 +21,10 @@ interface ChatControlsProps {
   onClick?: () => void;
 }
 
-export default function ChatControls({
-  buttonText = 'Chat with Us',
-  className = '',
-  onClick,
-}: ChatControlsProps) {
+export default function ChatControls() {
+// Props are destructured but not used as component is deprecated and returns null.
+// To satisfy linter and make deprecation clear, removed from signature.
+// { buttonText = 'Chat with Us', className = '', onClick }: ChatControlsProps
   // Log deprecation warning
   logger.warn(
     `${LOG_PREFIX} This component is deprecated. The Genesys widget provides its own chat button. ` +
