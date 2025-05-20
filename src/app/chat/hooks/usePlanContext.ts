@@ -165,7 +165,6 @@ export function usePlanContext(): PlanContextReturn {
           setLoading(true);
           processSessionData();
         }, timeoutDuration);
-        setLoading(true);
       } else {
         const errMsg = `Failed to load plan context from session.user.currUsr.plan after ${MAX_RETRIES} retries.`;
         logger.error(`${LOG_PREFIX} ${errMsg}`);

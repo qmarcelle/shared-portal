@@ -165,7 +165,6 @@ export function useUserContext(): UserContextReturn {
             setLoading(true);
             processSessionData();
           }, timeoutDuration);
-          setLoading(true);
         } else {
           logger.error(
             `${LOG_PREFIX} Max retries reached for fetching user context from session.user.currUsr.`,
