@@ -74,6 +74,7 @@ const renderUI = (vRules: VisibilityRules) => {
     <div>
       <SideBarModal />
       <SiteHeader
+        isLoggedIn={true}
         profiles={mockUserProfiles}
         plans={plans}
         selectedPlan={plans[0]}

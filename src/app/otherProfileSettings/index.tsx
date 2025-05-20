@@ -30,10 +30,8 @@ const OtherProfileSettings = ({
           <AboutMyProfileSlide />
           <section>
             <RaceAndEthnicitySurvey
-              raceAndEthinicityAllDetails={
-                data?.healthEquityPossibleAnswersData
-              }
-              raceAndEthinicitySelectedDetails={
+              raceAndEthnicityAllDetails={data?.healthEquityPossibleAnswersData}
+              raceAndEthnicitySelectedDetails={
                 data?.healthEquitySelectedAnswersData
               }
               sessionData={sessionData}

@@ -277,16 +277,16 @@ export const getMenuNavigation = (
         url: '/member/myplan/spendingaccounts',
         external: false,
       },
-      {
-        id: 76,
-        title: 'Spending Summary',
-        description: 'This is Spending Summary',
-        category: 'Spending',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/member/myplan/spendingsummary',
-        external: false,
-      },
+      // {
+      //   id: 76,
+      //   title: 'Spending Summary',
+      //   description: 'This is Spending Summary',
+      //   category: 'Spending',
+      //   showOnMenu: (rules) =>
+      //     isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+      //   url: '/member/myplan/spendingsummary',
+      //   external: false,
+      // },
       {
         id: 75,
         title: 'View or Pay Premium',
@@ -479,7 +479,7 @@ export const getMenuNavigation = (
     },
     shortLinks: [
       { title: 'Pharmacy Claims', link: '/claims?type=pharmacy' },
-      { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
+      // { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
     ],
     template: {
       firstCol: 'QT',

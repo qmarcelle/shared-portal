@@ -1,4 +1,5 @@
 import { MemberData } from '@/actions/loggedUserInfo';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Column } from '@/components/foundation/Column';
 import { AddMemberDetails } from '@/models/add_member_details';
 import { IComponent } from '../../../components/IComponent';
@@ -18,7 +19,7 @@ export const OtherHealthInsuranceCard = ({
 }: OtherHealthInsuranceCardProps) => {
   return (
     <Column className="flex flex-col m-4 md:mt-0">
-      {otherHealthInsuranceDetails.cobList &&
+      {otherHealthInsuranceDetails.cobList != null ? (
         otherHealthInsuranceDetails.cobList.map((item, index) => (
           <OtherHealthInsuranceCardItem
             key={index}
@@ -27,7 +28,16 @@ export const OtherHealthInsuranceCard = ({
             cobDetails={item}
             membersData={membersData}
           />
-        ))}
+        ))
+      ) : (
+        <>
+          <Column>
+            <section className="flex justify-start self-start p-4">
+              <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+            </section>
+          </Column>
+        </>
+      )}
     </Column>
   );
 };

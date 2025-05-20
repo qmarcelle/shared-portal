@@ -364,6 +364,9 @@ export const LanguagePreferenceSurvey = ({
     }
   }
 
+  const isImpersonated = sessionData?.user.impersonated;
+  console.log(`LangPrefImp: ${isImpersonated}`);
+
   return (
     <Card className="large-section">
       <div className="flex flex-col">
@@ -382,6 +385,7 @@ export const LanguagePreferenceSurvey = ({
               type="currentselection"
               optionObjects={selectedEnglishAbilityData}
               divider={true}
+              isImpersonated={isImpersonated}
             />
           )}
         {(selectedEnglishAbilityData.length == 0 ||
@@ -402,6 +406,7 @@ export const LanguagePreferenceSurvey = ({
             optionObjects={engEligibilityOptionChange}
             divider={true}
             selectionCallBack={updateEnglishEligibilityRadioButtonSelection}
+            isImpersonated={isImpersonated}
           />
         )}
         <Spacer size={32} />
@@ -420,6 +425,7 @@ export const LanguagePreferenceSurvey = ({
               type="currentselection"
               optionObjects={selectedSpokenLanguageData}
               divider={true}
+              isImpersonated={isImpersonated}
             />
           )}
         {(selectedSpokenLanguageData.length == 0 ||
@@ -451,6 +457,7 @@ export const LanguagePreferenceSurvey = ({
             languageSelectionCallBack={updateSpokenLanguageTextField}
             validLanguage={validSpokenLanguage}
             languageEmptySelect={spokenLanguageEmptySelect}
+            isImpersonated={isImpersonated}
           />
         )}
         <Spacer size={32} />
@@ -468,6 +475,7 @@ export const LanguagePreferenceSurvey = ({
             type="currentselection"
             optionObjects={selectedReadLanguageData}
             divider={false}
+            isImpersonated={isImpersonated}
           />
         )}
         {(selectedReadLanguageData.length == 0 ||
@@ -499,6 +507,7 @@ export const LanguagePreferenceSurvey = ({
             languageSelectionCallBack={updateReadLanguageTextField}
             validLanguage={validReadLanguage}
             languageEmptySelect={readLanguageEmptySelect}
+            isImpersonated={isImpersonated}
           />
         )}
       </div>

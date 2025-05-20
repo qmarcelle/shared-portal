@@ -4,7 +4,6 @@ import {
   planDocuments,
   priorAuthorizations,
   spendingAccounts,
-  spendingSummary,
 } from '@/components/foundation/Icons';
 
 export const CommercialPlanInformation = [
@@ -33,13 +32,13 @@ export const CommercialPlanInformation = [
     iconName: spendingAccounts,
     link: '/member/myplan/spendingaccounts',
   },
-  {
-    label: 'Spending Summary',
-    description:
-      'Your annual statement shows claims we received and processed.',
-    iconName: spendingSummary,
-    link: '/member/myplan/spendingsummary',
-  },
+  // {
+  //   label: 'Spending Summary',
+  //   description:
+  //     'Your annual statement shows claims we received and processed.',
+  //   iconName: spendingSummary,
+  //   link: '/member/myplan/spendingsummary',
+  // },
   {
     label: 'Plan Documents',
     description: 'Your important plan documents.',

@@ -1,62 +1,88 @@
-import NextAuth from 'next-auth';
-import { NextURL } from 'next/dist/server/web/next-url';
+import NextAuth, { Session } from 'next-auth';
+import { getToken, JWT } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
-import { requiredUrlMappings } from './lib/required-url-mappings';
-import {
-  apiAuthPrefix,
-  authRoutes,
-  inboundSSORoutes,
-  publicRoutes,
-} from './utils/routes';
+import { rewriteRules, wildcardRewriteRules } from './lib/rewrites';
+import { SessionUser } from './userManagement/models/sessionUser';
+import { API_BASE_PATH } from './utils/routes';
+import { getRoutingRedirect } from './utils/routing';
+import { decodeVisibilityRules } from './visibilityEngine/converters';
 
 const { auth } = NextAuth(authConfig);
 
-const getLoginDeeplinkRedirect = function (nextUrl: NextURL) {
-  const path = nextUrl.pathname;
-  if (
-    !path ||
-    path == '/' ||
-    path == process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL
-  ) {
-    return Response.redirect(new URL('/login', nextUrl));
+const getRouteUser = function (session: Session | null): string {
+  if (session) {
+    if (session.user.impersonator) {
+      return `${session.user.impersonator}::${session.user.id}`;
+    } else {
+      return session.user.id || 'unknown';
+    }
   } else {
-    const encodedTargetResource = encodeURIComponent(path);
-    return Response.redirect(
-      new URL(`/login?TargetResource=${encodedTargetResource}`, nextUrl),
+    return 'unauthenticated';
+  }
+};
+
+/**
+ * Allows retrieval of full session data in middleware, which is necessary for PZN checks on routing
+ */
+const getSession = function (token: JWT, session: Session) {
+  return {
+    ...session,
+    user: {
+      ...session.user,
+      ...token.user!,
+      vRules: decodeVisibilityRules((token.user as SessionUser).rules ?? '0'),
+    },
+  };
+};
+
+const getURLRewrite = function (path: string): string | null {
+  if (rewriteRules[path]) return rewriteRules[path];
+  else {
+    const wildcard = Object.entries(wildcardRewriteRules).find(
+      ([clientPath, mapping]) => path.includes(clientPath), //eslint-disable-line
     );
+    if (!wildcard) return null;
+    else return path.replace(wildcard[0], wildcard[1]);
   }
 };
 
 export default auth(async (req) => {
   const isLoggedIn = !!req.auth;
-  const routeUser = isLoggedIn
-    ? req.auth?.user.name || 'unknown'
-    : 'unauthenticated';
-  const method = req.method;
-  console.log(`Router <${routeUser}> ${method} ${req.nextUrl.pathname}`);
-  const { nextUrl } = req;
-  const pathname = nextUrl.pathname;
-  const url = req.nextUrl;
+  let session = null;
+  if (isLoggedIn) {
+    const jwt = await getToken({
+      req,
+      secret: process.env.AUTH_SECRET,
+      cookieName: 'BCBSTMemberSessionToken',
+    });
+    if (jwt) {
+      session = getSession(jwt, req.auth!);
+    }
+  }
 
-  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
-  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
-  const isInboundSSO = inboundSSORoutes.has(nextUrl.pathname);
+  //console.log(`MW session=${JSON.stringify(session)}`);
 
-  /*Handle URL Mapping based on the path mapping for
-  logged in users */
-  if (requiredUrlMappings[pathname] && isLoggedIn) {
-    url.pathname = requiredUrlMappings[pathname];
-    const response = NextResponse.rewrite(url);
-    response.headers.set('x-orginal-path', pathname);
-    return response;
+  const routeUser = getRouteUser(session);
+  const { method, nextUrl } = req;
+  console.log(`Router <${routeUser}> ${method} ${nextUrl.pathname}`);
+  //We check for a rewrite here so we can check the PZN/breadcrumb logic against the internal URL path, then return the rewrite at the end
+  const rewrite = getURLRewrite(nextUrl.pathname);
+  if (rewrite) console.log(`Rewrite URL ${nextUrl.pathname} -> ${rewrite}`);
+  const path = rewrite || nextUrl.pathname;
+  const isApiAuthRoute = nextUrl.pathname.startsWith(API_BASE_PATH);
+
+  /**
+   * Handle API routes
+   */
+  if (isApiAuthRoute) {
+    return;
   }
 
   /* Handle POST call from public site
    * This will NOT autofill the username field. It just redirects the POST call to a GET to prevent the app from confusing it for a server action call.
    */
-  if (req.method == 'POST' && nextUrl.pathname == '/login') {
+  if (req.method == 'POST' && path == '/login') {
     try {
       const formData = await req.formData();
       if (formData.get('accountType')) {
@@ -67,62 +93,28 @@ export default auth(async (req) => {
     }
   }
 
-  /**
-   * Handle requests to the root of the application (/)
-   * There is no content here. It should redirect to the default login landing if already logged in, or to the login page if not.
-   */
-  if (nextUrl.pathname == '/') {
-    return Response.redirect(
-      new URL(
-        (isLoggedIn ? process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL : '/login') ||
-          '/dashboard',
-        nextUrl,
-      ),
-    );
-  }
-
-  /**
-   * Handle API routes
-   */
-  if (isApiAuthRoute) {
-    return;
-  }
-
-  /**
-   * Handle inbound SSO routes.
-   * If the user is not logged in, return to prevent handling of the route by any other part of the function.
-   * If logged in already, redirect to the destination page specified in routes.ts
-   */
-  if (isInboundSSO) {
-    if (isLoggedIn) {
+  const redirect = getRoutingRedirect(path, session);
+  //console.log(`[DEBUG] redirect ${nextUrl.pathname} -> ${redirect}`);
+  //const redirect = null;
+  if (redirect) {
+    if (redirect == nextUrl.pathname) {
+      return Response.redirect('/error'); //Failsafe to prevent infinite redirect loops in unusual circumstances.
+    } else if (
+      redirect == '/login' &&
+      path != '/' &&
+      path != (process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard')
+    ) {
+      const targetResource = nextUrl.pathname + nextUrl.search;
+      const encoded = encodeURIComponent(targetResource);
       return Response.redirect(
-        new URL(
-          inboundSSORoutes.get(nextUrl.pathname) || '/dashboard',
-          nextUrl,
-        ),
+        new URL(`/login?TargetResource=${encoded}`, nextUrl),
       );
     } else {
-      return;
-    }
-  }
-
-  /**
-   * Handle login flow routes
-   * Already logged-in users should be redirected to the dashboard.
-   */
-  if (isAuthRoute) {
-    if (isLoggedIn) {
-      let redir;
-      const targetResource = nextUrl.searchParams.get('TargetResource');
-      if (targetResource) {
-        redir = decodeURIComponent(targetResource);
-      } else {
-        redir = process.env.NEXT_PUBLIC_LOGIN_REDIRECT_URL || '/dashboard';
+      const redirectUrl = new URL(redirect, nextUrl);
+      if (nextUrl.searchParams) {
+        redirectUrl.search = nextUrl.search;
       }
-      console.log(`Redirecting logged-in client to ${redir}`);
-      return Response.redirect(new URL(redir, nextUrl));
-    } else {
-      return;
+      return Response.redirect(new URL(redirectUrl, nextUrl));
     }
   }
 
@@ -140,14 +132,12 @@ export default auth(async (req) => {
     );
   }
 
-  /**
-   * Routes accessible by logged-in users.
-   */
-  if (!isPublicRoute) {
-    if (!isLoggedIn) {
-      console.log('Redirecting logged-out client to /login');
-      return getLoginDeeplinkRedirect(nextUrl);
-    }
+  if (rewrite) {
+    const originalPath = nextUrl.pathname;
+    nextUrl.pathname = rewrite;
+    const response = NextResponse.rewrite(nextUrl);
+    response.headers.set('x-orginal-path', originalPath);
+    return response;
   }
 
   return;

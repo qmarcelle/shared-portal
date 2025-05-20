@@ -1,8 +1,12 @@
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { getDedAndOOPBalanceForSubscriberAndDep } from '../../balances/actions/getDedAndOOPBalance';
-import { Details } from '../details';
+import { BenefitDetailsParams, Details } from '../../details';
 
-const BenefitDetailsPage = async () => {
+const BenefitDetailsPage = async ({
+  params,
+}: {
+  params: Promise<BenefitDetailsParams>;
+}) => {
   const spendingAccounts = {
     linkURL: '/member/myplan/spendingaccounts',
     hsaBalance: 1000,
@@ -13,6 +17,7 @@ const BenefitDetailsPage = async () => {
   const balanceData = await getDedAndOOPBalanceForSubscriberAndDep();
   return (
     <Details
+      params={await params}
       balanceData={balanceData.data}
       spendingAccountInfo={spendingAccounts}
       contact={phoneNumber}

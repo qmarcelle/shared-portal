@@ -1,4 +1,4 @@
-export const requiredUrlMappings: Record<string, string> = {
+export const rewriteRules: Record<string, string> = {
   // home Path
   '/member/home': '/dashboard',
   '/member/support': '/support',
@@ -36,37 +36,6 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/myplan/plancontact': '/myPlan/planContactInformation',
   '/member/myplan/claims/submit': '/claims/submitAClaim',
   '/member/myplan/managepolicy': '/myPlan/manageMyPolicy',
-  '/member/myplan/benefits/officevisits': '/benefits/details/officevisits',
-  '/member/myplan/benefits/preventivecare': '/benefits/details/preventivecare',
-  '/member/myplan/benefits/allergy': '/benefits/details/allergy',
-  '/member/myplan/benefits/emergency': '/benefits/details/emergency',
-  '/member/myplan/benefits/inpatientservices':
-    '/benefits/details/inpatientservices',
-  '/member/myplan/benefits/outpatientservices':
-    '/benefits/details/outpatientservices',
-  '/member/myplan/benefits/medicalequipment':
-    '/benefits/details/medicalequipment',
-  '/member/myplan/benefits/behavioralhealth':
-    '/benefits/details/behavioralhealth',
-  '/member/myplan/benefits/prescriptiondrugs':
-    '/benefits/details/prescriptiondrugs',
-  '/member/myplan/benefits/otherservices': '/benefits/details/otherservices',
-  '/member/myplan/benefits/medicalservices': '/benefits',
-  '/member/myplan/benefits/pharmacy': '/benefits',
-  '/member/myplan/benefits/dentalanasthesia': '/benefits',
-  '/member/myplan/benefits/dentalbasic': '/benefits',
-  '/member/myplan/benefits/dentalpreventive': '/benefits',
-  '/member/myplan/benefits/dentalendodontics': '/benefits',
-  '/member/myplan/benefits/dentalmajor': '/benefits',
-  '/member/myplan/benefits/dentalocculusalguard': '/benefits',
-  '/member/myplan/benefits/dentalorgalsurgery': '/benefits',
-  '/member/myplan/benefits/dentalorthodontic': '/benefits',
-  '/member/myplan/benefits/dentalperidontics': '/benefits',
-  '/member/myplan/benefits/dentalITMJ': '/benefits',
-  '/member/myplan/benefits/identityprotection':
-    '/benefits/identityProtectionServices',
-  '/member/myplan/benefits/employerprovidedbenefits':
-    '/benefits/employerProvidedBenefits',
 
   // MyHealth Paths
   '/member/myhealth': '/myHealth',
@@ -128,4 +97,8 @@ export const requiredUrlMappings: Record<string, string> = {
   '/member/profile/accountsharing/personalrep': '/personalRepresentativeAccess',
   '/member/profile/accountsharing/thirdparty': '/thirdPartySharing',
   '/member/profile/communication': '/communicationSettings',
+};
+
+export const wildcardRewriteRules: Record<string, string> = {
+  '/member/myplan/benefits/': '/benefits/',
 };

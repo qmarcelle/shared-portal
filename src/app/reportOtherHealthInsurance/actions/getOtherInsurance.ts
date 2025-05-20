@@ -41,14 +41,6 @@ export async function getOtherInsurance(
       OtherHealthInsuranceDetails[]
     >(`/api/COBService?memeCKs=${memeCKString}&isMedAdv=${isMedAdv}`);
 
-    otherInsuranceResponse.data.forEach((item) => {
-      const member = membersInfo.find(
-        (member) => member.memeck.toString() === item.memeCK,
-      );
-      item.memberName = member?.name;
-      item.dob = member?.dob;
-    });
-
     return membersInfo.map((member) => {
       const otherInsuranceItem = otherInsuranceResponse.data.find(
         (otherInsurance) => otherInsurance.memeCK === member.memeck.toString(),
@@ -66,6 +58,6 @@ export async function getOtherInsurance(
     });
   } catch (error) {
     logger.error('Error Response from GetOtherInsurance API', error);
-    throw error;
+    return null;
   }
 }

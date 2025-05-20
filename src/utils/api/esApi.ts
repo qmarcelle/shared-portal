@@ -28,6 +28,7 @@ esApi.interceptors.request?.use(
       const token = await getAuthToken();
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
+        logger.info(`API Bearer Token :: ${token}`);
       }
     } catch (error) {
       logger.error('GetAuthToken API - Failure', error);

@@ -4,7 +4,6 @@ import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Divider } from '@/components/foundation/Divider';
 import { rightIcon } from '@/components/foundation/Icons';
-import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -37,8 +36,8 @@ export const BenefitsAndCoverageSection = ({
       <div>
         <h3 className="title-2">Benefits & Coverage</h3>
         <Spacer size={32} />
-        <SearchField onSearch={handleSearch} hint="Search Benefits" />
-        <Spacer size={32} />
+        {/* <SearchField onSearch={handleSearch} hint="Search Benefits" />
+        <Spacer size={32} /> */}
         <div className="flex">
           <label className="body-1">Browse your benefits by category:</label>
           <Spacer size={32} />
