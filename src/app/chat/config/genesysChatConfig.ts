@@ -97,7 +97,7 @@ export interface GenesysChatConfig {
   /** Genesys Cloud deployment ID (cloud mode only) */
   deploymentId?: string;
   /** Genesys Cloud org ID (cloud mode only) */
-  orgId?: string;
+  orgId: string;
   /** Override for widgets.min.js script URL */
   genesysWidgetUrl?: string;
   /** BlueElite group flag */
@@ -214,8 +214,13 @@ function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
     modeSpecificMissingFields.push(
       'clickToChatEndpoint (required for legacy mode)',
     );
-  } else if (config.chatMode === 'cloud' && !config.deploymentId) {
-    modeSpecificMissingFields.push('deploymentId (required for cloud mode)');
+  } else if (config.chatMode === 'cloud') {
+    if (!config.deploymentId) {
+      modeSpecificMissingFields.push('deploymentId (required for cloud mode)');
+    }
+    if (!config.orgId) {
+      modeSpecificMissingFields.push('orgId (required for cloud mode)');
+    }
   }
 
   // Only treat truly critical fields as blocking
