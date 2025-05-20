@@ -33,14 +33,27 @@ interface ChatLazyLoaderProps {
   autoInitialize?: boolean;
 }
 
+// Define prop types for the lazily loaded components
+interface ChatProviderProps {
+  children: React.ReactNode;
+  autoInitialize?: boolean;
+  maxInitAttempts?: number;
+}
+
+interface ChatWidgetProps {
+  containerId?: string;
+  showLoaderStatus?: boolean;
+  forceFallbackButton?: boolean;
+}
+
 const ChatProvider = lazy(() =>
   import('@/app/chat/components/ChatProvider').then((mod) => ({
-    default: mod.default as ComponentType<any>,
+    default: mod.default as ComponentType<ChatProviderProps>,
   })),
 );
 const ChatWidget = lazy(() =>
   import('@/app/chat/components/ChatWidget').then((mod) => ({
-    default: mod.default as ComponentType<any>,
+    default: mod.default as ComponentType<ChatWidgetProps>,
   })),
 );
 

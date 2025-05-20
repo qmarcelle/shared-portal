@@ -36,7 +36,8 @@ export function ChatLinkEnhancer() {
 
     // Wait for DOM to be fully loaded
     const enhanceChatLinks = () => {
-      // Find all <a> tags containing 'start a chat' (case insensitive)
+      // Find all <a> tags containing 'start a chat' or 'chat with us' (case insensitive) an initial scan of the DOM.
+      // This ensures links present at the time of component mount are processed.
       const chatLinks = document.querySelectorAll('a');
       let newEnhanced = 0;
 
@@ -46,29 +47,31 @@ export function ChatLinkEnhancer() {
           linkText?.includes('start a chat') ||
           linkText?.includes('chat with us')
         ) {
-          // Skip if already enhanced
+          // Skip if this specific link has already been enhanced to prevent duplicate event listeners.
           if (link.getAttribute('data-chat-enhanced') === 'true') return;
 
-          // Store original click handler if any
+          // Store original click handler if any, to ensure existing functionality isn't lost.
           const originalOnClick = link.onclick;
 
-          // Set new click handler
+          // Override the link's click behavior.
           link.onclick = (e) => {
-            e.preventDefault();
-            // Call original handler if it exists
+            e.preventDefault(); // Prevent the default navigation behavior of the link.
+            // Call original handler if it exists, maintaining original link behavior alongside chat opening.
             if (originalOnClick) originalOnClick.call(link, e);
-            // Open chat
+            // Open chat by calling the setOpen action from the chat store.
+            // This typically triggers the display of the PreChatModal or the main chat window.
             setOpen(true);
           };
 
-          // Mark as enhanced
+          // Mark as enhanced by setting a custom data attribute.
+          // This helps in identifying already processed links during subsequent scans or observer callbacks.
           link.setAttribute('data-chat-enhanced', 'true');
 
-          // Add proper ARIA attributes
+          // Add proper ARIA attributes to make the link behave more like a button for accessibility.
           link.setAttribute('role', 'button');
           link.setAttribute('aria-label', 'Open chat window');
 
-          // Add cursor pointer if not already styled
+          // Add cursor pointer if not already styled, to visually indicate it's clickable like a button.
           if (window.getComputedStyle(link).cursor !== 'pointer') {
             link.style.cursor = 'pointer';
           }
@@ -83,23 +86,24 @@ export function ChatLinkEnhancer() {
           `[ChatLinkEnhancer] Enhanced ${newEnhanced} new chat links. Total: ${enhancedCount.current}`,
         );
 
-        // Update sequential loader state
+        // Update sequential loader state to indicate that link enhancement has occurred.
         markDomEnhancementComplete(enhancedCount.current);
       }
     };
 
-    // Run enhancement on initial load
+    // Run enhancement on initial load after the component mounts and the DOM is available.
     enhanceChatLinks();
 
-    // Set up a mutation observer to handle dynamically added links
+    // Set up a mutation observer to handle dynamically added links after the initial page load.
+    // This is crucial for single-page applications (SPAs) where content changes without full page reloads.
     if (!observerRef.current) {
       observerRef.current = new MutationObserver((mutations) => {
         let shouldEnhance = false;
 
-        // Only run enhancer if we found new links
+        // Only run enhancer if we found new links added to the DOM.
         mutations.forEach((mutation) => {
           if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-            // Check if any added node is an <a> tag or contains one
+            // Check if any added node is an <a> tag or contains one within its subtree.
             mutation.addedNodes.forEach((node) => {
               if (node.nodeType === Node.ELEMENT_NODE) {
                 const element = node as Element;
@@ -111,19 +115,21 @@ export function ChatLinkEnhancer() {
           }
         });
 
+        // If new links were potentially added, re-run the enhancement process.
         if (shouldEnhance) {
           enhanceChatLinks();
         }
       });
 
-      // Start observing changes to the DOM
+      // Start observing changes to the document body and its entire subtree for additions of child elements.
       observerRef.current.observe(document.body, {
         childList: true,
         subtree: true,
       });
     }
 
-    // Clean up
+    // Clean up the MutationObserver when the component unmounts.
+    // This prevents memory leaks and ensures the observer doesn't run unnecessarily after the component is gone.
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();

@@ -50,7 +50,7 @@ export function PreChatModal({
         {hasMultiplePlans && currentPlanName && (
           <div className="py-4">
             <div className="mb-2 text-sm font-medium">
-              You'll be chatting about:
+              You&apos;ll be chatting about:
             </div>
             <div className="flex items-center justify-between">
               <div className="bg-[#F5F5F5] px-4 py-3 rounded-md">

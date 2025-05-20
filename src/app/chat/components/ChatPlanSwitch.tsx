@@ -9,16 +9,16 @@
  */
 import { Check, ChevronDown, Lock } from 'lucide-react';
 
+import { PlanSwitcherLockTooltip } from '@/app/chat/components/PlanSwitchLockTooltip';
+import { cn } from '@/app/chat/lib/utils';
+import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
+import { useChatStore } from '../stores/chatStore';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/app/chat/components/cp_ui/DropdownMenu';
-import { PlanSwitcherLockTooltip } from '@/app/chat/components/PlanSwitchLockTooltip';
-import { cn } from '@/app/chat/lib/utils';
-import { usePlanSwitcherLock } from '../hooks/usePlanSwitcherLock';
-import { useChatStore } from '../stores/chatStore';
+} from './cp_ui/DropdownMenu';
 
 export interface Plan {
   id: string;

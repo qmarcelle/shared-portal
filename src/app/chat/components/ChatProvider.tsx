@@ -1,20 +1,16 @@
-// ChatProvider.tsx
+// ChatProvider.tsx (Updated based on your latest version and log analysis)
 'use client';
-/**
- * @file ChatProvider.tsx
- * @description This provider is responsible for orchestrating the initialization of the chat system.
- * It gathers all necessary data contexts (user, plan, session, loggedInMember, userProfile)
- * and then triggers the `loadChatConfiguration` action in `chatStore.ts`.
- * It ensures chat configuration is updated when the plan context changes (ID: 31146, ID: 31154).
- * It sources plan details like numberOfPlans and currentPlanName from `usePlanStore` (ID: 31146).
- */
 
 import { getLoggedInMember } from '@/actions/memberDetails';
 import type { LoggedInMember } from '@/models/app/loggedin_member';
+import type { PBEData } from '@/models/member/api/pbeData';
 import type { UserProfile } from '@/models/user_profile';
+import type { MemberPlan } from '@/userManagement/models/plan';
 import type { SessionUser } from '@/userManagement/models/sessionUser';
 import { usePlanStore } from '@/userManagement/stores/planStore';
+import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { logger } from '@/utils/logger';
+import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { useSession } from 'next-auth/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePlanContext } from '../hooks/usePlanContext';
@@ -31,7 +27,6 @@ interface ChatProviderProps {
   children: React.ReactNode;
   autoInitialize?: boolean;
   maxInitAttempts?: number;
-  // staticChatConfig?: Partial<GenesysChatConfig>; // If you need global static overrides for buildGenesysChatConfig
 }
 
 export default function ChatProvider({
@@ -39,14 +34,17 @@ export default function ChatProvider({
   autoInitialize = true,
   maxInitAttempts = 3,
 }: ChatProviderProps) {
-  const initializedRef = useRef(false);
+  const initializedRef = useRef(false); // Tracks if loadChatConfiguration has been successfully called for current context
   const initAttemptsRef = useRef(0);
+  const previousSelectedPlanIdRef = useRef<string | null | undefined>(null);
 
   const [loggedInMemberDetails, setLoggedInMemberDetails] =
     useState<LoggedInMember | null>(null);
   const [isLoadingLoggedInMember, setIsLoadingLoggedInMember] = useState(true);
 
-  // --- Data Sourcing: Replace placeholders with your actual logic ---
+  const [pbeData, setPbeData] = useState<PBEData | null>(null);
+  const [isLoadingPbeData, setIsLoadingPbeData] = useState(true);
+
   const [userProfileData, setUserProfileData] = useState<UserProfile | null>(
     null,
   );
@@ -54,13 +52,11 @@ export default function ChatProvider({
 
   const [mainAppPlanData, setMainAppPlanData] = useState<{
     numberOfPlans: number;
-    currentPlanName: string;
-    currentPlanLOB?: string;
-    isLoaded: boolean; // Flag to know when this data is ready
+    selectedPlan: MemberPlan | null; // Store the whole selected plan object
+    isLoaded: boolean;
   } | null>(null);
   const [isLoadingMainAppPlanData, setIsLoadingMainAppPlanData] =
     useState(true);
-  // --- End Data Sourcing Placeholders ---
 
   const { data: session, status: sessionStatus } = useSession();
   const {
@@ -70,17 +66,22 @@ export default function ChatProvider({
   } = usePlanStore();
 
   useEffect(() => {
-    logger.info(`${LOG_PREFIX} Component instance created. Initial props:`, {
+    logger.info(`${LOG_PREFIX} Component instance created/mounted. Props:`, {
       autoInitialize,
     });
   }, [autoInitialize]);
 
   const fetchLoggedInMemberData = useCallback(async () => {
+    // Check if data already exists for the current user and we are not in a loading state
+    if (
+      session?.user?.id &&
+      loggedInMemberDetails?.userId === session.user.id &&
+      !isLoadingLoggedInMember
+    ) {
+      return;
+    }
+
     if (session && sessionStatus === 'authenticated') {
-      if (isLoadingLoggedInMember === false && loggedInMemberDetails !== null) {
-        // Already fetched and present
-        return;
-      }
       logger.info(
         `${LOG_PREFIX} Session authenticated. Fetching LoggedInMember details.`,
       );
@@ -98,43 +99,102 @@ export default function ChatProvider({
         setIsLoadingLoggedInMember(false);
       }
     } else if (sessionStatus !== 'loading') {
+      // Not loading and not authenticated
       setLoggedInMemberDetails(null);
       setIsLoadingLoggedInMember(false);
     }
-  }, [session, sessionStatus, isLoadingLoggedInMember, loggedInMemberDetails]); // Added isLoading and details to prevent re-fetch if already loaded
+  }, [session, sessionStatus]); // Key change: Removed isLoadingLoggedInMember, loggedInMemberDetails from deps
 
   useEffect(() => {
     fetchLoggedInMemberData();
   }, [fetchLoggedInMemberData]);
 
-  // Placeholder Effect for UserProfile - REPLACE THIS
+  useEffect(() => {
+    const fetchPbeData = async () => {
+      if (session?.user?.id && sessionStatus === 'authenticated') {
+        // Check if PBE data for this session user is already fetched and not loading
+        if (
+          pbeData &&
+          !isLoadingPbeData &&
+          (pbeData as any)?.userId === session.user.id
+        ) {
+          // Assuming PBEData might have a userId link
+          return;
+        }
+        setIsLoadingPbeData(true);
+        try {
+          logger.info(
+            `${LOG_PREFIX} Fetching PBEData for user ID: ${session.user.id}`,
+          );
+          const data = await getPersonBusinessEntity(session.user.id);
+          setPbeData(data);
+        } catch (error) {
+          logger.error(`${LOG_PREFIX} Error fetching PBEData:`, error);
+          setPbeData(null);
+        } finally {
+          setIsLoadingPbeData(false);
+        }
+      } else if (sessionStatus !== 'loading') {
+        setPbeData(null);
+        setIsLoadingPbeData(false);
+      }
+    };
+    fetchPbeData();
+  }, [session, sessionStatus]); // Removed pbeData, isLoadingPbeData (internal check added)
+
   useEffect(() => {
     const sourceUserProfile = () => {
+      if (!pbeData || isLoadingPbeData) {
+        // Ensure PBE data is loaded and not currently being fetched
+        if (sessionStatus === 'authenticated' && !isLoadingPbeData) {
+          // Only warn if PBE data fetch finished but it's null
+          logger.warn(
+            `${LOG_PREFIX} PBEData not available for UserProfile computation.`,
+          );
+        }
+        setUserProfileData(null); // Clear or keep previous if PBE not ready
+        setIsLoadingUserProfile(
+          isLoadingPbeData || sessionStatus === 'loading',
+        ); // Profile loading if PBE or session is loading
+        return;
+      }
+
       setIsLoadingUserProfile(true);
-      if (session?.user?.currUsr) {
-        // Ideal: Your session.user.currUsr is already shaped like or contains UserProfile
-        // This requires server-side setup in your next-auth callbacks (computeSessionUser)
-        // For example:
-        const currUsr = session.user.currUsr as any; // Cast for example
-        setUserProfileData({
-          id: currUsr.umpi || session.user.id || 'unknown_user_id',
-          firstName: currUsr.firstName,
-          lastName: currUsr.lastName,
-          dob: currUsr.dob || currUsr.dateOfBirth,
-          // ... map other UserProfile fields from currUsr ...
-        } as UserProfile);
-        logger.info(
-          `${LOG_PREFIX} UserProfile data sourced from session.user.currUsr.`,
-        );
-      } else if (sessionStatus === 'authenticated') {
-        logger.warn(
-          `${LOG_PREFIX} Session authenticated but currUsr not (yet) available for UserProfile.`,
-        );
-        // If UserProfile needs a separate fetch, do it here, but prefer session enrichment.
-        // For now, setting to null if not in session.
-        setUserProfileData(null);
+      if (session?.user?.currUsr?.umpi) {
+        try {
+          const profiles = computeUserProfilesFromPbe(
+            pbeData,
+            session.user.currUsr.umpi,
+            session.user.currUsr.plan?.memCk,
+          );
+          const currentUserProfile = profiles.find(
+            (p) => p.id === session.user.currUsr.umpi && p.selected,
+          );
+          if (currentUserProfile) {
+            setUserProfileData(currentUserProfile);
+          } else {
+            const fallbackProfile = profiles.find(
+              (p) => p.id === session.user.currUsr.umpi,
+            );
+            setUserProfileData(fallbackProfile || null);
+            if (!fallbackProfile)
+              logger.warn(
+                `${LOG_PREFIX} UserProfile not found for umpi: ${session.user.currUsr.umpi}.`,
+              );
+          }
+        } catch (error) {
+          logger.error(
+            `${LOG_PREFIX} Error computing UserProfile from PBEData:`,
+            error,
+          );
+          setUserProfileData(null);
+        }
       } else {
         setUserProfileData(null);
+        if (sessionStatus === 'authenticated')
+          logger.warn(
+            `${LOG_PREFIX} session.user.currUsr.umpi missing for UserProfile.`,
+          );
       }
       setIsLoadingUserProfile(false);
     };
@@ -144,63 +204,70 @@ export default function ChatProvider({
       sessionStatus === 'unauthenticated'
     ) {
       sourceUserProfile();
+    } else if (sessionStatus === 'loading') {
+      setIsLoadingUserProfile(true); // Set loading if session is loading
     }
-  }, [session, sessionStatus]);
+  }, [session, sessionStatus, pbeData, isLoadingPbeData]);
 
-  // Placeholder Effect for Main Application Plan Data - REPLACE THIS
   useEffect(() => {
     const sourceMainAppPlanData = () => {
       if (isPlanStoreLoading) {
         logger.info(`${LOG_PREFIX} Waiting for planStore to finish loading...`);
+        setIsLoadingMainAppPlanData(true); // Explicitly set loading if planStore is loading
         return;
       }
-      setIsLoadingMainAppPlanData(true);
-
-      logger.info(
-        `${LOG_PREFIX} Sourcing main application plan data from usePlanStore.`,
-      );
-
-      if (storePlans && storePlans.length > 0 && storeSelectedPlanId) {
+      setIsLoadingMainAppPlanData(true); // Start of processing
+      if (storePlans && storeSelectedPlanId) {
         const selectedPlan = storePlans.find(
           (p) => p.id === storeSelectedPlanId,
         );
-        setMainAppPlanData({
-          numberOfPlans: storePlans.length,
-          currentPlanName: selectedPlan?.name || 'Unknown Plan Name',
-          currentPlanLOB: undefined,
-          isLoaded: true,
-        });
+        if (selectedPlan) {
+          setMainAppPlanData({
+            numberOfPlans: storePlans.length,
+            selectedPlan: selectedPlan, // Store the selected plan
+            isLoaded: true,
+          });
+        } else {
+          logger.warn(
+            `${LOG_PREFIX} SelectedPlanId (${storeSelectedPlanId}) not found in storePlans. Using fallback.`,
+          );
+          setMainAppPlanData({
+            numberOfPlans: storePlans.length,
+            selectedPlan: null, // No plan found
+            isLoaded: false, // Indicate not fully loaded or error state
+          });
+        }
       } else if (storePlans && storePlans.length > 0 && !storeSelectedPlanId) {
         logger.warn(
-          `${LOG_PREFIX} planStore has plans, but no selectedPlanId. Using first plan as default.`,
+          `${LOG_PREFIX} planStore has ${storePlans.length} plans, but no selectedPlanId. Using first plan as default.`,
         );
         const defaultPlan = storePlans[0];
         setMainAppPlanData({
           numberOfPlans: storePlans.length,
-          currentPlanName: defaultPlan?.name || 'Default Plan Name',
-          currentPlanLOB: undefined,
+          selectedPlan: defaultPlan || null, // Store the default plan
           isLoaded: true,
         });
       } else {
         logger.warn(
-          `${LOG_PREFIX} planStore data not fully available (plans empty or no selectedId). Using fallback plan details.`,
-          { numPlans: storePlans?.length, selectedId: storeSelectedPlanId },
+          `${LOG_PREFIX} planStore data not fully available (plans empty: ${!storePlans || storePlans.length === 0}, no selectedId: ${!storeSelectedPlanId}).`,
         );
         setMainAppPlanData({
-          numberOfPlans: storePlans?.length || 1,
-          currentPlanName: 'Loading Plan...',
-          currentPlanLOB: undefined,
+          numberOfPlans: 0,
+          selectedPlan: null, // No plan available
           isLoaded: false,
         });
       }
       setIsLoadingMainAppPlanData(false);
     };
 
+    // Run when authenticated or if plan store data changes (relevant for plan switches)
     if (
       sessionStatus === 'authenticated' ||
-      sessionStatus === 'unauthenticated'
+      (sessionStatus === 'unauthenticated' && !isPlanStoreLoading)
     ) {
       sourceMainAppPlanData();
+    } else if (sessionStatus === 'loading') {
+      setIsLoadingMainAppPlanData(true);
     }
   }, [sessionStatus, storePlans, storeSelectedPlanId, isPlanStoreLoading]);
 
@@ -218,20 +285,51 @@ export default function ChatProvider({
   );
   const setErrorStore = useChatStore((state) => state.actions.setError);
 
+  // Effect to reset initialization flags if the selected plan ID changes
+  useEffect(() => {
+    if (
+      previousSelectedPlanIdRef.current &&
+      storeSelectedPlanId &&
+      storeSelectedPlanId !== previousSelectedPlanIdRef.current
+    ) {
+      logger.info(
+        `${LOG_PREFIX} Plan switch detected (from ${previousSelectedPlanIdRef.current} to ${storeSelectedPlanId}). Resetting chat initialization flags.`,
+      );
+      initializedRef.current = false;
+      initAttemptsRef.current = 0;
+      // Optionally clear previous config from chatStore if a full reset is desired on plan switch
+      // useChatStore.getState().actions.setError(null); // Example
+    }
+    previousSelectedPlanIdRef.current = storeSelectedPlanId;
+  }, [storeSelectedPlanId]);
+
   const initializeChatConfig = useCallback(() => {
+    logger.info(
+      `${LOG_PREFIX} Attempting initializeChatConfig. autoInitialize: ${autoInitialize}, initializedRef: ${initializedRef.current}, isLoadingStore: ${isLoadingConfigStore}, Attempts: ${initAttemptsRef.current}`,
+    );
+
     if (!autoInitialize || initializedRef.current || isLoadingConfigStore) {
       return;
     }
 
-    if (
-      isUserContextLoading ||
-      isPlanContextLoading ||
-      isLoadingLoggedInMember ||
-      isLoadingUserProfile ||
-      isLoadingMainAppPlanData ||
-      sessionStatus === 'loading'
-    ) {
-      logger.info(`${LOG_PREFIX} Waiting for all data contexts to load...`);
+    const allLoadingStates = {
+      sessionStatus,
+      isUserContextLoading,
+      isPlanContextLoading,
+      isLoadingLoggedInMember,
+      isLoadingUserProfile,
+      isLoadingPbeData,
+      isLoadingMainAppPlanData, // Derived from isPlanStoreLoading
+    };
+    const someDataStillLoading =
+      Object.values(allLoadingStates).some((val) => val === true) ||
+      sessionStatus === 'loading';
+
+    if (someDataStillLoading) {
+      logger.info(
+        `${LOG_PREFIX} Waiting for data contexts to load...`,
+        allLoadingStates,
+      );
       return;
     }
 
@@ -239,9 +337,13 @@ export default function ChatProvider({
       logger.warn(`${LOG_PREFIX} Max init attempts reached. Halting.`);
       if (!configErrorStore && !planContextError)
         setErrorStore(new Error('ChatProvider: Max init attempts.'));
+      initializedRef.current = true; // Prevent further attempts this cycle
       return;
     }
     initAttemptsRef.current += 1;
+    logger.info(
+      `${LOG_PREFIX} Past loading checks. Init Attempt: ${initAttemptsRef.current}`,
+    );
 
     if (planContextError) {
       logger.error(
@@ -249,59 +351,99 @@ export default function ChatProvider({
         planContextError,
       );
       if (!configErrorStore) setErrorStore(planContextError);
-      initializedRef.current = true; // Prevent further attempts for this error
+      initializedRef.current = true;
       return;
     }
 
+    if (sessionStatus === 'unauthenticated') {
+      logger.warn(
+        `${LOG_PREFIX} User is unauthenticated. Chat initialization aborted during data checks.`,
+      );
+      if (!configErrorStore)
+        setErrorStore(
+          new Error('User unauthenticated, cannot initialize chat.'),
+        );
+      initializedRef.current = true;
+      return;
+    }
+
+    // Final data object validation
     if (
       !session?.user ||
       !userContext ||
       !planContext ||
       !loggedInMemberDetails ||
       !userProfileData ||
-      !mainAppPlanData?.isLoaded
+      !pbeData ||
+      !mainAppPlanData?.isLoaded ||
+      !mainAppPlanData.selectedPlan // Now check for selectedPlan object
     ) {
       logger.warn(
-        `${LOG_PREFIX} Not all required data objects are ready yet. Attempt: ${initAttemptsRef.current}.`,
+        `${LOG_PREFIX} Data objects not yet fully populated. Attempt: ${initAttemptsRef.current}.`,
+        {
+          sessionUser: !!session?.user,
+          userContext: !!userContext,
+          planContext: !!planContext,
+          loggedInMemberDetails: !!loggedInMemberDetails,
+          userProfileData: !!userProfileData,
+          pbeData: !!pbeData,
+          mainAppPlanDataLoaded: mainAppPlanData?.isLoaded,
+          mainAppSelectedPlan: !!mainAppPlanData?.selectedPlan, // Check for selectedPlan object
+        },
       );
-      // Retry will be triggered by useEffect if loading states change.
       return;
     }
 
-    const apiCallMemberId = userContext.userID;
-    const apiCallPlanId = planContext.planId || 'FALLBACK_PLAN_ID'; // Ensure a fallback if planId can be undefined
-
-    const currentPlanDetailsForBuild: CurrentPlanDetails = {
-      numberOfPlans: mainAppPlanData.numberOfPlans,
-      currentPlanName: mainAppPlanData.currentPlanName,
-      currentPlanLOB: mainAppPlanData.currentPlanLOB,
-    };
-
     logger.info(
-      `${LOG_PREFIX} All data ready. Calling loadChatConfiguration. Attempt: ${initAttemptsRef.current}`,
+      `${LOG_PREFIX} All data sources appear ready. Calling loadChatConfiguration.`,
     );
-    initializedRef.current = true;
+
+    const apiCallMemberId = userContext.userID;
+    // Ensure mainAppPlanData.selectedPlan is not null before accessing its id
+    const apiCallPlanId =
+      planContext.planId ||
+      (mainAppPlanData.selectedPlan ? mainAppPlanData.selectedPlan.id : '');
+
+    // Ensure mainAppPlanData.selectedPlan is not null before accessing its properties
+    const currentPlanDetailsForBuild: CurrentPlanDetails =
+      mainAppPlanData.selectedPlan
+        ? {
+            numberOfPlans: mainAppPlanData.numberOfPlans,
+            currentPlanName:
+              mainAppPlanData.selectedPlan.name || 'Unknown Plan Name',
+            currentPlanLOB: mainAppPlanData.selectedPlan.lob,
+          }
+        : {
+            // Fallback if selectedPlan is null - though prior checks should prevent this
+            numberOfPlans: mainAppPlanData.numberOfPlans,
+            currentPlanName: 'Plan Not Available',
+            currentPlanLOB: undefined,
+          };
+
+    initializedRef.current = true; // Set before async call to prevent re-entry for THIS data set
 
     loadChatConfiguration(
       apiCallMemberId,
       apiCallPlanId,
       loggedInMemberDetails,
-      session.user as SessionUser, // Ensure session.user aligns with SessionUser type
+      session.user as SessionUser,
       userProfileData,
       currentPlanDetailsForBuild,
     ).catch((e) => {
       logger.error(
-        `${LOG_PREFIX} loadChatConfiguration call failed externally.`,
+        `${LOG_PREFIX} loadChatConfiguration call failed externally (promise rejected).`,
         e,
       );
-      // Ensure error is set in the store if the promise from the action rejects
       if (!useChatStore.getState().config.error) {
+        // Check fresh store state
         setErrorStore(
           e instanceof Error
             ? e
-            : new Error('Chat configuration loading failed'),
+            : new Error('Chat configuration loading failed unexpectedly'),
         );
       }
+      initializedRef.current = false; // Allow retry if loadChatConfiguration itself fails
+      initAttemptsRef.current = Math.max(0, initAttemptsRef.current - 1); // Decrement attempt so next retry is valid
     });
   }, [
     autoInitialize,
@@ -318,29 +460,31 @@ export default function ChatProvider({
     isLoadingLoggedInMember,
     userProfileData,
     isLoadingUserProfile,
-    mainAppPlanData,
-    isLoadingMainAppPlanData,
+    pbeData,
+    isLoadingPbeData,
+    mainAppPlanData, // MainAppPlanData object from usePlanStore derivation
+    isLoadingMainAppPlanData, // Added to satisfy linter
     loadChatConfiguration,
     setErrorStore,
     configErrorStore,
   ]);
 
+  // This useEffect is the main trigger for initializeChatConfig.
+  // It runs when any of its numerous dependencies change, allowing retries as data loads.
   useEffect(() => {
-    // Trigger initialization when session is authenticated and not already initialized
-    // OR if any of the dependencies of initializeChatConfig change (which includes loading states),
-    // allowing for retries as data becomes available.
+    logger.info(
+      `${LOG_PREFIX} Main initialization useEffect triggered. sessionStatus: ${sessionStatus}, initializedRef: ${initializedRef.current}`,
+    );
     if (sessionStatus === 'authenticated' && !initializedRef.current) {
       initializeChatConfig();
     } else if (sessionStatus === 'unauthenticated' && !initializedRef.current) {
       logger.warn(
-        `${LOG_PREFIX} Session unauthenticated. Chat initialization not performed.`,
+        `${LOG_PREFIX} Session unauthenticated in main useEffect. Chat initialization not performed.`,
       );
-      // No error set here, as chat might just be unavailable for unauth users.
-      // If an error *should* be set, add:
-      // if (!configErrorStore) setErrorStore(new Error('User unauthenticated for chat.'));
-      initializedRef.current = true; // Mark as "handled" for unauthenticated case
+      if (!configErrorStore) setErrorStore(new Error('User unauthenticated.'));
+      initializedRef.current = true;
     }
-  }, [initializeChatConfig, sessionStatus, configErrorStore, setErrorStore]); // Add configErrorStore for re-evaluation
+  }, [initializeChatConfig, sessionStatus, configErrorStore, setErrorStore]); // Key dependencies
 
   return <>{children}</>;
 }
