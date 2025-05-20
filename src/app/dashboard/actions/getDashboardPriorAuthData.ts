@@ -3,7 +3,6 @@
 import { invokePriorAuthDetails } from '@/app/priorAuthorization/actions/memberPriorAuthorization';
 import { PriorAuthDetails } from '@/app/priorAuthorization/models/priorAuthDetails';
 import { PriorAuthType } from '@/app/priorAuthorization/models/priorAuthType';
-import { getAuthStatus } from '@/app/priorAuthorization/utils/authStatus';
 import { logger } from '@/utils/logger';
 import { DashboardPriorAuthDetails } from '../models/priorAuth_details';
 
@@ -26,7 +25,7 @@ function computePriorAuthDetail(
     priorAuthName: priorAuthDetails.issuer,
     priorAuthType: PriorAuthType.MEDICAL,
     dateOfVisit: priorAuthDetails.serviceDate,
-    priorAuthStatus: getAuthStatus(priorAuthDetails.priorAuthStatus),
+    priorAuthStatus: priorAuthDetails.priorAuthStatus,
     member: priorAuthDetails.memberName,
     referenceId: priorAuthDetails.referenceId ?? '',
   };

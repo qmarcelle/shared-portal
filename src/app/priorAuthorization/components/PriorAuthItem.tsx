@@ -10,6 +10,7 @@ import { encrypt } from '@/utils/encryption';
 import Image from 'next/image';
 import MedicalIcon from '../../../../public/assets/medical.svg';
 import { PriorAuthDetails } from '../models/priorAuthDetails';
+import { getAuthStatus } from '../utils/authStatus';
 
 interface ClaimItemProps extends IComponent {
   // TODO: Update the model and type while integrating the api.
@@ -22,25 +23,6 @@ export const PriorAuthItem = ({
   className,
   callBack,
 }: ClaimItemProps) => {
-  function getAuthStatus() {
-    switch (priorAuthDetails.priorAuthStatus) {
-      case 'Processed':
-        return 'success';
-      case 'Paid':
-        return 'success';
-      case 'Denied':
-        return 'error';
-      case 'Pending':
-        return 'neutral';
-      case 'Partial Approval':
-        return 'partialapproval';
-      case 'Approved':
-        return 'success';
-      default:
-        return 'empty';
-    }
-  }
-
   function getPriorAuthIcon() {
     return MedicalIcon;
   }
@@ -71,7 +53,7 @@ export const PriorAuthItem = ({
             <section className="flex flex-row justify-between md:flex-col max-lg:mr-[5px]">
               <StatusLabel
                 label={priorAuthDetails.priorAuthStatus}
-                status={getAuthStatus()}
+                status={getAuthStatus(priorAuthDetails.priorAuthStatus)}
               />
               {priorAuthDetails.isMiniCard && (
                 <Column className="md:hidden">
