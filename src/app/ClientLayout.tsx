@@ -31,10 +31,12 @@ export default function ClientLayout({
     });
 
     if (sessionStatus === 'authenticated') {
-      logger.info(
-        '[ClientLayout] User is authenticated. Setting shouldRenderChat to true.',
-      );
-      setShouldRenderChat(true);
+      if (!shouldRenderChat) {
+        logger.info(
+          '[ClientLayout] User is authenticated and shouldRenderChat is false. Setting to true.',
+        );
+        setShouldRenderChat(true);
+      }
 
       if (!hasInitializedGlobalOpener.current) {
         logger.info(
@@ -44,12 +46,14 @@ export default function ClientLayout({
         hasInitializedGlobalOpener.current = true;
       }
     } else if (sessionStatus === 'unauthenticated') {
-      logger.info(
-        '[ClientLayout] User is unauthenticated. Setting shouldRenderChat to false.',
-      );
-      setShouldRenderChat(false);
+      if (shouldRenderChat) {
+        logger.info(
+          '[ClientLayout] User is unauthenticated and shouldRenderChat is true. Setting to false.',
+        );
+        setShouldRenderChat(false);
+      }
     }
-  }, [session, sessionStatus]);
+  }, [session, sessionStatus, shouldRenderChat]);
 
   useEffect(() => {
     logger.info(`[ClientLayout] shouldRenderChat changed: ${shouldRenderChat}`);
