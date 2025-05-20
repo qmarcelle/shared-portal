@@ -165,15 +165,22 @@ export default function ChatWidget({
   useEffect(() => {
     const shouldShowFallback =
       (forceFallbackButton || scriptLoadPhase === ScriptLoadPhase.ERROR) &&
-      !isGenesysButtonRendered();
+      !isGenesysButtonRendered() &&
+      !isPreChatModalOpen;
     setShowFallbackButtonJSXState(shouldShowFallback);
     logger.debug(`${LOG_PREFIX} Fallback JSX button visibility update:`, {
       shouldShowFallback,
       forceFallbackButton,
       scriptLoadPhase,
       nativeButtonRendered: isGenesysButtonRendered(),
+      isPreChatModalOpen,
     });
-  }, [forceFallbackButton, scriptLoadPhase, isGenesysButtonRendered]);
+  }, [
+    forceFallbackButton,
+    scriptLoadPhase,
+    isGenesysButtonRendered,
+    isPreChatModalOpen,
+  ]);
 
   // Effect for subscribing to custom DOM events from click_to_chat.js
   useEffect(() => {
@@ -400,6 +407,11 @@ export default function ChatWidget({
   const handleStartChatConfirm = useCallback(() => {
     logger.info(`${LOG_PREFIX} PreChatModal confirmed. Opening Genesys chat.`);
     storeActions.closePreChatModal();
+    setShowFallbackButtonJSXState(false);
+    if (imperativeFallbackButtonRef.current) {
+      imperativeFallbackButtonRef.current.remove();
+      setHasCreatedImperativeFallback(false);
+    }
 
     if (!isChatEnabled || !genesysChatConfigFull) {
       logger.error(
@@ -430,12 +442,17 @@ export default function ChatWidget({
   }, [chatMode, storeActions, isChatEnabled, genesysChatConfigFull]);
 
   const createImperativeFallback = useCallback(() => {
-    if (hasCreatedImperativeFallback || isGenesysButtonRendered()) {
+    if (
+      hasCreatedImperativeFallback ||
+      isGenesysButtonRendered() ||
+      isPreChatModalOpen
+    ) {
       logger.info(
-        `${LOG_PREFIX} Imperative fallback creation skipped: already created or native button exists.`,
+        `${LOG_PREFIX} Imperative fallback creation skipped: already created, native button exists, or pre-chat open.`,
         {
           hasCreatedImperativeFallback,
           nativeButton: isGenesysButtonRendered(),
+          isPreChatModalOpen,
         },
       );
       return;
@@ -465,7 +482,11 @@ export default function ChatWidget({
     document.body.appendChild(btn);
     setHasCreatedImperativeFallback(true);
     imperativeFallbackButtonRef.current = btn;
-  }, [hasCreatedImperativeFallback, isGenesysButtonRendered]);
+  }, [
+    hasCreatedImperativeFallback,
+    isGenesysButtonRendered,
+    isPreChatModalOpen,
+  ]);
 
   // Effect for subscribing to custom DOM events from click_to_chat.js
   useEffect(() => {
