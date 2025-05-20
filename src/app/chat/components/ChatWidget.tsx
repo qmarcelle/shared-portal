@@ -27,7 +27,8 @@ const LOG_PREFIX = '[ChatWidget]';
 
 const GENESYS_BUTTON_SELECTORS = [
   '.cx-widget.cx-webchat-chat-button',
-  // ... other selectors if needed
+  'button[data-testid="messenger-button"]',
+  // Add other selectors for different Genesys button versions if necessary
 ];
 
 const FALLBACK_BUTTON_ID_INIT_ERROR = 'genesys-button-fallback-init-error';
@@ -55,8 +56,8 @@ export default function ChatWidget({
 }: ChatWidgetProps) {
   const [isCXBusReadyLocal, setIsCXBusReadyLocal] = useState(false);
   const [showChatErrorModal, setShowChatErrorModal] = useState(false);
-  const [showFallbackButtonJSX, setShowFallbackButtonJSX] =
-    useState(forceFallbackButton);
+  const [showFallbackButtonJSXState, setShowFallbackButtonJSXState] =
+    useState(false);
 
   const [hasCreatedImperativeFallback, setHasCreatedImperativeFallback] =
     useState(false);
@@ -143,6 +144,36 @@ export default function ChatWidget({
     activeLegacyConfig,
     activeCloudConfig,
   ]);
+
+  // Helper function to check if a Genesys native button is rendered
+  const isGenesysButtonRendered = useCallback(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined')
+      return false;
+    for (const selector of GENESYS_BUTTON_SELECTORS) {
+      if (document.querySelector(selector)) {
+        logger.debug(
+          `${LOG_PREFIX} Genesys native button found with selector: ${selector}`,
+        );
+        return true;
+      }
+    }
+    logger.debug(`${LOG_PREFIX} No Genesys native button found.`);
+    return false;
+  }, []);
+
+  // Effect to determine if the JSX fallback button should be shown
+  useEffect(() => {
+    const shouldShowFallback =
+      (forceFallbackButton || scriptLoadPhase === ScriptLoadPhase.ERROR) &&
+      !isGenesysButtonRendered();
+    setShowFallbackButtonJSXState(shouldShowFallback);
+    logger.debug(`${LOG_PREFIX} Fallback JSX button visibility update:`, {
+      shouldShowFallback,
+      forceFallbackButton,
+      scriptLoadPhase,
+      nativeButtonRendered: isGenesysButtonRendered(),
+    });
+  }, [forceFallbackButton, scriptLoadPhase, isGenesysButtonRendered]);
 
   // Effect for subscribing to custom DOM events from click_to_chat.js
   useEffect(() => {
@@ -399,13 +430,24 @@ export default function ChatWidget({
   }, [chatMode, storeActions, isChatEnabled, genesysChatConfigFull]);
 
   const createImperativeFallback = useCallback(() => {
-    // ... (implementation remains the same as previous correct version)
-    if (
-      document.getElementById(DEDICATED_FALLBACK_BUTTON_ID) ||
-      hasCreatedImperativeFallback
-    )
+    if (hasCreatedImperativeFallback || isGenesysButtonRendered()) {
+      logger.info(
+        `${LOG_PREFIX} Imperative fallback creation skipped: already created or native button exists.`,
+        {
+          hasCreatedImperativeFallback,
+          nativeButton: isGenesysButtonRendered(),
+        },
+      );
       return;
-    logger.warn(`${LOG_PREFIX} Creating imperative fallback button.`);
+    }
+
+    logger.warn(`${LOG_PREFIX} Creating imperative fallback button.`, {
+      buttonState,
+      isChatActive,
+      genesysChatConfigFull,
+      activeLegacyConfig,
+      activeCloudConfig,
+    });
     const btn = document.createElement('button');
     btn.id = DEDICATED_FALLBACK_BUTTON_ID;
     btn.innerText = 'Support Chat';
@@ -423,15 +465,19 @@ export default function ChatWidget({
     document.body.appendChild(btn);
     setHasCreatedImperativeFallback(true);
     imperativeFallbackButtonRef.current = btn;
-  }, [hasCreatedImperativeFallback]);
+  }, [hasCreatedImperativeFallback, isGenesysButtonRendered]);
 
+  // Effect for subscribing to custom DOM events from click_to_chat.js
   useEffect(() => {
     if (
       scriptLoadPhase === ScriptLoadPhase.ERROR &&
-      !hasCreatedImperativeFallback
+      !hasCreatedImperativeFallback &&
+      !isGenesysButtonRendered()
     ) {
       createImperativeFallback();
     }
+
+    // Cleanup function
     return () => {
       if (imperativeFallbackButtonRef.current) {
         imperativeFallbackButtonRef.current.remove();
@@ -439,7 +485,12 @@ export default function ChatWidget({
         imperativeFallbackButtonRef.current = null;
       }
     };
-  }, [scriptLoadPhase, createImperativeFallback, hasCreatedImperativeFallback]);
+  }, [
+    scriptLoadPhase,
+    createImperativeFallback,
+    hasCreatedImperativeFallback,
+    isGenesysButtonRendered,
+  ]);
 
   // Effect to handle legacy chat re-initialization when config changes
   useEffect(() => {
@@ -580,17 +631,9 @@ export default function ChatWidget({
         />
       )}
 
-      {showFallbackButtonJSX && !hasCreatedImperativeFallback && (
+      {showFallbackButtonJSXState && !hasCreatedImperativeFallback && (
         <button
-          id="fallback-chat-button-render"
-          onClick={() => {
-            storeActions.setOpen(true);
-            if (window._genesysCXBus) {
-              (window._genesysCXBus as GenesysCXBus).command('WebChat.open');
-            } else if (window.Genesys && chatMode === 'cloud') {
-              window.Genesys('command', 'Messenger.open');
-            }
-          }}
+          id={DEDICATED_FALLBACK_BUTTON_ID}
           style={{
             /* Basic styles */ position: 'fixed',
             bottom: '20px',

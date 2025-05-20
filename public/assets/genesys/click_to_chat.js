@@ -1702,29 +1702,92 @@
   };
 
   // Now that widgets.min.js is loaded, let's check its state.
-  console.log(
-    '[click_to_chat.js] widgets.min.js loaded. _genesys object:',
-    JSON.parse(JSON.stringify(window._genesys)),
-  ); // debugger;
+  if (typeof window._genesys === 'undefined') {
+    console.error(
+      '[click_to_chat.js] CRITICAL: window._genesys is UNDEFINED after widgets.min.js was supposed to load. Genesys widget will likely fail.',
+    );
+    // debugger; // Good place to stop if _genesys is missing
+    // Optionally, try to bail out or trigger a more robust error display
+    hideLoadingIndicator();
+    ensureChatButtonVisibility(); // Attempt to show a fallback button
+    // Consider dispatching a custom error event that the main app can listen to
+    // document.dispatchEvent(new CustomEvent('genesys:error', { detail: { message: 'window._genesys not defined by widgets.min.js' } }));
+    return; // Halt further processing in this script if _genesys isn't there.
+  } else {
+    console.log(
+      '[click_to_chat.js] widgets.min.js loaded. _genesys object (raw):',
+      window._genesys, // Log raw object first
+    );
+    try {
+      console.log(
+        '[click_to_chat.js] _genesys object (JSON.stringified for detail - may fail if complex/circular):',
+        JSON.stringify(window._genesys), // Attempt to stringify, but guard it
+      );
+    } catch (e) {
+      console.warn(
+        '[click_to_chat.js] Could not JSON.stringify(window._genesys):',
+        e,
+        'Raw object was:',
+        window._genesys,
+      );
+    }
+  }
 
   // Check if the onReady function is available
+  if (!window._genesys || typeof window._genesys.widgets === 'undefined') {
+    console.error(
+      '[click_to_chat.js] FATAL: window._genesys.widgets is UNDEFINED. Cannot access onReady. Halting chat initialization.',
+      'window._genesys was:',
+      window._genesys, // Log current state
+    );
+    // debugger;
+    hideLoadingIndicator();
+    ensureChatButtonVisibility();
+    return;
+  }
+
   if (typeof window._genesys.widgets.onReady !== 'function') {
     console.error(
       '[click_to_chat.js] FATAL: window._genesys.widgets.onReady is not a function after loading widgets.min.js. Halting chat initialization.',
     );
     // debugger;
-    hideLoadingIndicator(); // Hide loading indicator if it was shown
-    ensureChatButtonVisibility(); // Attempt to show button as fallback
-    return; // Stop further execution if onReady is not defined
+    hideLoadingIndicator();
+    ensureChatButtonVisibility();
+    return;
   }
 
   // Original onReady callback is preserved and called, but we also add our specific logic
   // The CXBus object is passed to the onReady callback.
   window._genesys.widgets.onReady = (CXBus) => {
-    console.log(
-      '[click_to_chat.js] CXBus ready. Initializing chat with config:',
-      JSON.parse(JSON.stringify(window._genesys.widgets.main)),
-    ); // debugger;
+    console.log('[click_to_chat.js] CXBus ready. CXBus object:', CXBus);
+    if (
+      window._genesys &&
+      window._genesys.widgets &&
+      window._genesys.widgets.main
+    ) {
+      console.log(
+        '[click_to_chat.js] Initializing chat with config from window._genesys.widgets.main (raw):',
+        window._genesys.widgets.main,
+      );
+      try {
+        console.log(
+          '[click_to_chat.js] window._genesys.widgets.main (JSON.stringified for detail):',
+          JSON.stringify(window._genesys.widgets.main),
+        );
+      } catch (e) {
+        console.warn(
+          '[click_to_chat.js] Could not JSON.stringify(window._genesys.widgets.main):',
+          e,
+          'Raw object was:',
+          window._genesys.widgets.main,
+        );
+      }
+    } else {
+      console.warn(
+        '[click_to_chat.js] window._genesys.widgets.main is undefined or not accessible at CXBus ready. Cannot log its config.',
+      );
+    }
+    // debugger;
 
     // Check if _genesys.widgets.main.initialise is a function BEFORE calling it
     if (typeof window._genesys.widgets.main.initialise === 'function') {
