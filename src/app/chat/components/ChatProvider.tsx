@@ -140,7 +140,7 @@ export default function ChatProvider({
       }
     };
     fetchPbeData();
-  }, [session, sessionStatus]); // Removed pbeData, isLoadingPbeData (internal check added)
+  }, [session, sessionStatus]);
 
   useEffect(() => {
     // Refined logic for sourcing UserProfile
@@ -382,10 +382,10 @@ export default function ChatProvider({
       !userContext ||
       !planContext ||
       !loggedInMemberDetails ||
-      !userProfileData ||
+      !userProfileData?.id ||
       !pbeData ||
       !mainAppPlanData?.isLoaded ||
-      !mainAppPlanData.selectedPlan // Now check for selectedPlan object
+      !mainAppPlanData.selectedPlan
     ) {
       logger.warn(
         `${LOG_PREFIX} Data objects not yet fully populated. Attempt: ${initAttemptsRef.current}.`,
@@ -394,10 +394,10 @@ export default function ChatProvider({
           userContext: !!userContext,
           planContext: !!planContext,
           loggedInMemberDetails: !!loggedInMemberDetails,
-          userProfileData: !!userProfileData,
+          userProfileData: !!userProfileData?.id,
           pbeData: !!pbeData,
           mainAppPlanDataLoaded: mainAppPlanData?.isLoaded,
-          mainAppSelectedPlan: !!mainAppPlanData?.selectedPlan, // Check for selectedPlan object
+          mainAppSelectedPlan: !!mainAppPlanData?.selectedPlan,
         },
       );
       return;
