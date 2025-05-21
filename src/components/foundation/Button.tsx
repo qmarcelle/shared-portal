@@ -48,7 +48,7 @@ export const Button = ({
     <button
       onClick={callback}
       aria-label={label}
-      className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
+      className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null || disable ? 'inactive' : null} ${className}`}
       type={style}
       id={id}
       disabled={disable || (!callback ? true : false)}

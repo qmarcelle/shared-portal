@@ -23,6 +23,8 @@ interface FilterProps extends IComponent {
   onSelectCallback: (index: number, data: FilterItem[]) => void;
   showReset: boolean;
   onReset: () => void;
+  isCallbackValid?: boolean | undefined;
+  isMultipleItem?: boolean;
   buttons?: {
     type: 'primary';
     className: string;
@@ -62,6 +64,8 @@ export const Filter = ({
   showReset,
   onReset,
   onSelectCallback,
+  isCallbackValid,
+  isMultipleItem,
 }: FilterProps) => {
   //const [filter, setFilter] = useState(filterItems);
 
@@ -116,6 +120,7 @@ export const Filter = ({
                     onSelectItem={(val) => {
                       handleDropDownUpdate(val, index);
                     }}
+                    isMultipleItem={isMultipleItem}
                   />
                 </div>
               ) : null}
@@ -149,6 +154,7 @@ export const Filter = ({
             className={buttons.className}
             label={buttons.label}
             type={buttons.type}
+            disable={!isCallbackValid}
             callback={() => handleCallback()}
           ></Button>
         ) : null}

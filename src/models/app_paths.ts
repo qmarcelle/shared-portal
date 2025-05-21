@@ -119,7 +119,7 @@ export const appPaths: Map<string, AppPath> = new Map([
   [
     'dentalcosts',
     {
-      label: 'Dental cost estimator',
+      label: 'Price Dental Care',
       path: '/priceDentalCare',
     },
   ],

@@ -25,9 +25,12 @@ export const getMemberWellnessRewards = async (
         isBalance: true,
       },
     };
+    logger.info(JSON.stringify(request));
     const response: ESResponse<MemberRewardsResponse> = (
       await esApi.post('/memberRewards/member/getMbrWellness', request)
     )?.data;
+    logger.info('Member Rewards Response' + JSON.stringify(response));
+    logger.info('Member Rewards' + response);
     if (!response?.data?.accounts?.balance?.length) throw 'No Response';
     memberRewards = getRewards(response?.data, session);
     logger.info('memberRewards', memberRewards);

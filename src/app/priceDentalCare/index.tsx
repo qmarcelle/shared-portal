@@ -89,13 +89,15 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
     [categories],
   );
 
-  const [procedureDropdownValues, setProcedureDropdownValues] = useState([
-    {
-      label: '',
-      value: '',
-      id: '',
-    },
-  ]);
+  type procedureOption = {
+    label: string;
+    value: string;
+    id: string;
+  };
+
+  const [procedureDropdownValues, setProcedureDropdownValues] = useState<
+    procedureOption[]
+  >([]);
 
   const [currentSelectedZipCode, setcurrentSelectedZipCode] = useState('');
 
@@ -160,6 +162,11 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
         return;
       }
       setCurrentSelectedCategory(category);
+      setCurrentSelectedProcedure({
+        label: 'Select Procedure',
+        value: '1',
+        id: '1',
+      });
       setProcedureDropdownValues(
         getProcedureDropdownValues(procedureCategory!.procedures),
       );
@@ -203,12 +210,12 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
 
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content app-base-font-color">
+      <Column className="app-content app-base-font-color !p-0">
         <Title className="title-1" text="Price Dental Care" />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
-              <Row className="m-4 mb-0" key={0}>
+              <Row key={0}>
                 We&apos;ll help give you a better idea of what your dental care
                 will cost. We base these costs on the type of care you need and
                 where you live.
@@ -232,6 +239,12 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
                   handleDentalCard(value);
                 },
               }}
+              isMultipleItem={true}
+              isCallbackValid={
+                currentSelectedZipCode !== '' &&
+                currentSelectedProcedure.value !== '1' &&
+                currentSelectedNetwork.value !== '1'
+              }
               filterItems={[
                 {
                   type: 'dropdown',
