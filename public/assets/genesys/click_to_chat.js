@@ -964,11 +964,12 @@
     console.log(
       '[click_to_chat.js] Now responsible for loading widgets.min.js',
     );
+    // Corrected: Declare widgetsMinJsUrl BEFORE using it in the log below
     const widgetsMinJsUrl =
-      cfg.widgetsMinJsUrl || '/assets/genesys/plugins/widgets.min.js'; // Allow URL override via cfg
+      cfg.widgetsMinJsUrl || '/assets/genesys/plugins/widgets.min.js';
     console.log(
       `[click_to_chat.js] Timestamp: ${Date.now()} - About to load ${widgetsMinJsUrl}`,
-    ); // NOW THIS IS SAFE
+    );
     loadResource
       .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
       .then(() => {
