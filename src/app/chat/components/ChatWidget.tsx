@@ -350,38 +350,89 @@ export default function ChatWidget({
 
     (window as Window & typeof globalThis).requestChatOpen = () => {
       logger.info(`${LOG_PREFIX} window.requestChatOpen called.`);
-      // Attempt to hide the native button immediately
-      if (isChatEnabled && genesysChatConfigFull) {
-        logger.debug(
-          `${LOG_PREFIX} Pre-emptively hiding native Genesys button.`,
-        );
-        if (chatMode === 'legacy' && window._genesysCXBus) {
-          try {
-            (window._genesysCXBus as GenesysCXBus).command(
-              'WebChat.hideChatButton',
-            );
-          } catch (e) {
-            logger.warn(
-              `${LOG_PREFIX} Error calling WebChat.hideChatButton pre-emptively:`,
-              e,
-            );
-          }
-        } else if (chatMode === 'cloud') {
-          document.body.classList.add('prechat-panel-open');
-          logger.info(
-            `${LOG_PREFIX} Added .prechat-panel-open to body pre-emptively.`,
-          );
-        }
-        storeActions.openPreChatModal();
-      } else {
+
+      if (!isChatEnabled || !genesysChatConfigFull) {
         logger.warn(
-          `${LOG_PREFIX} Chat open requested, but chat is not enabled or config not loaded. PreChatModal not opened.`,
+          `${LOG_PREFIX} window.requestChatOpen: Chat not enabled or not configured. Aborting.`,
+          {
+            isChatEnabled,
+            hasFullConfig: !!genesysChatConfigFull,
+          },
         );
         storeActions.setError(
           new Error(
             'Chat is currently unavailable. Please check eligibility and business hours.',
           ),
         );
+        setShowChatErrorModal(true);
+        return;
+      }
+
+      // Directly attempt to open Genesys chat, bypassing custom PreChatModal
+      logger.info(
+        `${LOG_PREFIX} window.requestChatOpen: Attempting to directly command Genesys to open. Mode: ${chatMode}`,
+      );
+
+      const bus = window._genesysCXBus as GenesysCXBus;
+      const cloudApi = window.Genesys as GenesysChat['Genesys'];
+
+      if (chatMode === 'legacy') {
+        if (bus && typeof bus.command === 'function') {
+          try {
+            logger.info(
+              `${LOG_PREFIX} Commanding WebChat.open (legacy) via requestChatOpen`,
+            );
+            bus.command('WebChat.open');
+          } catch (e) {
+            logger.error(
+              `${LOG_PREFIX} Error in requestChatOpen commanding WebChat.open (legacy):`,
+              e,
+            );
+            storeActions.setError(
+              new Error('Failed to open legacy chat via requestChatOpen.'),
+            );
+            setShowChatErrorModal(true);
+          }
+        } else {
+          logger.error(
+            `${LOG_PREFIX} Legacy CXBus not available in requestChatOpen.`,
+          );
+          storeActions.setError(
+            new Error('Genesys legacy bus not ready for requestChatOpen.'),
+          );
+          setShowChatErrorModal(true);
+        }
+      } else if (chatMode === 'cloud') {
+        if (cloudApi && typeof cloudApi.command === 'function') {
+          try {
+            logger.info(
+              `${LOG_PREFIX} Commanding Chat.open (cloud) via requestChatOpen`,
+            );
+            cloudApi.command('Chat.open'); // Or Messenger.open depending on exact cloud widget version
+          } catch (e) {
+            logger.error(
+              `${LOG_PREFIX} Error in requestChatOpen commanding Chat.open (cloud):`,
+              e,
+            );
+            storeActions.setError(
+              new Error('Failed to open cloud chat via requestChatOpen.'),
+            );
+            setShowChatErrorModal(true);
+          }
+        } else {
+          logger.error(
+            `${LOG_PREFIX} Cloud Genesys API not available in requestChatOpen.`,
+          );
+          storeActions.setError(
+            new Error('Genesys cloud API not ready for requestChatOpen.'),
+          );
+          setShowChatErrorModal(true);
+        }
+      } else {
+        logger.error(
+          `${LOG_PREFIX} Unknown chat mode in requestChatOpen: ${chatMode}`,
+        );
+        storeActions.setError(new Error(`Unknown chat mode: ${chatMode}`));
         setShowChatErrorModal(true);
       }
     };
