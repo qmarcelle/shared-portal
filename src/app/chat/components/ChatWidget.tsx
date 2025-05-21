@@ -826,6 +826,10 @@ export default function ChatWidget({
       {useLegacyLoader && activeLegacyConfig && (
         <GenesysScriptLoader
           legacyConfig={activeLegacyConfig}
+          cssUrls={[
+            '/assets/genesys/plugins/widgets.min.css',
+            '/assets/genesys/styles/bcbst-custom.css',
+          ]}
           onLoad={() => {
             logger.info(
               `${LOG_PREFIX} GenesysScriptLoader (legacy) onLoad triggered.`,
