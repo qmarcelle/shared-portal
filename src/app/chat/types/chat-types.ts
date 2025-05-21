@@ -68,25 +68,25 @@ export interface CXBus {
 // if you don't want to define a full FormInputConfig yet.
 // e.g., inputs?: Array<Record<string, any>>;
 
-export interface BaseGenesysChatConfig {
-  chatMode?: 'legacy' | 'cloud';
-  isChatAvailable: string | boolean;
-  isChatEligibleMember: string | boolean;
-  targetContainer?: string;
-  cloudChatEligible?: string | boolean;
-  firstname?: string;
-  lastname?: string;
-  formattedFirstName?: string;
-  userID?: string;
-  memberMedicalPlanID?: string;
-  isDemoMember?: string | boolean;
-  isAmplifyMem?: string | boolean;
-  isCobrowseActive?: string | boolean;
-  chatHours?: string;
-  rawChatHrs?: string;
-  selfServiceLinks?: Array<{ key: string; value: string }>; // Made more specific
-  [key: string]: any;
-}
+// export interface BaseGenesysChatConfig {
+//   chatMode?: 'legacy' | 'cloud';
+//   isChatAvailable: string | boolean;
+//   isChatEligibleMember: string | boolean;
+//   targetContainer?: string;
+//   cloudChatEligible?: string | boolean;
+//   firstname?: string;
+//   lastname?: string;
+//   formattedFirstName?: string;
+//   userID?: string;
+//   memberMedicalPlanID?: string;
+//   isDemoMember?: string | boolean;
+//   isAmplifyMem?: string | boolean;
+//   isCobrowseActive?: string | boolean;
+//   chatHours?: string;
+//   rawChatHrs?: string;
+//   selfServiceLinks?: Array<{ key: string; value: string }>; // Made more specific
+//   [key: string]: any;
+// }
 
 // ... (LegacyChatConfig, CloudChatConfig, type guards, ChatSettings, GenesysChatConfig, GenesysChat remain the same) ...
 
@@ -94,49 +94,42 @@ export interface BaseGenesysChatConfig {
  * GenesysCXBus interface - Represents the specific CXBus instance used by Genesys in this app
  * (e.g., window._genesysCXBus)
  */
-export interface GenesysCXBus {
-  command: (command: string, params?: any) => void; // Specific signature if _genesysCXBus.command returns void
-  subscribe: (event: string, callback: (...args: any[]) => void) => void;
-  unsubscribe: (event: string) => void; // Added unsubscribe
-  registerPlugin: (pluginName: string) => {
-    subscribe: (event: string, callback: (...args: any[]) => void) => void;
-  };
-}
+// export interface GenesysCXBus {
+//   command: (command: string, params?: any) => void; // Specific signature if _genesysCXBus.command returns void
+//   subscribe: (event: string, callback: (...args: any[]) => void) => void;
+//   unsubscribe: (event: string) => void; // Added unsubscribe
+//   registerPlugin: (pluginName: string) => {
+//     subscribe: (event: string, callback: (...args: any[]) => void) => void;
+//   };
+// }
 
 // ... (ChatDiagnostics remains the same) ...
 
-export interface GenesysWindow {
-  // Assumes this augments global Window
-  CXBus?: CXBus; // A generic CXBus reference, if needed separately
-  _genesys?: GenesysGlobal;
-  _genesysCXBus?: GenesysCXBus; // The specific instance from click_to_chat.js
-  _genesysCXBusReady?: boolean;
-  _gt?: any[];
-  Genesys?: (command: string, ...args: any[]) => any; // Cloud Messenger's typical global
+// export interface GenesysWindow {
+//   // Assumes this augments global Window
+//   CXBus?: CXBus; // A generic CXBus reference, if needed separately
+//   _genesys?: GenesysGlobal;
+//   _genesysCXBus?: GenesysCXBus; // The specific instance from click_to_chat.js
+//   _genesysCXBusReady?: boolean;
+//   _gt?: any[];
+//   Genesys?: (command: string, ...args: any[]) => any; // Cloud Messenger's typical global
 
-  chatSettings?: ChatSettings;
-  GenesysChat?: GenesysChat;
+//   chatSettings?: ChatSettings;
+//   GenesysChat?: GenesysChat;
 
-  _forceChatButtonCreate?: () => boolean;
-  forceCreateChatButton?: () => boolean; // Corrected return type & primary name
+//   _forceChatButtonCreate?: () => boolean;
+//   forceCreateChatButton?: () => boolean; // Corrected return type & primary name
 
-  // ... (other window properties remain the same) ...
-  gmsServicesConfig?: {
-    GMSChatURL: () => string;
-  };
-}
+//   // ... (other window properties remain the same) ...
+//   gmsServicesConfig?: {
+//     GMSChatURL: () => string;
+//   };
+// }
 
 /**
  * CXBus interface - Handles communication with Genesys widget
  */
-export interface CXBus {
-  command: (command: string, ...args: any[]) => any;
-  subscribe: (event: string, callback: (...args: any[]) => void) => void;
-  unsubscribe: (event: string) => void;
-  registerPlugin: (pluginName: string) => {
-    subscribe: (event: string, callback: (...args: any[]) => void) => void;
-  };
-}
+// Duplicate CXBus definition removed
 
 /**
  * GenesysWidgets interface - Configuration for Genesys widgets
@@ -183,68 +176,157 @@ export interface GenesysGlobal {
 }
 
 /**
- * Legacy specific chat configuration
+ * Base configuration fields common to both Legacy and Cloud Genesys chat.
  */
-export interface LegacyChatConfig extends BaseGenesysChatConfig {
-  // Essential for legacy mode
-  clickToChatToken: string;
-  clickToChatEndpoint: string;
-  widgetUrl: string;
-  clickToChatJs: string;
+export interface BaseGenesysChatConfig {
+  chatMode: 'legacy' | 'cloud'; // Discriminator property
+  userID: string;
+  memberFirstname?: string;
+  memberLastName?: string;
+  formattedFirstName?: string; // Often same as memberFirstname
+  subscriberID?: string;
+  sfx?: string;
+  groupId?: string;
+  memberClientID?: string; // Or network ID, LOB from plan, etc.
+  groupType?: string;
+  memberMedicalPlanID?: string; // Current plan's ID for chat context
+  memberDOB?: string;
 
-  // Optional legacy-specific fields
-  clickToChatDemoEndPoint?: string;
-  chatTokenEndpoint?: string;
-  gmsChatUrl?: string;
-  genesysWidgetUrl?: string;
+  chatGroup?: string; // Added: For routing or grouping chats
 
-  // CoBrowse settings
-  coBrowseEndpoint?: string;
+  // Eligibility & Availability
+  isChatEligibleMember: boolean | string; // Should eventually be boolean
+  isChatAvailable: boolean | string; // Should eventually be boolean
+  chatbotEligible?: boolean | string;
+  routingchatbotEligible?: boolean | string;
+
+  // UI/Display
+  chatHours?: string; // Display string for chat hours, e.g., "M-F 8am-5pm"
+  rawChatHrs?: string; // For logic, e.g., '8_17'
+  workingHours?: string; // For Genesys config, e.g. 'S_S_24', 'M_F_8_17'
+  targetContainer: string; // HTML element ID for widget injection
+  audioAlertPath?: string;
+
+  // Data to pass to the widget
+  userData?: Record<string, string | number | boolean>;
+  LOB?: string; // Line of Business
+  INQ_TYPE?: string; // Inquiry Type
+  MEMBER_ID?: string; // Usually composite like subscriberID-sfx
+
+  // Informational for application logic
+  numberOfPlans?: number;
+  currentPlanName?: string;
+  timestamp?: string; // For debugging/tracing
+
+  // Feature flags/context
+  isDemoMember?: boolean | string;
+  isAmplifyMem?: boolean | string;
+  isCobrowseActive?: boolean | string; // General co-browse feature flag
+
+  // Co-browse specific configuration (can be common)
   coBrowseLicence?: string;
   cobrowseSource?: string;
   cobrowseURL?: string;
+  coBrowseEndpoint?: string; // App's backend endpoint for CoBrowse actions
+
+  // Contact/Support Info
+  opsPhone?: string;
+  opsPhoneHours?: string;
+  selfServiceLinks?: { key: string; value: string }[];
+
+  // Other contextual flags
+  isBlueEliteGroup?: boolean | string;
+  idCardChatBotName?: string;
+  isDental?: boolean | string;
+  isMedical?: boolean | string;
+  isVision?: boolean | string;
+  isWellnessOnly?: boolean | string;
+  isCobraEligible?: boolean | string;
+  isIDCardEligible?: boolean | string;
+}
+
+/**
+ * Legacy specific chat configuration
+ */
+export interface LegacyChatConfig extends BaseGenesysChatConfig {
+  chatMode: 'legacy';
+
+  // Essential for legacy mode
+  clickToChatToken: string;
+  clickToChatEndpoint: string; // Main endpoint for chat communication
+  gmsChatUrl: string; // Often same as clickToChatEndpoint or a base URL for GMS services
+
+  // Script URLs (legacy specific)
+  widgetUrl: string; // Path to widgets.min.js
+  clickToChatJs: string; // Path to click_to_chat.js
+
+  // Optional legacy-specific fields
+  clickToChatDemoEndPoint?: string;
+  chatTokenEndpoint?: string; // App's backend endpoint to get/refresh clickToChatToken
+
+  // Optional UI/Behavior for legacy button/widget (often set by click_to_chat.js defaults)
+  chatBtnText?: string;
+  chatWidgetTitle?: string;
+  chatWidgetSubtitle?: string;
+  enableCobrowse?: boolean; // If true, legacy cobrowse UI elements might be shown/initialized
+  showChatButton?: boolean; // Explicitly control legacy button visibility via this config
 }
 
 /**
  * Cloud specific chat configuration
  */
 export interface CloudChatConfig extends BaseGenesysChatConfig {
+  chatMode: 'cloud';
+
   // Essential for cloud mode
   deploymentId: string;
   orgId: string;
-  environment: string;
+  environment: string; // e.g., 'prod-usw2', 'mypurecloud.com'
+
+  // Optional: Specific URL for Genesys Messenger SDK if not using snippet from Cloud UI
+  genesysWidgetUrl?: string;
 }
 
 /**
  * Type guards for runtime checks
  */
-export function isLegacyChatConfig(config: any): config is LegacyChatConfig {
+export function isLegacyChatConfig(
+  config:
+    | GenesysChatConfig
+    | Partial<GenesysChatConfig>
+    | BaseGenesysChatConfig,
+): config is LegacyChatConfig {
   return !!(
     config &&
-    config.clickToChatToken &&
-    config.clickToChatEndpoint &&
-    (config.chatMode === 'legacy' || !config.chatMode)
+    config.chatMode === 'legacy' &&
+    typeof (config as LegacyChatConfig).clickToChatToken === 'string' &&
+    typeof (config as LegacyChatConfig).clickToChatEndpoint === 'string'
   );
 }
 
-export function isCloudChatConfig(config: any): config is CloudChatConfig {
+export function isCloudChatConfig(
+  config:
+    | GenesysChatConfig
+    | Partial<GenesysChatConfig>
+    | BaseGenesysChatConfig,
+): config is CloudChatConfig {
   return !!(
     config &&
-    config.deploymentId &&
-    config.orgId &&
-    config.chatMode === 'cloud'
+    config.chatMode === 'cloud' &&
+    typeof (config as CloudChatConfig).deploymentId === 'string' &&
+    typeof (config as CloudChatConfig).orgId === 'string'
   );
 }
 
 /**
- * ChatSettings interface - Configuration passed to click_to_chat.js
- * This is now a subset of LegacyChatConfig for backward compatibility
+ * ChatSettings interface - Configuration passed to click_to_chat.js via window.chatSettings
+ * This is specifically the LegacyChatConfig because click_to_chat.js is for legacy.
  */
 export type ChatSettings = LegacyChatConfig;
 
 /**
- * GenesysChatConfig interface - Configuration for Genesys chat integration
- * This is a union type of both configuration types
+ * GenesysChatConfig interface - Unified configuration type for Genesys chat integration.
+ * It's a discriminated union based on chatMode.
  */
 export type GenesysChatConfig = LegacyChatConfig | CloudChatConfig;
 

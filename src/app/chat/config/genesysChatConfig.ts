@@ -2,136 +2,13 @@
  * GenesysChatConfig DTO: All required fields for widgets.min.js and click_to_chat.js
  * Each field is annotated with its ideal source in a modern app.
  */
-export interface GenesysChatConfig {
-  /** API: Secure, per-user/session */
-  clickToChatToken: string;
-  /** API/env/config: Chat endpoint */
-  clickToChatEndpoint: string;
-  /** API/env/config: Demo endpoint (optional) */
-  clickToChatDemoEndPoint?: string;
-  /** API/static config: Co-browse license */
-  coBrowseLicence: string;
-  /** API/static config: Co-browse source */
-  cobrowseSource: string;
-  /** API/static config: Co-browse URL */
-  cobrowseURL: string;
-  /** API/static config: Ops phone number */
-  opsPhone: string;
-  /** API/static config: Ops phone hours */
-  opsPhoneHours: string;
-  /** API/eligibility logic: Routing chatbot eligible */
-  routingchatbotEligible?: boolean | string;
-  /** API/eligibility logic: Is chat eligible member */
-  isChatEligibleMember: boolean | string;
-  /** API/eligibility logic: Is demo member */
-  isDemoMember?: boolean | string;
-  /** API/eligibility logic: Is amplify member */
-  isAmplifyMem?: boolean | string;
-  /** API/eligibility logic: Is cobrowse active */
-  isCobrowseActive?: boolean | string;
-  /** API/eligibility logic: Is Magellan VA member */
-  isMagellanVAMember?: boolean | string;
-  /** Session/user context: User ID */
-  userID: string;
-  /** Session/user context: Member first name */
-  memberFirstname?: string;
-  /** Session/user context: Member last name */
-  memberLastName?: string;
-  /** Session/user context: Formatted first name */
-  formattedFirstName?: string;
-  /** Plan/group context: Subscriber ID */
-  subscriberID?: string;
-  /** Plan/group context: Suffix */
-  sfx?: string;
-  /** Plan/group context: Group ID */
-  groupId?: string;
-  chatGroup?: string;
-  /** Plan/group context: Member client ID */
-  memberClientID?: string;
-  /** Plan/group context: Group type */
-  groupType?: string;
-  /** Plan/group context: Medical plan ID */
-  memberMedicalPlanID?: string;
-  /** Plan/group context: Member DOB */
-  memberDOB?: string;
-  /** API/eligibility logic: Is dental */
-  isDental?: boolean | string;
-  /** API/eligibility logic: Is medical */
-  isMedical?: boolean | string;
-  /** API/eligibility logic: Is vision */
-  isVision?: boolean | string;
-  /** API/eligibility logic: Is wellness only */
-  isWellnessOnly?: boolean | string;
-  /** API/eligibility logic: Is COBRA eligible */
-  isCobraEligible?: boolean | string;
-  /** API/eligibility logic: Is ID card eligible */
-  isIDCardEligible?: boolean | string;
-  /** API/eligibility logic: Is chat available */
-  isChatAvailable: boolean | string;
-  /** API/eligibility logic: Is chatbot eligible */
-  chatbotEligible?: boolean | string;
-  /** API/eligibility logic: Is medical advantage group */
-  isMedicalAdvantageGroup?: boolean | string;
-  /** API/static config: Chat working hours (e.g., 'S_S_24', 'M_F_8_17') */
-  workingHours?: string;
-  /** API/static config: Chat hours (display) */
-  chatHours: string;
-  /** API/static config: Raw chat hours (e.g. '8_17') */
-  rawChatHrs: string;
-  /** API/static config: Self-service links for after-hours */
-  selfServiceLinks?: { key: string; value: string }[];
-  /** API/static config: ID card bot name */
-  idCardChatBotName: string;
-  /** Static config/API: URL to widgets.min.js */
-  widgetUrl: string;
-  /** Static config/API: URL to click_to_chat.js */
-  clickToChatJs: string;
-  /** Static config/API: API endpoint for chat token */
-  chatTokenEndpoint: string;
-  /** Static config/API: API endpoint for co-browse */
-  coBrowseEndpoint: string;
-  /** Base chat endpoint for Genesys (used for dataURL/GMSChatURL) */
-  gmsChatUrl: string;
-  /** Chat mode: legacy or cloud */
-  chatMode?: 'legacy' | 'cloud';
-  /** Genesys Cloud deployment ID (cloud mode only) */
-  deploymentId?: string;
-  /** Genesys Cloud org ID (cloud mode only) */
-  orgId: string;
-  /** Genesys Cloud environment (e.g., 'prod-usw2', cloud mode only) */
-  environment?: string;
-  /** Override for widgets.min.js script URL */
-  genesysWidgetUrl?: string;
-  /** BlueElite group flag */
-  isBlueEliteGroup?: boolean | string;
-  /** Inquiry type (for chat form) */
-  INQ_TYPE?: string;
-  /** Line of Business */
-  LOB?: string;
-  /** Member ID (composed) */
-  MEMBER_ID?: string;
-  /** Path to audio alert sound */
-  audioAlertPath?: string;
-  /** Timestamp for debugging and tracing */
-  timestamp?: string;
-  /** Data to pre-populate in the chat widget, typically user-specific. */
-  userData?: Record<string, string>;
-
-  /** Number of plans the user has */
-  numberOfPlans?: number;
-  /** Name of the current selected plan */
-  currentPlanName?: string;
-  /** ID of the HTML element where the chat widget will be injected */
-  targetContainer: string;
-  // ...any other custom fields from JSP mapping
-
-  /** Additional fields for legacy mode */
-  chatBtnText?: string;
-  chatWidgetTitle?: string;
-  chatWidgetSubtitle?: string;
-  enableCobrowse?: boolean;
-  showChatButton?: boolean;
-}
+import type {
+  BaseGenesysChatConfig,
+  CloudChatConfig,
+  GenesysChatConfig,
+  LegacyChatConfig,
+} from '../types/chat-types';
+import { isCloudChatConfig, isLegacyChatConfig } from '../types/chat-types';
 
 // Define minimal types for user, plan, apiConfig
 export interface UserConfig {
@@ -166,7 +43,6 @@ import { MemberPlan } from '@/userManagement/models/plan';
 import { SessionUser } from '@/userManagement/models/sessionUser';
 import { logger } from '@/utils/logger';
 import type { CurrentPlanDetails } from '../stores/chatStore';
-import { ChatSettings } from '../types/chat-types';
 
 // Add this interface declaration after the existing interfaces
 interface ZustandStores {
@@ -189,11 +65,20 @@ declare global {
  * Required fields for GenesysChatConfig
  * These fields MUST be present for the widget to function properly
  */
-const REQUIRED_CONFIG_FIELDS = [
-  'userID', // Always needed for user identity
-  'isChatEligibleMember', // Needed for eligibility
-  'targetContainer', // Needed for widget rendering
-  // Removed non-critical fields that can have fallbacks
+const REQUIRED_CONFIG_FIELDS: Array<
+  keyof BaseGenesysChatConfig | keyof LegacyChatConfig | keyof CloudChatConfig
+> = [
+  'userID', // Always needed for user identity (from BaseGenesysChatConfig)
+  'isChatEligibleMember', // Needed for eligibility (from BaseGenesysChatConfig)
+  'targetContainer', // Needed for widget rendering (from BaseGenesysChatConfig)
+  'isChatAvailable', // From BaseGenesysChatConfig
+  'chatMode', // From BaseGenesysChatConfig (discriminator)
+  // Legacy specific required fields (conditionally checked)
+  // 'clickToChatToken', // Example: from LegacyChatConfig
+  // 'clickToChatEndpoint', // Example: from LegacyChatConfig
+  // Cloud specific required fields (conditionally checked)
+  // 'deploymentId', // Example: from CloudChatConfig
+  // 'orgId', // Example: from CloudChatConfig
 ];
 
 /**
@@ -205,30 +90,43 @@ function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
   isValid: boolean;
   missingFields: string[];
 } {
-  // First check for absolutely critical fields
-  const criticalMissingFields = REQUIRED_CONFIG_FIELDS.filter(
-    (field) => !config[field as keyof GenesysChatConfig],
-  );
+  const missingFields: string[] = [];
 
-  // Then check mode-specific required fields
-  const modeSpecificMissingFields: string[] = [];
-  if (config.chatMode === 'legacy' && !config.clickToChatEndpoint) {
-    modeSpecificMissingFields.push(
-      'clickToChatEndpoint (required for legacy mode)',
-    );
+  // Check base required fields
+  if (!config.userID) missingFields.push('userID');
+  if (config.isChatEligibleMember === undefined)
+    missingFields.push('isChatEligibleMember');
+  if (!config.targetContainer) missingFields.push('targetContainer');
+  if (config.isChatAvailable === undefined)
+    missingFields.push('isChatAvailable');
+  if (!config.chatMode)
+    missingFields.push('chatMode (discriminator property is missing)');
+
+  // Check mode-specific required fields
+  if (config.chatMode === 'legacy') {
+    const legacyConfig = config as Partial<LegacyChatConfig>;
+    if (!legacyConfig.clickToChatToken)
+      missingFields.push('clickToChatToken (for legacy mode)');
+    if (!legacyConfig.clickToChatEndpoint)
+      missingFields.push('clickToChatEndpoint (for legacy mode)');
+    if (!legacyConfig.gmsChatUrl)
+      missingFields.push('gmsChatUrl (for legacy mode)');
+    if (!legacyConfig.widgetUrl)
+      missingFields.push('widgetUrl (for legacy mode)');
+    if (!legacyConfig.clickToChatJs)
+      missingFields.push('clickToChatJs (for legacy mode)');
   } else if (config.chatMode === 'cloud') {
-    if (!config.deploymentId) {
-      modeSpecificMissingFields.push('deploymentId (required for cloud mode)');
-    }
-    if (!config.orgId) {
-      modeSpecificMissingFields.push('orgId (required for cloud mode)');
-    }
+    const cloudConfig = config as Partial<CloudChatConfig>;
+    if (!cloudConfig.deploymentId)
+      missingFields.push('deploymentId (for cloud mode)');
+    if (!cloudConfig.orgId) missingFields.push('orgId (for cloud mode)');
+    if (!cloudConfig.environment)
+      missingFields.push('environment (for cloud mode)');
   }
 
-  // Only treat truly critical fields as blocking
   return {
-    isValid: criticalMissingFields.length === 0,
-    missingFields: [...criticalMissingFields, ...modeSpecificMissingFields],
+    isValid: missingFields.length === 0,
+    missingFields,
   };
 }
 
@@ -349,10 +247,13 @@ export function buildGenesysChatConfig({
   // --- End derived context mapping ---
 
   // Determine chatMode
-  const chatMode = apiConfig.cloudChatEligible ? 'cloud' : 'legacy';
+  const chatMode =
+    apiConfig.cloudChatEligible || process.env.NEXT_PUBLIC_CHAT_MODE === 'cloud'
+      ? 'cloud'
+      : 'legacy';
 
   // Base config from API and context
-  const config: Partial<GenesysChatConfig> = {
+  const baseConfig = {
     // From Derived Context
     userID: finalUserID,
     memberFirstname: finalFirstName,
@@ -378,8 +279,6 @@ export function buildGenesysChatConfig({
     INQ_TYPE: (apiConfig.INQ_TYPE as string) || 'General Inquiry',
 
     // From API Config (getChatInfo response)
-    clickToChatToken: (apiConfig.getToken ||
-      apiConfig.clickToChatToken) as string,
     isChatEligibleMember:
       (apiConfig.isChatEligibleMember as string | boolean | undefined) ??
       (apiConfig.isEligible as string | boolean | undefined) ??
@@ -404,121 +303,138 @@ export function buildGenesysChatConfig({
     chatMode: chatMode,
   };
 
-  // Populate mode-specific fields
+  let finalConfig: GenesysChatConfig;
+
   if (chatMode === 'cloud') {
-    config.deploymentId =
-      (apiConfig.genesysCloudConfig as any)?.deploymentId ||
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID;
-    config.orgId =
-      (apiConfig.genesysCloudConfig as any)?.orgId ||
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID;
-    config.environment =
-      (apiConfig.genesysCloudConfig as any)?.environment ||
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT;
-    // For cloud, gmsChatUrl might not be used in the same way, or could be the API endpoint base
+    const cloudSpecificConfig: Omit<
+      CloudChatConfig,
+      keyof BaseGenesysChatConfig | 'chatMode'
+    > = {
+      deploymentId:
+        (apiConfig.genesysCloudConfig as any)?.deploymentId ||
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+        '6200855c-734b-4ebd-b169-790103ec1bbb',
+      orgId:
+        (apiConfig.genesysCloudConfig as any)?.orgId ||
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID ||
+        'default-org-id',
+      environment:
+        (apiConfig.genesysCloudConfig as any)?.environment ||
+        process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
+        'prod-usw2',
+      genesysWidgetUrl: process.env.NEXT_PUBLIC_GENESYS_MESSENGER_URL,
+    };
+    finalConfig = {
+      ...baseConfig,
+      ...cloudSpecificConfig,
+      chatMode: 'cloud',
+    } as CloudChatConfig;
+
+    // Fallbacks for cloud mode critical fields
+    // if (!finalConfig.deploymentId) ...
+    // if (!finalConfig.orgId) ...
+    // if (!finalConfig.environment) ...
   } else {
     // Legacy mode
-    config.clickToChatEndpoint =
-      (apiConfig.clickToChatEndpoint as string) ||
-      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT;
-    config.gmsChatUrl =
-      (apiConfig.gmsChatUrl as string) ||
-      process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      config.clickToChatEndpoint; // Default gmsChatUrl to clickToChatEndpoint for legacy
+    const legacySpecificConfig: Omit<
+      LegacyChatConfig,
+      keyof BaseGenesysChatConfig | 'chatMode'
+    > = {
+      clickToChatToken:
+        ((apiConfig.getToken || apiConfig.clickToChatToken) as string) ||
+        process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN ||
+        'fallback-token',
+      clickToChatEndpoint:
+        (apiConfig.clickToChatEndpoint as string) ||
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'https://members.bcbst.com/test/soa/api/cci/genesyschat',
+      gmsChatUrl:
+        (apiConfig.gmsChatUrl as string) ||
+        process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
+        (apiConfig.clickToChatEndpoint as string) ||
+        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
+        'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
+      widgetUrl:
+        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
+        '/assets/genesys/plugins/widgets.min.js',
+      clickToChatJs:
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
+        '/assets/genesys/click_to_chat.js',
+      chatTokenEndpoint:
+        (apiConfig.chatTokenEndpoint as string) || '/api/chat/token',
+      chatBtnText:
+        (apiConfig.chatBtnText as string) ||
+        (!!apiConfig.isAmplifyMem ? 'Chat with an advisor' : 'Chat Now'),
+      chatWidgetTitle:
+        (apiConfig.chatWidgetTitle as string) || 'Customer Service Chat',
+      chatWidgetSubtitle:
+        (apiConfig.chatWidgetSubtitle as string) || "We're here to help.",
+      enableCobrowse: (apiConfig.enableCobrowse as boolean) || false,
+      showChatButton: (apiConfig.showChatButton as boolean) ?? true,
+    };
+
+    finalConfig = {
+      ...baseConfig,
+      ...legacySpecificConfig,
+      chatMode: 'legacy',
+    } as LegacyChatConfig;
+
+    // Fallbacks for legacy mode critical fields
+    // if (!finalConfig.clickToChatToken) ...
+    // if (!finalConfig.clickToChatEndpoint) ...
+    // if (!finalConfig.gmsChatUrl) ...
+    // if (!finalConfig.widgetUrl) ...
+    // if (!finalConfig.clickToChatJs) ...
   }
 
-  // Populate from environment variables / static defaults
-  config.widgetUrl =
-    process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-    '/assets/genesys/plugins/widgets.min.js';
-  config.clickToChatJs =
-    process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
-    '/assets/genesys/click_to_chat.js';
-
-  // If gmsChatUrl is not set by legacy mode logic, and it's cloud, it might need a different source or not be needed by click_to_chat.js for cloud mode.
-  // For now, ensure it has a fallback if not set. click_to_chat.js uses gmsServicesConfig.GMSChatURL which uses clickToChatEndpoint in legacy.
-  if (!config.gmsChatUrl && chatMode === 'legacy') {
-    config.gmsChatUrl = config.clickToChatEndpoint;
-  } else if (!config.gmsChatUrl && chatMode === 'cloud') {
-    // For cloud, this might be different or derived. For now, a placeholder if needed
-  }
-
-  // Add more default values that might be required for button creation
-  if (chatMode === 'legacy') {
-    // These values are often required for legacy chat button initialization
-    config.chatBtnText =
-      config.chatBtnText ||
-      (config.isAmplifyMem ? 'Chat with an advisor' : 'Chat Now');
-    config.chatWidgetTitle = config.chatWidgetTitle || 'Customer Service Chat';
-    config.chatWidgetSubtitle =
-      config.chatWidgetSubtitle || "We're here to help.";
-    config.enableCobrowse = config.enableCobrowse || false;
-    config.showChatButton = true; // Explicitly request button
-  }
-
-  // Ensure the targetContainer is explicitly set for the widget to render
-  config.targetContainer = 'genesys-chat-container';
-
-  // Other static/defaultable fields from the original JSP mapping, if needed
-  config.coBrowseLicence =
-    process.env.NEXT_PUBLIC_COBROWSE_LICENCE || 'YOUR_COBROWSE_LICENCE';
-  config.cobrowseSource =
-    process.env.NEXT_PUBLIC_COBROWSE_SOURCE || 'YOUR_COBROWSE_SOURCE';
-  config.cobrowseURL =
-    process.env.NEXT_PUBLIC_COBROWSE_URL || 'YOUR_COBROWSE_URL';
-  config.opsPhone = process.env.NEXT_PUBLIC_OPS_PHONE || '1-800-MEMBER-LINE';
-  config.opsPhoneHours =
-    process.env.NEXT_PUBLIC_OPS_PHONE_HOURS || 'M-F 8am-6pm EST';
-  config.isDemoMember = process.env.NEXT_PUBLIC_IS_DEMO_MEMBER === 'true';
-  config.isAmplifyMem = !!apiConfig.isAmplifyMem; // Coerce to boolean
-  config.isCobrowseActive =
-    process.env.NEXT_PUBLIC_IS_COBROWSE_ACTIVE === 'true';
-
-  // Ensure critical fields have fallbacks
-  if (!config.clickToChatToken) {
-    // This is a token for authentication, so we should log the issue
-    logger.warn(
-      '[buildGenesysChatConfig] Missing clickToChatToken, using fallback',
-    );
-    config.clickToChatToken =
-      process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN || 'fallback-token';
-  }
-
-  // Add any missing fields for critical elements
-  if (chatMode === 'legacy' && !config.clickToChatEndpoint) {
-    logger.warn(
-      '[buildGenesysChatConfig] Missing clickToChatEndpoint for legacy mode, using fallback',
-    );
-    config.clickToChatEndpoint =
-      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-      'https://members.bcbst.com/test/soa/api/cci/genesyschat';
-
-    // If gmsChatUrl is also missing, make it match the (potentially new) clickToChatEndpoint
-    if (!config.gmsChatUrl) {
-      config.gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL || config.clickToChatEndpoint; // This ensures it uses the corrected endpoint
-      logger.info(
-        '[buildGenesysChatConfig] Setting gmsChatUrl to match clickToChatEndpoint',
-        { gmsChatUrl: config.gmsChatUrl },
-      );
-    }
-  } else if (chatMode === 'cloud' && !config.deploymentId) {
-    logger.warn(
-      '[buildGenesysChatConfig] Missing deploymentId for cloud mode, using fallback',
-    );
-    config.deploymentId =
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
-      'fallback-deployment-id';
-  }
-
-  // Default chatTokenEndpoint and coBrowseEndpoint if needed
-  config.chatTokenEndpoint = config.chatTokenEndpoint || '/api/chat/token';
-  config.coBrowseEndpoint = config.coBrowseEndpoint || '/api/cobrowse';
+  // Common static/defaultable fields (can be part of BaseGenesysChatConfig defaults or applied here)
+  // Many of these are already in BaseGenesysChatConfig definition with optional modifier or set in baseConfig.
+  // We ensure they have values if not provided by API or specific logic.
+  finalConfig.coBrowseLicence =
+    finalConfig.coBrowseLicence ||
+    process.env.NEXT_PUBLIC_COBROWSE_LICENCE ||
+    'YOUR_COBROWSE_LICENCE';
+  finalConfig.cobrowseSource =
+    finalConfig.cobrowseSource ||
+    process.env.NEXT_PUBLIC_COBROWSE_SOURCE ||
+    'YOUR_COBROWSE_SOURCE';
+  finalConfig.cobrowseURL =
+    finalConfig.cobrowseURL ||
+    process.env.NEXT_PUBLIC_COBROWSE_URL ||
+    'YOUR_COBROWSE_URL';
+  finalConfig.coBrowseEndpoint =
+    finalConfig.coBrowseEndpoint ||
+    (apiConfig.coBrowseEndpoint as string) ||
+    '/api/cobrowse';
+  finalConfig.opsPhone =
+    finalConfig.opsPhone ||
+    process.env.NEXT_PUBLIC_OPS_PHONE ||
+    '1-800-MEMBER-LINE';
+  finalConfig.opsPhoneHours =
+    finalConfig.opsPhoneHours ||
+    process.env.NEXT_PUBLIC_OPS_PHONE_HOURS ||
+    'M-F 8am-6pm EST';
+  finalConfig.idCardChatBotName =
+    finalConfig.idCardChatBotName ||
+    (apiConfig.chatIDChatBotName as string) ||
+    'ID Card Bot';
 
   // Merge with any staticConfig overrides passed in
-  const mergedConfig = { ...config, ...staticConfig } as GenesysChatConfig;
+  let mergedConfig: GenesysChatConfig;
+  if (finalConfig.chatMode === 'legacy') {
+    mergedConfig = {
+      ...finalConfig,
+      ...(staticConfig as Partial<LegacyChatConfig>),
+    } as LegacyChatConfig;
+  } else {
+    // chatMode === 'cloud'
+    mergedConfig = {
+      ...finalConfig,
+      ...(staticConfig as Partial<CloudChatConfig>),
+    } as CloudChatConfig;
+  }
 
-  // Final validation
+  // Final validation using the updated validateGenesysChatConfig
   const validation = validateGenesysChatConfig(mergedConfig);
   if (!validation.isValid) {
     logger.warn(
@@ -543,26 +459,48 @@ export function buildGenesysChatConfig({
   if (process.env.NODE_ENV === 'development') {
     logger.info('[buildGenesysChatConfig] Full config for debugging', {
       key_fields: {
-        clickToChatToken: mergedConfig.clickToChatToken,
-        clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
-        clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
-        gmsChatUrl: mergedConfig.gmsChatUrl,
         userID: mergedConfig.userID,
         planId: mergedConfig.memberMedicalPlanID,
         chatMode: mergedConfig.chatMode,
+        ...(isLegacyChatConfig(mergedConfig)
+          ? {
+              clickToChatToken: mergedConfig.clickToChatToken,
+              clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
+              clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
+              gmsChatUrl: mergedConfig.gmsChatUrl,
+            }
+          : {}),
+        ...(isCloudChatConfig(mergedConfig)
+          ? {
+              deploymentId: mergedConfig.deploymentId,
+              orgId: mergedConfig.orgId,
+              environment: mergedConfig.environment,
+            }
+          : {}),
       },
     });
     // Extra: Console log for browser debugging
     if (typeof window !== 'undefined') {
       // eslint-disable-next-line no-console
       console.log('[GenesysChatConfig] Key fields:', {
-        clickToChatToken: mergedConfig.clickToChatToken,
-        clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
-        clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
-        gmsChatUrl: mergedConfig.gmsChatUrl,
         userID: mergedConfig.userID,
         planId: mergedConfig.memberMedicalPlanID,
         chatMode: mergedConfig.chatMode,
+        ...(isLegacyChatConfig(mergedConfig)
+          ? {
+              clickToChatToken: mergedConfig.clickToChatToken,
+              clickToChatEndpoint: mergedConfig.clickToChatEndpoint,
+              clickToChatDemoEndPoint: mergedConfig.clickToChatDemoEndPoint,
+              gmsChatUrl: mergedConfig.gmsChatUrl,
+            }
+          : {}),
+        ...(isCloudChatConfig(mergedConfig)
+          ? {
+              deploymentId: mergedConfig.deploymentId,
+              orgId: mergedConfig.orgId,
+              environment: mergedConfig.environment,
+            }
+          : {}),
       });
     }
   }
@@ -580,7 +518,17 @@ export function useGenesysChatConfig(
   useEffect(() => {
     fetchConfig().then((config) => {
       if (typeof window !== 'undefined') {
-        window.chatSettings = config as ChatSettings;
+        // click_to_chat.js expects window.chatSettings to be LegacyChatConfig
+        if (config.chatMode === 'legacy') {
+          window.chatSettings = config as LegacyChatConfig;
+        } else {
+          // For cloud mode, window.chatSettings might not be directly used by Genesys scripts
+          // but can be set for consistency or if our components expect it.
+          // Or, you might choose to set a different global var for cloud config if needed.
+          (window as any).genesysCloudChatSettings = config; // Example
+        }
+        // Optionally, always set a generic config object
+        (window as any).currentGenesysChatConfig = config;
       }
     });
   }, [fetchConfig]);
