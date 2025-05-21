@@ -536,6 +536,175 @@
       `[click_to_chat.js] Timestamp: ${Date.now()} - initializeChatWidget START`,
     );
 
+    // Ported from JSPF: Chat Disclaimer, Error Overlay Functions, and Avatar
+    // These may use calculatedCiciId and clientIdConst which are defined later in this function's scope.
+    // The functions themselves are defined here at the top of initializeChatWidget for clarity.
+
+    function setChatDisclaimerMesg(ciciId, consts) {
+      // calculatedCiciId and clientIdConst will be in scope when called
+      let disclaimerMesg = '';
+      switch (ciciId) {
+        case consts.BlueCare:
+        case consts.BlueCarePlus:
+          disclaimerMesg =
+            'For quality assurance your chat may be monitored and/or recorded. Benefits are based on the member&#39;s eligibility when services are rendered. Benefits are determined by the Division of TennCare and are subject to change.';
+          break;
+        case consts.CoverTN:
+          disclaimerMesg =
+            'This information provided today is based on current eligibility and contract limitations. Final determination will be made upon the completion of the processing of your claim.';
+          break;
+        default:
+          disclaimerMesg =
+            'This information provided today is based on current eligibility and contract limitations.<br>Final determination will be made upon the completion of the processing of your claim.<br>For quality assurance your chat may be monitored and/or recorded.<br><br>Estimates are not a confirmation of coverage or benefits. The Health Care Cost Estimator tool is designed to help you plan for health care costs. Your actual cost may be different based on your health status and services provided. Final determination will be made when the claims are received based on eligibility at time of service. Payment of benefits remains subject to any contract terms, exclusions,and/or riders. <br> <br> To better serve you, we may send you a survey or questions about your chat experience by email. Communications via unencrypted email over the internet are not secure, and there is a possibility that information included in an email can be intercepted and read by other parties besides the person to whom it is addressed.';
+      }
+      return disclaimerMesg;
+    }
+
+    function OpenChatDisclaimer() {
+      if (window._genesysCXBus) {
+        // _genesysCXBus is set in onReady
+        const disclaimerMesg = setChatDisclaimerMesg(
+          calculatedCiciId,
+          clientIdConst,
+        ); // Ensure calculatedCiciId & clientIdConst are in scope when called
+        window._genesysCXBus
+          .command('WebChat.showOverlay', {
+            html: $(
+              "<div id='disclaimerId'><p class='termsNConditions'><span class='modalTitle'>Terms and Conditions</span> <br><br> " +
+                disclaimerMesg +
+                " </p> </div><div style='padding-bottom:10px; background-color:#fff;'><button type='button' class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatDisclaimer();'>CLOSE</button></div>",
+            ),
+            hideFooter: true,
+          })
+          .done(function (e) {
+            $("button[data-message='ChatFormSubmit']").hide();
+            console.log('[Genesys] OpenChatDisclaimer overlay shown.');
+          })
+          .fail(function (e) {
+            console.error('[Genesys] OpenChatDisclaimer failed:', e);
+          });
+      } else {
+        console.error('[Genesys] CXBus not available for OpenChatDisclaimer.');
+      }
+    }
+    window.OpenChatDisclaimer = OpenChatDisclaimer;
+
+    function CloseChatDisclaimer() {
+      if (window._genesysCXBus) {
+        window._genesysCXBus
+          .command('WebChat.hideOverlay')
+          .done(function (e) {
+            $("button[data-message='ChatFormSubmit']").show();
+            console.log('[Genesys] CloseChatDisclaimer overlay hidden.');
+          })
+          .fail(function (e) {
+            console.error('[Genesys] CloseChatDisclaimer failed:', e);
+          });
+      } else {
+        console.error('[Genesys] CXBus not available for CloseChatDisclaimer.');
+      }
+    }
+    window.CloseChatDisclaimer = CloseChatDisclaimer;
+
+    function OpenChatConnectionErrorOverlay() {
+      if (window._genesysCXBus) {
+        window._genesysCXBus
+          .command('WebChat.showOverlay', {
+            html: $(
+              "<div><p class='termsNConditions'><span class='modalTitle'>Error Connecting to Chat Server</span><br><br>We're sorry for the inconvenience, please logout and log back in.</p></div><div style='padding-bottom:10px; background-color:#fff;'><button type='button' class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatConnectionErrorOverlay();'>CLOSE</button></div>",
+            ),
+            hideFooter: false,
+          })
+          .done(function (e) {
+            console.log('[Genesys] OpenChatConnectionErrorOverlay shown.');
+          })
+          .fail(function (e) {
+            console.error(
+              '[Genesys] OpenChatConnectionErrorOverlay failed:',
+              e,
+            );
+          });
+      } else {
+        console.error(
+          '[Genesys] CXBus not available for OpenChatConnectionErrorOverlay.',
+        );
+      }
+    }
+    window.OpenChatConnectionErrorOverlay = OpenChatConnectionErrorOverlay;
+
+    function CloseChatConnectionErrorOverlay() {
+      if (window._genesysCXBus) {
+        window._genesysCXBus
+          .command('WebChat.hideOverlay')
+          .done(function (e) {
+            console.log('[Genesys] CloseChatConnectionErrorOverlay hidden.');
+          })
+          .fail(function (e) {
+            console.error(
+              '[Genesys] CloseChatConnectionErrorOverlay failed:',
+              e,
+            );
+          });
+      } else {
+        console.error(
+          '[Genesys] CXBus not available for CloseChatConnectionErrorOverlay.',
+        );
+      }
+    }
+    window.CloseChatConnectionErrorOverlay = CloseChatConnectionErrorOverlay;
+
+    function closeChatWindow() {
+      if (window._genesysCXBus) {
+        console.log('[GA4] - Chat Interaction - End Chat'); // Placeholder for actual GA call
+        // window.elementTag($(this).text(), "Chat", {action: "click", selection_type: "widget" }, "select_content", null);
+
+        window._genesysCXBus
+          .command('WebChat.close')
+          .done(function (e) {
+            console.log(
+              '[Genesys] WebChat closed successfully via closeChatWindow.',
+            );
+          })
+          .fail(function (e) {
+            console.warn(
+              '[Genesys] WebChat.close command failed or no active session (called by closeChatWindow).',
+              e,
+            );
+          });
+      } else {
+        console.error('[Genesys] CXBus not available for closeChatWindow.');
+      }
+    }
+    window.closeChatWindow = closeChatWindow;
+
+    const chatBotAvatar = `
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
+        <title>BCBST-chatbot-avatar-20210112</title>
+        <g id="BCBST-chatbot-avatar-20210112" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Group">
+                <g id="Group-33">
+                    <path d="M15.9932914,31.9865828 C24.8261578,31.9865828 31.9865828,24.8261578 31.9865828,15.9932914 C31.9865828,7.16042504 24.8261578,0 15.9932914,0 C7.16042504,0 0,7.16042504 0,15.9932914 C0,24.8261578 7.16042504,31.9865828 15.9932914,31.9865828" id="Fill-1" fill="#00A6E0"></path>
+                    <path d="M22.4895836,6.61774981 L9.95449874,6.61774981 C7.58772009,6.61774981 5.66898207,8.53648783 5.66898207,10.903495 L5.66898207,18.5133315 C5.66898207,22.6231504 8.74517744,22.7988482 8.74517744,22.7988482 L8.74517744,26.1286514 C8.74517744,26.8675415 9.61384163,27.2644036 10.1724645,26.7804923 L14.7703073,22.7988482 L22.4895836,22.7988482 C24.8561338,22.7988482 26.7746433,20.8801101 26.7746433,18.5133315 L26.7746433,10.903495 C26.7746433,8.53648783 24.8561338,6.61774981 22.4895836,6.61774981" id="Fill-3" fill="#FFFFFF"></path>
+                </g>
+                <g id="BCBST_logo_stacked_BlueBlack_CMYK_2019_rrChecked" transform="translate(7.681342, 11.069182)">
+                    <g id="Group" transform="translate(0.000000, 5.903564)"></g>
+                    <g id="Group" transform="translate(1.084556, 0.000000)" fill="#0072BC" fill-rule="nonzero">
+                        <path d="M3.87999466,4.44375457 C3.86341348,4.44375457 3.86341348,4.44375457 3.84683231,4.46033574 L3.13384184,5.53811203 C3.36597827,5.63759908 3.61469588,5.6873426 3.87999466,5.6873426 C4.14529344,5.6873426 4.39401104,5.63759908 4.62614748,5.53811203 L3.91315701,4.46033574 C3.89657583,4.46033574 3.87999466,4.44375457 3.87999466,4.44375457"></path>
+                        <path d="M3.18358536,3.56495236 L2.10580907,3.46546531 C2.07264672,3.5981147 2.05606555,3.74734527 2.05606555,3.89657583 C2.05606555,4.34426752 2.22187728,4.75879687 2.48717606,5.07383917 L3.23332888,3.64785823 C3.26649123,3.5981147 3.26649123,3.56495236 3.18358536,3.56495236"></path>
+                        <path d="M3.36597827,2.15555259 C3.01777362,2.25503963 2.7193125,2.45401372 2.48717606,2.7193125 L3.43230297,2.7193125 C3.44888414,2.7193125 3.46546531,2.70273132 3.43230297,2.66956897 C3.3493971,2.55350076 3.26649123,2.32136433 3.36597827,2.15555259"></path>
+                        <path d="M5.25623208,2.7193125 C5.02409565,2.45401372 4.72563452,2.25503963 4.37742987,2.15555259 C4.47691691,2.3379455 4.39401104,2.57008193 4.294524,2.66956897 C4.27794283,2.68615015 4.27794283,2.70273132 4.294524,2.7193125 L5.25623208,2.7193125 Z"></path>
+                        <path d="M4.55982278,3.56495236 C4.47691691,3.56495236 4.47691691,3.5981147 4.49349809,3.64785823 L5.23965091,5.07383917 C5.50494969,4.75879687 5.67076142,4.34426752 5.67076142,3.89657583 C5.67076142,3.74734527 5.65418025,3.5981147 5.6210179,3.46546531 L4.55982278,3.56495236 Z"></path>
+                        <path d="M5.57127438,2.18871494 L5.57127438,0.0497435213 L2.17213376,0.0497435213 L2.17213376,2.18871494 L0.0331623475,2.18871494 L0.0331623475,5.60443673 L2.17213376,5.60443673 L2.17213376,7.74340814 L5.57127438,7.74340814 L5.57127438,5.58785556 L7.7102458,5.58785556 L7.7102458,2.18871494 L5.57127438,2.18871494 Z M3.87999466,1.79076677 C4.72563452,1.79076677 5.45520617,2.28820198 5.78682964,3.00119245 L4.294524,3.00119245 C4.07896874,3.00119245 3.9794817,2.86854306 3.9794817,2.76905602 C3.9794817,2.6529878 3.99606287,2.60324428 4.09554992,2.48717606 C4.21161813,2.3379455 4.12871226,2.07264672 3.87999466,2.05606555 C3.63127705,2.05606555 3.56495236,2.3379455 3.6644394,2.48717606 C3.76392644,2.61982545 3.78050762,2.6529878 3.78050762,2.76905602 C3.78050762,2.86854306 3.68102057,3.00119245 3.46546531,3.00119245 L1.97315968,3.00119245 C2.30478315,2.28820198 3.0343548,1.79076677 3.87999466,1.79076677 M1.77418559,3.89657583 C1.77418559,3.63127705 1.82392911,3.38255945 1.90683498,3.15042301 L1.90683498,3.15042301 L1.90683498,3.15042301 L3.31623475,3.2830724 C3.58153353,3.31623475 3.61469588,3.58153353 3.54837118,3.73076409 L2.58666311,5.55469321 L2.58666311,5.55469321 C2.08922789,5.17332621 1.77418559,4.55982278 1.77418559,3.89657583 M5.04067682,5.65418025 L5.04067682,5.65418025 C4.70905335,5.86973551 4.31110518,6.0023849 3.87999466,6.0023849 C3.44888414,6.0023849 3.05093597,5.86973551 2.7193125,5.65418025 L2.7193125,5.65418025 L2.7193125,5.65418025 L2.7193125,5.65418025 L3.74734527,4.11213109 C3.83025114,4.01264405 3.92973818,4.01264405 4.01264405,4.11213109 L5.04067682,5.65418025 C5.04067682,5.65418025 5.04067682,5.65418025 5.04067682,5.65418025 L5.04067682,5.65418025 Z M5.17332621,5.55469321 L5.17332621,5.55469321 L4.21161813,3.73076409 C4.14529344,3.58153353 4.17845579,3.31623475 4.44375457,3.2830724 L5.85315434,3.15042301 L5.85315434,3.15042301 L5.85315434,3.15042301 C5.9360602,3.38255945 5.98580373,3.63127705 5.98580373,3.89657583 C5.98580373,4.55982278 5.67076142,5.17332621 5.17332621,5.55469321"></path>
+                        <path d="M14.5582706,0.0497435213 C13.7292119,0.464272865 12.9167344,0.696409298 11.9384451,0.696409298 C10.976737,0.696409298 10.1476783,0.464272865 9.31861965,0.0497435213 C8.77144092,1.11093864 8.68853505,2.85196189 9.15280791,4.294524 C9.6004996,5.6873426 10.4793018,6.96409298 11.9218639,7.75998932 C13.364426,6.96409298 14.2432283,5.6873426 14.6909199,4.294524 C15.1883552,2.85196189 15.1054493,1.11093864 14.5582706,0.0497435213 M14.1769036,4.12871226 C13.7789554,5.32255678 13.1322896,6.36717072 11.9550263,7.11332354 C11.9550263,7.11332354 11.9550263,7.11332354 11.9550263,7.11332354 L11.9550263,7.11332354 C11.9550263,7.11332354 11.9550263,7.11332354 11.9550263,7.11332354 C10.7611818,6.3837519 10.1310972,5.32255678 9.73314899,4.12871226 C9.36836317,3.06751714 9.2854573,1.82392911 9.68340547,0.862221035 C10.2803277,1.06119512 10.6285324,1.12751982 10.9435747,1.17726334 C11.2420358,1.22700686 11.5073346,1.26016921 11.9550263,1.26016921 L11.9550263,1.26016921 C12.402718,1.26016921 12.6680167,1.22700686 12.9664779,1.17726334 C13.2815202,1.12751982 13.646306,1.06119512 14.2266471,0.862221035 C14.6245953,1.84051029 14.5416894,3.06751714 14.1769036,4.12871226"></path>
+                        <path d="M11.5570781,2.13897141 C11.5902405,2.17213376 11.5902405,2.22187728 11.639984,2.20529611 C11.6731463,2.20529611 11.6897275,2.18871494 11.7063087,2.15555259 C11.7063087,2.15555259 11.739471,2.15555259 11.7560522,2.15555259 C11.6897275,2.08922789 11.5570781,2.08922789 11.4741722,2.08922789 C11.5073346,2.13897141 11.5239158,2.12239024 11.5570781,2.13897141"></path>
+                        <path d="M12.983059,1.45914329 C12.6348544,1.50888681 12.2866498,1.54204916 11.9550263,1.54204916 L11.9550263,1.54204916 C11.6234028,1.54204916 11.2751982,1.50888681 10.9269935,1.45914329 C10.5787889,1.40939977 10.2471654,1.3264939 9.88237956,1.24358803 C9.63366195,1.9565785 9.68340547,2.85196189 9.88237956,3.6644394 C10.2471654,5.17332621 11.1591299,6.3174272 11.9550263,6.83144359 C12.7509226,6.3174272 13.6794683,5.17332621 14.027673,3.6644394 C14.2266471,2.86854306 14.2763906,1.9565785 14.027673,1.24358803 C13.6628872,1.34307507 13.3312637,1.40939977 12.983059,1.45914329 M11.739471,6.11845312 C11.7228898,6.20135898 11.7560522,6.23452133 11.7560522,6.26768368 C11.739471,6.33400837 11.7063087,6.3174272 11.6897275,6.26768368 C11.6565651,6.20135898 11.639984,6.18477781 11.6234028,6.08529077 C11.6068216,5.9360602 11.6897275,5.86973551 11.7228898,5.83657316 C11.7560522,5.80341081 11.7892145,5.78682964 11.7892145,5.78682964 L11.8057957,6.03554725 C11.8057957,6.01896607 11.7560522,6.03554725 11.739471,6.11845312 M12.0710945,6.36717072 C12.0710945,6.40033307 12.0545133,6.43349542 11.9716075,6.43349542 C11.9052828,6.43349542 11.8721204,6.41691424 11.8721204,6.35058955 C11.8555392,6.05212842 11.8555392,5.50494969 11.8555392,5.50494969 C11.8555392,5.50494969 11.9384451,5.53811203 11.9716075,5.55469321 C11.9881886,5.55469321 12.021351,5.58785556 12.0710945,5.6210179 C12.0710945,5.63759908 12.0876757,5.63759908 12.0876757,5.65418025 C12.0876757,5.86973551 12.0710945,6.26768368 12.0710945,6.36717072 M12.3198121,5.80341081 C12.2534874,5.85315434 12.1705815,5.88631668 12.1705815,5.88631668 L12.1871627,5.67076142 C12.1871627,5.67076142 12.2037439,5.65418025 12.2037439,5.6210179 C12.1871627,5.57127438 12.0379321,5.47178734 11.9550263,5.43862499 C11.8721204,5.40546264 11.7560522,5.3723003 11.6731463,5.33913795 C11.4907534,5.25623208 11.4078475,5.09042034 11.4907534,4.90802743 C11.5239158,4.84170274 11.5902405,4.79195922 11.639984,4.77537804 C11.6897275,4.74221569 11.7560522,4.72563452 11.7560522,4.72563452 L11.7726334,4.9909333 C11.7726334,4.9909333 11.7560522,5.00751447 11.739471,5.02409565 C11.7228898,5.07383917 11.7726334,5.09042034 11.7726334,5.10700152 C11.8887016,5.15674504 12.0710945,5.23965091 12.2037439,5.3059756 C12.3695556,5.40546264 12.4358803,5.47178734 12.4358803,5.60443673 C12.4192991,5.6873426 12.3861368,5.75366729 12.3198121,5.80341081 M11.8389581,4.57640396 C11.9550263,4.59298513 12.0047698,4.59298513 12.120838,4.6095663 L12.1042568,5.12358269 L11.9881886,5.057258 L11.8721204,5.00751447 L11.8389581,4.57640396 Z M12.5851109,4.69247217 C12.5685297,4.79195922 12.502205,4.85828391 12.402718,4.92460861 C12.3032309,4.9909333 12.1871627,4.9909333 12.1871627,4.9909333 L12.2037439,4.675891 C12.2037439,4.675891 12.2203251,4.675891 12.2369062,4.64272865 C12.2534874,4.62614748 12.2534874,4.6095663 12.2534874,4.57640396 C12.2534874,4.55982278 12.2369062,4.54324161 12.2037439,4.52666043 C12.1705815,4.51007926 12.120838,4.51007926 12.1042568,4.51007926 C11.9550263,4.49349809 11.8057957,4.47691691 11.6565651,4.44375457 C11.3912664,4.39401104 11.1922923,4.24478048 11.2088735,3.9794817 C11.2254546,3.79708879 11.4078475,3.74734527 11.5404969,3.69760175 C11.5902405,3.78050762 11.6234028,3.84683231 11.639984,3.89657583 C11.6565651,3.96290053 11.6731463,4.01264405 11.6731463,4.01264405 C11.6731463,4.01264405 11.6068216,4.02922522 11.6234028,4.07896874 C11.6234028,4.12871226 11.6731463,4.14529344 11.7063087,4.14529344 C11.9052828,4.17845579 12.1540004,4.19503696 12.2866498,4.24478048 C12.3695556,4.27794283 12.4690427,4.32768635 12.5187862,4.39401104 C12.6016921,4.49349809 12.6182732,4.57640396 12.5851109,4.69247217 M11.7228898,3.44888414 C11.7228898,3.44888414 11.7892145,3.44888414 11.9384451,3.46546531 C12.0545133,3.46546531 12.1374192,3.51520884 12.1374192,3.51520884 L12.120838,4.07896874 C11.9881886,4.06238757 11.9052828,4.0458064 11.7892145,4.02922522 C11.7560522,3.83025114 11.7063087,3.74734527 11.6234028,3.5981147 C11.6068216,3.56495236 11.6234028,3.54837118 11.6234028,3.54837118 C11.639984,3.53179001 11.7228898,3.51520884 11.7228898,3.51520884 L11.7228898,3.44888414 Z M12.2369062,4.01264405 C12.2369062,4.01264405 12.2534874,3.74734527 12.2534874,3.61469588 C12.3198121,3.58153353 12.3363933,3.51520884 12.3198121,3.46546531 C12.3032309,3.43230297 12.2534874,3.41572179 12.2203251,3.39914062 C12.0710945,3.36597827 11.9384451,3.3493971 11.7892145,3.33281592 C11.6565651,3.31623475 11.5404969,3.29965358 11.4244287,3.26649123 C11.1757111,3.20016653 10.9601559,3.08409832 10.8440876,2.85196189 C10.7114382,2.57008193 10.8275065,2.22187728 11.1093864,2.07264672 C11.3083605,1.97315968 11.5404969,1.98974085 11.7560522,2.07264672 C11.8223769,2.10580907 11.8721204,2.15555259 11.9052828,2.22187728 C11.9218639,2.25503963 11.9550263,2.25503963 11.9716075,2.28820198 C11.9881886,2.30478315 11.9550263,2.32136433 11.9550263,2.32136433 C11.9052828,2.3379455 11.7560522,2.3379455 11.7063087,2.3379455 C11.639984,2.3379455 11.5404969,2.3379455 11.4741722,2.35452667 C11.5404969,2.38768902 11.6068216,2.43743254 11.6731463,2.47059489 C11.7063087,2.48717606 11.739471,2.48717606 11.7726334,2.50375724 C11.7892145,2.50375724 11.8389581,2.52033841 11.8389581,2.53691958 C11.8389581,2.55350076 11.8057957,2.57008193 11.7726334,2.57008193 C11.7063087,2.58666311 11.639984,2.58666311 11.5570781,2.57008193 C11.4410099,2.53691958 11.3912664,2.47059489 11.3083605,2.52033841 C11.258617,2.55350076 11.258617,2.61982545 11.2751982,2.68615015 C11.3083605,2.78563719 11.4078475,2.83538071 11.5073346,2.86854306 C11.8389581,2.9680301 12.1705815,2.91828658 12.502205,3.08409832 C12.6182732,3.15042301 12.7675038,3.26649123 12.784085,3.41572179 C12.8669908,3.94631935 12.2369062,4.01264405 12.2369062,4.01264405 M12.8006661,2.2716208 C12.784085,2.3379455 12.7675038,2.3379455 12.7343414,2.37110785 C12.6514356,2.43743254 12.5519485,2.52033841 12.4358803,2.61982545 C12.3695556,2.68615015 12.3032309,2.7193125 12.2534874,2.80221836 C12.2369062,2.81879954 12.2203251,2.86854306 12.2203251,2.86854306 C12.0379321,2.83538071 11.8555392,2.83538071 11.7228898,2.80221836 L11.7228898,2.6529878 C11.7228898,2.6529878 11.9052828,2.6529878 11.9218639,2.53691958 C11.9218639,2.53691958 11.9218639,2.50375724 11.9052828,2.48717606 C11.8887016,2.47059489 11.8223769,2.45401372 11.8223769,2.43743254 C11.9550263,2.45401372 12.0710945,2.50375724 12.2203251,2.57008193 C12.2369062,2.55350076 12.2037439,2.50375724 12.2037439,2.48717606 C12.1871627,2.47059489 12.1705815,2.45401372 12.120838,2.43743254 C12.0379321,2.42085137 11.8389581,2.38768902 11.8389581,2.38768902 C11.8389581,2.38768902 11.9052828,2.38768902 12.0047698,2.38768902 C12.0545133,2.38768902 12.0876757,2.37110785 12.1042568,2.35452667 C12.120838,2.3379455 12.1042568,2.30478315 12.0710945,2.2716208 C12.0545133,2.25503963 12.0379321,2.22187728 12.021351,2.20529611 C12.0047698,2.17213376 11.9716075,2.12239024 11.9384451,2.08922789 C11.8887016,2.03948437 11.7560522,1.98974085 11.7560522,1.98974085 C11.7560522,1.98974085 11.739471,1.90683498 11.7726334,1.85709146 C11.7892145,1.82392911 11.8555392,1.82392911 11.8887016,1.82392911 C11.9881886,1.87367263 12.1042568,1.93999733 12.2369062,1.97315968 C12.2700686,1.98974085 12.2700686,2.00632202 12.2700686,2.03948437 C12.2866498,2.12239024 12.2534874,2.2716208 12.2700686,2.32136433 C12.2866498,2.3379455 12.3032309,2.3379455 12.3198121,2.3379455 C12.4524615,2.2716208 12.5353674,2.15555259 12.6680167,2.08922789 C12.6680167,2.05606555 12.8338285,2.13897141 12.8006661,2.2716208"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </svg>
+    `;
+
     // Define mapChatSettingsToUserData here
     function mapChatSettingsToUserData(settings) {
       if (!settings) {
@@ -630,17 +799,238 @@
       }
     };
 
-    // Note: calculatedCiciId would need to be defined based on cfg if it's used in this scope
-    // For example: const calculatedCiciId = cfg.ciciId; (Assuming ciciId is part of cfg)
-    // This part of the original script was missing its definition if used in buildActiveChatInputs.
-    // Assuming it's available through `cfg` or another mechanism.
-    // For the purpose of this refactoring, I'll assume `calculatedCiciId` is a correctly scoped variable
-    // from the original context if `buildActiveChatInputs` is called.
-    // If `buildActiveChatInputs` is meant to be self-contained or relies on a `cfg` property,
-    // it should be passed or accessed, e.g., `cfg.calculatedCiciId`.
-    // For now, I will leave `calculatedCiciId` as is, assuming it's defined in the original scope.
-    // Let's assume it's meant to be derived from cfg for the example:
-    const calculatedCiciId = cfg.ciciId || 'Default'; // Placeholder if not explicitly in cfg
+    // Ported from JSPF: clientID() function to determine calculatedCiciId
+    function getCalculatedCiciId(currentCfg) {
+      // Ensure these are correctly populated in currentCfg from window.chatSettings
+      // and that validateConfig handles string booleans appropriately
+      if (String(currentCfg.isBlueEliteGroup) === 'true') return 'INDVMX'; // JSPF check was '${isBlueEliteGroup}' == 'true'
+      if (currentCfg.groupType === 'INDV') return 'INDV'; // JSPF check was groupType === 'INDV'
+      return currentCfg.memberClientID || 'Default'; // Fallback to Default
+    }
+    const calculatedCiciId = getCalculatedCiciId(cfg); // Call it with the cfg object
+
+    // Ported from JSPF: setOptions function
+    function setOptions(optionsVariable) {
+      // Uses `calculatedCiciId` from the outer scope (now derived using cfg)
+      // Uses `clientIdConst` from the outer scope (already defined in this file)
+      // Access other JSPF globals via `cfg`
+      var options =
+        calculatedCiciId === clientIdConst.SeniorCare
+          ? []
+          : [
+              {
+                disabled: 'disabled',
+                selected: 'selected',
+                text: 'Select one',
+              },
+            ];
+
+      switch (optionsVariable) {
+        case clientIdConst.BlueCare:
+          options.push({ text: 'Eligibility', value: 'Eligibility' });
+          options.push({ text: 'TennCare PCP', value: 'TennCare PCP' });
+          options.push({ text: 'Benefits', value: 'Benefits' });
+          options.push({ text: 'Transportation', value: 'Transportation' });
+          // Assuming routingchatbotEligible in cfg is equivalent to chatbotEligible in JSPF
+          // Assuming validateConfig converts these to booleans
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          break;
+        case clientIdConst.BlueCarePlus:
+        case clientIdConst.CoverTN:
+        case clientIdConst.CoverKids:
+          options.push({ text: 'Eligibility', value: 'Eligibility' });
+          options.push({ text: 'Benefits', value: 'Benefits' });
+          options.push({ text: 'Claims Financial', value: 'Claims Financial' });
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          options.push({
+            text: 'Member Update Information',
+            value: 'Member Update Information',
+          });
+          options.push({ text: 'Pharmacy', value: 'Pharmacy' });
+          break;
+        case clientIdConst.SeniorCare:
+          // No options added for SeniorCare initially in JSPF logic
+          break;
+        case 'dentalOnly':
+          options.push({
+            text: 'Benefits and Coverage',
+            value: 'Benefits and Coverage',
+          });
+          options.push({
+            text: 'New or Existing Claims',
+            value: 'New Or Existing Claims',
+          });
+          if (cfg.groupType === 'INDV')
+            // Use cfg
+            options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+          options.push({ text: 'Deductibles', value: 'Deductibles' });
+          options.push({ text: 'Find Care', value: 'Find Care' });
+          if (cfg.isCobraEligible)
+            // Use cfg
+            options.push({ text: 'COBRA', value: 'COBRA' });
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          options.push({ text: 'Other', value: 'Other' });
+          break;
+        case clientIdConst.Individual:
+          options.push({
+            text: 'Benefits and Coverage',
+            value: 'Benefits and Coverage',
+          });
+          options.push({
+            text: 'New or Existing Claims',
+            value: 'New Or Existing Claims',
+          });
+          options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+          options.push({ text: 'Deductibles', value: 'Deductibles' });
+          options.push({
+            text: 'Pharmacy and Prescriptions',
+            value: 'Pharmacy And Prescriptions',
+          });
+          options.push({ text: 'Find Care', value: 'Find Care' });
+          if (cfg.isDental)
+            // Use cfg
+            options.push({ text: 'Dental', value: 'Dental' });
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          options.push({ text: 'Other', value: 'Other' });
+          break;
+        case clientIdConst.BlueElite:
+          options.push({ text: 'Address Update', value: 'Address Update' });
+          options.push({ text: 'Bank Draft', value: 'Bank Draft' });
+          options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+          options.push({
+            text: 'Report Date of Death',
+            value: 'Report Date of Death',
+          });
+          if (cfg.isDental)
+            // Use cfg
+            options.push({ text: 'Dental', value: 'Dental' });
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          options.push({ text: 'All Other', value: 'All Other' });
+          break;
+        default:
+          options.push({
+            text: 'Benefits and Coverage',
+            value: 'Benefits and Coverage',
+          });
+          options.push({
+            text: 'New or Existing Claims',
+            value: 'New Or Existing Claims',
+          });
+          options.push({ text: 'Deductibles', value: 'Deductibles' });
+          options.push({
+            text: 'Pharmacy and Prescriptions',
+            value: 'Pharmacy And Prescriptions',
+          });
+          options.push({ text: 'Find Care', value: 'Find Care' });
+          if (cfg.isDental)
+            // Use cfg
+            options.push({ text: 'Dental', value: 'Dental' });
+          if (cfg.isCobraEligible)
+            // Use cfg
+            options.push({ text: 'COBRA', value: 'COBRA' });
+          if (cfg.isIDCardEligible && cfg.routingchatbotEligible)
+            options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+          options.push({ text: 'Other', value: 'Other' });
+      }
+      return options;
+    }
+
+    // Ported from JSPF: addAfterHoursLinks function
+    function addAfterHoursLinks(formObject, currentCfg) {
+      if (!formObject || !formObject.inputs) {
+        console.error(
+          '[Genesys] addAfterHoursLinks: Invalid formObject or missing inputs array.',
+        );
+        return;
+      }
+      // Ensure selfServiceLinks is an array. It's populated from cfg.
+      if (!currentCfg || !Array.isArray(currentCfg.selfServiceLinks)) {
+        console.warn(
+          '[Genesys] addAfterHoursLinks: selfServiceLinks not available in currentCfg or not an array. No links will be added.',
+        );
+        return;
+      }
+
+      formObject.inputs.push({
+        custom:
+          "<tr><td colspan='2' class='i18n' style='font-family: universStd;'>In the meantime, you can use your BCBST.com account to:</td></tr>",
+      });
+
+      currentCfg.selfServiceLinks.forEach(function (entry) {
+        // Assuming entry.value in currentCfg.selfServiceLinks is always a fully resolved URL
+        if (entry && entry.key && entry.value) {
+          formObject.inputs.push({
+            custom:
+              "<tr><td colspan='2'><a style='margin: 10px 0; font-size: 13px; text-transform: capitalize;' class='btn btn-secondary buttonWide' href='" +
+              entry.value +
+              "' target='_blank'>" +
+              entry.key +
+              '</a></td></tr>',
+          });
+        } else {
+          console.warn(
+            '[Genesys] addAfterHoursLinks: Skipping invalid selfServiceLink entry:',
+            entry,
+          );
+        }
+      });
+    }
+
+    // Ported from JSPF: customizeAmplify function
+    function customizeAmplify() {
+      // cfg.isAmplifyMem should be a boolean from validateConfig
+      if (cfg.isAmplifyMem === true) {
+        $('.cx-webchat').addClass('amplifyHealth');
+        // JSPF selector was: $( "div[class='cx-icon'], span[class='cx-icon']" )
+        // This is a broad selector. Using a slightly more direct one.
+        // It's crucial to test this selector against the rendered DOM.
+        $('div.cx-icon, span.cx-icon')
+          .filter(function () {
+            const parent = $(this).parent();
+            return parent.is(
+              '.cx-widget-chat-button, .cx-chat-button, .cx-titlebar, .cx-message-agent .cx-avatar-wrapper',
+            );
+          })
+          .html(
+            '<img src="/wps/wcm/myconnect/member/029bc5b8-e440-485e-89f5-6bdc04a0325e/Chat-Icon-40x40.svg?MOD=AJPERES&ContentCache=NONE&CACHE=NONE&CVID=oe5Lict" alt="Chat Advisor" style="width: 45px;height: 45px;padding-bottom: 10px;padding-right: 10px;"/>',
+          );
+        console.log('[Genesys] customizeAmplify applied.');
+      }
+    }
+
+    // Ported from JSPF: applyMessageScaler function
+    function applyMessageScaler() {
+      const currentChatType = getChatType(calculatedCiciId); // Uses helpers from outer scope
+
+      if (currentChatType === chatTypeConst.SeniorCareChat) {
+        // chatTypeConst is already defined
+        var webchatDiv = $('.cx-webchat');
+        if (webchatDiv.length) {
+          // Check if element exists
+          webchatDiv.addClass('webchatScaler webchatSenior');
+        }
+        var transcriptDiv = $('.cx-webchat .cx-body .cx-transcript');
+        if (transcriptDiv.length) {
+          transcriptDiv.addClass('transcriptScaler');
+        }
+        console.log('[Genesys] applyMessageScaler applied for SeniorCareChat.');
+      } else if (currentChatType === chatTypeConst.BlueCareChat) {
+        var webchatDiv = $('.cx-webchat');
+        if (webchatDiv.length) {
+          webchatDiv.addClass('webchatScaler');
+        }
+        var transcriptDiv = $('.cx-webchat .cx-body .cx-transcript');
+        if (transcriptDiv.length) {
+          transcriptDiv.addClass('transcriptScaler');
+        }
+        console.log('[Genesys] applyMessageScaler applied for BlueCareChat.');
+      }
+    }
 
     // === Chat Form Builder ===
     function buildActiveChatInputs() {
@@ -951,469 +1341,305 @@
       // Given the original structure, `buildActiveChatInputs` seems to be for a legacy/custom form mechanism.
       // For now, let's keep the default form and assume `buildActiveChatInputs` is used by a plugin or older method.
 
+      // Based on JSPF structure, buildActiveChatInputs() *does* define the primary form.
+      // So, this assignment *should* happen.
+      window._genesys.widgets.webchat.form.inputs = buildActiveChatInputs();
+
       console.log(
-        '[click_to_chat.js] WebChat config after Object.assign:',
+        '[click_to_chat.js] WebChat config after Object.assign and form.inputs override:',
         JSON.parse(JSON.stringify(window._genesys.widgets.webchat)),
+        '[click_to_chat.js] Timestamp:',
+        Date.now(),
+        '- window._genesys.widgets.onReady CALLED by widgets.min.js.',
       );
+
+      // Store CXBus globally AFTER it's received and validated
+      if (CXBus && typeof CXBus.command === 'function') {
+        window._genesysCXBus = CXBus; // Make CXBus globally available
+        console.log('[Genesys] CXBus object stored on window._genesysCXBus.');
+      } else {
+        console.error(
+          '[Genesys] Invalid CXBus object received in onReady. Not storing globally.',
+        );
+      }
+
+      // 1. Pre-initialization Checks
+      if (!window._genesys || !window._genesys.widgets) {
+        console.error(
+          '[Genesys] Critical: _genesys.widgets not available in onReady callback. Aborting initialization.',
+        );
+        return;
+      }
+      if (!CXBus || typeof CXBus.command !== 'function') {
+        console.error(
+          '[Genesys] Invalid CXBus object in onReady callback. Aborting initialization.',
+        );
+        return;
+      }
+      console.log('[Genesys] CXBus valid:', !!CXBus);
+
+      // 2. Configure widgets FIRST
+      // Ensure initLocalWidgetConfiguration sets up window._genesys.widgets.main and .webchat
+      initLocalWidgetConfiguration();
       console.log(
-        `[click_to_chat.js] Timestamp: ${Date.now()} - initLocalWidgetConfiguration END`,
+        '[click_to_chat.js] Timestamp:',
+        Date.now(),
+        '- onReady: AFTER initLocalWidgetConfiguration()',
       );
-    }
 
-    // === Load widgets.min.js AND THEN initialize ===
-    console.log(
-      '[click_to_chat.js] Now responsible for loading widgets.min.js',
-    );
-    // Corrected: Declare widgetsMinJsUrl BEFORE using it in the log below
-    const widgetsMinJsUrl =
-      cfg.widgetsMinJsUrl || '/assets/genesys/plugins/widgets.min.js';
-    console.log(
-      `[click_to_chat.js] Timestamp: ${Date.now()} - About to load ${widgetsMinJsUrl}`,
-    );
-    loadResource
-      .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
-      .then(() => {
-        // Existing log for SCRIPT TAG LOADED
-        console.log(
-          `[click_to_chat.js] Timestamp: ${Date.now()} - ${widgetsMinJsUrl} SCRIPT TAG LOADED. Defining onReady.`,
-        );
+      // 3. Register Plugins FIRST
+      const plugin = CXBus.registerPlugin('LocalCustomization');
+      plugin.subscribe('WebChat.opened', function () {
+        console.log('[Genesys] WebChat.opened event received.');
+        // Add any custom logic for when the chat window opens
 
-        // <<< ADDED DEBUG LOGS >>>
-        console.log(
-          `[DEBUG click_to_chat.js] Timestamp: ${Date.now()} - Immediately after widgets.min.js script tag loaded. Checking window._genesys...`,
-        );
-        console.log(
-          '[DEBUG click_to_chat.js] window._genesys:',
-          window._genesys,
-        );
-        console.log(
-          '[DEBUG click_to_chat.js] typeof window._genesys:',
-          typeof window._genesys,
-        );
-        if (window._genesys && window._genesys.widgets) {
-          console.log(
-            '[DEBUG click_to_chat.js] Genesys widgets are available:',
-            window._genesys.widgets,
-          );
-        } else {
-          console.log(
-            '[DEBUG click_to_chat.js] window._genesys or window._genesys.widgets NOT available here.',
-          );
-        }
-        // <<< END ADDED DEBUG LOGS >>>
-
-        // Original console logs about _genesys state (can be redundant now but kept for consistency)
-        console.log(
-          '[click_to_chat.js] State of window._genesys IMMEDIATELY AFTER widgets.min.js load:',
-          typeof window._genesys,
-          window._genesys
-            ? JSON.parse(JSON.stringify(window._genesys || {}))
-            : 'undefined or non-serializable', // Be careful with stringify
-        );
-        console.log(
-          '[click_to_chat.js] State of window._genesys.widgets IMMEDIATELY AFTER widgets.min.js load:',
-          typeof window._genesys?.widgets,
-          window._genesys?.widgets
-            ? JSON.parse(JSON.stringify(window._genesys.widgets || {}))
-            : 'undefined or non-serializable',
-        );
-        console.log(
-          '[click_to_chat.js] Is window._genesys.widgets.onReady defined by widgets.min.js itself BEFORE we define it?',
-          typeof window._genesys?.widgets?.onReady,
-        );
-        // debugger; // Optional: pause here to inspect
-
-        console.log(
-          `[click_to_chat.js] ${widgetsMinJsUrl} dynamically loaded. Defining onReady callback.`,
-        );
-
-        // Define onReady. initLocalWidgetConfiguration and initialise() will be called INSIDE it.
-        if (window._genesys && window._genesys.widgets) {
-          window._genesys.widgets.onReady = function (CXBus) {
-            console.log(
-              '[click_to_chat.js] Timestamp:',
-              Date.now(),
-              '- window._genesys.widgets.onReady CALLED by widgets.min.js.',
-            );
-
-            // 1. Pre-initialization Checks
-            if (!window._genesys || !window._genesys.widgets) {
-              console.error(
-                '[Genesys] Critical: _genesys.widgets not available in onReady callback. Aborting initialization.',
-              );
-              return;
-            }
-            if (!CXBus || typeof CXBus.command !== 'function') {
-              console.error(
-                '[Genesys] Invalid CXBus object in onReady callback. Aborting initialization.',
-              );
-              return;
-            }
-            console.log('[Genesys] CXBus valid:', !!CXBus);
-
-            // 2. Configure widgets FIRST
-            // Ensure initLocalWidgetConfiguration sets up window._genesys.widgets.main and .webchat
-            initLocalWidgetConfiguration();
-            console.log(
-              '[click_to_chat.js] Timestamp:',
-              Date.now(),
-              '- onReady: AFTER initLocalWidgetConfiguration()',
-            );
-
-            // 3. Register Plugins FIRST
-            const plugin = CXBus.registerPlugin('LocalCustomization');
-            plugin.subscribe('WebChat.opened', function () {
-              console.log('[Genesys] WebChat.opened event received.');
-              // Add any custom logic for when the chat window opens
-            });
-            plugin.subscribe('WebChat.messageAdded', function () {
-              console.log('[Genesys] WebChat.messageAdded event received.');
-              // Add any custom logic for new messages
-            });
-            // Add other relevant plugin subscriptions
-
-            // 4. ALWAYS run App.ready before ANY other commands
-            CXBus.command('App.ready');
-            console.log(
-              '[click_to_chat.js] Timestamp:',
-              Date.now(),
-              "- onReady: CXBus.command('App.ready') sent.",
-            );
-
-            // 5. Only THEN run App.main, with robust error handling
-            CXBus.command('App.main')
-              .done(function () {
-                console.log('[Genesys] App.main completed successfully.');
-                window.genesysLegacyChatIsReady = true; // Set your global flag here
-                // 6. Show button ONLY after App.main completes
-                CXBus.command('WebChat.showChatButton');
-                console.log(
-                  '[click_to_chat.js] Timestamp:',
-                  Date.now(),
-                  '- onReady: WebChat.showChatButton commanded after App.main success.',
-                );
-
-                // Dispatch a custom event indicating Genesys is ready from legacy script perspective
-                var event = new CustomEvent('genesys:ready', {
-                  detail: { CXBus: CXBus },
-                });
-                window.dispatchEvent(event);
-                console.log(
-                  '[click_to_chat.js] Timestamp:',
-                  Date.now(),
-                  '- genesys:ready event dispatched.',
-                );
-              })
-              .fail(function (err) {
-                console.error('[Genesys] App.main failed:', err);
-                // Fallback: If App.main fails, try to show the button directly, though chat initiation might still fail.
-                CXBus.command('WebChat.showChatButton');
-                console.warn(
-                  '[Genesys] Attempted WebChat.showChatButton after App.main failure.',
-                );
-
-                // Dispatch an error event if App.main fails
-                var errorEvent = new CustomEvent('genesys:error', {
-                  detail: { error: 'App.main failed', originalError: err },
-                });
-                window.dispatchEvent(errorEvent);
-              });
-
-            console.log(
-              '[click_to_chat.js] Timestamp:',
-              Date.now(),
-              '- End of onReady callback execution.',
-            );
-          };
-          console.log(
-            '[click_to_chat.js] window._genesys.widgets.onReady has been defined.',
-          );
-        } else {
-          console.error(
-            '[click_to_chat.js] _genesys.widgets object not available to set onReady after widgets.min.js load. Chat will likely fail.',
-          );
-          document.dispatchEvent(
-            new CustomEvent('genesys:error', {
-              detail: {
-                message: '_genesys.widgets not available to define onReady.',
-                error: new Error('_genesys.widgets undefined post load'),
-              },
-            }),
-          );
-        }
-        console.log(
-          '[click_to_chat.js] Relying on widgets.min.js internal preloading and its onReady event to trigger configured initialization steps.',
-        );
-      })
-      .catch((err) => {
-        console.error(
-          `[click_to_chat.js] CRITICAL: Failed to load ${widgetsMinJsUrl}:`,
-          err,
-        );
-        document.dispatchEvent(
-          new CustomEvent('genesys:error', {
-            detail: {
-              message: `Failed to load ${widgetsMinJsUrl}`,
-              error: err,
-            },
-          }),
-        );
-        // Handle this critical failure - chat won't work.
-        // Optionally display an error message to the user directly here.
-      });
-
-    // === CoBrowse Helper Functions (exposed to window) ===
-    window.startCoBrowseCall = () => {
-      console.log('[Genesys] Starting CoBrowse call flow');
-      // Ensure jQuery and Bootstrap's modal are loaded if using $().modal
-      if (typeof $ !== 'undefined' && $.fn.modal) {
-        $('#cobrowse-sessionConfirm').modal({
-          backdrop: 'static',
-          keyboard: false,
-        });
-      } else {
-        console.warn(
-          '[Genesys] jQuery or Bootstrap modal not available for startCoBrowseCall.',
-        );
-        // Fallback: show a simpler confirm or direct to modal if $().modal is not present
-        const modal = document.getElementById('cobrowse-sessionConfirm');
-        if (modal) modal.style.display = 'block';
-      }
-    };
-
-    window.openWebChatWidget = () => {
-      console.log('[Genesys] Opening WebChat widget via command');
-      if (window._genesysCXBus) {
-        window._genesysCXBus.command('WebChat.open');
-        // Hide CoBrowse modals if chat is opened this way
-        $('#cobrowse-contactUsScreen1').modal('hide');
-        $('#cobrowse-contactUsScreen2').modal('hide');
-      } else {
-        console.warn('[Genesys] CXBus not available to open WebChat widget.');
-      }
-    };
-
-    // This function seems to be for a different Genesys widget (CallUs), ensure it's needed.
-    window.openCallUsWidget = () => {
-      console.log(
-        '[Genesys] Opening CallUs widget command (if CallUs widget is loaded)',
-      );
-      if (window._genesysCXBus) {
-        // Ensure the CallUs widget is part of the 'preload' array in main config if used.
-        window._genesysCXBus.command('CallUs.open');
-      } else {
-        console.warn('[Genesys] CXBus not available to open CallUs widget.');
-      }
-    };
-
-    window.showCobrowseModal = () => {
-      console.log('[Genesys] Showing CoBrowse session ID modal');
-      $('#cobrowse-sessionConfirm').modal('hide');
-
-      if (typeof window.startCobrowse === 'function') {
-        window.startCobrowse(); // This initiates the CobrowseIO session code generation
-      } else {
-        console.error(
-          '[Genesys] Cobrowse start function (window.startCobrowse) not defined',
-        );
-      }
-      // Show the modal that displays the session ID
-      $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' });
-    };
-
-    // Defines the function that starts the CoBrowse.IO session code generation
-    window.defineCobrowseStarter = function () {
-      window.startCobrowse = function () {
-        console.log(
-          '[Genesys] CoBrowseIO.client().createSessionCode() requested by user action',
-        );
-
+        // Ported JSPF logic for real-time chat availability check
+        // Ensure cfg properties like rawChatHrs, isChatAvailable, workingHrs are populated
         if (
-          window.CobrowseIO &&
-          typeof window.CobrowseIO.client === 'function'
+          cfg.rawChatHrs &&
+          typeof cfg.isChatAvailable !== 'undefined' &&
+          cfg.workingHrs
         ) {
-          CobrowseIO.client()
-            .then(
-              (
-                c, // c is the CobrowseIO client instance
-              ) =>
-                c
-                  .createSessionCode()
-                  .then((code) => {
-                    // code is the session code object, e.g., { value: "123-456" }
-                    const sessionTokenEl = document.getElementById(
-                      'cobrowse-sessionToken',
-                    );
-                    if (sessionTokenEl) {
-                      // Assuming code.value is "123456", format it as "123-456"
-                      let formattedCode = String(code.value || code); // code might be string or obj
-                      if (
-                        formattedCode.length === 6 &&
-                        /^\d+$/.test(formattedCode)
-                      ) {
-                        formattedCode = formattedCode
-                          .match(/.{1,3}/g)
-                          .join('-');
-                      }
-                      sessionTokenEl.textContent = formattedCode;
-                    } else {
-                      console.error(
-                        '[Genesys] cobrowse-sessionToken element not found.',
-                      );
-                    }
-                  })
-                  .catch((err) =>
-                    console.error(
-                      '[Genesys] Error creating CoBrowse session code:',
-                      err,
-                    ),
-                  ),
-            )
-            .catch((clientErr) =>
-              console.error(
-                '[Genesys] Error getting CobrowseIO client:',
-                clientErr,
-              ),
-            );
-        } else {
-          console.error(
-            '[Genesys] CobrowseIO.client is not available or not a function.',
-          );
-        }
-      };
-    };
-    defineCobrowseStarter(); // Define window.startCobrowse immediately
+          let dt = new Date();
+          // Genesys widgets typically operate in user's local time unless server interaction dictates otherwise.
+          // JSPF used America/New_York. If this is critical, time zone conversion might be needed here
+          // or cfg.rawChatHrs should be pre-adjusted. For now, using local time matching typical JS behavior.
+          let dtTimeStr = dt.toLocaleTimeString('en-US', {
+            hour12: false /*, timeZone: 'America/New_York' // Consider if TZ conversion is vital */,
+          });
+          dtTimeStr = dtTimeStr.split(':')[0] + '.' + dtTimeStr.split(':')[1];
+          let currentHrMin = parseFloat(dtTimeStr);
 
-    window.showCobrowseContactUsModal = () => {
-      console.log('[Genesys] Showing CoBrowse Contact Us options modal');
-      $('#cobrowse-sessionConfirm').modal('hide');
-      $('#cobrowse-contactUsScreen1').modal({ backdrop: 'static' });
-    };
+          // Example: cfg.rawChatHrs = "Mon-Fri: 8am-8pm_Sat: 9am-1pm_Sun: Closed_16.00" (JSPF format had last part as end hour for today)
+          // We need a robust way to get today's end hour from cfg.rawChatHrs or a dedicated cfg field.
+          // For this example, let's assume cfg.endChatHourToday (e.g., 16.00 or 20.00) is provided.
+          // This parsing logic from JSPF was: rawChatHrs.substring(rawChatHrs.lastIndexOf('_')+1);
+          // This should be robustly set in cfg, e.g. cfg.todayEndChatHour (number)
 
-    window.cobrowseContactUsOption = () => {
-      // Typically called when "PHONE" is chosen
-      console.log('[Genesys] CoBrowse Contact Us - Phone option selected');
-      $('#cobrowse-contactUsScreen1').modal('hide');
-      $('#cobrowse-contactUsScreen2').modal('show'); // Shows phone details
-    };
-
-    window.cobrowseClosePopup = () => {
-      console.log('[Genesys] Closing CoBrowse Contact Us phone details popup');
-      $('#cobrowse-contactUsScreen2').modal('hide');
-    };
-
-    window.cobrowseSessionModal = () => {
-      // "Share your screen" link from phone details
-      console.log('[Genesys] Initiating CoBrowse from phone details modal');
-      $('#cobrowse-contactUsScreen2').modal('hide');
-      if (typeof window.startCobrowse === 'function') {
-        window.startCobrowse(); // Generate session code
-      } else {
-        console.error(
-          '[Genesys] Cobrowse start function not defined for cobrowseSessionModal.',
-        );
-      }
-      $('#cobrowse-sessionYesModal').modal({ backdrop: 'static' }); // Show session ID modal
-    };
-
-    window.endCoBrowseCall = () => {
-      console.log('[Genesys] Attempting to end CoBrowse session');
-      if (window.CobrowseIO && typeof CobrowseIO.client === 'function') {
-        CobrowseIO.client()
-          .then((c) => (c.endSession ? c.endSession() : c.exitSession())) // endSession or exitSession depending on SDK version
-          .then(() => {
-            console.log('[Genesys] CoBrowse session ended successfully.');
-            $('#cobrowse-sessionYesModal').modal('hide'); // Hide the session ID modal
-          })
-          .catch((err) =>
-            console.error('[Genesys] Error ending CoBrowse call/session:', err),
-          );
-      } else {
-        console.warn(
-          '[Genesys] CobrowseIO client not available to end session.',
-        );
-        $('#cobrowse-sessionYesModal').modal('hide'); // Still hide modal
-      }
-    };
-
-    // === Fallback Button Creation & Widget Initialization Functions ===
-    window.forceCreateChatButton = function () {
-      if (window._genesysButtonCreationInProgress) {
-        console.log(
-          '[Genesys] Button creation already in progress, skipping duplicate call to forceCreateChatButton',
-        );
-        return false; // Indicate not run or already exists
-      }
-      window._genesysButtonCreationInProgress = true;
-
-      const existingButton = document.querySelector(
-        '.cx-widget.cx-webchat-chat-button',
-      );
-      if (existingButton && existingButton.offsetParent !== null) {
-        // Check if visible
-        console.log(
-          '[Genesys] Chat button already exists and is likely visible, not forcing creation.',
-        );
-        window._genesysButtonCreationInProgress = false;
-        return true; // Indicate button exists
-      }
-
-      console.log('[Genesys] Forcing chat button initialization/visibility');
-      // This function is primarily a fallback. The main path is via CXBus.command in onReady.
-      // It might be called by the safety timeout.
-
-      if (cfg.chatMode === 'legacy' || cfg.chatMode === 'cloud') {
-        // Unified approach for modern widgets
-        console.log(
-          `[Genesys] Using CXBus.command('WebChat.showChatButton') for ${cfg.chatMode} mode.`,
-        );
-        if (
-          window._genesysCXBus &&
-          typeof window._genesysCXBus.command === 'function'
-        ) {
-          try {
-            // Prevent rapid successive calls if this gets spammed
-            const now = Date.now();
+          let endChatHrMin = null;
+          if (cfg.rawChatHrs && cfg.rawChatHrs.includes('_')) {
+            const parts = cfg.rawChatHrs.split('_');
+            const endChatHoursStr = parts[parts.length - 1];
+            endChatHrMin = parseFloat(endChatHoursStr);
             if (
-              !window._genesysLastCXBusCommandTime ||
-              now - window._genesysLastCXBusCommandTime > 1000 // Throttle: 1 sec
+              typeof endChatHrMin === 'number' &&
+              0 < endChatHrMin &&
+              endChatHrMin < 12 &&
+              endChatHrMin !== 24
             ) {
-              window._genesysLastCXBusCommandTime = now;
-              window._genesysCXBus.command('WebChat.showChatButton', {
-                immediate: true,
-              });
-              console.log(
-                '[Genesys] CXBus WebChat.showChatButton commanded via forceCreate.',
-              );
-            } else {
-              console.log(
-                '[Genesys] CXBus WebChat.showChatButton throttled in forceCreate.',
-              );
+              // JSPF 12hr PM logic
+              // This JSPF logic for 12hr time might need care if cfg.todayEndChatHour is already 24hr
+              // For simplicity, let's assume cfg.todayEndChatHour is in 24hr format (e.g., 16.5 for 4:30 PM)
             }
-          } catch (e) {
-            console.error(
-              '[Genesys] Error calling CXBus.command in forceCreateChatButton:',
-              e,
+          } else if (typeof cfg.todayEndChatHour === 'number') {
+            // Prefer a direct config value
+            endChatHrMin = cfg.todayEndChatHour;
+          }
+
+          console.log(
+            `[Genesys] Chat Availability Check: CurrentTime=${currentHrMin}, ConfiguredEndHour=${endChatHrMin}, IsChatInitiallyAvailable=${cfg.isChatAvailable}`,
+          );
+
+          // JSPF logic: (isChatAvailable === "true" && currentHrMin > endChatHrMin)
+          // Assumes cfg.isChatAvailable is a boolean from validateConfig
+          if (
+            cfg.isChatAvailable &&
+            endChatHrMin !== null &&
+            currentHrMin > endChatHrMin
+          ) {
+            console.log(
+              '[Genesys] Condition Met: Chat was available, but current time is past operating hours. Modifying form.',
             );
+            let tempUnavailableChatForm = {
+              inputs: [
+                {
+                  custom:
+                    "<tr><td colspan='2' class='i18n' style='font-family: universStd;'>You&#39;ve reached us after business hours,<br>but we&#39;ll be ready to chat again soon.</td></tr>",
+                },
+                {
+                  // cfg.workingHrs should be like "Mon-Fri: 8 AM - 8 PM EST"
+                  custom:
+                    "<tr><td id='reachUs' colspan='2' class='i18n' style='font-family: universStd;'>Reach us " +
+                    (cfg.workingHrs || 'during business hours') +
+                    '</td></tr>',
+                },
+              ],
+            };
+
+            // Call addAfterHoursLinks if selfServiceLinks are available
+            // The JSPF had a complex <c:if> here. For now, simplified:
+            if (cfg.selfServiceLinks && cfg.selfServiceLinks.length > 0) {
+              addAfterHoursLinks(tempUnavailableChatForm, cfg); // Pass cfg
+            }
+
+            $('.activeChat').hide(); // Hide original form elements
+
+            // Append new "after hours" messages
+            if (tempUnavailableChatForm.inputs) {
+              tempUnavailableChatForm.inputs.forEach(function (element) {
+                if (element.custom) {
+                  // Ensure the target table exists
+                  if ($('.cx-form > .cx-form-inputs > table').length) {
+                    $('.cx-form > .cx-form-inputs > table').append(
+                      element.custom,
+                    );
+                  } else {
+                    console.warn(
+                      '[Genesys] Chat form table not found for appending after hours links.',
+                    );
+                  }
+                }
+              });
+            }
+
+            $(
+              '.cx-button-group.cx-buttons-binary > button[data-message="ChatFormSubmit"]',
+            ).hide();
           }
         } else {
           console.warn(
-            '[Genesys] CXBus not available for forceCreateChatButton. Button may not appear.',
+            '[Genesys] Not performing real-time chat availability check due to missing cfg: rawChatHrs, isChatAvailable, or workingHrs.',
           );
-          // At this point, widgets.min.js or its initialization might have failed.
-          // Consider dispatching an error or showing a manual message.
         }
-      }
-      // Ensure the variable is reset after execution.
-      setTimeout(() => {
-        window._genesysButtonCreationInProgress = false;
-      }, 500);
-      return true; // Indicate attempt was made
-    };
-    window._forceChatButtonCreate = window.forceCreateChatButton; // Expose globally for safety timeout
 
+        // JSPF: if(isChatAvailable === "false") { $('.cx-button-group.cx-buttons-binary').hide(); }
+        // This is if chat was *initially* unavailable when page loaded
+        if (cfg.isChatAvailable === false) {
+          // Assuming boolean from validateConfig
+          console.log(
+            '[Genesys] Chat is configured as initially unavailable. Hiding submit button group.',
+          );
+          $('.cx-button-group.cx-buttons-binary').hide();
+        }
+
+        // Other JSPF logic from WebChat.opened:
+        customizeAmplify(); // Called on WebChat.opened as per JSPF structure
+        $("button[data-message='ChatFormCancel']").hide();
+        if (cfg.routingchatbotEligible) {
+          // from validateConfig
+          $("button[data-message='ChatFormSubmit']").attr({
+            id: 'startChat',
+            class: 'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
+          });
+        } else {
+          $("button[data-message='ChatFormSubmit']").attr({
+            disabled: 'disabled',
+            id: 'startChat',
+            class:
+              'cx-btn cx-btn-default cx-disabled i18n cx-btn-primary buttonWide',
+          });
+          $('#question_field').attr(
+            'class',
+            'cx-input cx-form-control dropdownInput i18n',
+          );
+        }
+        $("button[data-message='ConfirmCloseCancel']").attr(
+          'class',
+          'cx-close-cancel cx-btn cx-btn-default i18n btn-secondary',
+        );
+        $("button[data-message='ChatEndCancel']").attr(
+          'class',
+          'cx-end-cancel cx-btn cx-btn-default i18n btn-secondary',
+        );
+        // $("button[data-message='ChatEndConfirm']").click(closeChatWindow); // We'll add closeChatWindow later
+        $("textarea[data-message='ChatInputPlaceholder']").css(
+          'background',
+          'none',
+        );
+
+        // JSPF: if(calculatedCiciId == clientIdConst.SeniorCare){ ... }
+        if (calculatedCiciId === clientIdConst.SeniorCare) {
+          // calculatedCiciId from outer scope
+          $('#question_field').hide();
+          $('button[data-message="ChatFormSubmit"]').removeAttr('disabled');
+          $('button[data-message="ChatFormSubmit"]').attr({
+            id: 'startChat',
+            class: 'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
+          });
+        }
+      });
+      plugin.subscribe('WebChat.messageAdded', function () {
+        console.log('[Genesys] WebChat.messageAdded event received.');
+        // Add any custom logic for new messages
+      });
+      plugin.subscribe('WebChat.submitted', function (e) {
+        console.log('[Genesys] WebChat.submitted event received.');
+        // GA - start chat interactions (placeholder for GA logic)
+        // window.elementTag($(this).text(), "Chat", {action: "click", selection_type: "widget" }, "select_content", null);
+        applyMessageScaler();
+        customizeAmplify(); // Also called here in JSPF
+      });
+
+      plugin.subscribe('WebChat.errors', function (e) {
+        console.error('[Genesys] WebChat.errors event received:', e);
+        // OpenChatConnectionError(); // We'll define and call this later
+      });
+
+      // JSPF had CallUs.opened subscription here. If CallUs widget is used, it would be similar.
+      // plugin.subscribe('CallUs.opened', function(e){
+      //     console.log("[Genesys] CallUs.opened event received.");
+      //     // ... JSPF CallUs customizations ...
+      // });
+
+      // 4. ALWAYS run App.ready before ANY other commands
+      CXBus.command('App.ready');
+      console.log(
+        '[click_to_chat.js] Timestamp:',
+        Date.now(),
+        "- onReady: CXBus.command('App.ready') sent.",
+      );
+
+      // 5. Only THEN run App.main, with robust error handling
+      CXBus.command('App.main')
+        .done(function () {
+          console.log('[Genesys] App.main completed successfully.');
+          window.genesysLegacyChatIsReady = true; // Set your global flag here
+          // 6. Show button ONLY after App.main completes
+          CXBus.command('WebChat.showChatButton');
+          console.log(
+            '[click_to_chat.js] Timestamp:',
+            Date.now(),
+            '- onReady: WebChat.showChatButton commanded after App.main success.',
+          );
+
+          // Dispatch a custom event indicating Genesys is ready from legacy script perspective
+          var event = new CustomEvent('genesys:ready', {
+            detail: { CXBus: CXBus },
+          });
+          window.dispatchEvent(event);
+          console.log(
+            '[click_to_chat.js] Timestamp:',
+            Date.now(),
+            '- genesys:ready event dispatched.',
+          );
+        })
+        .fail(function (err) {
+          console.error('[Genesys] App.main failed:', err);
+          // Fallback: If App.main fails, try to show the button directly, though chat initiation might still fail.
+          CXBus.command('WebChat.showChatButton');
+          console.warn(
+            '[Genesys] Attempted WebChat.showChatButton after App.main failure.',
+          );
+
+          // Dispatch an error event if App.main fails
+          var errorEvent = new CustomEvent('genesys:error', {
+            detail: { error: 'App.main failed', originalError: err },
+          });
+          window.dispatchEvent(errorEvent);
+        });
+
+      console.log(
+        '[click_to_chat.js] Timestamp:',
+        Date.now(),
+        '- End of onReady callback execution.',
+      );
+
+      // JSPF also called customizeAmplify in a separate onReady.push, effectively after main init.
+      // Calling it here ensures it runs after App.main has likely set up the main chat elements.
+      customizeAmplify();
+    }
     console.log(
-      '[click_to_chat.js] End of initializeChatWidget main logic. Initialization is now event-driven by widgets.min.js load.',
+      '[click_to_chat.js] window._genesys.widgets.onReady has been defined.',
     );
   } // End of initializeChatWidget
 
