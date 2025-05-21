@@ -35,8 +35,7 @@ function generateMockChatConfig(
       'https://members.bcbst.com/test/soa/api/cci/genesyschat',
     gmsChatUrl:
       process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT || // Fallback to main legacy endpoint if GMS_CHAT_URL is not set
-      'https://members.bcbst.com/test/soa/api/cci/genesyschat',
+      'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
     widgetUrl:
       process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
       '/assets/genesys/plugins/widgets.min.js',
