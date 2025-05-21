@@ -2,6 +2,9 @@
   'use strict';
 
   console.log('[click_to_chat.js] STARTING EXECUTION');
+  // Initialize global flags for coordinating chat open requests
+  window.genesysLegacyChatOpenRequested = false;
+  window.genesysLegacyChatIsReady = false;
   console.log(
     '[click_to_chat.js] Initial window.chatSettings:',
     JSON.parse(JSON.stringify(window.chatSettings || {})),
@@ -1046,10 +1049,60 @@
               "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('App.main').",
             );
             try {
-              CXBus.command('App.main'); // Preferred way to initialize for Genesys Cloud
-              console.log(
-                "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED.",
-              );
+              CXBus.command('App.main')
+                .done(() => {
+                  console.log(
+                    "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED and its 'done' callback executed.",
+                  );
+                  // More robust: Set ready and check for pending request *after* App.main fully completes.
+                  // Or, subscribe to 'App.ready' if that's more reliable.
+                  // For now, setting it here post App.main success.
+
+                  console.log(
+                    '[click_to_chat.js] Setting genesysLegacyChatIsReady = true',
+                  );
+                  window.genesysLegacyChatIsReady = true;
+                  document.dispatchEvent(
+                    new CustomEvent('genesys:appMainReady'),
+                  ); // Custom event
+
+                  if (window.genesysLegacyChatOpenRequested) {
+                    console.log(
+                      '[click_to_chat.js] genesysLegacyChatOpenRequested was true. Commanding WebChat.open now.',
+                    );
+                    if (CXBus && typeof CXBus.command === 'function') {
+                      CXBus.command('WebChat.open');
+                      window.genesysLegacyChatOpenRequested = false; // Reset flag
+                    } else {
+                      console.error(
+                        '[click_to_chat.js] CXBus not available to open chat for pending request.',
+                      );
+                    }
+                  } else {
+                    console.log(
+                      '[click_to_chat.js] No pending chat open request (genesysLegacyChatOpenRequested is false).',
+                    );
+                  }
+                })
+                .fail((appMainErr) => {
+                  console.error(
+                    "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED in its 'fail' callback:",
+                    appMainErr,
+                  );
+                  document.dispatchEvent(
+                    new CustomEvent('genesys:error', {
+                      detail: {
+                        message:
+                          "Error from CXBus.command('App.main') 'fail' callback in onReady",
+                        error: appMainErr,
+                      },
+                    }),
+                  );
+                });
+              // Original success log, keeping for now, but 'done' callback above is more precise
+              // console.log(
+              //   "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED (command issued).",
+              // );
             } catch (cxCommandError) {
               console.error(
                 "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED:",
@@ -1325,7 +1378,9 @@
               );
               try {
                 CXBus.command('WebChat.showChatButton');
-                document.dispatchEvent(new CustomEvent('genesys:ready')); // Signal overall readiness
+                // Dispatch general ready *after* button is shown and App.main is likely done.
+                // The genesys:appMainReady event above is more specific to App.main completion.
+                document.dispatchEvent(new CustomEvent('genesys:ready'));
                 console.log(
                   '[click_to_chat.js] PRIMARY onReady: WebChat.showChatButton SUCCEEDED.',
                 );
