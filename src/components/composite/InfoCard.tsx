@@ -26,7 +26,7 @@ export const InfoCard = ({
     <Link href={link ?? ''}>
       <Card type="elevated" key={label} className="small-section">
         <Row>
-          <Image className="size-10" src={icon} alt="link" />
+          <Image className="size-10" src={icon} alt="" />
           <Column className="ml-4">
             <Row className="link-row-head">
               {label}

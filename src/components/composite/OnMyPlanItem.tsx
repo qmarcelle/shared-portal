@@ -43,7 +43,7 @@ export const OnMyPlanItem = ({
   onClick,
   className,
   infoButton,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   targetType,
   medicalEffectiveDate,
   dentalEffectiveDate,
@@ -137,7 +137,7 @@ export const OnMyPlanItem = ({
                 </>
               }
             >
-              <Image src={infoIcon} className="icon" alt="Info" />
+              <Image src={infoIcon} className="icon" alt="" />
             </ToolTip>
           )}
         </Row>

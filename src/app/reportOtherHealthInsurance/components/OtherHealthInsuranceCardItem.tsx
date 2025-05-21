@@ -27,7 +27,7 @@ interface OtherHealthInsuranceCardItemProps extends IComponent {
 export const OtherHealthInsuranceCardItem = ({
   onClick,
   className,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   memberDetails,
   cobDetails,
   membersData,

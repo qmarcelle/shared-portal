@@ -21,7 +21,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
           </h1>
           <p
             class="body-1 body-1 my-4 mb-0 w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
           </p>
@@ -61,7 +61,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       class="relative"
                     >
                       <div
-                        class="flex flex-row link"
+                        class="flex flex-row link "
                         tabindex="0"
                       >
                         <p
@@ -73,7 +73,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <img
-                          alt="down icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -95,7 +95,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                             class="size-5 mx-2 "
                           >
                             <img
-                              alt="selcted"
+                              alt=""
                               class="size-5"
                               data-nimg="1"
                               decoding="async"
@@ -158,7 +158,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             You do not have any Deductible amounts.
                           </p>
@@ -192,7 +192,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             You do not have any Out-of-Pocket amounts.
                           </p>
@@ -223,20 +223,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $3000 Annual Maximum Basic and Major
                         </p>
@@ -261,20 +261,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $3000 Ortho Lifetime Maximum
                         </p>
@@ -347,7 +347,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       class="relative"
                     >
                       <div
-                        class="flex flex-row link"
+                        class="flex flex-row link "
                         tabindex="0"
                       >
                         <p
@@ -359,7 +359,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                           style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                         />
                         <img
-                          alt="down icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -381,7 +381,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                             class="size-5 mx-2 "
                           >
                             <img
-                              alt="selcted"
+                              alt=""
                               class="size-5"
                               data-nimg="1"
                               decoding="async"
@@ -444,7 +444,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             You do not have any Deductible amounts.
                           </p>
@@ -478,7 +478,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             You do not have any Out-of-Pocket amounts.
                           </p>
@@ -509,20 +509,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $3000 Annual Maximum Basic and Major
                         </p>
@@ -547,20 +547,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $0.00
                           </p>
                           <p
                             class="body-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Used
                           </p>
                         </div>
                         <p
                           class="body-1 ml-5"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $3000 Ortho Lifetime Maximum
                         </p>
@@ -618,46 +618,54 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
                   />
-                  <p
-                    class="body-1 inline"
-                    style="display: block;"
+                  <span
+                    class="rich-text body-1 undefined"
                   >
-                    We work with EyeMed to provide your vision benefits. To manage your vision plan, 
-                  </p>
-                  <a
-                    aria-label="visit EyeMed"
-                    href="/sso/launch?PartnerSpId=Eyemed"
-                    style="display: inline-flex;"
-                  >
-                    <button
-                      class="flex flex-row link-container p-0"
-                      style="max-width: max-content; height: auto; display: inline-flex;"
-                      tabindex="-1"
-                      type="button"
+                    <span>
+                      We work with EyeMed to provide your vision benefits. To manage your vision plan,
+                       
+                    </span>
+                    <span
+                      class="font-bold link"
                     >
-                      <p
-                        class="link undefined"
+                      <a
+                        aria-label="visit EyeMed"
+                        href="/sso/launch?PartnerSpId=Eyemed"
+                        style="display: inline-flex;"
                       >
-                        visit EyeMed
-                      </p>
-                      <p
-                        class="ml-1"
-                      >
-                        <img
-                          alt="external icon"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </p>
-                    </button>
-                  </a>
-                  .
+                        <button
+                          class="flex flex-row link-container p-0"
+                          style="max-width: max-content; height: auto; display: inline-flex;"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <p
+                            class="link undefined"
+                          >
+                            visit EyeMed
+                          </p>
+                          <p
+                            class="ml-1"
+                          >
+                            <img
+                              alt=""
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                          </p>
+                        </button>
+                      </a>
+                    </span>
+                    <span>
+                      .
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -681,7 +689,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       As of
                     </p>
@@ -770,7 +778,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       />
                       <p
                         class="body-1 ml-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You Paid
                       </p>
@@ -791,7 +799,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       />
                       <p
                         class="body-1 ml-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You Saved
                       </p>
@@ -827,104 +835,6 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                   />
                 </div>
               </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h1
-                    class="title-1 title-2"
-                  >
-                    Spending Accounts
-                  </h1>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 py-4 px-7 font-bold"
-                        style="display: block;"
-                      >
-                        HSA
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col ml-4"
-                    >
-                      <p
-                        class="body-2"
-                        style="display: block;"
-                      >
-                        Health Saving Account Balance
-                      </p>
-                      <p
-                        class="body-1 font-bold"
-                        style="display: block;"
-                      >
-                        $349.90
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="body-1 py-4 px-7 font-bold spending-account-text"
-                        style="display: block;"
-                      >
-                        FSA
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col ml-4"
-                    >
-                      <p
-                        class="body-2"
-                        style="display: block;"
-                      >
-                        Flexible Spending Account Balance
-                      </p>
-                      <p
-                        class="body-1 font-bold"
-                        style="display: block;"
-                      >
-                        $1,009.50
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <a
-                    aria-label="View Spending Accounts"
-                    href=""
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Accounts
-                      </p>
-                    </button>
-                  </a>
-                </div>
-              </div>
             </div>
           </section>
         </div>
@@ -948,7 +858,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
         </h1>
         <p
           class="body-1 body-1 my-4 mb-0 w-2/3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
         </p>
@@ -988,7 +898,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     class="relative"
                   >
                     <div
-                      class="flex flex-row link"
+                      class="flex flex-row link "
                       tabindex="0"
                     >
                       <p
@@ -1000,7 +910,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <img
-                        alt="down icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -1022,7 +932,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                           class="size-5 mx-2 "
                         >
                           <img
-                            alt="selcted"
+                            alt=""
                             class="size-5"
                             data-nimg="1"
                             decoding="async"
@@ -1085,7 +995,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You do not have any Deductible amounts.
                         </p>
@@ -1119,7 +1029,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You do not have any Out-of-Pocket amounts.
                         </p>
@@ -1150,20 +1060,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         $3000 Annual Maximum Basic and Major
                       </p>
@@ -1188,20 +1098,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         $3000 Ortho Lifetime Maximum
                       </p>
@@ -1274,7 +1184,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     class="relative"
                   >
                     <div
-                      class="flex flex-row link"
+                      class="flex flex-row link "
                       tabindex="0"
                     >
                       <p
@@ -1286,7 +1196,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                         style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                       />
                       <img
-                        alt="down icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -1308,7 +1218,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                           class="size-5 mx-2 "
                         >
                           <img
-                            alt="selcted"
+                            alt=""
                             class="size-5"
                             data-nimg="1"
                             decoding="async"
@@ -1371,7 +1281,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You do not have any Deductible amounts.
                         </p>
@@ -1405,7 +1315,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You do not have any Out-of-Pocket amounts.
                         </p>
@@ -1436,20 +1346,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         $3000 Annual Maximum Basic and Major
                       </p>
@@ -1474,20 +1384,20 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $0.00
                         </p>
                         <p
                           class="body-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Used
                         </p>
                       </div>
                       <p
                         class="body-1 ml-5"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         $3000 Ortho Lifetime Maximum
                       </p>
@@ -1545,46 +1455,54 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
                 />
-                <p
-                  class="body-1 inline"
-                  style="display: block;"
+                <span
+                  class="rich-text body-1 undefined"
                 >
-                  We work with EyeMed to provide your vision benefits. To manage your vision plan, 
-                </p>
-                <a
-                  aria-label="visit EyeMed"
-                  href="/sso/launch?PartnerSpId=Eyemed"
-                  style="display: inline-flex;"
-                >
-                  <button
-                    class="flex flex-row link-container p-0"
-                    style="max-width: max-content; height: auto; display: inline-flex;"
-                    tabindex="-1"
-                    type="button"
+                  <span>
+                    We work with EyeMed to provide your vision benefits. To manage your vision plan,
+                     
+                  </span>
+                  <span
+                    class="font-bold link"
                   >
-                    <p
-                      class="link undefined"
+                    <a
+                      aria-label="visit EyeMed"
+                      href="/sso/launch?PartnerSpId=Eyemed"
+                      style="display: inline-flex;"
                     >
-                      visit EyeMed
-                    </p>
-                    <p
-                      class="ml-1"
-                    >
-                      <img
-                        alt="external icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </p>
-                  </button>
-                </a>
-                .
+                      <button
+                        class="flex flex-row link-container p-0"
+                        style="max-width: max-content; height: auto; display: inline-flex;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          visit EyeMed
+                        </p>
+                        <p
+                          class="ml-1"
+                        >
+                          <img
+                            alt=""
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </p>
+                      </button>
+                    </a>
+                  </span>
+                  <span>
+                    .
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -1608,7 +1526,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     As of
                   </p>
@@ -1697,7 +1615,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Paid
                     </p>
@@ -1718,7 +1636,7 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Saved
                     </p>
@@ -1752,104 +1670,6 @@ exports[`Balances Page should render Dental Balance information on the Balances 
                 <div
                   class="flex flex-col clear-left"
                 />
-              </div>
-            </div>
-            <div
-              class="card-main large-section"
-            >
-              <div>
-                <h1
-                  class="title-1 title-2"
-                >
-                  Spending Accounts
-                </h1>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <div
-                    class="flex flex-col"
-                  >
-                    <p
-                      class="body-1 py-4 px-7 font-bold"
-                      style="display: block;"
-                    >
-                      HSA
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col ml-4"
-                  >
-                    <p
-                      class="body-2"
-                      style="display: block;"
-                    >
-                      Health Saving Account Balance
-                    </p>
-                    <p
-                      class="body-1 font-bold"
-                      style="display: block;"
-                    >
-                      $349.90
-                    </p>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <div
-                    class="flex flex-col"
-                  >
-                    <p
-                      class="body-1 py-4 px-7 font-bold spending-account-text"
-                      style="display: block;"
-                    >
-                      FSA
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col ml-4"
-                  >
-                    <p
-                      class="body-2"
-                      style="display: block;"
-                    >
-                      Flexible Spending Account Balance
-                    </p>
-                    <p
-                      class="body-1 font-bold"
-                      style="display: block;"
-                    >
-                      $1,009.50
-                    </p>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                />
-                <a
-                  aria-label="View Spending Accounts"
-                  href=""
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container undefined"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Spending Accounts
-                    </p>
-                  </button>
-                </a>
               </div>
             </div>
           </div>
@@ -1930,7 +1750,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
         </h1>
         <p
           class="body-1 body-1 my-4 mb-0 w-2/3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your balances show how close you are to meeting your annual plan deductibles and out-of-pocket limits.
         </p>
@@ -1964,7 +1784,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     class="flex flex-row flex flex-row align-top m-4"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="icon"
                       data-nimg="1"
                       decoding="async"
@@ -2012,7 +1832,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     class="flex flex-row flex flex-row align-top m-4"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="icon"
                       data-nimg="1"
                       decoding="async"
@@ -2051,46 +1871,54 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
                 />
-                <p
-                  class="body-1 inline"
-                  style="display: block;"
+                <span
+                  class="rich-text body-1 undefined"
                 >
-                  We work with EyeMed to provide your vision benefits. To manage your vision plan, 
-                </p>
-                <a
-                  aria-label="visit EyeMed"
-                  href="/sso/launch?PartnerSpId=Eyemed"
-                  style="display: inline-flex;"
-                >
-                  <button
-                    class="flex flex-row link-container p-0"
-                    style="max-width: max-content; height: auto; display: inline-flex;"
-                    tabindex="-1"
-                    type="button"
+                  <span>
+                    We work with EyeMed to provide your vision benefits. To manage your vision plan,
+                     
+                  </span>
+                  <span
+                    class="font-bold link"
                   >
-                    <p
-                      class="link undefined"
+                    <a
+                      aria-label="visit EyeMed"
+                      href="/sso/launch?PartnerSpId=Eyemed"
+                      style="display: inline-flex;"
                     >
-                      visit EyeMed
-                    </p>
-                    <p
-                      class="ml-1"
-                    >
-                      <img
-                        alt="external icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </p>
-                  </button>
-                </a>
-                .
+                      <button
+                        class="flex flex-row link-container p-0"
+                        style="max-width: max-content; height: auto; display: inline-flex;"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <p
+                          class="link undefined"
+                        >
+                          visit EyeMed
+                        </p>
+                        <p
+                          class="ml-1"
+                        >
+                          <img
+                            alt=""
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                        </p>
+                      </button>
+                    </a>
+                  </span>
+                  <span>
+                    .
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -2114,7 +1942,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     As of
                   </p>
@@ -2203,7 +2031,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Paid
                     </p>
@@ -2224,7 +2052,7 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Saved
                     </p>
@@ -2258,104 +2086,6 @@ exports[`Balances Page should render Vision Balance information on the Balances 
                 <div
                   class="flex flex-col clear-left"
                 />
-              </div>
-            </div>
-            <div
-              class="card-main large-section"
-            >
-              <div>
-                <h1
-                  class="title-1 title-2"
-                >
-                  Spending Accounts
-                </h1>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <div
-                    class="flex flex-col"
-                  >
-                    <p
-                      class="body-1 py-4 px-7 font-bold"
-                      style="display: block;"
-                    >
-                      HSA
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col ml-4"
-                  >
-                    <p
-                      class="body-2"
-                      style="display: block;"
-                    >
-                      Health Saving Account Balance
-                    </p>
-                    <p
-                      class="body-1 font-bold"
-                      style="display: block;"
-                    >
-                      $349.90
-                    </p>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <div
-                    class="flex flex-col"
-                  >
-                    <p
-                      class="body-1 py-4 px-7 font-bold spending-account-text"
-                      style="display: block;"
-                    >
-                      FSA
-                    </p>
-                  </div>
-                  <div
-                    class="flex flex-col ml-4"
-                  >
-                    <p
-                      class="body-2"
-                      style="display: block;"
-                    >
-                      Flexible Spending Account Balance
-                    </p>
-                    <p
-                      class="body-1 font-bold"
-                      style="display: block;"
-                    >
-                      $1,009.50
-                    </p>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                />
-                <a
-                  aria-label="View Spending Accounts"
-                  href=""
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container undefined"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Spending Accounts
-                    </p>
-                  </button>
-                </a>
               </div>
             </div>
           </div>

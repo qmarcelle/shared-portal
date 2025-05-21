@@ -23,7 +23,7 @@ export const SuccessSlide = ({
 }: SuccessSlideProps) => {
   return (
     <Column className="items-center">
-      <Image className="size-[80px]" src={successIcon} alt="success" />
+      <Image className="size-[80px]" src={successIcon} alt="" />
       <Spacer size={24} />
       <Header className="title-2 text-center" text={label} />
       <Spacer size={16} />

@@ -141,7 +141,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
           onClick={onBackPressed}
           className="items-center focus-icon"
         >
-          <Image src={leftIcon} className="modal-icon" alt="back" />
+          <Image src={leftIcon} className="modal-icon" alt="" />
           <TextBox text="Back" className="primary-color underline" />
         </Row>
       ) : (
@@ -151,7 +151,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
       <Image
         src={bcbstSilhouletteLogo}
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-        alt="bcbst logo"
+        alt=""
       />
       <div
         tabIndex={0}
@@ -159,7 +159,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
         onKeyDown={handleKeyDown}
         onClick={onClose}
       >
-        <Image src={closeIcon} className="size-4" alt="close" />
+        <Image src={closeIcon} className="size-4" alt="" />
       </div>
     </Row>
   );
@@ -168,11 +168,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
 const ModalFooter = () => {
   return (
     <Row className="justify-center modal-footer">
-      <Image
-        src={bcbstSilhouletteLogo}
-        className="modal-icon"
-        alt="bcbst logo"
-      />
+      <Image src={bcbstSilhouletteLogo} className="modal-icon" alt="" />
     </Row>
   );
 };

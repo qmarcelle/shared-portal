@@ -22,13 +22,13 @@ exports[`PayProvider should render the UI correctly 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your estimated balance is 
             </p>
             <p
               class="body-1 font-bold"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               $30.24
             </p>
@@ -67,7 +67,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
               </div>
             </div>
             <img
-              alt="Mark as paid information"
+              alt=""
               aria-label="Information about marking as paid"
               data-nimg="1"
               decoding="async"
@@ -112,13 +112,13 @@ exports[`PayProvider should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your estimated balance is 
           </p>
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             $30.24
           </p>
@@ -157,7 +157,7 @@ exports[`PayProvider should render the UI correctly 1`] = `
             </div>
           </div>
           <img
-            alt="Mark as paid information"
+            alt=""
             aria-label="Information about marking as paid"
             data-nimg="1"
             decoding="async"

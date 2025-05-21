@@ -162,7 +162,7 @@ exports[`PrescriptionPaymentsOptions should render SSO correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
         </p>
@@ -327,7 +327,7 @@ exports[`PrescriptionPaymentsOptions should render SSO correctly 1`] = `
       />
       <p
         class="body-1"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
       </p>
@@ -549,7 +549,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
         </p>
@@ -714,7 +714,7 @@ exports[`PrescriptionPaymentsOptions should render the Biometric UI correctly 1`
       />
       <p
         class="body-1"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         If you need help paying for your prescriptions, Social Security’s Extra Help program could lower your costs.
       </p>

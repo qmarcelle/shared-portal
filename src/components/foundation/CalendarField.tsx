@@ -23,7 +23,7 @@ export interface CalendarFieldProps extends IComponent {
   disabled?: boolean;
   minDateErrMsg?: string;
   maxDateErrMsg?: string;
-  required? : boolean;
+  required?: boolean;
 }
 
 export const CalendarField = ({
@@ -63,7 +63,7 @@ export const CalendarField = ({
       <div className="flex flex-row items-center relative inline-block">
         <div className="separator"></div>
         <div>
-          <Image src={calenderIcon} className="icon" alt="calenderIcon" />
+          <Image src={calenderIcon} className="icon" alt="" />
         </div>
       </div>
     );
@@ -223,7 +223,7 @@ export const CalendarField = ({
       {error && (
         <div className="text-red-500 mt-1">
           <Row>
-            <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+            <Image src={alertErrorSvg} className="icon mt-1" alt="" />
             <TextBox className="body-1 pt-1.5 ml-2" text={error} />
           </Row>
         </div>

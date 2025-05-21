@@ -11,16 +11,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
         <div
           class="flex flex-col app-content app-base-font-color"
         >
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
           <h1
             class="title-1"
           >
             Access Others' Information
           </h1>
           <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <section
             class="flex flex-row items-start app-body"
@@ -53,10 +50,10 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       <p
                         class="mr-2 flex-grow"
                       >
-                        Access Granted
+                        Full Access
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -85,10 +82,42 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       <p
                         class="mr-2 flex-grow"
                       >
-                        Request Access
+                        Basic Access
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
+                        class="pl-2 w-6"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </div>
+                    <div
+                      class="mr-2 flex-grow"
+                    />
+                  </div>
+                  <div
+                    class=""
+                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                  />
+                  <div
+                    class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                  >
+                    <div
+                      class="flex flex-row m-1 accordion-head"
+                    >
+                      <p
+                        class="mr-2 flex-grow"
+                      >
+                        No Access
+                      </p>
+                      <img
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -120,7 +149,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         Special Permissions
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -167,7 +196,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Below is the access you've been granted by other members on your plan.
                       </p>
@@ -221,7 +250,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         How to Get Access to Others&apos; Plans
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -253,7 +282,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         How to View Others&apos; Plans
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -300,7 +329,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Below is the access granted to you to other member's plan information.
                       </p>
@@ -323,13 +352,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Ellie Williams
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 01/01/1993
                           </p>
@@ -353,31 +382,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <p
                             class="body-1 font-bold body-1 mb-2 mt-4"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Bluecross Blueshield Of Tennessee
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Ellie Williams
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
                           <p
                             class="body-1 text-xs"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Ended 2023
                           </p>
@@ -396,7 +425,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -414,31 +443,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <p
                             class="body-1 font-bold body-1 mb-2 mt-4"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Tennessee Valley Authority
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Ellie Williams
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234555555
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Dental
                           </p>
                           <p
                             class="body-1 text-xs"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Ended 2023
                           </p>
@@ -457,7 +486,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -486,13 +515,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jane Doe
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 01/01/1988
                           </p>
@@ -516,31 +545,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                         >
                           <p
                             class="body-1 font-bold body-1 mb-2 mt-4"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Bluecross Blueshield Of Tennessee
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Ellie Williams
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
                           <p
                             class="body-1 text-xs"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Ended 2023
                           </p>
@@ -559,7 +588,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -590,16 +619,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
       <div
         class="flex flex-col app-content app-base-font-color"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <h1
           class="title-1"
         >
           Access Others' Information
         </h1>
         <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <section
           class="flex flex-row items-start app-body"
@@ -632,10 +658,10 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                     <p
                       class="mr-2 flex-grow"
                     >
-                      Access Granted
+                      Full Access
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -664,10 +690,42 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                     <p
                       class="mr-2 flex-grow"
                     >
-                      Request Access
+                      Basic Access
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
+                      class="pl-2 w-6"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                  <div
+                    class="mr-2 flex-grow"
+                  />
+                </div>
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <div
+                  class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+                >
+                  <div
+                    class="flex flex-row m-1 accordion-head"
+                  >
+                    <p
+                      class="mr-2 flex-grow"
+                    >
+                      No Access
+                    </p>
+                    <img
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -699,7 +757,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       Special Permissions
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -746,7 +804,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Below is the access you've been granted by other members on your plan.
                     </p>
@@ -800,7 +858,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       How to Get Access to Others&apos; Plans
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -832,7 +890,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       How to View Others&apos; Plans
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -879,7 +937,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Below is the access granted to you to other member's plan information.
                     </p>
@@ -902,13 +960,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Ellie Williams
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 01/01/1993
                         </p>
@@ -932,31 +990,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <p
                           class="body-1 font-bold body-1 mb-2 mt-4"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Bluecross Blueshield Of Tennessee
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Ellie Williams
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
                         <p
                           class="body-1 text-xs"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Ended 2023
                         </p>
@@ -975,7 +1033,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                             class="ml-2"
                           >
                             <img
-                              alt="link"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -993,31 +1051,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <p
                           class="body-1 font-bold body-1 mb-2 mt-4"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Tennessee Valley Authority
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Ellie Williams
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234555555
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Dental
                         </p>
                         <p
                           class="body-1 text-xs"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Ended 2023
                         </p>
@@ -1036,7 +1094,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                             class="ml-2"
                           >
                             <img
-                              alt="link"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -1065,13 +1123,13 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jane Doe
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 01/01/1988
                         </p>
@@ -1095,31 +1153,31 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                       >
                         <p
                           class="body-1 font-bold body-1 mb-2 mt-4"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Bluecross Blueshield Of Tennessee
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Ellie Williams
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
                         <p
                           class="body-1 text-xs"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Ended 2023
                         </p>
@@ -1138,7 +1196,7 @@ exports[`Communication accessOtherInformation should render accessOtherInformati
                             class="ml-2"
                           >
                             <img
-                              alt="link"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"

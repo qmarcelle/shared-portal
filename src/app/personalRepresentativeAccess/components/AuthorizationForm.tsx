@@ -33,7 +33,7 @@ export const AuthorizationForm = ({
           <AppLink
             className="!flex p-0"
             label={linkLabel}
-            icon={<Image src={DownloadIcon} alt="download form" />}
+            icon={<Image src={DownloadIcon} alt="" />}
             callback={() => null}
           />
         </Column>

@@ -212,12 +212,7 @@ const Footer: React.FC<FooterProps> = () => {
                   )
                 }
               >
-                <Image
-                  width={35}
-                  height={35}
-                  src={facebookLogo}
-                  alt="Facebook Icon"
-                />
+                <Image width={35} height={35} src={facebookLogo} alt="" />
               </a>
               <a
                 href="https://www.linkedin.com/company/bcbst"
@@ -230,12 +225,7 @@ const Footer: React.FC<FooterProps> = () => {
                   )
                 }
               >
-                <Image
-                  width={35}
-                  height={35}
-                  src={linkedinLogo}
-                  alt="Linkedin Icon"
-                />
+                <Image width={35} height={35} src={linkedinLogo} alt="" />
               </a>
               <a
                 href="https://www.instagram.com/bcbst/?hl=en"
@@ -248,12 +238,7 @@ const Footer: React.FC<FooterProps> = () => {
                   )
                 }
               >
-                <Image
-                  width={35}
-                  height={35}
-                  src={instagramLogo}
-                  alt="Instagram Icon"
-                />
+                <Image width={35} height={35} src={instagramLogo} alt="" />
               </a>
               <a
                 href="https://www.youtube.com/@bcbstennessee/shorts"
@@ -266,12 +251,7 @@ const Footer: React.FC<FooterProps> = () => {
                   )
                 }
               >
-                <Image
-                  width={35}
-                  height={35}
-                  src={youtubeLogo}
-                  alt="Youtube Icon"
-                />
+                <Image width={35} height={35} src={youtubeLogo} alt="" />
               </a>
               <a
                 href="https://www.pinterest.com/bcbst/"
@@ -284,12 +264,7 @@ const Footer: React.FC<FooterProps> = () => {
                   )
                 }
               >
-                <Image
-                  width={35}
-                  height={35}
-                  src={pintrestLogo}
-                  alt="Pinterest Icon"
-                />
+                <Image width={35} height={35} src={pintrestLogo} alt="" />
               </a>
               <a
                 href="https://twitter.com/bcbst"
@@ -299,7 +274,7 @@ const Footer: React.FC<FooterProps> = () => {
                   trackLinkAnalytics('X', 'https://twitter.com/bcbst')
                 }
               >
-                <Image width={35} height={35} src={xLogo} alt="X Icon" />
+                <Image width={35} height={35} src={xLogo} alt="" />
               </a>
             </Row>
           </Column>

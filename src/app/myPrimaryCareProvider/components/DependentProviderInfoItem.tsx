@@ -16,7 +16,7 @@ interface DependentProviderInfoItemProps extends IComponent {
 
 export const DependentProviderInfoItem = ({
   providerInfo,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: DependentProviderInfoItemProps) => {
   return (
     <Card className="card-main large-section">

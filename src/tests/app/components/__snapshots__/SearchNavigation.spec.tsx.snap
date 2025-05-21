@@ -56,13 +56,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 px-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   See all results for 
                 </p>
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   heal
                 </p>
@@ -73,7 +73,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Results
                   </p>
@@ -183,7 +183,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Names
                   </p>
@@ -336,7 +336,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
                 <div>
                   <p
                     class="body-1 title-3 py-2 px-4"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Specialties
                   </p>
@@ -421,7 +421,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               style="display: block; width: 1px; min-width: 1px; height: 14px; min-height: 14px;"
             />
             <img
-              alt="CloseIcon"
+              alt=""
               class=""
               data-nimg="1"
               decoding="async"
@@ -492,13 +492,13 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 px-2"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 See all results for 
               </p>
               <p
                 class="body-1 font-bold"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 heal
               </p>
@@ -509,7 +509,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Results
                 </p>
@@ -619,7 +619,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Names
                 </p>
@@ -772,7 +772,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 title-3 py-2 px-4"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Specialties
                 </p>
@@ -857,7 +857,7 @@ exports[`SearchNavigation should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 14px; min-height: 14px;"
           />
           <img
-            alt="CloseIcon"
+            alt=""
             class=""
             data-nimg="1"
             decoding="async"

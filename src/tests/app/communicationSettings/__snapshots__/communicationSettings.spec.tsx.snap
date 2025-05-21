@@ -45,7 +45,7 @@ exports[`Communication Settings should render communicationSettings if user role
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We'll send alerts to the phone number and email below.
                 </p>
@@ -59,7 +59,7 @@ exports[`Communication Settings should render communicationSettings if user role
                     class="flex flex-row flex flex-row align-top m-4"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="icon"
                       data-nimg="1"
                       decoding="async"
@@ -102,7 +102,7 @@ exports[`Communication Settings should render communicationSettings if user role
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your claim summaries are paperless by default, unless you've opted into paper copies.
                     </p>
@@ -112,7 +112,7 @@ exports[`Communication Settings should render communicationSettings if user role
                   />
                   <p
                     class="body-1 py-0"
-                    style="display: inline;"
+                    style="display: inline; max-width: 100%;"
                   >
                     If you need to request paper copies, please
                   </p>
@@ -133,7 +133,7 @@ exports[`Communication Settings should render communicationSettings if user role
                   </a>
                   <p
                     class="body-1"
-                    style="display: inline;"
+                    style="display: inline; max-width: 100%;"
                   >
                     or call us at 
                   </p>
@@ -162,7 +162,7 @@ exports[`Communication Settings should render communicationSettings if user role
                   />
                   <p
                     class="body-1 pl-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Sign up for email and text alerts.
                   </p>
@@ -200,13 +200,13 @@ exports[`Communication Settings should render communicationSettings if user role
                           >
                             <p
                               class="body-1 body-bold mb-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Receive Text Alerts
                             </p>
                             <p
                               class="body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Get text alerts with plan updates and personalized health notifications.
                             </p>
@@ -251,13 +251,13 @@ exports[`Communication Settings should render communicationSettings if user role
                           >
                             <p
                               class="body-1 body-bold mb-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Receive Email Alerts
                             </p>
                             <p
                               class="body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Get important plan updates, claims information and/or health and wellness topics sent to your email.
                             </p>
@@ -320,7 +320,7 @@ exports[`Communication Settings should render communicationSettings if user role
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 We'll send alerts to the phone number and email below.
               </p>
@@ -334,7 +334,7 @@ exports[`Communication Settings should render communicationSettings if user role
                   class="flex flex-row flex flex-row align-top m-4"
                 >
                   <img
-                    alt="alert"
+                    alt=""
                     class="icon"
                     data-nimg="1"
                     decoding="async"
@@ -377,7 +377,7 @@ exports[`Communication Settings should render communicationSettings if user role
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Your claim summaries are paperless by default, unless you've opted into paper copies.
                   </p>
@@ -387,7 +387,7 @@ exports[`Communication Settings should render communicationSettings if user role
                 />
                 <p
                   class="body-1 py-0"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   If you need to request paper copies, please
                 </p>
@@ -408,7 +408,7 @@ exports[`Communication Settings should render communicationSettings if user role
                 </a>
                 <p
                   class="body-1"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   or call us at 
                 </p>
@@ -437,7 +437,7 @@ exports[`Communication Settings should render communicationSettings if user role
                 />
                 <p
                   class="body-1 pl-3"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Sign up for email and text alerts.
                 </p>
@@ -475,13 +475,13 @@ exports[`Communication Settings should render communicationSettings if user role
                         >
                           <p
                             class="body-1 body-bold mb-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Receive Text Alerts
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get text alerts with plan updates and personalized health notifications.
                           </p>
@@ -526,13 +526,13 @@ exports[`Communication Settings should render communicationSettings if user role
                         >
                           <p
                             class="body-1 body-bold mb-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Receive Email Alerts
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get important plan updates, claims information and/or health and wellness topics sent to your email.
                           </p>

@@ -22,7 +22,7 @@ export const EmailSuccessFailure = ({
       <Image
         className="size-[80px]"
         src={isSuccess ? successIcon : modalAlertIcon}
-        alt="alert"
+        alt=""
       />
       <Spacer size={24} />
       <Header className="title-2" text={label} />

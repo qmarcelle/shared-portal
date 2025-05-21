@@ -29,7 +29,7 @@ exports[`WellnessInfoSection should render the UI correctly for Active Rewards -
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Complete wellness tasks to earn rewards provided by your employer.
           </p>
@@ -46,7 +46,7 @@ exports[`WellnessInfoSection should render the UI correctly for Active Rewards -
               class="ml-2"
             >
               <img
-                alt="external icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -87,7 +87,7 @@ exports[`WellnessInfoSection should render the UI correctly for Active Rewards -
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Complete wellness tasks to earn rewards provided by your employer.
         </p>
@@ -104,7 +104,7 @@ exports[`WellnessInfoSection should render the UI correctly for Active Rewards -
             class="ml-2"
           >
             <img
-              alt="external icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"

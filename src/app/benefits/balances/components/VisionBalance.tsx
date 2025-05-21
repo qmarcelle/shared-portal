@@ -16,7 +16,7 @@ interface VisionBalanceProps extends IComponent {
 export const VisionBalance = ({
   className,
   linkURL,
-  icon = <Image alt="external icon" src={externalIcon} />,
+  icon = <Image alt="" src={externalIcon} />,
 }: VisionBalanceProps) => {
   return (
     <Card className={className}>

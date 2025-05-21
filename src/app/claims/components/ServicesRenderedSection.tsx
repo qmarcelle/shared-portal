@@ -34,18 +34,10 @@ export const ServicesRenderedSection = ({
                 initialOpen={false}
                 type="card"
                 openIcon={
-                  <Image
-                    className="pl-2 w-6"
-                    src={downIcon}
-                    alt="Down Chevron"
-                  ></Image>
+                  <Image className="pl-2 w-6" src={downIcon} alt=""></Image>
                 }
                 closeIcon={
-                  <Image
-                    className="pl-2 w-6"
-                    src={upIcon}
-                    alt="Up Chevron"
-                  ></Image>
+                  <Image className="pl-2 w-6" src={upIcon} alt=""></Image>
                 }
                 subLabel={
                   <Row className="m-1 justify-between">

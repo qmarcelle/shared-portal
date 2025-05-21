@@ -36,13 +36,7 @@ export const EnrollmentOptions = ({ className }: IComponent) => {
                   </Row>
                 </>
               }
-              icon={
-                <Image
-                  className="-mt-[5px]"
-                  src={extrenalIcon}
-                  alt="external"
-                />
-              }
+              icon={<Image className="-mt-[5px]" src={extrenalIcon} alt="" />}
               // Need to handle Outbound SSO Link in future
               onClick={() => {}}
             />

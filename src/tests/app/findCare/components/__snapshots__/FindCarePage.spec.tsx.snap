@@ -147,39 +147,11 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                       Primary Care Provider
                     </button>
                     <button
-                      aria-label="Dentist"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Dentist
-                    </button>
-                    <button
                       aria-label="Mental Health Provider"
                       class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
                       type="button"
                     >
                       Mental Health Provider
-                    </button>
-                    <button
-                      aria-label="Eye Doctor"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Eye Doctor
-                    </button>
-                    <button
-                      aria-label="Pharmacy"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Pharmacy
-                    </button>
-                    <button
-                      aria-label="Virtual Care"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Virtual Care
                     </button>
                   </div>
                 </section>
@@ -231,27 +203,6 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                     >
                       Medical
                     </button>
-                    <button
-                      aria-label="Dental"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Dental
-                    </button>
-                    <button
-                      aria-label="Prescription Drugs"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Prescription Drugs
-                    </button>
-                    <button
-                      aria-label="Vision"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Vision
-                    </button>
                   </div>
                 </section>
               </div>
@@ -284,7 +235,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   The following options offer quick, high-quality care for a range of non-emergency needs.
                 </p>
@@ -334,7 +285,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                                 </p>
@@ -371,7 +322,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                                 </p>
@@ -408,7 +359,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                                 </p>
@@ -445,7 +396,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                                 </p>
@@ -482,7 +433,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                                 </p>
@@ -519,7 +470,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                                 </p>
@@ -537,7 +488,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                         type="button"
                       >
                         <img
-                          alt="scroll right"
+                          alt=""
                           class="icon-sm"
                           data-nimg="1"
                           decoding="async"
@@ -737,39 +688,11 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                     Primary Care Provider
                   </button>
                   <button
-                    aria-label="Dentist"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Dentist
-                  </button>
-                  <button
                     aria-label="Mental Health Provider"
                     class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
                     type="button"
                   >
                     Mental Health Provider
-                  </button>
-                  <button
-                    aria-label="Eye Doctor"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Eye Doctor
-                  </button>
-                  <button
-                    aria-label="Pharmacy"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Pharmacy
-                  </button>
-                  <button
-                    aria-label="Virtual Care"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Virtual Care
                   </button>
                 </div>
               </section>
@@ -821,27 +744,6 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                   >
                     Medical
                   </button>
-                  <button
-                    aria-label="Dental"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Dental
-                  </button>
-                  <button
-                    aria-label="Prescription Drugs"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Prescription Drugs
-                  </button>
-                  <button
-                    aria-label="Vision"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Vision
-                  </button>
                 </div>
               </section>
             </div>
@@ -874,7 +776,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The following options offer quick, high-quality care for a range of non-emergency needs.
               </p>
@@ -924,7 +826,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                               </p>
@@ -961,7 +863,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                               </p>
@@ -998,7 +900,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                               </p>
@@ -1035,7 +937,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                               </p>
@@ -1072,7 +974,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                               </p>
@@ -1109,7 +1011,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                               </p>
@@ -1127,7 +1029,7 @@ exports[`Find Care Page should not render the Looking for care card if isEmboldH
                       type="button"
                     >
                       <img
-                        alt="scroll right"
+                        alt=""
                         class="icon-sm"
                         data-nimg="1"
                         decoding="async"
@@ -1414,7 +1316,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         class="ml-2"
                       >
                         <img
-                          alt="external icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1439,7 +1341,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         class="ml-2"
                       >
                         <img
-                          alt="external icon"
+                          alt=""
                           class="group-hover:hidden"
                           data-nimg="1"
                           decoding="async"
@@ -1451,7 +1353,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                           width="40"
                         />
                         <img
-                          alt="external icon"
+                          alt=""
                           class="hidden group-hover:block absolute top-2"
                           data-nimg="1"
                           decoding="async"
@@ -1514,27 +1416,6 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                     >
                       Medical
                     </button>
-                    <button
-                      aria-label="Dental"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Dental
-                    </button>
-                    <button
-                      aria-label="Prescription Drugs"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Prescription Drugs
-                    </button>
-                    <button
-                      aria-label="Vision"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Vision
-                    </button>
                   </div>
                 </section>
               </div>
@@ -1574,7 +1455,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         class="flex flex-col"
                       >
                         <img
-                          alt="Primary Care"
+                          alt=""
                           class="max-md:w-[80px] max-md:h-[80px]"
                           data-nimg="1"
                           decoding="async"
@@ -1594,13 +1475,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Primary Care Options
                         </p>
                         <p
                           class="body-1 mt-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Learn more about Primary Care Providers and view your options.
                         </p>
@@ -1617,7 +1498,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         class="flex flex-col"
                       >
                         <img
-                          alt="Mental Care"
+                          alt=""
                           class="max-md:w-[80px] max-md:h-[80px]"
                           data-nimg="1"
                           decoding="async"
@@ -1637,13 +1518,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mental Care Options
                         </p>
                         <p
                           class="body-1 mt-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Learn more about Mental Health Providers and view your options.
                         </p>
@@ -1674,7 +1555,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   The following options offer quick, high-quality care for a range of non-emergency needs.
                 </p>
@@ -1724,7 +1605,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                                 </p>
@@ -1761,7 +1642,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                                 </p>
@@ -1798,7 +1679,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                                 </p>
@@ -1835,7 +1716,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                                 </p>
@@ -1872,7 +1753,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                                 </p>
@@ -1909,7 +1790,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                                 </p>
@@ -1927,7 +1808,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         type="button"
                       >
                         <img
-                          alt="scroll right"
+                          alt=""
                           class="icon-sm"
                           data-nimg="1"
                           decoding="async"
@@ -2157,7 +2038,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       class="ml-2"
                     >
                       <img
-                        alt="external icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -2182,7 +2063,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       class="ml-2"
                     >
                       <img
-                        alt="external icon"
+                        alt=""
                         class="group-hover:hidden"
                         data-nimg="1"
                         decoding="async"
@@ -2194,7 +2075,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                         width="40"
                       />
                       <img
-                        alt="external icon"
+                        alt=""
                         class="hidden group-hover:block absolute top-2"
                         data-nimg="1"
                         decoding="async"
@@ -2257,27 +2138,6 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                   >
                     Medical
                   </button>
-                  <button
-                    aria-label="Dental"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Dental
-                  </button>
-                  <button
-                    aria-label="Prescription Drugs"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Prescription Drugs
-                  </button>
-                  <button
-                    aria-label="Vision"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Vision
-                  </button>
                 </div>
               </section>
             </div>
@@ -2317,7 +2177,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       class="flex flex-col"
                     >
                       <img
-                        alt="Primary Care"
+                        alt=""
                         class="max-md:w-[80px] max-md:h-[80px]"
                         data-nimg="1"
                         decoding="async"
@@ -2337,13 +2197,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                     >
                       <p
                         class="body-1 font-bold primary-color"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Primary Care Options
                       </p>
                       <p
                         class="body-1 mt-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Learn more about Primary Care Providers and view your options.
                       </p>
@@ -2360,7 +2220,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       class="flex flex-col"
                     >
                       <img
-                        alt="Mental Care"
+                        alt=""
                         class="max-md:w-[80px] max-md:h-[80px]"
                         data-nimg="1"
                         decoding="async"
@@ -2380,13 +2240,13 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                     >
                       <p
                         class="body-1 font-bold primary-color"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mental Care Options
                       </p>
                       <p
                         class="body-1 mt-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Learn more about Mental Health Providers and view your options.
                       </p>
@@ -2417,7 +2277,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The following options offer quick, high-quality care for a range of non-emergency needs.
               </p>
@@ -2467,7 +2327,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                               </p>
@@ -2504,7 +2364,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                               </p>
@@ -2541,7 +2401,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                               </p>
@@ -2578,7 +2438,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                               </p>
@@ -2615,7 +2475,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                               </p>
@@ -2652,7 +2512,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                               </p>
@@ -2670,7 +2530,7 @@ exports[`Find Care Page should render the Find Medical Providers card if isEmbol
                       type="button"
                     >
                       <img
-                        alt="scroll right"
+                        alt=""
                         class="icon-sm"
                         data-nimg="1"
                         decoding="async"
@@ -3554,7 +3414,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         class="ml-2"
                       >
                         <img
-                          alt="external icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -3579,7 +3439,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         class="ml-2"
                       >
                         <img
-                          alt="external icon"
+                          alt=""
                           class="group-hover:hidden"
                           data-nimg="1"
                           decoding="async"
@@ -3591,7 +3451,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                           width="40"
                         />
                         <img
-                          alt="external icon"
+                          alt=""
                           class="hidden group-hover:block absolute top-2"
                           data-nimg="1"
                           decoding="async"
@@ -3654,27 +3514,6 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                     >
                       Medical
                     </button>
-                    <button
-                      aria-label="Dental"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Dental
-                    </button>
-                    <button
-                      aria-label="Prescription Drugs"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Prescription Drugs
-                    </button>
-                    <button
-                      aria-label="Vision"
-                      class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                      type="button"
-                    >
-                      Vision
-                    </button>
                   </div>
                 </section>
               </div>
@@ -3714,7 +3553,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         class="flex flex-col"
                       >
                         <img
-                          alt="Primary Care"
+                          alt=""
                           class="max-md:w-[80px] max-md:h-[80px]"
                           data-nimg="1"
                           decoding="async"
@@ -3734,13 +3573,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Primary Care Options
                         </p>
                         <p
                           class="body-1 mt-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Learn more about Primary Care Providers and view your options.
                         </p>
@@ -3757,7 +3596,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         class="flex flex-col"
                       >
                         <img
-                          alt="Mental Care"
+                          alt=""
                           class="max-md:w-[80px] max-md:h-[80px]"
                           data-nimg="1"
                           decoding="async"
@@ -3777,13 +3616,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mental Care Options
                         </p>
                         <p
                           class="body-1 mt-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Learn more about Mental Health Providers and view your options.
                         </p>
@@ -3814,7 +3653,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   The following options offer quick, high-quality care for a range of non-emergency needs.
                 </p>
@@ -3864,7 +3703,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                                 </p>
@@ -3901,7 +3740,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                                 </p>
@@ -3938,7 +3777,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                                 </p>
@@ -3975,7 +3814,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                                 </p>
@@ -4012,7 +3851,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                                 </p>
@@ -4049,7 +3888,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                                 </p>
@@ -4067,7 +3906,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         type="button"
                       >
                         <img
-                          alt="scroll right"
+                          alt=""
                           class="icon-sm"
                           data-nimg="1"
                           decoding="async"
@@ -4297,7 +4136,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       class="ml-2"
                     >
                       <img
-                        alt="external icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -4322,7 +4161,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       class="ml-2"
                     >
                       <img
-                        alt="external icon"
+                        alt=""
                         class="group-hover:hidden"
                         data-nimg="1"
                         decoding="async"
@@ -4334,7 +4173,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                         width="40"
                       />
                       <img
-                        alt="external icon"
+                        alt=""
                         class="hidden group-hover:block absolute top-2"
                         data-nimg="1"
                         decoding="async"
@@ -4397,27 +4236,6 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                   >
                     Medical
                   </button>
-                  <button
-                    aria-label="Dental"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Dental
-                  </button>
-                  <button
-                    aria-label="Prescription Drugs"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Prescription Drugs
-                  </button>
-                  <button
-                    aria-label="Vision"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null h-[28px] font-bold primary-color"
-                    type="button"
-                  >
-                    Vision
-                  </button>
                 </div>
               </section>
             </div>
@@ -4457,7 +4275,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       class="flex flex-col"
                     >
                       <img
-                        alt="Primary Care"
+                        alt=""
                         class="max-md:w-[80px] max-md:h-[80px]"
                         data-nimg="1"
                         decoding="async"
@@ -4477,13 +4295,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                     >
                       <p
                         class="body-1 font-bold primary-color"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Primary Care Options
                       </p>
                       <p
                         class="body-1 mt-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Learn more about Primary Care Providers and view your options.
                       </p>
@@ -4500,7 +4318,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       class="flex flex-col"
                     >
                       <img
-                        alt="Mental Care"
+                        alt=""
                         class="max-md:w-[80px] max-md:h-[80px]"
                         data-nimg="1"
                         decoding="async"
@@ -4520,13 +4338,13 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                     >
                       <p
                         class="body-1 font-bold primary-color"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mental Care Options
                       </p>
                       <p
                         class="body-1 mt-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Learn more about Mental Health Providers and view your options.
                       </p>
@@ -4557,7 +4375,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The following options offer quick, high-quality care for a range of non-emergency needs.
               </p>
@@ -4607,7 +4425,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                               </p>
@@ -4644,7 +4462,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                               </p>
@@ -4681,7 +4499,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                               </p>
@@ -4718,7 +4536,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                               </p>
@@ -4755,7 +4573,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                               </p>
@@ -4792,7 +4610,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
                               </p>
@@ -4810,7 +4628,7 @@ exports[`Find Care Page should render the Virtual Care Options card if the pzn r
                       type="button"
                     >
                       <img
-                        alt="scroll right"
+                        alt=""
                         class="icon-sm"
                         data-nimg="1"
                         decoding="async"

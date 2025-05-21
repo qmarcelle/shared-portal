@@ -34,7 +34,7 @@ export const EmployerProvidedBenfitsPage = ({
           <Image
             className="block mb-6 mt-3 sm:hidden"
             src={dollarGeneralLogo}
-            alt="Provider logo"
+            alt=""
             width={170}
             height={55}
           />
@@ -49,7 +49,7 @@ export const EmployerProvidedBenfitsPage = ({
             <Image
               className="hidden sm:block self-start"
               src={dollarGeneralLogo}
-              alt="Provider logo"
+              alt=""
               width={170}
               height={55}
             />

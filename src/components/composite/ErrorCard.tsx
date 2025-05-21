@@ -16,7 +16,7 @@ export const ErrorCard: React.FC<ErrorMfaCardProps> = ({
   return (
     <Card type="neutral" className={` neutral container ${className}`}>
       <Row className="flex flex-row align-top m-4">
-        <Image src={AlertIcon} className="icon" alt="alert" />
+        <Image src={AlertIcon} className="icon" alt="" />
         <Spacer axis="horizontal" size={8} />
         <Row className="flex flex-col flex-grow">
           <p className="body-1">{errorText}</p>

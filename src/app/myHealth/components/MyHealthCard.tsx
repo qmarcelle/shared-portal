@@ -24,7 +24,7 @@ export const MyHealthCard = ({
       return (
         <Column>
           <Spacer size={8} />
-          <Image className="size-10" src={icon} alt="link" />
+          <Image className="size-10" src={icon} alt="" />
           <Spacer size={8} />
         </Column>
       );

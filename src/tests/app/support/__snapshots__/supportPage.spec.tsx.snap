@@ -27,7 +27,7 @@ exports[`Support Page should render the page correctly 1`] = `
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We're here to help answer your questions
             </p>
@@ -57,7 +57,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
                 >
                   <img
-                    alt="call icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -74,13 +74,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     8 a.m. - 6 p.m. ET,
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Mon - Fri
                   </p>
@@ -89,19 +89,19 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: inline;"
+                      style="display: inline; max-width: 100%;"
                     >
                       Call 
                     </p>
                     <p
                       class="body-1 body-bold"
-                      style="display: inline;"
+                      style="display: inline; max-width: 100%;"
                     >
                       1-800-565-9000
                     </p>
                     <p
                       class="body-1 body-bold"
-                      style="display: inline;"
+                      style="display: inline; max-width: 100%;"
                     >
                       , TTY 711
                     </p>
@@ -111,7 +111,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
                 >
                   <img
-                    alt="chat icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -128,13 +128,13 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     8 a.m. - 5:15 p.m. ET,
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Mon - Fri
                   </p>
@@ -150,7 +150,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
                 >
                   <img
-                    alt="email icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -167,7 +167,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   </h3>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     If it's after hours or you'd rather send us an email, we're right here.
                   </p>
@@ -216,7 +216,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Find answers to your health insurance questions or find a form.
                 </p>
@@ -237,7 +237,7 @@ exports[`Support Page should render the page correctly 1`] = `
                         class="flex flex-row items-center"
                       >
                         <img
-                          alt="questions icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -271,7 +271,7 @@ exports[`Support Page should render the page correctly 1`] = `
                         class="flex flex-row items-center"
                       >
                         <img
-                          alt="glossary icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -291,7 +291,7 @@ exports[`Support Page should render the page correctly 1`] = `
                             Health Insurance Glossary
                           </p>
                           <img
-                            alt="external"
+                            alt=""
                             class="inline"
                             data-nimg="1"
                             decoding="async"
@@ -317,7 +317,7 @@ exports[`Support Page should render the page correctly 1`] = `
                         class="flex flex-row items-center"
                       >
                         <img
-                          alt="find form icon"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -337,7 +337,7 @@ exports[`Support Page should render the page correctly 1`] = `
                             Find a Form
                           </p>
                           <img
-                            alt="external"
+                            alt=""
                             class="inline"
                             data-nimg="1"
                             decoding="async"
@@ -369,7 +369,7 @@ exports[`Support Page should render the page correctly 1`] = `
               </h2>
               <p
                 class="body-1 text-center"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 We want to hear from you. Share your feedback about your experience using our website.
               </p>
@@ -409,7 +409,7 @@ exports[`Support Page should render the page correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We're here to help answer your questions
           </p>
@@ -439,7 +439,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
               >
                 <img
-                  alt="call icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -456,13 +456,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   8 a.m. - 6 p.m. ET,
                 </p>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Mon - Fri
                 </p>
@@ -471,19 +471,19 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: inline;"
+                    style="display: inline; max-width: 100%;"
                   >
                     Call 
                   </p>
                   <p
                     class="body-1 body-bold"
-                    style="display: inline;"
+                    style="display: inline; max-width: 100%;"
                   >
                     1-800-565-9000
                   </p>
                   <p
                     class="body-1 body-bold"
-                    style="display: inline;"
+                    style="display: inline; max-width: 100%;"
                   >
                     , TTY 711
                   </p>
@@ -493,7 +493,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
               >
                 <img
-                  alt="chat icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -510,13 +510,13 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   8 a.m. - 5:15 p.m. ET,
                 </p>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Mon - Fri
                 </p>
@@ -532,7 +532,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 class="flex flex-col gap-2 sm:basis-0 grow shrink sm:shrink-0"
               >
                 <img
-                  alt="email icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -549,7 +549,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 </h3>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   If it's after hours or you'd rather send us an email, we're right here.
                 </p>
@@ -598,7 +598,7 @@ exports[`Support Page should render the page correctly 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Find answers to your health insurance questions or find a form.
               </p>
@@ -619,7 +619,7 @@ exports[`Support Page should render the page correctly 1`] = `
                       class="flex flex-row items-center"
                     >
                       <img
-                        alt="questions icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -653,7 +653,7 @@ exports[`Support Page should render the page correctly 1`] = `
                       class="flex flex-row items-center"
                     >
                       <img
-                        alt="glossary icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -673,7 +673,7 @@ exports[`Support Page should render the page correctly 1`] = `
                           Health Insurance Glossary
                         </p>
                         <img
-                          alt="external"
+                          alt=""
                           class="inline"
                           data-nimg="1"
                           decoding="async"
@@ -699,7 +699,7 @@ exports[`Support Page should render the page correctly 1`] = `
                       class="flex flex-row items-center"
                     >
                       <img
-                        alt="find form icon"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -719,7 +719,7 @@ exports[`Support Page should render the page correctly 1`] = `
                           Find a Form
                         </p>
                         <img
-                          alt="external"
+                          alt=""
                           class="inline"
                           data-nimg="1"
                           decoding="async"
@@ -751,7 +751,7 @@ exports[`Support Page should render the page correctly 1`] = `
             </h2>
             <p
               class="body-1 text-center"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We want to hear from you. Share your feedback about your experience using our website.
             </p>

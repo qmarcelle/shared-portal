@@ -47,15 +47,11 @@ export const MobilePagination = ({
       >
         <Row className="arrow left">
           {currentPage === 1 ? (
-            <Image src={leftInactiveIcon} alt="previous" />
+            <Image src={leftInactiveIcon} alt="" />
           ) : (
             <>
-              <Image className="left-icon" src={leftIcon} alt="previous" />
-              <Image
-                className="left-icon-white"
-                src={leftHoverIcon}
-                alt="previous"
-              />
+              <Image className="left-icon" src={leftIcon} alt="" />
+              <Image className="left-icon-white" src={leftHoverIcon} alt="" />
             </>
           )}
         </Row>
@@ -81,15 +77,11 @@ export const MobilePagination = ({
       >
         <Row className="arrow right">
           {currentPage === lastPage ? (
-            <Image src={rightInactiveIcon} alt="next" />
+            <Image src={rightInactiveIcon} alt="" />
           ) : (
             <>
-              <Image className="right-icon" src={rightIcon} alt="next" />
-              <Image
-                className="right-icon-white"
-                src={rightHoverIcon}
-                alt="next"
-              />
+              <Image className="right-icon" src={rightIcon} alt="" />
+              <Image className="right-icon-white" src={rightHoverIcon} alt="" />
             </>
           )}
         </Row>

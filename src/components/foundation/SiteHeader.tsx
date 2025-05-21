@@ -157,7 +157,7 @@ export default function SiteHeader({
                     <span className="sr-only">Close main menu</span>
                     <Image
                       src={closeIcon}
-                      alt={'Close icon'}
+                      alt=""
                       width="18"
                       height="18"
                     ></Image>
@@ -167,7 +167,7 @@ export default function SiteHeader({
                     <span className="sr-only">Open main menu</span>
                     <Image
                       src={hamburgerMenuIcon}
-                      alt={'Menu icon'}
+                      alt=""
                       width="32"
                       height="32"
                     ></Image>
@@ -177,19 +177,9 @@ export default function SiteHeader({
             </div>
             <Link className="ml-5 lg:px-0" href="/member/home">
               {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
-                <Image
-                  width="64"
-                  height="36"
-                  src={bcbstStackedlogo}
-                  alt="BCBST Stacked Logo"
-                />
+                <Image width="64" height="36" src={bcbstStackedlogo} alt="" />
               ) : (
-                <Image
-                  width="174"
-                  height="35"
-                  src={bcbstBlueLogo}
-                  alt="BCBST Logo"
-                />
+                <Image width="174" height="35" src={bcbstBlueLogo} alt="" />
               )}
             </Link>
             {selectedProfile?.type != UserRole.NON_MEM && plans.length > 1 && (

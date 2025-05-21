@@ -47,7 +47,7 @@ const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
                       target="_blank"
                       className="link !flex caremark pt-0"
                       displayStyle="inline-flex"
-                      icon={<Image src={extrenalIcon} alt="external" />}
+                      icon={<Image src={extrenalIcon} alt="" />}
                     />
                   </Column>,
                 ]}

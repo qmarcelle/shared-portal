@@ -31,7 +31,7 @@ const CareTNProgramLanding = ({
       <CareTNProgramBenefits />
       <Card className="large-section">
         <section className="md:flex md:flex-row">
-          <Image src={careTNDevice} alt="careTN" />
+          <Image src={careTNDevice} alt="" />
           <Spacer size={16} />
           <Column>
             <Header text="We're Here to Help" type="title-2" />
@@ -40,19 +40,13 @@ const CareTNProgramLanding = ({
             <Spacer size={32} />
             <section className="justify-start md:flex md:flex-row">
               <Link href="https://apps.apple.com/us/app/caretn/id1494382785">
-                <Image
-                  src={appleStoreLogo}
-                  alt="Download CareTN from AppStore"
-                />
+                <Image src={appleStoreLogo} alt="" />
               </Link>
               <Link
                 className="pl-[10px]"
                 href="https://play.google.com/store/apps/details?id=com.bcbst.wellframe.app"
               >
-                <Image
-                  src={playStoreLogo}
-                  alt="Download CareTN from PlayStore"
-                />
+                <Image src={playStoreLogo} alt="" />
               </Link>
             </section>
           </Column>
@@ -64,7 +58,7 @@ const CareTNProgramLanding = ({
       </div>
       <Spacer size={16} />
       <section className="md:flex md:flex-row ml-7">
-        <Image src={wellframeLogo} alt="wellframe" />
+        <Image src={wellframeLogo} alt="" />
         <Spacer size={16} />
         <Column className="md:p-10">
           <TextBox

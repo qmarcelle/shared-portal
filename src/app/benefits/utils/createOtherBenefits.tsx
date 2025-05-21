@@ -30,7 +30,7 @@ export const generateOtherBenefitsForUser = (
       title: 'Shop Over-the-Counter Items',
       body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
       externalLink: true,
-      icon: <Image src={externalIcon} alt="link" />,
+      icon: <Image src={externalIcon} alt="" />,
     });
   }
   if (vRules.commercial && vRules.bluePerksElig) {
@@ -39,7 +39,7 @@ export const generateOtherBenefitsForUser = (
       body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
       externalLink: false,
       url: 'url',
-      icon: <Image src={externalIcon} alt="link" />,
+      icon: <Image src={externalIcon} alt="" />,
     });
   }
 

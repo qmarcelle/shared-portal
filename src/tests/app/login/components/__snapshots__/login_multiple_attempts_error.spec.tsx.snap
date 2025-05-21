@@ -15,7 +15,7 @@ exports[`Multiple Attempts for login error should render all the required compon
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <img
-            alt="alert"
+            alt=""
             class="size-[80px]"
             data-nimg="1"
             decoding="async"
@@ -42,7 +42,7 @@ exports[`Multiple Attempts for login error should render all the required compon
           >
             <p
               class="body-1 text-center"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               You have attempted to log in too many times. Please wait 10 minutes to try again.
             </p>
@@ -78,7 +78,7 @@ exports[`Multiple Attempts for login error should render all the required compon
             />
             <p
               class="body-1 title-3 center"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Need help?
             </p>
@@ -116,7 +116,7 @@ exports[`Multiple Attempts for login error should render all the required compon
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <img
-          alt="alert"
+          alt=""
           class="size-[80px]"
           data-nimg="1"
           decoding="async"
@@ -143,7 +143,7 @@ exports[`Multiple Attempts for login error should render all the required compon
         >
           <p
             class="body-1 text-center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             You have attempted to log in too many times. Please wait 10 minutes to try again.
           </p>
@@ -179,7 +179,7 @@ exports[`Multiple Attempts for login error should render all the required compon
           />
           <p
             class="body-1 title-3 center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Need help?
           </p>

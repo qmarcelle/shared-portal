@@ -45,25 +45,19 @@ const HealthyMaternity = () => {
               <ProgramBenefits
                 benefits={[
                   {
-                    benefitIcon: (
-                      <Image src={maternity} alt="Maternity Breast Pump Icon" />
-                    ),
+                    benefitIcon: <Image src={maternity} alt="" />,
                     benefitCopy:
                       'Connect with a nurse to learn more about your breast pump benefit.',
                     benefitLabel: 'Breast Pump Benefit',
                   },
                   {
-                    benefitIcon: (
-                      <Image src={primaryCare} alt="Primary Care Icon" />
-                    ),
+                    benefitIcon: <Image src={primaryCare} alt="" />,
                     benefitCopy:
                       'Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.',
                     benefitLabel: 'One-on-One Support',
                   },
                   {
-                    benefitIcon: (
-                      <Image src={healthSupport} alt="Health Support Icon" />
-                    ),
+                    benefitIcon: <Image src={healthSupport} alt="" />,
                     benefitCopy:
                       // eslint-disable-next-line quotes
                       "We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.",
@@ -95,7 +89,7 @@ const HealthyMaternity = () => {
             <Spacer size={12} />
             <Image
               src={healthyMaternityVideo}
-              alt="Healthy Maternity Video Icon"
+              alt=""
               className="mx-auto pb-7"
             />
           </>

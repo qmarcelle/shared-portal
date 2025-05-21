@@ -27,7 +27,7 @@ export const AccessToOthersPlanItem = ({
   dob,
   onClick,
   className,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: AccessToOthersPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
   return (

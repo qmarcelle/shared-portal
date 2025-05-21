@@ -38,7 +38,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Free Breast Pump
           </p>
@@ -47,7 +47,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.
           </p>
@@ -71,7 +71,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             One-on-One Support
           </p>
@@ -80,7 +80,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
           </p>
@@ -104,7 +104,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Part of Your Care Team
           </p>
@@ -113,7 +113,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
           </p>
@@ -141,7 +141,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Free Breast Pump
           </p>
@@ -150,7 +150,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.
           </p>
@@ -174,7 +174,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             One-on-One Support
           </p>
@@ -183,7 +183,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
           </p>
@@ -207,7 +207,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1 font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Part of Your Care Team
           </p>
@@ -216,7 +216,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
           </p>
@@ -258,7 +258,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Free Breast Pump
         </p>
@@ -267,7 +267,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.
         </p>
@@ -291,7 +291,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           One-on-One Support
         </p>
@@ -300,7 +300,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
         </p>
@@ -324,7 +324,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Part of Your Care Team
         </p>
@@ -333,7 +333,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
         </p>
@@ -361,7 +361,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Free Breast Pump
         </p>
@@ -370,7 +370,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.
         </p>
@@ -394,7 +394,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           One-on-One Support
         </p>
@@ -403,7 +403,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
         </p>
@@ -427,7 +427,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Part of Your Care Team
         </p>
@@ -436,7 +436,7 @@ exports[`Program Benefits Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
         </p>

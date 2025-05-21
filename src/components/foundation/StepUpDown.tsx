@@ -87,17 +87,17 @@ export const StepUpDown = ({
           <div onClick={() => handleIncrement()}>
             {' '}
             {count >= maxValue ? (
-              <Image alt="Up Icon" src={upGrayIcon} />
+              <Image alt="" src={upGrayIcon} />
             ) : (
-              <Image alt="Up Icon" src={upIcon} />
+              <Image alt="" src={upIcon} />
             )}
           </div>
           <div onClick={() => handleDecrement()}>
             {' '}
             {count <= minValue ? (
-              <Image alt="Down Icon" src={downGrayIcon} />
+              <Image alt="" src={downGrayIcon} />
             ) : (
-              <Image alt="Down Icon" src={downIcon} />
+              <Image alt="" src={downIcon} />
             )}
           </div>
         </div>

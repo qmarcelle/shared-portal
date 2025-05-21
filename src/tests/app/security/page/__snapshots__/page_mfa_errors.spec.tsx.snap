@@ -103,7 +103,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                  Multi-factor authentication (MFA) will confirm your identity when you log in,  protecting your important health information.
               </p>
@@ -117,7 +117,7 @@ exports[`Security Page should render page correctly when errors occur 1`] = `
                   class="flex flex-row flex flex-row align-top m-4"
                 >
                   <img
-                    alt="alert"
+                    alt=""
                     class="icon"
                     data-nimg="1"
                     decoding="async"

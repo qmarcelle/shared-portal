@@ -19,7 +19,7 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
             >
               <p
                 class="body-2 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Viewing as Authorized User
               </p>
@@ -30,13 +30,13 @@ exports[`UserSwitchFilter should render UI correctly when click on personal repr
               </h3>
               <p
                 class="body-1 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 DOB: 01/01/1943
               </p>
             </div>
             <img
-              alt="switch"
+              alt=""
               class="size-5 head-icon"
               data-nimg="1"
               decoding="async"
@@ -80,7 +80,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             >
               <p
                 class="body-2 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 My Profile
               </p>
@@ -91,13 +91,13 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
               </h3>
               <p
                 class="body-1 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 DOB: 11/03/2000
               </p>
             </div>
             <img
-              alt="switch"
+              alt=""
               class="size-5 head-icon"
               data-nimg="1"
               decoding="async"
@@ -138,7 +138,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             class="ml-1"
           >
             <img
-              alt="link"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -224,7 +224,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             >
               <p
                 class="body-2 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 My Profile
               </p>
@@ -235,13 +235,13 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
               </h3>
               <p
                 class="body-1 font-light"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 DOB: 11/03/2000
               </p>
             </div>
             <img
-              alt="switch"
+              alt=""
               class="size-5 head-icon"
               data-nimg="1"
               decoding="async"
@@ -270,7 +270,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                 Switch to...
               </h3>
               <img
-                alt="switch"
+                alt=""
                 class="size-5"
                 data-nimg="1"
                 decoding="async"
@@ -307,7 +307,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         My Profile
                       </p>
@@ -320,7 +320,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                           Chris Hall
                         </h3>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -334,7 +334,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         DOB: 01/01/1978
                       </p>
@@ -364,7 +364,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         View as Personal Representative
                       </p>
@@ -377,7 +377,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                           Robert Hall
                         </h3>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -391,7 +391,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         DOB: 01/01/1943
                       </p>
@@ -421,7 +421,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                     >
                       <p
                         class="body-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         View as Authorized User
                       </p>
@@ -434,7 +434,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                           Ellie Williams
                         </h3>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -448,7 +448,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
                       </div>
                       <p
                         class="body-1 text-base"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         DOB: 01/01/1943
                       </p>
@@ -488,7 +488,7 @@ exports[`UserSwitchFilter should render the UI correctly for more that one optio
             class="ml-1"
           >
             <img
-              alt="link"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"

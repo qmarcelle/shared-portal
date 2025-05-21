@@ -11,7 +11,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Eligible UI correc
       >
         <p
           class="body-1 title-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Request a 1095-B Form
         </p>
@@ -20,7 +20,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Eligible UI correc
         />
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Please confirm the following information. If our files show that you lived in California, Maryland, New Jersey, Rhode Island, Vermont, or Washington D.C last year, you don't have to request a 1095-B. We'll mail one to you.
         </p>
@@ -44,7 +44,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI corr
       >
         <p
           class="body-1 title-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Request a 1095-B Form
         </p>
@@ -53,7 +53,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI corr
         />
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We're sorry, but we don't supply a 1095-B form for the type of coverage you have.
         </p>
@@ -62,7 +62,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI corr
         />
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           If you had coverage last year through the Health Insurance Marketplace, Medicare Advantage, BlueCare or CoverKids Medicaid or CHIP, those organizations will provide your form. 
         </p>
@@ -95,7 +95,7 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI corr
         />
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Or write to us at:
         </p>
@@ -104,31 +104,31 @@ exports[`1095BFormRequest Page should render 1095BFormRequest Ineligible UI corr
         />
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           BlueCross BlueShield of Tennessee
         </p>
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Attn: 1095-B Request
         </p>
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           3.2 - Membership Administration
         </p>
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           1 Cameron Hill Circle
         </p>
         <p
           class="body-1 body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Chattanooga, TN 37402
         </p>

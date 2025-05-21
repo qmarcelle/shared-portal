@@ -114,7 +114,7 @@ export const UpdateCommunicationText = ({
           {error && (
             <div className="text-red-500 m-2 mt-0 ml-0">
               <Row>
-                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <Image src={alertErrorSvg} className="icon mt-1" alt="" />
                 <TextBox className="body-1 pt-1.5 ml-2" text={error} />
               </Row>
             </div>

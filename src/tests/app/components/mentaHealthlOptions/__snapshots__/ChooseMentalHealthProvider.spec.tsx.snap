@@ -21,7 +21,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
           </p>
@@ -40,7 +40,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
                 About Psychiatrists
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -72,7 +72,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
                 About Therapists
               </p>
               <img
-                alt="Up Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -89,7 +89,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
               </p>
@@ -116,7 +116,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           You can speak with a therapist or a psychiatrist (a medical doctor that can prescribe medicine). Or try a self-guided program with personalized recommendations.
         </p>
@@ -135,7 +135,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
               About Psychiatrists
             </p>
             <img
-              alt="Down Chevron"
+              alt=""
               class="pl-2 w-6"
               data-nimg="1"
               decoding="async"
@@ -167,7 +167,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
               About Therapists
             </p>
             <img
-              alt="Up Chevron"
+              alt=""
               class="pl-2 w-6"
               data-nimg="1"
               decoding="async"
@@ -184,7 +184,7 @@ exports[`ChooseMentalHealthProvider should render the UI correctly 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               If you are looking for talk therapy and counseling, talk to a therapist. There are different types, such as psychologists and licensed social workers, marriage and family therapists and counselors. The difference is in their level of training and the problems they specialize in handling.
             </p>

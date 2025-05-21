@@ -35,7 +35,7 @@ function getQuantumHealthContent(contact: string) {
   ContactHeader = 'Contact Quantum Health';
   CONTACT_ITEMS = [
     {
-      icon: <Image src={callIcon} alt="call icon" />,
+      icon: <Image src={callIcon} alt="" />,
       label: '',
       body: (
         <>
@@ -68,7 +68,7 @@ function getGeneralContent(contact: string) {
   ContactHeader = 'Contact Us';
   CONTACT_ITEMS = [
     {
-      icon: <Image src={callIcon} alt="call icon" />,
+      icon: <Image src={callIcon} alt="" />,
       label: 'Call',
       body: (
         <>
@@ -97,7 +97,7 @@ function getGeneralContent(contact: string) {
       ),
     },
     {
-      icon: <Image src={chatIcon} alt="chat icon" />,
+      icon: <Image src={chatIcon} alt="" />,
       label: 'Chat',
       body: (
         <>
@@ -108,7 +108,7 @@ function getGeneralContent(contact: string) {
       footer: <Button callback={() => {}} label="Start a Chat" />,
     },
     {
-      icon: <Image src={emailIcon} alt="email icon" />,
+      icon: <Image src={emailIcon} alt="" />,
       label: 'Email',
       body: (
         <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
@@ -125,19 +125,19 @@ function getGeneralContent(contact: string) {
 }
 const RESOURCES = [
   {
-    icon: <Image src={questionsIcon} alt="questions icon" />,
+    icon: <Image src={questionsIcon} alt="" />,
     label: 'Frequently Asked Questions',
     link: '/member/support/FAQ',
     external: false,
   },
   {
-    icon: <Image src={glossaryIcon} alt="glossary icon" />,
+    icon: <Image src={glossaryIcon} alt="" />,
     label: 'Health Insurance Glossary',
     link: 'https://www.healthcare.gov/glossary',
     external: true,
   },
   {
-    icon: <Image src={findFormIcon} alt="find form icon" />,
+    icon: <Image src={findFormIcon} alt="" />,
     label: 'Find a Form',
     link: 'https://www.bcbst.com/use-insurance/documents-forms',
     external: true,

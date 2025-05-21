@@ -58,7 +58,7 @@ export const MemberDiscounts = ({
             url={linkURL}
           />
           {showOffsiteIcon && (
-            <Image src={offsiteIcon} alt="icon" className="inline" />
+            <Image src={offsiteIcon} alt="icon" className="" />
           )}
         </div>
       </Column>

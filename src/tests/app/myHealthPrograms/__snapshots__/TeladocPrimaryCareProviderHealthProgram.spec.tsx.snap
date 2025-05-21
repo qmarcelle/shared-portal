@@ -6,11 +6,8 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -21,7 +18,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -53,7 +50,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
               </p>
@@ -62,7 +59,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -86,7 +83,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -103,7 +100,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -150,7 +147,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -163,7 +160,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -181,7 +178,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -194,7 +191,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             See a PCP as early as the next day
                           </p>
@@ -212,7 +209,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -225,7 +222,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Downloadable app, call or video chat available
                           </p>
@@ -261,7 +258,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Depending on the type of visit, you can expect to pay:
                     </p>
@@ -270,7 +267,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $99 or less
                     </p>
@@ -324,7 +321,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Annual checkups and preventive care
                           </p>
@@ -350,7 +347,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Prescriptions
                           </p>
@@ -376,7 +373,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Lab orders and recommended screenings
                           </p>
@@ -402,7 +399,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Referrals to in-network specialists
                           </p>
@@ -428,7 +425,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Support with long-term conditions like diabetes, hypertension and mental health
                           </p>
@@ -449,11 +446,8 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -464,7 +458,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -496,7 +490,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
             </p>
@@ -505,7 +499,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -529,7 +523,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -546,7 +540,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -593,7 +587,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -606,7 +600,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -624,7 +618,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -637,7 +631,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           See a PCP as early as the next day
                         </p>
@@ -655,7 +649,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -668,7 +662,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Downloadable app, call or video chat available
                         </p>
@@ -704,7 +698,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Depending on the type of visit, you can expect to pay:
                   </p>
@@ -713,7 +707,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $99 or less
                   </p>
@@ -767,7 +761,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Annual checkups and preventive care
                         </p>
@@ -793,7 +787,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Prescriptions
                         </p>
@@ -819,7 +813,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Lab orders and recommended screenings
                         </p>
@@ -845,7 +839,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Referrals to in-network specialists
                         </p>
@@ -871,7 +865,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should redirect to SSO link on 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Support with long-term conditions like diabetes, hypertension and mental health
                         </p>
@@ -949,11 +943,8 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -964,7 +955,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -996,7 +987,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
               </p>
@@ -1005,7 +996,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -1029,7 +1020,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1046,7 +1037,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -1093,7 +1084,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1106,7 +1097,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -1124,7 +1115,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1137,7 +1128,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             See a PCP as early as the next day
                           </p>
@@ -1155,7 +1146,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1168,7 +1159,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Downloadable app, call or video chat available
                           </p>
@@ -1204,7 +1195,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Depending on the type of visit, you can expect to pay:
                     </p>
@@ -1213,7 +1204,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $99 or less
                     </p>
@@ -1267,7 +1258,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Annual checkups and preventive care
                           </p>
@@ -1293,7 +1284,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Prescriptions
                           </p>
@@ -1319,7 +1310,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Lab orders and recommended screenings
                           </p>
@@ -1345,7 +1336,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Referrals to in-network specialists
                           </p>
@@ -1371,7 +1362,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Support with long-term conditions like diabetes, hypertension and mental health
                           </p>
@@ -1392,11 +1383,8 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -1407,7 +1395,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -1439,7 +1427,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
             </p>
@@ -1448,7 +1436,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -1472,7 +1460,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1489,7 +1477,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -1536,7 +1524,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1549,7 +1537,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -1567,7 +1555,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1580,7 +1568,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           See a PCP as early as the next day
                         </p>
@@ -1598,7 +1586,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1611,7 +1599,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Downloadable app, call or video chat available
                         </p>
@@ -1647,7 +1635,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Depending on the type of visit, you can expect to pay:
                   </p>
@@ -1656,7 +1644,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $99 or less
                   </p>
@@ -1710,7 +1698,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Annual checkups and preventive care
                         </p>
@@ -1736,7 +1724,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Prescriptions
                         </p>
@@ -1762,7 +1750,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Lab orders and recommended screenings
                         </p>
@@ -1788,7 +1776,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Referrals to in-network specialists
                         </p>
@@ -1814,7 +1802,7 @@ exports[`TeladocPrimaryCareProviderHealthProgram should render the UI correctly 
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Support with long-term conditions like diabetes, hypertension and mental health
                         </p>

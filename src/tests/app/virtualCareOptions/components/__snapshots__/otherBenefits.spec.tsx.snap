@@ -21,7 +21,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
           />
           <p
             class="body-1 body-1 mb-0"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -71,7 +71,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
                           </p>
@@ -108,7 +108,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                           </p>
@@ -145,7 +145,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                           </p>
@@ -182,7 +182,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             THis is test card.
                           </p>
@@ -200,7 +200,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                   type="button"
                 >
                   <img
-                    alt="scroll right"
+                    alt=""
                     class="icon-sm"
                     data-nimg="1"
                     decoding="async"
@@ -269,7 +269,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 mb-0"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
@@ -319,7 +319,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Use My Medical Ally to get a second medical opinion on a diagnosis or recommended surgery at no extra cost. 
                         </p>
@@ -356,7 +356,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                         </p>
@@ -393,7 +393,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                         </p>
@@ -430,7 +430,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           THis is test card.
                         </p>
@@ -448,7 +448,7 @@ exports[`Other Benefits should render UI correctly 1`] = `
                 type="button"
               >
                 <img
-                  alt="scroll right"
+                  alt=""
                   class="icon-sm"
                   data-nimg="1"
                   decoding="async"

@@ -21,15 +21,15 @@ export const AmplifyAdvisors = () => {
         <section className="md:flex md:flex-row">
           <Column className="max-w-[450px]">
             <Row className="py-2">
-              <Image src={searchIcon} alt="search" />
+              <Image src={searchIcon} alt="" />
               <TextBox className="pl-2" text="Find providers close to you" />
             </Row>
             <Row className="py-2">
-              <Image src={dollarIcon} alt="dollar" />
+              <Image src={dollarIcon} alt="" />
               <TextBox className="pl-2" text="Save you money on health costs" />
             </Row>
             <Row className="py-2">
-              <Image src={medicalIcon} alt="medical" />
+              <Image src={medicalIcon} alt="" />
               <TextBox
                 className="pl-2"
                 text="Help with prior approvals or other complex parts of health care"
@@ -38,21 +38,21 @@ export const AmplifyAdvisors = () => {
           </Column>
           <Column>
             <Row className="py-2">
-              <Image src={calendarIcon} alt="calendar" />
+              <Image src={calendarIcon} alt="" />
               <TextBox
                 className="pl-2"
                 text="Schedule your appointments, tests and procedures"
               />
             </Row>
             <Row className="py-2">
-              <Image src={questionMarkIcon} alt="dollar" />
+              <Image src={questionMarkIcon} alt="" />
               <TextBox
                 className="pl-2"
                 text="Give you extra support for health needs and questions"
               />
             </Row>
             <Row className="py-2">
-              <Image src={careManagementIcon} alt="care management" />
+              <Image src={careManagementIcon} alt="" />
               <TextBox
                 className="pl-2"
                 text="Recommend programs for healthy living"

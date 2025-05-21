@@ -25,7 +25,7 @@ export const ShareOutsideMyPlanItem = ({
   sharingType,
   className,
   onClick,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: ShareOutideMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
 

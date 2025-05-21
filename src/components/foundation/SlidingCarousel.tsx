@@ -22,9 +22,7 @@ const PreviousBtn = (props: any) => {
               className="max-w-fit max-h-fit p-2 m-auto"
               type="elevated"
               callback={() => {}}
-              icon={
-                <Image className="icon-sm" src={leftIcon} alt="scroll left" />
-              }
+              icon={<Image className="icon-sm" src={leftIcon} alt="" />}
             />
           </div>
         </div>
@@ -42,9 +40,7 @@ const NextBtn = (props: any) => {
             className="max-w-fit max-h-fit p-2 m-auto"
             type="elevated"
             callback={() => {}}
-            icon={
-              <Image className="icon-sm" src={rightIcon} alt="scroll right" />
-            }
+            icon={<Image className="icon-sm" src={rightIcon} alt="" />}
           />
           ,
         </div>

@@ -21,7 +21,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
           </p>
@@ -49,7 +49,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Learning Center
                     </p>
@@ -58,7 +58,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get more information about specific health terms, topics and conditions to better manage your health.
                     </p>
@@ -84,7 +84,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Interactive Tools
                     </p>
@@ -93,7 +93,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                     </p>
@@ -119,7 +119,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Health Videos
                     </p>
@@ -128,7 +128,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                     </p>
@@ -158,7 +158,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Symptom Checker
                     </p>
@@ -167,7 +167,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get more reliable information about the symptom you’re experiencing to help find the care you need.
                     </p>
@@ -193,7 +193,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage Your Diabetes
                     </p>
@@ -202,7 +202,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                     </p>
@@ -228,7 +228,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Decision Support
                     </p>
@@ -237,7 +237,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                     </p>
@@ -278,7 +278,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                       class="ml-1"
                     >
                       <img
-                        alt="external"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -315,7 +315,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
         </p>
@@ -343,7 +343,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Learning Center
                   </p>
@@ -352,7 +352,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get more information about specific health terms, topics and conditions to better manage your health.
                   </p>
@@ -378,7 +378,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Interactive Tools
                   </p>
@@ -387,7 +387,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                   </p>
@@ -413,7 +413,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Health Videos
                   </p>
@@ -422,7 +422,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                   </p>
@@ -452,7 +452,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Symptom Checker
                   </p>
@@ -461,7 +461,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get more reliable information about the symptom you’re experiencing to help find the care you need.
                   </p>
@@ -487,7 +487,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Manage Your Diabetes
                   </p>
@@ -496,7 +496,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                   </p>
@@ -522,7 +522,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Decision Support
                   </p>
@@ -531,7 +531,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                   </p>
@@ -572,7 +572,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     class="ml-1"
                   >
                     <img
-                      alt="external"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"

@@ -6,11 +6,8 @@ exports[`Quest Select should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -21,7 +18,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -53,7 +50,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
               </p>
@@ -62,7 +59,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -86,7 +83,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -103,7 +100,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -150,7 +147,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -163,7 +160,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -181,7 +178,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -194,7 +191,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Self-guided or coaching options available
                           </p>
@@ -212,7 +209,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -225,7 +222,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Work with a therapist or coach
                           </p>
@@ -261,7 +258,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Depending on your plan, you can expect to pay:
                     </p>
@@ -270,7 +267,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $15 – $300
                     </p>
@@ -324,7 +321,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Anxiety
                           </p>
@@ -350,7 +347,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Depression
                           </p>
@@ -376,7 +373,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Grief
                           </p>
@@ -402,7 +399,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Stress
                           </p>
@@ -428,7 +425,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Loneliness
                           </p>
@@ -454,7 +451,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Social anxiety
                           </p>
@@ -480,7 +477,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Self-care improvement
                           </p>
@@ -506,7 +503,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Anxiety related to chronic pain
                           </p>
@@ -532,7 +529,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Building healthier habits
                           </p>
@@ -553,11 +550,8 @@ exports[`Quest Select should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -568,7 +562,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -600,7 +594,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
             </p>
@@ -609,7 +603,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -633,7 +627,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -650,7 +644,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -697,7 +691,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -710,7 +704,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -728,7 +722,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -741,7 +735,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Self-guided or coaching options available
                         </p>
@@ -759,7 +753,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -772,7 +766,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Work with a therapist or coach
                         </p>
@@ -808,7 +802,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Depending on your plan, you can expect to pay:
                   </p>
@@ -817,7 +811,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $15 – $300
                   </p>
@@ -871,7 +865,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Anxiety
                         </p>
@@ -897,7 +891,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Depression
                         </p>
@@ -923,7 +917,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Grief
                         </p>
@@ -949,7 +943,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Stress
                         </p>
@@ -975,7 +969,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Loneliness
                         </p>
@@ -1001,7 +995,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Social anxiety
                         </p>
@@ -1027,7 +1021,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Self-care improvement
                         </p>
@@ -1053,7 +1047,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Anxiety related to chronic pain
                         </p>
@@ -1079,7 +1073,7 @@ exports[`Quest Select should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Building healthier habits
                         </p>

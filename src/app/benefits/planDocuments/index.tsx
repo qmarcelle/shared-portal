@@ -78,20 +78,12 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
                     }}
                   >
                     <Row>
-                      <Image
-                        className="size-10"
-                        src={searchCareLogo}
-                        alt="link"
-                      />
+                      <Image className="size-10" src={searchCareLogo} alt="" />
                       <TextBox
                         text="Provider Directory"
                         className="inline my-auto body-bold primary-color mx-2"
                       />
-                      <Image
-                        src={externalIcon}
-                        className="-mt-[4px]"
-                        alt="link"
-                      />
+                      <Image src={externalIcon} className="-mt-[4px]" alt="" />
                     </Row>
                   </Card>
                   <Card
@@ -103,16 +95,12 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
                     }}
                   >
                     <Row>
-                      <Image src={prescriptionIcon} alt="link" />
+                      <Image src={prescriptionIcon} alt="" />
                       <TextBox
                         text="Medication List (Formulary) 2025"
                         className="inline my-auto body-bold primary-color mx-2"
                       />
-                      <Image
-                        src={downloadIcon}
-                        className="-mt-[4px]"
-                        alt="link"
-                      />
+                      <Image src={downloadIcon} className="-mt-[4px]" alt="" />
                     </Row>
                   </Card>
                 </Column>
@@ -126,16 +114,12 @@ const PlanDocuments = ({ data, formularyURL }: PlanDocumentsProps) => {
                     }}
                   >
                     <Row>
-                      <Image src={searchPharmacyIcon} alt="link" />
+                      <Image src={searchPharmacyIcon} alt="" />
                       <TextBox
                         text="Pharmacy Directory"
                         className="inline my-auto body-bold primary-color mx-2"
                       />
-                      <Image
-                        src={externalIcon}
-                        className="-mt-[4px]"
-                        alt="link"
-                      />
+                      <Image src={externalIcon} className="-mt-[4px]" alt="" />
                     </Row>
                   </Card>
                 </Column>

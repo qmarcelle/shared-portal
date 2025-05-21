@@ -22,7 +22,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
             />
             <p
               class="body-1 px-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
             </p>
@@ -48,7 +48,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
                   class="ml-1"
                 >
                   <img
-                    alt="external"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -84,7 +84,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
           />
           <p
             class="body-1 px-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             CVS Caremark is your pharmacy benefit manager. You can find more information about your pharmacy claim on Caremark.
           </p>
@@ -110,7 +110,7 @@ exports[`Pharmacy Claim SSO in My Plan Claims Page should render all the require
                 class="ml-1"
               >
                 <img
-                  alt="external"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"

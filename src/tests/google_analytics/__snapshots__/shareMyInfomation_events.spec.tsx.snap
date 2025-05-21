@@ -11,6 +11,14 @@ exports[`Share My Information Page Share My Information click Update - GA events
         <div
           class="flex flex-col app-content app-base-font-color"
         >
+          <h1
+            class="title-1"
+          >
+            Share My Information
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <section
             class="flex flex-row items-start app-body"
           >
@@ -45,7 +53,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         Full Sharing
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -77,7 +85,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         Basic Sharing
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -109,7 +117,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         None
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -156,7 +164,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Set the level of access for individuals on your health plan.
                       </p>
@@ -182,13 +190,13 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jessica Meyer
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 07/19/1964
                           </p>
@@ -221,9 +229,9 @@ exports[`Share My Information Page Share My Information click Update - GA events
                             />
                             <p
                               class="body-1 body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
-                              Basic Sharing
+                              Basic Access
                             </p>
                           </div>
                            
@@ -248,7 +256,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                                 class="ml-2"
                               >
                                 <img
-                                  alt="link"
+                                  alt=""
                                   data-nimg="1"
                                   decoding="async"
                                   height="40"
@@ -295,7 +303,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Share your information with individuals not on your health plan.
                       </p>
@@ -321,13 +329,13 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jill Valentine
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 01/19/1985
                           </p>
@@ -360,7 +368,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                             />
                             <p
                               class="body-1 body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Full Access
                             </p>
@@ -386,7 +394,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                                 class="ml-2"
                               >
                                 <img
-                                  alt="link"
+                                  alt=""
                                   data-nimg="1"
                                   decoding="async"
                                   height="40"
@@ -415,7 +423,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                           class="mr-2"
                         >
                           <img
-                            alt="link"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -449,6 +457,14 @@ exports[`Share My Information Page Share My Information click Update - GA events
       <div
         class="flex flex-col app-content app-base-font-color"
       >
+        <h1
+          class="title-1"
+        >
+          Share My Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <section
           class="flex flex-row items-start app-body"
         >
@@ -483,7 +499,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                       Full Sharing
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -515,7 +531,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                       Basic Sharing
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -547,7 +563,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                       None
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -594,7 +610,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Set the level of access for individuals on your health plan.
                     </p>
@@ -620,13 +636,13 @@ exports[`Share My Information Page Share My Information click Update - GA events
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jessica Meyer
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 07/19/1964
                         </p>
@@ -659,9 +675,9 @@ exports[`Share My Information Page Share My Information click Update - GA events
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
-                            Basic Sharing
+                            Basic Access
                           </p>
                         </div>
                          
@@ -686,7 +702,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -733,7 +749,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Share your information with individuals not on your health plan.
                     </p>
@@ -759,13 +775,13 @@ exports[`Share My Information Page Share My Information click Update - GA events
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jill Valentine
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 01/19/1985
                         </p>
@@ -798,7 +814,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Full Access
                           </p>
@@ -824,7 +840,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -853,7 +869,7 @@ exports[`Share My Information Page Share My Information click Update - GA events
                         class="mr-2"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -944,6 +960,14 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
         <div
           class="flex flex-col app-content app-base-font-color"
         >
+          <h1
+            class="title-1"
+          >
+            Share My Information
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <section
             class="flex flex-row items-start app-body"
           >
@@ -978,7 +1002,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                         Full Sharing
                       </p>
                       <img
-                        alt="Up Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -1016,7 +1040,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                         Basic Sharing
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -1048,7 +1072,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                         None
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -1095,7 +1119,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Set the level of access for individuals on your health plan.
                       </p>
@@ -1134,7 +1158,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Share your information with individuals not on your health plan.
                       </p>
@@ -1160,13 +1184,13 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jill Valentine
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 01/19/1985
                           </p>
@@ -1199,7 +1223,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                             />
                             <p
                               class="body-1 body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Full Access
                             </p>
@@ -1225,7 +1249,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                                 class="ml-2"
                               >
                                 <img
-                                  alt="link"
+                                  alt=""
                                   data-nimg="1"
                                   decoding="async"
                                   height="40"
@@ -1254,7 +1278,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                           class="mr-2"
                         >
                           <img
-                            alt="link"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -1288,6 +1312,14 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
       <div
         class="flex flex-col app-content app-base-font-color"
       >
+        <h1
+          class="title-1"
+        >
+          Share My Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <section
           class="flex flex-row items-start app-body"
         >
@@ -1322,7 +1354,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                       Full Sharing
                     </p>
                     <img
-                      alt="Up Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -1360,7 +1392,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                       Basic Sharing
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -1392,7 +1424,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                       None
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -1439,7 +1471,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Set the level of access for individuals on your health plan.
                     </p>
@@ -1478,7 +1510,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Share your information with individuals not on your health plan.
                     </p>
@@ -1504,13 +1536,13 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jill Valentine
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 01/19/1985
                         </p>
@@ -1543,7 +1575,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Full Access
                           </p>
@@ -1569,7 +1601,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -1598,7 +1630,7 @@ exports[`Share My Information Page Share My Information,Understanding Sharing My
                         class="mr-2"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"

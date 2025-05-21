@@ -8,7 +8,7 @@ exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
       class="flex flex-col items-center"
     >
       <img
-        alt="success"
+        alt=""
         class="size-[80px]"
         data-nimg="1"
         decoding="async"
@@ -38,7 +38,7 @@ exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
         >
           <p
             class="body-1 text-center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your email address is:
           </p>
@@ -47,7 +47,7 @@ exports[`UpdateCommunicationEmail displays success message on final page 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             test@example.com
           </p>
@@ -85,7 +85,7 @@ exports[`UpdateCommunicationEmail renders initial page with email input 1`] = `
       />
       <p
         class="body-1 text-center"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -163,7 +163,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
       />
       <p
         class="body-1 text-center"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -203,7 +203,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
               class="flex flex-row"
             >
               <img
-                alt="alert"
+                alt=""
                 class="icon mt-1"
                 data-nimg="1"
                 decoding="async"
@@ -216,7 +216,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
               />
               <p
                 class="body-1 body-1 pt-1.5 ml-2"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Please enter a valid address.
               </p>
@@ -267,7 +267,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
       />
       <p
         class="body-1 text-center"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>
@@ -334,7 +334,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
               class="flex flex-row"
             >
               <img
-                alt="alert"
+                alt=""
                 class="icon mt-1"
                 data-nimg="1"
                 decoding="async"
@@ -347,7 +347,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
               />
               <p
                 class="body-1 body-1 pt-1.5 ml-2"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The email addresses must match. Please check and try again.
               </p>
@@ -398,7 +398,7 @@ exports[`UpdateCommunicationEmail validates email address and shows confirmation
       />
       <p
         class="body-1 text-center"
-        style="display: block;"
+        style="display: block; max-width: 100%;"
       >
         Enter the new email address you'd like to use for communications and security settings.
       </p>

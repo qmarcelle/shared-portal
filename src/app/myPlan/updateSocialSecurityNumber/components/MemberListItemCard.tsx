@@ -26,7 +26,7 @@ export const MemberListItemCard = ({
   dateOfBirth,
   className,
   isSSN,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   successCallback,
   isImpersonated,
 }: MemberListItemCardProps) => {
@@ -45,11 +45,7 @@ export const MemberListItemCard = ({
         ) : (
           <Row>
             <div className="inline-flex">
-              <Image
-                src={alertErrorIcon}
-                className="icon mr-2"
-                alt={'ErrorIcon'}
-              />
+              <Image src={alertErrorIcon} className="icon mr-2" alt="" />
               <TextBox text="No SSN on file." className="text-red-600" />
             </div>
           </Row>

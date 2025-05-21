@@ -19,13 +19,13 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Filter Results:
             </p>
             <p
               class="body-1 font-bold ml-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               1 Documents
             </p>
@@ -35,7 +35,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
           >
             <p
               class="body-1 mr-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Sort by: 
             </p>
@@ -43,7 +43,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
               class="relative"
             >
               <div
-                class="flex flex-row link"
+                class="flex flex-row link "
                 tabindex="0"
               >
                 <p
@@ -55,7 +55,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                 />
                 <img
-                  alt="down icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -77,7 +77,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                     class="size-5 mx-2 "
                   >
                     <img
-                      alt="selcted"
+                      alt=""
                       class="size-5"
                       data-nimg="1"
                       decoding="async"
@@ -123,7 +123,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   class="flex flex-col"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -150,7 +150,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Received: 01/20/2023
                   </p>
@@ -159,7 +159,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     For Chris Hall
                   </p>
@@ -189,13 +189,13 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Filter Results:
           </p>
           <p
             class="body-1 font-bold ml-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             1 Documents
           </p>
@@ -205,7 +205,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
         >
           <p
             class="body-1 mr-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Sort by: 
           </p>
@@ -213,7 +213,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
             class="relative"
           >
             <div
-              class="flex flex-row link"
+              class="flex flex-row link "
               tabindex="0"
             >
               <p
@@ -225,7 +225,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
               />
               <img
-                alt="down icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -247,7 +247,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                   class="size-5 mx-2 "
                 >
                   <img
-                    alt="selcted"
+                    alt=""
                     class="size-5"
                     data-nimg="1"
                     decoding="async"
@@ -293,7 +293,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 class="flex flex-col"
               >
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -320,7 +320,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Received: 01/20/2023
                 </p>
@@ -329,7 +329,7 @@ exports[`ListOfDocuments ListOfDocuments 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   For Chris Hall
                 </p>

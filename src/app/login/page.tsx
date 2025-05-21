@@ -137,11 +137,7 @@ export default function LogIn() {
         <Column>
           <div className="flow-root">
             <a className="float-left" href="https://www.bcbst.com">
-              <Image
-                src={bcbstBlueLogo}
-                id="logo"
-                alt="Blue Cross Blue Shield of Tennessee"
-              ></Image>
+              <Image src={bcbstBlueLogo} id="logo" alt=""></Image>
             </a>
             <a
               className="float-right"

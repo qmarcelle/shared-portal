@@ -15,7 +15,7 @@ interface ProviderDirectoryProps extends IComponent {
 }
 
 export const ProviderDirectory = ({
-  icon = <Image src={externalIcon} alt="link" />,
+  icon = <Image src={externalIcon} alt="" />,
 }: ProviderDirectoryProps) => {
   return (
     <Card className="m-4 p-8">
@@ -42,7 +42,7 @@ export const ProviderDirectory = ({
 
         <Column className="">
           <Row className="flex flex-row">
-            <Image src={SelectPCPImage} alt="SelectPCPImage" />
+            <Image src={SelectPCPImage} alt="" />
             <Spacer size={52} />
           </Row>
         </Column>

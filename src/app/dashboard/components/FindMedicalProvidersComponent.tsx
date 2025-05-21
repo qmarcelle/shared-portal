@@ -60,7 +60,7 @@ export const FindMedicalProvidersComponent = ({
           className={`flex ${isButtonHorizontal ? 'lg:!flex-row space-x-2' : 'flex-col space-y-2'}`}
         >
           <Button
-            icon={<Image alt="external icon" src={externalOffsiteWhiteIcon} />}
+            icon={<Image alt="" src={externalOffsiteWhiteIcon} />}
             label="Find Medical Providers"
             callback={() => {
               router.push(
@@ -76,12 +76,12 @@ export const FindMedicalProvidersComponent = ({
               <>
                 <Image
                   className="group-hover:hidden"
-                  alt="external icon"
+                  alt=""
                   src={externalIcon}
                 />
                 <Image
                   className="hidden group-hover:block absolute top-2"
-                  alt="external icon"
+                  alt=""
                   src={externalOffsiteWhiteIcon}
                 />
               </>

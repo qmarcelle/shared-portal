@@ -83,7 +83,7 @@ const LaunchSSO = () => {
     <main className="flex flex-col items-center page">
       <Column className="app-content app-base-font-color">
         <Link tabIndex={1} onClick={handleGoBack} href="#">
-          <Image src={leftIcon} alt="back" className="inline" />
+          <Image src={leftIcon} alt="back" className="" />
           <TextBox
             text="Go Back"
             display="inline"
@@ -110,7 +110,7 @@ const LaunchSSO = () => {
         <AppLink
           label={`Go to ${sso}`}
           target="_blank"
-          icon={<Image src={externalIcon} alt="external" />}
+          icon={<Image src={externalIcon} alt="" />}
           displayStyle="inline-flex"
           className="p-0"
           url={ssoUrl}

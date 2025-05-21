@@ -42,11 +42,7 @@ const ObscureIndicator = ({ obscure }: { obscure: boolean }) => {
         </div>
       ) : (
         <div>
-          <Image
-            src={showPasswordSelectedIcon}
-            className="icon"
-            alt={'Showpassword'}
-          />
+          <Image src={showPasswordSelectedIcon} className="icon" alt="" />
         </div>
       )}
     </div>
@@ -78,7 +74,7 @@ const Error = ({ errors }: { errors: string[] }) => {
       {errors.map((item) => (
         <Row key={item}>
           <div className="inline-flex">
-            <Image src={alertErrorIcon} className="icon" alt={'ErrorIcon'} />
+            <Image src={alertErrorIcon} className="icon" alt="" />
             <p className="ml-2">{item}</p>
           </div>
         </Row>

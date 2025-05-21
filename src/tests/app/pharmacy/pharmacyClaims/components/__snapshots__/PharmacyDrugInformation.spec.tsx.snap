@@ -43,7 +43,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                       </span>
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="w-6"
                       data-nimg="1"
                       decoding="async"
@@ -64,13 +64,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Supply
                   </p>
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     30 Days
                   </p>

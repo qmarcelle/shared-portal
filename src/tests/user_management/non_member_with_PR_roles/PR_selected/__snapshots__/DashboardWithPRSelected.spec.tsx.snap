@@ -26,7 +26,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Plan: Chris B Hall Enterprises
         </p>
@@ -35,7 +35,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Subscriber ID: 902218823
         </p>
@@ -44,7 +44,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Group ID: 100000
         </p>
@@ -53,7 +53,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Policies: Medical, Wellness, Vision, Dental
         </p>
@@ -105,17 +105,13 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  aria-label="Medical claim for Chris James from John Doe with status Processed"
-                  class="card-button cursor-pointer mb-4"
-                  role="button"
-                  tabindex="0"
+                  class="recentClaimsException"
                 >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
+                  <div
+                    class="flex flex-row p-2"
                   >
                     <img
-                      alt="Medical"
-                      class="icon max-md:hidden"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -125,306 +121,20 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       style="color: transparent;"
                       width="40"
                     />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
+                    <p
+                      class="body-1 inline my-auto ml-4 p-2"
+                      style="display: block; max-width: 100%;"
                     >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Medical"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            John Doe
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Processed
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $67
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 02/06/2024, For Chris James
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $67
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
-                  aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
-                  class="card-button cursor-pointer mb-4"
-                  role="button"
-                  tabindex="0"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            John Doe
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="neutral flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Pending
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $30.24
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 01/06/2024, For Aly Jame
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $30.24
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
-                  aria-label="Dental claim for Aly Jame from John Doe with status Denied"
-                  class="card-button cursor-pointer mb-4"
-                  role="button"
-                  tabindex="0"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Dental"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Dental"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            John Doe
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="error flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Denied
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $65.61
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 01/16/2024, For Aly Jame
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $65.61
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
+                      No Claims Found.
+                    </p>
+                  </div>
                 </div>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
                 <a
                   aria-label="View Claims"
-                  href="/member/myplan/claims"
+                  href="/claims"
                   style="display: block;"
                 >
                   <button
@@ -445,7 +155,9 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
             <div
               class="card-main large-section"
             >
-              <div>
+              <div
+                class="flex flex-col"
+              >
                 <h2
                   class="title-2"
                 >
@@ -455,303 +167,37 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  class="flex flex-row"
+                  class="card-main neutral container undefined"
                 >
-                  <p>
-                    Member :
-                  </p>
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
                   <div
-                    class="relative"
+                    class="flex flex-row flex flex-row align-top m-4"
                   >
-                    <div
-                      class="flex flex-row link"
-                      tabindex="0"
-                    >
-                      <p
-                        class="body-bold"
-                      >
-                        Megan Chaler
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <img
-                        alt="down icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <section
-                      class="card-elevated z-20 dropdown-section"
-                      style="display: none; position: absolute;"
-                    >
-                      <div
-                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2"
-                        />
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            Chris Hall
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2 "
-                        >
-                          <img
-                            alt="selcted"
-                            class="size-5"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </div>
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            Megan Chaler
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <p>
-                    Network Status :
-                  </p>
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
-                  <div
-                    class="relative"
-                  >
-                    <div
-                      class="flex flex-row link"
-                      tabindex="0"
-                    >
-                      <p
-                        class="body-bold"
-                      >
-                        Out-of-Network
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <img
-                        alt="down icon"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                    <section
-                      class="card-elevated z-20 dropdown-section"
-                      style="display: none; position: absolute;"
-                    >
-                      <div
-                        class="flex flex-row  dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2"
-                        />
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            In-Network
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        class="flex flex-row dropdown-item-selected dropdown-item p-2 cursor-pointer"
-                      >
-                        <div
-                          class="size-5 mx-2 "
-                        >
-                          <img
-                            alt="selcted"
-                            class="size-5"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                        </div>
-                        <div>
-                          <p
-                            class="whitespace-nowrap mx-2"
-                          >
-                            Out-of-Network
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class="underline decoration-dashed underline-offset-4 app-underline body-1"
-                  >
-                    Deductible
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div>
-                    <div
-                      aria-label="$1800 used of $2000"
-                      role="img"
-                      style="height: 10px; width: 90%;"
+                    <img
+                      alt=""
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
                     />
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <div
-                    class="flex flex-row justify-between"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p
-                        class="font-bold"
-                      >
-                        $
-                        1800
-                      </p>
-                      <p>
-                        Spent
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p>
-                        $
-                        2000
-                      </p>
-                      <p>
-                        Limit
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class="underline decoration-dashed underline-offset-4 app-underline body-1"
-                  >
-                    Out-of-Pocket
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div>
-                    <div
-                      aria-label="$1500 used of $3000"
-                      role="img"
-                      style="height: 10px; width: 50%;"
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                     />
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                  />
-                  <div
-                    class="flex flex-row justify-between"
-                  >
                     <div
-                      class="flex flex-col"
+                      class="flex flex-row flex flex-col flex-grow"
                     >
                       <p
-                        class="font-bold"
+                        class="body-1"
                       >
-                        $
-                        1500
-                      </p>
-                      <p>
-                        Spent
-                      </p>
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
-                      <p>
-                        $
-                        3000
-                      </p>
-                      <p>
-                        Limit
+                        There was a problem loading your information. Please try refreshing the page or returning to this page later.
                       </p>
                     </div>
                   </div>
                 </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  aria-label="View Balances"
-                  href="/balances"
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container undefined"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Balances
-                    </p>
-                  </button>
-                </a>
               </div>
             </div>
           </div>
@@ -781,7 +227,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                       class="flex"
                     >
                       <img
-                        alt="Medical"
+                        alt=""
                         class="icon"
                         data-nimg="1"
                         decoding="async"
@@ -881,43 +327,6 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  class="flex flex-row items-center input   "
-                >
-                  <input
-                    class="body-1 search-textfield"
-                    name="search-Field"
-                    placeholder="Search Benefits"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="flex flex-col items-end"
-                  >
-                    <button
-                      aria-label="Search"
-                      class="flex flex-col p-[0.125rem]  "
-                      type="submit"
-                    >
-                      <img
-                        alt=""
-                        aria-hidden="true"
-                        class="icon searchhover "
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </button>
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <div
                   class="flex"
                 >
                   <label
@@ -927,186 +336,6 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                   </label>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                </div>
-                <div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <a
-                    class="flex flex-row w-fit"
-                    href="/member/myplan/benefits"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <button
-                        class="body-bold"
-                      >
-                        Medical Benefits
-                      </button>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col "
-                    >
-                      <img
-                        alt=""
-                        class="icon mt-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-                <div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <a
-                    class="flex flex-row w-fit"
-                    href="/member/myplan/benefits"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <button
-                        class="body-bold"
-                      >
-                        Pharmacy Benefits
-                      </button>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col "
-                    >
-                      <img
-                        alt=""
-                        class="icon mt-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-                <div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <a
-                    class="flex flex-row w-fit"
-                    href="/member/myplan/benefits"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <button
-                        class="body-bold"
-                      >
-                        Dental Benefits
-                      </button>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col "
-                    >
-                      <img
-                        alt=""
-                        class="icon mt-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-                <div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <a
-                    class="flex flex-row w-fit"
-                    href="/member/myplan/benefits"
-                  >
-                    <div
-                      class="flex flex-col"
-                    >
-                      <button
-                        class="body-bold"
-                      >
-                        Vision Benefits
-                      </button>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col "
-                    >
-                      <img
-                        alt=""
-                        class="icon mt-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
                   />
                 </div>
                 <div>
@@ -1215,50 +444,7 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                 />
                 <div
                   class="flex flex-row flex-wrap gap-x-2 gap-y-4"
-                >
-                  <button
-                    aria-label="Primary Care Provider"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Primary Care Provider
-                  </button>
-                  <button
-                    aria-label="Dentist"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Dentist
-                  </button>
-                  <button
-                    aria-label="Mental Health Provider"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Mental Health Provider
-                  </button>
-                  <button
-                    aria-label="Eye Doctor"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Eye Doctor
-                  </button>
-                  <button
-                    aria-label="Pharmacy"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Pharmacy
-                  </button>
-                  <button
-                    aria-label="Virtual Care"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Virtual Care
-                  </button>
-                </div>
+                />
               </section>
             </div>
             <div
@@ -1296,112 +482,12 @@ exports[`Dashboard when PR is selected should render UI correctly with proper gr
                 />
                 <div
                   class="flex flex-row flex-wrap gap-x-2 gap-y-4"
-                >
-                  <button
-                    aria-label="Medical"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Medical
-                  </button>
-                  <button
-                    aria-label="Dental"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Dental
-                  </button>
-                  <button
-                    aria-label="Prescription Drugs"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Prescription Drugs
-                  </button>
-                  <button
-                    aria-label="Vision"
-                    class="button-text pill text-center flex flex-row justify-center items-center min-w-fit null undefined"
-                    type="button"
-                  >
-                    Vision
-                  </button>
-                </div>
+                />
               </section>
             </div>
           </div>
         </section>
-        <section>
-          <div
-            class="card-main !bg-secondary-focus !p-0 large-section relative"
-          >
-            <div
-              class="flex flex-col sm:flex-row"
-            >
-              <div
-                class="flex flex-col p-4 sm:py-8 sm:pl-8 basis-1/2 flex-shrink-0 box-border"
-              >
-                <h2
-                  class="title-2"
-                >
-                  Bring Your Advisor With You
-                </h2>
-                <p
-                  class="body-1 mt-4 mb-8"
-                  style="display: block;"
-                >
-                  Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
-                </p>
-                <div
-                  class="flex flex-col sm:flex-row"
-                >
-                  <a
-                    href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
-                  >
-                    <img
-                      alt="Download Amplify App from AppStore"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                  <a
-                    class="mt-4 sm:ml-4 sm:mt-0"
-                    href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
-                  >
-                    <img
-                      alt="Download Amplify App from PlayStore"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </a>
-                </div>
-              </div>
-              <img
-                alt="Amplify Health App"
-                class="min-h-[280px] self-end object-cover sm:self-auto basis-1/2 min-w-0"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </div>
-        </section>
+        <section />
         <section />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"

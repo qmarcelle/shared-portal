@@ -73,9 +73,9 @@ export const MembersRepresentativeItem = ({
   effectiveOn,
   firstName,
   lastName,
-  icon = <Image src={editIcon} alt="link" />,
-  icon1 = <Image src={inboxIcon} alt="link" />,
-  pendingIcon = <Image src={pendingLogo} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
+  icon1 = <Image src={inboxIcon} alt="" />,
+  pendingIcon = <Image src={pendingLogo} alt="" />,
   allowUpdates = true,
   createdAt,
 }: MembersRepresentativeItemProps) => {
@@ -137,7 +137,7 @@ export const MembersRepresentativeItem = ({
           <Spacer axis="horizontal" size={8} />
           {fullAccess && (
             <Row>
-              <Image src={accessGranted} className="icon" alt="Info" />
+              <Image src={accessGranted} className="icon" alt="" />
               <TextBox className="ml-2" text="Full Access" />
             </Row>
           )}

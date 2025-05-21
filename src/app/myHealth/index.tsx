@@ -134,43 +134,37 @@ const healthLibraryDetails = [
 const discountCardDetails = [
   {
     id: '1',
-    icon: <Image src={fitnessLogo} alt="Footwear Icon" className="inline" />,
+    icon: <Image src={fitnessLogo} alt="Footwear Icon" className="" />,
     cardLink: 'Apparel & Footwear',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!))}`,
   },
   {
     id: '2',
-    icon: <Image src={fitLogo} alt="Fitness Icon" className="inline" />,
+    icon: <Image src={fitLogo} alt="Fitness Icon" className="" />,
     cardLink: 'Fitness',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!))}`,
   },
   {
     id: '3',
-    icon: (
-      <Image src={primaryVisionLogo} alt="Vision Icon" className="inline" />
-    ),
+    icon: <Image src={primaryVisionLogo} alt="Vision Icon" className="" />,
     cardLink: 'Hearing & Vision',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!))}`,
   },
   {
     id: '4',
-    icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="inline" />,
+    icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="" />,
     cardLink: 'Nutrition',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!))}`,
   },
   {
     id: '5',
-    icon: (
-      <Image src={transportationLogo} alt="Travel Icon" className="inline" />
-    ),
+    icon: <Image src={transportationLogo} alt="Travel Icon" className="" />,
     cardLink: 'Travel',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!))}`,
   },
   {
     id: '6',
-    icon: (
-      <Image src={personalCareLogo} alt="Personal Icon" className="inline" />
-    ),
+    icon: <Image src={personalCareLogo} alt="Personal Icon" className="" />,
     cardLink: 'Personal Care',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!))}`,
   },

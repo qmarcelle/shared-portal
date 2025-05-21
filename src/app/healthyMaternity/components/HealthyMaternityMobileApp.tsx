@@ -15,7 +15,7 @@ const HealthyMaternityMobileApp = () => {
     <>
       <Card className="large-section overlap-bottom">
         <section className="md:flex md:flex-row">
-          <Image src={careTNDevice} alt="careTN" />
+          <Image src={careTNDevice} alt="" />
           <Spacer size={16} />
           <Column>
             <Header
@@ -36,19 +36,13 @@ const HealthyMaternityMobileApp = () => {
             <Spacer size={32} />
             <section className="justify-start flex flex-row">
               <Link href="https://apps.apple.com/us/app/amplifyhealth/id6444489335">
-                <Image
-                  src={appleStoreLogo}
-                  alt="Download Amplify App from AppStore"
-                />
+                <Image src={appleStoreLogo} alt="" />
               </Link>
               <Link
                 className="pl-[10px]"
                 href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
               >
-                <Image
-                  src={playStoreLogo}
-                  alt="Download Amplify App from PlayStore"
-                />
+                <Image src={playStoreLogo} alt="" />
               </Link>
             </section>
           </Column>

@@ -13,7 +13,7 @@ interface ProviderInfoItemProps extends IComponent {
 }
 
 export const ProviderInfoItem = ({
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: ProviderInfoItemProps) => {
   return (
     <Card className="card-main large-section">

@@ -33,7 +33,7 @@ export const WellnessRewards = ({
   // color2 = '#5DC1FD',
   //color1 = '#f2f2f2',
   linkText = 'View Ways to Earn & Learn more',
-  icon = <Image alt="external icon" src={externalIcon} />,
+  icon = <Image alt="" src={externalIcon} />,
   memberRewards,
   visibilityRules,
   isMemRelation,
@@ -153,7 +153,7 @@ export const WellnessRewards = ({
                         url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
                       />
                     )}
-                    <Image alt="external icon" src={externalIcon} />
+                    <Image alt="" src={externalIcon} />
                   </Row>
                   <Spacer size={18} />
                   <Divider />

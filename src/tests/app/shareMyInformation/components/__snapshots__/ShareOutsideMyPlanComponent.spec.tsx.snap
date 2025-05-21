@@ -27,7 +27,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Share your information with individuals not on your health plan.
             </p>
@@ -60,7 +60,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                   >
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You are not sharing your information with individuals ouside of your health plan.
                     </p>
@@ -82,7 +82,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 class="mr-2"
               >
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -127,7 +127,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Share your information with individuals not on your health plan.
           </p>
@@ -160,7 +160,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 >
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     You are not sharing your information with individuals ouside of your health plan.
                   </p>
@@ -182,7 +182,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               class="mr-2"
             >
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -284,7 +284,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Share your information with individuals not on your health plan.
             </p>
@@ -317,7 +317,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                   >
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You are not sharing your information with individuals ouside of your health plan.
                     </p>
@@ -339,7 +339,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 class="mr-2"
               >
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -384,7 +384,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Share your information with individuals not on your health plan.
           </p>
@@ -417,7 +417,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 >
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     You are not sharing your information with individuals ouside of your health plan.
                   </p>
@@ -439,7 +439,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               class="mr-2"
             >
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -541,7 +541,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Share your information with individuals not on your health plan.
             </p>
@@ -567,13 +567,13 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               >
                 <p
                   class="body-1 ml-2 font-bold body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Jill Valentine
                 </p>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   DOB: 01/19/1985
                 </p>
@@ -606,7 +606,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Full Access
                   </p>
@@ -632,7 +632,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                       class="ml-2"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -661,7 +661,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 class="mr-2"
               >
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -706,7 +706,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Share your information with individuals not on your health plan.
           </p>
@@ -732,13 +732,13 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
             >
               <p
                 class="body-1 ml-2 font-bold body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Jill Valentine
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 DOB: 01/19/1985
               </p>
@@ -771,7 +771,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Full Access
                 </p>
@@ -797,7 +797,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                     class="ml-2"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -826,7 +826,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               class="mr-2"
             >
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -928,7 +928,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Share your information with individuals not on your health plan.
             </p>
@@ -954,13 +954,13 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               >
                 <p
                   class="body-1 ml-2 font-bold body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Jill Valentine
                 </p>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   DOB: 01/19/1985
                 </p>
@@ -993,7 +993,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Full Access
                   </p>
@@ -1019,7 +1019,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                       class="ml-2"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -1048,7 +1048,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 class="mr-2"
               >
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1093,7 +1093,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Share your information with individuals not on your health plan.
           </p>
@@ -1119,13 +1119,13 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
             >
               <p
                 class="body-1 ml-2 font-bold body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Jill Valentine
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 DOB: 01/19/1985
               </p>
@@ -1158,7 +1158,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Full Access
                 </p>
@@ -1184,7 +1184,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
                     class="ml-2"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -1213,7 +1213,7 @@ exports[`ShareOutsideMyPlanComponent should render the UI correctly for ShareOut
               class="mr-2"
             >
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"

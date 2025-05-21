@@ -32,7 +32,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               class="relative"
             >
               <div
-                class="flex flex-row link"
+                class="flex flex-row link "
                 tabindex="0"
               >
                 <p
@@ -44,7 +44,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                   style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                 />
                 <img
-                  alt="down icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -80,7 +80,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                     class="size-5 mx-2 "
                   >
                     <img
-                      alt="selcted"
+                      alt=""
                       class="size-5"
                       data-nimg="1"
                       decoding="async"
@@ -129,7 +129,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     You do not have any Deductible amounts.
                   </p>
@@ -163,7 +163,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     You do not have any Out-of-Pocket amounts.
                   </p>
@@ -194,20 +194,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     90.0
                   </p>
                   <p
                     class="body-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Used
                   </p>
                 </div>
                 <p
                   class="body-1 ml-5"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Annual Maximum Basic and Major Coverage
                 </p>
@@ -232,20 +232,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     0.0
                   </p>
                   <p
                     class="body-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Used
                   </p>
                 </div>
                 <p
                   class="body-1 ml-5"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Ortho Lifetime Maximum
                 </p>
@@ -321,7 +321,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
             class="relative"
           >
             <div
-              class="flex flex-row link"
+              class="flex flex-row link "
               tabindex="0"
             >
               <p
@@ -333,7 +333,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                 style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
               />
               <img
-                alt="down icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -369,7 +369,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
                   class="size-5 mx-2 "
                 >
                   <img
-                    alt="selcted"
+                    alt=""
                     class="size-5"
                     data-nimg="1"
                     decoding="async"
@@ -418,7 +418,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   You do not have any Deductible amounts.
                 </p>
@@ -452,7 +452,7 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   You do not have any Out-of-Pocket amounts.
                 </p>
@@ -483,20 +483,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   90.0
                 </p>
                 <p
                   class="body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Used
                 </p>
               </div>
               <p
                 class="body-1 ml-5"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Annual Maximum Basic and Major Coverage
               </p>
@@ -521,20 +521,20 @@ exports[`DentalBalance should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   0.0
                 </p>
                 <p
                   class="body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Used
                 </p>
               </div>
               <p
                 class="body-1 ml-5"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Ortho Lifetime Maximum
               </p>

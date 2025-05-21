@@ -132,7 +132,7 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           <TextBox text="3" className="stepRoundBlue" />
           <Spacer size={18} />
           <Column className="items-center">
-            <Image className="size-[80px]" src={successIcon} alt="success" />
+            <Image className="size-[80px]" src={successIcon} alt="" />
             <Spacer size={24} />
             <Header
               className="title-2"

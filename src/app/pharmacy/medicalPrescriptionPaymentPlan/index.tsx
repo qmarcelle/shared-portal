@@ -52,9 +52,7 @@ const headerText = () => {
       <AppLink
         className="!font-bold inline-flex p-0"
         label=" Social Security Extra Help program"
-        icon={
-          <Image className="inline" alt="external icon" src={externalIcon} />
-        }
+        icon={<Image className="inline" alt="" src={externalIcon} />}
         displayStyle="inline"
         callback={() => {
           opeInNewTab('https://www.ssa.gov/medicare/part-d-extra-help');
@@ -174,7 +172,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                   confirming my authorization for the use, disclosure of information about
                   me and redirection to WIPRO, LLC, as described herein.`}
                 callback={() => {
-                  TandCTextAnalytics("I read");
+                  TandCTextAnalytics('I read');
                 }}
                 checked={readAgreement}
                 onChange={(newValue) => setReadAgreement(newValue)}
@@ -184,7 +182,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                 label=""
                 body={checkboxPaymentPlanText()}
                 callback={() => {
-                  TandCTextAnalytics("I Agree");
+                  TandCTextAnalytics('I Agree');
                 }}
                 checked={agreedTc}
                 onChange={(newValue) => setAgreedTc(newValue)}
@@ -197,7 +195,7 @@ const MedicalPrescriptionPaymentPlan = () => {
                   label="Print"
                   callback={() => {
                     opeInNewTab(termsAndConditionsPDF);
-                    TandCTextAnalytics("Print");
+                    TandCTextAnalytics('Print');
                   }}
                 />
                 <Button

@@ -178,7 +178,7 @@ export const UpdateRowForm = ({
               <Title
                 className="font-bold primary-color"
                 text="Update"
-                suffix={<Image src={editIcon} alt="link" />}
+                suffix={<Image src={editIcon} alt="" />}
               />
             </Column>
           </Column>

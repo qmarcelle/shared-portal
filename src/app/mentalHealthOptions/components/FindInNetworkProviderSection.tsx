@@ -11,7 +11,7 @@ interface FindInNetworkProviderSectionProps extends IComponent {
   icon?: ReactNode;
 }
 export const FindInNetworkProviderSection = ({
-  icon = <Image src={FindCare} className="w-[40px] h-[40px]" alt="FindCare" />,
+  icon = <Image src={FindCare} className="w-[40px] h-[40px]" alt="" />,
 }: FindInNetworkProviderSectionProps) => {
   return (
     <Card className="large-section">

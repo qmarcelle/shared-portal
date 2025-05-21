@@ -24,7 +24,7 @@ exports[`MyHealthProgramsResources should not render Teladoc Blood Pressure Mana
         />
         <p
           class="body-1 mt-4 inline w-2/3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
@@ -90,7 +90,7 @@ exports[`MyHealthProgramsResources should not render Teladoc Health Diabetes MAN
         />
         <p
           class="body-1 mt-4 inline w-2/3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
@@ -159,7 +159,7 @@ exports[`MyHealthProgramsResources should not render the Healthy Maternity card 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -223,7 +223,7 @@ exports[`MyHealthProgramsResources should not render the Healthy Maternity card 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -344,7 +344,7 @@ exports[`MyHealthProgramsResources should not render the Quest Select Lab card i
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -408,7 +408,7 @@ exports[`MyHealthProgramsResources should not render the Quest Select Lab card i
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -529,7 +529,7 @@ exports[`MyHealthProgramsResources should not render the Silver and Fitness card
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -593,7 +593,7 @@ exports[`MyHealthProgramsResources should not render the Silver and Fitness card
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -714,7 +714,7 @@ exports[`MyHealthProgramsResources should not render the teladoc general and urg
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -778,7 +778,7 @@ exports[`MyHealthProgramsResources should not render the teladoc general and urg
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -899,7 +899,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -942,12 +942,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Mental Health
                     </p>
                     <img
-                      alt="AbleToIcon"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -966,7 +966,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         AbleTo
                       </p>
@@ -975,7 +975,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                       </p>
@@ -985,7 +985,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1028,6 +1028,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                       </div>
                       <a
                         aria-label="Learn More About AbleTo"
+                        href="/member/myhealth/healthprograms/ableTo"
                         style="display: block;"
                       >
                         <button
@@ -1076,7 +1077,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -1119,12 +1120,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Mental Health
                   </p>
                   <img
-                    alt="AbleToIcon"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -1143,7 +1144,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       AbleTo
                     </p>
@@ -1152,7 +1153,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       AbleTo’s personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                     </p>
@@ -1162,7 +1163,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -1205,6 +1206,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Able To Health
                     </div>
                     <a
                       aria-label="Learn More About AbleTo"
+                      href="/member/myhealth/healthprograms/ableTo"
                       style="display: block;"
                     >
                       <button
@@ -1310,7 +1312,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -1353,12 +1355,12 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Advice & Support
                     </p>
                     <img
-                      alt="CareTN"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1377,7 +1379,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         CareTN One-on-One Health Support
                       </p>
@@ -1386,7 +1388,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                       </p>
@@ -1396,7 +1398,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1439,6 +1441,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                       </div>
                       <a
                         aria-label="Learn More About CareTN"
+                        href="/member/myhealth/healthprograms/caremanagement"
                         style="display: block;"
                       >
                         <button
@@ -1487,7 +1490,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -1530,12 +1533,12 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Advice & Support
                   </p>
                   <img
-                    alt="CareTN"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -1554,7 +1557,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       CareTN One-on-One Health Support
                     </p>
@@ -1563,7 +1566,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Did you know you can talk to your very own care team? The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                     </p>
@@ -1573,7 +1576,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -1616,6 +1619,7 @@ exports[`MyHealthProgramsResources should render UI correctly for CareTN One On 
                     </div>
                     <a
                       aria-label="Learn More About CareTN"
+                      href="/member/myhealth/healthprograms/caremanagement"
                       style="display: block;"
                     >
                       <button
@@ -1721,7 +1725,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -1764,12 +1768,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Physical Therapy
                     </p>
                     <img
-                      alt="HingeHealth"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1788,7 +1792,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Hinge Health Back & Joint Care
                       </p>
@@ -1797,7 +1801,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                       </p>
@@ -1807,7 +1811,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1850,6 +1854,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                       </div>
                       <a
                         aria-label="Learn More About Hinge Health"
+                        href="/member/myhealth/healthprograms/hingeHealth"
                         style="display: block;"
                       >
                         <button
@@ -1898,7 +1903,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -1941,12 +1946,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Physical Therapy
                   </p>
                   <img
-                    alt="HingeHealth"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -1965,7 +1970,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Hinge Health Back & Joint Care
                     </p>
@@ -1974,7 +1979,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                     </p>
@@ -1984,7 +1989,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -2027,6 +2032,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Hinge Health P
                     </div>
                     <a
                       aria-label="Learn More About Hinge Health"
+                      href="/member/myhealth/healthprograms/hingeHealth"
                       style="display: block;"
                     >
                       <button
@@ -2132,7 +2138,7 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -2196,7 +2202,7 @@ exports[`MyHealthProgramsResources should render UI correctly for MyHealthProgra
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -2317,7 +2323,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -2360,7 +2366,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Urgent Care
                     </p>
@@ -2372,7 +2378,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Talk to a Nurse
                       </p>
@@ -2381,7 +2387,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                       </p>
@@ -2391,7 +2397,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -2434,6 +2440,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                       </div>
                       <a
                         aria-label="Learn More About Nurseline"
+                        href="/member/myhealth/healthprograms/talkToNurse"
                         style="display: block;"
                       >
                         <button
@@ -2482,7 +2489,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -2525,7 +2532,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Urgent Care
                   </p>
@@ -2537,7 +2544,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Talk to a Nurse
                     </p>
@@ -2546,7 +2553,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.
                     </p>
@@ -2556,7 +2563,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -2599,6 +2606,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Talk To Nurse 
                     </div>
                     <a
                       aria-label="Learn More About Nurseline"
+                      href="/member/myhealth/healthprograms/talkToNurse"
                       style="display: block;"
                     >
                       <button
@@ -3697,7 +3705,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -3740,12 +3748,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Primary Care
                     </p>
                     <img
-                      alt="TelaDoc"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -3764,7 +3772,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Health Primary Card Provider
                       </p>
@@ -3773,7 +3781,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
                       </p>
@@ -3783,7 +3791,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -3826,6 +3834,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Primary Care"
+                        href="/member/myhealth/healthprograms/teladocPrimaryCareProvider "
                         style="display: block;"
                       >
                         <button
@@ -3874,7 +3883,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -3917,12 +3926,12 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Primary Care
                   </p>
                   <img
-                    alt="TelaDoc"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -3941,7 +3950,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Teladoc Health Primary Card Provider
                     </p>
@@ -3950,7 +3959,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.
                     </p>
@@ -3960,7 +3969,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -4003,6 +4012,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Primary Care"
+                      href="/member/myhealth/healthprograms/teladocPrimaryCareProvider "
                       style="display: block;"
                     >
                       <button
@@ -4930,7 +4940,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -4973,12 +4983,12 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Pregnancy
                     </p>
                     <img
-                      alt="HealthyMaternity"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -4997,7 +5007,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Healthy Maternity
                       </p>
@@ -5006,7 +5016,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
                       </p>
@@ -5016,7 +5026,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -5059,6 +5069,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                       </div>
                       <a
                         aria-label="Learn More About Healthy Maternity"
+                        href="/member/myhealth/healthprograms/healthymaternity"
                         style="display: block;"
                       >
                         <button
@@ -5107,7 +5118,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -5150,12 +5161,12 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Pregnancy
                   </p>
                   <img
-                    alt="HealthyMaternity"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -5174,7 +5185,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Healthy Maternity
                     </p>
@@ -5183,7 +5194,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
                     </p>
@@ -5193,7 +5204,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -5236,6 +5247,7 @@ exports[`MyHealthProgramsResources should render the Healthy Maternity card if p
                     </div>
                     <a
                       aria-label="Learn More About Healthy Maternity"
+                      href="/member/myhealth/healthprograms/healthymaternity"
                       style="display: block;"
                     >
                       <button
@@ -5341,7 +5353,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -5384,12 +5396,12 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Lab Testing
                     </p>
                     <img
-                      alt="QuestSelect"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -5408,7 +5420,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         QuestSelect Low-Cost Lab Testing
                       </p>
@@ -5417,7 +5429,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                       </p>
@@ -5427,7 +5439,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -5470,6 +5482,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                       </div>
                       <a
                         aria-label="Learn More About QuestSelect"
+                        href="/member/myhealth/healthprograms/questSelect"
                         style="display: block;"
                       >
                         <button
@@ -5518,7 +5531,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -5561,12 +5574,12 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Lab Testing
                   </p>
                   <img
-                    alt="QuestSelect"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -5585,7 +5598,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       QuestSelect Low-Cost Lab Testing
                     </p>
@@ -5594,7 +5607,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                     </p>
@@ -5604,7 +5617,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -5647,6 +5660,7 @@ exports[`MyHealthProgramsResources should render the Quest Select Lab if the pzn
                     </div>
                     <a
                       aria-label="Learn More About QuestSelect"
+                      href="/member/myhealth/healthprograms/questSelect"
                       style="display: block;"
                     >
                       <button
@@ -5752,7 +5766,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -5795,12 +5809,12 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Fitness
                     </p>
                     <img
-                      alt="SilverFit"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -5819,7 +5833,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Silver&Fit Fitness Program 
                       </p>
@@ -5828,7 +5842,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                       </p>
@@ -5838,7 +5852,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -5881,6 +5895,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                       </div>
                       <a
                         aria-label="Learn More About Silver&Fit"
+                        href="/member/myhealth/healthprograms/silverFit"
                         style="display: block;"
                       >
                         <button
@@ -5929,7 +5944,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -5972,12 +5987,12 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Fitness
                   </p>
                   <img
-                    alt="SilverFit"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -5996,7 +6011,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Silver&Fit Fitness Program 
                     </p>
@@ -6005,7 +6020,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                     </p>
@@ -6015,7 +6030,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -6058,6 +6073,7 @@ exports[`MyHealthProgramsResources should render the Silver and Fitness card if 
                     </div>
                     <a
                       aria-label="Learn More About Silver&Fit"
+                      href="/member/myhealth/healthprograms/silverFit"
                       style="display: block;"
                     >
                       <button
@@ -6163,7 +6179,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
             />
             <p
               class="body-1 mt-4 inline w-2/3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
             </p>
@@ -6206,12 +6222,12 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Urgent Care
                     </p>
                     <img
-                      alt="TelaDoc"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -6230,7 +6246,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Health General & Urgent Care
                       </p>
@@ -6239,7 +6255,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                       </p>
@@ -6249,7 +6265,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -6292,6 +6308,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                       </div>
                       <a
                         aria-label="Learn More About Teladoc Health Urgent Care"
+                        href="/member/myhealth/healthprograms/teladocHealthGeneralUrgentCare"
                         style="display: block;"
                       >
                         <button
@@ -6340,7 +6357,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
           />
           <p
             class="body-1 mt-4 inline w-2/3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -6383,12 +6400,12 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                 >
                   <p
                     class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Urgent Care
                   </p>
                   <img
-                    alt="TelaDoc"
+                    alt=""
                     class="w-1/2"
                     data-nimg="1"
                     decoding="async"
@@ -6407,7 +6424,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                   >
                     <p
                       class="body-1 title-3 !font-bold m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Teladoc Health General & Urgent Care
                     </p>
@@ -6416,7 +6433,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     />
                     <p
                       class="body-1 body-1 m-4 mb-0"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                     </p>
@@ -6426,7 +6443,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     <div>
                       <p
                         class="body-1 body-1 m-4 mt-2 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Generally good for:
                       </p>
@@ -6469,6 +6486,7 @@ exports[`MyHealthProgramsResources should render the teladoc general and urgent 
                     </div>
                     <a
                       aria-label="Learn More About Teladoc Health Urgent Care"
+                      href="/member/myhealth/healthprograms/teladocHealthGeneralUrgentCare"
                       style="display: block;"
                     >
                       <button

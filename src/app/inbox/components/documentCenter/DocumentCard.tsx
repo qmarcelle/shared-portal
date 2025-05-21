@@ -31,7 +31,7 @@ export const DocumentCard = ({
             <Image
               className="w-6"
               src={File}
-              alt="Document FIle"
+              alt=""
               style={{ marginRight: '10px' }}
             ></Image>
           }

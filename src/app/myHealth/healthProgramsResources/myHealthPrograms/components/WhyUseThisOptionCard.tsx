@@ -48,7 +48,7 @@ export const WhyUseThisOptionCard = ({
                 <Column key={index}>
                   <li>
                     <Row>
-                      <Image src={accessGranted} className="icon" alt="Info" />
+                      <Image src={accessGranted} className="icon" alt="" />
                       <TextBox className="pt-1 ml-2" text={item} />
                     </Row>
                   </li>

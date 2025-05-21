@@ -78,20 +78,12 @@ export const ClaimItem = ({
   function getClaimItem() {
     return (
       <section className="md:flex md:flex-row align-top m-4">
-        <Image
-          src={getClaimIcon()}
-          className="icon max-md:hidden"
-          alt={claimInfo.claimType}
-        />
+        <Image src={getClaimIcon()} className="icon max-md:hidden" alt="" />
         <Spacer axis="horizontal" size={8} />
         <Column className="min-w-[95%]">
           <section className="md:flex md:flex-row md:justify-between">
             <section className="flex flex-row mb-[10px] md:flex-col">
-              <Image
-                src={getClaimIcon()}
-                className="icon md:hidden"
-                alt={claimInfo.claimType}
-              />
+              <Image src={getClaimIcon()} className="icon md:hidden" alt="" />
               <Header
                 text={claimInfo.issuer}
                 type="title-3"
