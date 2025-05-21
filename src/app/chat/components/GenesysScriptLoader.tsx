@@ -262,8 +262,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         return cssUrls || cloudConfig?.cssUrls || []; // Prefer cloudConfig specific URLs
       }
       // Legacy mode or default
-      return cssUrls || legacyConfig?.cssUrls || [];
-    }, [chatMode, cssUrls, legacyConfig]);
+      return (
+        cssUrls ||
+        legacyConfig?.cssUrls || [
+          '/assets/genesys/plugins/widgets.min.css',
+          '/assets/genesys/styles/bcbst-custom.css',
+        ]
+      );
+    }, [chatMode, cssUrls, legacyConfig, cloudConfig]); // Added cloudConfig to dependencies for completeness, though not directly used for legacy path
     // REMOVED: const stableCssUrls = useMemo(() => effectiveCssUrls, [effectiveCssUrls]);
 
     logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
