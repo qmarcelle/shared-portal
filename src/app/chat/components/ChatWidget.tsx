@@ -728,25 +728,6 @@ export default function ChatWidget({
   // Render script loaders only if chat is enabled and config is fully resolved
   const shouldRenderLoaders = isChatEnabled && genesysChatConfigFull;
 
-  // If config is still loading, show a minimal loader or nothing
-  if (isLoadingConfig && !genesysChatConfigFull) {
-    logger.debug(
-      `${LOG_PREFIX} Configuration is loading, rendering minimal UI.`,
-    );
-    return showLoaderStatus ? <div>Loading Chat Config...</div> : null;
-  }
-
-  // If config failed to load, show an error message or allow fallback.
-  if (configError && !genesysChatConfigFull && !forceFallbackButton) {
-    logger.error(
-      `${LOG_PREFIX} Configuration error, rendering error UI.`,
-      configError,
-    );
-    return showLoaderStatus ? (
-      <div>Error loading chat config: {configError.message}</div>
-    ) : null;
-  }
-
   // If chat is explicitly disabled via config (e.g., isChatAvailable=false or isChatEligibleMember=false)
   // and not forcing fallback, render nothing or a disabled message.
   if (!isChatEnabled && !forceFallbackButton) {
