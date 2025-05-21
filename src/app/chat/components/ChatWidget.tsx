@@ -458,10 +458,22 @@ export default function ChatWidget({
       return;
     }
 
+    // ADD LOGS AND DEBUGGER HERE
+    console.log(
+      `${LOG_PREFIX} Attempting to command chat open. Mode: ${chatMode}`,
+    );
+    console.log(`${LOG_PREFIX} window._genesysCXBus:`, window._genesysCXBus);
+    console.log(`${LOG_PREFIX} window.Genesys:`, window.Genesys);
+    // debugger; // Intentionally commented out for now, enable if basic logs aren't enough
+
     if (chatMode === 'legacy' && window._genesysCXBus) {
+      console.log(`${LOG_PREFIX} Commanding WebChat.open for legacy`);
       (window._genesysCXBus as GenesysCXBus).command('WebChat.open');
+      debugger; // PAUSE IMMEDIATELY AFTER LEGACY COMMAND
     } else if (chatMode === 'cloud' && window.Genesys) {
+      console.log(`${LOG_PREFIX} Commanding Messenger.open for cloud`);
       window.Genesys('command', 'Messenger.open');
+      debugger; // PAUSE IMMEDIATELY AFTER CLOUD COMMAND
     } else {
       logger.error(
         `${LOG_PREFIX} Cannot open chat. Genesys CXBus (legacy) or Genesys global (cloud) not found. Mode: ${chatMode}`,
@@ -608,25 +620,28 @@ export default function ChatWidget({
       }
     } else if (!isChatActive) {
       // Only show button again if chat didn't start (pre-chat was cancelled)
+      // ADD/MODIFY LOGS HERE
       logger.debug(
-        `${LOG_PREFIX} PreChat is closed and chat is not active. Attempting to show native Genesys button.`,
+        `${LOG_PREFIX} PreChat is closed and chat is NOT active. Attempting to show native Genesys button. DOM state for cx_chat_form_button:`,
+        document.getElementById('cx_chat_form_button')
+          ? 'Button Found In DOM'
+          : 'Button NOT Found In DOM Immediately',
       );
-      if (chatMode === 'legacy') {
-        const legacyButton = document.getElementById('cx_chat_form_button');
-        if (legacyButton) {
-          logger.info(
-            `${LOG_PREFIX} Manually showing legacy button (ID: cx_chat_form_button) by resetting display style.`,
-          );
-          legacyButton.style.display = ''; // Revert to default display (e.g., 'block', 'inline-block' based on its original CSS)
-        } else {
-          logger.warn(
-            `${LOG_PREFIX} Legacy button (ID: cx_chat_form_button) not found in DOM to show.`,
-          );
-        }
-      } else if (chatMode === 'cloud') {
-        document.body.classList.remove('prechat-panel-open');
-        // TODO: Cloud command to show button
+      const legacyButton = document.getElementById('cx_chat_form_button');
+      if (legacyButton) {
+        logger.info(
+          `${LOG_PREFIX} Manually showing legacy button (ID: cx_chat_form_button) by resetting display style.`,
+        );
+        legacyButton.style.display = ''; // Revert to default display (e.g., 'block', 'inline-block' based on its original CSS)
+      } else {
+        logger.warn(
+          `${LOG_PREFIX} Legacy button (ID: cx_chat_form_button) not found in DOM to show. Current isPreChatModalOpen: ${isPreChatModalOpen}, isChatActive: ${isChatActive}`,
+        );
+        // debugger; // Optionally pause here to inspect DOM
       }
+    } else if (chatMode === 'cloud') {
+      document.body.classList.remove('prechat-panel-open');
+      // TODO: Cloud command to show button
     }
   }, [isPreChatModalOpen, isChatActive, chatMode, storeActions]);
 
