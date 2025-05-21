@@ -973,10 +973,36 @@
     loadResource
       .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
       .then(() => {
-        // ADD THESE LOGS:
+        // Existing log for SCRIPT TAG LOADED
         console.log(
           `[click_to_chat.js] Timestamp: ${Date.now()} - ${widgetsMinJsUrl} SCRIPT TAG LOADED. Defining onReady.`,
-        ); // MODIFIED
+        );
+
+        // <<< ADDED DEBUG LOGS >>>
+        console.log(
+          `[DEBUG click_to_chat.js] Timestamp: ${Date.now()} - Immediately after widgets.min.js script tag loaded. Checking window._genesys...`,
+        );
+        console.log(
+          '[DEBUG click_to_chat.js] window._genesys:',
+          window._genesys,
+        );
+        console.log(
+          '[DEBUG click_to_chat.js] typeof window._genesys:',
+          typeof window._genesys,
+        );
+        if (window._genesys && window._genesys.widgets) {
+          console.log(
+            '[DEBUG click_to_chat.js] Genesys widgets are available:',
+            window._genesys.widgets,
+          );
+        } else {
+          console.log(
+            '[DEBUG click_to_chat.js] window._genesys or window._genesys.widgets NOT available here.',
+          );
+        }
+        // <<< END ADDED DEBUG LOGS >>>
+
+        // Original console logs about _genesys state (can be redundant now but kept for consistency)
         console.log(
           '[click_to_chat.js] State of window._genesys IMMEDIATELY AFTER widgets.min.js load:',
           typeof window._genesys,
