@@ -77,6 +77,7 @@ interface GenesysScriptLoaderProps {
   onError?: (error: Error) => void;
   showStatus?: boolean;
   chatMode?: 'legacy' | 'cloud' | 'standard'; // 'standard' seems unused, validation only checks legacy/cloud
+  isChatActuallyEnabled?: boolean;
 }
 
 const addResourceHints = () => {
@@ -141,6 +142,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     onError,
     showStatus = process.env.NODE_ENV === 'development',
     chatMode: chatModeProp = 'legacy', // Use the passed prop, default to legacy if not provided
+    isChatActuallyEnabled,
   }) => {
     // const chatMode = 'legacy'; // REMOVED: Force chatMode to legacy for testing
     // Use chatModeProp directly or assign it to a const if preferred for clarity for the rest of the component
@@ -688,6 +690,14 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       // Initialization logic
       if (!isActiveInstance()) return; // Use helper
 
+      if (isChatActuallyEnabled === false) {
+        // Explicitly check for false
+        logger.info(
+          `${LOG_PREFIX} Instance ${instanceId.current} will NOT load scripts because isChatActuallyEnabled is false.`,
+        );
+        return; // Do not proceed with loading if chat is not actually enabled
+      }
+
       if (
         ChatLoadingState.scriptState.isComplete &&
         GenesysLoadingState.scriptLoaded
@@ -725,7 +735,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       }
       if (shouldLoadScripts()) {
         logger.info(
-          `${LOG_PREFIX} Ready to initialize scripts based on sequential loader state.`,
+          `${LOG_PREFIX} Ready to initialize scripts based on sequential loader state (and isChatActuallyEnabled).`,
         );
         loadScript();
       } else {
@@ -736,7 +746,13 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
       return () => {
         if (checkIntervalRef.current) clearTimeout(checkIntervalRef.current);
       };
-    }, [loadScript, onLoad, waitForCXBus, isActiveInstance]); // Added isActiveInstance
+    }, [
+      loadScript,
+      onLoad,
+      waitForCXBus,
+      isActiveInstance,
+      isChatActuallyEnabled,
+    ]); // Added isActiveInstance and isChatActuallyEnabled to dependency array
 
     useEffect(() => {
       // Chat mode validation
