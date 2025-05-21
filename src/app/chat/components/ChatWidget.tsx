@@ -11,7 +11,7 @@
 import { logger } from '@/utils/logger';
 import { MessageSquare } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useChatStore } from '../stores/chatStore'; // Assuming selectors are exported with useChatStore or separately
+import { useChatStore } from '../stores/chatStore'; // ButtonState is not an export, use literals
 import {
   CloudChatConfig,
   GenesysChat,
@@ -361,79 +361,57 @@ export default function ChatWidget({
         );
         storeActions.setError(
           new Error(
-            'Chat is currently unavailable. Please check eligibility and business hours.',
+            'Chat is currently unavailable. Please try again later or contact support.',
           ),
         );
-        setShowChatErrorModal(true);
+        storeActions.setButtonState('failed');
         return;
       }
 
-      // Directly attempt to open Genesys chat, bypassing custom PreChatModal
       logger.info(
-        `${LOG_PREFIX} window.requestChatOpen: Attempting to directly command Genesys to open. Mode: ${chatMode}`,
+        `${LOG_PREFIX} window.requestChatOpen: Attempting to command Genesys to open. Mode: ${chatMode}`,
+        {
+          isLegacyCXBusAvailable: !!window._genesysCXBus,
+          isCloudGenesysApiAvailable: !!window.Genesys, // This is for cloud, legacy uses _genesysCXBus
+          isGenesysLegacyChatReady: !!(window as any).genesysLegacyChatIsReady, // Check new flag
+        },
       );
 
-      const bus = window._genesysCXBus as GenesysCXBus;
-      const cloudApi = window.Genesys as GenesysChat['Genesys'];
-
-      if (chatMode === 'legacy') {
+      if ((window as any).genesysLegacyChatIsReady) {
+        logger.info(
+          `${LOG_PREFIX} window.requestChatOpen: Genesys legacy chat is ready. Commanding WebChat.open directly.`,
+        );
+        const bus = window._genesysCXBus as any; // Cast to any
         if (bus && typeof bus.command === 'function') {
           try {
-            logger.info(
-              `${LOG_PREFIX} Commanding WebChat.open (legacy) via requestChatOpen`,
-            );
             bus.command('WebChat.open');
-          } catch (e) {
+          } catch (e: any) {
             logger.error(
-              `${LOG_PREFIX} Error in requestChatOpen commanding WebChat.open (legacy):`,
+              `${LOG_PREFIX} Error commanding WebChat.open in requestChatOpen: ${e.message}`,
               e,
             );
-            storeActions.setError(
-              new Error('Failed to open legacy chat via requestChatOpen.'),
-            );
-            setShowChatErrorModal(true);
+            storeActions.setError(e);
+            storeActions.setButtonState('failed');
           }
         } else {
-          logger.error(
-            `${LOG_PREFIX} Legacy CXBus not available in requestChatOpen.`,
+          logger.warn(
+            `${LOG_PREFIX} window.requestChatOpen: _genesysCXBus not available to command WebChat.open, though legacy chat reported as ready.`,
           );
+          // This state suggests an issue with CXBus initialization in click_to_chat.js
           storeActions.setError(
-            new Error('Genesys legacy bus not ready for requestChatOpen.'),
+            new Error(
+              'Chat service CXBus not available. Please try again later.',
+            ),
           );
-          setShowChatErrorModal(true);
-        }
-      } else if (chatMode === 'cloud') {
-        if (cloudApi && typeof cloudApi.command === 'function') {
-          try {
-            logger.info(
-              `${LOG_PREFIX} Commanding Chat.open (cloud) via requestChatOpen`,
-            );
-            cloudApi.command('Chat.open'); // Or Messenger.open depending on exact cloud widget version
-          } catch (e) {
-            logger.error(
-              `${LOG_PREFIX} Error in requestChatOpen commanding Chat.open (cloud):`,
-              e,
-            );
-            storeActions.setError(
-              new Error('Failed to open cloud chat via requestChatOpen.'),
-            );
-            setShowChatErrorModal(true);
-          }
-        } else {
-          logger.error(
-            `${LOG_PREFIX} Cloud Genesys API not available in requestChatOpen.`,
-          );
-          storeActions.setError(
-            new Error('Genesys cloud API not ready for requestChatOpen.'),
-          );
-          setShowChatErrorModal(true);
+          storeActions.setButtonState('failed');
         }
       } else {
-        logger.error(
-          `${LOG_PREFIX} Unknown chat mode in requestChatOpen: ${chatMode}`,
+        logger.info(
+          `${LOG_PREFIX} window.requestChatOpen: Genesys legacy chat is NOT ready. Setting genesysLegacyChatOpenRequested = true.`,
         );
-        storeActions.setError(new Error(`Unknown chat mode: ${chatMode}`));
-        setShowChatErrorModal(true);
+        (window as any).genesysLegacyChatOpenRequested = true;
+        // Optionally, you could show a loading indicator or message here
+        // e.g., storeActions.setButtonState('creating'); // Or a new pending state
       }
     };
 

@@ -358,3 +358,43 @@
   justify-content: center !important;
   position: relative !important;
 }
+
+body #cx_chat_form_button, /* Increase specificity */
+#cx_chat_form_button.cx-side-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important; /* Ensure left is not interfering */
+  top: auto !important; /* Ensure top is not interfering */
+  z-index: 2147483647 !important; /* Max z-index */
+  display: inline-flex !important; /* Or block, depending on desired layout */
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important; /* Attempt to override any transform */
+  filter: none !important; /* Attempt to override any filter */
+  perspective: none !important; /* Attempt to override any perspective */
+  /* Add any other styles from your Tailwind classes that might be missing */
+  /* For example, if Tailwind's bg-primary is essential for visibility: */
+  /* background-color: YOUR_PRIMARY_COLOR_HEX_HERE !important; */
+  /* color: white !important; */
+  /* padding: 0.5rem 1rem !important; */ /* Corresponds to h-10 px-4 py-2 more or less */
+  /* border-radius: 0.375rem !important; */ /* Corresponds to rounded-md */
+  /* font-size: 0.875rem !important; */ /* text-sm */
+  /* font-weight: 500 !important; */ /* font-medium */
+}
+
+/*
+  If the button is inside a specific known container that might be causing issues,
+  you can also try to 'reset' that container's problematic styles.
+  For instance, if it's inside #genesys-chat-container:
+*/
+#genesys-chat-container {
+  transform: none !important;
+  filter: none !important;
+  perspective: none !important;
+  /*
+      You might need to be careful here, as #genesys-chat-container
+      is also where the main chat window will render.
+      These rules are aggressive and primarily for testing the button's fixed positioning.
+    */
+}
