@@ -398,3 +398,9 @@ body #cx_chat_form_button, /* Increase specificity */
       These rules are aggressive and primarily for testing the button's fixed positioning.
     */
 }
+
+/* Attempt to neutralize transforms on potential problematic ancestor containers like .cx-side-button-group */
+.cx-side-button-group {
+  transform: none !important;
+  -webkit-transform: none !important;
+}
