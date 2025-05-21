@@ -1248,8 +1248,8 @@
               : window.chatSettings.chatButtonEnabled,
           template:
             window.chatSettings.chatButtonTemplate ||
-            // MODIFIED TEMPLATE with INLINE STYLES for positioning:
-            '<button id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary hover:bg-primary-600 text-white" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">Start Chat</button>',
+            // Use the original div structure that works with the injected CSS
+            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           // Original template was:
           // '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           effectDuration: window.chatSettings.chatButtonEffectDuration || 300,
@@ -1272,6 +1272,9 @@
                 // Legacy mode transport configuration
                 type: 'rest', // Or whatever the legacy transport type was, default often implies REST/long-polling for older widgets
                 dataURL: cfg.clickToChatEndpoint, // Used by legacy
+                asyncConfiguration: true, // Added for robustness
+                reconnectOnError: true, // Added for robustness
+                timeout: 60000, // Increased timeout to 60 seconds
                 // Other legacy-specific transport settings if any
               },
         form: {
@@ -1353,42 +1356,42 @@
         '- window._genesys.widgets.onReady CALLED by widgets.min.js.',
       );
 
-      // Store CXBus globally AFTER it's received and validated
-      if (CXBus && typeof CXBus.command === 'function') {
-        window._genesysCXBus = CXBus; // Make CXBus globally available
+      // This function now effectively IS the onReady callback logic for Genesys legacy
+      // triggered after widgets.min.js signals it's ready and CXBus is available.
+
+      // Store CXBus globally AFTER it's received and validated (assuming CXBus is passed or available globally)
+      // This part of the code assumes CXBus is now available, as this logic is meant to run when Genesys is ready.
+      const LocalCXBus = window.CXBus || window._genesysCXBus; // Prefer window.CXBus if defined by widgets.min.js in global scope
+
+      if (LocalCXBus && typeof LocalCXBus.command === 'function') {
+        window._genesysCXBus = LocalCXBus; // Make CXBus globally available
         console.log('[Genesys] CXBus object stored on window._genesysCXBus.');
       } else {
         console.error(
-          '[Genesys] Invalid CXBus object received in onReady. Not storing globally.',
+          '[Genesys] Invalid or missing CXBus object. Not storing globally. Chat might not function.',
         );
+        return; // Critical dependency missing
       }
 
-      // 1. Pre-initialization Checks
+      // 1. Pre-initialization Checks (already performed by this point if onReady is firing)
       if (!window._genesys || !window._genesys.widgets) {
         console.error(
-          '[Genesys] Critical: _genesys.widgets not available in onReady callback. Aborting initialization.',
+          '[Genesys] Critical: _genesys.widgets not available. Aborting further initialization.',
         );
         return;
       }
-      if (!CXBus || typeof CXBus.command !== 'function') {
-        console.error(
-          '[Genesys] Invalid CXBus object in onReady callback. Aborting initialization.',
-        );
-        return;
-      }
-      console.log('[Genesys] CXBus valid:', !!CXBus);
+      console.log('[Genesys] CXBus and _genesys.widgets confirmed.');
 
-      // 2. Configure widgets FIRST
-      // Ensure initLocalWidgetConfiguration sets up window._genesys.widgets.main and .webchat
-      initLocalWidgetConfiguration();
+      // 2. Widget configurations are assumed to be set by the preceding part of initLocalWidgetConfiguration.
+      // No need to call initLocalWidgetConfiguration() again here.
       console.log(
         '[click_to_chat.js] Timestamp:',
         Date.now(),
-        '- onReady: AFTER initLocalWidgetConfiguration()',
+        '- Widget configurations are set.',
       );
 
       // 3. Register Plugins FIRST
-      const plugin = CXBus.registerPlugin('LocalCustomization');
+      const plugin = LocalCXBus.registerPlugin('LocalCustomization');
       plugin.subscribe('WebChat.opened', function () {
         console.log('[Genesys] WebChat.opened event received.');
         // Add any custom logic for when the chat window opens
@@ -1582,20 +1585,20 @@
       // });
 
       // 4. ALWAYS run App.ready before ANY other commands
-      CXBus.command('App.ready');
+      LocalCXBus.command('App.ready');
       console.log(
         '[click_to_chat.js] Timestamp:',
         Date.now(),
-        "- onReady: CXBus.command('App.ready') sent.",
+        "- onReady: LocalCXBus.command('App.ready') sent.",
       );
 
       // 5. Only THEN run App.main, with robust error handling
-      CXBus.command('App.main')
+      LocalCXBus.command('App.main')
         .done(function () {
           console.log('[Genesys] App.main completed successfully.');
           window.genesysLegacyChatIsReady = true; // Set your global flag here
           // 6. Show button ONLY after App.main completes
-          CXBus.command('WebChat.showChatButton');
+          LocalCXBus.command('WebChat.showChatButton');
           console.log(
             '[click_to_chat.js] Timestamp:',
             Date.now(),
@@ -1604,7 +1607,7 @@
 
           // Dispatch a custom event indicating Genesys is ready from legacy script perspective
           var event = new CustomEvent('genesys:ready', {
-            detail: { CXBus: CXBus },
+            detail: { CXBus: LocalCXBus },
           });
           window.dispatchEvent(event);
           console.log(
@@ -1616,7 +1619,7 @@
         .fail(function (err) {
           console.error('[Genesys] App.main failed:', err);
           // Fallback: If App.main fails, try to show the button directly, though chat initiation might still fail.
-          CXBus.command('WebChat.showChatButton');
+          LocalCXBus.command('WebChat.showChatButton');
           console.warn(
             '[Genesys] Attempted WebChat.showChatButton after App.main failure.',
           );
@@ -1631,7 +1634,7 @@
       console.log(
         '[click_to_chat.js] Timestamp:',
         Date.now(),
-        '- End of onReady callback execution.',
+        '- End of effective onReady callback execution.',
       );
 
       // JSPF also called customizeAmplify in a separate onReady.push, effectively after main init.
