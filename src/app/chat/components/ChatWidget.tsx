@@ -190,6 +190,45 @@ export default function ChatWidget({
       storeActions.setButtonState('created');
       storeActions.setScriptLoadPhase(ScriptLoadPhase.LOADED);
       setIsCXBusReadyLocal(true);
+      if (chatMode === 'legacy') {
+        logger.info(
+          `${LOG_PREFIX} Setting (window as any).genesysLegacyChatIsReady = true due to 'genesys:ready' event.`,
+        );
+        (window as any).genesysLegacyChatIsReady = true;
+
+        if ((window as any).genesysLegacyChatOpenRequested) {
+          logger.info(
+            `${LOG_PREFIX} 'genesys:ready' received and open was previously requested. Attempting to open chat.`,
+          );
+          const bus = window._genesysCXBus as any;
+          if (bus && typeof bus.command === 'function') {
+            try {
+              logger.info(
+                `${LOG_PREFIX} Commanding WebChat.open from 'genesys:ready' handler because open was requested.`,
+              );
+              bus.command('WebChat.open');
+              (window as any).genesysLegacyChatOpenRequested = false;
+            } catch (e: any) {
+              logger.error(
+                `${LOG_PREFIX} Error commanding WebChat.open in 'genesys:ready' (after request): ${e.message}`,
+                e,
+              );
+              storeActions.setError(e);
+              storeActions.setButtonState('failed');
+            }
+          } else {
+            logger.warn(
+              `${LOG_PREFIX} _genesysCXBus not available in 'genesys:ready' handler (after request) despite 'genesys:ready' event.`,
+            );
+            storeActions.setError(
+              new Error(
+                'Chat CXBus became unavailable before open could be commanded.',
+              ),
+            );
+            storeActions.setButtonState('failed');
+          }
+        }
+      }
     };
 
     const handleWebChatOpened = () => {
