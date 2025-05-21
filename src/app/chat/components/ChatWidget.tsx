@@ -725,11 +725,13 @@ export default function ChatWidget({
     }
   }, [activeLegacyConfig, chatMode, storeActions]); // storeActions added if re-init needs to dispatch anything, for now it's mainly window call
 
-  // Conditional Rendering Logic
-  if (isLoadingConfig && scriptLoadPhase === ScriptLoadPhase.INIT) {
-    return (
-      <div data-testid="chat-loading-config">Initializing Chat Service...</div>
+  // Render null or the appropriate chat loader
+  if (scriptLoadPhase === ScriptLoadPhase.INIT && showLoaderStatus) {
+    logger.info(
+      `${LOG_PREFIX} Script load phase is INITIAL. Displaying loader status.`,
     );
+    // Returning null instead of the status message div
+    return null;
   }
 
   // Render script loaders only if chat is enabled and config is fully resolved

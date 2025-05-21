@@ -837,12 +837,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
 
     // (Render logic for status indicator kept as is)
     logger.info(`${LOG_PREFIX} Rendering status indicator. Status: ${status}`);
-    return (
-      <div className="genesys-script-loader-status" /* ... */>
-        {' '}
-        {/* ... */}{' '}
-      </div>
-    );
+    return null;
   },
 );
 
