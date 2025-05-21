@@ -426,7 +426,18 @@ export default function ChatWidget({
   }, [storeActions, isChatEnabled, genesysChatConfigFull, isChatActive]);
 
   const handleStartChatConfirm = useCallback(() => {
-    logger.info(`${LOG_PREFIX} PreChatModal confirmed. Opening Genesys chat.`);
+    debugger; // For step-through debugging
+    logger.info(
+      `${LOG_PREFIX} PreChatModal confirmed. Attempting to open Genesys chat.`,
+      {
+        currentChatMode: chatMode,
+        isLegacyCXBusAvailable: !!window._genesysCXBus,
+        isCloudGenesysApiAvailable: !!window.Genesys,
+        isChatEnabled: isChatEnabled,
+        hasFullConfig: !!genesysChatConfigFull,
+      },
+    );
+
     storeActions.closePreChatModal();
     setShowFallbackButtonJSXState(false);
     if (imperativeFallbackButtonRef.current) {
