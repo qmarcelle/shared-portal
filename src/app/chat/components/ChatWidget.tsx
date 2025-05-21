@@ -349,7 +349,28 @@ export default function ChatWidget({
 
     (window as Window & typeof globalThis).requestChatOpen = () => {
       logger.info(`${LOG_PREFIX} window.requestChatOpen called.`);
+      // Attempt to hide the native button immediately
       if (isChatEnabled && genesysChatConfigFull) {
+        logger.debug(
+          `${LOG_PREFIX} Pre-emptively hiding native Genesys button.`,
+        );
+        if (chatMode === 'legacy' && window._genesysCXBus) {
+          try {
+            (window._genesysCXBus as GenesysCXBus).command(
+              'WebChat.hideChatButton',
+            );
+          } catch (e) {
+            logger.warn(
+              `${LOG_PREFIX} Error calling WebChat.hideChatButton pre-emptively:`,
+              e,
+            );
+          }
+        } else if (chatMode === 'cloud') {
+          document.body.classList.add('prechat-panel-open');
+          logger.info(
+            `${LOG_PREFIX} Added .prechat-panel-open to body pre-emptively.`,
+          );
+        }
         storeActions.openPreChatModal();
       } else {
         logger.warn(
