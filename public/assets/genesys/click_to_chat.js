@@ -1029,426 +1029,101 @@
 
         // Define onReady. initLocalWidgetConfiguration and initialise() will be called INSIDE it.
         if (window._genesys && window._genesys.widgets) {
-          window._genesys.widgets.onReady = (CXBus) => {
+          window._genesys.widgets.onReady = function (CXBus) {
             console.log(
-              `[click_to_chat.js] Timestamp: ${Date.now()} - window._genesys.widgets.onReady CALLED by widgets.min.js. CXBus valid: ${!!(CXBus && CXBus.command)}`,
-            ); // ADDED
-            // ADD THESE LOGS:
-            console.log(
-              '[click_to_chat.js] PRIMARY onReady CALLED (around line 950). CXBus object received:',
-              typeof CXBus,
-              CXBus,
+              '[click_to_chat.js] Timestamp:',
+              Date.now(),
+              '- window._genesys.widgets.onReady CALLED by widgets.min.js.',
             );
-            if (CXBus && typeof CXBus.command === 'function') {
-              console.log(
-                '[click_to_chat.js] PRIMARY onReady: CXBus looks valid and has a command method.',
-              );
-            } else {
+
+            // 1. Pre-initialization Checks
+            if (!window._genesys || !window._genesys.widgets) {
               console.error(
-                '[click_to_chat.js] PRIMARY onReady: CXBus is INVALID or missing command method!',
-                CXBus,
+                '[Genesys] Critical: _genesys.widgets not available in onReady callback. Aborting initialization.',
               );
-              // debugger; // Pause if CXBus is bad
+              return;
             }
-            console.log(
-              '[click_to_chat.js] PRIMARY onReady: Current window._genesys.widgets.main before initLocalWidgetConfiguration:',
-              window._genesys?.widgets?.main
-                ? JSON.parse(JSON.stringify(window._genesys.widgets.main || {}))
-                : 'undefined or non-serializable',
-            );
-            console.log(
-              '[click_to_chat.js] PRIMARY onReady: Current window._genesys.widgets.webchat before initLocalWidgetConfiguration:',
-              window._genesys?.widgets?.webchat
-                ? JSON.parse(
-                    JSON.stringify(window._genesys.widgets.webchat || {}),
-                  )
-                : 'undefined or non-serializable',
-            );
-
-            console.log(
-              '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. CXBus App.main, 3. Further CXBus commands/plugins.',
-            );
-
-            // 1. Call initLocalWidgetConfiguration()
-            console.log(
-              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE initLocalWidgetConfiguration()`, // ADDED
-            );
-            initLocalWidgetConfiguration(); // Configures _genesys.widgets.main and .webchat
-            console.log(
-              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: AFTER initLocalWidgetConfiguration()`, // ADDED
-            );
-
-            // 2. Initialize Genesys Widgets using CXBus command
-            console.log(
-              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE CXBus.command(\'App.main\')`, // ADDED
-            );
-            console.log(
-              "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('App.main').",
-            );
-            try {
-              CXBus.command('App.main')
-                .done(() => {
-                  console.log(
-                    `[click_to_chat.js] Timestamp: ${Date.now()} - App.main().done() EXECUTED.`,
-                  ); // ADDED
-                  console.log(
-                    `[click_to_chat.js] App.main().done(): window.genesysLegacyChatOpenRequested is ${window.genesysLegacyChatOpenRequested}`,
-                  ); // ADDED
-                  console.log(
-                    "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED and its 'done' callback executed.",
-                  );
-                  // More robust: Set ready and check for pending request *after* App.main fully completes.
-                  // Or, subscribe to 'App.ready' if that's more reliable.
-                  // For now, setting it here post App.main success.
-
-                  console.log(
-                    '[click_to_chat.js] Setting genesysLegacyChatIsReady = true',
-                  );
-                  window.genesysLegacyChatIsReady = true;
-                  document.dispatchEvent(
-                    new CustomEvent('genesys:appMainReady'),
-                  ); // Custom event
-
-                  if (window.genesysLegacyChatOpenRequested) {
-                    console.log(
-                      '[click_to_chat.js] genesysLegacyChatOpenRequested was true. Commanding WebChat.open now.',
-                    );
-                    if (CXBus && typeof CXBus.command === 'function') {
-                      CXBus.command('WebChat.open');
-                      window.genesysLegacyChatOpenRequested = false; // Reset flag
-                    } else {
-                      console.error(
-                        '[click_to_chat.js] CXBus not available to open chat for pending request.',
-                      );
-                    }
-                  } else {
-                    console.log(
-                      '[click_to_chat.js] No pending chat open request (genesysLegacyChatOpenRequested is false).',
-                    );
-                  }
-                })
-                .fail((appMainErr) => {
-                  console.error(
-                    `[click_to_chat.js] Timestamp: ${Date.now()} - App.main().fail() EXECUTED. Error:`,
-                    appMainErr,
-                  ); // ADDED
-                  console.error(
-                    "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED in its 'fail' callback:",
-                    appMainErr,
-                  );
-                  document.dispatchEvent(
-                    new CustomEvent('genesys:error', {
-                      detail: {
-                        message:
-                          "Error from CXBus.command('App.main') 'fail' callback in onReady",
-                        error: appMainErr,
-                      },
-                    }),
-                  );
-                });
-              // Original success log, keeping for now, but 'done' callback above is more precise
-              // console.log(
-              //   "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED (command issued).",
-              // );
-            } catch (cxCommandError) {
+            if (!CXBus || typeof CXBus.command !== 'function') {
               console.error(
-                "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED:",
-                cxCommandError,
+                '[Genesys] Invalid CXBus object in onReady callback. Aborting initialization.',
               );
-              // debugger; // Pause on error
-              document.dispatchEvent(
-                new CustomEvent('genesys:error', {
-                  detail: {
-                    message:
-                      "Error calling CXBus.command('App.main') in onReady",
-                    error: cxCommandError,
-                  },
-                }),
-              );
+              return;
             }
+            console.log('[Genesys] CXBus valid:', !!CXBus);
 
-            // 3. Register CXBus plugins, event subscriptions, and show button
+            // 2. Configure widgets FIRST
+            // Ensure initLocalWidgetConfiguration sets up window._genesys.widgets.main and .webchat
+            initLocalWidgetConfiguration();
             console.log(
-              '[click_to_chat.js] onReady: Storing CXBus reference and registering plugins.',
+              '[click_to_chat.js] Timestamp:',
+              Date.now(),
+              '- onReady: AFTER initLocalWidgetConfiguration()',
             );
-            window._genesysCXBus = CXBus; // Store CXBus reference globally
+
+            // 3. Register Plugins FIRST
             const plugin = CXBus.registerPlugin('LocalCustomization');
-
-            // WebChat.opened handler
-            plugin.subscribe('WebChat.opened', () => {
-              console.log('[click_to_chat.js] WebChat opened event');
-              try {
-                if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
-                  const titlebar = $('.cx-widget.cx-webchat .cx-titlebar');
-                  if (titlebar.length && !titlebar.data('plan-info-added')) {
-                    const originalTitle = titlebar.text().trim() || 'Chat'; // Default if empty
-                    titlebar.html(
-                      // Sanitize output if currentPlanName or originalTitle can contain HTML
-                      `<span>${$('<div>').text(cfg.currentPlanName).html()}</span> - <span>${$('<div>').text(originalTitle).html()}</span>`,
-                    );
-                    titlebar.data('plan-info-added', true); // Mark as added
-                  }
-                }
-              } catch (error) {
-                console.error(
-                  '[Genesys] Error updating titlebar with plan info:',
-                  error,
-                );
-              }
-
-              // Check for after-hours and handle UI
-              try {
-                if (rawChatHrs) {
-                  // Only proceed if rawChatHrs is available
-                  const now = parseFloat(
-                    new Date()
-                      .toLocaleTimeString('en-US', {
-                        hour12: false,
-                        timeZone: 'America/New_York', // Ensure this is the correct timezone
-                      })
-                      .replace(':', '.')
-                      .slice(0, 5), // HH.MM format
-                  );
-
-                  const hoursParts = rawChatHrs.split('_'); // e.g., "08.00_17.00"
-                  if (hoursParts.length === 2) {
-                    // let start = parseFloat(hoursParts[0]); // Not used in this logic block
-                    let end = parseFloat(hoursParts[1]);
-
-                    // Assuming end times like "5.00" PM are "17.00" in 24hr format.
-                    // If rawChatHrs provides AM/PM or needs complex parsing, this needs adjustment.
-                    // This logic assumes 24-hour format in rawChatHrs (e.g., 17.00 for 5 PM)
-                    // The original code had `if (end < 12) end += 12;` which might be an attempt to convert 12hr PM to 24hr.
-                    // For safety, ensure times are consistently 24hr format in rawChatHrs.
-
-                    if (
-                      cfg.isChatAvailable === 'true' &&
-                      now > end /* || now < start if checking start time too */
-                    ) {
-                      console.log(
-                        '[Genesys] After hours detected based on rawChatHrs, showing self-service options',
-                      );
-
-                      const links = selfServiceLinks || [];
-                      const formTable = $('.cx-form table'); // Genesys form table
-                      if (formTable.length) {
-                        links.forEach((e) => {
-                          if (e.value && e.value.startsWith('http')) {
-                            formTable.append(
-                              // Sanitize link text and ensure valid URL
-                              `<tr><td colspan='2'><a class='btn btn-secondary' href='${encodeURI(e.value)}' target='_blank' rel='noopener noreferrer'>${$('<div>').text(e.key).html()}</a></td></tr>`,
-                            );
-                          }
-                        });
-                        $('.activeChat').hide(); // Hide default chat form elements
-                        $('button[data-message="ChatFormSubmit"]').hide(); // Hide submit
-                      }
-                    }
-                  } else {
-                    console.warn(
-                      '[Genesys] rawChatHrs format is unexpected:',
-                      rawChatHrs,
-                    );
-                  }
-                }
-              } catch (error) {
-                console.error(
-                  '[Genesys] Error handling after-hours logic:',
-                  error,
-                );
-              }
-              try {
-                document.dispatchEvent(
-                  new CustomEvent('genesys:webchat:opened'),
-                );
-              } catch (e) {
-                console.error(
-                  '[Genesys] Error dispatching webchat:opened event:',
-                  e,
-                );
-              }
+            plugin.subscribe('WebChat.opened', function () {
+              console.log('[Genesys] WebChat.opened event received.');
+              // Add any custom logic for when the chat window opens
             });
-
-            // Message added handler (agent or bot message)
-            plugin.subscribe('WebChat.messageAdded', (eventData) => {
-              // Check if the message is from the agent/bot (not the user)
-              if (
-                eventData &&
-                eventData.data &&
-                eventData.data.message &&
-                eventData.data.message.from.type === 'Agent'
-              ) {
-                console.log(
-                  '[click_to_chat.js] New message received from agent/bot',
-                );
-                try {
-                  if (webAlert) {
-                    webAlert.muted = false;
-                    webAlert
-                      .play()
-                      .catch((e) =>
-                        console.warn(
-                          '[Genesys] Audio play error (non-critical):',
-                          e,
-                        ),
-                      );
-                  }
-
-                  if (document.visibilityState !== 'visible') {
-                    console.log(
-                      '[Genesys] Document not visible, dispatching notification event for agent message',
-                    );
-                    try {
-                      document.dispatchEvent(
-                        new CustomEvent('genesys:message:received', {
-                          detail: {
-                            message:
-                              eventData.data.message.text || 'New message',
-                          },
-                        }),
-                      );
-                    } catch (e) {
-                      console.error(
-                        '[Genesys] Error dispatching message:received event:',
-                        e,
-                      );
-                    }
-                  }
-                } catch (err) {
-                  console.error(
-                    '[Genesys] Error in messageAdded handler:',
-                    err,
-                  );
-                }
-              }
+            plugin.subscribe('WebChat.messageAdded', function () {
+              console.log('[Genesys] WebChat.messageAdded event received.');
+              // Add any custom logic for new messages
             });
+            // Add other relevant plugin subscriptions
 
-            // WebChat.error handler
-            plugin.subscribe('WebChat.error', (errorEvent) => {
-              console.error(
-                '[click_to_chat.js] WebChat.error event:',
-                errorEvent,
-              );
-              const errorMessage =
-                'There was an issue with your chat session. Please verify your connection and try again, or contact us via phone.';
-              try {
-                // Attempt to display error within the chat widget if it exists
-                const chatWidget = $('.cx-widget.cx-webchat');
-                if (
-                  chatWidget.length &&
-                  !chatWidget.find('.chat-error-message').length
-                ) {
-                  chatWidget.append(`
-                      <div class="chat-error-message" style="padding:15px;background:#f8d7da;color:#721c24;margin:10px;border-radius:4px;text-align:center;">
-                        <p>${$('<div>').text(errorMessage).html()}</p>
-                        <button id="chat-error-ok" style="background:#dc3545;color:white;border:none;padding:5px 15px;border-radius:4px;cursor:pointer;margin-top:5px;">OK</button>
-                      </div>
-                    `);
-                  $('#chat-error-ok').on('click', function () {
-                    $(this).closest('.chat-error-message').remove();
-                    // Optionally, try to reopen or reset the chat form
-                    // if (window._genesysCXBus) {
-                    //   window._genesysCXBus.command('WebChat.open');
-                    // }
-                  });
-                } else if (!chatWidget.length) {
-                  // Fallback if widget not rendered
-                  alert(errorMessage);
-                }
-              } catch (err) {
-                console.error(
-                  '[Genesys] Error displaying chat error message UI:',
-                  err,
-                );
-              }
-              try {
-                document.dispatchEvent(
-                  new CustomEvent('genesys:webchat:error', {
-                    detail: {
-                      error: errorEvent, // Pass the original error object
-                      message: errorMessage,
-                    },
-                  }),
-                );
-              } catch (e) {
-                console.error(
-                  '[Genesys] Error dispatching webchat:error custom event:',
-                  e,
-                );
-              }
-            });
-
-            plugin.subscribe('WebChat.failedToStart', (event) => {
-              console.error('[Genesys] WebChat.failedToStart event:', event);
-              const errorMessage =
-                "We couldn't start your chat session. Please check your internet connection and try again. If the problem persists, please call us.";
-              try {
-                alert(errorMessage); // Simple alert for critical failure
-                document.dispatchEvent(
-                  new CustomEvent('genesys:webchat:failedToStart', {
-                    detail: { message: errorMessage, originalEvent: event },
-                  }),
-                );
-              } catch (e) {
-                console.error('[Genesys] Error handling failedToStart:', e);
-              }
-            });
-
-            plugin.subscribe('WebChat.submitted', (data) => {
-              console.log(
-                '[Genesys] Chat form submitted (WebChat.submitted event)',
-                data,
-              );
-              try {
-                document.dispatchEvent(
-                  new CustomEvent('genesys:webchat:submitted', {
-                    detail: { formData: data }, // data usually contains the form submission
-                  }),
-                );
-              } catch (e) {
-                console.error(
-                  '[Genesys] Error dispatching form submission event:',
-                  e,
-                );
-              }
-            });
-
-            // After CXBus is ready and handlers are set up, try to show the chat button
+            // 4. ALWAYS run App.ready before ANY other commands
+            CXBus.command('App.ready');
             console.log(
-              '[click_to_chat.js] onReady: CXBus plugins registered. Attempting to show chat button.',
+              '[click_to_chat.js] Timestamp:',
+              Date.now(),
+              "- onReady: CXBus.command('App.ready') sent.",
             );
-            if (cfg.isChatAvailable) {
-              // Only show button if chat is configured as available
-              // ADD THESE LOGS:
-              console.log(
-                `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE CXBus.command(\'WebChat.showChatButton\')`,
-              ); // ADDED
-              console.log(
-                "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('WebChat.showChatButton').",
-              );
-              try {
+
+            // 5. Only THEN run App.main, with robust error handling
+            CXBus.command('App.main')
+              .done(function () {
+                console.log('[Genesys] App.main completed successfully.');
+                window.genesysLegacyChatIsReady = true; // Set your global flag here
+                // 6. Show button ONLY after App.main completes
                 CXBus.command('WebChat.showChatButton');
-                // Dispatch general ready *after* button is shown and App.main is likely done.
-                // The genesys:appMainReady event above is more specific to App.main completion.
                 console.log(
-                  `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: About to dispatch \'genesys:ready\' event.`,
-                ); // ADDED
-                document.dispatchEvent(new CustomEvent('genesys:ready'));
+                  '[click_to_chat.js] Timestamp:',
+                  Date.now(),
+                  '- onReady: WebChat.showChatButton commanded after App.main success.',
+                );
+
+                // Dispatch a custom event indicating Genesys is ready from legacy script perspective
+                var event = new CustomEvent('genesys:ready', {
+                  detail: { CXBus: CXBus },
+                });
+                window.dispatchEvent(event);
                 console.log(
-                  '[click_to_chat.js] PRIMARY onReady: WebChat.showChatButton SUCCEEDED.',
+                  '[click_to_chat.js] Timestamp:',
+                  Date.now(),
+                  '- genesys:ready event dispatched.',
                 );
-              } catch (e) {
-                console.error(
-                  '[click_to_chat.js] PRIMARY onReady: Error showing chat button via CXBus:',
-                  e,
+              })
+              .fail(function (err) {
+                console.error('[Genesys] App.main failed:', err);
+                // Fallback: If App.main fails, try to show the button directly, though chat initiation might still fail.
+                CXBus.command('WebChat.showChatButton');
+                console.warn(
+                  '[Genesys] Attempted WebChat.showChatButton after App.main failure.',
                 );
-                // debugger; // Pause on error
-              }
-            } else {
-              console.log(
-                '[click_to_chat.js] onReady: Chat is not available (cfg.isChatAvailable is false), not showing chat button.',
-              );
-            }
+
+                // Dispatch an error event if App.main fails
+                var errorEvent = new CustomEvent('genesys:error', {
+                  detail: { error: 'App.main failed', originalError: err },
+                });
+                window.dispatchEvent(errorEvent);
+              });
+
+            console.log(
+              '[click_to_chat.js] Timestamp:',
+              Date.now(),
+              '- End of onReady callback execution.',
+            );
           };
           console.log(
             '[click_to_chat.js] window._genesys.widgets.onReady has been defined.',
