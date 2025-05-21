@@ -33,6 +33,11 @@ interface GenesysCloudLoaderProps {
    * Additional user data to pass to the widget
    */
   userData?: Record<string, string>;
+
+  /**
+   * Whether the chat is actually enabled
+   */
+  isChatActuallyEnabled?: boolean;
 }
 
 /**
@@ -43,6 +48,7 @@ export function GenesysCloudLoader({
   onLoad,
   onError,
   userData,
+  isChatActuallyEnabled,
 }: GenesysCloudLoaderProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -56,6 +62,13 @@ export function GenesysCloudLoader({
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
+
+    if (isChatActuallyEnabled === false) {
+      logger.info(
+        `${LOG_PREFIX} Will NOT load scripts because isChatActuallyEnabled is false.`,
+      );
+      return;
+    }
 
     const loadGenesysCloudScript = () => {
       logger.info(`${LOG_PREFIX} Loading Genesys Cloud script`, {
@@ -164,7 +177,14 @@ export function GenesysCloudLoader({
       // that other components might depend on
       logger.info(`${LOG_PREFIX} Component unmounting`);
     };
-  }, [onLoad, onError, useProdDeployment, userData, storeChatData]);
+  }, [
+    onLoad,
+    onError,
+    useProdDeployment,
+    userData,
+    storeChatData,
+    isChatActuallyEnabled,
+  ]);
 
   // Show loading/error UI if needed
   if (error) {

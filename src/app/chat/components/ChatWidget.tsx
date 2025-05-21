@@ -730,12 +730,12 @@ export default function ChatWidget({
 
   // If chat is explicitly disabled via config (e.g., isChatAvailable=false or isChatEligibleMember=false)
   // and not forcing fallback, render nothing or a disabled message.
-  if (!isChatEnabled && !forceFallbackButton) {
-    logger.info(
-      `${LOG_PREFIX} Chat is not enabled (isChatAvailable or isChatEligibleMember is false), rendering nothing.`,
-    );
-    return showLoaderStatus ? <div>Chat is currently unavailable.</div> : null;
-  }
+  // if (!isChatEnabled && !forceFallbackButton) { // <<<< REMOVING THIS BLOCK
+  //   logger.info(
+  //     `${LOG_PREFIX} Chat is not enabled (isChatAvailable or isChatEligibleMember is false), rendering nothing.`,
+  //   );
+  //   return showLoaderStatus ? <div>Chat is currently unavailable.</div> : null;
+  // }
 
   // At this point, either chat is enabled OR forceFallbackButton is true.
   // We must have genesysChatConfigFull to proceed with GenesysScriptLoader
@@ -817,6 +817,7 @@ export default function ChatWidget({
       {useLegacyLoader && activeLegacyConfig && (
         <GenesysScriptLoader
           legacyConfig={activeLegacyConfig}
+          isChatActuallyEnabled={isChatEnabled}
           cssUrls={[
             '/assets/genesys/plugins/widgets.min.css',
             '/assets/genesys/styles/bcbst-custom.css',
@@ -848,6 +849,7 @@ export default function ChatWidget({
             ?.toLowerCase()
             .includes('prod')}
           userData={activeCloudConfig.userData}
+          isChatActuallyEnabled={isChatEnabled}
           onLoad={() => {
             logger.info(`${LOG_PREFIX} GenesysCloudLoader onLoad triggered.`);
             storeActions.setScriptLoadPhase(ScriptLoadPhase.LOADED);
