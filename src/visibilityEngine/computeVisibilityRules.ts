@@ -235,7 +235,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
       rules?.commercial ||
       rules?.medicareAdvantageGroupIndicator) &&
     rules.subscriber &&
-    hasCondensesedExperienceProfiler(rules) != 'Quantum'
+    hasCondensedExperienceProfiler(rules) != 'Quantum'
   );
 }
 
@@ -244,7 +244,7 @@ export function isBalancesPageVisible(rules: VisibilityRules): boolean {
     ((rules.individual ||
       rules.commercial ||
       rules.allMedicareAdvantageEligible) &&
-      hasCondensesedExperienceProfiler(rules) != 'Quantum' &&
+      hasCondensedExperienceProfiler(rules) != 'Quantum' &&
       activeAndHealthPlanMember(rules)) ||
     false
   );
@@ -254,7 +254,7 @@ export function isClaimsPageVisible(rules: VisibilityRules): boolean {
   return !rules.katieBeckNoBenefitsElig && !rules.cityOfMemphisWellnessOnly;
 }
 
-function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
+function hasCondensedExperienceProfiler(rules: VisibilityRules | undefined) {
   if (rules?.isCondensedExperienceProfileHorizon) return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
@@ -415,7 +415,7 @@ export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
     isLobCommercial(rules) &&
     rules?.cmEnable &&
-    !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
+    !(hasCondensedExperienceProfiler(rules) == 'Quantum')
   );
 }
 
