@@ -962,6 +962,30 @@
     loadResource
       .script(widgetsMinJsUrl, { id: 'genesys-widgets-min-script-dynamic' })
       .then(() => {
+        // ADD THESE LOGS:
+        console.log(
+          `[click_to_chat.js] SUCCESS: ${widgetsMinJsUrl} script tag loaded.`,
+        );
+        console.log(
+          '[click_to_chat.js] State of window._genesys IMMEDIATELY AFTER widgets.min.js load:',
+          typeof window._genesys,
+          window._genesys
+            ? JSON.parse(JSON.stringify(window._genesys || {}))
+            : 'undefined or non-serializable', // Be careful with stringify
+        );
+        console.log(
+          '[click_to_chat.js] State of window._genesys.widgets IMMEDIATELY AFTER widgets.min.js load:',
+          typeof window._genesys?.widgets,
+          window._genesys?.widgets
+            ? JSON.parse(JSON.stringify(window._genesys.widgets || {}))
+            : 'undefined or non-serializable',
+        );
+        console.log(
+          '[click_to_chat.js] Is window._genesys.widgets.onReady defined by widgets.min.js itself BEFORE we define it?',
+          typeof window._genesys?.widgets?.onReady,
+        );
+        // debugger; // Optional: pause here to inspect
+
         console.log(
           `[click_to_chat.js] ${widgetsMinJsUrl} dynamically loaded. Defining onReady callback.`,
         );
@@ -969,6 +993,38 @@
         // Define onReady. initLocalWidgetConfiguration and initialise() will be called INSIDE it.
         if (window._genesys && window._genesys.widgets) {
           window._genesys.widgets.onReady = (CXBus) => {
+            // ADD THESE LOGS:
+            console.log(
+              '[click_to_chat.js] PRIMARY onReady CALLED (around line 950). CXBus object received:',
+              typeof CXBus,
+              CXBus,
+            );
+            if (CXBus && typeof CXBus.command === 'function') {
+              console.log(
+                '[click_to_chat.js] PRIMARY onReady: CXBus looks valid and has a command method.',
+              );
+            } else {
+              console.error(
+                '[click_to_chat.js] PRIMARY onReady: CXBus is INVALID or missing command method!',
+                CXBus,
+              );
+              // debugger; // Pause if CXBus is bad
+            }
+            console.log(
+              '[click_to_chat.js] PRIMARY onReady: Current window._genesys.widgets.main before initLocalWidgetConfiguration:',
+              window._genesys?.widgets?.main
+                ? JSON.parse(JSON.stringify(window._genesys.widgets.main || {}))
+                : 'undefined or non-serializable',
+            );
+            console.log(
+              '[click_to_chat.js] PRIMARY onReady: Current window._genesys.widgets.webchat before initLocalWidgetConfiguration:',
+              window._genesys?.widgets?.webchat
+                ? JSON.parse(
+                    JSON.stringify(window._genesys.widgets.webchat || {}),
+                  )
+                : 'undefined or non-serializable',
+            );
+
             console.log(
               '[click_to_chat.js] CXBus ready (via onReady callback). Ordering: 1. initLocalWidgetConfiguration, 2. CXBus App.main, 3. Further CXBus commands/plugins.',
             );
@@ -984,18 +1040,19 @@
 
             // 2. Initialize Genesys Widgets using CXBus command
             console.log(
-              "[click_to_chat.js] onReady: Attempting to initialize widgets via CXBus.command('App.main').",
+              "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('App.main').",
             );
             try {
               CXBus.command('App.main'); // Preferred way to initialize for Genesys Cloud
               console.log(
-                "[click_to_chat.js] onReady: CXBus.command('App.main') called successfully.",
+                "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED.",
               );
             } catch (cxCommandError) {
               console.error(
-                "[click_to_chat.js] onReady: Error calling CXBus.command('App.main'):",
+                "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED:",
                 cxCommandError,
               );
+              // debugger; // Pause on error
               document.dispatchEvent(
                 new CustomEvent('genesys:error', {
                   detail: {
@@ -1259,17 +1316,22 @@
             );
             if (cfg.isChatAvailable) {
               // Only show button if chat is configured as available
+              // ADD THESE LOGS:
+              console.log(
+                "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('WebChat.showChatButton').",
+              );
               try {
                 CXBus.command('WebChat.showChatButton');
                 document.dispatchEvent(new CustomEvent('genesys:ready')); // Signal overall readiness
                 console.log(
-                  '[click_to_chat.js] onReady: WebChat.showChatButton commanded successfully.',
+                  '[click_to_chat.js] PRIMARY onReady: WebChat.showChatButton SUCCEEDED.',
                 );
               } catch (e) {
                 console.error(
-                  '[click_to_chat.js] onReady: Error showing chat button via CXBus:',
+                  '[click_to_chat.js] PRIMARY onReady: Error showing chat button via CXBus:',
                   e,
                 );
+                // debugger; // Pause on error
               }
             } else {
               console.log(
@@ -1582,9 +1644,10 @@
   );
 
   window.handleChatSettingsUpdate = function (newSettings) {
+    // ADD/MODIFY LOGS:
     console.log(
-      '[click_to_chat.js] handleChatSettingsUpdate called with new settings:',
-      JSON.parse(JSON.stringify(newSettings || {})),
+      '[click_to_chat.js] handleChatSettingsUpdate CALLED. New settings:',
+      newSettings ? JSON.parse(JSON.stringify(newSettings || {})) : {},
     );
 
     // 1. Optionally try to clean up/destroy existing widget
@@ -1642,7 +1705,7 @@
     const newValidatedCfg = validateConfig(newSettings || {});
     console.log(
       '[click_to_chat.js] New validated config for re-initialization:',
-      JSON.parse(JSON.stringify(newValidatedCfg)),
+      JSON.parse(JSON.stringify(newValidatedCfg || {})),
     );
 
     // 3. Re-run initialization logic.
@@ -1666,9 +1729,14 @@
       );
       if (oldWidgetsScript) {
         console.log(
-          '[click_to_chat.js] Removing old widgets.min.js script tag.',
+          '[click_to_chat.js] handleChatSettingsUpdate: Removing old widgets.min.js script tag.',
+          oldWidgetsScript,
         );
         oldWidgetsScript.remove();
+      } else {
+        console.log(
+          '[click_to_chat.js] handleChatSettingsUpdate: No old widgets.min.js script tag found to remove.',
+        );
       }
       // Reset flags that widgets.min.js might use to prevent re-initialization
       if (window._genesys && window._genesys.widgets) {
@@ -1702,9 +1770,11 @@
   };
 
   // Now that widgets.min.js is loaded, let's check its state.
+  // ADD THESE LOGS:
+  console.log('[click_to_chat.js] FINAL CHECK SECTION (around line 1700)');
   if (typeof window._genesys === 'undefined') {
     console.error(
-      '[click_to_chat.js] CRITICAL: window._genesys is UNDEFINED after widgets.min.js was supposed to load. Genesys widget will likely fail.',
+      '[click_to_chat.js] FINAL CHECK: window._genesys is UNDEFINED. This is after the loadResource promise for widgets.min.js should have resolved or rejected.',
     );
     // debugger; // Good place to stop if _genesys is missing
     // Optionally, try to bail out or trigger a more robust error display
@@ -1715,17 +1785,17 @@
     return; // Halt further processing in this script if _genesys isn't there.
   } else {
     console.log(
-      '[click_to_chat.js] widgets.min.js loaded. _genesys object (raw):',
+      '[click_to_chat.js] FINAL CHECK: window._genesys object (raw):',
       window._genesys, // Log raw object first
     );
     try {
       console.log(
-        '[click_to_chat.js] _genesys object (JSON.stringified for detail - may fail if complex/circular):',
-        JSON.stringify(window._genesys), // Attempt to stringify, but guard it
+        '[click_to_chat.js] FINAL CHECK: _genesys object (JSON.stringified):',
+        JSON.stringify(window._genesys || {}), // Attempt to stringify, but guard it
       );
     } catch (e) {
       console.warn(
-        '[click_to_chat.js] Could not JSON.stringify(window._genesys):',
+        '[click_to_chat.js] FINAL CHECK: Could not JSON.stringify(window._genesys):',
         e,
         'Raw object was:',
         window._genesys,
@@ -1736,8 +1806,8 @@
   // Check if the onReady function is available
   if (!window._genesys || typeof window._genesys.widgets === 'undefined') {
     console.error(
-      '[click_to_chat.js] FATAL: window._genesys.widgets is UNDEFINED. Cannot access onReady. Halting chat initialization.',
-      'window._genesys was:',
+      '[click_to_chat.js] FINAL CHECK FATAL: window._genesys.widgets is UNDEFINED. Cannot access onReady. Halting chat initialization.',
+      'window._genesys current state:',
       window._genesys, // Log current state
     );
     // debugger;
@@ -1746,77 +1816,41 @@
     return;
   }
 
-  if (typeof window._genesys.widgets.onReady !== 'function') {
-    console.error(
-      '[click_to_chat.js] FATAL: window._genesys.widgets.onReady is not a function after loading widgets.min.js. Halting chat initialization.',
-    );
-    // debugger;
-    // hideLoadingIndicator(); // REMOVED
-    // ensureChatButtonVisibility(); // REMOVED
-    return;
-  }
+  // ADD THESE LOGS:
+  console.log(
+    '[click_to_chat.js] FINAL CHECK: typeof window._genesys.widgets.onReady:',
+    typeof window._genesys.widgets.onReady,
+  );
+  // if (typeof window._genesys.widgets.onReady !== 'function') { // Original check
+  //   console.error(
+  //     '[click_to_chat.js] FINAL CHECK: window._genesys.widgets.onReady is not a function here. This might be okay if it was just defined and not yet called by an event.',
+  //   );
+  // }
 
   // Original onReady callback is preserved and called, but we also add our specific logic
   // The CXBus object is passed to the onReady callback.
+  // CONSIDER COMMENTING OUT THIS ENTIRE BLOCK (lines ~1749-1782) AS IT LIKELY CONFLICTS
+  // WITH THE PRIMARY onReady DEFINED AROUND LINE 948
+  /*
   window._genesys.widgets.onReady = (CXBus) => {
+    // ADD THESE LOGS:
+    console.warn(
+      '[click_to_chat.js] SUSPICIOUS SECONDARY onReady CALLED (around line 1749). CXBus object:',
+      typeof CXBus, CXBus
+    );
+    // debugger; // Pause here to see when/if this is called
     console.log('[click_to_chat.js] CXBus ready. CXBus object:', CXBus);
     if (
       window._genesys &&
-      window._genesys.widgets &&
-      window._genesys.widgets.main
-    ) {
-      console.log(
-        '[click_to_chat.js] Initializing chat with config from window._genesys.widgets.main (raw):',
-        window._genesys.widgets.main,
-      );
-      try {
-        console.log(
-          '[click_to_chat.js] window._genesys.widgets.main (JSON.stringified for detail):',
-          JSON.stringify(window._genesys.widgets.main),
-        );
-      } catch (e) {
-        console.warn(
-          '[click_to_chat.js] Could not JSON.stringify(window._genesys.widgets.main):',
-          e,
-          'Raw object was:',
-          window._genesys.widgets.main,
-        );
-      }
-    } else {
-      console.warn(
-        '[click_to_chat.js] window._genesys.widgets.main is undefined or not accessible at CXBus ready. Cannot log its config.',
-      );
-    }
-    // debugger;
+// ... existing code ...
+  //   console.error('[click_to_chat.js] CXBus.command or window.chatSettings.genesysConfig is not available for fallback initialization.');
+  // }
+  // }
 
-    // Check if _genesys.widgets.main.initialise is a function BEFORE calling it
-    if (typeof window._genesys.widgets.main.initialise === 'function') {
-      console.log(
-        '[click_to_chat.js] Attempting to call _genesys.widgets.main.initialise()',
-      );
-      window._genesys.widgets.main.initialise(); // Original call
-      console.log(
-        '[click_to_chat.js] Called _genesys.widgets.main.initialise(). Subscribing to events.',
-      );
-    } else {
-      console.error(
-        '[click_to_chat.js] _genesys.widgets.main.initialise is NOT a function. Cannot proceed with this initialization method.',
-        'window._genesys.widgets.main was:',
-        window._genesys.widgets.main,
-      );
-      // debugger; // Critical point to inspect _genesys.widgets.main
-      // Fallback or alternative initialization attempts could go here
-      // if (CXBus && typeof CXBus.command === 'function' && window.chatSettings && window.chatSettings.genesysConfig) {
-      //   console.log('[click_to_chat.js] Attempting CXBus.command("App.init", window.chatSettings.genesysConfig)');
-      //   CXBus.command('App.init', window.chatSettings.genesysConfig);
-      // } else {
-      //   console.error('[click_to_chat.js] CXBus.command or window.chatSettings.genesysConfig is not available for fallback initialization.');
-      // }
-    }
-
-    // Safety timeout remains important
-    setTimeout(() => {
-      // ... existing code ...
-    }, 10000);
-  };
+  // // Safety timeout remains important
+  // setTimeout(() => {
+  // // ... existing code ...
+  // }, 10000);
+  // };
+  */
 })(window, document);
