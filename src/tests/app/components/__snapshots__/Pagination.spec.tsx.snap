@@ -15,7 +15,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             class="flex flex-row arrow left"
           >
             <img
-              alt="previous"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -27,7 +27,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             />
             <p
               class="body-1 pt-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Previous
             </p>
@@ -46,12 +46,12 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           >
             <p
               class="body-1 pt-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Next
             </p>
             <img
-              alt="next"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -75,7 +75,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             class="flex flex-row arrow left"
           >
             <img
-              alt="previous"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -95,7 +95,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Page: 
           </p>
@@ -106,7 +106,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             class="relative"
           >
             <div
-              class="flex flex-row link"
+              class="flex flex-row link "
               tabindex="0"
             >
               <p
@@ -118,7 +118,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
                 style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
               />
               <img
-                alt="down icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -140,7 +140,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
                   class="size-5 mx-2 "
                 >
                   <img
-                    alt="selcted"
+                    alt=""
                     class="size-5"
                     data-nimg="1"
                     decoding="async"
@@ -167,7 +167,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             of 1
           </p>
@@ -179,7 +179,7 @@ exports[`Pagination should render UI correctly with single Pagination 1`] = `
             class="flex flex-row arrow right"
           >
             <img
-              alt="next"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"

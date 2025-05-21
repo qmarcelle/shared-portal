@@ -132,7 +132,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     <Image
                       className="max-md:w-[80px] max-md:h-[80px]"
                       src={PrimaryCareIcon}
-                      alt="Primary Care"
+                      alt=""
                     />
                   ),
                   url: '/member/findcare/virtualcare/primarycare',
@@ -146,7 +146,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                     <Image
                       className="max-md:w-[80px] max-md:h-[80px]"
                       src={MentalCareIcon}
-                      alt="Mental Care"
+                      alt=""
                     />
                   ),
                   url: '/member/findcare/mentalHealthOptions',

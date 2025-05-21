@@ -6,11 +6,8 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -21,7 +18,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -53,7 +50,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
               </p>
@@ -62,7 +59,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -86,7 +83,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -103,7 +100,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -150,7 +147,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -163,7 +160,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -181,7 +178,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -194,7 +191,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Personalized tips, action plans and 1-on-1 coaching
                           </p>
@@ -212,7 +209,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -225,7 +222,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Free smart blood pressure monitor
                           </p>
@@ -243,7 +240,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -256,7 +253,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Tips on nutrition, activity and more
                           </p>
@@ -292,7 +289,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       If you have been diagnosed with high blood pressure, you can expect to pay: 
                     </p>
@@ -301,7 +298,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $0
                     </p>
@@ -355,7 +352,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             High blood pressure management
                           </p>
@@ -381,7 +378,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Meal planning
                           </p>
@@ -407,7 +404,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Building healthy habits
                           </p>
@@ -428,11 +425,8 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -443,7 +437,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -475,7 +469,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
             </p>
@@ -484,7 +478,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -508,7 +502,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -525,7 +519,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -572,7 +566,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -585,7 +579,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -603,7 +597,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -616,7 +610,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Personalized tips, action plans and 1-on-1 coaching
                         </p>
@@ -634,7 +628,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -647,7 +641,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Free smart blood pressure monitor
                         </p>
@@ -665,7 +659,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -678,7 +672,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Tips on nutrition, activity and more
                         </p>
@@ -714,7 +708,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     If you have been diagnosed with high blood pressure, you can expect to pay: 
                   </p>
@@ -723,7 +717,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0
                   </p>
@@ -777,7 +771,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           High blood pressure management
                         </p>
@@ -803,7 +797,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Meal planning
                         </p>
@@ -829,7 +823,7 @@ exports[`Teladoc Health Blood Pressure Management Program should redirect to SSO
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Building healthy habits
                         </p>
@@ -907,11 +901,8 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -922,7 +913,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -954,7 +945,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
               </p>
@@ -963,7 +954,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you’ll need to create an account.
               </p>
@@ -987,7 +978,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1004,7 +995,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -1051,7 +1042,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1064,7 +1055,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -1082,7 +1073,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1095,7 +1086,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Personalized tips, action plans and 1-on-1 coaching
                           </p>
@@ -1113,7 +1104,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1126,7 +1117,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Free smart blood pressure monitor
                           </p>
@@ -1144,7 +1135,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1157,7 +1148,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Tips on nutrition, activity and more
                           </p>
@@ -1193,7 +1184,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       If you have been diagnosed with high blood pressure, you can expect to pay: 
                     </p>
@@ -1202,7 +1193,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $0
                     </p>
@@ -1256,7 +1247,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             High blood pressure management
                           </p>
@@ -1282,7 +1273,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Meal planning
                           </p>
@@ -1308,7 +1299,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Building healthy habits
                           </p>
@@ -1329,11 +1320,8 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -1344,7 +1332,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -1376,7 +1364,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
             </p>
@@ -1385,7 +1373,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you’ll need to create an account.
             </p>
@@ -1409,7 +1397,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1426,7 +1414,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -1473,7 +1461,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1486,7 +1474,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -1504,7 +1492,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1517,7 +1505,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Personalized tips, action plans and 1-on-1 coaching
                         </p>
@@ -1535,7 +1523,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1548,7 +1536,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Free smart blood pressure monitor
                         </p>
@@ -1566,7 +1554,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1579,7 +1567,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Tips on nutrition, activity and more
                         </p>
@@ -1615,7 +1603,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     If you have been diagnosed with high blood pressure, you can expect to pay: 
                   </p>
@@ -1624,7 +1612,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0
                   </p>
@@ -1678,7 +1666,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           High blood pressure management
                         </p>
@@ -1704,7 +1692,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Meal planning
                         </p>
@@ -1730,7 +1718,7 @@ exports[`Teladoc Health Blood Pressure Management Program should render the UI c
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Building healthy habits
                         </p>

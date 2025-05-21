@@ -24,7 +24,7 @@ export const ShareOutsideMyPlanComponent = ({
   ShareOutsideMyPlanDetails,
   header,
   subHeader,
-  icon = <Image src={addIcon} alt="link" />,
+  icon = <Image src={addIcon} alt="" />,
 }: OnOusideMyPlanDropDownProps) => {
   const { showAppModal } = useAppModalStore();
   return (

@@ -23,7 +23,7 @@ export const RelatedLinks = ({ isHealthEquity }: RelatedLinkProps) => {
           url="/assets/spending_acc_direct_deposit_form.pdf"
           target="_blank"
           className="link no-underline !flex caremark"
-          icon={<Image src={extrenalIcon} alt="external" />}
+          icon={<Image src={extrenalIcon} alt="" />}
         />
         <Spacer size={24} />
         <Row>
@@ -40,7 +40,7 @@ export const RelatedLinks = ({ isHealthEquity }: RelatedLinkProps) => {
               url="http://learn.healthequity.com/qme/"
               target="_blank"
               className="link n0-underline !flex caremark"
-              icon={<Image src={extrenalIcon} alt="external" />}
+              icon={<Image src={extrenalIcon} alt="" />}
             />
             <Spacer size={24} />
             <Row>

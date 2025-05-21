@@ -47,7 +47,7 @@ export const ViewPayPremium = ({
           />
           <Spacer axis="horizontal" size={24} />
           <Button
-            icon={<Image alt="external icon" src={externalOffsiteWhiteIcon} />}
+            icon={<Image alt="" src={externalOffsiteWhiteIcon} />}
             className="font-bold active"
             label={secondaryButtonLabel}
             type="primary"

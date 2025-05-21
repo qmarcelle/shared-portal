@@ -64,14 +64,14 @@ const AmplifyHealthSupport = () => {
           body={getHeroBannerContent()}
         />
         {/* Header Component Ends */}
-        
+
         {/* Content Wrapper */}
         <div className="app-content self-center relative">
           {/* Advisors Card as Overlay */}
           <div className="relative -top-[3rem] w-full z-10">
             <AmplifyAdvisors />
           </div>
-          
+
           {/* Amplify Health Support Body Component */}
           <Column className="w-full">
             <Spacer size={32}></Spacer>
@@ -81,7 +81,7 @@ const AmplifyHealthSupport = () => {
               </Column>
             </section>
           </Column>
-          
+
           {/* Resources Section */}
           <Card className="large-section">
             <Column>
@@ -92,21 +92,21 @@ const AmplifyHealthSupport = () => {
               <Column className="gap-y-4 md:gap-4 md:flex-row">
                 <ResourceMiniCard
                   className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  icon={<Image src={questionsIcon} alt="call" />}
+                  icon={<Image src={questionsIcon} alt="" />}
                   label="Frequently Asked Questions"
                   link="/faq"
                   external={false}
                 />
                 <ResourceMiniCard
                   className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  icon={<Image src={glossaryIcon} alt="call" />}
+                  icon={<Image src={glossaryIcon} alt="" />}
                   label="Health Insurance Glossary"
                   link="https://www.healthcare.gov/glossary"
                   external={true}
                 />
                 <ResourceMiniCard
                   className="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  icon={<Image src={findFormIcon} alt="call" />}
+                  icon={<Image src={findFormIcon} alt="" />}
                   label="Find a Form"
                   link="https://www.bcbst.com/use-insurance/documents-forms"
                   external={true}
@@ -115,7 +115,7 @@ const AmplifyHealthSupport = () => {
             </Column>
           </Card>
         </div>
-        
+
         {/* Feedback Section */}
         <div className="w-full surface-gradient-amplify-flipped">
           <Column className="mt-16 text-white items-center px-4 gap-4">

@@ -36,7 +36,7 @@ export const WellnessInfo = ({
             type="secondary"
             className="w-1/5"
             label={buttonText}
-            icon={<Image alt="external icon" src={externalIcon} />}
+            icon={<Image alt="" src={externalIcon} />}
             callback={() => null}
           />
         </Column>

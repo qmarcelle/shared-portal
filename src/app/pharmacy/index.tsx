@@ -106,39 +106,27 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                 <CVSCaremarkInformationCard
                   title="Get More with CVS Caremark"
                   description="A caremark.com account will let you get prescriptions by mail, price a medication and more."
-                  icon={<Image src={cvsCaremarkIcon} alt="download form" />}
+                  icon={<Image src={cvsCaremarkIcon} alt="" />}
                   linkText="Visit CVS Caremark"
-                  linkIcon={<Image src={externalIcon} alt="download form" />}
+                  linkIcon={<Image src={externalIcon} alt="" />}
                   services={[
                     {
-                      serviceIcon: (
-                        <Image src={prescriptionIcon} alt="Prescription Icon" />
-                      ),
+                      serviceIcon: <Image src={prescriptionIcon} alt="" />,
                       serviceLabel: 'View or Refill My Prescriptions',
                       url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_REFILL_RX)!)}`,
                     },
                     {
-                      serviceIcon: (
-                        <Image
-                          src={mailOrderPharmacyIcon}
-                          alt="Mail Order Pharmacy Icon"
-                        />
-                      ),
+                      serviceIcon: <Image src={mailOrderPharmacyIcon} alt="" />,
                       serviceLabel: 'Get My Prescriptions by Mail',
                       url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     },
                     {
-                      serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
+                      serviceIcon: <Image src={costIcon} alt="" />,
                       serviceLabel: 'Find Drug Cost & My Coverage',
                       url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     },
                     {
-                      serviceIcon: (
-                        <Image
-                          src={searchPharmacyIcon}
-                          alt="Search Pharmacy Icon"
-                        />
-                      ),
+                      serviceIcon: <Image src={searchPharmacyIcon} alt="" />,
                       serviceLabel: 'Find a Pharmacy',
                       url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
                     },
@@ -196,7 +184,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                           linkIcon: (
                             <Image
                               src={downloadIcon}
-                              alt="download Icon"
+                              alt=""
                               className="inline"
                             />
                           ),
@@ -211,7 +199,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                           linkIcon: (
                             <Image
                               src={downloadIcon}
-                              alt="download Icon"
+                              alt=""
                               className="inline"
                             />
                           ),
@@ -224,7 +212,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                           linkIcon: (
                             <Image
                               src={downloadIcon}
-                              alt="download Icon"
+                              alt=""
                               className="inline"
                             />
                           ),
@@ -234,13 +222,9 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                             'Request for Medicare Prescription Drug Coverage Determination',
                           linkDescription:
                             'You can request an exception for prescription drug coverage.',
-                            linkURL: '/forms/redetermination',
-                            linkIcon: (
-                            <Image
-                              src={rightIcon}
-                              alt="right arrow Icon"
-                              className="inline"
-                            />
+                          linkURL: '/forms/redetermination',
+                          linkIcon: (
+                            <Image src={rightIcon} alt="" className="inline" />
                           ),
                           isHidden: !isMedicareEligible(data.visibilityRules),
                         },
@@ -250,11 +234,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                           linkDescription:
                             'If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).',
                           linkIcon: (
-                            <Image
-                              src={rightIcon}
-                              alt="right arrow Icon"
-                              className="inline"
-                            />
+                            <Image src={rightIcon} alt="" className="inline" />
                           ),
                           isHidden: !isMedicareDsnpEligible(
                             data.visibilityRules,
@@ -291,10 +271,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                                     </span>,
                                     <span className="link" key={1}>
                                       <a>Check Drug Cost & Coverage page</a>
-                                      <Image
-                                        src={externalIcon}
-                                        alt="external Icon"
-                                      />{' '}
+                                      <Image src={externalIcon} alt="" />{' '}
                                     </span>,
                                     <span key={2}>
                                       {' '}
@@ -344,10 +321,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                                     </span>,
                                     <span className="link" key={1}>
                                       <a>Check Drug Cost & Coverage page</a>
-                                      <Image
-                                        src={externalIcon}
-                                        alt="external Icon"
-                                      />{' '}
+                                      <Image src={externalIcon} alt="" />{' '}
                                     </span>,
                                     <span key={2}>
                                       {' '}
@@ -371,10 +345,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                                     </span>,
                                     <span className="link" key={1}>
                                       <a>Start Rx Delivery by Mail page</a>
-                                      <Image
-                                        src={externalIcon}
-                                        alt="external Icon"
-                                      />{' '}
+                                      <Image src={externalIcon} alt="" />{' '}
                                     </span>,
                                     <span key={2}>
                                       on your caremark.com account. CVS Caremark
@@ -417,10 +388,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                                     </span>,
                                     <span className="link" key={1}>
                                       <a>Start Rx Delivery by Mail page</a>
-                                      <Image
-                                        src={externalIcon}
-                                        alt="external Icon"
-                                      />{' '}
+                                      <Image src={externalIcon} alt="" />{' '}
                                     </span>,
                                     <span key={2}>
                                       {' '}

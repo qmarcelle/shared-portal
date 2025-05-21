@@ -27,7 +27,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
               Open main menu
             </span>
             <img
-              alt="Menu icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="32"
@@ -44,7 +44,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
           href="/member/home"
         >
           <img
-            alt="BCBST Logo"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="35"
@@ -234,7 +234,7 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
                   <a>
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Search
                     </p>
@@ -265,89 +265,6 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
       >
         <div />
         <div />
-        <div
-          class="flex flex-col self-stretch"
-        >
-          <div>
-            <div
-              class="flex flex-row py-1 px-2 w-full alert-tile"
-            >
-              <div>
-                <img
-                  alt="AlertIcon"
-                  class="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-              <p
-                class="mx-1 grow"
-              >
-                There is a planned system outage on July 23-25
-              </p>
-              <div>
-                <img
-                  alt="CloseIcon"
-                  class="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-            </div>
-            <div
-              class="divider"
-            />
-          </div>
-          <div
-            class="flex flex-row py-1 px-2 w-full alert-tile"
-          >
-            <div>
-              <img
-                alt="AlertIcon"
-                class="icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-            <p
-              class="mx-1 grow"
-            >
-              Another type of message that effects
-            </p>
-            <div>
-              <img
-                alt="CloseIcon"
-                class="icon"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </nav>
@@ -370,19 +287,19 @@ exports[`SiteHeader should render the dashboard UI correctly with limited featur
             >
               <p
                 class="body-2 app-base-font-color"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 View Plan:
               </p>
               <p
                 class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 BlueCross BlueShield of Tennessee
               </p>
             </div>
             <img
-              alt="switch"
+              alt=""
               class="size-5 head-icon m-[4px]"
               data-nimg="1"
               decoding="async"

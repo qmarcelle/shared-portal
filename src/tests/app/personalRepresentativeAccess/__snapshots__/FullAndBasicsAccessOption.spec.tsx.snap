@@ -35,7 +35,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -87,7 +87,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           What Information is Being Used or Shared
         </p>
@@ -133,7 +133,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Reasons the Information is Being Used or Shared
         </p>
@@ -142,7 +142,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to:
         </p>
@@ -175,7 +175,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Other reasons include support for treatment, payment, and health care operations activities, including care coordination among your care team and with family members, friends, and others involved in your care.
         </p>
@@ -184,7 +184,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Special Information about SUD Records
         </p>
@@ -193,7 +193,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           If your health information includes substance use disorder (SUD) records that might be protected by a federal law found at 42 U.S.C. § 290dd-2 and 42 C.F.R. Part 2 (called Part 2), special rules apply. Specifically:
         </p>
@@ -230,7 +230,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Expiration
         </p>
@@ -239,7 +239,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           This authorization will remain in effect until one of the following events happen:
         </p>
@@ -262,7 +262,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   When you turn 18 years old.
                 </p>
@@ -283,7 +283,7 @@ exports[`Full And Basics Access Option should render the UI correctly for false 
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Acknowledgments & Signature
         </p>
@@ -506,7 +506,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1 body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -559,7 +559,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           What Information is Being Used or Shared
         </p>
@@ -585,7 +585,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Reasons the Information is Being Used or Shared
         </p>
@@ -594,7 +594,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We are sharing all of this information at your request, with your approval, and at your direction. The primary purpose of this authorization is to support the Member's or their Personal Representative's right to access and direct the sharing of the Member's health information. Other reasons include support for treatment, payment, and health care operations activities, including care coordination among the Member's care team and with family members, friends, and others involved in care.
         </p>
@@ -603,7 +603,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Expiration
         </p>
@@ -612,7 +612,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           This authorization will remain in effect until one of the following events happen:
         </p>
@@ -635,7 +635,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Either:
                 </p>
@@ -654,7 +654,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
                 </span>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   (b) When the Member turns 18 years old, if the Member is between the age of 13 and 17 years old when you electronically sign this form.
                 </p>
@@ -675,7 +675,7 @@ exports[`Full And Basics Access Option should render the UI correctly for true 1
         />
         <p
           class="body-1 body-1 font-bold text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Acknowledgments & Signature
         </p>

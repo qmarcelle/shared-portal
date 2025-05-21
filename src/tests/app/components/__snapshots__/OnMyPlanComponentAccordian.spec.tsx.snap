@@ -21,7 +21,7 @@ exports[`OnMyPlanComponent should render UI correctly 1`] = `
               View Who&apos;s Covered
             </p>
             <img
-              alt="Down Chevron"
+              alt=""
               class="pl-2 w-6"
               data-nimg="1"
               decoding="async"

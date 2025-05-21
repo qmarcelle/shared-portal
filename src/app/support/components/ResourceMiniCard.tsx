@@ -29,9 +29,7 @@ export const ResourceMiniCard = ({
           <SpacerX size={16} />
           <div>
             <p className="link inline !no-underline">{label}</p>
-            {external && (
-              <Image className="inline" src={externalIcon} alt="external" />
-            )}
+            {external && <Image className="inline" src={externalIcon} alt="" />}
           </div>
         </Row>
       </Card>

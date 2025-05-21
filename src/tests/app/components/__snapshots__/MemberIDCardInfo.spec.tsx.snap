@@ -24,7 +24,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               All members of your plan use the same ID card.
             </p>
@@ -39,7 +39,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="slick-arrow slick-prev"
                 >
                   <img
-                    alt="scroll left"
+                    alt=""
                     class="icon-sm"
                     data-nimg="1"
                     decoding="async"
@@ -80,7 +80,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 class="flex flex-col items-center  p-4 m-[65px]"
                               >
                                 <img
-                                  alt="alert"
+                                  alt=""
                                   class="w-[33px] h-[33px]"
                                   data-nimg="1"
                                   decoding="async"
@@ -96,7 +96,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -128,7 +128,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 class="flex flex-col items-center  p-4 m-[65px]"
                               >
                                 <img
-                                  alt="alert"
+                                  alt=""
                                   class="w-[33px] h-[33px]"
                                   data-nimg="1"
                                   decoding="async"
@@ -144,7 +144,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -176,7 +176,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 class="flex flex-col items-center  p-4 m-[65px]"
                               >
                                 <img
-                                  alt="alert"
+                                  alt=""
                                   class="w-[33px] h-[33px]"
                                   data-nimg="1"
                                   decoding="async"
@@ -192,7 +192,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -224,7 +224,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 class="flex flex-col items-center  p-4 m-[65px]"
                               >
                                 <img
-                                  alt="alert"
+                                  alt=""
                                   class="w-[33px] h-[33px]"
                                   data-nimg="1"
                                   decoding="async"
@@ -240,7 +240,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -272,7 +272,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 class="flex flex-col items-center  p-4 m-[65px]"
                               >
                                 <img
-                                  alt="alert"
+                                  alt=""
                                   class="w-[33px] h-[33px]"
                                   data-nimg="1"
                                   decoding="async"
@@ -288,7 +288,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1 text-center"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                                 </p>
@@ -304,7 +304,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                   class="slick-arrow slick-next"
                 >
                   <img
-                    alt="scroll left"
+                    alt=""
                     class="icon-sm ml-20px"
                     data-nimg="1"
                     decoding="async"
@@ -343,7 +343,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             <section>
               <p
                 class="body-1 title-3"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Download ID Cards
               </p>
@@ -352,7 +352,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               >
                 <p
                   class="body-1 mt-4 mb-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Select the card you want to download:
                 </p>
@@ -426,7 +426,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 title-3"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Order New ID Cards
               </p>
@@ -435,7 +435,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Order a printed Member ID card(s) for your current plan.
               </p>
@@ -466,7 +466,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               class="flex flex-row"
             >
               <img
-                alt="link"
+                alt=""
                 class="size-10"
                 data-nimg="1"
                 decoding="async"
@@ -490,7 +490,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View your plan details.
                 </p>
@@ -508,7 +508,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               class="flex flex-row"
             >
               <img
-                alt="link"
+                alt=""
                 class="size-10"
                 data-nimg="1"
                 decoding="async"
@@ -532,7 +532,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 </div>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View what's covered under your plan.
                 </p>
@@ -552,7 +552,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             class="slick-arrow slick-prev"
           >
             <img
-              alt="scroll left"
+              alt=""
               class="icon-sm"
               data-nimg="1"
               decoding="async"
@@ -593,7 +593,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col items-center  p-4 m-[65px]"
                         >
                           <img
-                            alt="alert"
+                            alt=""
                             class="w-[33px] h-[33px]"
                             data-nimg="1"
                             decoding="async"
@@ -609,7 +609,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -641,7 +641,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col items-center  p-4 m-[65px]"
                         >
                           <img
-                            alt="alert"
+                            alt=""
                             class="w-[33px] h-[33px]"
                             data-nimg="1"
                             decoding="async"
@@ -657,7 +657,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -689,7 +689,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col items-center  p-4 m-[65px]"
                         >
                           <img
-                            alt="alert"
+                            alt=""
                             class="w-[33px] h-[33px]"
                             data-nimg="1"
                             decoding="async"
@@ -705,7 +705,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -737,7 +737,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col items-center  p-4 m-[65px]"
                         >
                           <img
-                            alt="alert"
+                            alt=""
                             class="w-[33px] h-[33px]"
                             data-nimg="1"
                             decoding="async"
@@ -753,7 +753,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -785,7 +785,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           class="flex flex-col items-center  p-4 m-[65px]"
                         >
                           <img
-                            alt="alert"
+                            alt=""
                             class="w-[33px] h-[33px]"
                             data-nimg="1"
                             decoding="async"
@@ -801,7 +801,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 text-center"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                           </p>
@@ -817,7 +817,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             class="slick-arrow slick-next"
           >
             <img
-              alt="scroll left"
+              alt=""
               class="icon-sm ml-20px"
               data-nimg="1"
               decoding="async"
@@ -872,7 +872,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             All members of your plan use the same ID card.
           </p>
@@ -887,7 +887,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 class="slick-arrow slick-prev"
               >
                 <img
-                  alt="scroll left"
+                  alt=""
                   class="icon-sm"
                   data-nimg="1"
                   decoding="async"
@@ -928,7 +928,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               class="flex flex-col items-center  p-4 m-[65px]"
                             >
                               <img
-                                alt="alert"
+                                alt=""
                                 class="w-[33px] h-[33px]"
                                 data-nimg="1"
                                 decoding="async"
@@ -944,7 +944,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -976,7 +976,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               class="flex flex-col items-center  p-4 m-[65px]"
                             >
                               <img
-                                alt="alert"
+                                alt=""
                                 class="w-[33px] h-[33px]"
                                 data-nimg="1"
                                 decoding="async"
@@ -992,7 +992,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1024,7 +1024,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               class="flex flex-col items-center  p-4 m-[65px]"
                             >
                               <img
-                                alt="alert"
+                                alt=""
                                 class="w-[33px] h-[33px]"
                                 data-nimg="1"
                                 decoding="async"
@@ -1040,7 +1040,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1072,7 +1072,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               class="flex flex-col items-center  p-4 m-[65px]"
                             >
                               <img
-                                alt="alert"
+                                alt=""
                                 class="w-[33px] h-[33px]"
                                 data-nimg="1"
                                 decoding="async"
@@ -1088,7 +1088,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1120,7 +1120,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               class="flex flex-col items-center  p-4 m-[65px]"
                             >
                               <img
-                                alt="alert"
+                                alt=""
                                 class="w-[33px] h-[33px]"
                                 data-nimg="1"
                                 decoding="async"
@@ -1136,7 +1136,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                               />
                               <p
                                 class="body-1 text-center"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                               </p>
@@ -1152,7 +1152,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                 class="slick-arrow slick-next"
               >
                 <img
-                  alt="scroll left"
+                  alt=""
                   class="icon-sm ml-20px"
                   data-nimg="1"
                   decoding="async"
@@ -1191,7 +1191,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           <section>
             <p
               class="body-1 title-3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Download ID Cards
             </p>
@@ -1200,7 +1200,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 mt-4 mb-2"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Select the card you want to download:
               </p>
@@ -1274,7 +1274,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1 title-3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Order New ID Cards
             </p>
@@ -1283,7 +1283,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Order a printed Member ID card(s) for your current plan.
             </p>
@@ -1314,7 +1314,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -1338,7 +1338,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 View your plan details.
               </p>
@@ -1356,7 +1356,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -1380,7 +1380,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 View what's covered under your plan.
               </p>
@@ -1400,7 +1400,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           class="slick-arrow slick-prev"
         >
           <img
-            alt="scroll left"
+            alt=""
             class="icon-sm"
             data-nimg="1"
             decoding="async"
@@ -1441,7 +1441,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col items-center  p-4 m-[65px]"
                       >
                         <img
-                          alt="alert"
+                          alt=""
                           class="w-[33px] h-[33px]"
                           data-nimg="1"
                           decoding="async"
@@ -1457,7 +1457,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1489,7 +1489,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col items-center  p-4 m-[65px]"
                       >
                         <img
-                          alt="alert"
+                          alt=""
                           class="w-[33px] h-[33px]"
                           data-nimg="1"
                           decoding="async"
@@ -1505,7 +1505,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1537,7 +1537,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col items-center  p-4 m-[65px]"
                       >
                         <img
-                          alt="alert"
+                          alt=""
                           class="w-[33px] h-[33px]"
                           data-nimg="1"
                           decoding="async"
@@ -1553,7 +1553,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1585,7 +1585,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col items-center  p-4 m-[65px]"
                       >
                         <img
-                          alt="alert"
+                          alt=""
                           class="w-[33px] h-[33px]"
                           data-nimg="1"
                           decoding="async"
@@ -1601,7 +1601,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1633,7 +1633,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         class="flex flex-col items-center  p-4 m-[65px]"
                       >
                         <img
-                          alt="alert"
+                          alt=""
                           class="w-[33px] h-[33px]"
                           data-nimg="1"
                           decoding="async"
@@ -1649,7 +1649,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           There was a problem loading your ID Card. Try refreshing the page or returning to this page later.
                         </p>
@@ -1665,7 +1665,7 @@ exports[`Member ID Card Info should render the UI correctly 1`] = `
           class="slick-arrow slick-next"
         >
           <img
-            alt="scroll left"
+            alt=""
             class="icon-sm ml-20px"
             data-nimg="1"
             decoding="async"

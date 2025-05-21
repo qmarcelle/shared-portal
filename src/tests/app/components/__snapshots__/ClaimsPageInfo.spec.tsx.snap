@@ -15,7 +15,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
           class="flex flex-row flex flex-row"
         >
           <img
-            alt="Pharmacy"
+            alt=""
             class="w-[40px] h-[40px]"
             data-nimg="1"
             decoding="async"
@@ -64,7 +64,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Visited on 08/23/23
                 </p>
@@ -74,7 +74,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   For Chris Hall
                 </p>
@@ -84,7 +84,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Claim ID:
                 </p>
@@ -93,7 +93,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Claim1
                 </p>
@@ -106,7 +106,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     RX #:
                   </p>
@@ -115,7 +115,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                   />
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     1234567890
                   </p>
@@ -126,7 +126,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Network Status:
                 </p>
@@ -135,7 +135,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   In-Network
                 </p>
@@ -157,7 +157,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
         class="flex flex-row flex flex-row"
       >
         <img
-          alt="Pharmacy"
+          alt=""
           class="w-[40px] h-[40px]"
           data-nimg="1"
           decoding="async"
@@ -206,7 +206,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Visited on 08/23/23
               </p>
@@ -216,7 +216,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 For Chris Hall
               </p>
@@ -226,7 +226,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Claim ID:
               </p>
@@ -235,7 +235,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               />
               <p
                 class="body-1 font-bold"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Claim1
               </p>
@@ -248,7 +248,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   RX #:
                 </p>
@@ -257,7 +257,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   1234567890
                 </p>
@@ -268,7 +268,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Network Status:
               </p>
@@ -277,7 +277,7 @@ exports[`Pharmacy Claims page Information Pharmacy Claims page Information 1`] =
               />
               <p
                 class="body-1 font-bold"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 In-Network
               </p>

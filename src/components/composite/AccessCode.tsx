@@ -25,7 +25,7 @@ export const AccessCode = ({ accessCodeData }: AccessCodeProps) => {
           <Image
             src={AlertIcon}
             className="h-[19px] w-[19px] mt-3 ml-3"
-            alt="alert"
+            alt=""
           />
           <TextBox text="Access code could not load." className="mt-3 ml-2" />
         </Row>

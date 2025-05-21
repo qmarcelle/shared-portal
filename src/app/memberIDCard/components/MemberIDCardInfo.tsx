@@ -128,7 +128,7 @@ export const MemberIDCardInfo = ({
             {downloadIdCardErrorMsg && (
               <Column className="downloadErrorMsg">
                 <Row>
-                  <Image src={AlertIcon} className="icon" alt="alert" />
+                  <Image src={AlertIcon} className="icon" alt="" />
                   <TextBox
                     className="body-1 pt-1 ml-2"
                     text="Your digital ID card is unavailable right now. We’re working on it and hope to have it up soon."

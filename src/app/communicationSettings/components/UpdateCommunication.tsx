@@ -20,7 +20,7 @@ export const UpdateCommunication = ({
   label,
   subLabel,
   methodName,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   divider = false,
   onClick,
 }: UpdateCommunicationProps) => {

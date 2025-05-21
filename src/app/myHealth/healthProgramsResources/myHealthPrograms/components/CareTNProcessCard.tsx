@@ -22,7 +22,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
         <Spacer size={32} />
         <section className="md:flex md:flex-row">
           <Column>
-            <Image src={numberStepOne} alt="numberStepOne" />
+            <Image src={numberStepOne} alt="" />
             <Spacer size={16} />
           </Column>
           <Spacer size={32} axis="horizontal" />
@@ -32,11 +32,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
             <TextBox text="Scan the QR Code with your smartphone’s camera." />
             <Column className="w-[94px]">
               <Spacer size={8} />
-              <Image
-                src={careTNQRCode}
-                alt="QRCode"
-                className="md:max-2xl:block"
-              />
+              <Image src={careTNQRCode} alt="" className="md:max-2xl:block" />
             </Column>
           </Column>
         </section>
@@ -45,7 +41,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
         <Spacer size={32} />
         <section className="md:flex md:flex-row">
           <Column>
-            <Image src={numberStepTwo} alt="numberStepTwo" />
+            <Image src={numberStepTwo} alt="" />
             <Spacer size={16} />
           </Column>
           <Spacer size={32} axis="horizontal" />
@@ -62,7 +58,7 @@ const CareTNProcessCard = ({ accessCodeData }: CareTNProcessCardProps) => {
         <Spacer size={32} />
         <section className="md:flex md:flex-row">
           <Column>
-            <Image src={numberStepThree} alt="numberStepthree" />
+            <Image src={numberStepThree} alt="" />
             <Spacer size={16} />
           </Column>
           <Spacer size={32} axis="horizontal" />

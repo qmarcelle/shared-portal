@@ -31,7 +31,7 @@ export const EmployeeProvidedBenefitsTile = ({
           <Image
             className="block mb-6 mt-3 sm:hidden"
             src={dollarGeneralLogo}
-            alt="Provider logo"
+            alt=""
             width={170}
             height={55}
           />
@@ -46,7 +46,7 @@ export const EmployeeProvidedBenefitsTile = ({
             <Image
               className="hidden sm:block"
               src={dollarGeneralLogo}
-              alt="Provider logo"
+              alt=""
               width={170}
               height={55}
             />

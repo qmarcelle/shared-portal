@@ -112,13 +112,7 @@ export const SearchNavigation = ({ className }: IComponent) => {
           }}
         >
           <Spacer size={14} axis="vertical" />
-          <Image
-            src={CloseIcon}
-            className=""
-            height={12}
-            width={12}
-            alt={'CloseIcon'}
-          />
+          <Image src={CloseIcon} className="" height={12} width={12} alt="" />
         </div>
         <Spacer size={8} axis="horizontal" />
       </div>
@@ -141,11 +135,7 @@ export const SearchNavigation = ({ className }: IComponent) => {
             <TextBox className="link-row-head" text="Search" />
           </a>
           <Spacer size={8} />
-          <Image
-            src={searchIcon}
-            className="icon items-end ml-1"
-            alt=""
-          />
+          <Image src={searchIcon} className="icon items-end ml-1" alt="" />
         </div>
       </div>
     );

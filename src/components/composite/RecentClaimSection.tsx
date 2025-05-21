@@ -57,12 +57,7 @@ export const RecentClaimSection = ({
         return (
           <div className="recentClaimsException">
             <Row className="p-2">
-              <Image
-                src={documentFile}
-                alt="no-claims-found"
-                height={40}
-                width={40}
-              />
+              <Image src={documentFile} alt="" height={40} width={40} />
               <TextBox
                 text="No Claims Found."
                 className="inline my-auto ml-4 p-2"
@@ -75,12 +70,7 @@ export const RecentClaimSection = ({
         return (
           <div className="recentClaimsException">
             <Row className="p-2">
-              <Image
-                src={documentFile}
-                alt="no-claims-found"
-                height={40}
-                width={40}
-              />
+              <Image src={documentFile} alt="" height={40} width={40} />
               <TextBox
                 text="No Claims Found."
                 className="inline my-auto ml-4 p-2"

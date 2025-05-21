@@ -54,7 +54,7 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
           <AppLink
             label="Review This Provider"
             className="link !flex"
-            icon={<Image src={externalIcon} alt="external" />}
+            icon={<Image src={externalIcon} alt="" />}
             url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_VITALSPRP}&TargetResource=${process.env.NEXT_PUBLIC_VITALS_PRP_SSO_TARGET!.replace('{PROV_ID}', provId)}&provId=${provId}`}
           />
         </Column>
@@ -80,11 +80,7 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
     <Column className="app-content">
       <Spacer size={32} />
       <Row className="flex flex-row">
-        <Image
-          src={getClaimIcon()}
-          className="w-[40px] h-[40px]"
-          alt={claimInfo.claimType}
-        />
+        <Image src={getClaimIcon()} className="w-[40px] h-[40px]" alt="" />
         <Column>
           <Header className="pl-3" type="title-1" text={claimInfo.issuer} />
           {getProviderLink()}

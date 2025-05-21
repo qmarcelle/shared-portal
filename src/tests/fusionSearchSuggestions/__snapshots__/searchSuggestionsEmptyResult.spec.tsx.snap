@@ -53,13 +53,13 @@ exports[`Fusion Search Suggestion should render no results message on no results
           >
             <p
               class="body-1 px-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               See all results for 
             </p>
             <p
               class="body-1 font-bold"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               heal
             </p>
@@ -85,7 +85,7 @@ exports[`Fusion Search Suggestion should render no results message on no results
           style="display: block; width: 1px; min-width: 1px; height: 14px; min-height: 14px;"
         />
         <img
-          alt="CloseIcon"
+          alt=""
           class=""
           data-nimg="1"
           decoding="async"

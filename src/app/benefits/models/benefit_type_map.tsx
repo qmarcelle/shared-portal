@@ -388,9 +388,7 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
         label: 'Find Drugs Cost & Coverage',
         body: 'Your pharmacy benefits are managed by CVS Caremark. You can estimate drug costs and view your coverage at caremark.com.',
         icon: estimatePharmacyCost,
-        suffix: (
-          <Image src={externalIcon} alt="external" className="inline mx-1" />
-        ),
+        suffix: <Image src={externalIcon} alt="" className="inline mx-1" />,
       },
 
       medicalAndPharmacyBalance: {

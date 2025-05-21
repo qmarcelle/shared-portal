@@ -94,7 +94,7 @@ const RewardProgramsFaqs = () => {
                   rewardPoints: '100 Points',
                 },
               ]}
-              linkIcon={<Image src={externalIcon} alt="download form" />}
+              linkIcon={<Image src={externalIcon} alt="" />}
             />
           </Column>
 

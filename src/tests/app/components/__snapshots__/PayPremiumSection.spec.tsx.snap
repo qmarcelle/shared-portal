@@ -22,7 +22,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Payment Due Date
           </p>
@@ -40,7 +40,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Amount Due
           </p>
@@ -64,7 +64,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
             class="ml-2"
           >
             <img
-              alt="external icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -113,7 +113,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -129,7 +129,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -168,7 +168,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 text-center"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Use this service as an easy and secure way to pay your premium with a debit card or electronic check. Setup recurring bank drafts, manage future payments, and view payment history.
                       </p>
@@ -177,7 +177,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 text-center"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By continuing, you agree to leave the BlueCross website and view the content of an external website. If you choose not to leave the BlueCross website, simply cancel.
                       </p>
@@ -207,7 +207,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                             class="ml-2"
                           >
                             <img
-                              alt="external icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -231,7 +231,7 @@ exports[`PayPremiumSection should render the UI correctly 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

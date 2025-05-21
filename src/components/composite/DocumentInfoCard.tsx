@@ -1,12 +1,12 @@
-import { Card } from '../foundation/Card';
 import Image from 'next/image';
-import { Spacer, SpacerX } from '../foundation/Spacer';
-import { IComponent } from '../IComponent';
+import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
-import { Row } from '../foundation/Row';
-import { TextBox } from '../foundation/TextBox';
 import { Header } from '../foundation/Header';
 import { documentFile } from '../foundation/Icons';
+import { Row } from '../foundation/Row';
+import { Spacer, SpacerX } from '../foundation/Spacer';
+import { TextBox } from '../foundation/TextBox';
+import { IComponent } from '../IComponent';
 
 interface DocumentsCardListProps extends IComponent {
   documentName: string;
@@ -20,7 +20,7 @@ export const DocumentInfoCard = ({
   receivedDate,
   memberName,
   className,
-  icon = <Image src={documentFile} alt="link" />,
+  icon = <Image src={documentFile} alt="" />,
   onClick,
 }: DocumentsCardListProps) => {
   return (

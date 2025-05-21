@@ -17,7 +17,7 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We’ll need to confirm your email address before you can log in.
         </p>
@@ -26,20 +26,20 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We’ve sent a code to:
         </p>
         <p
           class="body-1 font-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Enter the security code to verify your email address.
         </p>
@@ -114,7 +114,7 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         />
         <p
           class="body-1 pr-1"
-          style="display: inline;"
+          style="display: inline; max-width: 100%;"
         >
           Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
         </p>
@@ -138,7 +138,7 @@ exports[`Login Email Verification Component should render UI correctly 1`] = `
         </a>
         <p
           class="body-1"
-          style="display: inline;"
+          style="display: inline; max-width: 100%;"
         >
           .
         </p>

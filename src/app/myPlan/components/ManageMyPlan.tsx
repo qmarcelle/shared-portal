@@ -104,7 +104,7 @@ export const ManageMyPlan = ({
                     <div className="body-1 flex flex-row">{items.body}</div>
                   }
                   divider={false}
-                  icon={<Image src={External} alt="link" />}
+                  icon={<Image src={External} alt="" />}
                   onClick={() => {
                     window.location.href = items.url;
                   }}

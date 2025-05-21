@@ -31,7 +31,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -48,7 +48,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -406,7 +406,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -483,7 +483,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                       View My Health Dashboard
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -503,7 +503,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Wellness
                     </p>
@@ -518,7 +518,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         Member Wellness Center
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -541,7 +541,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         Biometric Screening
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -564,7 +564,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         Member Discounts
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -586,7 +586,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Advice & Support
                     </p>
@@ -601,7 +601,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         Health Library
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -624,7 +624,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                         WellTuned Blog
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -645,7 +645,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/virtualCareOptions"
+                      href="/member/findcare/virtualcare"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -671,7 +671,7 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -719,19 +719,19 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -747,6 +747,9 @@ exports[`SiteHeader And Navigation Menu should be able to render Bimetric Screen
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -1483,7 +1486,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -1500,7 +1503,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -1858,7 +1861,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -1934,7 +1937,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                       View All Plan Details
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -1954,7 +1957,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Details
                     </p>
@@ -2011,7 +2014,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/assets/pdf/Member_Wellness_Plan_Brochure.pdf"
+                      href="https://bluecare.bcbst.com/get-care/documents-forms"
                       target="_blank"
                     >
                       <p
@@ -2020,7 +2023,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                         Member Handbook
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -2042,7 +2045,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Claims
                     </p>
@@ -2107,7 +2110,7 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Spending
                     </p>
@@ -2145,23 +2148,6 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                         </p>
                       </button>
                     </a>
-                    <a
-                      aria-label="Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Spending Summary
-                        </p>
-                      </button>
-                    </a>
                   </div>
                 </div>
                 <div
@@ -2172,50 +2158,10 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage My Plan
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/balances"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        View or Pay Premium
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      aria-label="Manage My Policy"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Manage My Policy
-                        </p>
-                      </button>
-                    </a>
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
@@ -2262,19 +2208,19 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -2290,6 +2236,9 @@ exports[`SiteHeader And Navigation Menu should link to Member Handbook Pdf for W
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -3985,7 +3934,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -4002,7 +3951,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -4360,7 +4309,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -4437,7 +4386,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                       View My Health Dashboard
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -4457,7 +4406,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Wellness
                     </p>
@@ -4472,7 +4421,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                         Member Wellness Center
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -4495,7 +4444,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                         Member Discounts
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -4517,7 +4466,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Advice & Support
                     </p>
@@ -4549,7 +4498,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                         Health Library
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -4572,7 +4521,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                         WellTuned Blog
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -4593,7 +4542,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/virtualCareOptions"
+                      href="/member/findcare/virtualcare"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -4619,7 +4568,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -4667,19 +4616,19 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -4695,6 +4644,9 @@ exports[`SiteHeader And Navigation Menu should navigate the Health Programs & Re
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -4731,7 +4683,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -4748,7 +4700,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -5106,7 +5058,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -5181,7 +5133,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                       Find All Care & Costs
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -5201,7 +5153,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Care
                     </p>
@@ -5216,7 +5168,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         Find a Medical Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -5239,7 +5191,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         Find a Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -5295,7 +5247,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Estimate Costs
                     </p>
@@ -5310,7 +5262,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         Price Medical Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -5350,7 +5302,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         Price Vision Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -5373,7 +5325,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                         Price a Medication
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -5420,7 +5372,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -5470,19 +5422,19 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -5498,6 +5450,9 @@ exports[`SiteHeader And Navigation Menu should navigate the Mental Health Option
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -6337,7 +6292,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -6354,7 +6309,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -6712,7 +6667,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -6788,7 +6743,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                       View All Plan Details
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -6808,7 +6763,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Details
                     </p>
@@ -6873,7 +6828,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Claims
                     </p>
@@ -6938,7 +6893,7 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Spending
                     </p>
@@ -6976,23 +6931,6 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                         </p>
                       </button>
                     </a>
-                    <a
-                      aria-label="Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Spending Summary
-                        </p>
-                      </button>
-                    </a>
                   </div>
                 </div>
                 <div
@@ -7003,50 +6941,10 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage My Plan
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/balances"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        View or Pay Premium
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      aria-label="Manage My Policy"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Manage My Policy
-                        </p>
-                      </button>
-                    </a>
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
@@ -7093,19 +6991,19 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -7121,6 +7019,9 @@ exports[`SiteHeader And Navigation Menu should navigate the Spending Accounts me
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -8343,7 +8244,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -8360,7 +8261,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -8718,7 +8619,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -8793,7 +8694,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                       Find All Care & Costs
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -8813,7 +8714,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Care
                     </p>
@@ -8828,7 +8729,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         Find a Medical Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -8851,7 +8752,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         Find a Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -8873,7 +8774,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Estimate Costs
                     </p>
@@ -8888,7 +8789,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         Price Medical Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -8928,7 +8829,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         Price Vision Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -8951,7 +8852,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                         Price a Medication
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -8998,7 +8899,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -9048,19 +8949,19 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -9076,6 +8977,9 @@ exports[`SiteHeader And Navigation Menu should navigate the price dental care me
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -9881,7 +9785,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -9898,7 +9802,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -10256,7 +10160,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -10331,7 +10235,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                       Find All Care & Costs
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -10351,7 +10255,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Care
                     </p>
@@ -10366,7 +10270,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         Find a Medical Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -10389,7 +10293,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         Find a Provider
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -10445,7 +10349,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Estimate Costs
                     </p>
@@ -10460,7 +10364,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         Price Medical Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -10500,7 +10404,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         Price Vision Care
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -10523,7 +10427,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                         Price a Medication
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -10570,7 +10474,7 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -10620,19 +10524,19 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -10648,6 +10552,9 @@ exports[`SiteHeader And Navigation Menu should navigate the primary care menu li
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -10681,7 +10588,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                 Close main menu
               </span>
               <img
-                alt="Close icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="18"
@@ -10698,7 +10605,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
             href="/member/home"
           >
             <img
-              alt="BCBST Logo"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="35"
@@ -11056,7 +10963,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     <a>
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Search
                       </p>
@@ -11135,7 +11042,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                     View All Support
                   </span>
                   <img
-                    alt="Parent Page Arrow"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="32"
@@ -11149,54 +11056,6 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               </div>
               <div
                 class="col-start-1 col-end-5 lg:col-start-1 lg:col-end-2 py-4 border-b lg:border-0"
-              >
-                <div
-                  class="lg:grid-rows-4"
-                >
-                  <a
-                    href="/member/support"
-                  >
-                    <div
-                      class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
-                    >
-                      <h3
-                        class="pb-3 text-sm text-black"
-                      >
-                        Quick Tip
-                      </h3>
-                      <p
-                        class="pb-1 text-base app-base-font-color "
-                      >
-                        We're here to help.
-                      </p>
-                      <p
-                        class="pb-1 text-base app-base-font-color "
-                      >
-                        <span
-                          class="font-bold"
-                        >
-                          Start a chat
-                        </span>
-                         or call us at [1-800-000-0000].
-                      </p>
-                      <img
-                        alt="Page Arrow"
-                        class="ml-auto"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
               >
                 <div
                   class="lg:grid-rows-4"
@@ -11229,7 +11088,7 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                       Health Insurance Glossary
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -11278,6 +11137,13 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
                 </div>
               </div>
               <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+              <div
                 class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
               >
                 <div
@@ -11315,19 +11181,19 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -11343,6 +11209,9 @@ exports[`SiteHeader And Navigation Menu should not link to BlueCare find form fo
         </div>
       </div>
     </div>
+    <div
+      style="display: none;"
+    />
   </div>
 </div>
 `;
@@ -11378,7 +11247,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -11395,7 +11264,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -11753,7 +11622,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -11830,7 +11699,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                       View My Health Dashboard
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -11850,7 +11719,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Wellness
                     </p>
@@ -11865,7 +11734,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                         Member Wellness Center
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -11888,7 +11757,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                         Member Discounts
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -11910,7 +11779,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Advice & Support
                     </p>
@@ -11925,7 +11794,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                         Health Library
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -11948,7 +11817,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                         WellTuned Blog
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -11969,7 +11838,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/virtualCareOptions"
+                      href="/member/findcare/virtualcare"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -11995,7 +11864,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                           </span>
                         </p>
                         <img
-                          alt="Page Arrow"
+                          alt=""
                           class="ml-auto"
                           data-nimg="1"
                           decoding="async"
@@ -12043,19 +11912,19 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -12071,6 +11940,9 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Health Progra
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -12107,7 +11979,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -12124,7 +11996,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -12482,7 +12354,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -12558,7 +12430,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                       View All Plan Details
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -12578,7 +12450,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Details
                     </p>
@@ -12601,7 +12473,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/assets/pdf/Member_Wellness_Plan_Brochure.pdf"
+                      href="https://bluecare.bcbst.com/get-care/documents-forms"
                       target="_blank"
                     >
                       <p
@@ -12610,7 +12482,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                         Member Handbook
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -12632,7 +12504,7 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Claims
                     </p>
@@ -12730,19 +12602,19 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -12758,6 +12630,9 @@ exports[`SiteHeader And Navigation Menu should not navigate to the Spending Acco
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -14342,7 +14217,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 Close main menu
               </span>
               <img
-                alt="Close icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="18"
@@ -14359,7 +14234,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/home"
           >
             <img
-              alt="BCBST Logo"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="35"
@@ -14717,7 +14592,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     <a>
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Search
                       </p>
@@ -14792,7 +14667,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find All Care & Costs
                   </span>
                   <img
-                    alt="Parent Page Arrow"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="32"
@@ -14812,7 +14687,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Care
                   </p>
@@ -14827,7 +14702,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Medical Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -14850,7 +14725,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -14872,7 +14747,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Estimate Costs
                   </p>
@@ -14887,7 +14762,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Medical Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -14927,7 +14802,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Vision Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -14950,7 +14825,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price a Medication
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -14997,7 +14872,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                         </span>
                       </p>
                       <img
-                        alt="Page Arrow"
+                        alt=""
                         class="ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -15047,19 +14922,19 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -15075,6 +14950,9 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         </div>
       </div>
     </div>
+    <div
+      style="display: none;"
+    />
   </div>
 </div>
 `;
@@ -15107,7 +14985,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 Close main menu
               </span>
               <img
-                alt="Close icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="18"
@@ -15124,7 +15002,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/home"
           >
             <img
-              alt="BCBST Logo"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="35"
@@ -15482,7 +15360,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     <a>
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Search
                       </p>
@@ -15557,7 +15435,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find All Care & Costs
                   </span>
                   <img
-                    alt="Parent Page Arrow"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="32"
@@ -15577,7 +15455,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Care
                   </p>
@@ -15592,7 +15470,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Medical Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -15615,7 +15493,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -15637,7 +15515,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Estimate Costs
                   </p>
@@ -15652,7 +15530,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Medical Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -15692,7 +15570,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Vision Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -15715,7 +15593,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price a Medication
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -15762,7 +15640,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                         </span>
                       </p>
                       <img
-                        alt="Page Arrow"
+                        alt=""
                         class="ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -15812,19 +15690,19 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -15840,6 +15718,9 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         </div>
       </div>
     </div>
+    <div
+      style="display: none;"
+    />
   </div>
 </div>
 `;
@@ -15872,7 +15753,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 Close main menu
               </span>
               <img
-                alt="Close icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="18"
@@ -15889,7 +15770,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
             href="/member/home"
           >
             <img
-              alt="BCBST Logo"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="35"
@@ -16247,7 +16128,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     <a>
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Search
                       </p>
@@ -16322,7 +16203,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                     Find All Care & Costs
                   </span>
                   <img
-                    alt="Parent Page Arrow"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="32"
@@ -16342,7 +16223,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Care
                   </p>
@@ -16357,7 +16238,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Medical Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -16380,7 +16261,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Find a Provider
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -16453,7 +16334,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                 >
                   <p
                     class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Estimate Costs
                   </p>
@@ -16468,7 +16349,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Medical Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -16508,7 +16389,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price Vision Care
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -16531,7 +16412,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                       Price a Medication
                     </p>
                     <img
-                      alt="External Link"
+                      alt=""
                       class="pb-2"
                       data-nimg="1"
                       decoding="async"
@@ -16578,7 +16459,7 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
                         </span>
                       </p>
                       <img
-                        alt="Page Arrow"
+                        alt=""
                         class="ml-auto"
                         data-nimg="1"
                         decoding="async"
@@ -16628,19 +16509,19 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -16656,6 +16537,9 @@ exports[`SiteHeader And Navigation Menu should render Virtual Care options menu 
         </div>
       </div>
     </div>
+    <div
+      style="display: none;"
+    />
   </div>
 </div>
 `;
@@ -16689,7 +16573,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                   Open main menu
                 </span>
                 <img
-                  alt="Menu icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="32"
@@ -16706,7 +16590,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -17061,7 +16945,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -17117,19 +17001,19 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -17145,6 +17029,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 1`] = `
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -17181,7 +17068,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                   Open main menu
                 </span>
                 <img
-                  alt="Menu icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="32"
@@ -17198,7 +17085,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -17553,7 +17440,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -17609,19 +17496,19 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -17637,6 +17524,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
   <div>
@@ -17676,7 +17566,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     tabindex="1"
                   />
                   <img
-                    alt="bcbst logo"
+                    alt=""
                     class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                     data-nimg="1"
                     decoding="async"
@@ -17692,7 +17582,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                     tabindex="0"
                   >
                     <img
-                      alt="close"
+                      alt=""
                       class="size-4"
                       data-nimg="1"
                       decoding="async"
@@ -17738,7 +17628,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                     >
                                       <p
                                         class="body-2 font-light"
-                                        style="display: block;"
+                                        style="display: block; max-width: 100%;"
                                       >
                                         My Profile
                                       </p>
@@ -17749,13 +17639,13 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                       </h3>
                                       <p
                                         class="body-1 font-light"
-                                        style="display: block;"
+                                        style="display: block; max-width: 100%;"
                                       >
                                         DOB: 08/07/2002
                                       </p>
                                     </div>
                                     <img
-                                      alt="switch"
+                                      alt=""
                                       class="size-5 head-icon"
                                       data-nimg="1"
                                       decoding="async"
@@ -17796,7 +17686,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 2`] = `
                                     class="ml-1"
                                   >
                                     <img
-                                      alt="link"
+                                      alt=""
                                       data-nimg="1"
                                       decoding="async"
                                       height="40"
@@ -17929,7 +17819,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                   Open main menu
                 </span>
                 <img
-                  alt="Menu icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="32"
@@ -17946,7 +17836,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -18301,7 +18191,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -18357,19 +18247,19 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -18385,6 +18275,9 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
   <div>
@@ -18424,7 +18317,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     tabindex="1"
                   />
                   <img
-                    alt="bcbst logo"
+                    alt=""
                     class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                     data-nimg="1"
                     decoding="async"
@@ -18440,7 +18333,7 @@ exports[`SiteHeader And Navigation Menu should render the UI correctly 3`] = `
                     tabindex="0"
                   >
                     <img
-                      alt="close"
+                      alt=""
                       class="size-4"
                       data-nimg="1"
                       decoding="async"
@@ -18503,7 +18396,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -18520,7 +18413,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -18878,7 +18771,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -18954,7 +18847,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                       View All Plan Details
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -18974,7 +18867,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Details
                     </p>
@@ -19039,7 +18932,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Claims
                     </p>
@@ -19104,7 +18997,7 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Spending
                     </p>
@@ -19142,23 +19035,6 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                         </p>
                       </button>
                     </a>
-                    <a
-                      aria-label="Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Spending Summary
-                        </p>
-                      </button>
-                    </a>
                   </div>
                 </div>
                 <div
@@ -19169,50 +19045,10 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage My Plan
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/balances"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        View or Pay Premium
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      aria-label="Manage My Policy"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Manage My Policy
-                        </p>
-                      </button>
-                    </a>
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
@@ -19276,19 +19112,19 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -19304,6 +19140,9 @@ exports[`SiteHeader And Navigation Menu should show  Update Katie Beckett Bankin
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -19340,7 +19179,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   Close main menu
                 </span>
                 <img
-                  alt="Close icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="18"
@@ -19357,7 +19196,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
               href="/member/home"
             >
               <img
-                alt="BCBST Logo"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="35"
@@ -19715,7 +19554,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -19791,7 +19630,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                       View All Plan Details
                     </span>
                     <img
-                      alt="Parent Page Arrow"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="32"
@@ -19811,7 +19650,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Details
                     </p>
@@ -19868,7 +19707,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                     </a>
                     <a
                       class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/assets/pdf/Member_Wellness_Plan_Brochure.pdf"
+                      href="https://bluecare.bcbst.com/get-care/documents-forms"
                       target="_blank"
                     >
                       <p
@@ -19877,7 +19716,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                         Member Handbook
                       </p>
                       <img
-                        alt="External Link"
+                        alt=""
                         class="pb-2"
                         data-nimg="1"
                         decoding="async"
@@ -19899,7 +19738,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Claims
                     </p>
@@ -19964,7 +19803,7 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Spending
                     </p>
@@ -20002,23 +19841,6 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                         </p>
                       </button>
                     </a>
-                    <a
-                      aria-label="Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Spending Summary
-                        </p>
-                      </button>
-                    </a>
                   </div>
                 </div>
                 <div
@@ -20029,50 +19851,10 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage My Plan
                     </p>
-                    <a
-                      class="flex w-max focus:outline-none focus:rounded focus-visible:ring-2 focus-visible:ring-primary focus:ring-2 focus:ring-primary box-border underline-offset-4 hover:underline focus:underline"
-                      href="/balances"
-                      target=""
-                    >
-                      <p
-                        class="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus"
-                      >
-                        View or Pay Premium
-                      </p>
-                      <img
-                        alt="External Link"
-                        class="pb-2"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      aria-label="Manage My Policy"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          Manage My Policy
-                        </p>
-                      </button>
-                    </a>
                     <a
                       aria-label="Report Other Health Insurance"
                       style="display: block;"
@@ -20119,19 +19901,19 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -20147,6 +19929,9 @@ exports[`SiteHeader And Navigation Menu should show Member Handbook for Wellness
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>

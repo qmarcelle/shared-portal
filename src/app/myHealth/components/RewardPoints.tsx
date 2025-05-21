@@ -23,7 +23,7 @@ export const RewardPoints = () => {
                       <span key={0}>Your can </span>,
                       <span className="link" key={1}>
                         <a>take your PHA here</a>
-                        <Image src={externalIcon} alt="external Icon" />
+                        <Image src={externalIcon} alt="" />
                       </span>,
                       <span className="!no-underline" key={2}>
                         .
@@ -49,7 +49,7 @@ export const RewardPoints = () => {
                       <span key={0}>You can track steps using any </span>,
                       <span className="link" key={1}>
                         <a>approved app or device </a>
-                        <Image src={externalIcon} alt="external Icon" />
+                        <Image src={externalIcon} alt="" />
                       </span>,
                       <span className="!no-underline" key={2}>
                         .{' '}
@@ -59,7 +59,7 @@ export const RewardPoints = () => {
                       </span>,
                       <span className="link" key={4}>
                         <a>Member Wellness Center</a>
-                        <Image src={externalIcon} alt="external Icon" />
+                        <Image src={externalIcon} alt="" />
                       </span>,
                       <span className="!no-underline" key={5}>
                         .

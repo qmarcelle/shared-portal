@@ -14,7 +14,7 @@ export interface LinkRowProps {
 export const LinkRow = ({
   label,
   description,
-  icon = <Image src={rightIcon} alt="link" />,
+  icon = <Image src={rightIcon} alt="" />,
   divider = false,
   onClick,
   link,

@@ -8,9 +8,6 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
       <main
         class="flex flex-col justify-center items-center page"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <div
           class="flex flex-col app-content app-base-font-color"
         >
@@ -29,7 +26,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               class="flex flex-col flex-grow page-section-63_33 items-stretch"
             >
               <span
-                class="rich-text body-1 w-[125%]"
+                class="rich-text body-1 sectionWidthVirtualCare"
               >
                 <span>
                   The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our
@@ -39,6 +36,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   class="link"
                 >
                   <a
+                    class="body-bold"
                     href="/sso/launch?PartnerSpId=undefined"
                   >
                     Find Care tool.
@@ -50,7 +48,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-2 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 In case of a medical emergency, call 911. In case of a mental health crisis, call 988.
               </p>
@@ -87,12 +85,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mental Health
                       </p>
                       <img
-                        alt="TelaDoc"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -111,7 +109,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Teladoc Mental Health
                         </p>
@@ -120,7 +118,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere. 
                         </p>
@@ -130,7 +128,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -199,12 +197,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mental Health
                       </p>
                       <img
-                        alt="AbleToIcon"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -223,7 +221,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           AbleTo
                         </p>
@@ -232,7 +230,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
                         </p>
@@ -242,7 +240,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -311,12 +309,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Physical Therapy
                       </p>
                       <img
-                        alt="HingeHealth"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -335,7 +333,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Hinge Health Back & Joint Care
                         </p>
@@ -344,7 +342,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                         </p>
@@ -354,7 +352,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -423,12 +421,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Primary Care
                       </p>
                       <img
-                        alt="BlueTennesseIcon"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -447,7 +445,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Blue of Tennessee Medical Centers Virtual Visits 
                         </p>
@@ -456,7 +454,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan.
                         </p>
@@ -466,7 +464,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -535,12 +533,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Primary Care
                       </p>
                       <img
-                        alt="TelaDoc"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -559,7 +557,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Teladoc Health Primary Care Provider
                         </p>
@@ -568,7 +566,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                         </p>
@@ -578,7 +576,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -647,12 +645,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Urgent Care
                       </p>
                       <img
-                        alt="TelaDoc"
+                        alt=""
                         class="w-1/2"
                         data-nimg="1"
                         decoding="async"
@@ -671,7 +669,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Teladoc Health General & Urgent Care
                         </p>
@@ -680,7 +678,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                         </p>
@@ -690,7 +688,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -759,7 +757,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Urgent Care
                       </p>
@@ -771,7 +769,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 title-3 !font-bold m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Talk to a Nurse
                         </p>
@@ -780,7 +778,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1 body-1 m-4 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care. 
                         </p>
@@ -790,7 +788,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         <div>
                           <p
                             class="body-1 body-1 m-4 mt-2 mb-0"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Generally good for:
                           </p>
@@ -885,7 +883,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 mb-0"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
                 </p>
@@ -919,7 +917,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
+                                href="/member/myhealth/healthprograms/caremanagement"
                               >
                                 <div
                                   class="flex flex-row"
@@ -935,7 +933,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                                 </p>
@@ -956,7 +954,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=healthyMaternity"
+                                href="/member/myhealth/healthprograms/healthyMaternity"
                               >
                                 <div
                                   class="flex flex-row"
@@ -972,7 +970,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
                                 </p>
@@ -993,7 +991,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocBP"
+                                href="/member/myhealth/healthprograms/teladocBP"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1009,7 +1007,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                                 </p>
@@ -1030,7 +1028,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocHealthDiabetesManagement"
+                                href="/member/myhealth/healthprograms/teladocHealthDiabetesManagement"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1046,7 +1044,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
                                 </p>
@@ -1067,7 +1065,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocHealthDiabetesPrevention"
+                                href="/member/myhealth/healthprograms/teladocHealthDiabetesPrevention"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1083,7 +1081,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Get a personal action plan, health coaching and a smart scale at no extra cost.
                                 </p>
@@ -1104,7 +1102,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocSecondOption"
+                                href="/member/myhealth/healthprograms/teladocSecondOption"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1120,7 +1118,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                                 </p>
@@ -1141,7 +1139,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=questSelect"
+                                href="/member/myhealth/healthprograms/questSelect"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1157,7 +1155,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                                 </p>
@@ -1178,7 +1176,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                             >
                               <a
                                 class="p-4 block"
-                                href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=silverFit"
+                                href="/member/myhealth/healthprograms/silverFit"
                               >
                                 <div
                                   class="flex flex-row"
@@ -1194,7 +1192,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                                 />
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                                 </p>
@@ -1212,7 +1210,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                         type="button"
                       >
                         <img
-                          alt="scroll right"
+                          alt=""
                           class="icon-sm"
                           data-nimg="1"
                           decoding="async"
@@ -1271,9 +1269,6 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
     <main
       class="flex flex-col justify-center items-center page"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <div
         class="flex flex-col app-content app-base-font-color"
       >
@@ -1292,7 +1287,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
             class="flex flex-col flex-grow page-section-63_33 items-stretch"
           >
             <span
-              class="rich-text body-1 w-[125%]"
+              class="rich-text body-1 sectionWidthVirtualCare"
             >
               <span>
                 The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our
@@ -1302,6 +1297,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                 class="link"
               >
                 <a
+                  class="body-bold"
                   href="/sso/launch?PartnerSpId=undefined"
                 >
                   Find Care tool.
@@ -1313,7 +1309,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
             />
             <p
               class="body-1 body-2 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               In case of a medical emergency, call 911. In case of a mental health crisis, call 988.
             </p>
@@ -1350,12 +1346,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Mental Health
                     </p>
                     <img
-                      alt="TelaDoc"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1374,7 +1370,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Mental Health
                       </p>
@@ -1383,7 +1379,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere. 
                       </p>
@@ -1393,7 +1389,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1462,12 +1458,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Mental Health
                     </p>
                     <img
-                      alt="AbleToIcon"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1486,7 +1482,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         AbleTo
                       </p>
@@ -1495,7 +1491,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
                       </p>
@@ -1505,7 +1501,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1574,12 +1570,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Physical Therapy
                     </p>
                     <img
-                      alt="HingeHealth"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1598,7 +1594,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Hinge Health Back & Joint Care
                       </p>
@@ -1607,7 +1603,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                       </p>
@@ -1617,7 +1613,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1686,12 +1682,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Primary Care
                     </p>
                     <img
-                      alt="BlueTennesseIcon"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1710,7 +1706,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Blue of Tennessee Medical Centers Virtual Visits 
                       </p>
@@ -1719,7 +1715,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan.
                       </p>
@@ -1729,7 +1725,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1798,12 +1794,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Primary Care
                     </p>
                     <img
-                      alt="TelaDoc"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1822,7 +1818,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Health Primary Care Provider
                       </p>
@@ -1831,7 +1827,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.
                       </p>
@@ -1841,7 +1837,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -1910,12 +1906,12 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Urgent Care
                     </p>
                     <img
-                      alt="TelaDoc"
+                      alt=""
                       class="w-1/2"
                       data-nimg="1"
                       decoding="async"
@@ -1934,7 +1930,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Health General & Urgent Care
                       </p>
@@ -1943,7 +1939,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.
                       </p>
@@ -1953,7 +1949,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -2022,7 +2018,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Urgent Care
                     </p>
@@ -2034,7 +2030,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 title-3 !font-bold m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Talk to a Nurse
                       </p>
@@ -2043,7 +2039,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1 m-4 mb-0"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care. 
                       </p>
@@ -2053,7 +2049,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       <div>
                         <p
                           class="body-1 body-1 m-4 mt-2 mb-0"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Generally good for:
                         </p>
@@ -2148,7 +2144,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
               </p>
@@ -2182,7 +2178,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
+                              href="/member/myhealth/healthprograms/caremanagement"
                             >
                               <div
                                 class="flex flex-row"
@@ -2198,7 +2194,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                               </p>
@@ -2219,7 +2215,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=healthyMaternity"
+                              href="/member/myhealth/healthprograms/healthyMaternity"
                             >
                               <div
                                 class="flex flex-row"
@@ -2235,7 +2231,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
                               </p>
@@ -2256,7 +2252,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocBP"
+                              href="/member/myhealth/healthprograms/teladocBP"
                             >
                               <div
                                 class="flex flex-row"
@@ -2272,7 +2268,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                               </p>
@@ -2293,7 +2289,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocHealthDiabetesManagement"
+                              href="/member/myhealth/healthprograms/teladocHealthDiabetesManagement"
                             >
                               <div
                                 class="flex flex-row"
@@ -2309,7 +2305,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
                               </p>
@@ -2330,7 +2326,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocHealthDiabetesPrevention"
+                              href="/member/myhealth/healthprograms/teladocHealthDiabetesPrevention"
                             >
                               <div
                                 class="flex flex-row"
@@ -2346,7 +2342,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Get a personal action plan, health coaching and a smart scale at no extra cost.
                               </p>
@@ -2367,7 +2363,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=teladocSecondOption"
+                              href="/member/myhealth/healthprograms/teladocSecondOption"
                             >
                               <div
                                 class="flex flex-row"
@@ -2383,7 +2379,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                               </p>
@@ -2404,7 +2400,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=questSelect"
+                              href="/member/myhealth/healthprograms/questSelect"
                             >
                               <div
                                 class="flex flex-row"
@@ -2420,7 +2416,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                               </p>
@@ -2441,7 +2437,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=silverFit"
+                              href="/member/myhealth/healthprograms/silverFit"
                             >
                               <div
                                 class="flex flex-row"
@@ -2457,7 +2453,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                               />
                               <p
                                 class="body-1"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                               </p>
@@ -2475,7 +2471,7 @@ exports[`VirtualCareOptions Page should render UI correctly 1`] = `
                       type="button"
                     >
                       <img
-                        alt="scroll right"
+                        alt=""
                         class="icon-sm"
                         data-nimg="1"
                         decoding="async"

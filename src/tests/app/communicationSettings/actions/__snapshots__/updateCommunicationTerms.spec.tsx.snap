@@ -39,7 +39,7 @@ exports[`communication Information API Integration communication Information Ema
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`communication Information API Integration communication Information Ema
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -93,7 +93,7 @@ exports[`communication Information API Integration communication Information Ema
                     />
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Agree to the terms below and change your contact preferences.
                     </p>
@@ -171,7 +171,7 @@ exports[`communication Information API Integration communication Information Ema
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -231,7 +231,7 @@ exports[`communication Information API Integration communication Information sav
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -247,7 +247,7 @@ exports[`communication Information API Integration communication Information sav
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -285,7 +285,7 @@ exports[`communication Information API Integration communication Information sav
                     />
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Agree to the terms below and change your contact preferences.
                     </p>
@@ -363,7 +363,7 @@ exports[`communication Information API Integration communication Information sav
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

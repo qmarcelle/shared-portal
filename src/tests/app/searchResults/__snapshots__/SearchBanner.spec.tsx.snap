@@ -24,7 +24,7 @@ exports[`Search Results Page should render all the required components 1`] = `
           />
           <p
             class="body-1 pl-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Schedule an appointment or get health information 24/7 for non-emergency conditions.
           </p>
@@ -73,7 +73,7 @@ exports[`Search Results Page should render all the required components 1`] = `
         />
         <p
           class="body-1 pl-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Schedule an appointment or get health information 24/7 for non-emergency conditions.
         </p>

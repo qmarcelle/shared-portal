@@ -24,19 +24,19 @@ exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -74,19 +74,19 @@ exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -181,19 +181,19 @@ exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Tennessee Valley Authority
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -231,19 +231,19 @@ exports[`PlanSwitcher Component - Google Analytics View Plan - Google Analytics 
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Tennessee Valley Authority
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"

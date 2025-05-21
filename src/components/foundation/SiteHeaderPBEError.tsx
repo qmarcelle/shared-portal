@@ -12,19 +12,9 @@ export default function SiteHeaderPBEError() {
         <div className="flex items-center">
           <Link className="ml-5 lg:px-0" href="/member/home">
             {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
-              <Image
-                width="64"
-                height="36"
-                src={bcbstStackedlogo}
-                alt="BCBST Stacked Logo"
-              />
+              <Image width="64" height="36" src={bcbstStackedlogo} alt="" />
             ) : (
-              <Image
-                width="174"
-                height="35"
-                src={bcbstBlueLogo}
-                alt="BCBST Logo"
-              />
+              <Image width="174" height="35" src={bcbstBlueLogo} alt="" />
             )}
           </Link>
         </div>

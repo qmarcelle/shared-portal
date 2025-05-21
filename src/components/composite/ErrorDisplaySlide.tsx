@@ -22,7 +22,7 @@ export const ErrorDisplaySlide = ({
 }: ErrorDisplaySlideProps) => {
   return (
     <Column className="items-center">
-      <Image className="size-[80px]" src={modalAlertIcon} alt="alert" />
+      <Image className="size-[80px]" src={modalAlertIcon} alt="" />
       <Spacer size={24} />
       <Header className="title-2" text={label} />
       <Spacer size={16} />

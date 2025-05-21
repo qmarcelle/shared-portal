@@ -51,7 +51,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Choose Network
                           </p>
@@ -110,7 +110,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Select Category
                           </p>
@@ -169,7 +169,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Select Procedure
                           </p>
@@ -290,7 +290,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Choose Network
                         </p>
@@ -349,7 +349,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Select Category
                         </p>
@@ -408,7 +408,7 @@ exports[`PriceDentalCareFilter should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Select Procedure
                         </p>

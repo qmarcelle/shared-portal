@@ -48,7 +48,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         All Members
                       </p>
@@ -107,7 +107,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         All Types
                       </p>
@@ -166,7 +166,7 @@ exports[`FilterSection should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Last Two Years
                       </p>
@@ -252,7 +252,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         All Members
                       </p>
@@ -311,7 +311,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         All Types
                       </p>
@@ -370,7 +370,7 @@ exports[`FilterSection should render the UI correctly 2`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Last Two Years
                       </p>

@@ -324,7 +324,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] benefitsLink"
                   heading="Medical"
-                  cardIcon={<Image src={PrimaryCareIcon} alt="link" />}
+                  cardIcon={<Image src={PrimaryCareIcon} alt="" />}
                   manageBenefitItems={medicalBenefitsItems}
                 />
               )}
@@ -337,7 +337,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Pharmacy"
-                  cardIcon={<Image src={PharmacyIcon} alt="link" />}
+                  cardIcon={<Image src={PharmacyIcon} alt="" />}
                   manageBenefitItems={rxBenefitsItems}
                 />
               )}
@@ -351,7 +351,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Dental"
-                  cardIcon={<Image src={DentalIcon} alt="link" />}
+                  cardIcon={<Image src={DentalIcon} alt="" />}
                   manageBenefitItems={dentalBenefitsItems}
                 />
               )}
@@ -365,7 +365,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Vision"
-                  cardIcon={<Image src={VisionIcon} alt="link" />}
+                  cardIcon={<Image src={VisionIcon} alt="" />}
                   manageBenefitItems={[
                     {
                       title: 'Visit EyeMed',
@@ -374,7 +374,7 @@ const Benefits = ({
                       url:
                         '/sso/launch?PartnerSpId=' +
                         process.env.NEXT_PUBLIC_IDP_EYEMED,
-                      icon: <Image src={externalIcon} alt="link" />,
+                      icon: <Image src={externalIcon} alt="" />,
                     },
                   ]}
                 />
@@ -387,7 +387,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Other Benefits"
-                  cardIcon={<Image src={OtherBenefit} alt="link" />}
+                  cardIcon={<Image src={OtherBenefit} alt="" />}
                   manageBenefitItems={otherBenefitItems}
                 />
               )}

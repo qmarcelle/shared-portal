@@ -79,7 +79,7 @@ export const HealthLibraryOptions = ({
                   label="Visit The Health Library"
                   className="link hover:!underline caremark !flex pt-0 pl-0"
                   url="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
-                  icon={<Image src={externalIcon} alt="external" />}
+                  icon={<Image src={externalIcon} alt="" />}
                 />
               </Row>,
             ]}

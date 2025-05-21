@@ -12,7 +12,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
           class="md:flex md:flex-row"
         >
           <img
-            alt="careTN"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -38,14 +38,14 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
             </p>
             <div>
               <p
                 class="body-1 body-1 m-4 mt-2 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 In the app you can:
               </p>
@@ -96,7 +96,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
                 href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
               >
                 <img
-                  alt="Download Amplify App from AppStore"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -112,7 +112,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
                 href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
               >
                 <img
-                  alt="Download Amplify App from PlayStore"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -137,7 +137,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
         class="md:flex md:flex-row"
       >
         <img
-          alt="careTN"
+          alt=""
           data-nimg="1"
           decoding="async"
           height="40"
@@ -163,14 +163,14 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
           </p>
           <div>
             <p
               class="body-1 body-1 m-4 mt-2 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               In the app you can:
             </p>
@@ -221,7 +221,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
               href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
             >
               <img
-                alt="Download Amplify App from AppStore"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -237,7 +237,7 @@ exports[`HealthyMaternityMobileApp Section should render the UI correctly 1`] = 
               href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
             >
               <img
-                alt="Download Amplify App from PlayStore"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"

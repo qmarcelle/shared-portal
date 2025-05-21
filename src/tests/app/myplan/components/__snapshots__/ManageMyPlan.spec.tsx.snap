@@ -298,7 +298,7 @@ exports[`ManageMyPlan should render UI correctly for other groups 1`] = `
                 Report Other Health Insurance
               </p>
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -339,7 +339,7 @@ exports[`ManageMyPlan should render UI correctly for other groups 1`] = `
                 Update Social Security Number
               </p>
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -381,7 +381,7 @@ exports[`ManageMyPlan should render UI correctly for other groups 1`] = `
                 Enroll in a Health Plan
               </p>
               <img
-                alt="link"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"

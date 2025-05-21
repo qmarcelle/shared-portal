@@ -19,7 +19,7 @@ exports[` 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             The policy you've entered is:
           </p>
@@ -31,15 +31,15 @@ exports[` 1`] = `
           >
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             />
           </div>
           <span
@@ -47,7 +47,7 @@ exports[` 1`] = `
           />
           <p
             class="body-1 body-1 w-[130%] text-center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Do other members of your plan have this other health insurance policy?
           </p>
@@ -122,7 +122,7 @@ exports[` 1`] = `
         />
         <p
           class="body-1 body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           The policy you've entered is:
         </p>
@@ -134,15 +134,15 @@ exports[` 1`] = `
         >
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           />
         </div>
         <span
@@ -150,7 +150,7 @@ exports[` 1`] = `
         />
         <p
           class="body-1 body-1 w-[130%] text-center"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Do other members of your plan have this other health insurance policy?
         </p>

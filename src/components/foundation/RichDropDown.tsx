@@ -34,7 +34,7 @@ const DefaultDropDownHead = () => {
   return (
     <Row className="h-[72px] p-4 items-center divider-bottom">
       <Header className="grow" type="title-3" text="Switch to..." />
-      <Image alt="switch" className="size-5" src={switchFilterIcon} />
+      <Image alt="" className="size-5" src={switchFilterIcon} />
     </Row>
   );
 };
@@ -121,7 +121,7 @@ export const RichDropDown = <T extends { id: string }>({
                       {isSelcted ? (
                         <div className="size-5 mr-2">
                           <Image
-                            alt="selcted"
+                            alt=""
                             className="size-5"
                             src={checkBlueIcon}
                           />

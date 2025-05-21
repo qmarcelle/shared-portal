@@ -45,9 +45,9 @@ export const AccessOnMyPlanItem = ({
   onClick,
   className,
   infoButton,
-  icon = <Image src={editIcon} alt="link" />,
-  icon1 = <Image src={inboxIcon} alt="link" />,
-  pendingIcon = <Image src={pendingLogo} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
+  icon1 = <Image src={inboxIcon} alt="" />,
+  pendingIcon = <Image src={pendingLogo} alt="" />,
   allowUpdates = true,
 }: AccessOnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();

@@ -24,7 +24,7 @@ export const BenefitsProviderInfoCard = ({
           <Title
             className="body-bold primary-color"
             text={providedBy}
-            suffix={<Image src={externalIcon} alt="external" />}
+            suffix={<Image src={externalIcon} alt="" />}
           />
         ) : (
           <TextBox text={providedBy} className="body-1 body-bold" />

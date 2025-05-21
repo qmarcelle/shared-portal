@@ -40,10 +40,8 @@ const PharmacyDrugCollapsible = ({
             <span className="!font-bold title-3">{`${name} ${strengthMG}MG`}</span>
           }
           initialOpen={false}
-          openIcon={
-            <Image className="w-6" src={Down} alt="Down Chevron"></Image>
-          }
-          closeIcon={<Image className="w-6" src={Up} alt="Up Chevron"></Image>}
+          openIcon={<Image className="w-6" src={Down} alt=""></Image>}
+          closeIcon={<Image className="w-6" src={Up} alt=""></Image>}
           child={
             <>
               <Spacer size={16} />

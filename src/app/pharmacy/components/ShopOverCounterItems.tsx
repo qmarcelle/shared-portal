@@ -24,17 +24,13 @@ export const ShopOverCounterItemsCard = ({
   return (
     <Card className="large-section skip-underscore">
       <Column>
-        <Image
-          className="size-10 block md:hidden"
-          src={icon}
-          alt="Shopping Credit Icon"
-        />
+        <Image className="size-10 block md:hidden" src={icon} alt="" />
 
         <Row>
           <Image
             className="size-10 mt-3 mr-2 hidden md:block"
             src={icon}
-            alt="Shopping Credit Icon"
+            alt=""
           />
           <section className="flex justify-start self-start my-health-link">
             <RichText

@@ -19,7 +19,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Please confirm your details below.
           </p>
@@ -34,7 +34,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 stepRoundBlue"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 1
               </p>
@@ -44,7 +44,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 stepRoundBlue"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 2
               </p>
@@ -54,7 +54,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 stepRoundBlue"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 3
               </p>
@@ -65,7 +65,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 class="flex flex-col items-center"
               >
                 <img
-                  alt="success"
+                  alt=""
                   class="size-[80px]"
                   data-nimg="1"
                   decoding="async"
@@ -92,7 +92,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     We'll review your information and a nurse will reach out to you soon.
                   </p>
@@ -108,7 +108,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Next Steps
                   </p>
@@ -117,7 +117,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Download the CareTN app and enter the access code below to set up your account.
                   </p>
@@ -129,13 +129,13 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Access Code
                     </p>
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       BlueAccess
                     </p>
@@ -163,7 +163,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Please confirm your details below.
         </p>
@@ -178,7 +178,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
           >
             <p
               class="body-1 stepRoundBlue"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               1
             </p>
@@ -188,7 +188,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
             />
             <p
               class="body-1 stepRoundBlue"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               2
             </p>
@@ -198,7 +198,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
             />
             <p
               class="body-1 stepRoundBlue"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               3
             </p>
@@ -209,7 +209,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               class="flex flex-col items-center"
             >
               <img
-                alt="success"
+                alt=""
                 class="size-[80px]"
                 data-nimg="1"
                 decoding="async"
@@ -236,7 +236,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
               >
                 <p
                   class="body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We'll review your information and a nurse will reach out to you soon.
                 </p>
@@ -252,7 +252,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Next Steps
                 </p>
@@ -261,7 +261,7 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Download the CareTN app and enter the access code below to set up your account.
                 </p>
@@ -273,13 +273,13 @@ exports[`EnrollmentForm Section should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Access Code
                   </p>
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueAccess
                   </p>

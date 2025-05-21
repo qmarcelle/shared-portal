@@ -25,7 +25,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
         >
           <p
             class="body-1 text-center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             You’re changing access for:
           </p>
@@ -34,7 +34,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
           />
           <p
             class="body-1 text-center font-bold"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Chris
           </p>
@@ -108,7 +108,7 @@ exports[`Edit Level Of Access Component should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Disclaimer: BlueCross BlueShield of Tennessee is not responsible for your personal representative or any third parties authorized by you or your personal representative to hae access to your health information. BlueCross BlueShield of Tennessee does not warrant that the information provided will be accurate, timely or complete.
           </p>

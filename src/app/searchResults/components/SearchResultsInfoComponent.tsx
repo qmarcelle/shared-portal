@@ -128,7 +128,7 @@ export const SearchResultsInfoComponent = () => {
       )}
       {filteredList && filteredList.length == 0 && (
         <IconCard
-          prefixIcon={<Image src={documentEmptyIcon} alt="document-icon" />}
+          prefixIcon={<Image src={documentEmptyIcon} alt="" />}
           text="There are no results for your search."
         />
       )}

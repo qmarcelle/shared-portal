@@ -52,7 +52,7 @@ export const PrimaryAccountSelection = () => {
           className="flex flex-row justify-center items-end tooltip tooltipIcon relative"
           label="You have more than one account login. To make switching between your plans easier, we are going to prioritize one login over others. The username you confirm on this page will become your only username and password for all your BlueCross BlueShield of Tennessee registered accounts moving forward. Your login can be used for both the BlueCross website and mobile apps."
         >
-          <Image className="size-[20px] mb-1" src={infoIcon} alt="info" />
+          <Image className="size-[20px] mb-1" src={infoIcon} alt="" />
         </ToolTip>
       </Row>
 

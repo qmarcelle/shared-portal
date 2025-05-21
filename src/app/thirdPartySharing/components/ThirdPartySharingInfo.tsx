@@ -68,7 +68,7 @@ export const ThirdPartySharingInfo = ({
                 methodName="Remove"
                 divider={index == thirdPartyAppList.length - 1 ? false : true}
                 onOffLabelEnabled={false}
-                icon={<Image src={deleteIcon} alt="delete icon"></Image>}
+                icon={<Image src={deleteIcon} alt=""></Image>}
               />
               <Spacer size={32} />
             </Column>

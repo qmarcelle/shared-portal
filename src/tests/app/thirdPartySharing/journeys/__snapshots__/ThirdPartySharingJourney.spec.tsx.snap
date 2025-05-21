@@ -39,7 +39,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -93,7 +93,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       We'll stop sharing your health plan information with:
                     </p>
@@ -108,7 +108,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Apple Health
                         </p>
@@ -117,7 +117,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                         />
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           This will mean this app or website can't see your health information. Any information you already shared may still be available to them.
                         </p>
@@ -163,7 +163,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -224,7 +224,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -237,13 +237,13 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -259,7 +259,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -285,7 +285,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="success"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -315,7 +315,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You are no longer sharing with:
                         </p>
@@ -324,7 +324,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                         />
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Apple Health
                         </p>
@@ -350,7 +350,7 @@ exports[`Third Party Sharing Journey should render the screens correctly 2`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

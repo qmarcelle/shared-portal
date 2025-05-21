@@ -30,7 +30,7 @@ export const Dropdown = ({
   initialSelectedValue,
   onSelectCallback,
   showSelected = true,
-  icon = <Image src={downIcon} alt="down icon" />,
+  icon = <Image src={downIcon} alt="" />,
   className = '',
   error,
   maxWidth,
@@ -100,7 +100,7 @@ export const Dropdown = ({
             >
               {isSelcted ? (
                 <div className="size-5 mx-2 ">
-                  <Image alt="selcted" className="size-5" src={checkBlueIcon} />
+                  <Image alt="" className="size-5" src={checkBlueIcon} />
                 </div>
               ) : (
                 <div className={showSelected ? 'size-5 mx-2' : ''}></div>

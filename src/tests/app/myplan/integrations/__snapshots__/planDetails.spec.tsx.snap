@@ -81,7 +81,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                     >
                       <p
                         class="body-1 id-card-error-msg"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Your ID card is not available at this time.
                       </p>
@@ -95,7 +95,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                     />
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       All members of your plan use the same ID card.
                     </p>
@@ -149,7 +149,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                             View Who's Covered
                           </p>
                           <img
-                            alt="Up Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -219,7 +219,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                             View Plan Contact Information
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -273,7 +273,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           Report Other Health Insurance
                         </p>
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -314,7 +314,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           Update Social Security Number
                         </p>
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -356,7 +356,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           Enroll in a Health Plan
                         </p>
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -419,7 +419,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         class="flex flex-row"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           class="size-10"
                           data-nimg="1"
                           decoding="async"
@@ -443,7 +443,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           </div>
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             View what's covered under your plan.
                           </p>
@@ -461,7 +461,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         class="flex flex-row"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           class="size-10"
                           data-nimg="1"
                           decoding="async"
@@ -485,7 +485,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           </div>
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Search for claims and view details or submit a claim.
                           </p>
@@ -503,7 +503,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         class="flex flex-row"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           class="size-10"
                           data-nimg="1"
                           decoding="async"
@@ -527,7 +527,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           </div>
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Check the status of your prior authorizations.
                           </p>
@@ -545,7 +545,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         class="flex flex-row"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           class="size-10"
                           data-nimg="1"
                           decoding="async"
@@ -569,7 +569,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           </div>
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Check your HSA, HRA or FSA accounts.
                           </p>
@@ -587,7 +587,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         class="flex flex-row"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           class="size-10"
                           data-nimg="1"
                           decoding="async"
@@ -611,7 +611,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           </div>
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Your important plan documents.
                           </p>
@@ -704,7 +704,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                   >
                     <p
                       class="body-1 id-card-error-msg"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your ID card is not available at this time.
                     </p>
@@ -718,7 +718,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                   />
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     All members of your plan use the same ID card.
                   </p>
@@ -772,7 +772,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           View Who's Covered
                         </p>
                         <img
-                          alt="Up Chevron"
+                          alt=""
                           class="pl-2 w-6"
                           data-nimg="1"
                           decoding="async"
@@ -842,7 +842,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                           View Plan Contact Information
                         </p>
                         <img
-                          alt="Down Chevron"
+                          alt=""
                           class="pl-2 w-6"
                           data-nimg="1"
                           decoding="async"
@@ -896,7 +896,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         Report Other Health Insurance
                       </p>
                       <img
-                        alt="link"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -937,7 +937,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         Update Social Security Number
                       </p>
                       <img
-                        alt="link"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -979,7 +979,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         Enroll in a Health Plan
                       </p>
                       <img
-                        alt="link"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -1042,7 +1042,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                       class="flex flex-row"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         class="size-10"
                         data-nimg="1"
                         decoding="async"
@@ -1066,7 +1066,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         </div>
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           View what's covered under your plan.
                         </p>
@@ -1084,7 +1084,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                       class="flex flex-row"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         class="size-10"
                         data-nimg="1"
                         decoding="async"
@@ -1108,7 +1108,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         </div>
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search for claims and view details or submit a claim.
                         </p>
@@ -1126,7 +1126,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                       class="flex flex-row"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         class="size-10"
                         data-nimg="1"
                         decoding="async"
@@ -1150,7 +1150,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         </div>
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Check the status of your prior authorizations.
                         </p>
@@ -1168,7 +1168,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                       class="flex flex-row"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         class="size-10"
                         data-nimg="1"
                         decoding="async"
@@ -1192,7 +1192,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         </div>
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Check your HSA, HRA or FSA accounts.
                         </p>
@@ -1210,7 +1210,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                       class="flex flex-row"
                     >
                       <img
-                        alt="link"
+                        alt=""
                         class="size-10"
                         data-nimg="1"
                         decoding="async"
@@ -1234,7 +1234,7 @@ exports[`PlanDetailsSection planDetails not displayed when plan type is not avai
                         </div>
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Your important plan documents.
                         </p>

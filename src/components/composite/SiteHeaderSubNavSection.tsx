@@ -103,7 +103,7 @@ export const SiteHeaderSubNavSection = ({
             width="32"
             height="32"
             src={parentPageArrowIcon}
-            alt="Parent Page Arrow"
+            alt=""
           ></Image>
         </Link>
       </div>

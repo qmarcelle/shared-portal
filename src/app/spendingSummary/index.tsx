@@ -58,7 +58,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 <AppLink
                   className="!flex pl-0 manage-underline"
                   label="Download a PDF Statement"
-                  icon={<Image src={downloadIcon} alt="external" />}
+                  icon={<Image src={downloadIcon} alt="" />}
                   callback={() =>
                     showAppModal({
                       content: <DownloadPdf />,
@@ -96,11 +96,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
               service={[
                 {
                   serviceIcon: (
-                    <Image
-                      className="w-6"
-                      src={medicalIcon}
-                      alt="Medical Icon"
-                    />
+                    <Image className="w-6" src={medicalIcon} alt="" />
                   ),
                   serviceLabel: 'Medical',
                   serviceSubLabel: 'Your share',
@@ -114,11 +110,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image
-                      className="w-6"
-                      src={pharmacyIcon}
-                      alt="Pharmacy Icon"
-                    />
+                    <Image className="w-6" src={pharmacyIcon} alt="" />
                   ),
                   serviceLabel: 'Pharmacy',
                   serviceSubLabel: 'Your share',
@@ -132,7 +124,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image className="w-6" src={dentalIcon} alt="Dental Icon" />
+                    <Image className="w-6" src={dentalIcon} alt="" />
                   ),
                   serviceLabel: 'Dental',
                   serviceSubLabel: 'Your share',
@@ -146,7 +138,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image className="w-6" src={visionIcon} alt="Vision Icon" />
+                    <Image className="w-6" src={visionIcon} alt="" />
                   ),
                   serviceLabel: 'Vision',
                   serviceSubLabel: 'Your share',

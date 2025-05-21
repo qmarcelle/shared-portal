@@ -6,11 +6,8 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -21,7 +18,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -53,7 +50,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Get a personal action plan, health coaching and a smart scale at no extra cost.
               </p>
@@ -62,7 +59,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you'll need to create an account.
               </p>
@@ -86,7 +83,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -103,7 +100,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -150,7 +147,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -163,7 +160,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -181,7 +178,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -194,7 +191,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Dedicated expert coaching support
                           </p>
@@ -212,7 +209,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -225,7 +222,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Programs for healthy habits
                           </p>
@@ -243,7 +240,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -256,7 +253,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Free smart scale
                           </p>
@@ -292,7 +289,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       If eligible, you can expect to pay:
                     </p>
@@ -301,7 +298,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $0
                     </p>
@@ -355,7 +352,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Viewing weight trends
                           </p>
@@ -381,7 +378,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Expert coaching and advice
                           </p>
@@ -407,7 +404,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Sharing reports with the doctor 
                           </p>
@@ -433,7 +430,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Personalized eating tips
                           </p>
@@ -459,7 +456,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Setting goals and tracking progress
                           </p>
@@ -485,7 +482,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Logging food
                           </p>
@@ -506,11 +503,8 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -521,7 +515,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -553,7 +547,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Get a personal action plan, health coaching and a smart scale at no extra cost.
             </p>
@@ -562,7 +556,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you'll need to create an account.
             </p>
@@ -586,7 +580,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -603,7 +597,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -650,7 +644,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -663,7 +657,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -681,7 +675,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -694,7 +688,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Dedicated expert coaching support
                         </p>
@@ -712,7 +706,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -725,7 +719,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Programs for healthy habits
                         </p>
@@ -743,7 +737,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -756,7 +750,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Free smart scale
                         </p>
@@ -792,7 +786,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     If eligible, you can expect to pay:
                   </p>
@@ -801,7 +795,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0
                   </p>
@@ -855,7 +849,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Viewing weight trends
                         </p>
@@ -881,7 +875,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Expert coaching and advice
                         </p>
@@ -907,7 +901,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Sharing reports with the doctor 
                         </p>
@@ -933,7 +927,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Personalized eating tips
                         </p>
@@ -959,7 +953,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Setting goals and tracking progress
                         </p>
@@ -985,7 +979,7 @@ exports[`Teladoc Health Diabetes Prevention should redirect to SSO link on click
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Logging food
                         </p>
@@ -1063,11 +1057,8 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -1078,7 +1069,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -1110,7 +1101,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Get a personal action plan, health coaching and a smart scale at no extra cost.
               </p>
@@ -1119,7 +1110,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you'll need to create an account.
               </p>
@@ -1143,7 +1134,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1160,7 +1151,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -1207,7 +1198,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1220,7 +1211,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             If eligible, covered by your plan at no extra cost
                           </p>
@@ -1238,7 +1229,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1251,7 +1242,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Dedicated expert coaching support
                           </p>
@@ -1269,7 +1260,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1282,7 +1273,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Programs for healthy habits
                           </p>
@@ -1300,7 +1291,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1313,7 +1304,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Free smart scale
                           </p>
@@ -1349,7 +1340,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       If eligible, you can expect to pay:
                     </p>
@@ -1358,7 +1349,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $0
                     </p>
@@ -1412,7 +1403,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Viewing weight trends
                           </p>
@@ -1438,7 +1429,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Expert coaching and advice
                           </p>
@@ -1464,7 +1455,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Sharing reports with the doctor 
                           </p>
@@ -1490,7 +1481,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Personalized eating tips
                           </p>
@@ -1516,7 +1507,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Setting goals and tracking progress
                           </p>
@@ -1542,7 +1533,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Logging food
                           </p>
@@ -1563,11 +1554,8 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -1578,7 +1566,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -1610,7 +1598,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Get a personal action plan, health coaching and a smart scale at no extra cost.
             </p>
@@ -1619,7 +1607,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you'll need to create an account.
             </p>
@@ -1643,7 +1631,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1660,7 +1648,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -1707,7 +1695,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1720,7 +1708,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           If eligible, covered by your plan at no extra cost
                         </p>
@@ -1738,7 +1726,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1751,7 +1739,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Dedicated expert coaching support
                         </p>
@@ -1769,7 +1757,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1782,7 +1770,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Programs for healthy habits
                         </p>
@@ -1800,7 +1788,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1813,7 +1801,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Free smart scale
                         </p>
@@ -1849,7 +1837,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     If eligible, you can expect to pay:
                   </p>
@@ -1858,7 +1846,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0
                   </p>
@@ -1912,7 +1900,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Viewing weight trends
                         </p>
@@ -1938,7 +1926,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Expert coaching and advice
                         </p>
@@ -1964,7 +1952,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Sharing reports with the doctor 
                         </p>
@@ -1990,7 +1978,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Personalized eating tips
                         </p>
@@ -2016,7 +2004,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Setting goals and tracking progress
                         </p>
@@ -2042,7 +2030,7 @@ exports[`Teladoc Health Diabetes Prevention should render the UI correctly 1`] =
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Logging food
                         </p>

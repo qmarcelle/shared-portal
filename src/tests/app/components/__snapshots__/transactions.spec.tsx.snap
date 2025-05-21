@@ -43,7 +43,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                     class="ml-1"
                   >
                     <img
-                      alt="external"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -135,7 +135,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   HSA
                                 </p>
@@ -194,7 +194,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                               >
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Last two Years
                                 </p>
@@ -246,7 +246,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                    
                   <p
                     class="body-1 font-bold ml-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     5 Prior Authorizations
                   </p>
@@ -286,13 +286,13 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                 >
                   <p
                     class="body-1 body-1 flex-grow"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Health Savings Account Balance
                   </p>
                   <p
                     class="body-1 body-1 flex-end"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $3,850.10
                   </p>
@@ -325,7 +325,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                             Marcus Howard
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -390,7 +390,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                             John HopKins
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -455,7 +455,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                             123 Pharmacy
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -520,7 +520,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                             Marcus Howard
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -585,7 +585,7 @@ exports[`Third Party Sharing Info Component should render UI correctly 1`] = `
                             Marcus Howard
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"

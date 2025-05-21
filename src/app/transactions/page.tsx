@@ -30,7 +30,7 @@ const Transactions = () => {
                 <AppLink
                   label="Visit Health Equity"
                   className="link caremark !flex pt-0"
-                  icon={<Image src={extrenalIcon} alt="external" />}
+                  icon={<Image src={extrenalIcon} alt="" />}
                 />
               </Row>,
             ]}

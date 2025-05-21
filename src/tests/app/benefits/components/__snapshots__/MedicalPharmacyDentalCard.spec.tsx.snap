@@ -59,7 +59,7 @@ exports[`Benefits&Coverage should redirect to SSO launch page when we click on V
                   Preventive Care
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -103,7 +103,7 @@ exports[`Benefits&Coverage should redirect to SSO launch page when we click on V
                   Office Visits
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -235,7 +235,7 @@ exports[`Benefits&Coverage should render UI correctly 1`] = `
                   Preventive Care
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -279,7 +279,7 @@ exports[`Benefits&Coverage should render UI correctly 1`] = `
                   Office Visits
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"

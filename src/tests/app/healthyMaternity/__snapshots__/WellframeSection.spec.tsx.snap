@@ -9,7 +9,7 @@ exports[`WellframeSection should render the UI correctly 1`] = `
         class="md:flex md:flex-row ml-7"
       >
         <img
-          alt="wellframe"
+          alt=""
           class="mt-3 md:mt-0"
           data-nimg="1"
           decoding="async"
@@ -28,13 +28,13 @@ exports[`WellframeSection should render the UI correctly 1`] = `
         >
           <p
             class="body-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
           </p>
           <p
             class="body-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Participation is optional.
           </p>
@@ -47,7 +47,7 @@ exports[`WellframeSection should render the UI correctly 1`] = `
       class="md:flex md:flex-row ml-7"
     >
       <img
-        alt="wellframe"
+        alt=""
         class="mt-3 md:mt-0"
         data-nimg="1"
         decoding="async"
@@ -66,13 +66,13 @@ exports[`WellframeSection should render the UI correctly 1`] = `
       >
         <p
           class="body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
         </p>
         <p
           class="body-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Participation is optional.
         </p>

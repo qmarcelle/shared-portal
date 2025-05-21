@@ -39,7 +39,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -90,7 +90,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -130,7 +130,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -163,7 +163,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -224,7 +224,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -237,13 +237,13 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -259,7 +259,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -297,7 +297,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -312,7 +312,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -399,7 +399,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 2`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -459,7 +459,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -475,7 +475,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -501,7 +501,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="success"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -516,7 +516,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                     />
                     <h1
-                      class="title-1 title-2"
+                      class="title-1 title-2 text-center"
                     >
                       Voice Call Setup is Complete
                     </h1>
@@ -531,7 +531,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           The next time you login, you'll receive a phone call with a security code to:
                         </p>
@@ -540,7 +540,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -566,7 +566,7 @@ exports[`Add Mfa Voice Journey should render the screens correctly 3`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

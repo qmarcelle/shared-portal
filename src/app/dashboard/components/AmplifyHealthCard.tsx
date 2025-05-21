@@ -22,26 +22,20 @@ export const AmplifyHealthCard = () => {
           />
           <Column className="sm:flex-row">
             <Link href="https://apps.apple.com/us/app/amplifyhealth/id6444489335">
-              <Image
-                src={appleStoreLogo}
-                alt="Download Amplify App from AppStore"
-              />
+              <Image src={appleStoreLogo} alt="" />
             </Link>
             <Link
               className="mt-4 sm:ml-4 sm:mt-0"
               href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
             >
-              <Image
-                src={playStoreLogo}
-                alt="Download Amplify App from PlayStore"
-              />
+              <Image src={playStoreLogo} alt="" />
             </Link>
           </Column>
         </Column>
         <Image
           className="min-h-[280px] self-end object-cover sm:self-auto basis-1/2 min-w-0"
           src={amplifyHealthAppPromoImg}
-          alt="Amplify Health App"
+          alt=""
         />
       </Column>
     </Card>
