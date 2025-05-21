@@ -183,9 +183,12 @@ export default function ChatWidget({
     isPreChatModalOpen, // Reinstated
   ]);
 
-  // Effect for subscribing to custom DOM events from click_to_chat.js
+  // Effect to subscribe to custom DOM events from click_to_chat.js
   useEffect(() => {
     const handleGenesysReady = () => {
+      logger.info(
+        `${LOG_PREFIX} Timestamp: ${Date.now()} - Event: 'genesys:ready' handler EXECUTED.`,
+      );
       logger.info(`${LOG_PREFIX} Event: 'genesys:ready' received.`);
       storeActions.setButtonState('created');
       storeActions.setScriptLoadPhase(ScriptLoadPhase.LOADED);
@@ -229,6 +232,8 @@ export default function ChatWidget({
           }
         }
       }
+      storeActions.endChat();
+      setShowChatErrorModal(true);
     };
 
     const handleWebChatOpened = () => {
@@ -290,6 +295,12 @@ export default function ChatWidget({
       setShowChatErrorModal(true);
     };
 
+    const handleAppMainReady = () => {
+      logger.info(
+        `${LOG_PREFIX} Timestamp: ${Date.now()} - Event: 'genesys:appMainReady' handler EXECUTED.`,
+      );
+    };
+
     const handleCreateButtonEvent = () => {
       logger.info(
         `${LOG_PREFIX} Event: 'genesys:create-button' received (safety timeout).`,
@@ -333,6 +344,7 @@ export default function ChatWidget({
       'genesys:webchat:submitted',
       handleWebChatSubmitted,
     );
+    document.addEventListener('genesys:appMainReady', handleAppMainReady);
 
     return () => {
       document.removeEventListener('genesys:ready', handleGenesysReady);
@@ -365,6 +377,7 @@ export default function ChatWidget({
         'genesys:webchat:submitted',
         handleWebChatSubmitted,
       );
+      document.removeEventListener('genesys:appMainReady', handleAppMainReady);
     };
   }, [storeActions]);
 
@@ -388,7 +401,13 @@ export default function ChatWidget({
     };
 
     (window as Window & typeof globalThis).requestChatOpen = () => {
+      logger.info(
+        `${LOG_PREFIX} Timestamp: ${Date.now()} - window.requestChatOpen called.`,
+      );
       logger.info(`${LOG_PREFIX} window.requestChatOpen called.`);
+      logger.info(
+        `${LOG_PREFIX} window.requestChatOpen: current window.genesysLegacyChatIsReady is ${!!(window as any).genesysLegacyChatIsReady}`,
+      );
 
       if (!isChatEnabled || !genesysChatConfigFull) {
         logger.warn(

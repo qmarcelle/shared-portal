@@ -532,6 +532,9 @@
   // === CHAT WIDGET INITIALIZATION ===
   function initializeChatWidget($, cfg) {
     console.log('[Genesys] Beginning chat widget initialization');
+    console.log(
+      `[click_to_chat.js] Timestamp: ${Date.now()} - initializeChatWidget START`,
+    );
 
     // Define mapChatSettingsToUserData here
     function mapChatSettingsToUserData(settings) {
@@ -806,6 +809,9 @@
     // === Genesys Widget Configuration ===
     function initLocalWidgetConfiguration() {
       console.log('[click_to_chat.js] initLocalWidgetConfiguration called.');
+      console.log(
+        `[click_to_chat.js] Timestamp: ${Date.now()} - initLocalWidgetConfiguration START`,
+      );
       // Initialize namespace objects
       window._genesys = window._genesys || {};
       window._gt = window._gt || []; // Typically for GTag, but might be used by Genesys extensions
@@ -949,20 +955,18 @@
         '[click_to_chat.js] WebChat config after Object.assign:',
         JSON.parse(JSON.stringify(window._genesys.widgets.webchat)),
       );
-
-      // Apply other specific widget configurations if needed from chatSettings
-      if (window.chatSettings.position) {
-        // Example: allow chatSettings to override position
-        Object.assign(window._genesys.widgets.webchat, {
-          position: window.chatSettings.position,
-        });
-      }
+      console.log(
+        `[click_to_chat.js] Timestamp: ${Date.now()} - initLocalWidgetConfiguration END`,
+      );
     }
 
     // === Load widgets.min.js AND THEN initialize ===
     console.log(
       '[click_to_chat.js] Now responsible for loading widgets.min.js',
     );
+    console.log(
+      `[click_to_chat.js] Timestamp: ${Date.now()} - About to load ${widgetsMinJsUrl}`,
+    ); // ADDED
     const widgetsMinJsUrl =
       cfg.widgetsMinJsUrl || '/assets/genesys/plugins/widgets.min.js'; // Allow URL override via cfg
     loadResource
@@ -970,8 +974,8 @@
       .then(() => {
         // ADD THESE LOGS:
         console.log(
-          `[click_to_chat.js] SUCCESS: ${widgetsMinJsUrl} script tag loaded.`,
-        );
+          `[click_to_chat.js] Timestamp: ${Date.now()} - ${widgetsMinJsUrl} SCRIPT TAG LOADED. Defining onReady.`,
+        ); // MODIFIED
         console.log(
           '[click_to_chat.js] State of window._genesys IMMEDIATELY AFTER widgets.min.js load:',
           typeof window._genesys,
@@ -999,6 +1003,9 @@
         // Define onReady. initLocalWidgetConfiguration and initialise() will be called INSIDE it.
         if (window._genesys && window._genesys.widgets) {
           window._genesys.widgets.onReady = (CXBus) => {
+            console.log(
+              `[click_to_chat.js] Timestamp: ${Date.now()} - window._genesys.widgets.onReady CALLED by widgets.min.js. CXBus valid: ${!!(CXBus && CXBus.command)}`,
+            ); // ADDED
             // ADD THESE LOGS:
             console.log(
               '[click_to_chat.js] PRIMARY onReady CALLED (around line 950). CXBus object received:',
@@ -1037,20 +1044,29 @@
 
             // 1. Call initLocalWidgetConfiguration()
             console.log(
-              '[click_to_chat.js] onReady: Calling initLocalWidgetConfiguration().',
+              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE initLocalWidgetConfiguration()`, // ADDED
             );
             initLocalWidgetConfiguration(); // Configures _genesys.widgets.main and .webchat
             console.log(
-              '[click_to_chat.js] onReady: initLocalWidgetConfiguration() completed.',
+              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: AFTER initLocalWidgetConfiguration()`, // ADDED
             );
 
             // 2. Initialize Genesys Widgets using CXBus command
+            console.log(
+              `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE CXBus.command(\'App.main\')`, // ADDED
+            );
             console.log(
               "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('App.main').",
             );
             try {
               CXBus.command('App.main')
                 .done(() => {
+                  console.log(
+                    `[click_to_chat.js] Timestamp: ${Date.now()} - App.main().done() EXECUTED.`,
+                  ); // ADDED
+                  console.log(
+                    `[click_to_chat.js] App.main().done(): window.genesysLegacyChatOpenRequested is ${window.genesysLegacyChatOpenRequested}`,
+                  ); // ADDED
                   console.log(
                     "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') SUCCEEDED and its 'done' callback executed.",
                   );
@@ -1085,6 +1101,10 @@
                   }
                 })
                 .fail((appMainErr) => {
+                  console.error(
+                    `[click_to_chat.js] Timestamp: ${Date.now()} - App.main().fail() EXECUTED. Error:`,
+                    appMainErr,
+                  ); // ADDED
                   console.error(
                     "[click_to_chat.js] PRIMARY onReady: CXBus.command('App.main') FAILED in its 'fail' callback:",
                     appMainErr,
@@ -1374,12 +1394,18 @@
               // Only show button if chat is configured as available
               // ADD THESE LOGS:
               console.log(
+                `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: BEFORE CXBus.command(\'WebChat.showChatButton\')`,
+              ); // ADDED
+              console.log(
                 "[click_to_chat.js] PRIMARY onReady: BEFORE CXBus.command('WebChat.showChatButton').",
               );
               try {
                 CXBus.command('WebChat.showChatButton');
                 // Dispatch general ready *after* button is shown and App.main is likely done.
                 // The genesys:appMainReady event above is more specific to App.main completion.
+                console.log(
+                  `[click_to_chat.js] Timestamp: ${Date.now()} - onReady: About to dispatch \'genesys:ready\' event.`,
+                ); // ADDED
                 document.dispatchEvent(new CustomEvent('genesys:ready'));
                 console.log(
                   '[click_to_chat.js] PRIMARY onReady: WebChat.showChatButton SUCCEEDED.',
@@ -1699,6 +1725,9 @@
   // Log initialization complete (of this script file)
   console.log(
     '[Genesys] click_to_chat.js script execution complete. Widget initialization is asynchronous.',
+  );
+  console.log(
+    `[click_to_chat.js] Timestamp: ${Date.now()} - END OF SCRIPT FILE EXECUTION.`,
   );
 
   window.handleChatSettingsUpdate = function (newSettings) {
