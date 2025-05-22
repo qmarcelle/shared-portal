@@ -2,11 +2,12 @@ import NextAuth, { Session } from 'next-auth';
 import { getToken, JWT } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
-import { rewriteRules, wildcardRewriteRules } from './lib/rewrites';
+import { conditionalRewriteRules, rewriteRules, wildcardRewriteRules } from './lib/rewrites';
 import { SessionUser } from './userManagement/models/sessionUser';
 import { API_BASE_PATH } from './utils/routes';
 import { getRoutingRedirect } from './utils/routing';
 import { decodeVisibilityRules } from './visibilityEngine/converters';
+import { VisibilityRules } from './visibilityEngine/rules';
 
 const { auth } = NextAuth(authConfig);
 
@@ -36,9 +37,13 @@ const getSession = function (token: JWT, session: Session) {
   };
 };
 
-const getURLRewrite = function (path: string): string | null {
-  if (rewriteRules[path]) return rewriteRules[path];
-  else {
+const getURLRewrite = function (path: string, rules?: VisibilityRules): string | null {
+  if (conditionalRewriteRules[path] && rules) {
+    return conditionalRewriteRules[path](rules);
+  } 
+  else if (rewriteRules[path]){
+    return rewriteRules[path]
+  } else {
     const wildcard = Object.entries(wildcardRewriteRules).find(
       ([clientPath, mapping]) => path.includes(clientPath), //eslint-disable-line
     );
@@ -67,7 +72,7 @@ export default auth(async (req) => {
   const { method, nextUrl } = req;
   console.log(`Router <${routeUser}> ${method} ${nextUrl.pathname}`);
   //We check for a rewrite here so we can check the PZN/breadcrumb logic against the internal URL path, then return the rewrite at the end
-  const rewrite = getURLRewrite(nextUrl.pathname);
+  const rewrite = getURLRewrite(nextUrl.pathname, session?.user?.vRules);
   if (rewrite) console.log(`Rewrite URL ${nextUrl.pathname} -> ${rewrite}`);
   const path = rewrite || nextUrl.pathname;
   const isApiAuthRoute = nextUrl.pathname.startsWith(API_BASE_PATH);

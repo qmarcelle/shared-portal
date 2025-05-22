@@ -75,7 +75,7 @@ export default function SiteHeader({
     } catch (error) {
       logger.error('googleAnalytics Site Navigation PageLevel Metadata', error);
     }
-  }, [window.document.title]);
+  }, [window?.document.title]);
   useEffect(() => {
     setPathName(sitePathName);
   }, [sitePathName]);
