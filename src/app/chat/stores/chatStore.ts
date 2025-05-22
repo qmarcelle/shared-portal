@@ -338,6 +338,17 @@ export const useChatStore = create<ChatState>((set, get) => {
               validatedConfig,
             );
 
+            // Log the sessionUser object just before calling buildGenesysChatConfig
+            logger.info(
+              `${LOG_CONFIG_PREFIX} Inspecting sessionUser before buildGenesysChatConfig call:`,
+              {
+                sessionUserExists: !!sessionUser,
+                currUsrExists: !!sessionUser?.currUsr,
+                planInCurrUsrExists: !!sessionUser?.currUsr?.plan,
+                sessionUserFull: sessionUser, // Log the whole sessionUser object for inspection
+              },
+            );
+
             // Define the expected argument type for buildGenesysChatConfig for explicit casting
             type BuildChatConfigArg = {
               loggedInMember: LoggedInMember;
