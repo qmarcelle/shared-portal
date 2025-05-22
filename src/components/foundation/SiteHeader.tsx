@@ -18,10 +18,15 @@ import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
-import { getMenuNavigation } from '../menuNavigation';
-import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
+//import { getMenuNavigation } from '../menuNavigation';
+//import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 
+////import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { getMenuNavigation } from '../menuNavigation';
+import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
+import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -86,7 +91,9 @@ export default function SiteHeader({
   }, []);
 
   const menuNavigation = selectedPlan?.termedPlan
-    ? getMenuNavigationTermedPlan(visibilityRules)
+    ? isBlueCareEligible(visibilityRules)
+      ? getMenuBlueCareNavigation(visibilityRules)
+      : getMenuNavigationTermedPlan(visibilityRules)
     : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const pageList = [];
