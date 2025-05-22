@@ -8,7 +8,7 @@ import { z } from 'zod';
  */
 export const ChatConfigSchema = z.object({
   // Fields directly from (or derived from) BCBST Member Service response
-  isChatAvailable: z.boolean(),
+  chatAvailable: z.boolean(),
   cloudChatEligible: z.boolean(),
   isEligible: z.boolean().optional(), // Assuming this might be present and is a boolean
   chatGroup: z.string().optional(),
@@ -18,7 +18,6 @@ export const ChatConfigSchema = z.object({
   chatBotEligibility: z.boolean().optional(),
   routingChatBotEligibility: z.boolean().optional(),
   isChatEligibleMember: z.union([z.string(), z.boolean()]).optional(), // From buildGenesysChatConfig logic
-  chatAvailable: z.union([z.string(), z.boolean()]).optional(), // From buildGenesysChatConfig logic
   groupType: z.string().optional(), // From linter error
   INQ_TYPE: z.string().optional(), // From linter error
   isBlueEliteGroup: z.union([z.string(), z.boolean()]).optional(), // From linter error
