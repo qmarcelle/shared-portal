@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const renderUI = () => {
-  return render(<Footer />);
+  return render(<Footer visibilityRules={undefined} />);
 };
 
 jest.mock('next/navigation', () => ({
