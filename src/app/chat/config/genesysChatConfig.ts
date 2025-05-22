@@ -337,22 +337,44 @@ export function buildGenesysChatConfig({
     // if (!finalConfig.environment) ...
   } else {
     // Legacy mode
+
+    // Resolve and validate critical legacy fields FIRST
+    const resolvedClickToChatToken =
+      ((apiConfig.getToken || apiConfig.clickToChatToken) as string) ||
+      process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN;
+    if (!resolvedClickToChatToken) {
+      const errorMsg =
+        '[buildGenesysChatConfig] CRITICAL: clickToChatToken is missing for legacy mode. This must be provided by the API response (getChatInfo) or the NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN environment variable.';
+      logger.error(errorMsg, {
+        apiConfigProvidedToken:
+          apiConfig.clickToChatToken || apiConfig.getToken,
+        envProvidedToken: process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN,
+      });
+      throw new Error(errorMsg);
+    }
+
+    const resolvedClickToChatEndpoint =
+      (apiConfig.clickToChatEndpoint as string) ||
+      process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT;
+    if (!resolvedClickToChatEndpoint) {
+      const errorMsg =
+        '[buildGenesysChatConfig] CRITICAL: clickToChatEndpoint is missing for legacy mode. This must be provided by the API response (getChatInfo) or the NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT environment variable.';
+      logger.error(errorMsg, {
+        apiConfigProvidedEndpoint: apiConfig.clickToChatEndpoint,
+        envProvidedEndpoint: process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT,
+      });
+      throw new Error(errorMsg);
+    }
+
     const legacySpecificConfig: Omit<
       LegacyChatConfig,
       keyof BaseGenesysChatConfig | 'chatMode'
     > = {
-      clickToChatToken:
-        ((apiConfig.getToken || apiConfig.clickToChatToken) as string) ||
-        process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN ||
-        'fallback-token',
-      clickToChatEndpoint:
-        (apiConfig.clickToChatEndpoint as string) ||
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'https://members.bcbst.com/test/soa/api/cci/genesyschat',
+      clickToChatToken: resolvedClickToChatToken, // Now guaranteed to be a string
+      clickToChatEndpoint: resolvedClickToChatEndpoint, // Now guaranteed to be a string
       gmsChatUrl:
         (apiConfig.gmsChatUrl as string) ||
         process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-        (apiConfig.clickToChatEndpoint as string) ||
         process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
         'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
       widgetUrl:
@@ -380,7 +402,10 @@ export function buildGenesysChatConfig({
       chatMode: 'legacy',
     } as LegacyChatConfig;
 
-    // Fallbacks for legacy mode critical fields
+    // It's also good practice to check other critical fields like gmsChatUrl, widgetUrl, clickToChatJs if they don't have sensible universal fallbacks
+    // For now, focusing on the token and primary endpoint as per immediate context.
+
+    // Fallbacks for legacy mode critical fields (these were commented out, ensure they are handled or explicitly required)
     // if (!finalConfig.clickToChatToken) ...
     // if (!finalConfig.clickToChatEndpoint) ...
     // if (!finalConfig.gmsChatUrl) ...
