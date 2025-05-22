@@ -125,9 +125,23 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const token = await getAuthToken();
+    const pingToken = await getAuthToken();
     const portalServicesUrl = process.env.PORTAL_SERVICES_URL;
     const memberServiceRoot = process.env.MEMBERSERVICE_CONTEXT_ROOT;
+
+    if (!pingToken) {
+      logger.error(
+        '[API:chat/getChatInfo] Failed to retrieve PING authentication token.',
+        { correlationId },
+      );
+      return NextResponse.json(
+        {
+          message: 'Authentication token could not be retrieved.',
+          error: 'AuthError',
+        },
+        { status: 500 }, // Internal server error as token is crucial
+      );
+    }
 
     if (!portalServicesUrl || !memberServiceRoot) {
       logger.error(
@@ -159,7 +173,7 @@ export async function GET(request: NextRequest) {
 
     // Construct headers for logging and the fetch call
     const requestHeaders = {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${pingToken}`,
       'x-correlation-id': correlationId,
       // Add any other headers you might be sending or want to log
     };
@@ -308,15 +322,12 @@ export async function GET(request: NextRequest) {
 
     // Make sure essential fields like orgId, clickToChatEndpoint, and gmsChatUrl have fallbacks
     // if they are not provided by the API. This is now a crucial step as we are not mocking.
-    const validatedData = {
+    const validatedDataFromMemberService = {
       ...data,
       orgId: data.orgId || process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID, // Example fallback
-      // Ensure clickToChatEndpoint uses the GMS URL
       clickToChatEndpoint:
         data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
-      gmsChatUrl: data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL, // This should also be from the same source
-      // clickToChatToken should ideally always come from the backend, validated below.
-      // widgetUrl and clickToChatJs are usually static or from env, ensure they are present if needed by legacy mode.
+      gmsChatUrl: data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
       widgetUrl:
         data.widgetUrl ||
         process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
@@ -327,27 +338,21 @@ export async function GET(request: NextRequest) {
         '/assets/genesys/click_to_chat.js',
     };
 
-    if (!validatedData.clickToChatToken) {
-      logger.error(
-        '[API:chat/getChatInfo] Critical: clickToChatToken missing from backend response and no fallback configured.',
-        { correlationId, responseData: validatedData },
-      );
-      return NextResponse.json(
-        {
-          message: 'Chat token missing in response from backend service.',
-          error: 'ServerError',
-          details: 'clickToChatToken is missing.',
-        },
-        { status: 500 },
-      );
-    }
+    // ---- KEY CHANGE BASED ON NEW ARCHITECTURAL UNDERSTANDING ----
+    // The PING token is THE token to be used as clickToChatToken by the client.
+    const finalPayloadForClient = {
+      ...validatedDataFromMemberService,
+      clickToChatToken: pingToken, // Inject the PING token here
+    };
+    // ---- END KEY CHANGE ----
+
     if (
-      !validatedData.clickToChatEndpoint &&
-      validatedData.chatMode === 'legacy'
+      !finalPayloadForClient.clickToChatEndpoint &&
+      finalPayloadForClient.chatMode === 'legacy' // Assuming chatMode is part of data from member service
     ) {
       logger.error(
         '[API:chat/getChatInfo] Critical: clickToChatEndpoint missing for legacy mode.',
-        { correlationId, responseData: validatedData },
+        { correlationId, responseData: finalPayloadForClient },
       );
       return NextResponse.json(
         {
@@ -362,19 +367,19 @@ export async function GET(request: NextRequest) {
     // Add similar checks for other absolutely critical fields if necessary.
 
     logger.info(
-      '[API:chat/getChatInfo] Successfully fetched and validated chat info.',
+      '[API:chat/getChatInfo] Successfully fetched chat info from member service and injecting PING token as clickToChatToken.',
       {
         correlationId,
-        chatMode: validatedData.cloudChatEligible ? 'cloud' : 'legacy',
+        chatMode: finalPayloadForClient.cloudChatEligible ? 'cloud' : 'legacy',
       },
     );
 
     updateApiState(
-      validatedData.isEligible,
-      validatedData.cloudChatEligible ? 'cloud' : 'legacy',
+      finalPayloadForClient.isEligible, // Assuming isEligible comes from member service data
+      finalPayloadForClient.cloudChatEligible ? 'cloud' : 'legacy',
     );
 
-    return NextResponse.json(validatedData);
+    return NextResponse.json(finalPayloadForClient);
   } catch (error: any) {
     logger.error('[API:chat/getChatInfo] Unhandled error in GET handler.', {
       correlationId,
