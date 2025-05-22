@@ -1,8 +1,9 @@
-/* Override Genesys Cloud chat launcher */
-.cx-webchat-chat-button, .polished-chat-button {
+/* Override Genesys Cloud chat launcher - compatible with genesys-chat-container */
+.cx-webchat-chat-button,
+.polished-chat-button {
   position: fixed !important;
   bottom: 20px !important;
-  right: 0 !important;
+  right: 20px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -43,12 +44,25 @@
   transform: translateY(0) !important;
 }
 
-/* Ensure chat window stays fixed and visible on scroll */
+/* Ensure chat window stays fixed and visible on scroll - compatible with genesys-chat-container */
 .cx-webchat {
   position: fixed !important;
   bottom: 20px !important;
   right: 20px !important;
   z-index: 9998 !important;
+  max-height: 600px !important; /* Prevent chat from being too tall */
+  max-width: 400px !important; /* Constrain width on small screens */
+}
+
+/* Make sure our container does not interfere with widget visibility */
+#genesys-chat-container,
+.genesys-chat-container {
+  position: relative !important;
+  z-index: 1000 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
 }
 
 /* Plan Info Header styling inside chat window */

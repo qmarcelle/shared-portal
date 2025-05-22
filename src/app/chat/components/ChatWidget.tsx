@@ -813,7 +813,7 @@ export default function ChatWidget({
   });
 
   return (
-    <div id={containerId} className="genesys-chat-widget-container">
+    <>
       {showLoaderStatus && scriptLoadPhase !== ScriptLoadPhase.LOADED && (
         <div
           style={{
@@ -867,7 +867,7 @@ export default function ChatWidget({
           useProdDeployment={activeCloudConfig.environment
             ?.toLowerCase()
             .includes('prod')}
-          userData={activeCloudConfig.userData}
+          userData={activeCloudConfig.userData as Record<string, string>}
           isChatActuallyEnabled={isChatEnabled}
           onLoad={() => {
             logger.info(`${LOG_PREFIX} GenesysCloudLoader onLoad triggered.`);
@@ -927,7 +927,7 @@ export default function ChatWidget({
         title="Chat Error"
         onConfirm={() => setShowChatErrorModal(false)}
       />
-    </div>
+    </>
   );
 }
 

@@ -32,10 +32,25 @@ export interface PlanConfig {
   memberClientID?: string;
   groupType?: string;
   memberDOB?: string;
+  // Additional fields for click_to_chat.js compatibility
+  isBlueEliteGroup?: string | boolean;
+  clientClassificationId?: string;
 }
 
 export interface ApiConfig {
   [key: string]: unknown;
+  // Explicitly type critical fields for better type checking
+  isDemoMember?: string | boolean;
+  isAmplifyMem?: string | boolean;
+  isCobrowseActive?: string | boolean;
+  isMagellanVAMember?: string | boolean;
+  isMedicalAdvantageGroup?: string | boolean;
+  isDental?: string | boolean;
+  isVision?: string | boolean;
+  isMedical?: string | boolean;
+  isIDCardEligible?: string | boolean;
+  isCobraEligible?: string | boolean;
+  selfServiceLinks?: Array<{ key: string; value: string }>;
 }
 
 import { LoggedInMember } from '@/models/app/loggedin_member';
@@ -242,8 +257,41 @@ export function buildGenesysChatConfig({
     currentPlanContext.ntwkId ||
     loggedInMember.lineOfBusiness ||
     loggedInMember.lob;
-  // groupType derivation can be complex; using a simple source for now
-  const finalGroupType = loggedInMember.groupName || currentPlanContext.grpId; // Example, might need more specific logic
+
+  // Derive groupType more accurately, following client classification expectations
+  const finalGroupType =
+    (apiConfig.groupType as string) ||
+    (loggedInMember.coverageTypes?.some((type) => type.indvGroupInd === 'INDV')
+      ? 'INDV'
+      : '') ||
+    loggedInMember.groupName ||
+    currentPlanContext.grpId;
+
+  // Extract coverage types for dental/vision/medical flags
+  const hasDental = !!loggedInMember.coverageTypes?.some((type) =>
+    type.productType?.toLowerCase().includes('dental'),
+  );
+
+  const hasVision = !!loggedInMember.coverageTypes?.some((type) =>
+    type.productType?.toLowerCase().includes('vision'),
+  );
+
+  const hasMedical = !!loggedInMember.coverageTypes?.some(
+    (type) =>
+      type.productType?.toLowerCase().includes('medical') ||
+      type.productType?.toLowerCase().includes('health'),
+  );
+
+  // Derive isBlueEliteGroup from appropriate sources
+  const isBlueEliteGroup =
+    (apiConfig.isBlueEliteGroup as boolean | string) ||
+    loggedInMember.lob === 'INDVMX' ||
+    currentPlanContext.ntwkId === 'INDVMX' ||
+    false;
+
+  // Derive clientClassificationId
+  const clientClassificationId =
+    (apiConfig.clientClassificationId as string) || finalMemberClientID || '';
 
   // --- End derived context mapping ---
 
@@ -270,6 +318,21 @@ export function buildGenesysChatConfig({
     memberClientID: finalMemberClientID,
     groupType: finalGroupType,
 
+    // Critical fields for getCalculatedCiciId() in click_to_chat.js
+    isBlueEliteGroup: String(isBlueEliteGroup),
+    clientClassificationId: clientClassificationId,
+
+    // Coverage type flags
+    isDental: String(
+      hasDental || (apiConfig.isDental as boolean | string) || false,
+    ),
+    isVision: String(
+      hasVision || (apiConfig.isVision as boolean | string) || false,
+    ),
+    isMedical: String(
+      hasMedical || (apiConfig.isMedical as boolean | string) || false,
+    ),
+
     // From CurrentPlanDetails
     numberOfPlans: currentPlanDetails.numberOfPlans,
     currentPlanName: currentPlanDetails.currentPlanName,
@@ -280,14 +343,16 @@ export function buildGenesysChatConfig({
     INQ_TYPE: (apiConfig.INQ_TYPE as string) || 'General Inquiry',
 
     // From API Config (getChatInfo response)
-    isChatEligibleMember:
+    isChatEligibleMember: String(
       (apiConfig.isChatEligibleMember as string | boolean | undefined) ??
-      (apiConfig.isEligible as string | boolean | undefined) ??
-      true,
-    isChatAvailable:
+        (apiConfig.isEligible as string | boolean | undefined) ??
+        true,
+    ),
+    isChatAvailable: String(
       (apiConfig.isChatAvailable as string | boolean | undefined) ??
-      (apiConfig.chatAvailable as string | boolean | undefined) ??
-      true,
+        (apiConfig.chatAvailable as string | boolean | undefined) ??
+        true,
+    ),
     chatGroup: apiConfig.chatGroup as string,
     workingHours: apiConfig.workingHours as string,
     chatHours: (apiConfig.workingHours ||
@@ -297,8 +362,44 @@ export function buildGenesysChatConfig({
       process.env.NEXT_PUBLIC_RAW_CHAT_HRS ||
       '8_17') as string,
     idCardChatBotName: apiConfig.chatIDChatBotName as string, // Assuming chatIDChatBotName is idCardChatBotName
-    chatbotEligible: apiConfig.chatBotEligibility as boolean,
-    routingchatbotEligible: apiConfig.routingChatBotEligibility as boolean,
+    chatbotEligible: String(
+      (apiConfig.chatBotEligibility as boolean | string) || false,
+    ),
+    routingchatbotEligible: String(
+      (apiConfig.routingChatBotEligibility as boolean | string) || false,
+    ),
+
+    // Special member types needed by click_to_chat.js
+    isDemoMember: String((apiConfig.isDemoMember as boolean | string) || false),
+    isAmplifyMem: String((apiConfig.isAmplifyMem as boolean | string) || false),
+    isCobrowseActive: String(
+      (apiConfig.isCobrowseActive as boolean | string) ||
+        (apiConfig.enableCobrowse as boolean | string) ||
+        false,
+    ),
+    isMagellanVAMember: String(
+      (apiConfig.isMagellanVAMember as boolean | string) || false,
+    ),
+    isMedicalAdvantageGroup: String(
+      (apiConfig.isMedicalAdvantageGroup as boolean | string) || false,
+    ),
+
+    // Eligibility flags for form options
+    isIDCardEligible: String(
+      (apiConfig.isIDCardEligible as boolean | string) || false,
+    ),
+    isCobraEligible: String(
+      (apiConfig.isCobraEligible as boolean | string) || false,
+    ),
+
+    // Self-service links for after-hours
+    selfServiceLinks:
+      (apiConfig.selfServiceLinks as Array<{ key: string; value: string }>) ||
+      [],
+
+    // Default container if not specified elsewhere
+    targetContainer:
+      (staticConfig.targetContainer as string) || 'genesys-chat-container',
 
     // Chat Mode specific
     chatMode: chatMode,
@@ -392,6 +493,11 @@ export function buildGenesysChatConfig({
       gmsChatUrl: resolvedGmsChatUrl,
       widgetUrl: resolvedWidgetUrl,
       clickToChatJs: resolvedClickToChatJs,
+      // Demo endpoint for isDemoMember mode
+      clickToChatDemoEndPoint:
+        (apiConfig.clickToChatDemoEndPoint as string) ||
+        (apiConfig.demoGmsChatUrl as string) ||
+        resolvedClickToChatEndpoint,
       // This one might still have a client-side default if not from API
       chatTokenEndpoint:
         (apiConfig.chatTokenEndpoint as string) || '/api/chat/token',

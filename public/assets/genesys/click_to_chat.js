@@ -181,7 +181,7 @@
   // === CSS INJECTION ===
   // Critical styles for chat button and window
   const css = `
-  /* Critical styles for chat button and window */
+  /* Critical styles for chat button and window - compatible with genesys-chat-container */
   .cx-widget.cx-webchat-chat-button {
     display: flex !important;
     position: fixed !important;

@@ -12,7 +12,7 @@
   overflow: hidden !important;
 }
 
-/* Chat button (collapsed state) */
+/* Chat button (collapsed state) - works with genesys-chat-container */
 .cx-widget.cx-webchat-chat-button {
   position: fixed !important;
   bottom: 20px !important;
@@ -33,6 +33,7 @@
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+  /* These styles will work regardless of parent container structure */
 }
 
 .cx-widget.cx-webchat-chat-button .cx-icon {
@@ -389,13 +390,17 @@ body #cx_chat_form_button, /* Increase specificity */
   For instance, if it's inside #genesys-chat-container:
 */
 #genesys-chat-container {
+  position: relative !important;
+  z-index: 1000 !important;
+  height: 0 !important; /* Won't take up space in normal flow */
+  width: 0 !important;
+  overflow: visible !important; /* Allow chat components to be visible outside */
   transform: none !important;
   filter: none !important;
   perspective: none !important;
   /*
-      You might need to be careful here, as #genesys-chat-container
-      is also where the main chat window will render.
-      These rules are aggressive and primarily for testing the button's fixed positioning.
+      These styles ensure the chat container doesn't interfere with page layout
+      while allowing the chat widget to be visible when expanded.
     */
 }
 

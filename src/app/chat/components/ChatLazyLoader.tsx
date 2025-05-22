@@ -174,7 +174,9 @@ export const ChatLazyLoader: React.FC<ChatLazyLoaderProps> = ({
   return (
     <Suspense fallback={<div>Loading Chat Modules...</div>}>
       <ChatProvider key={`chat-provider-${instanceId}`} autoInitialize={true}>
-        <ChatWidget />
+        <div id="genesys-chat-container" className="genesys-chat-container">
+          <ChatWidget />
+        </div>
       </ChatProvider>
     </Suspense>
   );
