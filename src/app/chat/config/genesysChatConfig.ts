@@ -534,7 +534,8 @@ export function buildGenesysChatConfig({
   // Many of these are already in BaseGenesysChatConfig definition with optional modifier or set in baseConfig.
   // We ensure they have values if not provided by API or specific logic.
   finalConfig.coBrowseLicence =
-    finalConfig.coBrowseLicence ||
+    (apiConfig.coBrowseLicence as string) || // Prioritize from apiConfig if available
+    finalConfig.coBrowseLicence || // Keep existing value if apiConfig doesn't provide it
     process.env.NEXT_PUBLIC_COBROWSE_LICENCE ||
     'YOUR_COBROWSE_LICENCE';
   finalConfig.cobrowseSource =
@@ -558,9 +559,8 @@ export function buildGenesysChatConfig({
     process.env.NEXT_PUBLIC_OPS_PHONE_HOURS ||
     'M-F 8am-6pm EST';
   finalConfig.idCardChatBotName =
-    finalConfig.idCardChatBotName ||
-    (apiConfig.chatIDChatBotName as string) ||
-    'ID Card Bot';
+    finalConfig.idCardChatBotName || // This already holds apiConfig.chatIDChatBotName if provided
+    'ID Card Bot'; // Simpler fallback
 
   // Merge with any staticConfig overrides passed in
   let mergedConfig: GenesysChatConfig;
