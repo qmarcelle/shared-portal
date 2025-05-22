@@ -432,26 +432,17 @@ export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
   );
 }
 
-export function isSpendingAccountsMenuOptions(
-  rules: VisibilityRules | undefined,
-) {
-  return isBlueCareNotEligible(rules) || isSpendingAccountsEligible(rules);
+export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
+  return (
+    rules?.subscriber &&
+    (rules?.fsaOnly ||
+      rules?.externalSpendingAcct ||
+      (rules?.fsaHraEligible &&
+        rules?.commercial &&
+        (rules?.flexibleSpendingAccount || rules?.healthReimbursementAccount)))
+  );
 }
 
-export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
-  if (rules?.subscriber) {
-    if (rules?.fsaOnly || rules?.externalSpendingAcct) {
-      if (rules?.fsaHraEligible && rules?.commercial) {
-        if (
-          rules?.flexibleSpendingAccount ||
-          rules?.healthReimbursementAccount
-        ) {
-          return true;
-        } else return false;
-      } else return false;
-    } else return false;
-  } else return false;
-}
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   return (
     rules?.subscriber &&

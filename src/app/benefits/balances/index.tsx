@@ -74,7 +74,7 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
                 className="large-section"
                 fsaBalance={1009.5}
                 hsaBalance={349.9}
-                linkURL="/spendingAccounts"
+                linkURL="/member/spendingaccounts"
               />
             )}
           </Column>

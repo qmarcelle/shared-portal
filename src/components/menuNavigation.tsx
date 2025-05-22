@@ -29,7 +29,7 @@ import {
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
   isPrimaryCarePhysicianEligible,
-  isSpendingAccountsMenuOptions,
+  isSpendingAccountsEligible,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
   isWellnessOnlyBenefitsQV,
@@ -273,7 +273,7 @@ export const getMenuNavigation = (
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
         showOnMenu: (rules) =>
-          isNotWellnessQa(rules) && isSpendingAccountsMenuOptions(rules),
+          isNotWellnessQa(rules) && isSpendingAccountsEligible(rules),
         url: '/member/myplan/spendingaccounts',
         external: false,
       },

@@ -88,6 +88,8 @@ export async function myHealthCareAccountService(): Promise<
       logger.info(
         `mapSpendingAccBal Details : ${JSON.stringify(spendingBalanceBean)}`,
       );
+    } else {
+      logger.info('mapSpendingAccBal Details is EMPTY');
     }
 
     return {
@@ -99,6 +101,7 @@ export async function myHealthCareAccountService(): Promise<
         fsaBean: fsaBean,
         spendingBalanceBean: spendingBalanceBean,
         isHealthEquity: healthEquity,
+        isApiError: false,
       },
     };
   } catch (error) {
@@ -113,6 +116,7 @@ export async function myHealthCareAccountService(): Promise<
         userId: session?.user?.id,
         healthAccountInfo: healthAccInfo,
         isHealthEquity: healthEquity,
+        isApiError: true,
       },
     };
   }
