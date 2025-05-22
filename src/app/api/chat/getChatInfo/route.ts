@@ -58,24 +58,24 @@ function generateMockChatConfig(
 /**
  * Helper function to generate and return a fallback mock data response.
  */
-function createFallbackResponse(
-  memeck: string | null,
-  planId: string | null,
-  reason: string,
-  correlationId: string,
-  status: number = 200, // Mock data can still be a 200 if it's an intentional fallback
-): NextResponse {
-  logger.info(`[API:chat/getChatInfo] Returning mock data. Reason: ${reason}`, {
-    correlationId,
-  });
-  const mockData = generateMockChatConfig(memeck, planId);
-  // Note: generateMockChatConfig already includes fallbacks for orgId, clickToChatEndpoint, and gmsChatUrl
-  updateApiState(
-    mockData.isEligible,
-    mockData.cloudChatEligible ? 'cloud' : 'legacy',
-  );
-  return NextResponse.json(mockData, { status });
-}
+// function createFallbackResponse( // Commenting out the old fallback
+//   memeck: string | null,
+//   planId: string | null,
+//   reason: string,
+//   correlationId: string,
+//   status: number = 200, // Mock data can still be a 200 if it's an intentional fallback
+// ): NextResponse {
+//   logger.info(`[API:chat/getChatInfo] Returning mock data. Reason: ${reason}`, {
+//     correlationId,
+//   });
+//   const mockData = generateMockChatConfig(memeck, planId);
+//   // Note: generateMockChatConfig already includes fallbacks for orgId, clickToChatEndpoint, and gmsChatUrl
+//   updateApiState(
+//     mockData.isEligible,
+//     mockData.cloudChatEligible ? 'cloud' : 'legacy',
+//   );
+//   return NextResponse.json(mockData, { status });
+// }
 
 /**
  * API Route handler for the /api/chat/getChatInfo endpoint
@@ -116,7 +116,10 @@ export async function GET(request: NextRequest) {
       { correlationId },
     );
     return NextResponse.json(
-      { message: 'Missing required parameter: memeck or memberId' },
+      {
+        message: 'Missing required parameter: memeck or memberId',
+        error: 'ClientError',
+      },
       { status: 400 },
     );
   }
@@ -135,11 +138,19 @@ export async function GET(request: NextRequest) {
           hasMemberServiceRoot: !!memberServiceRoot,
         },
       );
-      return createFallbackResponse(
-        memeck,
-        planId,
-        'Missing environment variables',
-        correlationId,
+      // return createFallbackResponse( // MODIFIED
+      //   memeck,
+      //   planId,
+      //   'Missing environment variables',
+      //   correlationId,
+      // );
+      return NextResponse.json(
+        {
+          message:
+            'Server configuration error: Missing backend API environment variables.',
+          error: 'ServerError',
+        },
+        { status: 500 },
       );
     }
 
@@ -180,22 +191,31 @@ export async function GET(request: NextRequest) {
             jsonParseError: e instanceof Error ? e.message : String(e),
           },
         );
-        data = {
-          // Construct an error-like object
-          error: 'Invalid JSON response from member service',
-          description: responseTextForError.substring(0, 500),
-          status: response.status,
-        };
+        // data = { // MODIFIED
+        //   // Construct an error-like object
+        //   error: 'Invalid JSON response from member service',
+        //   description: responseTextForError.substring(0, 500),
+        //   status: response.status,
+        // };
         // Force treating this as a non-ok response if it wasn't already
-        if (response.ok) {
-          // This creates a synthetic non-ok scenario for our logic below
-          return createFallbackResponse(
-            memeck,
-            planId,
-            `Invalid JSON from upstream (status ${response.status})`,
-            correlationId,
-          );
-        }
+        // if (response.ok) { // MODIFIED
+        //   // This creates a synthetic non-ok scenario for our logic below
+        //   return createFallbackResponse(
+        //     memeck,
+        //     planId,
+        //     `Invalid JSON from upstream (status ${response.status})`,
+        //     correlationId,
+        //   );
+        // }
+        return NextResponse.json(
+          {
+            message: 'Failed to parse response from backend service.',
+            error: 'UpstreamError',
+            upstreamStatus: response.status,
+            details: responseTextForError.substring(0, 500),
+          },
+          { status: 502 }, // Bad Gateway, as we got an invalid response from upstream
+        );
       }
     } else {
       // Handle non-JSON content types
@@ -209,20 +229,30 @@ export async function GET(request: NextRequest) {
           textResponse: responseTextForError.substring(0, 500),
         },
       );
-      data = {
-        error: 'Non-JSON content type from member service',
-        description: responseTextForError.substring(0, 500),
-        status: response.status,
-      };
+      // data = { // MODIFIED
+      //   error: 'Non-JSON content type from member service',
+      //   description: responseTextForError.substring(0, 500),
+      //   status: response.status,
+      // };
       // Force treating this as a non-ok response if it wasn't already
-      if (response.ok) {
-        return createFallbackResponse(
-          memeck,
-          planId,
-          `Non-JSON content-type from upstream (status ${response.status})`,
-          correlationId,
-        );
-      }
+      // if (response.ok) { // MODIFIED
+      //   return createFallbackResponse(
+      //     memeck,
+      //     planId,
+      //     `Non-JSON content-type from upstream (status ${response.status})`,
+      //     correlationId,
+      //   );
+      // }
+      return NextResponse.json(
+        {
+          message: 'Invalid response content type from backend service.',
+          error: 'UpstreamError',
+          upstreamStatus: response.status,
+          contentType: response.headers.get('content-type'),
+          details: responseTextForError.substring(0, 500),
+        },
+        { status: 502 }, // Bad Gateway
+      );
     }
 
     logger.info(
@@ -247,107 +277,101 @@ export async function GET(request: NextRequest) {
           errorDataFromService: data, // Contains error info or parsed text
         },
       );
-      return createFallbackResponse(
-        memeck,
-        planId,
-        `Member service API error (status ${response.status})`,
-        correlationId,
+      // return createFallbackResponse( // MODIFIED
+      //   memeck,
+      //   planId,
+      //   `Member service call failed with status ${response.status}`,
+      //   correlationId,
+      //   response.status, // Pass through the original error status if it's an error from upstream
+      // );
+      return NextResponse.json(
+        {
+          message: `Error from backend member service: ${data?.error || 'Unknown error'}`,
+          error: 'UpstreamError',
+          upstreamStatus: response.status,
+          details: data,
+        },
+        {
+          status:
+            response.status > 0 && response.status < 600
+              ? response.status
+              : 500,
+        }, // Use upstream status, or 500
       );
     }
 
-    const transformedData = {
-      cloudChatEligible: data.cloudChatEligible || false,
-      chatGroup: data.chatGroup || '',
-      chatAvailable: data.chatAvailable ?? true,
-      isEligible: data.isEligible ?? true,
-      workingHours:
-        data.workingHours ||
-        process.env.NEXT_PUBLIC_CHAT_HOURS ||
-        'M-F 8am-5pm',
-      chatIDChatBotName: data.chatIDChatBotName || '',
-      chatBotEligibility: data.isEligible ?? true, // Ensure chatBotEligibility defaults based on isEligible
-      routingChatBotEligibility: data.routingChatBotEligibility || false,
-      isChatEligibleMember:
-        data.isChatEligibleMember ?? data.isEligible ?? true,
-      isChatAvailable: data.isChatAvailable ?? data.chatAvailable ?? true,
-      chatHours:
-        data.workingHours ||
-        process.env.NEXT_PUBLIC_CHAT_HOURS ||
-        'M-F 8am-5pm',
-      rawChatHrs:
-        data.rawChatHrs || process.env.NEXT_PUBLIC_RAW_CHAT_HRS || '8_17',
-      clickToChatToken: token || '',
-      genesysCloudConfig: {
-        deploymentId:
-          (data.genesysCloudConfig as any)?.deploymentId ||
-          process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
-          '',
-        environment:
-          (data.genesysCloudConfig as any)?.environment ||
-          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
-          'prod-usw2',
-        orgId:
-          (data.genesysCloudConfig as any)?.orgId ||
-          process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID ||
-          '',
-      },
-      clickToChatEndpoint: !(data.cloudChatEligible || false)
-        ? process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
-        : undefined,
-      gmsChatUrl: !(data.cloudChatEligible || false)
-        ? process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-          process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-          'https://members.bcbst.com/test/soa/api/cci/genesyschat'
-        : undefined,
+    // Make sure essential fields like orgId, clickToChatEndpoint, and gmsChatUrl have fallbacks
+    // if they are not provided by the API. This is now a crucial step as we are not mocking.
+    const validatedData = {
+      ...data,
+      orgId: data.orgId || process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID, // Example fallback
+      clickToChatEndpoint:
+        data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
+      gmsChatUrl: data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
+      // Add other critical fallbacks here IF AND ONLY IF they should have system-wide defaults
+      // and are not expected to always come from the backend.
+      // For example, clickToChatToken should ideally always come from the backend.
     };
 
-    if (request.nextUrl.searchParams.get('forceLegacy') === 'true') {
-      (transformedData as any).cloudChatEligible = false;
-      (transformedData as any).clickToChatEndpoint =
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'forced-legacy-endpoint';
-      (transformedData as any).gmsChatUrl =
-        process.env.NEXT_PUBLIC_GMS_CHAT_URL ||
-        process.env.NEXT_PUBLIC_GENESYS_LEGACY_ENDPOINT ||
-        'forced-legacy-gms';
-      logger.warn(
-        '[API:chat/getChatInfo] Forcing legacy mode via query parameter.',
-        { correlationId },
+    if (!validatedData.clickToChatToken) {
+      logger.error(
+        '[API:chat/getChatInfo] Critical: clickToChatToken missing from backend response and no fallback configured.',
+        { correlationId, responseData: validatedData },
+      );
+      return NextResponse.json(
+        {
+          message: 'Chat token missing in response from backend service.',
+          error: 'ServerError',
+          details: 'clickToChatToken is missing.',
+        },
+        { status: 500 },
       );
     }
+    if (
+      !validatedData.clickToChatEndpoint &&
+      validatedData.chatMode === 'legacy'
+    ) {
+      logger.error(
+        '[API:chat/getChatInfo] Critical: clickToChatEndpoint missing for legacy mode.',
+        { correlationId, responseData: validatedData },
+      );
+      return NextResponse.json(
+        {
+          message:
+            'Chat endpoint missing in response from backend service for legacy mode.',
+          error: 'ServerError',
+          details: 'clickToChatEndpoint is missing.',
+        },
+        { status: 500 },
+      );
+    }
+    // Add similar checks for other absolutely critical fields if necessary.
+
+    logger.info(
+      '[API:chat/getChatInfo] Successfully fetched and validated chat info.',
+      {
+        correlationId,
+        chatMode: validatedData.cloudChatEligible ? 'cloud' : 'legacy',
+      },
+    );
 
     updateApiState(
-      transformedData.isEligible,
-      transformedData.cloudChatEligible ? 'cloud' : 'legacy',
+      validatedData.isEligible,
+      validatedData.cloudChatEligible ? 'cloud' : 'legacy',
     );
 
-    logger.info('[API:chat/getChatInfo] Returning transformed chat info', {
-      correlationId,
-      cloudChatEligible: transformedData.cloudChatEligible,
-      chatAvailable: transformedData.chatAvailable,
-      isEligible: transformedData.isEligible,
-    });
-
-    return NextResponse.json(transformedData);
+    return NextResponse.json(validatedData);
   } catch (error: any) {
-    logger.error('[API:chat/getChatInfo] Unhandled error in GET handler', {
+    logger.error('[API:chat/getChatInfo] Unhandled error in GET handler.', {
       correlationId,
-      errorMessage: error instanceof Error ? error.message : 'Unknown error',
-      stack: error instanceof Error ? error.stack : undefined,
-      memeck, // memeck was 'memberId' in the original error log here
-      planId,
+      errorMessage: error.message,
+      errorStack: error.stack,
+      errorDetails: error,
     });
-
-    // Attempt to return mock data even for unexpected errors
-    // The status code for the response itself might be 500 if we reach here due to an internal server error.
-    // However, the mock data is still intended to allow the frontend to function in a degraded state.
-    return createFallbackResponse(
-      memeck,
-      planId,
-      'Unhandled exception in API handler',
-      correlationId,
-      500,
-    );
   }
 }
+
+// The generateMockChatConfig function can be kept for other testing purposes if needed,
+// but it's no longer directly used for fallbacks in this API route.
+
+// ... rest of the file (if any) including generateMockChatConfig definition ...
