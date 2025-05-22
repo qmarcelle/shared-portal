@@ -339,44 +339,47 @@ export function buildGenesysChatConfig({
     // Legacy mode
 
     // Resolve and validate critical legacy fields FIRST
-    const resolvedClickToChatToken =
-      ((apiConfig.getToken || apiConfig.clickToChatToken) as string) ||
-      process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN;
+    const resolvedClickToChatToken = (apiConfig.getToken ||
+      apiConfig.clickToChatToken) as string;
     if (!resolvedClickToChatToken) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: clickToChatToken is missing for legacy mode. This must be provided by the API response (getChatInfo) or the NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN environment variable.';
-      logger.error(errorMsg, {
-        apiConfigProvidedToken:
-          apiConfig.clickToChatToken || apiConfig.getToken,
-        envProvidedToken: process.env.NEXT_PUBLIC_DEFAULT_CLICK_TO_CHAT_TOKEN,
-      });
+        '[buildGenesysChatConfig] CRITICAL: clickToChatToken is missing from API response (getChatInfo).';
+      logger.error(errorMsg, { apiConfig }); // Log the entire apiConfig for context
       throw new Error(errorMsg);
     }
 
-    // Ensure resolvedClickToChatEndpoint uses the GMS URL
-    const resolvedClickToChatEndpoint =
-      (apiConfig.gmsChatUrl as string) || process.env.NEXT_PUBLIC_GMS_CHAT_URL;
+    // clickToChatEndpoint is now expected to be the GMS URL from apiConfig
+    const resolvedClickToChatEndpoint = apiConfig.gmsChatUrl as string;
     if (!resolvedClickToChatEndpoint) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: clickToChatEndpoint (derived from GMS URL) is missing for legacy mode. This must be provided by the API response (gmsChatUrl) or the NEXT_PUBLIC_GMS_CHAT_URL environment variable.';
-      // Log which sources were attempted for GMS URL
-      logger.error(errorMsg, {
-        apiConfigProvidedGmsUrl: apiConfig.gmsChatUrl,
-        envProvidedGmsUrl: process.env.NEXT_PUBLIC_GMS_CHAT_URL,
-      });
+        '[buildGenesysChatConfig] CRITICAL: clickToChatEndpoint (expected from apiConfig.gmsChatUrl) is missing from API response (getChatInfo).';
+      logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
 
-    // Resolve and validate gmsChatUrl
-    const resolvedGmsChatUrl =
-      (apiConfig.gmsChatUrl as string) || process.env.NEXT_PUBLIC_GMS_CHAT_URL;
+    // gmsChatUrl is also expected directly from apiConfig
+    const resolvedGmsChatUrl = apiConfig.gmsChatUrl as string;
     if (!resolvedGmsChatUrl) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: gmsChatUrl is missing for legacy mode. This must be provided by the API response (gmsChatUrl) or the NEXT_PUBLIC_GMS_CHAT_URL environment variable.';
-      logger.error(errorMsg, {
-        apiConfigProvidedGmsUrl: apiConfig.gmsChatUrl,
-        envProvidedGmsUrl: process.env.NEXT_PUBLIC_GMS_CHAT_URL,
-      });
+        '[buildGenesysChatConfig] CRITICAL: gmsChatUrl is missing from API response (getChatInfo).';
+      logger.error(errorMsg, { apiConfig });
+      throw new Error(errorMsg);
+    }
+
+    // widgetUrl and clickToChatJs also expected directly from apiConfig for legacy mode
+    const resolvedWidgetUrl = apiConfig.widgetUrl as string;
+    if (!resolvedWidgetUrl) {
+      const errorMsg =
+        '[buildGenesysChatConfig] CRITICAL: widgetUrl is missing from API response for legacy mode.';
+      logger.error(errorMsg, { apiConfig });
+      throw new Error(errorMsg);
+    }
+
+    const resolvedClickToChatJs = apiConfig.clickToChatJs as string;
+    if (!resolvedClickToChatJs) {
+      const errorMsg =
+        '[buildGenesysChatConfig] CRITICAL: clickToChatJs is missing from API response for legacy mode.';
+      logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
 
@@ -387,12 +390,9 @@ export function buildGenesysChatConfig({
       clickToChatToken: resolvedClickToChatToken,
       clickToChatEndpoint: resolvedClickToChatEndpoint,
       gmsChatUrl: resolvedGmsChatUrl,
-      widgetUrl:
-        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-        '/assets/genesys/plugins/widgets.min.js',
-      clickToChatJs:
-        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
-        '/assets/genesys/click_to_chat.js',
+      widgetUrl: resolvedWidgetUrl,
+      clickToChatJs: resolvedClickToChatJs,
+      // This one might still have a client-side default if not from API
       chatTokenEndpoint:
         (apiConfig.chatTokenEndpoint as string) || '/api/chat/token',
       chatBtnText:
