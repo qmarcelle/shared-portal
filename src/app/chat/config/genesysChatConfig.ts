@@ -24,6 +24,7 @@ export interface UserConfig {
   lastName?: string;
   subscriberId?: string;
   suffix?: string;
+  clientClassificationId?: string;
 }
 
 export interface PlanConfig {
@@ -34,9 +35,9 @@ export interface PlanConfig {
   memberDOB?: string;
   // Additional fields for click_to_chat.js compatibility
   isBlueEliteGroup?: string | boolean;
-  clientClassificationId?: string;
 }
 
+// KEEPING ApiConfig for now as a reference, will remove once ChatConfig is fully aligned.
 export interface ApiConfig {
   [key: string]: unknown;
   // Explicitly type critical fields for better type checking
@@ -51,6 +52,31 @@ export interface ApiConfig {
   isIDCardEligible?: string | boolean;
   isCobraEligible?: string | boolean;
   selfServiceLinks?: Array<{ key: string; value: string }>;
+  // Adding fields that were missing based on linter errors in buildGenesysChatConfig
+  groupType?: string;
+  INQ_TYPE?: string;
+  isChatEligibleMember?: string | boolean; // or isEligible
+  isEligible?: string | boolean; // ensure this matches one used
+  chatAvailable?: string | boolean; // or isChatAvailable
+  // chatIDChatBotName is used by buildGenesysChatConfig, map to ChatConfig's chatIDChatBotName
+  // chatBotEligibility is used, map to ChatConfig's chatBotEligibility
+  // routingChatBotEligibility is used, map to ChatConfig's routingChatBotEligibility
+  // genesysCloudConfig and its sub-properties (deploymentId, orgId, environment) are used
+  genesysCloudConfig?: {
+    deploymentId?: string;
+    orgId?: string;
+    environment?: string;
+  };
+  clickToChatDemoEndPoint?: string;
+  demoGmsChatUrl?: string;
+  chatTokenEndpoint?: string;
+  chatBtnText?: string;
+  chatWidgetTitle?: string;
+  chatWidgetSubtitle?: string;
+  enableCobrowse?: boolean | string; // For isCobrowseActive
+  showChatButton?: boolean;
+  coBrowseEndpoint?: string;
+  getToken?: string; // Referenced in legacy token resolution, though likely superseded
 }
 
 import { LoggedInMember } from '@/models/app/loggedin_member';
@@ -58,6 +84,7 @@ import { UserProfile } from '@/models/user_profile';
 import { MemberPlan } from '@/userManagement/models/plan';
 import { SessionUser } from '@/userManagement/models/sessionUser';
 import { logger } from '@/utils/logger';
+import type { ChatConfig } from '../schemas/genesys.schema';
 import type { CurrentPlanDetails } from '../stores/chatStore';
 
 // Add this interface declaration after the existing interfaces
@@ -166,7 +193,7 @@ export function buildGenesysChatConfig({
   loggedInMember: LoggedInMember;
   sessionUser: SessionUser;
   userProfile: UserProfile;
-  apiConfig: ApiConfig;
+  apiConfig: ChatConfig;
   currentPlanDetails: CurrentPlanDetails;
   staticConfig?: Partial<GenesysChatConfig>;
 }): GenesysChatConfig {
@@ -440,46 +467,42 @@ export function buildGenesysChatConfig({
     // Legacy mode
 
     // Resolve and validate critical legacy fields FIRST
-    const resolvedClickToChatToken = (apiConfig.getToken ||
-      apiConfig.clickToChatToken) as string;
+    const resolvedClickToChatToken = apiConfig.clickToChatToken;
     if (!resolvedClickToChatToken) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: clickToChatToken is missing from API response (getChatInfo).';
+        '[buildGenesysChatConfig] CRITICAL: clickToChatToken is missing from apiConfig.';
       logger.error(errorMsg, { apiConfig }); // Log the entire apiConfig for context
       throw new Error(errorMsg);
     }
 
-    // clickToChatEndpoint is now expected to be the GMS URL from apiConfig
-    const resolvedClickToChatEndpoint = apiConfig.gmsChatUrl as string;
+    const resolvedClickToChatEndpoint = apiConfig.clickToChatEndpoint;
     if (!resolvedClickToChatEndpoint) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: clickToChatEndpoint (expected from apiConfig.gmsChatUrl) is missing from API response (getChatInfo).';
+        '[buildGenesysChatConfig] CRITICAL: clickToChatEndpoint is missing from apiConfig.';
       logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
 
-    // gmsChatUrl is also expected directly from apiConfig
-    const resolvedGmsChatUrl = apiConfig.gmsChatUrl as string;
+    const resolvedGmsChatUrl = apiConfig.gmsChatUrl;
     if (!resolvedGmsChatUrl) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: gmsChatUrl is missing from API response (getChatInfo).';
+        '[buildGenesysChatConfig] CRITICAL: gmsChatUrl is missing from apiConfig.';
       logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
 
-    // widgetUrl and clickToChatJs also expected directly from apiConfig for legacy mode
-    const resolvedWidgetUrl = apiConfig.widgetUrl as string;
+    const resolvedWidgetUrl = apiConfig.widgetUrl;
     if (!resolvedWidgetUrl) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: widgetUrl is missing from API response for legacy mode.';
+        '[buildGenesysChatConfig] CRITICAL: widgetUrl is missing from apiConfig for legacy mode.';
       logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
 
-    const resolvedClickToChatJs = apiConfig.clickToChatJs as string;
+    const resolvedClickToChatJs = apiConfig.clickToChatJs;
     if (!resolvedClickToChatJs) {
       const errorMsg =
-        '[buildGenesysChatConfig] CRITICAL: clickToChatJs is missing from API response for legacy mode.';
+        '[buildGenesysChatConfig] CRITICAL: clickToChatJs is missing from apiConfig for legacy mode.';
       logger.error(errorMsg, { apiConfig });
       throw new Error(errorMsg);
     }
