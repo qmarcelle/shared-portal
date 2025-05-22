@@ -36,6 +36,10 @@ export async function computeSessionUser(
       } else {
         // If no planId is provided, default to the first plan if available (even if multiple exist)
         // This ensures currUsr.plan is populated during initial login.
+        logger.info(
+          '[computeSessionUser] No planId provided. currentUser.plans content:',
+          currentUser.plans, // Log the entire plans array
+        );
         const selectedPlan = plans.length >= 1 ? plans[0] : null;
         if (selectedPlan) {
           return computeTokenWithPlan(
