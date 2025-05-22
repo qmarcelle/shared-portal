@@ -1,0 +1,935 @@
+:root {
+  /* BCBST Brand Colors */
+  --bcbst-blue: #0079c2;
+  --bcbst-blue-dark: #005a94;
+  --bcbst-blue-light: #f0f8ff;
+
+  /* Chat Component Dimensions */
+  --chat-button-size: 56px;
+  --chat-button-size-mobile: 48px;
+  --chat-container-width: 400px;
+  --chat-container-height: 600px;
+  --chat-container-width-tablet: 360px;
+  --chat-container-height-tablet: 540px;
+
+  /* Spacing Scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+
+  /* Border Radius Scale */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-chat-button: 0 4px 12px rgba(0, 121, 194, 0.3);
+  --shadow-chat-container: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Chat Button Components */
+/* Primary Chat Button (BCBST-Chat-Button-Active) */
+/* Desktop/Tablet */
+.chat-button {
+  width: var(--chat-button-size);
+  height: var(--chat-button-size);
+  border-radius: var(--radius-full);
+  background: var(--bcbst-blue);
+  box-shadow: var(--shadow-chat-button);
+  position: fixed;
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile */
+.chat-button-mobile {
+  width: var(--chat-button-size-mobile);
+  height: var(--chat-button-size-mobile);
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+}
+
+/* Icon inside button */
+.chat-button-icon {
+  color: white;
+  width: var(--spacing-xl); /* 24px */
+  height: var(--spacing-xl); /* 24px */
+}
+
+/* Hover state */
+.chat-button:hover {
+  background: var(--bcbst-blue-dark);
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* 2. Chat Window/Container */
+/* Main Chat Container */
+.chat-container {
+  width: var(--chat-container-width);
+  height: var(--chat-container-height);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: var(--shadow-chat-container);
+  position: fixed;
+  bottom: calc(
+    var(--chat-button-size) + var(--spacing-xl) + var(--spacing-md)
+  ); /* Above chat button */
+  right: var(--spacing-xl);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile - Full screen overlay */
+.chat-container-mobile {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+}
+
+/* Tablet */
+.chat-container-tablet {
+  width: var(--chat-container-width-tablet);
+  height: var(--chat-container-height-tablet);
+}
+
+/* Chat Header */
+.chat-header {
+  background: var(--bcbst-blue);
+  color: white;
+  padding: var(--spacing-lg) var(--spacing-xl); /* 16px 20px before, now 16px 24px based on scale*/
+  font-weight: 600;
+  font-size: 16px; /* Assuming 1rem = 16px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chat-header-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.chat-minimize-button {
+  width: var(--spacing-xl); /* 24px */
+  height: var(--spacing-xl); /* 24px */
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Pre-Chat Modal (Custom Modal) */
+/* Modal Container */
+.prechat-modal {
+  width: 480px;
+  max-width: 90vw;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  padding: 0;
+  overflow: hidden;
+  /* Added for centering if used as a standalone modal */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Higher than chat button, potentially chat window */
+}
+
+.prechat-modal-header {
+  padding: var(--spacing-xl) var(--spacing-xl) 0 var(--spacing-xl);
+  border-bottom: none;
+}
+
+.prechat-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: var(--spacing-sm);
+}
+
+.prechat-modal-content {
+  padding: var(--spacing-xl);
+  display: flex; /* Added for gap */
+  flex-direction: column; /* Added for gap */
+  gap: 20px; /* Matches user spec, could be var(--spacing-lg) or var(--spacing-xl) */
+}
+
+.current-plan-display {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.current-plan-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: var(--spacing-xs);
+}
+
+.current-plan-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.prechat-modal-footer {
+  padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+/* 4. Button Styles */
+/* Primary Chat Action Button */
+.btn-chat-primary {
+  background: var(--bcbst-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2; /* Added for better vertical centering */
+}
+
+.btn-chat-primary:hover {
+  background: var(--bcbst-blue-dark);
+}
+
+.btn-chat-primary:focus {
+  outline: 2px solid var(--bcbst-blue);
+  outline-offset: 2px;
+}
+
+/* Secondary/Switch Plan Button */
+.btn-chat-secondary {
+  background: none;
+  color: var(--bcbst-blue);
+  border: 1px solid var(--bcbst-blue);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2; /* Added for better vertical centering */
+}
+
+.btn-chat-secondary:hover {
+  background: var(--bcbst-blue-light);
+}
+
+/* Cancel/Ghost Button */
+.btn-chat-ghost {
+  background: none;
+  color: #6b7280;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease; /* Added for consistency */
+  line-height: 1.2; /* Added for better vertical centering */
+}
+
+.btn-chat-ghost:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* 5. Alert/Notification Components */
+/* Out-of-Hours Banner */
+.out-of-hours-alert {
+  background: #fef3c7; /* Light amber */
+  border: 1px solid #f59e0b;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.out-of-hours-icon {
+  color: #d97706;
+  width: 20px; /* Could be var */
+  height: 20px; /* Could be var */
+  flex-shrink: 0;
+  margin-top: var(--spacing-xs); /* Adjusted from 2px */
+}
+
+.out-of-hours-content {
+  flex: 1;
+}
+
+.out-of-hours-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: var(--spacing-xs);
+}
+
+.out-of-hours-message {
+  font-size: 14px;
+  color: #92400e;
+  line-height: 1.4;
+}
+
+/* Error Dialog */
+.error-dialog {
+  width: var(--chat-container-width); /* 400px */
+  max-width: 90vw;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  padding: 0;
+  /* Added for centering if used as a standalone modal */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1002; /* Higher than prechat modal */
+}
+
+.error-dialog-header {
+  padding: var(--spacing-xl) var(--spacing-xl) 0 var(--spacing-xl);
+}
+
+.error-dialog-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #dc2626; /* Red for errors */
+  margin-bottom: var(--spacing-sm);
+}
+
+.error-dialog-content {
+  padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+}
+
+.error-dialog-message {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+  margin-bottom: 20px; /* Could be var */
+}
+
+.error-dialog-footer {
+  padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 6. Tooltip Component */
+/* Plan Switcher Lock Tooltip */
+.plan-switcher-tooltip {
+  background: #374151;
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Could be var */
+  z-index: 1001; /* Ensure it's above most elements */
+  position: absolute; /* Added for positioning relative to its parent */
+}
+
+.plan-switcher-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -var(--spacing-xs); /* 4px */
+  left: 50%;
+  transform: translateX(-50%);
+  border: var(--spacing-xs) solid transparent; /* 4px */
+  border-top-color: #374151;
+}
+
+.tooltip-lock-icon {
+  width: var(--spacing-md); /* 12px */
+  height: var(--spacing-md); /* 12px */
+  margin-right: var(--spacing-sm); /* Adjusted from 6px */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 7. Plan Switcher Component */
+/* Normal State */
+.plan-switcher {
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 14px;
+  color: var(--bcbst-blue);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px; /* Fixed value */
+  transition: all 0.2s ease; /* Added for consistency */
+}
+
+.plan-switcher:hover {
+  border-color: var(--bcbst-blue);
+  background: var(--bcbst-blue-light);
+}
+
+.plan-switcher-icon {
+  width: var(--spacing-lg); /* 16px */
+  height: var(--spacing-lg); /* 16px */
+  color: #6b7280;
+}
+
+/* Disabled State */
+.plan-switcher:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f9fafb;
+  color: #9ca3af;
+}
+
+.plan-switcher:disabled:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+
+/* --- GENESYS WIDGET OVERRIDES --- */
+/* These styles override the default Genesys WebChat widget (widgets.min.css) */
+/* and incorporate styles previously in bcbst-custom.css */
+
+/* Main container when chat is maximized */
+/* This complements/overrides .chat-container for the Genesys widget base */
+.cx-widget.cx-webchat {
+  border-radius: var(
+    --radius-lg,
+    8px
+  ) !important; /* Uses variable, fallback from bcbst-custom */
+  box-shadow: var(
+    --shadow-chat-container,
+    0 4px 12px rgba(0, 0, 0, 0.15)
+  ) !important;
+  width: var(--chat-container-width, 400px) !important;
+  height: auto !important; /* Genesys handles height dynamically, respect that */
+  max-height: var(--chat-container-height, 600px) !important;
+  /* bottom and right are handled by .chat-container or Genesys defaults, avoid conflicting here unless necessary */
+  overflow: hidden !important;
+  /* Ensuring position fixed for the main widget if it's not already handled by .chat-container which is also fixed */
+  position: fixed !important;
+  bottom: calc(
+    var(--chat-button-size, 56px) + var(--spacing-xl, 24px) +
+      var(--spacing-md, 12px)
+  ) !important; /* Default position above custom .chat-button */
+  right: var(--spacing-xl, 24px) !important;
+}
+
+/* Default Genesys Chat button (collapsed state) */
+/* Styles for .cx-widget.cx-webchat-chat-button */
+.cx-widget.cx-webchat-chat-button {
+  position: fixed !important;
+  bottom: var(--spacing-xl, 20px) !important;
+  right: var(
+    --spacing-xl,
+    20px
+  ) !important; /* Changed from left: 50% and transform */
+  left: auto !important; /* Ensure left is not interfering */
+  transform: none !important; /* Remove centering transform */
+  background-color: var(--bcbst-blue, #0056b3) !important;
+  color: white !important;
+  border-radius: var(
+    --radius-md,
+    8px
+  ) !important; /* Making it a rounded square/circle based on padding */
+  padding: var(
+    --spacing-md,
+    12px
+  ) !important; /* Adjust padding for a more compact button */
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 500 !important;
+  box-shadow: var(
+    --shadow-chat-button,
+    0 2px 8px rgba(0, 0, 0, 0.2)
+  ) !important;
+  border: none !important;
+  z-index: 2147483647 !important; /* Maximum z-index */
+  width: var(--chat-button-size, 56px) !important; /* Sensible width */
+  height: var(--chat-button-size, 56px) !important; /* Sensible height */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: center;
+}
+
+.cx-widget.cx-webchat-chat-button .cx-icon {
+  margin: 0 !important; /* Remove margin if button is just icon */
+  font-size: var(--spacing-xl, 24px); /* Ensure icon is sized well */
+}
+
+.cx-widget.cx-webchat-chat-button:hover {
+  background-color: var(--bcbst-blue-dark, #0074e0) !important;
+  transform: scale(1.05); /* Add hover effect consistent with .chat-button */
+  transition: all 0.2s ease; /* Add transition consistent with .chat-button */
+}
+
+/* Chat header (Genesys: .cx-titlebar) */
+/* This complements/overrides .chat-header for the Genesys widget base */
+.cx-widget.cx-webchat .cx-titlebar {
+  background-color: var(--bcbst-blue, #0056b3) !important;
+  color: white !important;
+  padding: var(--spacing-lg, 15px) !important; /* Adjusted to use vars */
+  font-size: 16px !important; /* Consistent with .chat-header */
+  font-weight: 600 !important; /* Consistent with .chat-header */
+  height: auto !important;
+  min-height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0; /* Consistent with .chat-header */
+}
+
+/* Plan information display in Genesys header */
+.cx-widget.cx-webchat .cx-titlebar .cx-custom-titlebar-text {
+  font-size: 14px !important;
+  font-weight: normal !important;
+  opacity: 0.9 !important;
+  margin-top: var(--spacing-xs, 5px) !important;
+}
+
+/* Header buttons (minimize, close) in Genesys */
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-icon {
+  /* Made selector more specific */
+  color: white !important;
+  opacity: 0.8 !important;
+  cursor: pointer !important;
+  padding: var(--spacing-xs, 5px) !important;
+  /* Ensure consistency with .chat-minimize-button if these are the same targets */
+  width: var(--spacing-xl, 24px) !important;
+  height: var(--spacing-xl, 24px) !important;
+  display: flex !important; /* For centering icon within its padding box */
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-icon:hover {
+  opacity: 1 !important;
+}
+
+/* Chat transcript area (Genesys: .cx-transcript) */
+.cx-widget.cx-webchat .cx-transcript {
+  background-color: var(
+    --bcbst-blue-light,
+    #f7f9fa
+  ) !important; /* Using a light blue from variables, fallback from bcbst */
+  padding: var(--spacing-lg, 16px) !important;
+  /* height: calc(100% - 120px) !important; */ /* Let Genesys or .chat-container manage height primarily */
+  flex-grow: 1; /* Allow transcript to take available space if .chat-container is flex column */
+  overflow-y: auto; /* Ensure scrollability */
+}
+
+/* System messages (transfers, wait time) in Genesys */
+.cx-widget.cx-webchat .cx-system-message {
+  background-color: #e6ebf0 !important; /* Keeping specific color from bcbst-custom for now */
+  color: #475465 !important; /* Keeping specific color */
+  border-radius: var(--radius-md, 8px) !important;
+  padding: var(--spacing-md, 10px) var(--spacing-lg, 15px) !important;
+  margin: var(--spacing-sm, 8px) auto !important;
+  font-size: 14px !important;
+  max-width: 85% !important;
+  text-align: center !important;
+}
+
+/* Message bubbles - Customer (Genesys: .cx-message.cx-you) */
+.cx-widget.cx-webchat .cx-message.cx-you .cx-bubble {
+  /* Genesys uses .cx-bubble inside .cx-message */
+  background-color: #e1effd !important; /* Specific customer bubble color from bcbst-custom */
+  border-radius: 18px 18px var(--radius-xs, 4px) 18px !important; /* Using var for one radius */
+  padding: var(--spacing-md, 12px) var(--spacing-lg, 16px) !important;
+  margin: var(--spacing-sm, 8px) var(--spacing-sm, 8px) var(--spacing-md, 12px)
+    auto !important;
+  max-width: 80% !important;
+  color: #202124 !important; /* Specific text color */
+  position: relative !important;
+  word-wrap: break-word !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important; /* Subtle shadow */
+}
+
+/* Message bubbles - Agent (Genesys: .cx-message.cx-them) */
+.cx-widget.cx-webchat .cx-message.cx-them .cx-bubble {
+  /* Genesys uses .cx-bubble inside .cx-message */
+  background-color: white !important;
+  border-radius: 18px 18px 18px var(--radius-xs, 4px) !important; /* Using var for one radius */
+  padding: var(--spacing-md, 12px) var(--spacing-lg, 16px) !important;
+  margin: var(--spacing-sm, 8px) auto var(--spacing-md, 12px)
+    var(--spacing-sm, 8px) !important;
+  max-width: 80% !important;
+  color: #202124 !important; /* Specific text color */
+  position: relative !important;
+  word-wrap: break-word !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important; /* Subtle shadow */
+}
+
+/* Message sender name in Genesys */
+.cx-widget.cx-webchat .cx-message .cx-name {
+  font-size: 13px !important; /* Slightly smaller than default text */
+  font-weight: 500 !important;
+  margin-bottom: var(--spacing-xs, 4px) !important;
+  color: #5f6368 !important;
+}
+
+/* Agent is typing indicator in Genesys */
+.cx-widget.cx-webchat .cx-typing-indicator {
+  font-size: 13px !important;
+  font-style: italic !important;
+  color: #5f6368 !important;
+  margin: var(--spacing-xs, 4px) 0 var(--spacing-sm, 8px)
+    var(--spacing-lg, 15px) !important;
+}
+
+/* Chat footer with input box (Genesys: .cx-input-container) */
+.cx-widget.cx-webchat .cx-input-container {
+  background-color: white !important;
+  border-top: 1px solid #e0e0e0 !important;
+  padding: var(--spacing-md, 10px) var(--spacing-lg, 15px) !important;
+  flex-shrink: 0; /* Prevent shrinking if .chat-container is flex column */
+}
+
+/* Chat text input (Genesys: .cx-message-input) */
+.cx-widget.cx-webchat .cx-message-input {
+  border: 1px solid #dadce0 !important;
+  border-radius: 20px !important; /* Specific rounded style */
+  padding: var(--spacing-md, 10px) var(--spacing-lg, 15px) !important;
+  font-size: 14px !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  width: calc(100% - 45px) !important; /* Accommodate send button */
+  box-shadow: none !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.cx-widget.cx-webchat .cx-message-input:focus {
+  border-color: var(--bcbst-blue, #0056b3) !important;
+  outline: none !important;
+}
+
+/* Send button (Genesys: .cx-send) */
+.cx-widget.cx-webchat .cx-send {
+  background-color: var(--bcbst-blue, #0056b3) !important;
+  color: white !important;
+  border-radius: var(--radius-full, 50%) !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin-left: var(--spacing-sm, 8px) !important;
+}
+
+.cx-widget.cx-webchat .cx-send:hover {
+  background-color: var(--bcbst-blue-dark, #0074e0) !important;
+}
+
+/* Pre-chat form styles (Genesys: .cx-form) */
+.cx-widget.cx-webchat .cx-form {
+  padding: var(--spacing-xl, 20px) !important;
+  background-color: white !important;
+  /* Ensure it fills available space in the chat window if needed */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cx-widget.cx-webchat .cx-form h2 {
+  /* Title in pre-chat form */
+  color: #202124 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin-bottom: var(--spacing-lg, 16px) !important;
+  text-align: center !important;
+}
+
+.cx-widget.cx-webchat .cx-form .cx-form-inputs {
+  /* Container for form fields */
+  color: #5f6368 !important;
+  font-size: 14px !important;
+  margin-bottom: var(--spacing-xl, 20px) !important;
+  flex-grow: 1; /* Allow to take space */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Plan information in Genesys pre-chat form */
+.cx-widget.cx-webchat .cx-form .cx-plan-info {
+  /* Target within .cx-form */
+  background-color: #f8f9fa !important;
+  border-radius: var(--radius-md, 8px) !important;
+  padding: var(--spacing-lg, 15px) !important;
+  margin-bottom: var(--spacing-xl, 20px) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.cx-widget.cx-webchat .cx-form .cx-plan-info-text {
+  /* Target within .cx-form */
+  font-weight: 500 !important;
+  color: #202124 !important;
+}
+
+/* Start chat / Submit button in Genesys pre-chat form */
+.cx-widget.cx-webchat .cx-form .cx-btn-primary,
+.cx-widget.cx-webchat .cx-form .cx-submit {
+  /* Target within .cx-form */
+  background-color: var(--bcbst-blue, #0056b3) !important;
+  color: white !important;
+  border-radius: var(--radius-sm, 4px) !important;
+  padding: var(--spacing-md, 10px) var(--spacing-xl, 20px) !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border: none !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: var(--spacing-md, 10px) !important;
+  margin-bottom: var(--spacing-lg, 15px) !important;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.cx-widget.cx-webchat .cx-form .cx-btn-primary:hover,
+.cx-widget.cx-webchat .cx-form .cx-submit:hover {
+  /* Target within .cx-form */
+  background-color: var(--bcbst-blue-dark, #0074e0) !important;
+}
+
+/* Terms and conditions text in Genesys pre-chat form */
+.cx-widget.cx-webchat .cx-form .cx-terms-text {
+  /* Target within .cx-form */
+  font-size: 12px !important;
+  color: #5f6368 !important;
+  text-align: center !important;
+  margin-top: var(--spacing-md, 10px) !important;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.cx-widget.cx-webchat .cx-form .cx-terms-text a {
+  /* Target within .cx-form */
+  color: var(--bcbst-blue, #0056b3) !important;
+  text-decoration: none !important;
+}
+
+.cx-widget.cx-webchat .cx-form .cx-terms-text a:hover {
+  /* Target within .cx-form */
+  text-decoration: underline !important;
+}
+
+/* Wait time message in Genesys UI */
+.cx-widget.cx-webchat .cx-wait-time {
+  background-color: #f1f3f4 !important;
+  color: #202124 !important;
+  border-radius: var(--radius-md, 8px) !important;
+  padding: var(--spacing-md, 10px) var(--spacing-lg, 15px) !important;
+  margin: var(--spacing-md, 10px) auto !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  max-width: 90% !important;
+}
+
+/* Close/End chat confirmation dialog (Genesys: .cx-alert) */
+.cx-widget.cx-webchat .cx-alert .cx-wrapper {
+  background-color: white !important;
+  padding: var(--spacing-xl, 20px) !important;
+  text-align: center !important;
+  height: auto !important;
+}
+
+.cx-widget.cx-webchat .cx-alert .cx-wrapper h2 {
+  color: #202124 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin-bottom: var(--spacing-xs, 5px) !important;
+}
+
+.cx-widget.cx-webchat .cx-alert .cx-wrapper p {
+  color: #5f6368 !important;
+  font-size: 14px !important;
+  margin-bottom: var(--spacing-xl, 20px) !important;
+}
+
+/* Default button style in Genesys alerts/forms */
+.cx-widget.cx-webchat .cx-btn-default {
+  background-color: white !important;
+  border: 1px solid #dadce0 !important;
+  color: #202124 !important;
+  margin-right: var(--spacing-md, 10px) !important;
+  /* Using similar padding and font as .btn-chat-secondary for consistency */
+  padding: var(--spacing-md, 10px) var(--spacing-xl, 20px) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-sm, 4px) !important;
+  cursor: pointer !important;
+}
+
+.cx-widget.cx-webchat .cx-btn-default:hover {
+  background-color: #f1f3f4 !important;
+}
+
+/* Error message styling in Genesys UI */
+.cx-widget.cx-webchat .cx-error {
+  color: #d93025 !important;
+  background-color: #fce8e6 !important;
+  padding: var(--spacing-md, 10px) var(--spacing-lg, 15px) !important;
+  border-radius: var(--radius-sm, 4px) !important;
+  margin: var(--spacing-md, 10px) 0 !important;
+  font-size: 14px !important;
+}
+
+/* Agent avatar in Genesys */
+.cx-widget.cx-webchat .cx-message .cx-avatar-wrapper {
+  /* More specific to message context */
+  width: 32px !important;
+  height: 32px !important;
+  /* position and top are handled by Genesys message structure */
+}
+
+.cx-widget.cx-webchat .cx-message .cx-avatar {
+  /* More specific to message context */
+  border-radius: var(--radius-full, 50%) !important;
+  background-color: var(
+    --bcbst-blue,
+    #0056b3
+  ) !important; /* Default avatar bg */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  height: 100%;
+  /* In case an <img> tag is used inside */
+}
+.cx-widget.cx-webchat .cx-message .cx-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full, 50%) !important;
+}
+
+/* Hide "Powered by Genesys" text */
+.cx-widget .cx-footer .cx-powered-by {
+  display: none !important;
+}
+
+/* Fix for potential layout issues with message bubbles (from bcbst-custom) */
+.cx-widget.cx-webchat .cx-bubble:after,
+.cx-widget.cx-webchat .cx-bubble:before {
+  display: none !important;
+}
+
+/* Minimized chat indicator with notification (Genesys: .cx-webchat-counter) */
+.cx-widget.cx-webchat.cx-minimized .cx-webchat-counter {
+  background-color: #e94235 !important; /* Notification red */
+  color: white !important;
+  border-radius: var(--radius-full, 50%) !important;
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important; /* Position relative to minimized button/tab */
+  top: -5px; /* Adjust as needed */
+  right: -5px; /* Adjust as needed */
+}
+
+/* Styles for the #genesys-chat-container ANCHOR div */
+/* This is the div we create to house the Genesys widget. */
+/* It should not interfere with page layout but allow Genesys widget to be visible. */
+#genesys-chat-container {
+  position: relative !important; /* Allows absolute positioning of children if Genesys uses it */
+  z-index: 998 !important; /* Below main chat window (999), above most page content */
+  height: 0 !important;
+  width: 0 !important;
+  overflow: visible !important; /* CRITICAL: Allows chat widget to display outside this zero-size div */
+  transform: none !important; /* Reset any inherited transforms */
+  filter: none !important; /* Reset any inherited filters */
+  perspective: none !important; /* Reset any inherited perspective */
+}
+
+/* Fallback/override for the Genesys default button if it appears via ID #cx_chat_form_button */
+/* This ensures it's positioned bottom-right and styled like our other chat buttons. */
+body #cx_chat_form_button,
+#cx_chat_form_button.cx-side-button {
+  position: fixed !important;
+  bottom: var(--spacing-xl, 20px) !important;
+  right: var(--spacing-xl, 20px) !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  background-color: var(--bcbst-blue, #0056b3) !important;
+  color: white !important;
+  border-radius: var(--radius-md, 8px) !important;
+  padding: var(--spacing-md, 12px) !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 500 !important;
+  box-shadow: var(
+    --shadow-chat-button,
+    0 2px 8px rgba(0, 0, 0, 0.2)
+  ) !important;
+  border: none !important;
+  z-index: 2147483647 !important;
+  width: var(--chat-button-size, 56px) !important;
+  height: var(--chat-button-size, 56px) !important;
+  display: inline-flex !important; /* To center content like icon */
+  align-items: center !important;
+  justify-content: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+  perspective: none !important;
+}
+body #cx_chat_form_button:hover,
+#cx_chat_form_button.cx-side-button:hover {
+  background-color: var(--bcbst-blue-dark, #0074e0) !important;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* Attempt to neutralize transforms on potential problematic ancestor containers like .cx-side-button-group */
+/* (from bcbst-custom.css) */
+.cx-side-button-group {
+  transform: none !important;
+  -webkit-transform: none !important;
+}

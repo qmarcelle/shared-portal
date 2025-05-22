@@ -1151,12 +1151,31 @@
         custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
       });
 
-      // NEW: If user has multiple plans, add plan information row
+      // "Before you begin" Disclaimers
+      inputs.push({
+        custom:
+          "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Before you begin:</h4></td></tr>",
+      });
+      const disclaimers = [
+        'Our representatives are available Monday-Friday, 8am-8pm ET.',
+        'For security, we may need to verify your identity before discussing specific plan details.',
+        'For medical emergencies, please call 911 or go to the nearest emergency room.',
+      ];
+      disclaimers.forEach((disclaimer) => {
+        inputs.push({
+          custom: `<tr class='activeChat'><td colspan='2' style='font-size:0.9em; padding-left:10px;'><span style='margin-right: 5px;'>•</span>${disclaimer}</td></tr>`,
+        });
+      });
+      inputs.push({
+        custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
+      });
+
+      // If user has multiple plans, add plan information row
       if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
         inputs.push({
-          custom: `<tr class='activeChat'><td colspan='2'><div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:#f8f9fa;border-radius:4px;margin-bottom:10px;">
-            <div><strong>Chatting about:</strong> ${cfg.currentPlanName}</div>
-            <button onclick="window.openPlanSwitcher();return false;" style="background:#007bff;color:white;border:none;border-radius:4px;padding:5px 10px;cursor:pointer;">Switch Plan</button>
+          custom: `<tr class='activeChat'><td colspan='2'><div style=\"display:flex;justify-content:space-between;align-items:center;padding:10px;background:#f8f9fa;border-radius:4px;margin-bottom:10px;\">\
+            <div><strong>Chatting about:</strong> ${cfg.currentPlanName}</div>\
+            <button onclick=\"if(window.handleLegacyPlanSwitchRequest) { window.handleLegacyPlanSwitchRequest(); } else { console.warn('handleLegacyPlanSwitchRequest not found on window'); } return false;\" class=\"btn-chat-secondary\" style=\"background: none; color: var(--bcbst-blue, #0079C2); border: 1px solid var(--bcbst-blue, #0079C2); border-radius: var(--radius-sm, 6px); padding: var(--spacing-sm, 8px) var(--spacing-md, 12px); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;\">Switch Plan</button>\
           </div></td></tr>`,
         });
         inputs.push({
