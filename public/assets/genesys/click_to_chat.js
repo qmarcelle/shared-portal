@@ -5,6 +5,8 @@
   // Initialize global flags for coordinating chat open requests
   window.genesysLegacyChatOpenRequested = false;
   window.genesysLegacyChatIsReady = false;
+  let firstChatButtonClick = true; // Added for audio alert on first click
+
   console.log(
     '[click_to_chat.js] Initial window.chatSettings:',
     JSON.parse(JSON.stringify(window.chatSettings || {})),
@@ -360,11 +362,39 @@
           console.log('[Genesys] Audio unavailable, using silent fallback');
       });
 
+      // Method to play sound muted (for browser autoplay policies)
+      webAlert.playMuteSoundOnce = function () {
+        const currentMuteState = this.muted;
+        this.muted = true;
+        const playPromise = this.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              // Muted playback successful
+              console.log('[Genesys] Muted audio played once.');
+              // Restore original mute state AFTER a short delay if needed,
+              // but for this purpose, we might leave it to be unmuted by actual play call
+              // setTimeout(() => { this.muted = currentMuteState; }, 100);
+            })
+            .catch((error) => {
+              console.warn(
+                '[Genesys] Muted audio playMuteSoundOnce failed:',
+                error,
+              );
+            });
+        }
+        // Intentionally leave it muted; the regular play will unmute if called by webAlert.play()
+      };
+
       return webAlert;
     } catch (err) {
       console.error('[Genesys] Audio initialization failed:', err);
       // Return an object with a no-op play method
-      return { play: () => console.log('[Genesys] Audio unavailable') };
+      return {
+        play: () => console.log('[Genesys] Audio unavailable'),
+        playMuteSoundOnce: () =>
+          console.log('[Genesys] Audio unavailable, cannot playMuteSoundOnce'),
+      };
     }
   };
 
@@ -535,6 +565,51 @@
     console.log(
       `[click_to_chat.js] Timestamp: ${Date.now()} - initializeChatWidget START`,
     );
+
+    // Function to handle chat open request (for button onclick)
+    window.requestChatOpen = function () {
+      console.log('[Genesys] requestChatOpen called.');
+      if (firstChatButtonClick) {
+        console.log(
+          '[Genesys] First chat button click, attempting to play muted sound.',
+        );
+        webAlert.playMuteSoundOnce();
+        firstChatButtonClick = false;
+      }
+      if (
+        window._genesysCXBus &&
+        typeof window._genesysCXBus.command === 'function'
+      ) {
+        // Check if chat is already open or trying to open
+        // This state check might need refinement based on actual Genesys widget states
+        if (
+          window._genesys &&
+          window._genesys.widgets &&
+          window._genesys.widgets.webchat &&
+          (window._genesys.widgets.webchat.state === 'opened' ||
+            window._genesys.widgets.webchat.state === 'opening')
+        ) {
+          console.log(
+            '[Genesys] Chat already open or opening. Ignoring requestChatOpen.',
+          );
+          return;
+        }
+        window._genesysCXBus
+          .command('WebChat.open')
+          .done(function (e) {
+            console.log('[Genesys] WebChat.open commanded successfully.');
+          })
+          .fail(function (e) {
+            console.error('[Genesys] WebChat.open command failed:', e);
+          });
+      } else {
+        console.error('[Genesys] CXBus not available to open chat.');
+        // Fallback or error display logic if CXBus isn't ready
+        alert(
+          'Chat service is not available at the moment. Please try again later.',
+        );
+      }
+    };
 
     // Ported from JSPF: Chat Disclaimer, Error Overlay Functions, and Avatar
     // These may use calculatedCiciId and clientIdConst which are defined later in this function's scope.
@@ -803,9 +878,39 @@
     function getCalculatedCiciId(currentCfg) {
       // Ensure these are correctly populated in currentCfg from window.chatSettings
       // and that validateConfig handles string booleans appropriately
+
+      // Priority 1: BlueEliteGroup
       if (String(currentCfg.isBlueEliteGroup) === 'true') return 'INDVMX'; // JSPF check was '${isBlueEliteGroup}' == 'true'
+
+      // Priority 2: Individual Group Type
       if (currentCfg.groupType === 'INDV') return 'INDV'; // JSPF check was groupType === 'INDV'
-      return currentCfg.memberClientID || 'Default'; // Fallback to Default
+
+      // Priority 3: clientClassificationId (if available and valid)
+      // This assumes clientClassificationId is passed in currentCfg
+      if (
+        currentCfg.clientClassificationId &&
+        typeof currentCfg.clientClassificationId === 'string' &&
+        currentCfg.clientClassificationId.trim() !== '' &&
+        currentCfg.clientClassificationId.trim().toLowerCase() !==
+          'undefined' &&
+        currentCfg.clientClassificationId.trim().toLowerCase() !== 'null'
+      ) {
+        return currentCfg.clientClassificationId.trim();
+      }
+
+      // Priority 4: memberClientID (equivalent to JSPF's ciciname as a fallback)
+      // This assumes memberClientID is passed in currentCfg
+      if (
+        currentCfg.memberClientID &&
+        typeof currentCfg.memberClientID === 'string' &&
+        currentCfg.memberClientID.trim() !== '' &&
+        currentCfg.memberClientID.trim().toLowerCase() !== 'undefined' &&
+        currentCfg.memberClientID.trim().toLowerCase() !== 'null'
+      ) {
+        return currentCfg.memberClientID.trim();
+      }
+
+      return 'Default'; // Fallback to Default
     }
     const calculatedCiciId = getCalculatedCiciId(cfg); // Call it with the cfg object
 
@@ -1248,7 +1353,7 @@
               : window.chatSettings.chatButtonEnabled,
           template:
             window.chatSettings.chatButtonTemplate ||
-            // Use the original div structure that works with the injected CSS
+            // MODIFIED: onclick to call window.requestChatOpen()
             '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           // Original template was:
           // '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
@@ -1271,7 +1376,7 @@
             : {
                 // Legacy mode transport configuration
                 type: 'rest', // Or whatever the legacy transport type was, default often implies REST/long-polling for older widgets
-                dataURL: cfg.clickToChatEndpoint, // Used by legacy
+                dataURL: gmsServicesConfig.GMSChatURL(), // Used by legacy, now respects demo endpoint logic
                 asyncConfiguration: true, // Added for robustness
                 reconnectOnError: true, // Added for robustness
                 timeout: 60000, // Increased timeout to 60 seconds
@@ -1561,9 +1666,38 @@
           });
         }
       });
-      plugin.subscribe('WebChat.messageAdded', function () {
+      plugin.subscribe('WebChat.messageAdded', function (e) {
+        // Added 'e' parameter for event data
         console.log('[Genesys] WebChat.messageAdded event received.');
         // Add any custom logic for new messages
+        // JSPF logic: if (msg.data.message.type == "Agent" && msg.data.message.text != "" && webAlert.muted == true) { webAlert.play(); }
+        // This can be added here if precise JSPF parity is needed for when to play the sound.
+        // For now, relying on browser handling or specific interactions to unmute.
+        // The playMuteSoundOnce on first click should help.
+        // If a message from an agent comes and webAlert is muted (e.g. user hasn't interacted enough), it still might not play.
+        // Browsers are strict. A more robust solution might involve user interaction to explicitly unmute.
+
+        if (
+          e.data.message.type === 'Agent' &&
+          e.data.message.text &&
+          webAlert.muted
+        ) {
+          console.log(
+            '[Genesys] Agent message received and alert is muted. Attempting to play alert.',
+          );
+          // Unmute and play
+          webAlert.muted = false;
+          const playPromise = webAlert.play();
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              console.warn(
+                '[Genesys] Error playing audio alert for agent message:',
+                error,
+              );
+              // webAlert.muted = true; // Optionally re-mute if playback failed due to interaction rules
+            });
+          }
+        }
       });
       plugin.subscribe('WebChat.submitted', function (e) {
         console.log('[Genesys] WebChat.submitted event received.');
