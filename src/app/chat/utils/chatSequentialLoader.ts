@@ -79,7 +79,7 @@ export function markApiCallStarted(): void {
  */
 export function updateApiState(
   isEligible: boolean,
-  chatMode: 'legacy' | 'cloud',
+  chatMode: 'legacy' | 'cloud' | null,
 ): void {
   logger.info('[ChatSequentialLoader] API call completed', {
     isEligible,

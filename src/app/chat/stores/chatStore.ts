@@ -10,6 +10,7 @@ import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { getChatInfo } from '../api';
 import {
+  ApiConfig,
   buildGenesysChatConfig,
   GenesysChatConfig,
 } from '../config/genesysChatConfig';
@@ -93,7 +94,7 @@ interface ChatState {
     loadChatConfiguration: (
       // Parameters needed for the getChatInfo API call
       apiCallMemberId: string, // Specific ID for the API call (e.g., memeck)
-      apiCallPlanId: string, // Specific Plan ID for the API call
+      // apiCallPlanId: string, // Specific Plan ID for the API call - REMOVED
 
       // Full data models now passed directly
       loggedInMember: LoggedInMember,
@@ -272,18 +273,18 @@ export const useChatStore = create<ChatState>((set, get) => {
       loadChatConfiguration: makeStable(
         async (
           apiCallMemberId: string,
-          apiCallPlanId: string,
           loggedInMember: LoggedInMember,
           sessionUser: SessionUser,
           userProfile: UserProfile,
           currentPlanDetails: CurrentPlanDetails,
         ) => {
           logger.info(
-            `${LOG_CONFIG_PREFIX} loadChatConfiguration: Action initiated.`,
+            `${LOG_CONFIG_PREFIX} loadChatConfiguration called. Member ID for API: ${apiCallMemberId}`,
             {
-              apiCallMemberId,
-              apiCallPlanId,
-              currentPlanName: currentPlanDetails.currentPlanName,
+              loggedInMemberUserId: loggedInMember.userId,
+              sessionUserId: sessionUser.id,
+              userProfileId: userProfile.id,
+              currentPlanDetails,
             },
           );
           set((state) => ({
@@ -291,123 +292,104 @@ export const useChatStore = create<ChatState>((set, get) => {
           }));
 
           try {
-            const memberTypeForApi = sessionUser.currUsr?.role;
+            logger.info(
+              `${LOG_CONFIG_PREFIX} Calling getChatInfo with memberId: ${apiCallMemberId}`,
+            );
+            const rawChatConfig = await getChatInfo(apiCallMemberId);
 
             logger.info(
-              `${LOG_CONFIG_PREFIX} Attempting to fetch chat configurations via getChatInfo.`,
-              { apiCallMemberId, apiCallPlanId, memberTypeForApi },
-            );
-            const chatInfoResponse = await getChatInfo(
-              apiCallMemberId,
-              apiCallPlanId,
-              memberTypeForApi,
-            );
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Raw chatInfoResponse from getChatInfo API:`,
-              JSON.parse(JSON.stringify(chatInfoResponse)), // Deep clone for reliable logging of the raw object
-            );
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Raw chatInfoResponse (ApiConfig source):`,
-              {
-                data: chatInfoResponse,
-              },
+              `${LOG_CONFIG_PREFIX} getChatInfo raw response:`,
+              rawChatConfig,
             );
 
-            const parsedChatInfo = ChatConfigSchema.safeParse(chatInfoResponse);
+            const parsedChatInfo = ChatConfigSchema.safeParse(rawChatConfig);
             if (!parsedChatInfo.success) {
               logger.error(
-                `${LOG_CONFIG_PREFIX} Failed to validate raw chatInfo API response against ChatConfigSchema.`,
+                `${LOG_CONFIG_PREFIX} Failed to validate API response against ChatConfigSchema.`,
                 {
                   errors: parsedChatInfo.error.errors,
-                  rawData: chatInfoResponse,
+                  rawData: rawChatConfig,
                 },
               );
-            } else {
-              logger.info(
-                `${LOG_CONFIG_PREFIX} Successfully validated raw chatInfo API response.`,
-                { data: parsedChatInfo.data },
+              throw new Error(
+                'Chat configuration validation failed against schema.',
               );
             }
-            const rawApiDataForConfig = chatInfoResponse;
-
+            const validatedConfig = parsedChatInfo.data;
             logger.info(
-              `${LOG_CONFIG_PREFIX} Data for buildGenesysChatConfig:`,
-              {
-                loggedInMember,
-                sessionUser,
-                userProfile,
-                rawApiDataForConfig,
-                currentPlanDetails,
-              },
+              `${LOG_CONFIG_PREFIX} Successfully validated API response:`,
+              validatedConfig,
             );
 
-            const finalGenesysConfig = buildGenesysChatConfig({
-              apiConfig: rawApiDataForConfig,
+            // Define the expected argument type for buildGenesysChatConfig for explicit casting
+            type BuildChatConfigArg = {
+              loggedInMember: LoggedInMember;
+              sessionUser: SessionUser;
+              userProfile: UserProfile;
+              apiConfig: ApiConfig;
+              currentPlanDetails: CurrentPlanDetails;
+              staticConfig?: Partial<GenesysChatConfig>;
+            };
+
+            // Build the GenesysChatConfig DTO using the validated API response
+            const buildOutput = buildGenesysChatConfig({
               loggedInMember,
               sessionUser,
               userProfile,
+              apiConfig: validatedConfig as ApiConfig,
               currentPlanDetails,
-              staticConfig: {
-                targetContainer: 'genesys-chat-container',
-              },
-            });
-            logger.info(`${LOG_CONFIG_PREFIX} Final genesysChatConfig built:`, {
-              chatMode: finalGenesysConfig.chatMode,
-              userID: finalGenesysConfig.userID,
-              numberOfPlans: finalGenesysConfig.numberOfPlans,
-              currentPlanName: finalGenesysConfig.currentPlanName,
-              LOB: finalGenesysConfig.LOB,
-              INQ_TYPE: finalGenesysConfig.INQ_TYPE,
-            });
+              // staticConfig: {} // Optionally pass static overrides here
+            } as BuildChatConfigArg);
+            logger.info(
+              `${LOG_CONFIG_PREFIX} Successfully built Genesys chat config:`,
+              buildOutput,
+            );
 
             updateApiState(
-              finalGenesysConfig.isChatEligibleMember as boolean,
-              finalGenesysConfig.chatMode === 'cloud' ? 'cloud' : 'legacy',
+              buildOutput.isChatEligibleMember as boolean,
+              buildOutput.chatMode === 'cloud' ? 'cloud' : 'legacy',
             );
 
             set((state) => ({
               config: {
                 ...state.config,
-                genesysChatConfig: finalGenesysConfig,
+                genesysChatConfig: buildOutput,
                 legacyConfig:
-                  finalGenesysConfig.chatMode === 'legacy'
-                    ? (finalGenesysConfig as unknown as ChatSettings)
+                  buildOutput.chatMode === 'legacy'
+                    ? (buildOutput as unknown as ChatSettings)
                     : undefined,
                 cloudConfig:
-                  finalGenesysConfig.chatMode === 'cloud'
+                  buildOutput.chatMode === 'cloud'
                     ? {
                         environment:
-                          (finalGenesysConfig as unknown as CloudChatConfig)
+                          (buildOutput as unknown as CloudChatConfig)
                             .environment || '',
                         deploymentId:
-                          (finalGenesysConfig as unknown as CloudChatConfig)
+                          (buildOutput as unknown as CloudChatConfig)
                             .deploymentId || '',
                         customAttributes: {
                           Firstname:
-                            finalGenesysConfig.formattedFirstName ||
-                            finalGenesysConfig.memberFirstname,
-                          lastname: finalGenesysConfig.memberLastName,
-                          MEMBER_ID: finalGenesysConfig.MEMBER_ID,
-                          MEMBER_DOB: finalGenesysConfig.memberDOB,
-                          GROUP_ID: finalGenesysConfig.groupId,
-                          PLAN_ID: finalGenesysConfig.memberMedicalPlanID,
-                          INQ_TYPE: finalGenesysConfig.INQ_TYPE,
-                          LOB: finalGenesysConfig.LOB,
-                          lob_group: (finalGenesysConfig as any).lob_group,
-                          SERV_Type: (finalGenesysConfig as any).SERV_Type,
-                          RoutingChatbotInteractionId: (
-                            finalGenesysConfig as any
-                          ).RoutingChatbotInteractionId,
-                          IDCardBotName: finalGenesysConfig.idCardChatBotName,
-                          IsVisionEligible: String(finalGenesysConfig.isVision),
-                          coverage_eligibility: (finalGenesysConfig as any)
+                            buildOutput.formattedFirstName ||
+                            buildOutput.memberFirstname,
+                          lastname: buildOutput.memberLastName,
+                          MEMBER_ID: buildOutput.MEMBER_ID,
+                          MEMBER_DOB: buildOutput.memberDOB,
+                          GROUP_ID: buildOutput.groupId,
+                          PLAN_ID: buildOutput.memberMedicalPlanID,
+                          INQ_TYPE: buildOutput.INQ_TYPE,
+                          LOB: buildOutput.LOB,
+                          lob_group: (buildOutput as any).lob_group,
+                          SERV_Type: (buildOutput as any).SERV_Type,
+                          RoutingChatbotInteractionId: (buildOutput as any)
+                            .RoutingChatbotInteractionId,
+                          IDCardBotName: buildOutput.idCardChatBotName,
+                          IsVisionEligible: String(buildOutput.isVision),
+                          coverage_eligibility: (buildOutput as any)
                             .coverage_eligibility,
-                          IsDentalEligible: String(finalGenesysConfig.isDental),
-                          IsMedicalEligible: String(
-                            finalGenesysConfig.isMedical,
-                          ),
-                          Origin: (finalGenesysConfig as any).Origin,
-                          'Source of chat': (finalGenesysConfig as any)[
+                          IsDentalEligible: String(buildOutput.isDental),
+                          IsMedicalEligible: String(buildOutput.isMedical),
+                          Origin: (buildOutput as any).Origin,
+                          'Source of chat': (buildOutput as any)[
                             'Source of chat'
                           ],
                         },
@@ -416,41 +398,38 @@ export const useChatStore = create<ChatState>((set, get) => {
                 isLoading: false,
                 error: null,
                 chatData: {
-                  isEligible:
-                    finalGenesysConfig.isChatEligibleMember as boolean,
-                  cloudChatEligible: finalGenesysConfig.chatMode === 'cloud',
-                  chatAvailable: finalGenesysConfig.isChatAvailable as boolean,
-                  chatGroup: finalGenesysConfig.chatGroup,
-                  workingHours: finalGenesysConfig.workingHours,
-                  rawChatHrs: finalGenesysConfig.rawChatHrs,
+                  isEligible: buildOutput.isChatEligibleMember as boolean,
+                  cloudChatEligible: buildOutput.chatMode === 'cloud',
+                  chatAvailable: buildOutput.isChatAvailable as boolean,
+                  chatGroup: buildOutput.chatGroup,
+                  workingHours: buildOutput.workingHours,
+                  rawChatHrs: buildOutput.rawChatHrs,
                   genesysCloudConfig:
-                    finalGenesysConfig.chatMode === 'cloud'
+                    buildOutput.chatMode === 'cloud'
                       ? {
                           deploymentId:
-                            (finalGenesysConfig as unknown as CloudChatConfig)
+                            (buildOutput as unknown as CloudChatConfig)
                               .deploymentId || '',
                           environment:
-                            (finalGenesysConfig as unknown as CloudChatConfig)
+                            (buildOutput as unknown as CloudChatConfig)
                               .environment || '',
                           orgId:
-                            (finalGenesysConfig as unknown as CloudChatConfig)
-                              .orgId || '',
+                            (buildOutput as unknown as CloudChatConfig).orgId ||
+                            '',
                         }
                       : undefined,
-                  routingInteractionId: (rawApiDataForConfig as any)
+                  routingInteractionId: (rawChatConfig as any)
                     ?.routingInteractionId,
                 },
-                chatConfig: parsedChatInfo.success
-                  ? parsedChatInfo.data
-                  : undefined,
-                token: isLegacyChatConfig(finalGenesysConfig)
-                  ? finalGenesysConfig.clickToChatToken
+                chatConfig: validatedConfig,
+                token: isLegacyChatConfig(buildOutput)
+                  ? buildOutput.clickToChatToken
                   : undefined,
               },
             }));
 
             if (typeof window !== 'undefined') {
-              window.chatSettings = finalGenesysConfig as any;
+              window.chatSettings = buildOutput as any;
               if (window.chatSettings) {
                 logger.info(
                   `${LOG_CONFIG_PREFIX} window.chatSettings has been populated for legacy mode.`,
@@ -473,19 +452,23 @@ export const useChatStore = create<ChatState>((set, get) => {
             );
           } catch (error: any) {
             logger.error(
-              `${LOG_CONFIG_PREFIX} Error during loadChatConfiguration:`,
-              { message: error.message, stack: error.stack },
+              `${LOG_CONFIG_PREFIX} Error in loadChatConfiguration:`,
+              error,
             );
-            get().actions.setError(
-              error instanceof Error ? error : new Error(String(error)),
-            );
-          } finally {
-            logger.info(`${LOG_CONFIG_PREFIX} loadChatConfiguration finished.`);
-            if (!get().config.error) {
-              set((state) => ({
-                config: { ...state.config, isLoading: false },
-              }));
-            }
+            set((state) => ({
+              config: {
+                ...state.config,
+                isLoading: false,
+                error,
+                genesysChatConfig: undefined,
+                legacyConfig: undefined,
+                cloudConfig: undefined,
+                chatData: null,
+                chatConfig: undefined,
+              },
+            }));
+            updateApiState(false, null);
+            throw error; // Re-throw to allow ChatProvider to catch it
           }
         },
       ),

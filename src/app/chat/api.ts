@@ -31,12 +31,10 @@ export interface ChatInfoResponse {
 
 export async function getChatInfo(
   memberId: string,
-  planId: string,
   memberType?: string,
 ): Promise<ChatInfoResponse> {
   const params = new URLSearchParams();
   params.append('memberId', memberId);
-  params.append('planId', planId);
   if (memberType) {
     params.append('memberType', memberType);
   }
