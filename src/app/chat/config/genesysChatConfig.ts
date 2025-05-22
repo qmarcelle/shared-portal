@@ -37,48 +37,6 @@ export interface PlanConfig {
   isBlueEliteGroup?: string | boolean;
 }
 
-// KEEPING ApiConfig for now as a reference, will remove once ChatConfig is fully aligned.
-export interface ApiConfig {
-  [key: string]: unknown;
-  // Explicitly type critical fields for better type checking
-  isDemoMember?: string | boolean;
-  isAmplifyMem?: string | boolean;
-  isCobrowseActive?: string | boolean;
-  isMagellanVAMember?: string | boolean;
-  isMedicalAdvantageGroup?: string | boolean;
-  isDental?: string | boolean;
-  isVision?: string | boolean;
-  isMedical?: string | boolean;
-  isIDCardEligible?: string | boolean;
-  isCobraEligible?: string | boolean;
-  selfServiceLinks?: Array<{ key: string; value: string }>;
-  // Adding fields that were missing based on linter errors in buildGenesysChatConfig
-  groupType?: string;
-  INQ_TYPE?: string;
-  isChatEligibleMember?: string | boolean; // or isEligible
-  isEligible?: string | boolean; // ensure this matches one used
-  chatAvailable?: string | boolean; // or isChatAvailable
-  // chatIDChatBotName is used by buildGenesysChatConfig, map to ChatConfig's chatIDChatBotName
-  // chatBotEligibility is used, map to ChatConfig's chatBotEligibility
-  // routingChatBotEligibility is used, map to ChatConfig's routingChatBotEligibility
-  // genesysCloudConfig and its sub-properties (deploymentId, orgId, environment) are used
-  genesysCloudConfig?: {
-    deploymentId?: string;
-    orgId?: string;
-    environment?: string;
-  };
-  clickToChatDemoEndPoint?: string;
-  demoGmsChatUrl?: string;
-  chatTokenEndpoint?: string;
-  chatBtnText?: string;
-  chatWidgetTitle?: string;
-  chatWidgetSubtitle?: string;
-  enableCobrowse?: boolean | string; // For isCobrowseActive
-  showChatButton?: boolean;
-  coBrowseEndpoint?: string;
-  getToken?: string; // Referenced in legacy token resolution, though likely superseded
-}
-
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { UserProfile } from '@/models/user_profile';
 import { MemberPlan } from '@/userManagement/models/plan';
