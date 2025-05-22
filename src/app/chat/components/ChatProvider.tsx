@@ -610,13 +610,13 @@ export default function ChatProvider({
             numberOfPlans: mainAppPlanData.numberOfPlans,
             currentPlanName:
               mainAppPlanData.selectedPlan.name || 'Unknown Plan Name',
-            currentPlanLOB: mainAppPlanData.selectedPlan.lob,
+            currentPlanLOB: mainAppPlanData.selectedPlan.lob || 'Unknown LOB',
           }
         : {
             // This path should be unreachable due to the check for mainAppPlanData.selectedPlan
             numberOfPlans: mainAppPlanData.numberOfPlans,
             currentPlanName: 'Plan Not Available',
-            currentPlanLOB: undefined,
+            currentPlanLOB: 'Unknown LOB',
           };
 
     // Log the exact details being passed to loadChatConfiguration
