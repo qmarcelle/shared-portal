@@ -2,6 +2,7 @@ import { RouteConfig } from '@/models/auth/route_auth_config';
 import {
   activeAndHealthPlanMember,
   isActiveAndNotFSAOnly,
+  isAHAdvisorpage,
   isAnnualStatementEligible,
   isBalancesPageVisible,
   isBenefitBookletEnabled,
@@ -306,6 +307,10 @@ export const ROUTE_CONFIG: RouteConfig = {
         },
       },
     },
+    amplifyHealthSupport: {
+      title: 'Support',
+      rule: (r) => isAHAdvisorpage(r),
+    },
     profileSettings: {
       title: 'Profile Settings',
     },
@@ -330,7 +335,7 @@ export const ROUTE_CONFIG: RouteConfig = {
       breadcrumbParent: '/sharingPermissions',
     },
     accessOthersInformation: {
-      title: 'Access Others\' Information', //eslint-disable-line
+      title: "Access Others' Information", //eslint-disable-line
       breadcrumbParent: '/sharingPermissions',
     },
     personalRepresentativeAccess: {

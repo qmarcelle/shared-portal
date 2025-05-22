@@ -1,3 +1,6 @@
+import { isAHAdvisorpage } from "@/visibilityEngine/computeVisibilityRules";
+import { VisibilityRules } from "@/visibilityEngine/rules";
+
 export const rewriteRules: Record<string, string> = {
   // home Path
   '/member/home': '/dashboard',
@@ -97,6 +100,16 @@ export const rewriteRules: Record<string, string> = {
   '/member/profile/accountsharing/personalrep': '/personalRepresentativeAccess',
   '/member/profile/accountsharing/thirdparty': '/thirdPartySharing',
   '/member/profile/communication': '/communicationSettings',
+};
+
+export const conditionalRewriteRules: Record<string, (r: VisibilityRules) => string> = {
+  '/member/support': (r) => {
+    if (isAHAdvisorpage(r)) {
+      return '/amplifyHealthSupport';
+    } else {
+      return '/support';
+    }
+  }
 };
 
 export const wildcardRewriteRules: Record<string, string> = {
