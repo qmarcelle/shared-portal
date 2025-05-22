@@ -600,10 +600,6 @@ export default function ChatProvider({
     // allDataLoaded ensures mainAppPlanData.selectedPlan is non-null here.
     const apiCallMemberId = mainAppPlanData.selectedPlan!.id; // Use non-null assertion as allDataLoaded checks this
 
-    const apiCallPlanId =
-      planContext.planId ||
-      (mainAppPlanData.selectedPlan ? mainAppPlanData.selectedPlan.id : '');
-
     const currentPlanDetailsForBuild: CurrentPlanDetails =
       mainAppPlanData.selectedPlan // This is now guaranteed non-null by the check above
         ? {
@@ -622,7 +618,6 @@ export default function ChatProvider({
     // Log the exact details being passed to loadChatConfiguration
     logger.info(`${LOG_PREFIX} Preparing to call loadChatConfiguration with:`, {
       apiCallMemberId,
-      apiCallPlanId,
       loggedInMemberDetailsUserId: loggedInMemberDetails?.userId,
       sessionUserId: session.user?.id,
       userProfileDataId: userProfileData?.id,
@@ -631,7 +626,6 @@ export default function ChatProvider({
 
     loadChatConfiguration(
       apiCallMemberId,
-      apiCallPlanId,
       loggedInMemberDetails, // Already checked for non-null
       session.user as SessionUser, // Already checked for non-null
       userProfileData, // Already checked for non-null (specifically userProfileData.id)
@@ -640,7 +634,6 @@ export default function ChatProvider({
       const errorContext = {
         detailsPassedToLoadChatConfiguration: {
           apiCallMemberId,
-          apiCallPlanId,
           loggedInMemberDetailsUserId: loggedInMemberDetails?.userId,
           sessionUserId: session.user?.id,
           userProfileDataId: userProfileData?.id,
