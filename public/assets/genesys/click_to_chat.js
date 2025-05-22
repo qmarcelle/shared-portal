@@ -6,6 +6,7 @@
   window.genesysLegacyChatOpenRequested = false;
   window.genesysLegacyChatIsReady = false;
   let firstChatButtonClick = true; // Added for audio alert on first click
+  window.customPreChatCompleted = false; // Initialize the new flag
 
   console.log(
     '[click_to_chat.js] Initial window.chatSettings:',
@@ -1140,183 +1141,148 @@
     // === Chat Form Builder ===
     function buildActiveChatInputs() {
       const inputs = [];
+      const cs = window.chatSettings || {}; // Use current chatSettings
 
-      // Title section
-      inputs.push({
-        custom: isAmplifyMem // Uses the const from outer scope
-          ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\'s talk.' style='font-size:30px'></td></tr>"
-          : "<tr class='activeChat'><td colspan='2' data-message='We\'re right here <br>for you. Let\'s chat.' style='font-size:30px'></td></tr>",
-      });
-      inputs.push({
-        custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
-      });
+      // If custom pre-chat modal has done its job, render minimal or no visible form.
+      // We still might want to include disclaimers or hidden fields if necessary.
+      if (window.customPreChatCompleted) {
+        logger.info(
+          '[click_to_chat.js] buildActiveChatInputs: Custom pre-chat was completed. Building minimal/no visible form.',
+        );
 
-      // "Before you begin" Disclaimers
-      inputs.push({
-        custom:
-          "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Before you begin:</h4></td></tr>",
-      });
-      const disclaimers = [
-        'Our representatives are available Monday-Friday, 8am-8pm ET.',
-        'For security, we may need to verify your identity before discussing specific plan details.',
-        'For medical emergencies, please call 911 or go to the nearest emergency room.',
-      ];
-      disclaimers.forEach((disclaimer) => {
+        // Example: Only add disclaimers if they are still desired
         inputs.push({
-          custom: `<tr class='activeChat'><td colspan='2' style='font-size:0.9em; padding-left:10px;'><span style='margin-right: 5px;'>•</span>${disclaimer}</td></tr>`,
+          custom:
+            "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Important Information:</h4></td></tr>",
         });
-      });
-      inputs.push({
-        custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
-      });
-
-      // If user has multiple plans, add plan information row
-      if (cfg.numberOfPlans > 1 && cfg.currentPlanName) {
+        const disclaimerMsg = getChatDisclaimerMesg(
+          cs.clientClassificationId,
+          cs.effectiveLob,
+        );
         inputs.push({
-          custom: `<tr class='activeChat'><td colspan='2'><div style=\"display:flex;justify-content:space-between;align-items:center;padding:10px;background:#f8f9fa;border-radius:4px;margin-bottom:10px;\">\
-            <div><strong>Chatting about:</strong> ${cfg.currentPlanName}</div>\
-            <button onclick=\"if(window.handleLegacyPlanSwitchRequest) { window.handleLegacyPlanSwitchRequest(); } else { console.warn('handleLegacyPlanSwitchRequest not found on window'); } return false;\" class=\"btn-chat-secondary\" style=\"background: none; color: var(--bcbst-blue, #0079C2); border: 1px solid var(--bcbst-blue, #0079C2); border-radius: var(--radius-sm, 6px); padding: var(--spacing-sm, 8px) var(--spacing-md, 12px); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;\">Switch Plan</button>\
-          </div></td></tr>`,
+          custom:
+            "<tr class='activeChat'><td colspan='2' style='font-size: 0.85em; padding-bottom:15px;'>" +
+            disclaimerMsg +
+            '</td></tr>',
+        });
+
+        // Add hidden fields for any data that Genesys might expect as form fields rather than just userData
+        // This is less common for modern Genesys but can be a fallback.
+        // For example, if a field MUST be a "form field":
+        // inputs.push({ name: 'firstName', value: cs.firstName || '', type: 'hidden' });
+        // inputs.push({ name: 'lastName', value: cs.lastName || '', type: 'hidden' });
+
+        // Crucially, ensure chatSettings (userData) is still passed to WebChat.open
+        // The primary goal here is to prevent redundant UI.
+      } else {
+        logger.info(
+          '[click_to_chat.js] buildActiveChatInputs: Standard pre-chat form build.',
+        );
+        // Original extensive form building logic:
+        inputs.push({
+          custom: isAmplifyMem
+            ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\'s talk.' style='font-size:30px'></td></tr>"
+            : "<tr class='activeChat'><td colspan='2' data-message='We\'re right here <br>for you. Let\'s chat.' style='font-size:30px'></td></tr>",
         });
         inputs.push({
           custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
         });
-      }
 
-      // Service type selector or chatbot routing
-      if (!routingchatbotEligible) {
-        // Uses const from outer scope
+        // "Before you begin" Disclaimers
+        // ... (keep existing disclaimer logic as it's informational)
         inputs.push({
           custom:
-            calculatedCiciId === clientIdConst.SeniorCare
-              ? "<tr class='activeChat'><td colspan='2'><br></td></tr>"
-              : "<tr class='activeChat'><td colspan='2' class='cx-control-label i18n' data-message='What can we help you with today?'></td></tr>",
+            "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Before you begin:</h4></td></tr>",
         });
+        const disclaimerMsg = getChatDisclaimerMesg(
+          cs.clientClassificationId,
+          cs.effectiveLob,
+        );
         inputs.push({
-          id: 'question_field',
-          name: 'SERV_TYPE',
-          type: 'select',
-          // setOptions function was not provided in the original snippet, assuming it exists in scope
-          options:
-            typeof setOptions === 'function'
-              ? setOptions(isDentalOnly() ? 'dentalOnly' : calculatedCiciId)
-              : [],
-          validateWhileTyping: true,
-          validate: function (event, form, input) {
-            if (input && input.val()) {
-              $('button[data-message="ChatFormSubmit"]')
-                .removeAttr('disabled')
-                .attr({
-                  id: 'startChat',
-                  class: 'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
-                });
-              return true;
-            }
-            return calculatedCiciId === clientIdConst.SeniorCare;
+          custom:
+            "<tr class='activeChat'><td colspan='2' style='font-size: 0.85em; padding-bottom:15px;'>" +
+            disclaimerMsg +
+            '</td></tr>',
+        });
+
+        // Current Plan Display (if applicable and not handled by custom pre-chat)
+        if (
+          cs.showPlanInfoInInternalForm !== false &&
+          cs.GROUP_ID &&
+          cs.PLAN_ID
+        ) {
+          const planIdentifier =
+            cs.PLAN_NAME || `Group ${cs.GROUP_ID} / Plan ${cs.PLAN_ID}`;
+          inputs.push({
+            custom:
+              "<tr class='activeChat cx-plan-info'><td colspan='2' style='padding-bottom:10px; font-size:0.9em;'>" +
+              '<div>You are currently viewing information for:</div>' +
+              "<div class='cx-plan-info-text' style='font-weight:bold;'>" +
+              escapeHTML(planIdentifier) +
+              '</div>' +
+              '</td></tr>',
+          });
+        }
+
+        // Standard input fields (FirstName, LastName, Email, Subject)
+        // These might be redundant if PreChatModal.tsx collected them and they are in window.chatSettings for userData
+        inputs.push({
+          label: 'First Name',
+          name: 'firstName',
+          value: cs.firstName || '',
+          maxlength: '100',
+          validate: function (event, values, utils) {
+            return !utils.isEmpty(values.firstName);
           },
+          validationMessage: 'Please enter your first name.',
         });
-      } else {
-        inputs.push({ name: 'SERV_TYPE', value: null, type: 'hidden' }); // Value could be explicitly null or not set
         inputs.push({
-          name: 'ChatBotID',
-          value: 'RoutingChatbot',
-          type: 'hidden',
+          label: 'Last Name',
+          name: 'lastName',
+          value: cs.lastName || '',
+          maxlength: '100',
+          validate: function (event, values, utils) {
+            return !utils.isEmpty(values.lastName);
+          },
+          validationMessage: 'Please enter your last name.',
         });
-      }
+        inputs.push({
+          label: 'Email',
+          name: 'email',
+          value: cs.email || '',
+          maxlength: '100',
+          validate: function (event, values, utils) {
+            return utils.isEmail(values.email);
+          },
+          validationMessage: 'Please enter a valid email address.',
+        });
+        inputs.push({
+          label: 'Subject',
+          name: 'subject',
+          value: cs.subject || 'General Inquiry',
+          maxlength: '100',
+          type: 'text', // Explicitly text, not select
+        });
 
-      // Hidden fields for various settings
-      const hiddenFields = [
-        {
-          id: 'LOB',
-          name: 'LOB',
-          value: defaultedClientID(calculatedCiciId),
-          type: 'hidden',
-        },
-        {
-          id: 'IsMedicalEligible',
-          name: 'IsMedicalEligible',
-          value: String(cfg.isMedical === 'true' || cfg.isMedical === true), // Ensure string true/false from cfg
-          type: 'hidden',
-        },
-        {
-          id: 'IsDentalEligible',
-          name: 'IsDentalEligible',
-          value: String(cfg.isDental === 'true' || cfg.isDental === true), // Ensure string true/false from cfg
-          type: 'hidden',
-        },
-        {
-          id: 'IsVisionEligible',
-          name: 'IsVisionEligible',
-          value: String(cfg.isVision === 'true' || cfg.isVision === true), // Ensure string true/false from cfg
-          type: 'hidden',
-        },
-        {
-          id: 'IDCardBotName',
-          name: 'IDCardBotName',
-          value: routingchatbotEligible ? cfg.idCardChatBotName || '' : '',
-          type: 'hidden',
-        },
-      ];
+        // Conditional "Inquiry Type" dropdown (example, might be replaced by subject or other logic)
+        if (cs.inquiryTypes && cs.inquiryTypes.length > 0) {
+          inputs.push({
+            label: 'How can we help you today?',
+            name: 'INQ_TYPE', // This will be passed in userData
+            type: 'select',
+            options: cs.inquiryTypes.map((it) => ({
+              text: it.display,
+              value: it.value,
+            })),
+            value: cs.INQ_TYPE || cs.inquiryTypes[0]?.value, // Default to first or existing
+          });
+        }
+      } // End of "else" for standard form build
 
-      hiddenFields.forEach((field) => inputs.push(field));
-
-      // Terms and conditions
-      inputs.push({
-        custom:
-          // OpenChatDisclaimer function was not provided, assuming it exists in scope
-          "<tr class='activeChat'><td>By clicking on the button, you agree with our <a href='#' onclick='OpenChatDisclaimer();return false;'>Terms and Conditions</a> for chat.</td></tr>",
-      });
-      inputs.push({
-        custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
-      });
-
-      // User demographics fields (these are often used by Genesys to pre-fill or pass data)
-      const demographicFields = [
-        {
-          id: 'firstName_field', // ID might be for specific styling/DOM manipulation if needed
-          name: 'firstname', // Standard Genesys field name
-          value: cfg.formattedFirstName || cfg.firstname || '',
-        },
-        {
-          id: 'lastname_field',
-          name: 'lastname',
-          value: cfg.memberLastName || cfg.lastname || '',
-        },
-        {
-          id: 'memberId_field',
-          name: 'MEMBER_ID', // Custom field name for your backend/agent desktop
-          value: `${cfg.subscriberID || ''}-${cfg.sfx || ''}`,
-        },
-        {
-          id: 'groupId_field',
-          name: 'GROUP_ID',
-          value: cfg.groupId || '',
-        },
-        {
-          id: 'planId_field',
-          name: 'PLAN_ID',
-          value: cfg.memberMedicalPlanID || '',
-        },
-        {
-          id: 'dob_field',
-          name: 'MEMBER_DOB',
-          value: cfg.memberDOB || '',
-        },
-        {
-          id: 'inquiryType_field',
-          name: 'INQ_TYPE',
-          value: getChatType(calculatedCiciId),
-        },
-      ];
-
-      // Add demographic fields to inputs. These might not be 'hidden' in the traditional sense
-      // but are often part of the data payload for the chat.
-      demographicFields.forEach((field) => {
-        // If these are meant to be actual hidden form inputs, they'd need type: 'hidden'
-        // If they are just data passed to the widget, this structure is fine.
-        inputs.push({ ...field, type: field.type || 'hidden' }); // Default to hidden if type not specified
-      });
-
+      logger.info(
+        '[click_to_chat.js] buildActiveChatInputs constructed inputs:',
+        inputs,
+      );
       return inputs;
     }
 

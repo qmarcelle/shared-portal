@@ -32,8 +32,9 @@
 }
 
 /* 1. Chat Button Components */
-/* Primary Chat Button (BCBST-Chat-Button-Active) */
+/* Primary Chat Button (BCBST-Chat-Button-Active) - STYLES MOVED TO .cx-widget.cx-webchat-chat-button */
 /* Desktop/Tablet */
+/*
 .chat-button {
   width: var(--chat-button-size);
   height: var(--chat-button-size);
@@ -50,31 +51,39 @@
   align-items: center;
   justify-content: center;
 }
+*/
 
 /* Mobile */
+/*
 .chat-button-mobile {
   width: var(--chat-button-size-mobile);
   height: var(--chat-button-size-mobile);
   bottom: var(--spacing-lg);
   right: var(--spacing-lg);
 }
+*/
 
 /* Icon inside button */
+/*
 .chat-button-icon {
   color: white;
-  width: var(--spacing-xl); /* 24px */
-  height: var(--spacing-xl); /* 24px */
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
 }
+*/
 
 /* Hover state */
+/*
 .chat-button:hover {
   background: var(--bcbst-blue-dark);
   transform: scale(1.05);
   transition: all 0.2s ease;
 }
+*/
 
 /* 2. Chat Window/Container */
-/* Main Chat Container */
+/* Main Chat Container - STYLES MOVED TO .cx-widget.cx-webchat */
+/*
 .chat-container {
   width: var(--chat-container-width);
   height: var(--chat-container-height);
@@ -84,7 +93,7 @@
   position: fixed;
   bottom: calc(
     var(--chat-button-size) + var(--spacing-xl) + var(--spacing-md)
-  ); /* Above chat button */
+  );
   right: var(--spacing-xl);
   border: 1px solid #e5e7eb;
   overflow: hidden;
@@ -92,8 +101,10 @@
   display: flex;
   flex-direction: column;
 }
+*/
 
 /* Mobile - Full screen overlay */
+/*
 .chat-container-mobile {
   width: 100vw;
   height: 100vh;
@@ -103,20 +114,24 @@
   top: 0;
   left: 0;
 }
+*/
 
 /* Tablet */
+/*
 .chat-container-tablet {
   width: var(--chat-container-width-tablet);
   height: var(--chat-container-height-tablet);
 }
+*/
 
-/* Chat Header */
+/* Chat Header - STYLES MOVED TO .cx-widget.cx-webchat .cx-titlebar */
+/*
 .chat-header {
   background: var(--bcbst-blue);
   color: white;
-  padding: var(--spacing-lg) var(--spacing-xl); /* 16px 20px before, now 16px 24px based on scale*/
+  padding: var(--spacing-lg) var(--spacing-xl);
   font-weight: 600;
-  font-size: 16px; /* Assuming 1rem = 16px */
+  font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,8 +145,8 @@
 }
 
 .chat-minimize-button {
-  width: var(--spacing-xl); /* 24px */
-  height: var(--spacing-xl); /* 24px */
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
   background: none;
   border: none;
   color: white;
@@ -141,6 +156,7 @@
   align-items: center;
   justify-content: center;
 }
+*/
 
 /* 3. Pre-Chat Modal (Custom Modal) */
 /* Modal Container */
@@ -428,126 +444,177 @@
 /* and incorporate styles previously in bcbst-custom.css */
 
 /* Main container when chat is maximized */
-/* This complements/overrides .chat-container for the Genesys widget base */
+/* Incorporates styles from the old .chat-container */
 .cx-widget.cx-webchat {
   border-radius: var(
     --radius-lg,
-    8px
-  ) !important; /* Uses variable, fallback from bcbst-custom */
+    12px
+  ) !important; /* Updated from original .chat-container */
   box-shadow: var(
     --shadow-chat-container,
-    0 4px 12px rgba(0, 0, 0, 0.15)
-  ) !important;
-  width: var(--chat-container-width, 400px) !important;
-  height: auto !important; /* Genesys handles height dynamically, respect that */
+    0 8px 32px rgba(0, 0, 0, 0.12)
+  ) !important; /* Updated */
+  width: var(--chat-container-width, 400px) !important; /* Updated */
+  height: var(
+    --chat-container-height,
+    600px
+  ) !important; /* Updated, Genesys might also control this */
   max-height: var(--chat-container-height, 600px) !important;
-  /* bottom and right are handled by .chat-container or Genesys defaults, avoid conflicting here unless necessary */
+  /* position: fixed !important; */ /* Genesys handles its own fixed/absolute positioning relative to #genesys-chat-container */
+  /* bottom: calc(var(--chat-button-size) + var(--spacing-xl) + var(--spacing-md)) !important; */ /* Positioning relative to button is complex with Genesys default */
+  /* right: var(--spacing-xl) !important; */
+  border: 1px solid #e5e7eb !important; /* Updated */
+  background: white !important; /* Added from .chat-container */
   overflow: hidden !important;
-  /* Ensuring position fixed for the main widget if it's not already handled by .chat-container which is also fixed */
-  position: fixed !important;
-  bottom: calc(
-    var(--chat-button-size, 56px) + var(--spacing-xl, 24px) +
-      var(--spacing-md, 12px)
-  ) !important; /* Default position above custom .chat-button */
-  right: var(--spacing-xl, 24px) !important;
+  display: flex !important; /* Added from .chat-container */
+  flex-direction: column !important; /* Added from .chat-container */
+  /* z-index should be managed by Genesys, avoid overriding unless necessary. It's usually very high. */
+  /* z-index: 999 !important; */ /* From .chat-container */
 }
 
-/* Default Genesys Chat button (collapsed state) */
-/* Styles for .cx-widget.cx-webchat-chat-button */
+/* Adjustments for mobile and tablet if Genesys widget needs to adapt */
+@media (max-width: 768px) {
+  /* Example tablet breakpoint */
+  .cx-widget.cx-webchat {
+    width: var(--chat-container-width-tablet, 360px) !important;
+    height: var(--chat-container-height-tablet, 540px) !important;
+    max-height: var(--chat-container-height-tablet, 540px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Example mobile breakpoint */
+  .cx-widget.cx-webchat {
+    /* For mobile, Genesys often goes full screen by default when opened.
+       If specific width/height is desired instead of full screen: */
+    /* width: 100vw !important; */
+    /* height: 100vh !important; */
+    /* border-radius: 0 !important; */
+    /* bottom: 0 !important; */
+    /* right: 0 !important; */
+    /* top: 0 !important; */
+    /* left: 0 !important; */
+    /* If Genesys handles full-screen mobile well, these overrides might not be needed,
+       or only specific ones like border-radius if it doesn't go edge-to-edge. */
+  }
+}
+
+/* Default Genesys Chat Button styling */
+/* Incorporates styles from the old .chat-button */
 .cx-widget.cx-webchat-chat-button {
-  position: fixed !important;
-  bottom: var(--spacing-xl, 20px) !important;
-  right: var(
-    --spacing-xl,
-    20px
-  ) !important; /* Changed from left: 50% and transform */
-  left: auto !important; /* Ensure left is not interfering */
-  transform: none !important; /* Remove centering transform */
-  background-color: var(--bcbst-blue, #0056b3) !important;
-  color: white !important;
-  border-radius: var(
-    --radius-md,
-    8px
-  ) !important; /* Making it a rounded square/circle based on padding */
-  padding: var(
-    --spacing-md,
-    12px
-  ) !important; /* Adjust padding for a more compact button */
-  font-family: 'Helvetica Neue', Arial, sans-serif !important;
-  font-weight: 500 !important;
+  /* Sizing & Shape */
+  width: var(--chat-button-size, 56px) !important;
+  height: var(--chat-button-size, 56px) !important;
+  border-radius: var(--radius-full, 50%) !important;
+
+  /* Colors & Shadow */
+  background-color: var(--bcbst-blue, #0079c2) !important;
   box-shadow: var(
     --shadow-chat-button,
-    0 2px 8px rgba(0, 0, 0, 0.2)
+    0 4px 12px rgba(0, 121, 194, 0.3)
   ) !important;
+
+  /* Positioning - Genesys default is bottom-right, ensure it stays there if not overridden by widget config */
+  position: fixed !important; /* Already fixed by default */
+  bottom: var(--spacing-xl, 24px) !important; /* Ensure consistency */
+  right: var(--spacing-xl, 24px) !important; /* Ensure consistency */
+  left: auto !important; /* Override any centering attempts from previous versions */
+  top: auto !important;
+  transform: none !important; /* Override any centering transforms */
+
+  /* Misc */
   border: none !important;
-  z-index: 2147483647 !important; /* Maximum z-index */
-  width: var(--chat-button-size, 56px) !important; /* Sensible width */
-  height: var(--chat-button-size, 56px) !important; /* Sensible height */
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  text-align: center;
-}
-
-.cx-widget.cx-webchat-chat-button .cx-icon {
-  margin: 0 !important; /* Remove margin if button is just icon */
-  font-size: var(--spacing-xl, 24px); /* Ensure icon is sized well */
-}
-
-.cx-widget.cx-webchat-chat-button:hover {
-  background-color: var(--bcbst-blue-dark, #0074e0) !important;
-  transform: scale(1.05); /* Add hover effect consistent with .chat-button */
-  transition: all 0.2s ease; /* Add transition consistent with .chat-button */
-}
-
-/* Chat header (Genesys: .cx-titlebar) */
-/* This complements/overrides .chat-header for the Genesys widget base */
-.cx-widget.cx-webchat .cx-titlebar {
-  background-color: var(--bcbst-blue, #0056b3) !important;
-  color: white !important;
-  padding: var(--spacing-lg, 15px) !important; /* Adjusted to use vars */
-  font-size: 16px !important; /* Consistent with .chat-header */
-  font-weight: 600 !important; /* Consistent with .chat-header */
-  height: auto !important;
-  min-height: 50px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-shrink: 0; /* Consistent with .chat-header */
-}
-
-/* Plan information display in Genesys header */
-.cx-widget.cx-webchat .cx-titlebar .cx-custom-titlebar-text {
-  font-size: 14px !important;
-  font-weight: normal !important;
-  opacity: 0.9 !important;
-  margin-top: var(--spacing-xs, 5px) !important;
-}
-
-/* Header buttons (minimize, close) in Genesys */
-.cx-widget.cx-webchat .cx-titlebar .cx-buttons {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-icon {
-  /* Made selector more specific */
-  color: white !important;
-  opacity: 0.8 !important;
   cursor: pointer !important;
-  padding: var(--spacing-xs, 5px) !important;
-  /* Ensure consistency with .chat-minimize-button if these are the same targets */
-  width: var(--spacing-xl, 24px) !important;
-  height: var(--spacing-xl, 24px) !important;
-  display: flex !important; /* For centering icon within its padding box */
+  padding: 0 !important; /* Remove Genesys padding to allow icon to center */
+  z-index: 2147483646 !important; /* High z-index, slightly below potential modals or max Genesys z-index for window */
+  display: flex !important; /* Ensure flex for icon centering */
   align-items: center !important;
   justify-content: center !important;
+  /* visibility: visible !important; */ /* Controlled by Genesys API */
+  /* opacity: 1 !important; */ /* Controlled by Genesys API */
+  /* min-width: 0 !important; */ /* Let width/height define size */
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease !important;
 }
 
-.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-icon:hover {
-  opacity: 1 !important;
+/* Icon inside Genesys chat button */
+/* Assuming Genesys uses an SVG or an <i> tag with a class for the icon */
+.cx-widget.cx-webchat-chat-button .cx-icon,
+.cx-widget.cx-webchat-chat-button svg {
+  /* Target common Genesys icon patterns */
+  color: white !important;
+  width: var(--spacing-xl, 24px) !important; /* From .chat-button-icon */
+  height: var(--spacing-xl, 24px) !important; /* From .chat-button-icon */
+  fill: currentColor; /* For SVGs */
+}
+
+/* Hover state for Genesys chat button */
+.cx-widget.cx-webchat-chat-button:hover {
+  background-color: var(
+    --bcbst-blue-dark,
+    #005a94
+  ) !important; /* From .chat-button:hover */
+  transform: scale(1.05) !important; /* From .chat-button:hover */
+  /* Ensure no text decoration if Genesys adds it */
+  text-decoration: none !important;
+}
+
+/* Mobile specific adjustments for Genesys button if needed */
+@media (max-width: 480px) {
+  .cx-widget.cx-webchat-chat-button {
+    width: var(--chat-button-size-mobile, 48px) !important;
+    height: var(--chat-button-size-mobile, 48px) !important;
+    bottom: var(--spacing-lg, 16px) !important;
+    right: var(--spacing-lg, 16px) !important;
+  }
+  .cx-widget.cx-webchat-chat-button .cx-icon,
+  .cx-widget.cx-webchat-chat-button svg {
+    width: 20px !important; /* Slightly smaller icon for smaller button */
+    height: 20px !important;
+  }
+}
+
+/* Chat window title bar (Genesys: .cx-titlebar) */
+/* Incorporates styles from the old .chat-header */
+.cx-widget.cx-webchat .cx-titlebar {
+  background: var(--bcbst-blue, #0079c2) !important; /* From .chat-header */
+  color: white !important; /* From .chat-header */
+  padding: var(--spacing-lg, 16px) var(--spacing-xl, 24px) !important; /* From .chat-header */
+  font-weight: 600 !important; /* From .chat-header */
+  /* font-size: 16px !important; */ /* Genesys might have its own structure for title text */
+  display: flex !important; /* From .chat-header */
+  justify-content: space-between !important; /* From .chat-header */
+  align-items: center !important; /* From .chat-header */
+  flex-shrink: 0 !important; /* From .chat-header */
+  border-bottom: none !important; /* Remove default Genesys border if any */
+  height: auto !important; /* Let content define height */
+  min-height: 50px !important; /* Ensure a minimum height */
+}
+
+/* Styling for the title text within Genesys title bar */
+.cx-widget.cx-webchat .cx-titlebar .cx-title, /* Common Genesys class for title text */
+.cx-widget.cx-webchat .cx-titlebar .cx-custom-titlebar-text /* If click_to_chat.js injects this */ {
+  font-size: 16px !important; /* From .chat-header-title */
+  font-weight: 600 !important; /* From .chat-header-title */
+  line-height: 1.4 !important; /* From .chat-header-title */
+  color: white !important; /* Ensure text is white */
+}
+
+/* Styling for buttons (minimize, close) in Genesys title bar */
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-button, /* Target generic button container */
+.cx-widget.cx-webchat .cx-titlebar .cx-buttons .cx-icon {
+  /* Target icon directly */
+  background: none !important; /* From .chat-minimize-button */
+  border: none !important; /* From .chat-minimize-button */
+  color: white !important; /* From .chat-minimize-button */
+  cursor: pointer !important; /* From .chat-minimize-button */
+  padding: 0 !important; /* From .chat-minimize-button */
+  display: flex !important; /* From .chat-minimize-button */
+  align-items: center !important; /* From .chat-minimize-button */
+  justify-content: center !important; /* From .chat-minimize-button */
+  width: var(--spacing-xl, 24px) !important; /* From .chat-minimize-button */
+  height: var(--spacing-xl, 24px) !important; /* From .chat-minimize-button */
 }
 
 /* Chat transcript area (Genesys: .cx-transcript) */
@@ -932,4 +999,71 @@ body #cx_chat_form_button:hover,
 .cx-side-button-group {
   transform: none !important;
   -webkit-transform: none !important;
+}
+
+/* Fallback Chat Button Styling */
+/* Ensures any fallback button rendered by ChatWidget.tsx has the same appearance */
+.fallback-chat-button {
+  /* Sizing & Shape */
+  width: var(--chat-button-size, 56px) !important;
+  height: var(--chat-button-size, 56px) !important;
+  border-radius: var(--radius-full, 50%) !important;
+
+  /* Colors & Shadow */
+  background-color: var(--bcbst-blue, #0079c2) !important;
+  box-shadow: var(
+    --shadow-chat-button,
+    0 4px 12px rgba(0, 121, 194, 0.3)
+  ) !important;
+  color: white !important; /* For text/icon inside */
+
+  /* Positioning */
+  position: fixed !important;
+  bottom: var(--spacing-xl, 24px) !important;
+  right: var(--spacing-xl, 24px) !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+
+  /* Misc */
+  border: none !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  z-index: 2147483646 !important; /* Consistent with main button */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.fallback-chat-button .cx-icon, /* If it happens to use cx-icon */
+.fallback-chat-button svg {
+  /* Or direct SVG */
+  color: white !important;
+  width: var(--spacing-xl, 24px) !important;
+  height: var(--spacing-xl, 24px) !important;
+  fill: currentColor;
+}
+
+.fallback-chat-button:hover {
+  background-color: var(--bcbst-blue-dark, #005a94) !important;
+  transform: scale(1.05) !important;
+  text-decoration: none !important;
+}
+
+/* Mobile specific adjustments for Fallback button */
+@media (max-width: 480px) {
+  .fallback-chat-button {
+    width: var(--chat-button-size-mobile, 48px) !important;
+    height: var(--chat-button-size-mobile, 48px) !important;
+    bottom: var(--spacing-lg, 16px) !important;
+    right: var(--spacing-lg, 16px) !important;
+  }
+  .fallback-chat-button .cx-icon,
+  .fallback-chat-button svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
 }
