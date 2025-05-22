@@ -305,12 +305,20 @@ export async function GET(request: NextRequest) {
     const validatedData = {
       ...data,
       orgId: data.orgId || process.env.NEXT_PUBLIC_GENESYS_CLOUD_ORG_ID, // Example fallback
+      // Ensure clickToChatEndpoint uses the GMS URL
       clickToChatEndpoint:
         data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
-      gmsChatUrl: data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL,
-      // Add other critical fallbacks here IF AND ONLY IF they should have system-wide defaults
-      // and are not expected to always come from the backend.
-      // For example, clickToChatToken should ideally always come from the backend.
+      gmsChatUrl: data.gmsChatUrl || process.env.NEXT_PUBLIC_GMS_CHAT_URL, // This should also be from the same source
+      // clickToChatToken should ideally always come from the backend, validated below.
+      // widgetUrl and clickToChatJs are usually static or from env, ensure they are present if needed by legacy mode.
+      widgetUrl:
+        data.widgetUrl ||
+        process.env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
+        '/assets/genesys/plugins/widgets.min.js',
+      clickToChatJs:
+        data.clickToChatJs ||
+        process.env.NEXT_PUBLIC_CLICK_TO_CHAT_JS_URL ||
+        '/assets/genesys/click_to_chat.js',
     };
 
     if (!validatedData.clickToChatToken) {
