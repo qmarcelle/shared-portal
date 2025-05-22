@@ -57,33 +57,33 @@ const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow page-section-63_33 items-stretch">
-              {spendBalDetails.length > 0 ? (
-                spendBalDetails.map((item, index) => (
-                  <SpendingAccountsBalance
-                    key={index}
-                    className="large-section"
-                    details={[
-                      {
-                        label: item.planYear,
-                        value: '0',
-                      },
-                    ]}
-                    onSelectedDetailChange={() => {}}
-                    selectedDetailId="0"
-                    contributionsAmount={item.contributionsAmount}
-                    distributionsAmount={item.distributionsAmount}
-                    balanceAmount={item.balanceAmount}
-                    transactionsLabel={item.transactionsLabel}
-                    spendingBalanceTitle={item.spendingBalanceTitle}
-                    accountTypeText={item.accountTypeText}
-                  />
-                ))
-              ) : (
-                <ErrorInfoCard
-                  className="mt-4"
-                  errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
-                />
-              )}
+              {spendBalDetails.length > 0
+                ? spendBalDetails.map((item, index) => (
+                    <SpendingAccountsBalance
+                      key={index}
+                      className="large-section"
+                      details={[
+                        {
+                          label: item.planYear,
+                          value: '0',
+                        },
+                      ]}
+                      onSelectedDetailChange={() => {}}
+                      selectedDetailId="0"
+                      contributionsAmount={item.contributionsAmount}
+                      distributionsAmount={item.distributionsAmount}
+                      balanceAmount={item.balanceAmount}
+                      transactionsLabel={item.transactionsLabel}
+                      spendingBalanceTitle={item.spendingBalanceTitle}
+                      accountTypeText={item.accountTypeText}
+                    />
+                  ))
+                : spendAccDTO.isApiError && (
+                    <ErrorInfoCard
+                      className="mt-4"
+                      errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
+                    />
+                  )}
             </Column>
             <Column className="flex-grow page-section-36_67 items-stretch mt-4">
               <RelatedLinks isHealthEquity={spendAccDTO.isHealthEquity!} />

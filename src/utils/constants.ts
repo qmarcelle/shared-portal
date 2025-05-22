@@ -24,13 +24,13 @@ export const ES_ACCTFLAG_FSA = 4;
 export const ES_ACCTFLAG_DCRA = 8;
 
 export const SPEND_ACC_BANK_MAP: { [key: string]: string } = {
-  hasbank: 'visit HSA Bank',
+  hsabank: 'visit HSA Bank',
   healthequity: 'visit Health Equity',
   pinnacle: 'visit Pinnacle',
 };
 
 export const SPEND_ACC_SSO_MAP: { [key: string]: string } = {
-  hasbank: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HSA_BANK}`,
+  hsabank: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HSA_BANK}`,
   healthequity: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`,
   pinnacle: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PINNACLE_BANK}`,
 };

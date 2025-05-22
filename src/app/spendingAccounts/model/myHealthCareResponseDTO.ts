@@ -7,6 +7,7 @@ export interface MyHealthCareResponseDTO {
   exHRAAccnt?: HRABalance;
   healthAccountInfo?: HealthAccountInfo[];
   isHealthEquity?: boolean;
+  isApiError: boolean;
 }
 
 interface Balance {
