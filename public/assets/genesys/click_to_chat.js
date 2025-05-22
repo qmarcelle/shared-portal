@@ -1156,7 +1156,7 @@
       // If custom pre-chat modal has done its job, render minimal or no visible form.
       // We still might want to include disclaimers or hidden fields if necessary.
       if (window.customPreChatCompleted) {
-        logger.info(
+        console.log(
           '[click_to_chat.js] buildActiveChatInputs: Custom pre-chat was completed. Building minimal/no visible form.',
         );
 
@@ -1185,7 +1185,7 @@
         // Crucially, ensure chatSettings (userData) is still passed to WebChat.open
         // The primary goal here is to prevent redundant UI.
       } else {
-        logger.info(
+        console.log(
           '[click_to_chat.js] buildActiveChatInputs: Standard pre-chat form build.',
         );
         // Original extensive form building logic:
@@ -1289,7 +1289,7 @@
         }
       } // End of "else" for standard form build
 
-      logger.info(
+      console.log(
         '[click_to_chat.js] buildActiveChatInputs constructed inputs:',
         inputs,
       );
