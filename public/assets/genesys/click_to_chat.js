@@ -67,7 +67,17 @@
   };
 
   // Load and validate config
-  const cfg = validateConfig(window.chatSettings || {});
+  // MODIFIED: For detailed logging of chatSettings source
+  console.log(
+    `[click_to_chat.js] Timestamp: ${Date.now()} - PRE-VALIDATE: Raw window.chatSettings:`,
+    JSON.parse(JSON.stringify(window.chatSettings || null)), // Log initial state or null
+  );
+  const sourceChatSettings = window.chatSettings || {};
+  const cfg = validateConfig(sourceChatSettings);
+  console.log(
+    `[click_to_chat.js] Timestamp: ${Date.now()} - POST-VALIDATE: Processed cfg:`,
+    JSON.parse(JSON.stringify(cfg)),
+  );
 
   // --- TEMP: FORCE LEGACY MODE FOR TESTING ---
   // TODO: Remove this line after testing legacy mode
@@ -1309,7 +1319,27 @@
           window.chatSettings.downloadGoogleFont === undefined
             ? false
             : window.chatSettings.downloadGoogleFont,
-        preload: window.chatSettings.preloadWidgets || ['webchat'], // e.g. ['webchat', 'sidebar']
+        // MODIFIED: For detailed logging of preloadWidgets source
+        preload: (function () {
+          const preloadSource = window.chatSettings.preloadWidgets;
+          const defaultValue = ['webchat'];
+          console.log(
+            `[click_to_chat.js] Timestamp: ${Date.now()} - PRELOAD_CONFIG: window.chatSettings.preloadWidgets:`,
+            JSON.parse(
+              JSON.stringify(
+                preloadSource === undefined ? 'undefined' : preloadSource,
+              ),
+            ),
+            `Defaulting to:`,
+            JSON.parse(JSON.stringify(defaultValue)),
+          );
+          const result = preloadSource || defaultValue;
+          console.log(
+            `[click_to_chat.js] Timestamp: ${Date.now()} - PRELOAD_CONFIG: Final preload value:`,
+            JSON.parse(JSON.stringify(result)),
+          );
+          return result;
+        })(),
         // Any other main settings from chatSettings
       });
 
@@ -2010,4 +2040,69 @@
   };
 
   // The old "FINAL CHECK" block that was here is now removed and integrated into initializeChatWidget.
+  // === FINAL CHECK (Example - this is where your fatal error log comes from) ===
+  // This timeout runs after click_to_chat.js has done its initial setup.
+  // It's a safeguard or diagnostic check.
+  setTimeout(function () {
+    console.log(
+      `[click_to_chat.js] Timestamp: ${Date.now()} - FINAL CHECK EXECUTING.`,
+    );
+    const widgetsOnReadyExists =
+      window._genesys &&
+      window._genesys.widgets &&
+      typeof window._genesys.widgets.onReady === 'function';
+    console.log(
+      `[click_to_chat.js] FINAL CHECK: window._genesys.widgets.onReady type: ${typeof (window._genesys && window._genesys.widgets ? window._genesys.widgets.onReady : 'undefined')}`,
+    );
+    console.log(
+      `[click_to_chat.js] FINAL CHECK: window._genesys.cobrowse.onReady type: ${typeof (window._genesys && window._genesys.cobrowse ? window._genesys.cobrowse.onReady : 'undefined')}`,
+    );
+
+    if (widgetsOnReadyExists) {
+      console.log(
+        '[click_to_chat.js] FINAL CHECK OK: window._genesys.widgets.onReady IS a function.',
+        'Current window._genesys (JSON.stringified with safety): ',
+        JSON.stringify(
+          window._genesys,
+          function (key, value) {
+            if (typeof value === 'function') {
+              return 'ƒ'; // Abbreviate functions
+            }
+            if (value instanceof Element) {
+              // Avoid stringifying DOM elements deeply
+              return `Element<${value.tagName}>`;
+            }
+            // Add other types to abbreviate if necessary
+            return value;
+          },
+          2,
+        ),
+      );
+    } else {
+      console.error(
+        '[click_to_chat.js] FINAL CHECK FATAL: window._genesys.widgets.onReady is NOT a function or widgets object is missing. Chat cannot initialize.',
+        'window._genesys current state:',
+        JSON.parse(
+          JSON.stringify(
+            window._genesys,
+            function (key, value) {
+              // Enhanced stringify
+              if (typeof value === 'function') {
+                return 'ƒ'; // Abbreviate functions
+              }
+              if (value instanceof Element) {
+                // Avoid stringifying DOM elements deeply
+                return `Element<${value.tagName}>`;
+              }
+              // Add other types to abbreviate if necessary
+              return value;
+            },
+            2,
+          ),
+        ), // Log the raw object for inspection, but with safety for complex objects
+      );
+      // Dispatch an error that ChatWidget can pick up
+      // ... existing code ...
+    }
+  }, 10000);
 })(window, document);
