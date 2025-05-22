@@ -1794,6 +1794,18 @@
       '[click_to_chat.js] window._genesys.widgets.onReady has been defined.',
     );
 
+    // MODIFICATION: Define and assign window._genesys.widgets.onReady BEFORE loading widgets.min.js
+    // Ensure _genesys and _genesys.widgets objects exist
+    window._genesys = window._genesys || {};
+    window._genesys.widgets = window._genesys.widgets || {};
+
+    // Assign the onReady handler
+    window._genesys.widgets.onReady = initLocalWidgetConfiguration;
+    console.log(
+      `[click_to_chat.js] Timestamp: ${Date.now()} - initializeChatWidget: window._genesys.widgets.onReady ASSIGNED.`,
+    );
+    // END MODIFICATION
+
     // Explicitly load widgets.min.js and then perform final checks
     // This ensures that the FINAL CHECK logic runs *after* widgets.min.js has attempted to load.
     if (cfg.chatMode === 'legacy' && cfg.widgetUrl) {
