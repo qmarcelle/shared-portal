@@ -3,6 +3,7 @@ import authConfig from './auth.config';
 import { type PortalUser } from './models/auth/user';
 import { computeSessionUser } from './userManagement/computeSessionUser';
 import { SessionUser } from './userManagement/models/sessionUser';
+import { logger } from './utils/logger';
 import { decodeVisibilityRules } from './visibilityEngine/converters';
 
 export const SERVER_ACTION_NO_SESSION_ERROR = 'Invalid session';
@@ -23,7 +24,7 @@ export const {
   callbacks: {
     //eslint-disable-next-line @typescript-eslint/no-unused-vars -- Token will be used for backend implementation but this is a stub for now
     async session({ token, session }) {
-      return {
+      const sessionToReturn = {
         ...session,
         user: {
           ...session.user,
@@ -33,6 +34,12 @@ export const {
           ),
         },
       };
+      // Log the session object that will be returned to the client via /api/auth/session
+      logger.info(
+        '[auth.ts] Session callback: Final session object being returned to client:',
+        sessionToReturn,
+      );
+      return sessionToReturn;
     },
     async jwt({ token, session, trigger, user }) {
       //Append necessary additional JWT values here
