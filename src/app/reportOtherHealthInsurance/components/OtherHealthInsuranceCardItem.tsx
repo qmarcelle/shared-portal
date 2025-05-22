@@ -102,7 +102,7 @@ export const OtherHealthInsuranceCardItem = ({
           cobDetails.dentalBean != null ||
           cobDetails.medicareDentalBean != null ||
           cobDetails.medicareMedicalBean != null ? (
-            <Row>
+            <>
               {cobDetails.medicareBean && (
                 <>
                   <TextBox className="ml-2 body-1" text="Medicare Plan" />
@@ -122,6 +122,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.dentalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox className="ml-2 body-1" text="Dental Plan" />
                   <TextBox
                     className="ml-2 body-2"
@@ -139,6 +140,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.medicalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox className="ml-2 body-1" text="Medical Plan" />
                   <TextBox
                     className="ml-2 body-2"
@@ -156,6 +158,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.medicareMedicalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox
                     className="ml-2 body-1"
                     text="Medicare Medical Plan"
@@ -176,8 +179,10 @@ export const OtherHealthInsuranceCardItem = ({
                   />
                 </>
               )}
+
               {cobDetails.medicareDentalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox
                     className="ml-2 body-1"
                     text="Medicare Dental Plan"
@@ -199,35 +204,39 @@ export const OtherHealthInsuranceCardItem = ({
                 </>
               )}
               <Spacer size={12} />
-              <TextBox
-                className="ml-2 body-1 inline"
-                text="Last Updated:"
-                display="inline"
-              />
-              <TextBox
-                className="ml-2 body-1 inline"
-                text={cobDetails.lastUpdated?.toString() ?? 'N/A'}
-                display="inline"
-              />
-            </Row>
+              <Row>
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="Last Updated:"
+                  display="inline"
+                />
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text={cobDetails.lastUpdated?.toString() ?? 'N/A'}
+                  display="inline"
+                />
+              </Row>
+            </>
           ) : (
-            <Row>
+            <>
               <TextBox
                 className="ml-2 body-1"
                 text="Not covered by other health insurance."
               />
               <Spacer size={12} />
-              <TextBox
-                className="ml-2 body-1 inline"
-                text="Last Updated:"
-                display="inline"
-              />
-              <TextBox
-                className="ml-2 body-1 inline"
-                text="N/A"
-                display="inline"
-              />
-            </Row>
+              <Row>
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="Last Updated:"
+                  display="inline"
+                />
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="N/A"
+                  display="inline"
+                />
+              </Row>
+            </>
           )}
           <Spacer size={16} />
           {getHealthInsuranceContent(cobDetails.memberName)}
