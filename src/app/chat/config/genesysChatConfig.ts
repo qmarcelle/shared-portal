@@ -350,12 +350,12 @@ export function buildGenesysChatConfig({
     INQ_TYPE: (apiConfig.INQ_TYPE as string) || 'General Inquiry',
 
     // From API Config (getChatInfo response)
-    isChatEligibleMember: String(
+    isChatEligibleMember: Boolean(
       (apiConfig.isChatEligibleMember as string | boolean | undefined) ??
         (apiConfig.isEligible as string | boolean | undefined) ??
         true,
     ),
-    isChatAvailable: String(
+    isChatAvailable: Boolean(
       (apiConfig.chatAvailable as boolean | undefined) ?? true,
     ),
     chatGroup: apiConfig.chatGroup as string,
