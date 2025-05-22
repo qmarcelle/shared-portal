@@ -17,6 +17,7 @@ import { ChatConfig, ChatConfigSchema } from '../schemas/genesys.schema';
 import {
   ChatSettings,
   CloudChatConfig,
+  isLegacyChatConfig,
   ScriptLoadPhase,
 } from '../types/chat-types'; // ChatSettings is LegacyChatConfig, import CloudChatConfig here
 import { updateApiState } from '../utils/chatSequentialLoader';
@@ -346,6 +347,9 @@ export const useChatStore = create<ChatState>((set, get) => {
               sessionUser,
               userProfile,
               currentPlanDetails,
+              staticConfig: {
+                targetContainer: 'genesys-chat-container',
+              },
             });
             logger.info(`${LOG_CONFIG_PREFIX} Final genesysChatConfig built:`, {
               chatMode: finalGenesysConfig.chatMode,
@@ -439,7 +443,9 @@ export const useChatStore = create<ChatState>((set, get) => {
                 chatConfig: parsedChatInfo.success
                   ? parsedChatInfo.data
                   : undefined,
-                token: finalGenesysConfig.clickToChatToken,
+                token: isLegacyChatConfig(finalGenesysConfig)
+                  ? finalGenesysConfig.clickToChatToken
+                  : undefined,
               },
             }));
 

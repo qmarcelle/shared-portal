@@ -9,6 +9,7 @@ import type {
   LegacyChatConfig,
 } from '../types/chat-types';
 import { isCloudChatConfig, isLegacyChatConfig } from '../types/chat-types';
+export type { GenesysChatConfig };
 
 // Define minimal types for user, plan, apiConfig
 export interface UserConfig {
