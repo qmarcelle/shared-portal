@@ -214,34 +214,56 @@ export function buildGenesysChatConfig({
 
   const finalMemberDOB = loggedInMember.dateOfBirth || userProfile.dob;
 
+  // Revert to expecting sessionUser.currUsr.plan as per SessionUser type definition
   const currentPlanContext = sessionUser.currUsr?.plan;
   if (!currentPlanContext) {
     const error = new Error(
-      'Current plan context (sessionUser.currUsr.plan) is required',
+      'Current plan context (sessionUser.currUsr.plan) is required and was not found on the sessionUser object.',
     );
     logger.error('[buildGenesysChatConfig] Missing sessionUser.currUsr.plan', {
       error,
+      sessionUserReceived: sessionUser, // Log the received sessionUser for inspection
     });
     throw error;
   }
 
-  const finalMemberMedicalPlanID = currentPlanContext.subId; // Assuming subId from active plan context is the relevant plan ID
+  const finalMemberMedicalPlanID = currentPlanContext.subId;
   if (!finalMemberMedicalPlanID) {
     const error = new Error(
-      'Member Medical Plan ID is required (from sessionUser.currUsr.plan.subId)',
+      'Member Medical Plan ID (subId) is required from sessionUser.currUsr.plan',
     );
     logger.error(
-      '[buildGenesysChatConfig] Missing derived memberMedicalPlanID',
-      { error },
+      '[buildGenesysChatConfig] Missing subId in sessionUser.currUsr.plan',
+      { error, currentPlanContextReceived: currentPlanContext },
     );
     throw error;
   }
 
-  const finalGroupId = currentPlanContext.grpId || loggedInMember.groupId;
+  const finalGroupId = currentPlanContext.grpId || loggedInMember.groupId; // Fallback to loggedInMember.groupId if not in plan context
+  if (!finalGroupId) {
+    const error = new Error(
+      'Group ID (grpId) is required from sessionUser.currUsr.plan or loggedInMember.groupId',
+    );
+    logger.error(
+      '[buildGenesysChatConfig] Missing grpId in plan context and no fallback in loggedInMember',
+      {
+        error,
+        currentPlanContextReceived: currentPlanContext,
+        loggedInMemberGroupId: loggedInMember.groupId,
+      },
+    );
+    throw error;
+  }
+
   const finalMemberClientID =
     currentPlanContext.ntwkId ||
     loggedInMember.lineOfBusiness ||
-    loggedInMember.lob;
+    loggedInMember.lob; // Fallback
+  if (!finalMemberClientID) {
+    logger.warn(
+      '[buildGenesysChatConfig] Could not determine finalMemberClientID (ntwkId equivalent from plan or LOB fallbacks).',
+    );
+  }
 
   // Derive groupType more accurately, following client classification expectations
   const finalGroupType =
@@ -250,7 +272,7 @@ export function buildGenesysChatConfig({
       ? 'INDV'
       : '') ||
     loggedInMember.groupName ||
-    currentPlanContext.grpId;
+    finalGroupId; // Uses reverted finalGroupId
 
   // Extract coverage types for dental/vision/medical flags
   const hasDental = !!loggedInMember.coverageTypes?.some((type) =>
@@ -271,7 +293,7 @@ export function buildGenesysChatConfig({
   const isBlueEliteGroup =
     (apiConfig.isBlueEliteGroup as boolean | string) ||
     loggedInMember.lob === 'INDVMX' ||
-    currentPlanContext.ntwkId === 'INDVMX' ||
+    finalMemberClientID === 'INDVMX' || // Uses reverted finalMemberClientID
     false;
 
   // Derive clientClassificationId
@@ -334,9 +356,7 @@ export function buildGenesysChatConfig({
         true,
     ),
     isChatAvailable: String(
-      (apiConfig.isChatAvailable as string | boolean | undefined) ??
-        (apiConfig.chatAvailable as string | boolean | undefined) ??
-        true,
+      (apiConfig.chatAvailable as boolean | undefined) ?? true,
     ),
     chatGroup: apiConfig.chatGroup as string,
     workingHours: apiConfig.workingHours as string,

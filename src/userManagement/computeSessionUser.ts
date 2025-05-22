@@ -34,15 +34,23 @@ export async function computeSessionUser(
       if (planId) {
         return computeTokenWithPlan(userId, currentUser, planId, impersonator);
       } else {
-        const selectedPlan = plans.length == 1 ? plans[0] : null;
+        // If no planId is provided, default to the first plan if available (even if multiple exist)
+        // This ensures currUsr.plan is populated during initial login.
+        const selectedPlan = plans.length >= 1 ? plans[0] : null;
         if (selectedPlan) {
           return computeTokenWithPlan(
             userId,
             currentUser,
-            selectedPlan.memCK,
+            selectedPlan.memCK, // Use memCK of the selected default plan
             impersonator,
           );
         }
+        // This block will now only be reached if currentUser has NO plans at all.
+        // This might indicate an issue with the user's data or PBE processing.
+        logger.warn(
+          '[computeSessionUser] Current user has no plans. currUsr.plan will be undefined.',
+          { userId, selectedUserId, pbeCurrentUserId: currentUser.id },
+        );
         return {
           id: userId,
           currUsr: {
