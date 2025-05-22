@@ -144,17 +144,7 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     chatMode: chatModeProp = 'legacy', // Use the passed prop, default to legacy if not provided
     isChatActuallyEnabled,
   }) => {
-    // const chatMode = 'legacy'; // REMOVED: Force chatMode to legacy for testing
-    // Use chatModeProp directly or assign it to a const if preferred for clarity for the rest of the component
     const chatMode = chatModeProp;
-
-    // TODO: Remove this hardcoding to 'legacy' after testing.
-    // if (originalChatModeProp !== chatMode) { // This log is no longer needed if we use the prop directly
-    //   logger.warn(
-    //     `${LOG_PREFIX} TEMP OVERRIDE: chatMode prop was '${originalChatModeProp}', but is forced to '${chatMode}' for legacy testing.`,
-    //   );
-    // }
-
     const [status, setStatus] = useState<
       | 'idle'
       | 'loading-css'
@@ -169,10 +159,24 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     const checkIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const instanceId = useRef<string>(`genesys-script-loader-${Date.now()}`);
 
+    // Log all initial props immediately after hooks
+    logger.info(
+      `${LOG_PREFIX} Instance ${instanceId.current} CREATED/RENDERED. Initial Props:`,
+      {
+        scriptUrl,
+        cssUrlsIsEmpty: !cssUrls || cssUrls.length === 0,
+        hasLegacyConfig: !!legacyConfig,
+        hasCloudConfig: !!cloudConfig,
+        hasOnLoad: !!onLoad,
+        hasOnError: !!onError,
+        showStatus,
+        chatModeReceived: chatModeProp,
+        chatModeEffective: chatMode,
+        isChatActuallyEnabled,
+      },
+    );
+
     // Logging props (kept as is)
-    logger.info(`${LOG_PREFIX} Component instance created/rendered. Props:`, {
-      /* ... */
-    });
     if (typeof window !== 'undefined') {
       // eslint-disable-next-line no-console
       console.log(
@@ -244,11 +248,10 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
         return cssUrls || cloudConfig?.cssUrls || []; // Prefer cloudConfig specific URLs
       }
       // Legacy mode or default
-      return (
-        cssUrls || legacyConfig?.cssUrls || [] // Reverted to empty array as default for legacy
-      );
-    }, [chatMode, cssUrls, legacyConfig, cloudConfig]);
-    // REMOVED: const stableCssUrls = useMemo(() => effectiveCssUrls, [effectiveCssUrls]);
+      // cssUrls prop is the direct source for legacy, or an empty array if not provided.
+      // legacyConfig does not and should not contain cssUrls.
+      return cssUrls || [];
+    }, [chatMode, cssUrls, cloudConfig]); // Removed legacyConfig from dependencies as it's not used here for CSS
 
     logger.info(`${LOG_PREFIX} Effective URLs determined:`, {
       script: effectiveScriptUrl,
@@ -687,8 +690,12 @@ const GenesysScriptLoader: React.FC<GenesysScriptLoaderProps> = React.memo(
     // REMOVED: handleError useCallback, as its logic is now in handleLoadError
 
     useEffect(() => {
-      // Initialization logic
-      if (!isActiveInstance()) return; // Use helper
+      // THIS IS A GENERAL PLACEMENT - ADJUST TO THE CORRECT EFFECTIVE HOOK
+      logger.info(
+        `${LOG_PREFIX} Instance ${instanceId.current} Main loading effect triggered. isChatActuallyEnabled at this point: ${isChatActuallyEnabled}`,
+      );
+
+      if (!isActiveInstance()) return;
 
       if (isChatActuallyEnabled === false) {
         // Explicitly check for false
