@@ -1,4 +1,6 @@
 import { auth } from '@/auth';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import BlueCareFooter from '../foundation/BlueCareFooter';
 import Footer from '../foundation/Footer';
 
 export const FooterServerWrapper = async () => {
@@ -7,7 +9,11 @@ export const FooterServerWrapper = async () => {
 
   if (isLogin) {
     try {
-      return <Footer />;
+      return isBlueCareEligible(session.user.vRules) ? (
+        <BlueCareFooter />
+      ) : (
+        <Footer />
+      );
     } catch (error) {
       return <></>;
     }

@@ -22,7 +22,7 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
   const currentYear = new Date().getFullYear();
   const currentPath =
-    typeof window !== 'undefined' ? window.location.pathname : '';
+    typeof window !== 'undefined' ? window.location.pathname : ' ';
   const specificPages = ['/member/amplifyhealthsupport'];
 
   const isSpecificPage = specificPages.includes(currentPath);
@@ -147,13 +147,11 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
             <ul className="space-y-4 body-2 font-thin">
               <li>
                 <Link
-                  href={
-                    'https://www.bcbst.com/about/our-company/corporate-governance/legal/nondiscrimination-notice'
-                  }
+                  href={'https://bluecare.bcbst.com/civil-rights'}
                   onClick={() =>
                     trackLinkAnalytics(
                       'Nondiscrimination',
-                      'https://www.bcbst.com/about/our-company/corporate-governance/legal/nondiscrimination-notice',
+                      'https://bluecare.bcbst.com/civil-rights',
                     )
                   }
                 >
@@ -162,11 +160,11 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
               </li>
               <li>
                 <Link
-                  href={'https://www.bcbst.com/use-insurance/member-rights'}
+                  href={'https://bluecare.bcbst.com/get-care/member-rights'}
                   onClick={() =>
                     trackLinkAnalytics(
                       'Member Rights',
-                      'https://www.bcbst.com/use-insurance/member-rights',
+                      'https://bluecare.bcbst.com/get-care/member-rights',
                     )
                   }
                 >
@@ -175,11 +173,11 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
               </li>
               <li>
                 <Link
-                  href={'https://www.bcbst.com/fraud'}
+                  href={'https://bluecare.bcbst.com/fight-fraud'}
                   onClick={() =>
                     trackLinkAnalytics(
                       'Fight Fraud',
-                      'https://www.bcbst.com/fraud',
+                      'https://bluecare.bcbst.com/fight-fraud',
                     )
                   }
                 >
@@ -204,17 +202,22 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
             <Row className="flex mt-4 grid grid-cols-6 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 md:mb-2 mb-0 lg:mb-0 gap-x-2 gap-y-4">
               {/* Social Media Icons */}
               <a
-                href={'https://www.facebook.com/bcbst'}
+                href={'https://www.facebook.com/BlueCareTN/'}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
                   trackLinkAnalytics(
                     'Facebook',
-                    'https://www.facebook.com/bcbst',
+                    'https://www.facebook.com/BlueCareTN/',
                   )
                 }
               >
-                <Image width={35} height={35} src={facebookLogo} alt="" />
+                <Image
+                  width={35}
+                  height={35}
+                  src={facebookLogo}
+                  alt="Facebook Icon"
+                />
               </a>
               <a
                 href="https://www.linkedin.com/company/bcbst"
@@ -227,20 +230,30 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
                   )
                 }
               >
-                <Image width={35} height={35} src={linkedinLogo} alt="" />
+                <Image
+                  width={35}
+                  height={35}
+                  src={linkedinLogo}
+                  alt="Linkedin Icon"
+                />
               </a>
               <a
-                href={'https://www.instagram.com/bcbst/?hl=en'}
+                href={'https://www.instagram.com/bluecaretn/'}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
                   trackLinkAnalytics(
                     'Instagram',
-                    'https://www.instagram.com/bcbst/?hl=en',
+                    'https://www.instagram.com/bluecaretn/',
                   )
                 }
               >
-                <Image width={35} height={35} src={instagramLogo} alt="" />
+                <Image
+                  width={35}
+                  height={35}
+                  src={instagramLogo}
+                  alt="Instagram Icon"
+                />
               </a>
               <a
                 href="https://www.youtube.com/@bcbstennessee/shorts"
@@ -253,7 +266,12 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
                   )
                 }
               >
-                <Image width={35} height={35} src={youtubeLogo} alt="" />
+                <Image
+                  width={35}
+                  height={35}
+                  src={youtubeLogo}
+                  alt="Youtube Icon"
+                />
               </a>
               <a
                 href="https://www.pinterest.com/bcbst/"
@@ -266,7 +284,12 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
                   )
                 }
               >
-                <Image width={35} height={35} src={pintrestLogo} alt="" />
+                <Image
+                  width={35}
+                  height={35}
+                  src={pintrestLogo}
+                  alt="Pinterest Icon"
+                />
               </a>
               <a
                 href="https://twitter.com/bcbst"
@@ -276,7 +299,7 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
                   trackLinkAnalytics('X', 'https://twitter.com/bcbst')
                 }
               >
-                <Image width={35} height={35} src={xLogo} alt="" />
+                <Image width={35} height={35} src={xLogo} alt="X Icon" />
               </a>
             </Row>
           </Column>
@@ -285,51 +308,87 @@ const Footer: React.FC<FooterProps> = ({}: FooterProps) => {
       <section className="bg-neutral text-white text-xs">
         <Column className="app-content container mx-auto text-center space-y-8 mb-[72px]">
           <Row className="flex flex-wrap justify-center gap-2 body-2">
-            <Link href={''}>Español</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Español
+            </Link>
             <span>|</span>
-            <Link href={''}>العربية</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              العربية
+            </Link>
             <span>|</span>
-            <Link href={''}>繁體中文</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              繁體中文
+            </Link>
             <span>|</span>
-            <Link href={''}>Tiếng Việt</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Tiếng Việt
+            </Link>
             <span>|</span>
-            <Link href={''}>한국어</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>한국어</Link>
             <span>|</span>
-            <Link href={''}>Français</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Français
+            </Link>
             <span>|</span>
-            <Link href={''}>ພາສາລາວ</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              ພາສາລາວ
+            </Link>
             <span>|</span>
-            <Link href={''}>Deutsch</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Deutsch
+            </Link>
             <span>|</span>
-            <Link href={''}>ગુજરાતી</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              ગુજરાતી
+            </Link>
             <span>|</span>
-            <Link href={''}>日本語</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>日本語</Link>
             <span>|</span>
-            <Link href={''}>Tagalog</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Tagalog
+            </Link>
             <span>|</span>
-            <Link href={''}>हिंदी</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>हिंदी</Link>
             <span>|</span>
-            <Link href={''}>Русский</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Русский
+            </Link>
             <span>|</span>
-            <Link href={''}>فارسی</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>فارسی</Link>
             <span>|</span>
-            <Link href={''}>Kreyòl Ayisyen</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Kreyòl Ayisyen
+            </Link>
             <span>|</span>
-            <Link href={''}>Polski</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>Polski</Link>
             <span>|</span>
-            <Link href={''}>Português</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Português
+            </Link>
             <span>|</span>
-            <Link href={''}>Italiano</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Italiano
+            </Link>
             <span>|</span>
-            <Link href={''}>Diné Bizaad</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Diné Bizaad
+            </Link>
             <span>|</span>
-            <Link href={''}>Deitsch</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Deitsch
+            </Link>
             <span>|</span>
-            <Link href={''}>Gagana Samoa</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Gagana Samoa
+            </Link>
             <span>|</span>
-            <Link href={''}>Kapasal Falawasch</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Kapasal Falawasch
+            </Link>
             <span>|</span>
-            <Link href={''}>Chamoru</Link>
+            <Link href={'https://bluecare.bcbst.com/taglines.pdf'}>
+              Chamoru
+            </Link>
           </Row>
 
           <Row className="mt-8 border-t border-text-white flex-col-reverse lg:flex-row pt-4 flex lg:justify-between space-y-2 md:space-y-0 lg:pb-4 body-2">
