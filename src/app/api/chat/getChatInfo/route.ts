@@ -195,6 +195,24 @@ export async function GET(request: NextRequest) {
     if (response.headers.get('content-type')?.includes('application/json')) {
       try {
         data = await response.json();
+
+        // Clean up widgetUrl if it exists and is a string
+        if (data && typeof data.widgetUrl === 'string') {
+          const originalWidgetUrl = data.widgetUrl;
+          // This regex targets a string that starts with ', ends with ', and might have a trailing comma.
+          // It captures the content between the single quotes.
+          data.widgetUrl = originalWidgetUrl.replace(/^'(.*?)',?$/, '$1');
+          if (originalWidgetUrl !== data.widgetUrl) {
+            logger.info(
+              '[API:chat/getChatInfo] Cleaned widgetUrl from upstream API.',
+              {
+                correlationId,
+                original: originalWidgetUrl,
+                cleaned: data.widgetUrl,
+              },
+            );
+          }
+        }
       } catch (e) {
         // Attempt to read text if JSON parsing failed, for better error info
         try {
