@@ -157,16 +157,22 @@ export async function GET(request: NextRequest) {
     const baseURL = `${portalServicesUrl}${memberServiceRoot}`;
     const url = `${baseURL}/api/member/v1/members/byMemberCk/${memeck}/chat/getChatInfo${planId ? `?planId=${planId}` : ''}`;
 
+    // Construct headers for logging and the fetch call
+    const requestHeaders = {
+      Authorization: `Bearer ${token}`,
+      'x-correlation-id': correlationId,
+      // Add any other headers you might be sending or want to log
+    };
+
     logger.info('[API:chat/getChatInfo] Calling member service API', {
       correlationId,
+      method: 'GET', // Explicitly log the method
       url,
+      headers: requestHeaders, // Log the headers being sent
     });
 
     const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'x-correlation-id': correlationId,
-      },
+      headers: requestHeaders, // Use the constructed headers object
       cache: 'no-store',
     });
 
