@@ -417,7 +417,7 @@ export const useChatStore = create<ChatState>((set, get) => {
                 chatData: {
                   isEligible: buildOutput.isChatEligibleMember as boolean,
                   cloudChatEligible: buildOutput.chatMode === 'cloud',
-                  chatAvailable: buildOutput.isChatAvailable as boolean,
+                  chatAvailable: buildOutput.isChatAvailable === 'true',
                   chatGroup: buildOutput.chatGroup,
                   workingHours: buildOutput.workingHours,
                   rawChatHrs: buildOutput.rawChatHrs,
