@@ -10,7 +10,6 @@ import { logger } from '@/utils/logger';
 import { create } from 'zustand';
 import { getChatInfo } from '../api';
 import {
-  ApiConfig,
   buildGenesysChatConfig,
   GenesysChatConfig,
 } from '../config/genesysChatConfig';
@@ -101,6 +100,7 @@ interface ChatState {
       sessionUser: SessionUser,
       userProfile: UserProfile,
       currentPlanDetails: CurrentPlanDetails,
+      apiConfig?: ChatConfig,
     ) => Promise<void>;
     setChatActive: (isActive: boolean, sessionId?: string) => void;
     setChatInactive: () => void;
@@ -277,6 +277,7 @@ export const useChatStore = create<ChatState>((set, get) => {
           sessionUser: SessionUser,
           userProfile: UserProfile,
           currentPlanDetails: CurrentPlanDetails,
+          apiConfig?: ChatConfig,
         ) => {
           logger.info(
             `${LOG_CONFIG_PREFIX} loadChatConfiguration called. Member ID for API: ${apiCallMemberId}`,
@@ -285,6 +286,7 @@ export const useChatStore = create<ChatState>((set, get) => {
               sessionUserId: sessionUser.id,
               userProfileId: userProfile.id,
               currentPlanDetails,
+              apiConfigPassed: apiConfig,
             },
           );
           set((state) => ({
@@ -304,10 +306,25 @@ export const useChatStore = create<ChatState>((set, get) => {
 
             const parsedChatInfo = ChatConfigSchema.safeParse(rawChatConfig);
             if (!parsedChatInfo.success) {
+              // DIRECT CONSOLE LOGGING FOR DEBUGGING ZOD ERRORS
+              console.log(
+                '[ChatStore:Config] ZOD VALIDATION RAW ERROR OBJECT:',
+                parsedChatInfo.error,
+              );
+              console.log(
+                '[ChatStore:Config] ZOD VALIDATION FLATTENED ERRORS:',
+                parsedChatInfo.error.flatten(),
+              );
+              console.log(
+                '[ChatStore:Config] ZOD VALIDATION RAW DATA INPUT:',
+                rawChatConfig,
+              );
+
               logger.error(
                 `${LOG_CONFIG_PREFIX} Failed to validate API response against ChatConfigSchema.`,
                 {
-                  errors: parsedChatInfo.error.errors,
+                  errors: parsedChatInfo.error.errors, // Original errors array
+                  flattenedErrors: parsedChatInfo.error.flatten(),
                   rawData: rawChatConfig,
                 },
               );
@@ -326,7 +343,7 @@ export const useChatStore = create<ChatState>((set, get) => {
               loggedInMember: LoggedInMember;
               sessionUser: SessionUser;
               userProfile: UserProfile;
-              apiConfig: ApiConfig;
+              apiConfig: ChatConfig;
               currentPlanDetails: CurrentPlanDetails;
               staticConfig?: Partial<GenesysChatConfig>;
             };
@@ -336,7 +353,7 @@ export const useChatStore = create<ChatState>((set, get) => {
               loggedInMember,
               sessionUser,
               userProfile,
-              apiConfig: validatedConfig as ApiConfig,
+              apiConfig: validatedConfig,
               currentPlanDetails,
               // staticConfig: {} // Optionally pass static overrides here
             } as BuildChatConfigArg);
