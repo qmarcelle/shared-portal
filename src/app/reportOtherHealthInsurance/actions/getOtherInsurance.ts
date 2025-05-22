@@ -4,13 +4,12 @@ import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
 import { OtherHealthInsuranceDetails } from '../models/api/otherhealthinsurance_details';
+import { OtherInsuranceData } from '../models/app/other_insurance_data';
 
 export async function getOtherInsurance(
   loggedUserInfo: LoggedInUserInfo,
 ): Promise<OtherHealthInsuranceDetails[] | null> {
   try {
-    //let otherInsuranceResponse;
-
     const meme_cks: number[] = [];
     const members = loggedUserInfo.members;
 
@@ -37,25 +36,56 @@ export async function getOtherInsurance(
     isMedAdv = isMedAdv || isMed;
 
     // eslint-disable-next-line prefer-const
-    const otherInsuranceResponse = await memberService.get<
-      OtherHealthInsuranceDetails[]
-    >(`/api/COBService?memeCKs=${memeCKString}&isMedAdv=${isMedAdv}`);
+    const otherInsuranceResponse = await memberService.get<OtherInsuranceData>(
+      `/api/COBService?memeCKs=${memeCKString}&isMedAdv=${isMedAdv}`,
+    );
 
-    return membersInfo.map((member) => {
-      const otherInsuranceItem = otherInsuranceResponse.data.find(
-        (otherInsurance) => otherInsurance.memeCK === member.memeck.toString(),
+    if (otherInsuranceResponse.data!.cobList != null) {
+      const otherInsuranceForAll = otherInsuranceResponse.data!.cobList.map(
+        (otherInsuranceItem) => {
+          return otherInsuranceItem.forAllDependents;
+        },
       );
-      if (otherInsuranceItem != null) {
-        otherInsuranceItem.memberName = member.name;
-        otherInsuranceItem.dob = member.dob;
-        return otherInsuranceItem;
+
+      let otherInsuranceForAllMembers = {};
+
+      if (otherInsuranceForAll[0] == true) {
+        otherInsuranceResponse.data.cobList?.map((otherInsuranceItem) => {
+          otherInsuranceForAllMembers = otherInsuranceItem;
+        });
+        return membersInfo.map((member) => {
+          return {
+            ...otherInsuranceForAllMembers,
+            memberName: member.name,
+            dob: member.dob,
+          };
+        });
       } else {
+        return membersInfo.map((member) => {
+          const otherInsuranceItem = otherInsuranceResponse.data.cobList?.find(
+            (otherInsurance) =>
+              otherInsurance.memeCK === member.memeck.toString(),
+          );
+          if (otherInsuranceItem != null) {
+            otherInsuranceItem.memberName = member.name;
+            otherInsuranceItem.dob = member.dob;
+            return otherInsuranceItem;
+          } else {
+            return {
+              memberName: member.name,
+              dob: member.dob,
+            };
+          }
+        });
+      }
+    } else {
+      return membersInfo.map((member) => {
         return {
           memberName: member.name,
           dob: member.dob,
         };
-      }
-    });
+      });
+    }
   } catch (error) {
     logger.error('Error Response from GetOtherInsurance API', error);
     return null;

@@ -139,35 +139,37 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [
-        {
-          medicalBean: {
-            otherInsuranceCompanyName: 'METLIFE (VISION COVERAGE ONLY)',
-            otherInsurancePhoneNum: '8005439150',
-            policyIdNum: 'VISION ONLY',
-            policyHolderFirstName: '',
-            policyHolderLastName: '',
-            policyEffectiveDate: '01/01/2006',
-            policyCancelDate: '12/31/9999',
-            otherInsuranceCompanyCode: 'METLIFE',
+      data: {
+        cobList: [
+          {
+            medicalBean: {
+              otherInsuranceCompanyName: 'METLIFE (VISION COVERAGE ONLY)',
+              otherInsurancePhoneNum: '8005439150',
+              policyIdNum: 'VISION ONLY',
+              policyHolderFirstName: '',
+              policyHolderLastName: '',
+              policyEffectiveDate: '01/01/2006',
+              policyCancelDate: '12/31/9999',
+              otherInsuranceCompanyCode: 'METLIFE',
+              noOtherInsurance: false,
+            },
+            dentalBean: {
+              otherInsuranceCompanyName: 'Not Assigned',
+              otherInsurancePhoneNum: '',
+              policyIdNum: '621239891',
+              policyHolderFirstName: '',
+              policyHolderLastName: '',
+              policyEffectiveDate: '07/01/2007',
+              policyCancelDate: '12/31/9999',
+              otherInsuranceCompanyCode: '',
+              noOtherInsurance: false,
+            },
+            memeCK: '91722407',
+            forAllDependents: false,
             noOtherInsurance: false,
           },
-          dentalBean: {
-            otherInsuranceCompanyName: 'Not Assigned',
-            otherInsurancePhoneNum: '',
-            policyIdNum: '621239891',
-            policyHolderFirstName: '',
-            policyHolderLastName: '',
-            policyEffectiveDate: '07/01/2007',
-            policyCancelDate: '12/31/9999',
-            otherInsuranceCompanyCode: '',
-            noOtherInsurance: false,
-          },
-          memeCK: '91722407',
-          forAllDependents: false,
-          noOtherInsurance: false,
-        },
-      ],
+        ],
+      },
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
@@ -198,9 +200,15 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [
-        { memeCK: '91722407', forAllDependents: true, noOtherInsurance: true },
-      ],
+      data: {
+        cobList: [
+          {
+            memeCK: '91722407',
+            forAllDependents: true,
+            noOtherInsurance: true,
+          },
+        ],
+      },
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
@@ -216,7 +224,7 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [],
+      data: {},
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
