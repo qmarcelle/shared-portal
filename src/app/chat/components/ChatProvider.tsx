@@ -90,6 +90,16 @@ export default function ChatProvider({
       setIsLoadingLoggedInMember(true);
       try {
         const details = await getLoggedInMember(session);
+        if (process.env.NODE_ENV === 'development') {
+          console.log(
+            '[ChatProvider] LoggedInMember details fetched:',
+            details,
+          );
+          console.log(
+            '[ChatProvider] LoggedInMember contact email:',
+            details?.contact?.email,
+          );
+        }
         setLoggedInMemberDetails(details);
       } catch (error) {
         logger.error(
