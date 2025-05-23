@@ -115,34 +115,49 @@ export default function ChatProvider({
     const fetchPbeDataAsync = async () => {
       if (session?.user?.id && sessionStatus === 'authenticated') {
         setIsLoadingPbeData(true);
-        try {
-          const pbeFetchTimeout = 15000; // 15 seconds
-          const timeoutPromise = new Promise((_, reject) =>
-            setTimeout(
-              () =>
-                reject(
-                  new Error(
-                    `PBE fetch for userId ${session?.user?.id} timed out after ${pbeFetchTimeout}ms`,
-                  ),
-                ),
-              pbeFetchTimeout,
-            ),
-          );
+        let attempts = 0;
+        const maxAttempts = 3;
+        const retryDelay = 2000; // 2 seconds
 
-          const data = (await Promise.race([
-            getPersonBusinessEntity(session.user.id),
-            timeoutPromise,
-          ])) as PBEData | undefined;
-          setPbeData(data || null);
-        } catch (error) {
-          logger.error(
-            `[ChatProvider] PBE fetch attempt failed/rejected. Error:`,
-            error,
-          );
-          setPbeData(null);
-        } finally {
-          setIsLoadingPbeData(false);
+        while (attempts < maxAttempts) {
+          try {
+            const pbeFetchTimeout = 15000; // 15 seconds
+            const timeoutPromise = new Promise((_, reject) =>
+              setTimeout(
+                () =>
+                  reject(
+                    new Error(
+                      `PBE fetch for userId ${session?.user?.id} timed out after ${pbeFetchTimeout}ms on attempt ${attempts + 1}`,
+                    ),
+                  ),
+                pbeFetchTimeout,
+              ),
+            );
+
+            const data = (await Promise.race([
+              getPersonBusinessEntity(session.user.id),
+              timeoutPromise,
+            ])) as PBEData | undefined;
+            setPbeData(data || null);
+            setIsLoadingPbeData(false); // Set loading to false on success
+            return; // Exit loop on success
+          } catch (error) {
+            attempts++;
+            logger.error(
+              `[ChatProvider] PBE fetch attempt ${attempts} failed/rejected. Error:`,
+              error,
+            );
+            if (attempts >= maxAttempts) {
+              setPbeData(null);
+              // setIsLoadingPbeData(false) will be handled in finally
+              break; // Exit loop after max attempts
+            }
+            // Wait before retrying
+            await new Promise((resolve) => setTimeout(resolve, retryDelay));
+          }
         }
+        // This will be reached if all attempts fail
+        setIsLoadingPbeData(false);
       } else if (sessionStatus !== 'loading') {
         setPbeData(null);
         if (isLoadingPbeData) {
@@ -154,7 +169,7 @@ export default function ChatProvider({
       }
     };
     fetchPbeDataAsync();
-  }, [session?.user?.id, sessionStatus, isLoadingPbeData]); // isLoadingPbeData kept to handle reset scenarios correctly
+  }, [session?.user?.id, sessionStatus]); // Removed isLoadingPbeData from deps as it's managed internally now
 
   // Effect to compute UserProfile
   useEffect(() => {
@@ -399,20 +414,17 @@ export default function ChatProvider({
   useEffect(() => {
     const currentPlanId = storeSelectedPlanId;
     const previousPlanId = previousSelectedPlanIdRef.current;
-    if (
-      previousPlanId !== null &&
-      previousPlanId !== undefined &&
-      currentPlanId !== null &&
-      currentPlanId !== undefined &&
-      currentPlanId !== previousPlanId
-    ) {
+
+    // Ensure both plan IDs are actual values before comparing
+    if (currentPlanId && previousPlanId && currentPlanId !== previousPlanId) {
       logger.warn(
-        // Changed to warn for visibility
         `[ChatProvider] Plan switch detected (from ${previousPlanId} to ${currentPlanId}). Resetting chat initialization flags.`,
       );
       initializedRef.current = false;
       initAttemptsRef.current = 0;
+      // Potentially reset other relevant states or re-trigger specific data fetches if needed
     }
+    // Always update the ref to the current plan ID, even if it's null or undefined initially
     previousSelectedPlanIdRef.current = currentPlanId;
   }, [storeSelectedPlanId]);
 
