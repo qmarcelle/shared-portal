@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight, MessageSquare } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 import { Button } from '@/app/chat/components/cp_ui/Button';
 import {
@@ -39,7 +39,11 @@ export function PreChatModal({
         <DialogHeader>
           <div className="flex items-center gap-3 mb-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-              <MessageSquare className="h-5 w-5 text-primary" />
+              <img
+                src="/assets/bcbstn.svg"
+                alt="BCBSTN Icon"
+                className="h-6 w-6"
+              />
             </div>
             <DialogTitle className="text-xl text-primary">
               Start a Chat
@@ -100,7 +104,11 @@ export function PreChatModal({
         </div>
 
         <DialogFooter className="mt-4 sm:justify-between">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button
+            variant="outline"
+            onClick={() => onOpenChange(false)}
+            className="text-primary hover:text-primary/80 border-primary"
+          >
             Cancel
           </Button>
           <Button
