@@ -190,9 +190,9 @@ export const getMenuBlueCareNavigation = (
   {
     id: 4,
     title: 'Pharmacy',
-    titleLink: '',
+    titleLink: 'This is Pharmacy',
     description: '',
-    category: '',
+    category: 'Pharmacy',
     url: 'https://www.tn.gov/tenncare/members-applicants/pharmacy.html',
     showOnMenu: false,
     template: {
