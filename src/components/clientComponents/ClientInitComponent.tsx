@@ -3,13 +3,15 @@ import { initPingOne } from '@/app/pingOne/setupPingOne';
 import { GTM_ID } from '@/utils/analytics';
 import { noHeaderAndFooterRoutes } from '@/utils/client_routes';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import TagManager from 'react-gtm-module';
 import { AppLink } from '../foundation/AppLink';
 import { AppModal } from '../foundation/AppModal';
 import { SideBarModal } from '../foundation/SideBarModal';
 
 export const ClientInitComponent = () => {
+  const skipLinkRef = useRef<HTMLAnchorElement>(null);
+
   useEffect(() => {
     const TagManagerArgs = {
       gtmId: GTM_ID,
@@ -22,6 +24,17 @@ export const ClientInitComponent = () => {
     TagManager.initialize(TagManagerArgs);
 
     initPingOne();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (document.activeElement === skipLinkRef.current && e.key === 'Tab') {
+        e.preventDefault();
+        const targetEl = document.getElementById('skip-to-main');
+        targetEl?.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
   const showHeader = !noHeaderAndFooterRoutes.includes(usePathname());
   return (
@@ -40,10 +53,11 @@ export const ClientInitComponent = () => {
         <>
           <AppLink
             label="SKIP TO CONTENT."
-            className="!no-underline skipButton"
+            className="!no-underline skipButton !relative"
             linkUnderline="!no-underline"
             url="#main"
             type="link"
+            ref={skipLinkRef}
           />
           <SideBarModal />
         </>

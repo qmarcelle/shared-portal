@@ -74,7 +74,11 @@ const Dashboard = ({ data }: DashboardProps) => {
               </>
             )}
             {data.memberDetails?.planName && (
-              <Link href="/member/myplan" className="link-white-text">
+              <Link
+                id="skip-to-main"
+                href="/member/myplan"
+                className="link-white-text"
+              >
                 <p className="pb-2 pt-2">View Plan Details</p>
               </Link>
             )}

@@ -138,7 +138,7 @@ export default function SiteHeader({
   return (
     <>
       <nav
-        className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[134px]' : 'lg:pt-[74px]'}`}
+        className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[74px]' : 'lg:pt-[74px]'}`}
       >
         {/* Header Top Bar */}
         <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
