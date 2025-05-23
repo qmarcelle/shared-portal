@@ -228,8 +228,6 @@ export default function ChatWidget({
           }
         }
       }
-      storeActions.endChat();
-      setShowChatErrorModal(true);
     };
 
     const handleWebChatOpened = () => {
