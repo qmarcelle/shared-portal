@@ -730,10 +730,10 @@ export default function ChatWidget({
       loaderComponentToRender = showLoaderStatus ? (
         <div>{LOG_PREFIX} Legacy config not ready...</div>
       ) : null;
-    } else {
-      logger.info(
-        `${LOG_PREFIX} Render: Rendering GenesysScriptLoader for LEGACY mode. isChatEnabled being passed: ${isChatEnabled}`,
-      );
+      // } else {
+      //   logger.info(
+      //     `${LOG_PREFIX} Render: Rendering GenesysScriptLoader for LEGACY mode. isChatEnabled being passed: ${isChatEnabled}`,
+      //   );
       loaderComponentToRender = (
         <GenesysScriptLoader
           legacyConfig={activeLegacyConfig}
@@ -772,23 +772,22 @@ export default function ChatWidget({
           }
         : undefined;
 
-      if (!transformedCloudConfig) {
-        logger.warn(
-          `${LOG_PREFIX} Render: Cloud mode, but transformedCloudConfig is undefined (original activeCloudConfig was likely missing). Cannot render GenesysCloudLoader.`,
-        );
-        loaderComponentToRender = showLoaderStatus ? (
-          <div>{LOG_PREFIX} Cloud config (transformed) not ready...</div>
-        ) : null;
-      } else {
-        loaderComponentToRender = (
-          <GenesysCloudLoader
-            {...transformedCloudConfig}
-            isChatActuallyEnabled={isChatEnabled}
-            onLoad={handleScriptLoadSuccess}
-            onError={handleScriptLoadError}
-          />
-        );
-      }
+      // if (!transformedCloudConfig) {
+      //   logger.warn(
+      //     `${LOG_PREFIX} Render: Cloud mode, but transformedCloudConfig is undefined (original activeCloudConfig was likely missing). Cannot render GenesysCloudLoader.`,
+      //   );
+      //   loaderComponentToRender = showLoaderStatus ? (
+      //     <div>{LOG_PREFIX} Cloud config (transformed) not ready...</div>
+      //   ) : null;
+      // } else {
+      loaderComponentToRender = (
+        <GenesysCloudLoader
+          {...transformedCloudConfig}
+          isChatActuallyEnabled={isChatEnabled}
+          onLoad={handleScriptLoadSuccess}
+          onError={handleScriptLoadError}
+        />
+      );
     }
   } else {
     logger.warn(
