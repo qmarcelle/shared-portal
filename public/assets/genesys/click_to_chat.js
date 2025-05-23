@@ -673,7 +673,7 @@
         console.error('[Genesys] CXBus not available for OpenChatDisclaimer.');
       }
     }
-    window.OpenChatDisclaimer = OpenChatDisclaimer;
+    // window.OpenChatDisclaimer = OpenChatDisclaimer;  // Commented out to prevent conflict
 
     function CloseChatDisclaimer() {
       if (window._genesysCXBus) {
