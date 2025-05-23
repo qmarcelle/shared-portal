@@ -516,101 +516,79 @@ export default function ChatWidget({
     );
     logger.info(
       `${LOG_PREFIX} PreChatModal confirmed. Attempting to open/ensure Genesys chat.`,
-      {
-        currentChatMode: chatMode,
-        isLegacyCXBusAvailable: !!window._genesysCXBus,
-        isCloudGenesysApiAvailable: !!window.Genesys, // This will still be undefined if underlying issue isn't fixed
-        isChatEnabled: isChatEnabled,
-        hasFullConfig: !!genesysChatConfigFull,
-      },
     );
 
-    // storeActions.closePreChatModal(); // Closing pre-chat if it was somehow opened
-    closePreChatModal(); // Use action
+    const cxBus =
+      (window as any)._genesysCXBus || window._genesys?.widgets?.bus;
 
-    if (!isChatEnabled || !genesysChatConfigFull) {
+    if (cxBus) {
+      logger.info(
+        `${LOG_PREFIX} Attempting to command chat open. Mode: ${chatMode}. Using CXBus: ${(window as any)._genesysCXBus ? '_genesysCXBus' : '_genesys.widgets.bus'}`,
+      );
+
+      if (chatMode === 'legacy' || chatMode === 'cloud') {
+        cxBus
+          .command('WebChat.open', {
+            // You can pass form data or user data here if needed by Genesys
+            // formJSON: { /* ... */ },
+            // userData: { /* ... */ }
+          })
+          .done(() => {
+            logger.info(
+              `${LOG_PREFIX} WebChat.open command successful via CXBus.`,
+            );
+          })
+          .fail((err: any) => {
+            logger.error(
+              `${LOG_PREFIX} WebChat.open command failed via CXBus.`,
+              err,
+            );
+            setShowChatErrorModal(true);
+          });
+
+        // The legacy fallback for getInstance().open() can remain as is,
+        // as it's a different mechanism.
+        if (chatMode === 'legacy') {
+          logger.info(
+            `${LOG_PREFIX} Attempting legacy WebChat.getInstance().open() as a fallback/additional step.`,
+          );
+          const webChatInstance =
+            (window._genesys?.widgets?.legacy?.webchat?.getInstance &&
+              window._genesys.widgets.legacy.webchat.getInstance()) ||
+            ((window as any).Genesys?.webchat?.getInstance &&
+              (window as any).Genesys.webchat.getInstance());
+          if (webChatInstance) {
+            webChatInstance.open();
+            logger.info(
+              `${LOG_PREFIX} Legacy WebChat.getInstance().open() called.`,
+            );
+          } else {
+            logger.warn(
+              `${LOG_PREFIX} Legacy WebChat.getInstance() not found for fallback call.`,
+            );
+          }
+        }
+      } else {
+        logger.warn(
+          `${LOG_PREFIX} Cannot command chat open: Unknown chatMode: ${chatMode}`,
+        );
+        setShowChatErrorModal(true);
+      }
+    } else {
       logger.error(
-        `${LOG_PREFIX} Attempted to start chat, but chat is no longer enabled or not fully configured.`,
-        {
-          isChatEnabled,
-          hasFullConfig: !!genesysChatConfigFull,
-        },
+        `${LOG_PREFIX} Genesys CXBus not available (checked _genesysCXBus and _genesys.widgets.bus). Cannot open chat. Script load phase: ${scriptLoadPhase}`,
       );
-      storeActions.setError(
-        new Error('Chat is currently unavailable or not configured.'),
-      );
-      setShowChatErrorModal(true); // Show error modal
-      return;
+      setShowChatErrorModal(true);
     }
-
-    logger.info(
-      `${LOG_PREFIX} Attempting to command chat open. Mode: ${chatMode}`,
-    );
-    // Ensure CXBus is available for commands
-    const bus = window._genesysCXBus as GenesysCXBus; // Type assertion
-    const cloudApi = window.Genesys as GenesysChat['Genesys']; // Type assertion
-
-    if (chatMode === 'legacy') {
-      if (bus && typeof bus.command === 'function') {
-        logger.info(
-          `${LOG_PREFIX} window._genesysCXBus:`,
-          typeof bus.command, // Changed from bus.publish to bus.command for logging
-        );
-        logger.info(`${LOG_PREFIX} window.Genesys:`, window.Genesys); // Log this critical object
-        logger.info(`${LOG_PREFIX} Commanding WebChat.open for legacy`);
-        try {
-          bus.command('WebChat.open');
-          // storeActions.startChat(); // Handled by 'genesys:webchat:opened'
-        } catch (e) {
-          logger.error(
-            `${LOG_PREFIX} Error commanding WebChat.open for legacy:`,
-            e,
-          );
-          storeActions.setError(
-            new Error('Failed to command Genesys legacy chat to open.'),
-          );
-          setShowChatErrorModal(true);
-        }
-      } else {
-        logger.error(
-          `${LOG_PREFIX} Legacy CXBus not available to open chat. window._genesysCXBus:`,
-          window._genesysCXBus,
-        );
-        storeActions.setError(new Error('Genesys legacy bus not ready.'));
-        setShowChatErrorModal(true);
-      }
-    } else if (chatMode === 'cloud') {
-      if (cloudApi && typeof cloudApi.command === 'function') {
-        logger.info(`${LOG_PREFIX} Commanding Chat.open for cloud`);
-        try {
-          cloudApi.command('Chat.open');
-          // storeActions.startChat(); // Handled by 'genesys:webchat:opened' or similar cloud event
-        } catch (e) {
-          logger.error(
-            `${LOG_PREFIX} Error commanding Chat.open for cloud:`,
-            e,
-          );
-          storeActions.setError(
-            new Error('Failed to command Genesys cloud chat to open.'),
-          );
-          setShowChatErrorModal(true);
-        }
-      } else {
-        logger.error(
-          `${LOG_PREFIX} Cloud Genesys API not available to open chat. window.Genesys:`,
-          window.Genesys,
-        );
-        storeActions.setError(new Error('Genesys cloud API not ready.'));
-        setShowChatErrorModal(true);
-      }
-    }
+    closePreChatModal();
   }, [
     chatMode,
-    isChatEnabled,
-    genesysChatConfigFull,
+    scriptLoadPhase,
+    closePreChatModal,
+    logger,
+    setShowChatErrorModal,
     storeActions,
-    // Removed setShowChatErrorModal from deps as it's a setter
-  ]);
+  ]); // Ensure all dependencies are listed
 
   // Effect for managing the visibility of the Genesys native chat button
   // This effect tries to hide/show the cx_chat_form_button based on chat state
