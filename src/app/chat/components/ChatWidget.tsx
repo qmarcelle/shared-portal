@@ -435,7 +435,9 @@ export default function ChatWidget({
     console.log('[ChatWidget] handleStartChatConfirm CALLED');
     const cxBus =
       (window as any)._genesysCXBus || window._genesys?.widgets?.bus;
+
     if (cxBus) {
+      console.log('[ChatWidget] CXBus IS available.');
       const config = genesysChatConfigFull;
       const userData = config
         ? {
@@ -448,13 +450,11 @@ export default function ChatWidget({
             INQ_TYPE: config.INQ_TYPE,
           }
         : {};
-      const form = config
-        ? {
-            nickname: config.formattedFirstName,
-            subject: config.INQ_TYPE,
-            email: config.email,
-          }
-        : {};
+
+      console.log(
+        '[ChatWidget] Preparing to call WebChat.startChat with userData:',
+        JSON.stringify(userData, null, 2),
+      );
 
       cxBus
         .command('WebChat.startChat', { userData })
@@ -462,34 +462,39 @@ export default function ChatWidget({
           logger.info(
             '[ChatWidget] WebChat.startChat command successful via CXBus.',
           );
-          closePreChatModal(); // Close modal on successful open
+          console.log(
+            '[ChatWidget] WebChat.startChat SUCCEEDED (done callback).',
+          );
+          closePreChatModal();
         })
         .fail((err: any) => {
           logger.error(
             `[ChatWidget] WebChat.startChat command failed via CXBus.`,
             err,
           );
+          console.error(
+            '[ChatWidget] WebChat.startChat FAILED (fail callback). Error:',
+            JSON.stringify(err, null, 2),
+          );
           storeActions.setError(
             new Error(err.message || 'Failed to open chat via CXBus.'),
           );
           setShowChatErrorModal(true);
-          closePreChatModal(); // Close modal on failure too
+          closePreChatModal();
         });
     } else {
       logger.error(
         `[ChatWidget] Genesys CXBus not available. Cannot open chat. Script load phase: ${scriptLoadPhase}`,
       );
+      console.error(
+        '[ChatWidget] CXBus IS NOT available. Script load phase:',
+        scriptLoadPhase,
+      );
       storeActions.setError(new Error('Genesys CXBus not available.'));
       setShowChatErrorModal(true);
-      closePreChatModal(); // Close modal if CXBus is not available
+      closePreChatModal();
     }
-  }, [
-    chatMode,
-    scriptLoadPhase,
-    closePreChatModal,
-    storeActions,
-    genesysChatConfigFull,
-  ]);
+  }, [scriptLoadPhase, closePreChatModal, storeActions, genesysChatConfigFull]);
 
   // Effect for managing visibility of Genesys native chat button (strict original interpretation)
   useEffect(() => {
