@@ -13,6 +13,8 @@ import findCareIcon from '@/public/assets/find_care_search.svg';
 import MentalCareIcon from '@/public/assets/mental_health.svg';
 import PrimaryCareIcon from '@/public/assets/primary_care.svg';
 import {
+  isBlueCareEligible,
+  isBlueCareNotEligible,
   isEmboldHealthEligible,
   isHingeHealthEligible,
   isNewMentalHealthSupportAbleToEligible,
@@ -21,18 +23,23 @@ import {
   isTeladocEligible,
   isTeladocPrimary360Eligible,
 } from '@/visibilityEngine/computeVisibilityRules';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getProcedurePillOptions } from '../dashboard/actions/getProcedurePillOptions';
 import { FindCarePillBox } from './components/FindCarePillBox';
-export type FindCareProps = { visibilityRules?: VisibilityRules };
+import { FindCareData } from './models/find_care_data';
+import { PrimaryCareProvider } from './primaryCareOptions/components/PrimaryCareProvider';
+export type FindCareProps = { findCareData: FindCareData };
 
-const FindCare = ({ visibilityRules }: FindCareProps) => {
+const FindCare = ({ findCareData }: FindCareProps) => {
   const router = useRouter();
-  const findCarePillOptions = getFindCarePillOptions(visibilityRules!, router);
+  const { visibilityRules, primaryCareProvider } = findCareData;
+  const findCarePillOptions = getFindCarePillOptions(
+    findCareData.visibilityRules!,
+    router,
+  );
   const procedurePillOptions = getProcedurePillOptions(
-    visibilityRules!,
+    findCareData.visibilityRules!,
     router,
   );
   return (
@@ -102,7 +109,7 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
                 />
               )}
           </Column>
-          {procedurePillOptions && (
+          {procedurePillOptions && isBlueCareNotEligible(visibilityRules) && (
             <Column className="flex-grow page-section-36_67 items-stretch">
               <FindCarePillBox
                 className="my-8  p-4"
@@ -119,105 +126,123 @@ const FindCare = ({ visibilityRules }: FindCareProps) => {
               />
             </Column>
           )}
+          {isBlueCareEligible(visibilityRules) && primaryCareProvider && (
+            <Column className="flex-grow page-section-36_67 items-stretch">
+              <PrimaryCareProvider
+                className="my-8  p-5"
+                providerDetails={primaryCareProvider ?? null}
+                label="Primary Care Provider"
+                linkLabel="View or Update Primary Care Provider"
+                title="My Primary Care Provider"
+              />
+            </Column>
+          )}
         </section>
-        <section className="flex flex-row items-start app-body mt-4">
-          <Column className="flex-grow page-section-63_33 items-stretch">
-            <ViewCareOptions
-              options={[
-                {
-                  title: 'Primary Care Options',
-                  description:
-                    'Learn more about Primary Care Providers and view your options.',
-                  image: (
-                    <Image
-                      className="max-md:w-[80px] max-md:h-[80px]"
-                      src={PrimaryCareIcon}
-                      alt=""
-                    />
-                  ),
-                  url: '/member/findcare/virtualcare/primarycare',
-                  visible: isTeladocPrimary360Eligible(visibilityRules),
-                },
-                {
-                  title: 'Mental Care Options',
-                  description:
-                    'Learn more about Mental Health Providers and view your options.',
-                  image: (
-                    <Image
-                      className="max-md:w-[80px] max-md:h-[80px]"
-                      src={MentalCareIcon}
-                      alt=""
-                    />
-                  ),
-                  url: '/member/findcare/mentalHealthOptions',
-                  visible:
-                    isNewMentalHealthSupportAbleToEligible(visibilityRules) ||
-                    isNewMentalHealthSupportMyStrengthCompleteEligible(
-                      visibilityRules,
-                    ),
-                },
-              ]}
-            />
-          </Column>
-        </section>
-        <Spacer size={32} />
+        {isBlueCareNotEligible(visibilityRules) && (
+          <>
+            <section className="flex flex-row items-start app-body mt-4">
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                <ViewCareOptions
+                  options={[
+                    {
+                      title: 'Primary Care Options',
+                      description:
+                        'Learn more about Primary Care Providers and view your options.',
+                      image: (
+                        <Image
+                          className="max-md:w-[80px] max-md:h-[80px]"
+                          src={PrimaryCareIcon}
+                          alt=""
+                        />
+                      ),
+                      url: '/member/findcare/virtualcare/primarycare',
+                      visible: isTeladocPrimary360Eligible(visibilityRules),
+                    },
+                    {
+                      title: 'Mental Care Options',
+                      description:
+                        'Learn more about Mental Health Providers and view your options.',
+                      image: (
+                        <Image
+                          className="max-md:w-[80px] max-md:h-[80px]"
+                          src={MentalCareIcon}
+                          alt=""
+                        />
+                      ),
+                      url: '/member/findcare/mentalHealthOptions',
+                      visible:
+                        isNewMentalHealthSupportAbleToEligible(
+                          visibilityRules,
+                        ) ||
+                        isNewMentalHealthSupportMyStrengthCompleteEligible(
+                          visibilityRules,
+                        ),
+                    },
+                  ]}
+                />
+              </Column>
+            </section>
+            <Spacer size={32} />
+          </>
+        )}
         {(isNewMentalHealthSupportMyStrengthCompleteEligible(visibilityRules) ||
           isNewMentalHealthSupportAbleToEligible(visibilityRules) ||
           isHingeHealthEligible(visibilityRules) ||
           isTeladocPrimary360Eligible(visibilityRules) ||
           isTeladocEligible(visibilityRules) ||
-          isNurseChatEligible(visibilityRules)) && (
-          <section>
-            <VirtualCareOptions
-              className="p-8"
-              options={[
-                {
-                  id: '1',
-                  title: 'AbleTo',
-                  description:
-                    // eslint-disable-next-line quotes
-                    "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
-                  url: 'null',
-                },
-                {
-                  id: '2',
-                  title: 'Hinge Health Back & Joint Care',
-                  description:
-                    'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
-                  url: 'null',
-                },
-                {
-                  id: '3',
-                  title: 'Talk to a Nurse',
-                  description:
-                    'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.',
-                  url: '',
-                },
-                {
-                  id: '4',
-                  title: 'Teladoc Health General & Urgent Care',
-                  description:
-                    'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
-                  url: 'null',
-                },
-                {
-                  id: '5',
-                  title: 'Teladoc Health Primary Care Provider',
-                  description:
-                    'With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.',
-                  url: '',
-                },
-                {
-                  id: '6',
-                  title: 'Teladoc Mental Health',
-                  description:
-                    'Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.',
-                  url: '',
-                },
-              ]}
-            />
-          </section>
-        )}
+          isNurseChatEligible(visibilityRules)) &&
+          isBlueCareNotEligible(visibilityRules) && (
+            <section>
+              <VirtualCareOptions
+                className="p-8"
+                options={[
+                  {
+                    id: '1',
+                    title: 'AbleTo',
+                    description:
+                      // eslint-disable-next-line quotes
+                      "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
+                    url: 'null',
+                  },
+                  {
+                    id: '2',
+                    title: 'Hinge Health Back & Joint Care',
+                    description:
+                      'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
+                    url: 'null',
+                  },
+                  {
+                    id: '3',
+                    title: 'Talk to a Nurse',
+                    description:
+                      'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.',
+                    url: '',
+                  },
+                  {
+                    id: '4',
+                    title: 'Teladoc Health General & Urgent Care',
+                    description:
+                      'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
+                    url: 'null',
+                  },
+                  {
+                    id: '5',
+                    title: 'Teladoc Health Primary Care Provider',
+                    description:
+                      'With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.',
+                    url: '',
+                  },
+                  {
+                    id: '6',
+                    title: 'Teladoc Mental Health',
+                    description:
+                      'Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.',
+                    url: '',
+                  },
+                ]}
+              />
+            </section>
+          )}
       </Column>
       <Spacer size={32}></Spacer>
     </main>
