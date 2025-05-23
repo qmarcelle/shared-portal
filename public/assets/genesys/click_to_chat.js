@@ -1165,7 +1165,7 @@
           custom:
             "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Important Information:</h4></td></tr>",
         });
-        const disclaimerMsg = getChatDisclaimerMesg(
+        const disclaimerMsg = setChatDisclaimerMesg(
           cs.clientClassificationId,
           cs.effectiveLob,
         );
@@ -1204,7 +1204,7 @@
           custom:
             "<tr class='activeChat'><td colspan='2' style='padding-bottom:10px;'><h4 style='font-size: 1em; font-weight: bold; margin-bottom: 5px;'>Before you begin:</h4></td></tr>",
         });
-        const disclaimerMsg = getChatDisclaimerMesg(
+        const disclaimerMsg = setChatDisclaimerMesg(
           cs.clientClassificationId,
           cs.effectiveLob,
         );
