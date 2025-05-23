@@ -225,9 +225,9 @@ export function buildGenesysChatConfig({
   //   email = loggedInUserInfo.addresses.find((addr: any) => !!addr.email)?.email;
   // }
 
-  // Fallback to undefined if no email is found.
+  // Fallback to a default string if no email is found.
   if (!email) {
-    email = undefined;
+    email = 'user@noemailonfile.com';
   }
 
   const finalFirstName = loggedInMember.firstName || userProfile.firstName;
