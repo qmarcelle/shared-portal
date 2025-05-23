@@ -13,7 +13,6 @@ import { logger } from '@/utils/logger';
 import React, {
   ComponentType,
   lazy,
-  Suspense,
   useCallback,
   useEffect,
   useRef,
@@ -172,13 +171,9 @@ export const ChatLazyLoader: React.FC<ChatLazyLoaderProps> = ({
   );
 
   return (
-    <Suspense fallback={<div>Loading Chat Modules...</div>}>
-      <ChatProvider key={`chat-provider-${instanceId}`} autoInitialize={true}>
-        <div id="genesys-chat-container" className="genesys-chat-container">
-          <ChatWidget />
-        </div>
-      </ChatProvider>
-    </Suspense>
+    <ChatProvider key={`chat-provider-${instanceId}`} autoInitialize={true}>
+      <ChatWidget />
+    </ChatProvider>
   );
 };
 
