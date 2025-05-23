@@ -206,14 +206,33 @@ export function buildGenesysChatConfig({
 
   // Extract email: check loggedInUserInfo.addresses, then loggedInMember.contact, then fallback to 'no email found'
   let email: string | undefined = undefined;
-  if (loggedInUserInfo && Array.isArray(loggedInUserInfo.addresses)) {
-    email = loggedInUserInfo.addresses.find((addr: any) => !!addr.email)?.email;
-  }
-  if (!email && loggedInMember.contact && loggedInMember.contact.email) {
+
+  // 1. Try loggedInMember.contact.email (this should be the primary source given current call signature)
+  if (
+    loggedInMember &&
+    loggedInMember.contact &&
+    loggedInMember.contact.email
+  ) {
     email = loggedInMember.contact.email;
   }
+
+  // 2. Try userProfile.email (assuming UserProfile might have an email field)
+  //    You'll need to ensure UserProfile type definition includes an optional email property.
+  //    For now, we'll add a check, but this might need adjustment based on UserProfile structure.
+  if (!email && userProfile && (userProfile as any).email) {
+    // Added type assertion for now
+    email = (userProfile as any).email;
+  }
+
+  // 3. If loggedInUserInfo was intended and is passed in the future, it could be re-added here.
+  // if (!email && loggedInUserInfo && Array.isArray(loggedInUserInfo.addresses)) {
+  //   email = loggedInUserInfo.addresses.find((addr: any) => !!addr.email)?.email;
+  // }
+
+  // Fallback to undefined if no email is found.
+  // This is generally better than "no email found" as Genesys might handle it by prompting.
   if (!email) {
-    email = 'no email found';
+    email = undefined; // Changed from 'no email found'
   }
 
   const finalFirstName = loggedInMember.firstName || userProfile.firstName;
