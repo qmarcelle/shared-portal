@@ -435,6 +435,7 @@ export default function ChatWidget({
   ]);
 
   const handleStartChatConfirm = useCallback(() => {
+    console.log('[ChatWidget] handleStartChatConfirm CALLED');
     const cxBus =
       (window as any)._genesysCXBus || window._genesys?.widgets?.bus;
     if (cxBus) {
