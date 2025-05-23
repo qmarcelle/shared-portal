@@ -254,8 +254,19 @@ export default function ChatProvider({
         : plansFromProfile[0];
       const selectedPlanIdToSet = selectedPlanInMappedArray?.id || '';
 
-      setStorePlans(plansFromProfile);
-      setStoreSelectedPlanId(selectedPlanIdToSet);
+      // Get current values from store to compare
+      const currentStorePlans = usePlanStore.getState().plans;
+      const currentStoreSelectedPlanId = usePlanStore.getState().selectedPlanId;
+
+      if (
+        JSON.stringify(plansFromProfile) !== JSON.stringify(currentStorePlans)
+      ) {
+        setStorePlans(plansFromProfile);
+      }
+
+      if (selectedPlanIdToSet !== currentStoreSelectedPlanId) {
+        setStoreSelectedPlanId(selectedPlanIdToSet);
+      }
     } else if (
       userProfileData &&
       (!userProfileData.plans || userProfileData.plans.length === 0)
@@ -263,8 +274,16 @@ export default function ChatProvider({
       logger.warn(
         `[ChatProvider] SyncUserProfileToPlanStore: UserProfileData exists but has no plans. Resetting PlanStore.`,
       );
-      setStorePlans([]);
-      setStoreSelectedPlanId('');
+      // Get current values from store to compare before resetting
+      const currentStorePlans = usePlanStore.getState().plans;
+      const currentStoreSelectedPlanId = usePlanStore.getState().selectedPlanId;
+
+      if (currentStorePlans.length > 0) {
+        setStorePlans([]);
+      }
+      if (currentStoreSelectedPlanId !== '') {
+        setStoreSelectedPlanId('');
+      }
     }
   }, [userProfileData, setStorePlans, setStoreSelectedPlanId]);
 
