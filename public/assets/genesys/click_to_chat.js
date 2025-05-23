@@ -1466,7 +1466,12 @@
 
       // Based on JSPF structure, buildActiveChatInputs() *does* define the primary form.
       // So, this assignment *should* happen.
-      window._genesys.widgets.webchat.form.inputs = buildActiveChatInputs();
+      const formInputsFromBuildActive = buildActiveChatInputs(); // Added for logging
+      console.log(
+        '[click_to_chat.js] DEBUG: Output of buildActiveChatInputs():',
+        JSON.parse(JSON.stringify(formInputsFromBuildActive)),
+      ); // Added for logging
+      window._genesys.widgets.webchat.form.inputs = formInputsFromBuildActive; // Original line, now uses logged variable
 
       console.log(
         '[click_to_chat.js] WebChat config after Object.assign and form.inputs override:',
