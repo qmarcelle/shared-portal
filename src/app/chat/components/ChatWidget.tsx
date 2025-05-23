@@ -471,7 +471,13 @@ export default function ChatWidget({
       setShowChatErrorModal(true);
       closePreChatModal(); // Close modal if CXBus is not available
     }
-  }, [scriptLoadPhase, closePreChatModal, storeActions, genesysChatConfigFull]);
+  }, [
+    chatMode,
+    scriptLoadPhase,
+    closePreChatModal,
+    storeActions,
+    genesysChatConfigFull,
+  ]);
 
   // Effect for managing visibility of Genesys native chat button (strict original interpretation)
   useEffect(() => {
