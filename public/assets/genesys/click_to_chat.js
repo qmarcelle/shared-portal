@@ -1474,29 +1474,13 @@
         JSON.parse(JSON.stringify(formInputsFromBuildActive || [])),
       ); // Modified log for brevity and safety
 
-      // TEMPORARY TEST: Override with a minimal form to isolate issues
-      window._genesys.widgets.webchat.form.inputs = [
-        {
-          name: 'nickname',
-          maxlength: '100',
-          placeholder: 'Enter your name',
-          label: 'Name',
-        },
-        // You could add a subject if it seems critical from Genesys docs for your version
-        // {
-        //   name: 'subject',
-        //   maxlength: '100',
-        //   placeholder: 'Subject',
-        //   label: 'Subject',
-        //   value: 'Test Inquiry - Minimal Form',
-        //   isHidden: false
-        // }
-      ];
-      console.log(
-        '[click_to_chat.js] DEBUG: Overriding with minimal hardcoded form.inputs:',
-        JSON.parse(JSON.stringify(window._genesys.widgets.webchat.form.inputs)),
-      );
-      // Original line, now effectively bypassed by the override above for testing:
+      // The TEMPORARY TEST override block that was here has been removed.
+      // The form.inputs will now be determined by window.chatSettings.chatFormInputs
+      // or the default array defined earlier in initLocalWidgetConfiguration,
+      // which includes the nickname field populated by window.chatSettings.formattedFirstName.
+
+      // Ensure this line remains commented if the default form structure (with nickname) is preferred
+      // over the output of buildActiveChatInputs().
       // window._genesys.widgets.webchat.form.inputs = formInputsFromBuildActive;
 
       console.log(
