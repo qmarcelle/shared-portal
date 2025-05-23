@@ -91,10 +91,10 @@ export default function SiteHeader({
   }, []);
 
   const menuNavigation = selectedPlan?.termedPlan
-    ? isBlueCareEligible(visibilityRules)
+    ? getMenuNavigationTermedPlan(visibilityRules)
+    : isBlueCareEligible(visibilityRules)
       ? getMenuBlueCareNavigation(visibilityRules)
-      : getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+      : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const pageList = [];
   for (let i = 0; i < menuNavigation.length; i++) {
