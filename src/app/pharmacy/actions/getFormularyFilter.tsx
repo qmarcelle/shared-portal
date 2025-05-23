@@ -16,7 +16,7 @@ export async function getFormularyFilter(
       return (
         MEDICARE_MAPD_BLUEADVANTAGE_GROUP === memberInfo.groupId &&
         MEDICARE_MAPD_BLUEADVANTAGE_GROUP_ABADTX00_PLAN_ID ===
-          memberInfo.mPDPD_ID
+          memberInfo.mpdpdId
       );
     };
     logger.info('Formulary group ID: ', memberInfo.groupId);
