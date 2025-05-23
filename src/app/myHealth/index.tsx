@@ -243,7 +243,13 @@ const MyHealth = ({ data }: MyHealthProps) => {
             linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
           />
         )}
-        <Spacer size={64} />
+        {isBlueCareNotEligible(data.visibilityRules) && (
+          <>
+            <Spacer size={48} />
+            <Header text="Other Programs & Resources" type="title-1" />
+            <Spacer size={16} />
+          </>
+        )}
         {isHealthProgamAndResourceEligible(data.visibilityRules) && (
           <>
             <section className="flex-row items-start app-body">
@@ -316,8 +322,6 @@ const MyHealth = ({ data }: MyHealthProps) => {
           </>
         )}
         <Spacer size={32} />
-        <Header text="Other Programs & Resources" type="title-1" />
-        <Spacer size={32} />
         {isBlueCareNotEligible(data.visibilityRules) && (
           <section>
             <MyHealthOffsiteLinkCard
@@ -374,6 +378,13 @@ const MyHealth = ({ data }: MyHealthProps) => {
             )}
           </Column>
         </section>
+        {isBlueCareEligible(data.visibilityRules) && (
+          <>
+            <Spacer size={48} />
+            <Header text="Other Programs & Resources" type="title-1" />
+            <Spacer size={24} />
+          </>
+        )}
         {isBlueCareMember && (
           <section>
             <HealthLibraryOptions
