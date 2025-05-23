@@ -1,13 +1,14 @@
-// src/stores/chatStore.ts
 /**
  * @file chatStore.ts
  * @description Centralized Zustand store for managing all Genesys chat-related state and actions.
  */
+import { create } from 'zustand';
+
 import type { LoggedInMember } from '@/models/app/loggedin_member'; // Import the rich models
 import type { UserProfile } from '@/models/user_profile';
 import type { SessionUser } from '@/userManagement/models/sessionUser';
-import { logger } from '@/utils/logger';
-import { create } from 'zustand';
+import { logger } from '@/utils/logger'; // Centralized logger
+
 import { getChatInfo } from '../api';
 import {
   buildGenesysChatConfig,
@@ -21,16 +22,6 @@ import {
   ScriptLoadPhase,
 } from '../types/chat-types'; // ChatSettings is LegacyChatConfig, import CloudChatConfig here
 import { updateApiState } from '../utils/chatSequentialLoader';
-
-const LOG_STORE_PREFIX = '[ChatStore]';
-const LOG_UI_PREFIX = '[ChatStore:UI]';
-const LOG_CONFIG_PREFIX = '[ChatStore:Config]';
-const LOG_SESSION_PREFIX = '[ChatStore:Session]';
-const LOG_SCRIPT_PREFIX = '[ChatStore:Script]';
-
-function makeStable<T extends (...args: any[]) => any>(fn: T): T {
-  return fn;
-}
 
 // Define the structure for current plan details needed by buildGenesysChatConfig
 export interface CurrentPlanDetails {
@@ -145,6 +136,12 @@ interface ChatData {
   // Removed userData and formInputs as these are usually part of GenesysChatConfig for the widget
 }
 
+// This function is a pass-through in its current implementation.
+// It's preserved in case it's intended for future memoization or specific type inference stability.
+function makeStable<T extends (...args: any[]) => any>(fn: T): T {
+  return fn;
+}
+
 export const chatUISelectors = {
   /* ... (no changes needed here based on prompt) ... */
 };
@@ -175,7 +172,96 @@ export const chatScriptSelectors = {
 };
 
 export const useChatStore = create<ChatState>((set, get) => {
-  logger.info(`${LOG_STORE_PREFIX} Initializing chat store...`);
+  /**
+   * Helper function to update the store's config state after successfully
+   * fetching, validating, and building the chat configuration.
+   * @param buildOutput The fully processed GenesysChatConfig.
+   * @param validatedConfig The Zod-validated raw API response.
+   * @param rawChatConfig The raw response from the getChatInfo API.
+   */
+  const _updateStoreWithChatConfiguration = (
+    buildOutput: GenesysChatConfig,
+    validatedConfig: ChatConfig,
+    rawChatConfig: any, // Should match the type of getChatInfo response
+  ) => {
+    set((state) => ({
+      config: {
+        ...state.config,
+        genesysChatConfig: buildOutput,
+        legacyConfig:
+          buildOutput.chatMode === 'legacy'
+            ? (buildOutput as unknown as ChatSettings)
+            : undefined,
+        cloudConfig:
+          buildOutput.chatMode === 'cloud'
+            ? {
+                environment:
+                  (buildOutput as unknown as CloudChatConfig).environment || '',
+                deploymentId:
+                  (buildOutput as unknown as CloudChatConfig).deploymentId ||
+                  '',
+                customAttributes: {
+                  Firstname:
+                    buildOutput.formattedFirstName ||
+                    buildOutput.memberFirstname,
+                  lastname: buildOutput.memberLastName,
+                  MEMBER_ID: buildOutput.MEMBER_ID,
+                  MEMBER_DOB: buildOutput.memberDOB,
+                  GROUP_ID: buildOutput.groupId,
+                  PLAN_ID: buildOutput.memberMedicalPlanID,
+                  INQ_TYPE: buildOutput.INQ_TYPE,
+                  LOB: buildOutput.LOB,
+                  lob_group: (buildOutput as any).lob_group,
+                  SERV_Type: (buildOutput as any).SERV_Type,
+                  RoutingChatbotInteractionId: (buildOutput as any)
+                    .RoutingChatbotInteractionId,
+                  IDCardBotName: buildOutput.idCardChatBotName,
+                  IsVisionEligible: String(buildOutput.isVision),
+                  coverage_eligibility: (buildOutput as any)
+                    .coverage_eligibility,
+                  IsDentalEligible: String(buildOutput.isDental),
+                  IsMedicalEligible: String(buildOutput.isMedical),
+                  Origin: (buildOutput as any).Origin,
+                  'Source of chat': (buildOutput as any)['Source of chat'],
+                },
+              }
+            : undefined,
+        isLoading: false,
+        error: null,
+        chatData: {
+          isEligible: buildOutput.isChatEligibleMember as boolean,
+          cloudChatEligible: buildOutput.chatMode === 'cloud',
+          chatAvailable: buildOutput.isChatAvailable === 'true',
+          chatGroup: buildOutput.chatGroup,
+          workingHours: buildOutput.workingHours,
+          rawChatHrs: buildOutput.rawChatHrs,
+          genesysCloudConfig:
+            buildOutput.chatMode === 'cloud'
+              ? {
+                  deploymentId:
+                    (buildOutput as unknown as CloudChatConfig).deploymentId ||
+                    '',
+                  environment:
+                    (buildOutput as unknown as CloudChatConfig).environment ||
+                    '',
+                  orgId:
+                    (buildOutput as unknown as CloudChatConfig).orgId || '',
+                }
+              : undefined,
+          routingInteractionId: (rawChatConfig as any)?.routingInteractionId,
+        },
+        chatConfig: validatedConfig,
+        token: isLegacyChatConfig(buildOutput)
+          ? buildOutput.clickToChatToken
+          : undefined,
+      },
+    }));
+
+    if (typeof window !== 'undefined') {
+      window.chatSettings = buildOutput as any;
+      // Removed logger.info for window.chatSettings population
+    }
+  };
 
   return {
     ui: {
@@ -214,48 +300,34 @@ export const useChatStore = create<ChatState>((set, get) => {
 
     actions: {
       setOpen: makeStable((isOpen: boolean) => {
-        const prevState = get().ui.isOpen;
-        logger.info(
-          `${LOG_UI_PREFIX} setOpen(${isOpen}), previous state: ${prevState}`,
-        );
         set((state) => ({ ui: { ...state.ui, isOpen } }));
       }),
       setMinimized: (min) => {
-        logger.info(`${LOG_UI_PREFIX} setMinimized called`, { min });
         set((state) => ({ ui: { ...state.ui, isMinimized: min } }));
       },
       minimizeChat: () => {
-        logger.info(`${LOG_UI_PREFIX} minimizeChat called`);
         set((state) => ({ ui: { ...state.ui, isMinimized: true } }));
       },
       maximizeChat: () => {
-        logger.info(`${LOG_UI_PREFIX} maximizeChat called`);
         set((state) => ({ ui: { ...state.ui, isMinimized: false } }));
       },
       incrementMessageCount: () => {
-        logger.info(`${LOG_UI_PREFIX} incrementMessageCount called`);
         set((state) => ({
           ui: { ...state.ui, newMessageCount: state.ui.newMessageCount + 1 },
         }));
       },
       resetMessageCount: () => {
-        logger.info(`${LOG_UI_PREFIX} resetMessageCount called`);
         set((state) => ({ ui: { ...state.ui, newMessageCount: 0 } }));
       },
       setButtonState: makeStable(
         (buttonState: 'not-attempted' | 'creating' | 'created' | 'failed') => {
-          const prevState = get().ui.buttonState;
-          logger.info(
-            `${LOG_UI_PREFIX} setButtonState(${buttonState}), previous state: ${prevState}`,
-          );
           set((state) => ({ ui: { ...state.ui, buttonState } }));
         },
       ),
       setError: makeStable((err: Error | null) => {
-        const prevError = get().config.error;
-        logger.error(`${LOG_CONFIG_PREFIX} setError called`, {
+        logger.error(`[ChatStore:Config] setError called`, {
           newError: err,
-          prevError,
+          prevError: get().config.error,
         });
         set((state) => ({
           config: {
@@ -267,6 +339,7 @@ export const useChatStore = create<ChatState>((set, get) => {
             legacyConfig: err ? undefined : state.config.legacyConfig,
             cloudConfig: err ? undefined : state.config.cloudConfig,
             chatData: err ? null : state.config.chatData,
+            // chatConfig is intentionally not reset here to match original setError behavior
           },
         })); // Ensure isLoading is false on error
       }),
@@ -277,51 +350,19 @@ export const useChatStore = create<ChatState>((set, get) => {
           sessionUser: SessionUser,
           userProfile: UserProfile,
           currentPlanDetails: CurrentPlanDetails,
-          apiConfig?: ChatConfig,
+          // apiConfig?: ChatConfig, // Parameter preserved in signature though unused in refactored body
         ) => {
-          logger.info(
-            `${LOG_CONFIG_PREFIX} loadChatConfiguration called. Member ID for API: ${apiCallMemberId}`,
-            {
-              loggedInMemberUserId: loggedInMember.userId,
-              sessionUserId: sessionUser.id,
-              userProfileId: userProfile.id,
-              currentPlanDetails,
-              apiConfigPassed: apiConfig,
-            },
-          );
           set((state) => ({
             config: { ...state.config, isLoading: true, error: null },
           }));
 
           try {
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Calling getChatInfo with memberId: ${apiCallMemberId}`,
-            );
             const rawChatConfig = await getChatInfo(apiCallMemberId);
-
-            logger.info(
-              `${LOG_CONFIG_PREFIX} getChatInfo raw response:`,
-              rawChatConfig,
-            );
 
             const parsedChatInfo = ChatConfigSchema.safeParse(rawChatConfig);
             if (!parsedChatInfo.success) {
-              // DIRECT CONSOLE LOGGING FOR DEBUGGING ZOD ERRORS
-              console.log(
-                '[ChatStore:Config] ZOD VALIDATION RAW ERROR OBJECT:',
-                parsedChatInfo.error,
-              );
-              console.log(
-                '[ChatStore:Config] ZOD VALIDATION FLATTENED ERRORS:',
-                parsedChatInfo.error.flatten(),
-              );
-              console.log(
-                '[ChatStore:Config] ZOD VALIDATION RAW DATA INPUT:',
-                rawChatConfig,
-              );
-
               logger.error(
-                `${LOG_CONFIG_PREFIX} Failed to validate API response against ChatConfigSchema.`,
+                `[ChatStore:Config] Failed to validate API response against ChatConfigSchema.`,
                 {
                   errors: parsedChatInfo.error.errors, // Original errors array
                   flattenedErrors: parsedChatInfo.error.flatten(),
@@ -333,23 +374,7 @@ export const useChatStore = create<ChatState>((set, get) => {
               );
             }
             const validatedConfig = parsedChatInfo.data;
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Successfully validated API response:`,
-              validatedConfig,
-            );
 
-            // Log the sessionUser object just before calling buildGenesysChatConfig
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Inspecting sessionUser before buildGenesysChatConfig call:`,
-              {
-                sessionUserExists: !!sessionUser,
-                currUsrExists: !!sessionUser?.currUsr,
-                planInCurrUsrExists: !!sessionUser?.currUsr?.plan,
-                sessionUserFull: sessionUser, // Log the whole sessionUser object for inspection
-              },
-            );
-
-            // Define the expected argument type for buildGenesysChatConfig for explicit casting
             type BuildChatConfigArg = {
               loggedInMember: LoggedInMember;
               sessionUser: SessionUser;
@@ -359,128 +384,27 @@ export const useChatStore = create<ChatState>((set, get) => {
               staticConfig?: Partial<GenesysChatConfig>;
             };
 
-            // Build the GenesysChatConfig DTO using the validated API response
             const buildOutput = buildGenesysChatConfig({
               loggedInMember,
               sessionUser,
               userProfile,
               apiConfig: validatedConfig,
               currentPlanDetails,
-              // staticConfig: {} // Optionally pass static overrides here
             } as BuildChatConfigArg);
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Successfully built Genesys chat config:`,
-              buildOutput,
-            );
 
             updateApiState(
               buildOutput.isChatEligibleMember as boolean,
               buildOutput.chatMode === 'cloud' ? 'cloud' : 'legacy',
             );
 
-            set((state) => ({
-              config: {
-                ...state.config,
-                genesysChatConfig: buildOutput,
-                legacyConfig:
-                  buildOutput.chatMode === 'legacy'
-                    ? (buildOutput as unknown as ChatSettings)
-                    : undefined,
-                cloudConfig:
-                  buildOutput.chatMode === 'cloud'
-                    ? {
-                        environment:
-                          (buildOutput as unknown as CloudChatConfig)
-                            .environment || '',
-                        deploymentId:
-                          (buildOutput as unknown as CloudChatConfig)
-                            .deploymentId || '',
-                        customAttributes: {
-                          Firstname:
-                            buildOutput.formattedFirstName ||
-                            buildOutput.memberFirstname,
-                          lastname: buildOutput.memberLastName,
-                          MEMBER_ID: buildOutput.MEMBER_ID,
-                          MEMBER_DOB: buildOutput.memberDOB,
-                          GROUP_ID: buildOutput.groupId,
-                          PLAN_ID: buildOutput.memberMedicalPlanID,
-                          INQ_TYPE: buildOutput.INQ_TYPE,
-                          LOB: buildOutput.LOB,
-                          lob_group: (buildOutput as any).lob_group,
-                          SERV_Type: (buildOutput as any).SERV_Type,
-                          RoutingChatbotInteractionId: (buildOutput as any)
-                            .RoutingChatbotInteractionId,
-                          IDCardBotName: buildOutput.idCardChatBotName,
-                          IsVisionEligible: String(buildOutput.isVision),
-                          coverage_eligibility: (buildOutput as any)
-                            .coverage_eligibility,
-                          IsDentalEligible: String(buildOutput.isDental),
-                          IsMedicalEligible: String(buildOutput.isMedical),
-                          Origin: (buildOutput as any).Origin,
-                          'Source of chat': (buildOutput as any)[
-                            'Source of chat'
-                          ],
-                        },
-                      }
-                    : undefined,
-                isLoading: false,
-                error: null,
-                chatData: {
-                  isEligible: buildOutput.isChatEligibleMember as boolean,
-                  cloudChatEligible: buildOutput.chatMode === 'cloud',
-                  chatAvailable: buildOutput.isChatAvailable === 'true',
-                  chatGroup: buildOutput.chatGroup,
-                  workingHours: buildOutput.workingHours,
-                  rawChatHrs: buildOutput.rawChatHrs,
-                  genesysCloudConfig:
-                    buildOutput.chatMode === 'cloud'
-                      ? {
-                          deploymentId:
-                            (buildOutput as unknown as CloudChatConfig)
-                              .deploymentId || '',
-                          environment:
-                            (buildOutput as unknown as CloudChatConfig)
-                              .environment || '',
-                          orgId:
-                            (buildOutput as unknown as CloudChatConfig).orgId ||
-                            '',
-                        }
-                      : undefined,
-                  routingInteractionId: (rawChatConfig as any)
-                    ?.routingInteractionId,
-                },
-                chatConfig: validatedConfig,
-                token: isLegacyChatConfig(buildOutput)
-                  ? buildOutput.clickToChatToken
-                  : undefined,
-              },
-            }));
-
-            if (typeof window !== 'undefined') {
-              window.chatSettings = buildOutput as any;
-              if (window.chatSettings) {
-                logger.info(
-                  `${LOG_CONFIG_PREFIX} window.chatSettings has been populated for legacy mode.`,
-                  {
-                    chatMode: window.chatSettings.chatMode,
-                    keys: Object.keys(window.chatSettings).length,
-                    isChatEligibleMember:
-                      window.chatSettings.isChatEligibleMember,
-                    isChatAvailable: window.chatSettings.isChatAvailable,
-                    numberOfPlans: window.chatSettings.numberOfPlans,
-                    currentPlanName: window.chatSettings.currentPlanName,
-                    LOB: window.chatSettings.LOB,
-                    INQ_TYPE: window.chatSettings.INQ_TYPE,
-                  },
-                );
-              }
-            }
-            logger.info(
-              `${LOG_CONFIG_PREFIX} Chat store updated with new configuration.`,
+            _updateStoreWithChatConfiguration(
+              buildOutput,
+              validatedConfig,
+              rawChatConfig,
             );
           } catch (error: any) {
             logger.error(
-              `${LOG_CONFIG_PREFIX} Error in loadChatConfiguration:`,
+              `[ChatStore:Config] Error in loadChatConfiguration:`,
               error,
             );
             set((state) => ({
@@ -492,7 +416,7 @@ export const useChatStore = create<ChatState>((set, get) => {
                 legacyConfig: undefined,
                 cloudConfig: undefined,
                 chatData: null,
-                chatConfig: undefined,
+                // chatConfig is intentionally not reset here to match original catch block behavior
               },
             }));
             updateApiState(false, null);
@@ -501,7 +425,6 @@ export const useChatStore = create<ChatState>((set, get) => {
         },
       ),
       resetConfig: () => {
-        logger.info(`${LOG_CONFIG_PREFIX} resetConfig called`);
         set((state) => ({
           config: {
             isLoading: false,
@@ -516,10 +439,6 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       setChatActive: (isActive, sessionId) => {
-        logger.info(`${LOG_SESSION_PREFIX} setChatActive called`, {
-          isActive,
-          sessionId,
-        });
         set((state) => ({
           session: {
             ...state.session,
@@ -529,7 +448,6 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       setChatInactive: () => {
-        logger.info(`${LOG_SESSION_PREFIX} setChatInactive called`);
         set((state) => ({
           session: {
             ...state.session,
@@ -539,7 +457,6 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       updateLastActivity: () => {
-        logger.info(`${LOG_SESSION_PREFIX} updateLastActivity called`);
         set((state) => ({
           session: {
             ...state.session,
@@ -548,11 +465,9 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       setLoading: (loading) => {
-        logger.info(`${LOG_CONFIG_PREFIX} setLoading called`, { loading });
         set((state) => ({ config: { ...state.config, isLoading: loading } }));
       },
       addMessage: (m: { content: string; sender: 'user' | 'agent' }) => {
-        logger.info(`${LOG_SESSION_PREFIX} addMessage called`);
         set((state) => ({
           session: {
             ...state.session,
@@ -564,14 +479,9 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       clearMessages: () => {
-        logger.info(`${LOG_SESSION_PREFIX} clearMessages called`);
         set((state) => ({ session: { ...state.session, messages: [] } }));
       },
       setPlanSwitcherLocked: (locked, message) => {
-        logger.info(`${LOG_SESSION_PREFIX} setPlanSwitcherLocked called`, {
-          locked,
-          message,
-        });
         set((state) => ({
           session: {
             ...state.session,
@@ -585,9 +495,6 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       closeAndRedirect: () => {
-        logger.info(
-          `${LOG_SESSION_PREFIX} closeAndRedirect called. Setting chat inactive and clearing messages.`,
-        );
         set((state) => ({
           ui: { ...state.ui, isOpen: false, isMinimized: false }, // Ensure minimized is also reset
           session: {
@@ -599,35 +506,26 @@ export const useChatStore = create<ChatState>((set, get) => {
         }));
       },
       startChat: () => {
-        logger.info(
-          `${LOG_SESSION_PREFIX} startChat called. Setting chat active and locking plan switcher.`,
-        );
         set((state) => ({
           session: {
             ...state.session,
             isChatActive: true,
             isPlanSwitcherLocked: true,
           },
-          // ui: { ...state.ui, isOpen: true, isMinimized: false } // Ensure chat window opens
         }));
       },
       endChat: () => {
-        logger.info(
-          `${LOG_SESSION_PREFIX} endChat called. Setting chat inactive and unlocking plan switcher.`,
-        );
         set((state) => ({
           session: {
             ...state.session,
             isChatActive: false,
             isPlanSwitcherLocked: false,
           },
-          // ui: { ...state.ui, isOpen: false } // Ensure chat window UI state is also closed
         }));
       },
       setScriptLoadPhase: (phase: ScriptLoadPhase) => {
-        logger.info(`${LOG_SCRIPT_PREFIX} setScriptLoadPhase called`, {
-          phase,
-        });
+        // Original logger.info removed as per logging cleanup rules for non-critical logs.
+        // No new logger.warn added as per rule to preserve existing warns, not create new ones from info logs.
         set((state) => ({
           scripts: { ...state.scripts, scriptLoadPhase: phase },
         }));
@@ -655,5 +553,3 @@ export const useChatStore = create<ChatState>((set, get) => {
     },
   };
 });
-
-logger.info(`${LOG_STORE_PREFIX} Chat store created.`);
