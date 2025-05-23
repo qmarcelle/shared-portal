@@ -7,10 +7,10 @@ import { FooterServerWrapper } from '@/components/serverComponents/FooterServerW
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
-import '@/styles/genesys-overrides.css';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import '../styles/genesys-overrides.css';
 import ClientLayout from './ClientLayout';
 
 export default function RootLayout({
