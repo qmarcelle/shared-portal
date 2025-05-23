@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 
-import '@/../public/assets/genesys/plugins/widgets.min.css';
+// import '@/../public/assets/genesys/plugins/widgets.min.css'; // Removed this import
 import '@/app/globals.css';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
 import { FooterServerWrapper } from '@/components/serverComponents/FooterServerWrapper';
@@ -20,6 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Added link for widgets.min.css */}
+        <link rel="stylesheet" href="/assets/genesys/plugins/widgets.min.css" />
+      </head>
       <body>
         <ClientInitComponent />
         <SiteHeaderServerWrapper />
