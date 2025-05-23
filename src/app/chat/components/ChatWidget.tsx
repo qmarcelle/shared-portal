@@ -424,7 +424,6 @@ export default function ChatWidget({
     const cxBus =
       (window as any)._genesysCXBus || window._genesys?.widgets?.bus;
     if (cxBus) {
-      // Prepare userData and form from genesysChatConfigFull
       const config = genesysChatConfigFull;
       const userData = config
         ? {
@@ -435,7 +434,6 @@ export default function ChatWidget({
             memberMedicalPlanID: config.memberMedicalPlanID,
             groupId: config.groupId,
             INQ_TYPE: config.INQ_TYPE,
-            // Add more fields as needed
           }
         : {};
       const form = config
@@ -445,10 +443,14 @@ export default function ChatWidget({
             email: config.email,
           }
         : {};
+
       cxBus
         .command('WebChat.open', { userData, form })
         .done(() => {
-          /* Original logs removed */
+          logger.info(
+            '[ChatWidget] WebChat.open command successful via CXBus.',
+          );
+          closePreChatModal(); // Close modal on successful open
         })
         .fail((err: any) => {
           logger.error(
@@ -459,6 +461,7 @@ export default function ChatWidget({
             new Error(err.message || 'Failed to open chat via CXBus.'),
           );
           setShowChatErrorModal(true);
+          closePreChatModal(); // Close modal on failure too
         });
     } else {
       logger.error(
@@ -466,15 +469,9 @@ export default function ChatWidget({
       );
       storeActions.setError(new Error('Genesys CXBus not available.'));
       setShowChatErrorModal(true);
+      closePreChatModal(); // Close modal if CXBus is not available
     }
-    closePreChatModal();
-  }, [
-    chatMode,
-    scriptLoadPhase,
-    closePreChatModal,
-    storeActions,
-    genesysChatConfigFull,
-  ]);
+  }, [scriptLoadPhase, closePreChatModal, storeActions, genesysChatConfigFull]);
 
   // Effect for managing visibility of Genesys native chat button (strict original interpretation)
   useEffect(() => {
