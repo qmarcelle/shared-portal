@@ -1466,19 +1466,55 @@
 
       // Based on JSPF structure, buildActiveChatInputs() *does* define the primary form.
       // So, this assignment *should* happen.
-      const formInputsFromBuildActive = buildActiveChatInputs(); // Added for logging
+      const formInputsFromBuildActive = buildActiveChatInputs();
       console.log(
-        '[click_to_chat.js] DEBUG: Output of buildActiveChatInputs():',
-        JSON.parse(JSON.stringify(formInputsFromBuildActive)),
-      ); // Added for logging
-      window._genesys.widgets.webchat.form.inputs = formInputsFromBuildActive; // Original line, now uses logged variable
+        '[click_to_chat.js] DEBUG: Output of buildActiveChatInputs() is (length ' +
+          (formInputsFromBuildActive ? formInputsFromBuildActive.length : 0) +
+          '):',
+        JSON.parse(JSON.stringify(formInputsFromBuildActive || [])),
+      ); // Modified log for brevity and safety
+
+      // TEMPORARY TEST: Override with a minimal form to isolate issues
+      window._genesys.widgets.webchat.form.inputs = [
+        {
+          name: 'nickname',
+          maxlength: '100',
+          placeholder: 'Enter your name',
+          label: 'Name',
+        },
+        // You could add a subject if it seems critical from Genesys docs for your version
+        // {
+        //   name: 'subject',
+        //   maxlength: '100',
+        //   placeholder: 'Subject',
+        //   label: 'Subject',
+        //   value: 'Test Inquiry - Minimal Form',
+        //   isHidden: false
+        // }
+      ];
+      console.log(
+        '[click_to_chat.js] DEBUG: Overriding with minimal hardcoded form.inputs:',
+        JSON.parse(JSON.stringify(window._genesys.widgets.webchat.form.inputs)),
+      );
+      // Original line, now effectively bypassed by the override above for testing:
+      // window._genesys.widgets.webchat.form.inputs = formInputsFromBuildActive;
 
       console.log(
-        '[click_to_chat.js] WebChat config after Object.assign and form.inputs override:',
+        '[click_to_chat.js] WebChat config after Object.assign and potential form.inputs override:',
         JSON.parse(JSON.stringify(window._genesys.widgets.webchat)),
         '[click_to_chat.js] Timestamp:',
         Date.now(),
         '- window._genesys.widgets.onReady CALLED by widgets.min.js.',
+      );
+
+      // ADD FINAL DEBUG LOGS HERE
+      console.log(
+        '[click_to_chat.js] FINAL DEBUG: window.chatSettings being used:',
+        JSON.parse(JSON.stringify(window.chatSettings || {})),
+      );
+      console.log(
+        '[click_to_chat.js] FINAL DEBUG: window._genesys.widgets.webchat config being used:',
+        JSON.parse(JSON.stringify(window._genesys.widgets.webchat || {})),
       );
 
       // This function now effectively IS the onReady callback logic for Genesys legacy
