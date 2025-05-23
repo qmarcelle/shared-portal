@@ -146,6 +146,12 @@ export default function ChatWidget({
     (state) => state.scripts.scriptLoadPhase,
   );
 
+  // MODIFIED: Added console.log for isPreChatModalOpen
+  console.log(
+    '[ChatWidget] RENDER. isPreChatModalOpen value:',
+    isPreChatModalOpen,
+  );
+
   const prevActiveLegacyConfigRef = useRef<LegacyChatConfig | undefined>();
 
   const activeLegacyConfig = useMemo(() => {
@@ -164,6 +170,9 @@ export default function ChatWidget({
 
   useEffect(() => {
     (window as any).requestChatOpen = () => {
+      console.log(
+        '[ChatWidget] (window as any).requestChatOpen DEFINITION CALLED. Calling openPreChatModal().',
+      );
       openPreChatModal();
     };
     return () => {
@@ -396,6 +405,7 @@ export default function ChatWidget({
   ]);
 
   const handleChatButtonClick = useCallback(() => {
+    console.log('[ChatWidget] handleChatButtonClick CALLED');
     if (!isChatEnabled || !genesysChatConfigFull) {
       logger.warn(
         `[ChatWidget] Chat button clicked, but chat is not enabled or not fully configured.`,
@@ -408,6 +418,7 @@ export default function ChatWidget({
       return;
     }
     if (typeof (window as any).requestChatOpen === 'function') {
+      console.log('[ChatWidget] requestChatOpen IS a function. Calling it.');
       (window as any).requestChatOpen();
     } else {
       logger.error(

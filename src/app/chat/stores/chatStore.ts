@@ -546,8 +546,12 @@ export const useChatStore = create<ChatState>((set, get) => {
         set((state) => ({
           ui: { ...state.ui, isTnCModalOpen: false, tnCModalLOB: null },
         })),
-      openPreChatModal: () =>
-        set((state) => ({ ui: { ...state.ui, isPreChatModalOpen: true } })),
+      openPreChatModal: () => {
+        console.log(
+          '[ChatStore] openPreChatModal ACTION called. Setting isPreChatModalOpen to true.',
+        );
+        set((state) => ({ ui: { ...state.ui, isPreChatModalOpen: true } }));
+      },
       closePreChatModal: () =>
         set((state) => ({ ui: { ...state.ui, isPreChatModalOpen: false } })),
     },
