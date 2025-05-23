@@ -36,7 +36,8 @@ export const AUTH_FUNCTION_MAP = {
   phsEligible: 'PHSELIGIBLE',
   allMedicareAdvantageEligible: 'AllMedicareAdvantage',
   rxChoiceEligible: 'RX_CHOICE_ELIGIBLE',
-  rxEssentialEligible: 'RX_ESSENTIAL_PLUS_ELIGIBLE',
+  rxEssentialEligible: 'RX_ESSENTIAL_ELIGIBLE',
+  rxEssentialPlusEligible: 'RX_ESSENTIAL_PLUS_ELIGIBLE',
   rsPreferredEligible: 'RX_PREFERRED_ELIGIBLE',
   medicarePrescriptionPaymentPlanEligible:
     'MEDICARE_PRESCRIPTION_PAYMENT_PLAN_ELIGIBLE',
