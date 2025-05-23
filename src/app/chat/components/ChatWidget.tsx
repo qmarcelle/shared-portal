@@ -511,7 +511,7 @@ export default function ChatWidget({
   // or if Genesys itself needs to re-trigger a similar logic.
   // For the direct button click, handleChatButtonClick is now the entry point.
   const handleStartChatConfirm = useCallback(() => {
-    // debugger; // For step-through debugging // Keep debugger for testing
+    debugger; // For step-through debugging // UNCOMMENTED for testing
     logger.info(
       `${LOG_PREFIX} PreChatModal confirmed. Attempting to open/ensure Genesys chat.`,
       {
