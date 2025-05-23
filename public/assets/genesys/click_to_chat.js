@@ -1167,7 +1167,7 @@
         });
         const disclaimerMsg = setChatDisclaimerMesg(
           cs.clientClassificationId,
-          cs.effectiveLob,
+          clientIdConst,
         );
         inputs.push({
           custom:
@@ -1191,8 +1191,8 @@
         // Original extensive form building logic:
         inputs.push({
           custom: isAmplifyMem
-            ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\'s talk.' style='font-size:30px'></td></tr>"
-            : "<tr class='activeChat'><td colspan='2' data-message='We\'re right here <br>for you. Let\'s chat.' style='font-size:30px'></td></tr>",
+            ? "<tr class='activeChat'><td colspan='2' data-message='Questions or need advice? Let\\'s talk.' style='font-size:30px'></td></tr>"
+            : "<tr class='activeChat'><td colspan='2' data-message='We\\'re right here <br>for you. Let\\'s chat.' style='font-size:30px'></td></tr>",
         });
         inputs.push({
           custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
@@ -1206,7 +1206,7 @@
         });
         const disclaimerMsg = setChatDisclaimerMesg(
           cs.clientClassificationId,
-          cs.effectiveLob,
+          clientIdConst,
         );
         inputs.push({
           custom:
@@ -1905,6 +1905,8 @@
       '[click_to_chat.js] handleChatSettingsUpdate CALLED. New settings:',
       newSettings ? JSON.parse(JSON.stringify(newSettings || {})) : {},
     );
+
+    window.chatSettings = JSON.parse(JSON.stringify(newSettings || {})); // Ensure window.chatSettings is updated
 
     // 1. Optionally try to clean up/destroy existing widget
     if (
