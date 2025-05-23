@@ -243,6 +243,9 @@ export interface BaseGenesysChatConfig {
   isWellnessOnly?: boolean | string;
   isCobraEligible?: boolean | string;
   isIDCardEligible?: boolean | string;
+
+  // Add email for chat prefill
+  email?: string;
 }
 
 /**

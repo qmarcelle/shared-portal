@@ -426,8 +426,29 @@ export default function ChatWidget({
     const cxBus =
       (window as any)._genesysCXBus || window._genesys?.widgets?.bus;
     if (cxBus) {
+      // Prepare userData and form from genesysChatConfigFull
+      const config = genesysChatConfigFull;
+      const userData = config
+        ? {
+            firstName: config.memberFirstname || config.formattedFirstName,
+            lastName: config.memberLastName,
+            email: config.email,
+            userID: config.userID,
+            memberMedicalPlanID: config.memberMedicalPlanID,
+            groupId: config.groupId,
+            INQ_TYPE: config.INQ_TYPE,
+            // Add more fields as needed
+          }
+        : {};
+      const form = config
+        ? {
+            nickname: config.formattedFirstName,
+            subject: config.INQ_TYPE,
+            email: config.email,
+          }
+        : {};
       cxBus
-        .command('WebChat.open', {})
+        .command('WebChat.open', { userData, form })
         .done(() => {
           /* Original logs removed */
         })
@@ -463,7 +484,13 @@ export default function ChatWidget({
       setShowChatErrorModal(true);
     }
     closePreChatModal();
-  }, [chatMode, scriptLoadPhase, closePreChatModal, storeActions]);
+  }, [
+    chatMode,
+    scriptLoadPhase,
+    closePreChatModal,
+    storeActions,
+    genesysChatConfigFull,
+  ]);
 
   // Effect for managing visibility of Genesys native chat button (strict original interpretation)
   useEffect(() => {

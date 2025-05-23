@@ -139,6 +139,7 @@ function validateGenesysChatConfig(config: Partial<GenesysChatConfig>): {
  * @param apiConfig - config/flags from API (eligibility, endpoints, etc)
  * @param currentPlanDetails - current plan details from session
  * @param staticConfig - static config (env, hardcoded, etc)
+ * @param loggedInUserInfo - user info from loggedInUserInfo
  */
 export function buildGenesysChatConfig({
   loggedInMember,
@@ -147,6 +148,7 @@ export function buildGenesysChatConfig({
   apiConfig,
   currentPlanDetails,
   staticConfig = {},
+  loggedInUserInfo,
 }: {
   loggedInMember: LoggedInMember;
   sessionUser: SessionUser;
@@ -154,6 +156,7 @@ export function buildGenesysChatConfig({
   apiConfig: ChatConfig;
   currentPlanDetails: CurrentPlanDetails;
   staticConfig?: Partial<GenesysChatConfig>;
+  loggedInUserInfo?: any;
 }): GenesysChatConfig {
   // Validate input parameters
   if (!loggedInMember) {
@@ -199,6 +202,18 @@ export function buildGenesysChatConfig({
     const error = new Error('User ID is required and could not be determined');
     logger.error('[buildGenesysChatConfig] Missing derived userID', { error });
     throw error;
+  }
+
+  // Extract email: check loggedInUserInfo.addresses, then loggedInMember.contact, then fallback to 'no email found'
+  let email: string | undefined = undefined;
+  if (loggedInUserInfo && Array.isArray(loggedInUserInfo.addresses)) {
+    email = loggedInUserInfo.addresses.find((addr: any) => !!addr.email)?.email;
+  }
+  if (!email && loggedInMember.contact && loggedInMember.contact.email) {
+    email = loggedInMember.contact.email;
+  }
+  if (!email) {
+    email = 'no email found';
   }
 
   const finalFirstName = loggedInMember.firstName || userProfile.firstName;
@@ -408,6 +423,8 @@ export function buildGenesysChatConfig({
 
     // Chat Mode specific
     chatMode: chatMode,
+    // Add email to config
+    email: email,
   };
 
   let finalConfig: GenesysChatConfig;
