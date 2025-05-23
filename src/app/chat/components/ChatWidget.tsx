@@ -169,14 +169,14 @@ export default function ChatWidget({
   }, [genesysChatConfigFull]);
 
   useEffect(() => {
-    (window as any).requestChatOpen = () => {
+    (window as any).myCustomRequestPreChatOpen = () => {
       console.log(
-        '[ChatWidget] (window as any).requestChatOpen DEFINITION CALLED. Calling openPreChatModal().',
+        '[ChatWidget] (window as any).myCustomRequestPreChatOpen DEFINITION CALLED. Calling openPreChatModal().',
       );
       openPreChatModal();
     };
     return () => {
-      // delete (window as any).requestChatOpen; // Original cleanup commented out
+      delete (window as any).myCustomRequestPreChatOpen;
     };
   }, [openPreChatModal]);
 
@@ -418,21 +418,18 @@ export default function ChatWidget({
       return;
     }
 
-    if (typeof (window as any).requestChatOpen === 'function') {
-      console.log('[ChatWidget] requestChatOpen IS a function. Calling it.');
-      (window as any).requestChatOpen();
+    if (typeof (window as any).myCustomRequestPreChatOpen === 'function') {
+      console.log(
+        '[ChatWidget] myCustomRequestPreChatOpen IS a function. Calling it.',
+      );
+      (window as any).myCustomRequestPreChatOpen();
     } else {
       logger.warn(
-        `[ChatWidget] (window as any).requestChatOpen is NOT a function. Attempting to call openPreChatModal() directly.`,
+        `[ChatWidget] (window as any).myCustomRequestPreChatOpen is NOT a function. Attempting to call openPreChatModal() directly.`,
       );
-      openPreChatModal(); // Direct call as a fallback
+      openPreChatModal();
     }
-  }, [
-    isChatEnabled,
-    genesysChatConfigFull,
-    storeActions,
-    openPreChatModal, // Added openPreChatModal to dependencies
-  ]);
+  }, [isChatEnabled, genesysChatConfigFull, storeActions, openPreChatModal]);
 
   const handleStartChatConfirm = useCallback(() => {
     console.log('[ChatWidget] handleStartChatConfirm CALLED');
@@ -662,13 +659,12 @@ declare global {
     _genesysCXBus?: GenesysCXBus | unknown;
     openPlanSwitcher?: () => void;
     OpenChatDisclaimer?: () => void;
-    requestChatOpen?: () => void;
+    myCustomRequestPreChatOpen?: () => void;
     _forceChatButtonCreate?: () => boolean;
     _genesys?: any;
     _genesysInitStatus?: any;
     _genesysDiagnostics?: () => void;
     handleChatSettingsUpdate?: (newSettings: LegacyChatConfig) => void;
-    Genesys?: ((command: string, ...args: unknown[]) => unknown) | undefined;
     genesysLegacyChatIsReady?: boolean;
     genesysLegacyChatOpenRequested?: boolean;
   }

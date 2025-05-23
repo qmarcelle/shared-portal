@@ -1368,8 +1368,8 @@
               : window.chatSettings.chatButtonEnabled,
           template:
             window.chatSettings.chatButtonTemplate ||
-            // MODIFIED: onclick to call window.requestChatOpen()
-            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
+            // MODIFIED: onclick to call window.myCustomRequestPreChatOpen()
+            '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.myCustomRequestPreChatOpen && window.myCustomRequestPreChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           // Original template was:
           // '<div class="cx-widget cx-widget-chat cx-webchat-chat-button" id="cx_chat_form_button" role="button" tabindex="0" data-message="ChatButton" data-gcb-service-node="true" onclick="window.requestChatOpen && window.requestChatOpen(); return false;"><span class="cx-icon" data-icon="chat"></span><span class="cx-text">Chat With Us</span></div>',
           effectDuration: window.chatSettings.chatButtonEffectDuration || 300,
