@@ -460,16 +460,16 @@ export default function ChatWidget({
         : {};
 
       cxBus
-        .command('WebChat.open', { userData, form })
+        .command('WebChat.startChat', { userData })
         .done(() => {
           logger.info(
-            '[ChatWidget] WebChat.open command successful via CXBus.',
+            '[ChatWidget] WebChat.startChat command successful via CXBus.',
           );
           closePreChatModal(); // Close modal on successful open
         })
         .fail((err: any) => {
           logger.error(
-            `[ChatWidget] WebChat.open command failed via CXBus.`,
+            `[ChatWidget] WebChat.startChat command failed via CXBus.`,
             err,
           );
           storeActions.setError(
