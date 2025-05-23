@@ -343,6 +343,8 @@ export function buildGenesysChatConfig({
     userID: finalUserID,
     memberFirstname: finalFirstName,
     memberLastName: finalLastName,
+    firstname: finalFirstName,
+    lastname: finalLastName,
     formattedFirstName: finalFormattedFirstName,
     subscriberID: finalSubscriberID,
     sfx: finalSfx,
