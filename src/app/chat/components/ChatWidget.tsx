@@ -9,6 +9,7 @@
  */
 
 import { logger } from '@/utils/logger';
+import { MessageSquare } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useChatStore } from '../stores/chatStore'; // ButtonState is not an export, use literals
 import {
@@ -36,11 +37,19 @@ const DEDICATED_FALLBACK_BUTTON_ID = 'fallback-chat-button-dedicated';
 
 const FALLBACK_BUTTON_IMPERATIVE_STYLE = `
   position: fixed !important; bottom: 20px !important; right: 20px !important;
-  width: 60px !important; height: 60px !important; border-radius: 50% !important;
-  background-color: #0078d4 !important; color: white !important; font-size: 24px !important;
-  border: none !important; box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
-  cursor: pointer !important; z-index: 2147483647 !important;
-  display: flex !important; align-items: center !important; justify-content: center !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background-color: #0078d4 !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+  cursor: pointer !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
 `;
 
 interface ChatWidgetProps {
@@ -765,20 +774,25 @@ export default function ChatWidget({
               position: 'fixed',
               bottom: '20px',
               right: '20px',
-              width: 'auto',
-              padding: '10px',
-              borderRadius: '5px',
-              backgroundColor: '#0078d4',
+              width: '56px',
+              height: '56px',
+              borderRadius: '50%',
+              backgroundColor: '#007bff',
               color: 'white',
               border: 'none',
-              boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
               cursor: 'pointer',
-              zIndex: 2147483647,
+              zIndex: 2147483641,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0',
             } as React.CSSProperties
           }
           onClick={handleChatButtonClick}
+          title="Chat with us"
         >
-          Fallback Chat
+          <MessageSquare size={24} />
         </button>
       )}
     </>

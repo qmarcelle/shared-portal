@@ -104,26 +104,84 @@
 
 /* Add new rules for the parent group */
 .cx-side-button-group {
-  position: static !important; /* Or initial, or unset. Try static first. */
   top: auto !important;
-  right: auto !important;
-  bottom: auto !important;
+  right: 20px !important;
+  bottom: 20px !important;
   left: auto !important;
   transform: none !important;
   -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -o-transform: none !important;
-  transform-origin: initial !important;
-  -webkit-transform-origin: initial !important;
-  -moz-transform-origin: initial !important;
-  -ms-transform-origin: initial !important;
-  -o-transform-origin: initial !important;
-  filter: none !important;
-  z-index: auto !important; /* Let the button control its z-index */
-  background-color: transparent !important; /* Ensure it's not obstructing */
-  /* Reset any dimensions that might constrain the button or its click area */
-  width: auto !important;
+  transform-origin: center center !important;
+  -webkit-transform-origin: center center !important;
+  z-index: 2147483640 !important; /* High z-index, but allow modals above */
+  background-color: transparent !important;
+  width: auto !important; /* Let the button define dimensions */
   height: auto !important;
-  white-space: normal !important; /* Reset from nowrap */
+  /* position: fixed is typically on this or the child button */
+  display: flex !important; /* Use flex to help manage child button if needed */
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Style the actual Genesys chat button */
+/* Common selectors: #cx_chat_form_button (legacy), .cx-widget.cx-webchat-chat-button, button[data-testid="messenger-button"] (cloud) */
+#cx_chat_form_button,
+.cx-widget.cx-webchat-chat-button,
+button[data-testid='messenger-button'] {
+  /* Override side-button specific transforms if any are still applied directly to button */
+  transform: none !important;
+  -webkit-transform: none !important;
+
+  /* Positioning */
+  position: fixed !important; /* Ensure it's fixed positioned */
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important; /* Override any top positioning */
+  left: auto !important; /* Override any left positioning */
+
+  /* Appearance (FAB style) */
+  width: 56px !important;
+  height: 56px !important;
+  background-color: #007bff !important; /* Example: Bootstrap primary blue */
+  color: white !important;
+  border-radius: 50% !important; /* Circular */
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+
+  /* Content Alignment & Handling */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important; /* Remove default padding */
+  overflow: hidden !important; /* Hide overflow */
+
+  cursor: pointer !important;
+  z-index: 2147483641 !important; /* Ensure it's above the group, just in case */
+}
+
+/* Hide the text label within the Genesys button */
+#cx_chat_form_button .cx_chat_form_button_label,
+.cx-widget.cx-webchat-chat-button .cx-side-button-label,
+button[data-testid='messenger-button'] span {
+  /* General span for text, adjust if needed */
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+  text-indent: -9999px !important; /* Further ensure text is not visible or taking space */
+}
+
+/* Style any existing icon (e.g., SVG, .cx-icon) within the Genesys button */
+#cx_chat_form_button .cx-icon,
+.cx-widget.cx-webchat-chat-button .cx-icon,
+button[data-testid='messenger-button'] svg {
+  display: block !important; /* Ensure it's displayed if it exists */
+  width: 24px !important; /* Desired icon size */
+  height: 24px !important; /* Desired icon size */
+  fill: currentColor !important; /* Icon color (will be white due to button's color) */
+  stroke: currentColor !important; /* For SVGs that use stroke */
+  margin: 0 !important; /* Remove extra margins */
+  padding: 0 !important; /* Remove extra padding */
 }
