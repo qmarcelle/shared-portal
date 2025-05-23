@@ -101,3 +101,29 @@
   font-size: 0.875rem !important;
   color: #666666 !important;
 }
+
+/* Add new rules for the parent group */
+.cx-side-button-group {
+  position: static !important; /* Or initial, or unset. Try static first. */
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform-origin: initial !important;
+  -webkit-transform-origin: initial !important;
+  -moz-transform-origin: initial !important;
+  -ms-transform-origin: initial !important;
+  -o-transform-origin: initial !important;
+  filter: none !important;
+  z-index: auto !important; /* Let the button control its z-index */
+  background-color: transparent !important; /* Ensure it's not obstructing */
+  /* Reset any dimensions that might constrain the button or its click area */
+  width: auto !important;
+  height: auto !important;
+  white-space: normal !important; /* Reset from nowrap */
+}

@@ -63,6 +63,7 @@ export default function ChatWidget({
 
   // Store actions are stable references from the create() call
   const storeActions = useChatStore((state) => state.actions);
+  const { openPreChatModal, closePreChatModal } = storeActions;
 
   // Select individual pieces of state or logically grouped state
   // UI State
@@ -135,6 +136,28 @@ export default function ChatWidget({
         hasActiveCloudConfig: !!activeCloudConfig, // Renamed for clarity
       },
     );
+
+    // Define window.requestChatOpen to use our PreChatModal logic
+    // This will override any definition from click_to_chat.js if it runs after
+    window.requestChatOpen = () => {
+      logger.info(
+        `${LOG_PREFIX} window.requestChatOpen (custom) called. Opening PreChatModal.`,
+      );
+      openPreChatModal(); // Use action from store
+    };
+
+    // Cleanup function to remove the custom handler when the component unmounts
+    return () => {
+      if (
+        window.requestChatOpen &&
+        typeof window.requestChatOpen === 'function'
+      ) {
+        // Check if it's our function before deleting, though this is hard to do robustly
+        // For now, just nullify it if we set it.
+        // A more robust way might involve a flag or comparing the function reference if possible.
+        // delete window.requestChatOpen; // Or set to undefined
+      }
+    };
   }, [
     isChatEnabled,
     chatMode,
@@ -146,6 +169,7 @@ export default function ChatWidget({
     genesysChatConfigFull,
     activeLegacyConfig,
     activeCloudConfig,
+    openPreChatModal, // Added openPreChatModal to dependency array
   ]);
 
   // Helper function to check if a Genesys native button is rendered
@@ -505,7 +529,7 @@ export default function ChatWidget({
       logger.info(
         `${LOG_PREFIX} Attempting to re-open PreChatModal after error dismissal.`,
       );
-      storeActions.openPreChatModal();
+      openPreChatModal(); // Use action
     } else if (!isChatEnabled || !genesysChatConfigFull) {
       logger.warn(
         `${LOG_PREFIX} Chat cannot be reopened: chat not enabled or config missing.`,
@@ -513,7 +537,13 @@ export default function ChatWidget({
       // Potentially trigger a re-fetch of config if that was the issue.
       // storeActions.loadChatConfiguration(...); // This would require parameters
     }
-  }, [storeActions, isChatEnabled, genesysChatConfigFull, isChatActive]);
+  }, [
+    storeActions,
+    isChatEnabled,
+    genesysChatConfigFull,
+    isChatActive,
+    openPreChatModal,
+  ]);
 
   const handleChatButtonClick = useCallback(() => {
     logger.info(`${LOG_PREFIX} Custom or Fallback Chat Button Clicked.`);
@@ -559,9 +589,9 @@ export default function ChatWidget({
   // or if Genesys itself needs to re-trigger a similar logic.
   // For the direct button click, handleChatButtonClick is now the entry point.
   const handleStartChatConfirm = useCallback(() => {
-    debugger; // For step-through debugging
+    // debugger; // For step-through debugging // Keep debugger for testing
     logger.info(
-      `${LOG_PREFIX} PreChatModal confirmed (or direct Genesys open attempted). Attempting to open/ensure Genesys chat.`,
+      `${LOG_PREFIX} PreChatModal confirmed. Attempting to open/ensure Genesys chat.`,
       {
         currentChatMode: chatMode,
         isLegacyCXBusAvailable: !!window._genesysCXBus,
@@ -572,6 +602,7 @@ export default function ChatWidget({
     );
 
     // storeActions.closePreChatModal(); // Closing pre-chat if it was somehow opened
+    closePreChatModal(); // Use action
 
     if (!isChatEnabled || !genesysChatConfigFull) {
       logger.error(
