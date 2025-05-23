@@ -417,19 +417,22 @@ export default function ChatWidget({
       setShowChatErrorModal(true);
       return;
     }
+
     if (typeof (window as any).requestChatOpen === 'function') {
       console.log('[ChatWidget] requestChatOpen IS a function. Calling it.');
       (window as any).requestChatOpen();
     } else {
-      logger.error(
-        `[ChatWidget] (window as any).requestChatOpen is not defined. Cannot open pre-chat modal.`,
+      logger.warn(
+        `[ChatWidget] (window as any).requestChatOpen is NOT a function. Attempting to call openPreChatModal() directly.`,
       );
-      storeActions.setError(
-        new Error('Chat initiation function (requestChatOpen) is missing.'),
-      );
-      setShowChatErrorModal(true);
+      openPreChatModal(); // Direct call as a fallback
     }
-  }, [isChatEnabled, genesysChatConfigFull, storeActions]);
+  }, [
+    isChatEnabled,
+    genesysChatConfigFull,
+    storeActions,
+    openPreChatModal, // Added openPreChatModal to dependencies
+  ]);
 
   const handleStartChatConfirm = useCallback(() => {
     const cxBus =
