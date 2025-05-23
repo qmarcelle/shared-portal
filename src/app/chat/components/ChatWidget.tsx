@@ -460,20 +460,6 @@ export default function ChatWidget({
           );
           setShowChatErrorModal(true);
         });
-      if (chatMode === 'legacy') {
-        const webChatInstance =
-          (window._genesys?.widgets?.legacy?.webchat?.getInstance &&
-            window._genesys.widgets.legacy.webchat.getInstance()) ||
-          ((window as any).Genesys?.webchat?.getInstance &&
-            (window as any).Genesys.webchat.getInstance());
-        if (webChatInstance) {
-          webChatInstance.open();
-        } else {
-          logger.warn(
-            `[ChatWidget] Legacy WebChat.getInstance() not found for fallback call.`,
-          );
-        }
-      }
     } else {
       logger.error(
         `[ChatWidget] Genesys CXBus not available. Cannot open chat. Script load phase: ${scriptLoadPhase}`,
