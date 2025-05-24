@@ -9,6 +9,14 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
 }
@@ -17,4 +25,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Genesys Chat Container */
+.genesys-chat-container {
+  position: relative;
+  z-index: 1000;
+  height: 0; /* Won't take up space in normal flow */
+  width: 0;
+  overflow: visible; /* Allow chat components to be visible outside */
 }
