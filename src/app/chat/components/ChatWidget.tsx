@@ -471,64 +471,44 @@ export default function ChatWidget({
         JSON.stringify(chatPayload, null, 2),
       );
 
-      // Inside ChatWidget.tsx
-
-const handleStartChatConfirm = async () => { // Make it async
-  logger.info('[ChatWidget] handleStartChatConfirm CALLED');
-  closePreChatModal(); // Close your custom pre-chat modal immediately
-
-  const cxBus = (window as any)._genesys.widgets.bus; // Direct access to CXBus
-
-  if (!cxBus) {
-    logger.error('[ChatWidget] CXBus is NOT available when trying to start chat!');
-    // Handle this error: perhaps show an error message to the user
-    return;
-  }
-
-  logger.info('[ChatWidget] CXBus IS available.');
-
-  // const chatPayload = {
-  //   userData: {
-  //     firstName: memberData.firstName,
-  //     lastName: memberData.lastName,
-  //     email: memberData.email,
-  //     userID: memberData.userID,
-  //     memberMedicalPlanID: memberData.memberMedicalPlanID, // Ensure this exists and is correct
-  //     groupId: memberData.groupId, // Ensure this exists and is correct
-  //     INQ_TYPE: chatSettings.INQ_TYPE,
-  //   },
-  //   form: {
-  //     inputs: [
-  //       { name: 'nickname', value: memberData.firstName },
-  //       { name: 'firstName', value: memberData.firstName, isHidden: true },
-  //       { name: 'lastName', value: memberData.lastName, isHidden: true },
-  //       { name: 'email', value: memberData.email, isHidden: true },
-  //       { name: 'subject', value: chatSettings.INQ_TYPE, isHidden: true },
-  //     ],
-  //   },
-  // };
-
-  logger.info('[ChatWidget] Preparing to call WebChat.startChat with FULL payload:', chatPayload);
-
-  try {
-    const result = await cxBus.command('WebChat.startChat', chatPayload);
-    logger.info('[ChatWidget] WebChat.startChat SUCCEEDED:', result);
-    // If successful, Genesys should open its chat window.
-    // You might want to hide your button here if the Genesys widget itself takes over.
-    // However, your CSS suggests the button is persistent unless Genesys hides it.
-  } catch (error) {
-    logger.error('[ChatWidget] WebChat.startChat FAILED:', error);
-    // CRITICAL: Inspect this error object in detail!
-    // This will contain the reason Genesys didn't start the chat.
-    // Possible errors:
-    // - Chat is outside business hours (even with S_S_24, check rawChatHrs)
-    // - Invalid configuration (e.g., chat group doesn't exist or is misconfigured)
-    // - Connectivity issues to Genesys backend
-    // - Security policies preventing the chat window from opening (e.g., iframe issues)
-    // - Licensing issues
-    // You might want to show a user-friendly error message based on the error.
-  }
-};
+      try { // <--- ADD A TRY-CATCH BLOCK HERE
+          cxBus
+            .command('WebChat.startChat', chatPayload) // Pass the full chatPayload
+            .done(() => {
+              logger.info(
+                '[ChatWidget] WebChat.startChat command successful via CXBus.',
+              );
+              console.log(
+                '[ChatWidget] WebChat.startChat SUCCEEDED (done callback).',
+              );
+              closePreChatModal();
+            })
+            .fail((err: any) => {
+              logger.error(
+                `[ChatWidget] WebChat.startChat command failed via CXBus.`,
+                err,
+              );
+              console.error(
+                '[ChatWidget] WebChat.startChat FAILED (fail callback). Error:',
+                JSON.stringify(err, null, 2),
+              );
+              storeActions.setError(
+                new Error(err.message || 'Failed to open chat via CXBus.'),
+              );
+              setShowChatErrorModal(true);
+              closePreChatModal();
+            });
+      } catch (e: any) { // <--- CATCH SYNCHRONOUS ERRORS
+          console.error(
+              '[ChatWidget] Synchronous error calling WebChat.startChat:',
+              e
+          );
+          storeActions.setError(
+              new Error(e.message || 'Synchronous error starting chat.')
+          );
+          setShowChatErrorModal(true);
+          closePreChatModal();
+      }
 
     } else {
       logger.error(
