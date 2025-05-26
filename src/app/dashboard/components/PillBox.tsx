@@ -1,6 +1,7 @@
 import { IComponent } from '@/components/IComponent';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
+import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 
@@ -8,6 +9,7 @@ import { Header } from '@/components/foundation/Header';
 
 interface PillBoxProps extends IComponent {
   title: string;
+  subTitile?: string;
   icon?: JSX.Element;
   pillObjects: PillData[];
 }
@@ -17,14 +19,24 @@ export interface PillData {
   callback?: () => void | Promise<void> | null;
 }
 
-export const PillBox = ({ title, pillObjects, icon }: PillBoxProps) => {
+export const PillBox = ({
+  title,
+  subTitile,
+  pillObjects,
+  icon,
+}: PillBoxProps) => {
   return (
     <Card className="large-section">
       <section className="gap-8">
         <Row className="align-top items-center">
           {icon}
-          <Spacer axis="horizontal" size={16} />
-          <Header text={title} type="title-3" className="!font-bold" />
+          <Column>
+            <Spacer axis="horizontal" size={16} />
+            <Header text={title} type="title-3" className="!font-bold" />
+            {subTitile && (
+              <Header text={subTitile} type="title-3" className="!font-bold" />
+            )}
+          </Column>
         </Row>
         <Spacer size={16} />
         <Row className="flex-wrap gap-x-2 gap-y-4">
