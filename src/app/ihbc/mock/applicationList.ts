@@ -1,0 +1,86 @@
+export const applicationListMock = [
+  {
+    applicationId: '23020000001',
+    applSubmittedDate: 1674190800000,
+    applStatusCode: 'D',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22245000001',
+    applSubmittedDate: 1662091200000,
+    applStatusCode: 'D',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22284000001',
+    applSubmittedDate: 1665460800000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22283000001',
+    applSubmittedDate: 1665374400000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22273000001',
+    applSubmittedDate: 1664510400000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22269000003',
+    applSubmittedDate: 1664164800000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22265000001',
+    applSubmittedDate: 1663819200000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22258000003',
+    applSubmittedDate: 1663214400000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22258000001',
+    applSubmittedDate: 1663214400000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22257000011',
+    applSubmittedDate: 1663128000000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22251000001',
+    applSubmittedDate: 1662609600000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22250000003',
+    applSubmittedDate: 1662523200000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22250000001',
+    applSubmittedDate: 1662523200000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+  {
+    applicationId: '22249000001',
+    applSubmittedDate: 1662436800000,
+    applStatusCode: 'S',
+    subscriberDateOfBirth: 631170000000,
+  },
+];

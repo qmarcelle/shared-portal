@@ -141,6 +141,8 @@ export async function getMemberAndDependents(
       lastName: item.lastName,
       suffix: item.memberSuffix,
       dob: item.birthDate,
+      relationship: item.memRelation,
+      gender: item.gender,
     };
   });
 }

@@ -1,11 +1,19 @@
 'use client';
 
+import { MemberData } from '@/actions/loggedUserInfo';
+import { IHBC } from '@/app/ihbc/IHBC';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { LoggedInMember } from '@/models/app/loggedin_member';
 
-const ManageMyPolicy = ({}) => {
+type Props = {
+  loggedInMember: LoggedInMember;
+  members: MemberData[];
+};
+
+const ManageMyPolicy = ({ loggedInMember, members }: Props) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -15,6 +23,7 @@ const ManageMyPolicy = ({}) => {
           text="Change your plan benefits, update personal information, add/remove dependents, or cancel your policy."
           ariaLabel="Change your plan benefits, update personal information, add/remove dependents, or cancel your policy."
         ></TextBox>
+        <IHBC loggedInMember={loggedInMember} members={members} />
       </Column>
     </div>
   );

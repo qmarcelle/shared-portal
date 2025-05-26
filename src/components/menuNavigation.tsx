@@ -321,7 +321,7 @@ export const getMenuNavigation = (
           isBlueCareNotEligible(rules) &&
           isNotWellnessQa(rules) &&
           isManageMyPolicyEligible(rules),
-        url: '',
+        url: '/myPlan/manageMyPolicy',
         external: false,
       },
       {

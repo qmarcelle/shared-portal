@@ -105,3 +105,55 @@ export function formatDateToShortYear(date: string) {
 
   return `${month}/${day}/${shortYear}`;
 }
+
+/**
+ *
+ * @param n The num of days you need add or sub with sign
+ * @returns Date with n days added or removed
+ */
+export const getNDaysDate = (n: number) => {
+  const today = new Date();
+  today.setDate(today.getDate() + n);
+  return today;
+};
+
+/**
+ * Formats given date object to yyyy-MM-dd format
+ * @param date Date object to format
+ * @returns Formatted Date string
+ */
+export function formatDateToJavaStandard(date: Date) {
+  return format(date, 'yyyy-MM-dd');
+}
+
+/**
+ * Convert all the date strings present inside a JS object as direct
+ * or indirect children to a Java compatible date string.
+ * @param obj The object which contains date strings as values
+ * @returns Object with all date strings formatted to be Java compatible
+ */
+export function convertDatesOfObject<T extends object>(obj: T): T {
+  if (typeof obj === 'string') {
+    // Check if the string matches either mm/dd/yyyy or mm-dd-yyyy format
+    const slashPattern = /^\d{2}\/\d{2}\/\d{4}$/;
+    const dashPattern = /^\d{2}-\d{2}-\d{4}$/;
+
+    if (slashPattern.test(obj)) {
+      const parsedDate = parse(obj, 'MM/dd/yyyy', new Date());
+      return format(parsedDate, 'yyyy-MM-dd') as unknown as T;
+    } else if (dashPattern.test(obj)) {
+      const parsedDate = parse(obj, 'MM-dd-yyyy', new Date());
+      return format(parsedDate, 'yyyy-MM-dd') as unknown as T;
+    }
+    return obj;
+  } else if (Array.isArray(obj)) {
+    return obj.map((item) => convertDatesOfObject(item)) as unknown as T;
+  } else if (typeof obj === 'object' && obj !== null) {
+    return Object.keys(obj).reduce((acc, key) => {
+      (acc as any)[key] = convertDatesOfObject((obj as any)[key]);
+      return acc;
+    }, {} as T);
+  } else {
+    return obj;
+  }
+}
