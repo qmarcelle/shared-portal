@@ -6,6 +6,7 @@ import { auth } from '@/auth';
 import { memberMockResponse } from '@/mock/memberMockResponse';
 import { LoggedInMember } from '@/models/app/loggedin_member';
 import { LoggedInUserInfo } from '@/models/member/api/loggedInUserInfo';
+import { logger } from '@/utils/logger';
 import { Session } from 'next-auth';
 import { MemberData, getLoggedInUserInfo } from './loggedUserInfo';
 
@@ -163,6 +164,7 @@ export async function getMemberAndDependentsPlanDetails(
   };
 
   const contactInfo = await getContactInfo(session?.user.currUsr?.umpi ?? '');
+  logger.info('ContactInfo API PhoneNumber : - ', contactInfo.phone);
 
   return loggedInUser.members.map((item) => {
     const memberName = `${item.firstName} ${item.lastName}`;

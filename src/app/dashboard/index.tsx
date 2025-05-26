@@ -85,7 +85,6 @@ const Dashboard = ({ data }: DashboardProps) => {
           </>
         }
       />
-      <Spacer size={32}></Spacer>
       {data.role != UserRole.NON_MEM ? (
         <>
           {isWellnessQa(data.visibilityRules) ? (

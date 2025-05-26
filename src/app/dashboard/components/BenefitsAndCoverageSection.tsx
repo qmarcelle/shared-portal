@@ -68,7 +68,10 @@ export const BenefitsAndCoverageSection = ({
           </div>
         ))}
         <Spacer size={32} />
-        <AppLink label="View Benefits & Coverage" />
+        <AppLink
+          label="View Benefits & Coverage"
+          url="/member/myplan/benefits"
+        />
       </div>
     </Card>
   );

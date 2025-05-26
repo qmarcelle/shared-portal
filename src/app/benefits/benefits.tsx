@@ -251,7 +251,6 @@ const Benefits = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Spacer size={32} />
         <Title className="title-1" text="Benefits & Coverage" />
         <Spacer size={16} />
         <RichText

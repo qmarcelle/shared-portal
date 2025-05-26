@@ -316,7 +316,7 @@ export default function SiteHeader({
       {/* breadcrumbs */}
       {breadcrumbs.length > 1 && (
         <div className="flex flex-col justify-center items-center page">
-          <div className="app-content">
+          <div className="app-content !pb-0">
             <BreadCrumb items={breadcrumbs} />
           </div>
         </div>
