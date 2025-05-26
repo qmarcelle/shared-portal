@@ -24,7 +24,7 @@ export const Checkbox = memo(
   ({
     // Keep label required for TypeScript but handle empty values gracefully
     label,
-    checked = false,
+    checked,
     onChange,
     disabled = false,
     className = '',
