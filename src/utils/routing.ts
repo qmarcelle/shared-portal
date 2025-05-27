@@ -1,7 +1,12 @@
-import { rewriteRules } from '@/lib/rewrites';
+import {
+  conditionalRewriteRules,
+  rewriteRules,
+  wildcardRewriteRules,
+} from '@/lib/rewrites';
 import { Breadcrumb } from '@/models/app/breadcrumb';
 import { RouteConfig } from '@/models/auth/route_auth_config';
 import { SessionUser } from '@/userManagement/models/sessionUser';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { Session } from 'next-auth';
 import 'server-only';
 import { logger } from './logger';
@@ -35,6 +40,11 @@ export function getBreadcrumbs(
   path: string,
   dynamicText?: string,
 ): Breadcrumb[] {
+  if (!path || typeof path !== 'string' || path.trim() === '') {
+    logger.warn('Invalid path provided to getBreadcrumbs');
+    return [];
+  }
+
   const routeInfo = getRouteConfigData(path);
   if (!routeInfo || !routeInfo.title) return [];
   const breadcrumbs = [
@@ -160,4 +170,26 @@ function pathToComponents(path: string): string[] {
   const components = path.split('/');
   if (shift) components.shift();
   return components;
+}
+
+export function getURLRewrite(
+  path: string,
+  rules?: VisibilityRules,
+): string | null {
+  if (!path || typeof path !== 'string' || path == '') {
+    logger.warn('Invalid path provided to getURLRewrite');
+    return null;
+  }
+
+  if (conditionalRewriteRules[path] && rules) {
+    return conditionalRewriteRules[path](rules);
+  } else if (rewriteRules[path]) {
+    return rewriteRules[path];
+  } else {
+    const wildcard = Object.entries(wildcardRewriteRules).find(
+      ([clientPath, mapping]) => path.includes(clientPath), //eslint-disable-line
+    );
+    if (!wildcard) return null;
+    else return path.replace(wildcard[0], wildcard[1]);
+  }
 }
