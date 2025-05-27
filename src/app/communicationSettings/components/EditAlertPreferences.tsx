@@ -273,15 +273,18 @@ export const EditAlertPreferncesSection = ({
                   {preference.selected && preference.childCheckBox && (
                     <Column className="emailAlertsSublevel">
                       <Spacer size={18} />
-                      <Divider axis="vertical" />
+                      <Divider axis="vertical" className="ml-[17px]" />
                       <Spacer size={18} />
-                      <TextBox text="Choose the emails you want to receive:" />
+                      <TextBox
+                        text="Choose the emails you want to receive:"
+                        className="ml-[30px]"
+                      />
                       <Spacer size={32} />
                       {preference.childCheckBox.size > 0 &&
                         [...preference.childCheckBox.entries()].map(
                           ([childAlertType, childPreference], index) => {
                             return (
-                              <div key={index}>
+                              <div key={index} className="ml-[30px]">
                                 {generateCheckBox(
                                   childPreference,
                                   childAlertType,
