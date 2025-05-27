@@ -151,7 +151,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               findCarePillOptions && (
                 <PillBox
                   title="Looking for Care?"
-                  subTitile="Find a:"
+                  subTitle="Find a:"
                   icon={
                     <Image
                       src={FindCare}
