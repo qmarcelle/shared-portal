@@ -8,6 +8,7 @@ import {
   PROV_DIR_MENTAL_HEALTH,
 } from '@/app/sso/ssoConstants';
 import {
+  isBlueCareEligible,
   isPharmacyBenefitsEligible,
   isTeladocEligible,
   isVisionEligible,
@@ -41,7 +42,10 @@ export const getFindCarePillOptions = (
       },
     });
   }
-  if (visibilityRules.mentalHealthSupport) {
+  if (
+    visibilityRules.mentalHealthSupport ||
+    isBlueCareEligible(visibilityRules)
+  ) {
     findPillOptions.push({
       label: 'Mental Health Provider',
       callback: () => {

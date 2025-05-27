@@ -2,14 +2,13 @@ import { IComponent } from '@/components/IComponent';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 
-import { Header } from '@/components/foundation/Header';
-
 interface PillBoxProps extends IComponent {
   title: string;
-  subTitile?: string;
+  subTitle?: string;
   icon?: JSX.Element;
   pillObjects: PillData[];
 }
@@ -21,7 +20,7 @@ export interface PillData {
 
 export const PillBox = ({
   title,
-  subTitile,
+  subTitle,
   pillObjects,
   icon,
 }: PillBoxProps) => {
@@ -33,8 +32,8 @@ export const PillBox = ({
           <Column>
             <Spacer axis="horizontal" size={16} />
             <Header text={title} type="title-3" className="!font-bold" />
-            {subTitile && (
-              <Header text={subTitile} type="title-3" className="!font-bold" />
+            {subTitle && (
+              <Header text={subTitle} type="title-3" className="!font-bold" />
             )}
           </Column>
         </Row>
