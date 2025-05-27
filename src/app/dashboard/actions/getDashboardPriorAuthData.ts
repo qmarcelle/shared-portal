@@ -13,7 +13,7 @@ export async function getDashboardPriorAuthData(): Promise<DashboardPriorAuthDet
       return computePriorAuthDetail(priorAuthResponse[0]);
     return null;
   } catch (error) {
-    logger.error('Error in Prior Authorization Service - Dashboar{} ', error);
+    logger.error('Error in Prior Authorization Service - Dashboard{} ', error);
     return null;
   }
 }
