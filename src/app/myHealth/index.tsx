@@ -338,6 +338,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
             <HealthLibraryOptions
               className="large-section"
               options={healthLibraryDetails}
+              visibilityRule={data.visibilityRules}
             />
           </section>
         )}
