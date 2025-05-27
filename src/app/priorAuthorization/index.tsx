@@ -133,11 +133,6 @@ const PriorAuthorization = ({
                   priorAuthDetails={data.priorAuthDetails}
                 />
               )}
-              <section className="flex justify-center self-center">
-                <Row className="m-2 mt-0">
-                  Viewing 5 of 5 Prior Authorizations
-                </Row>
-              </section>
             </Column>
           </section>
         )}

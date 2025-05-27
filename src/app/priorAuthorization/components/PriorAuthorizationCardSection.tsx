@@ -4,11 +4,13 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Pagination } from '@/components/foundation/Pagination';
 import { RichDropDown } from '@/components/foundation/RichDropDown';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
+import { PriorAuthDetails } from '../models/priorAuthDetails';
 import { PriorAuthFilterDetails } from '../models/priorAuthFilterDetails';
 import { PriorAuthItem } from './PriorAuthItem';
 
@@ -108,12 +110,13 @@ export const PriorAuthorizationCardSection = ({
     <Column className="mt-2">
       <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2 relative'}>
         <Row className="body-1 align-top mb-0 flex-grow">
-          Filter Results:{' '}
+          <></>
+          {/* Filter Results:{' '}
           <TextBox
             type="body-1"
             className="font-bold ml-2"
             text="5 Prior Authorizations"
-          />
+          />*/}
         </Row>
         <Row className="body-1 items-end">
           <div className="body-1 mb-1">Sort by:</div>
@@ -134,7 +137,7 @@ export const PriorAuthorizationCardSection = ({
       </div>
 
       <div className={'flex flex-col max-sm:my-4'}>
-        <Spacer size={16} />
+        {/*} <Spacer size={16} />
         {claimList == null && priorAuthErrorMessage()}
         {claimList &&
           claimList.map((item: any) => (
@@ -144,8 +147,27 @@ export const PriorAuthorizationCardSection = ({
               priorAuthDetails={item}
               callBack={navigateToPriorAuthDetails}
             />
-          ))}
+          ))}*/}
         <Spacer size={16} />
+        {claimList == null && priorAuthErrorMessage()}
+        {claimList && (
+          <Pagination<PriorAuthDetails>
+            key={claimList[0]}
+            initialList={claimList}
+            pageSize={2}
+            wrapperBuilder={(items) => <Column>{items}</Column>}
+            itemsBuilder={(item) => (
+              <PriorAuthItem
+                key={item.referenceId}
+                className="mb-4"
+                priorAuthDetails={item}
+                callBack={navigateToPriorAuthDetails}
+              />
+            )}
+            label="Prior Authorizations"
+            totalCount={claimList.length}
+          />
+        )}
       </div>
     </Column>
   );

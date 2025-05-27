@@ -32,7 +32,10 @@ export const PriorAuthSection = ({
           }
         })()}
         <Spacer size={32} />
-        <AppLink label="View Prior Authorizations" url="/priorAuthorization" />
+        <AppLink
+          label="View Prior Authorizations"
+          url="/member/myplan/priorauthorizations"
+        />
       </div>
     </Card>
   );
