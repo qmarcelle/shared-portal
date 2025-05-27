@@ -222,7 +222,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                             'Request for Medicare Prescription Drug Coverage Determination',
                           linkDescription:
                             'You can request an exception for prescription drug coverage.',
-                          linkURL: '/forms/redetermination',
+                          linkURL: '/forms/determination',
                           linkIcon: (
                             <Image src={rightIcon} alt="" className="inline" />
                           ),
@@ -233,6 +233,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                             'Request for Redetermination of Medicare Prescription Drug Denial',
                           linkDescription:
                             'If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).',
+                          linkURL: '/forms/redetermination',
                           linkIcon: (
                             <Image src={rightIcon} alt="" className="inline" />
                           ),
