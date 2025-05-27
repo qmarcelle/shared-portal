@@ -3,7 +3,7 @@ import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
 import { UNIXTimeSeconds } from './date_formatter';
 
-export async function setWebsphereRedirectCookie(
+export async function setSTAndInteractionDataCookies(
   interactionData: Partial<PingOneSession>,
 ): Promise<void> {
   if (
