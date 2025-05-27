@@ -24,6 +24,7 @@ const SupportPage = async () => {
       data={result.data!}
       quantumHealthEnabled={quantumHealthEnabled}
       phone={phoneNumber}
+      visibilityRules={session?.user.vRules}
     />
   );
 };
