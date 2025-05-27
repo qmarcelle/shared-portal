@@ -20,6 +20,10 @@ export async function getPremiumPayInfo(
     return resp.data;
   } catch (error) {
     logger.error('PremiumPayInfo API Failed', error);
-    throw error;
+    return {
+      paymentDue: '',
+      currentBalance: '',
+      currentStmtBalance: '',
+    };
   }
 }

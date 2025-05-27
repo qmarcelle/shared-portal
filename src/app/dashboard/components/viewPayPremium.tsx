@@ -1,14 +1,14 @@
+import { useAppModalStore } from '@/components/foundation/AppModal';
+import { Button } from '@/components/foundation/Button';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
+import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-
 import { IComponent } from '@/components/IComponent';
-import { Button } from '@/components/foundation/Button';
-import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import Image from 'next/image';
-
+import { useRouter } from 'next/navigation';
 interface ViewPayPremiumProps extends IComponent {
   label: string;
   subLabelOne: string;
@@ -28,8 +28,9 @@ export const ViewPayPremium = ({
   primaryButtonLabel,
   secondaryButtonLabel,
   primaryButtonCallback,
-  secondaryButtonCallback,
 }: ViewPayPremiumProps) => {
+  const { dismissModal } = useAppModalStore();
+  const router = useRouter();
   return (
     <section id="modal-premium" className="flex flex-col items-center p-7">
       <Column className="flex flex-col items-center">
@@ -51,7 +52,13 @@ export const ViewPayPremium = ({
             className="font-bold active"
             label={secondaryButtonLabel}
             type="primary"
-            callback={secondaryButtonCallback}
+            callback={() => {
+              router.push(
+                '/sso/launch?PartnerSpId=' +
+                  process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA,
+              );
+              dismissModal();
+            }}
           />
         </Row>
       </Column>
