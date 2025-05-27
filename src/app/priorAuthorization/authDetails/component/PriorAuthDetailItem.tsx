@@ -18,7 +18,7 @@ import { IComponent } from '../../../../components/IComponent';
 
 interface priorAuthDetailProps extends IComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  authInfo: MemberPriorAuthDetail;
+  authInfo: MemberPriorAuthDetail | null;
   contact: string;
 }
 
@@ -27,7 +27,7 @@ export const PriorAuthDetailItem = ({
   contact,
 }: priorAuthDetailProps) => {
   function getSuccessStatus() {
-    switch (authInfo.statusDescription) {
+    switch (authInfo?.statusDescription) {
       case 'Processed':
         return 'success';
       case 'Denied':
@@ -60,37 +60,37 @@ export const PriorAuthDetailItem = ({
           <Spacer axis="horizontal" size={8} />
           <Header
             type="title-3"
-            text={authInfo.serviceGroupDescription ?? ''}
+            text={authInfo?.serviceGroupDescription ?? ''}
             className="md:text-3xl !font-light ml-5 w-3/5 mb-4"
           />
         </Row>
         <Column className="statusDetail">
           <StatusLabel
-            label={authInfo.statusDescription ?? ''}
+            label={authInfo?.statusDescription ?? ''}
             status={getSuccessStatus()}
           />
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'Visited on ' + formatDate(authInfo.fromDate)}
+            text={'Visited on ' + formatDate(authInfo?.fromDate ?? '')}
           ></TextBox>
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'For ' + authInfo.firstName + ' ' + authInfo.lastName}
+            text={'For ' + authInfo?.firstName + ' ' + authInfo?.lastName}
           ></TextBox>
           <TextBox
             type="body-1"
             className="mt-4"
-            text={'Reference ID : ' + authInfo.referenceId}
+            text={'Reference ID : ' + authInfo?.referenceId}
           ></TextBox>
         </Column>
       </Column>
       <Column className="app-content app-base-font-color">
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {(authInfo.statusDescription === 'PartialApproval' ||
-              authInfo.statusDescription === 'Denied') && (
+            {(authInfo?.statusDescription === 'PartialApproval' ||
+              authInfo?.statusDescription === 'Denied') && (
               <Card className="neutral container mb-4">
                 <Column className="flex flex-row align-top m-4">
                   <Row>
@@ -132,8 +132,7 @@ export const PriorAuthDetailItem = ({
                 <Column className="mb-8 md:flex-row">
                   <Column className="mr-7">
                     <Header type="title-3" text="Referred By:" />
-                    {(authInfo.statusDescription === 'PartialApproval' ||
-                      authInfo.statusDescription === 'Approved') && (
+                    {authInfo?.getProviderReferredBy === null ? (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
@@ -143,14 +142,12 @@ export const PriorAuthDetailItem = ({
                           ></TextBox>
                         </Row>
                       </Card>
-                    )}
-                    {(authInfo.statusDescription === 'Denied' ||
-                      authInfo.statusDescription === 'Pending') && (
+                    ) : (
                       <Column className="w-52">
                         <TextBox
                           type="body-1"
                           className="font-bold mt-4"
-                          text={authInfo.getProviderReferredBy.name}
+                          text={authInfo?.getProviderReferredBy.name ?? ''}
                         ></TextBox>
                         <TextBox
                           type="body-2"
@@ -160,9 +157,20 @@ export const PriorAuthDetailItem = ({
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text={authInfo.getProviderReferredBy.streetAddress1}
+                          text={
+                            authInfo?.getProviderReferredBy.streetAddress1 ?? ''
+                          }
                         ></TextBox>
-
+                        <TextBox
+                          type="body-1"
+                          text={
+                            (authInfo?.getProviderReferredBy.city ?? '') +
+                            ', ' +
+                            authInfo?.getProviderReferredBy.state +
+                            ' ' +
+                            authInfo?.getProviderReferredBy.postalCode
+                          }
+                        />
                         <TextBox
                           type="body-2"
                           className="mt-4"
@@ -172,16 +180,16 @@ export const PriorAuthDetailItem = ({
                           type="body-1"
                           className="mt-4"
                           text={formatPhone(
-                            authInfo.getProviderReferredBy.phoneNumber,
+                            authInfo?.getProviderReferredBy.phoneNumber,
                           )}
                         ></TextBox>
                       </Column>
                     )}
                   </Column>
-                  <Column>
+
+                  <Column className="ml-10">
                     <Header type="title-3" text="Referred To:" />
-                    {(authInfo.statusDescription === 'Denied' ||
-                      authInfo.statusDescription === 'Approved') && (
+                    {authInfo?.getProviderReferredTo === null ? (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
@@ -191,14 +199,12 @@ export const PriorAuthDetailItem = ({
                           ></TextBox>
                         </Row>
                       </Card>
-                    )}
-                    {(authInfo.statusDescription === 'PartialApproval' ||
-                      authInfo.statusDescription === 'Pending') && (
+                    ) : (
                       <Column className="w-52">
                         <TextBox
                           type="body-1"
                           className="font-bold mt-4"
-                          text={authInfo.getProviderReferredTo.name}
+                          text={authInfo?.getProviderReferredTo.name ?? ''}
                         ></TextBox>
                         <TextBox
                           type="body-2"
@@ -208,9 +214,20 @@ export const PriorAuthDetailItem = ({
                         <TextBox
                           type="body-1"
                           className="mt-4"
-                          text={authInfo.getProviderReferredTo.streetAddress1}
+                          text={
+                            authInfo?.getProviderReferredTo.streetAddress1 ?? ''
+                          }
                         ></TextBox>
-
+                        <TextBox
+                          type="body-1"
+                          text={
+                            (authInfo?.getProviderReferredTo.city ?? '') +
+                            ', ' +
+                            authInfo?.getProviderReferredTo.state +
+                            ' ' +
+                            authInfo?.getProviderReferredTo.postalCode
+                          }
+                        />
                         <TextBox
                           type="body-2"
                           className="mt-4"
@@ -220,7 +237,7 @@ export const PriorAuthDetailItem = ({
                           type="body-1"
                           className="mt-4"
                           text={formatPhone(
-                            authInfo.getProviderReferredTo.phoneNumber,
+                            authInfo?.getProviderReferredTo.phoneNumber,
                           )}
                         ></TextBox>
                       </Column>
@@ -228,64 +245,69 @@ export const PriorAuthDetailItem = ({
                   </Column>
                 </Column>
                 <Divider />
-                <Row>
-                  {(authInfo.statusDescription === 'PartialApproval' ||
-                    authInfo.statusDescription === 'Approved' ||
-                    authInfo.statusDescription === 'Denied') && (
-                    <Column className="w-52">
-                      <Header
-                        type="title-3"
-                        text="Provider Facility:"
-                        className="my-8"
-                      />
-                      <TextBox
-                        type="body-1"
-                        className="font-bold"
-                        text={authInfo.getProviderFacilityId?.name ?? ''}
-                      ></TextBox>
-                      <TextBox
-                        type="body-2"
-                        className="mt-4"
-                        text="Facility Address"
-                      ></TextBox>
-                      <TextBox
-                        type="body-1"
-                        className="mt-4"
-                        text={
-                          authInfo.getProviderFacilityId?.streetAddress1 ?? ''
-                        }
-                      ></TextBox>
-
-                      <TextBox
-                        type="body-2"
-                        className="mt-4"
-                        text="Phone"
-                      ></TextBox>
-                      <TextBox
-                        type="body-1"
-                        className="mt-4"
-                        text={
-                          formatPhone(
-                            authInfo.getProviderFacilityId?.phoneNumber,
-                          ) ?? ''
-                        }
-                      ></TextBox>
-                    </Column>
-                  )}
-                  <Column>
-                    {authInfo.statusDescription === 'Pending' && (
+                <Column>
+                  <Header
+                    type="title-3"
+                    text="Provider Facility:"
+                    className="my-4"
+                  />
+                  <Row>
+                    {authInfo?.getProviderFacilityId === null ? (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
-                            className="w-4/5"
                             type="body-1"
-                            text="Provider Information Unavailable."
+                            className="w-4/5"
+                            text="Facility Information Unavailable."
                           ></TextBox>
                         </Row>
                       </Card>
+                    ) : (
+                      <Column className="w-58">
+                        <TextBox
+                          type="body-1"
+                          className="font-bold"
+                          text={authInfo?.getProviderFacilityId?.name ?? ''}
+                        ></TextBox>
+                        <TextBox
+                          type="body-2"
+                          className="mt-4"
+                          text="Facility Address"
+                        ></TextBox>
+                        <TextBox
+                          type="body-1"
+                          className="mt-4"
+                          text={
+                            authInfo?.getProviderFacilityId?.streetAddress1 ??
+                            ''
+                          }
+                        ></TextBox>
+                        <TextBox
+                          type="body-1"
+                          text={
+                            (authInfo?.getProviderFacilityId?.city ?? '') +
+                            ', ' +
+                            authInfo?.getProviderFacilityId?.state +
+                            ' ' +
+                            authInfo?.getProviderFacilityId?.postalCode
+                          }
+                        />
+                        <TextBox
+                          type="body-2"
+                          className="mt-4"
+                          text="Phone"
+                        ></TextBox>
+                        <TextBox
+                          type="body-1"
+                          className="mt-4"
+                          text={formatPhone(
+                            authInfo?.getProviderFacilityId?.phoneNumber,
+                          )}
+                        ></TextBox>
+                      </Column>
                     )}
-                  </Column>
-                </Row>
+                  </Row>
+                </Column>
               </Column>
             </Card>
           </Column>

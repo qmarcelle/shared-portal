@@ -35,7 +35,7 @@ export const PriorAuthorizationHelp = ({ contact }: priorAuthDetailProps) => {
           spans={[
             <span key={0}>You can also try our </span>,
             <span className="link" key={1}>
-              <a href="/support/faqTopics/priorauthorizations">
+              <a href="/member/support/FAQ/priorauthorizations">
                 Prior Authorization FAQ
               </a>
             </span>,

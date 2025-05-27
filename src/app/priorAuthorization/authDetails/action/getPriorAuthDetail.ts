@@ -8,7 +8,7 @@ import { MemberPriorAuthDetail } from '../../models/priorAuthData';
 
 export async function populatePriorAuthDetails(
   referenceId: string,
-): Promise<MemberPriorAuthDetail> {
+): Promise<MemberPriorAuthDetail | null> {
   try {
     const session = await auth();
     const memberList: string[] = [];
@@ -20,7 +20,7 @@ export async function populatePriorAuthDetails(
     selectedPlan?.relatedPersons.forEach((item) => {
       memberList.push(item.relatedPersonMemeCk.toString());
     });
-    const dateRange = getDateRange(
+    const dateRange = await getDateRange(
       process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
     );
     let priorAuthDetail;
@@ -39,9 +39,9 @@ export async function populatePriorAuthDetails(
         if (priorAuthDetail != null) return priorAuthDetail;
       }
     }
-    return priorAuthDetail;
+    return priorAuthDetail ?? null;
   } catch (error) {
     logger.error('Error Response from  memberPriorAuthDetails', error);
-    throw error;
+    return null;
   }
 }

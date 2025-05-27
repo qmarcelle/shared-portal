@@ -5,7 +5,7 @@ import { IComponent } from '../../../../components/IComponent';
 import { PriorAuthDetailItem } from './PriorAuthDetailItem';
 
 interface priorauthDetailsProps extends IComponent {
-  priorAuthDetail: MemberPriorAuthDetail;
+  priorAuthDetail: MemberPriorAuthDetail | null;
   contact: string;
 }
 

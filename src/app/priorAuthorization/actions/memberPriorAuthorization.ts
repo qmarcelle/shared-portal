@@ -20,7 +20,7 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
     selectedPlan?.relatedPersons.forEach((item) => {
       memberList.push(item.relatedPersonMemeCk.toString());
     });
-    const dateRange = getDateRange(
+    const dateRange = await getDateRange(
       process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
     );
     logger.info('Prior Auth Date Range', dateRange);
@@ -93,7 +93,7 @@ export const getDateRange = (category: string) => {
       throw Error('Invalid date range');
   }
   return {
-    fromDate: format(fromDate, 'mm/dd/yyyy'),
-    toDate: format(toDate, 'mm/dd/yyyy'),
+    fromDate: format(fromDate, 'MM/dd/yyyy'),
+    toDate: format(toDate, 'MM/dd/yyyy'),
   };
 };

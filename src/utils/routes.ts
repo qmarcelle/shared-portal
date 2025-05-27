@@ -241,6 +241,11 @@ export const ROUTE_CONFIG: RouteConfig = {
     priorAuthorization: {
       title: 'Prior Authorization',
       rule: (r) => activeAndHealthPlanMember(r),
+      children: {
+        '*': {
+          title: (refId) => `Ref#${refId}`,
+        },
+      },
     },
     authDetail: {
       title: (authId) => `ID#${authId}`,
@@ -335,7 +340,7 @@ export const ROUTE_CONFIG: RouteConfig = {
       breadcrumbParent: '/sharingPermissions',
     },
     accessOthersInformation: {
-      title: "Access Others' Information", //eslint-disable-line
+      title: 'Access Others Information', //eslint-disable-line
       breadcrumbParent: '/sharingPermissions',
     },
     personalRepresentativeAccess: {
