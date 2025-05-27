@@ -208,15 +208,15 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
               <div
                 class="card-main large-section"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pay Premium
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
                 <div>
-                  <h2
-                    class="title-2"
-                  >
-                    Pay Premium
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                   <div
                     class="flex flex-row"
                   >
@@ -228,9 +228,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     </p>
                     <p
                       class="body-bold ml-auto"
-                    >
-                      08/10/2023
-                    </p>
+                    />
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -248,7 +246,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                       class="body-bold ml-auto"
                     >
                       $
-                      1000.46
                     </p>
                   </div>
                   <span
@@ -872,15 +869,15 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                 <div
                   class="card-main large-section"
                 >
+                  <h2
+                    class="title-2"
+                  >
+                    Pay Premium
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
                   <div>
-                    <h2
-                      class="title-2"
-                    >
-                      Pay Premium
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
                     <div
                       class="flex flex-row"
                     >
@@ -892,9 +889,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       </p>
                       <p
                         class="body-bold ml-auto"
-                      >
-                        08/10/2023
-                      </p>
+                      />
                     </div>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -912,7 +907,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="body-bold ml-auto"
                       >
                         $
-                        1000.46
                       </p>
                     </div>
                     <span
@@ -1530,15 +1524,15 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
               <div
                 class="card-main large-section"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pay Premium
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
                 <div>
-                  <h2
-                    class="title-2"
-                  >
-                    Pay Premium
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                   <div
                     class="flex flex-row"
                   >
@@ -1550,9 +1544,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     </p>
                     <p
                       class="body-bold ml-auto"
-                    >
-                      08/10/2023
-                    </p>
+                    />
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -1570,7 +1562,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       class="body-bold ml-auto"
                     >
                       $
-                      1000.46
                     </p>
                   </div>
                   <span
@@ -2797,15 +2788,15 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
               <div
                 class="card-main large-section"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pay Premium
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
                 <div>
-                  <h2
-                    class="title-2"
-                  >
-                    Pay Premium
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                   <div
                     class="flex flex-row"
                   >
@@ -2817,9 +2808,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     </p>
                     <p
                       class="body-bold ml-auto"
-                    >
-                      08/10/2023
-                    </p>
+                    />
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -2837,7 +2826,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                       class="body-bold ml-auto"
                     >
                       $
-                      1000.46
                     </p>
                   </div>
                   <span
@@ -3485,78 +3473,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
               </div>
             </div>
           </section>
-          <section>
-            <div
-              class="card-main !bg-secondary-focus !p-0 large-section relative"
-            >
-              <div
-                class="flex flex-col sm:flex-row"
-              >
-                <div
-                  class="flex flex-col p-4 sm:py-8 sm:pl-8 basis-1/2 flex-shrink-0 box-border"
-                >
-                  <h2
-                    class="title-2"
-                  >
-                    Bring Your Advisor With You
-                  </h2>
-                  <p
-                    class="body-1 mt-4 mb-8"
-                    style="display: block;"
-                  >
-                    Use the AmplifyHealth App to connect with your health advisor and access all the benefits your plan has to offer.
-                  </p>
-                  <div
-                    class="flex flex-col sm:flex-row"
-                  >
-                    <a
-                      href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
-                    >
-                      <img
-                        alt="Download Amplify App from AppStore"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                    <a
-                      class="mt-4 sm:ml-4 sm:mt-0"
-                      href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
-                    >
-                      <img
-                        alt="Download Amplify App from PlayStore"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <img
-                  alt="Amplify Health App"
-                  class="min-h-[280px] self-end object-cover sm:self-auto basis-1/2 min-w-0"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-            </div>
-          </section>
+          <section />
           <section />
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -3778,15 +3695,15 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 <div
                   class="card-main large-section"
                 >
+                  <h2
+                    class="title-2"
+                  >
+                    Pay Premium
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
                   <div>
-                    <h2
-                      class="title-2"
-                    >
-                      Pay Premium
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
                     <div
                       class="flex flex-row"
                     >
@@ -3798,9 +3715,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </p>
                       <p
                         class="body-bold ml-auto"
-                      >
-                        08/10/2023
-                      </p>
+                      />
                     </div>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -3818,7 +3733,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="body-bold ml-auto"
                       >
                         $
-                        1000.46
                       </p>
                     </div>
                     <span
@@ -4347,15 +4261,15 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               <div
                 class="card-main large-section"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pay Premium
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
                 <div>
-                  <h2
-                    class="title-2"
-                  >
-                    Pay Premium
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                   <div
                     class="flex flex-row"
                   >
@@ -4367,9 +4281,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </p>
                     <p
                       class="body-bold ml-auto"
-                    >
-                      08/10/2023
-                    </p>
+                    />
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -4387,7 +4299,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="body-bold ml-auto"
                     >
                       $
-                      1000.46
                     </p>
                   </div>
                   <span
@@ -4973,15 +4884,15 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                 <div
                   class="card-main large-section"
                 >
+                  <h2
+                    class="title-2"
+                  >
+                    Pay Premium
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
                   <div>
-                    <h2
-                      class="title-2"
-                    >
-                      Pay Premium
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
                     <div
                       class="flex flex-row"
                     >
@@ -4993,9 +4904,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </p>
                       <p
                         class="body-bold ml-auto"
-                      >
-                        08/10/2023
-                      </p>
+                      />
                     </div>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -5013,7 +4922,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="body-bold ml-auto"
                       >
                         $
-                        1000.46
                       </p>
                     </div>
                     <span
@@ -5631,15 +5539,15 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               <div
                 class="card-main large-section"
               >
+                <h2
+                  class="title-2"
+                >
+                  Pay Premium
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
                 <div>
-                  <h2
-                    class="title-2"
-                  >
-                    Pay Premium
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
                   <div
                     class="flex flex-row"
                   >
@@ -5651,9 +5559,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </p>
                     <p
                       class="body-bold ml-auto"
-                    >
-                      08/10/2023
-                    </p>
+                    />
                   </div>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -5671,7 +5577,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="body-bold ml-auto"
                     >
                       $
-                      1000.46
                     </p>
                   </div>
                   <span

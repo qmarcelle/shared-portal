@@ -1,3 +1,5 @@
+import { getPremiumPayInfo } from '@/actions/premiumPayInfo';
+import { auth } from '@/auth';
 import { Metadata } from 'next';
 import MyPlan from '.';
 import { invokePhoneNumberAction } from '../profileSettings/actions/profileSettingsAction';
@@ -9,16 +11,19 @@ export const metadata: Metadata = {
 };
 
 const MyPlanPage = async () => {
+  const session = await auth();
   const phoneNumber = await invokePhoneNumberAction();
-  const [result, planData] = await Promise.all([
+  const [result, planData, premiumPayResponse] = await Promise.all([
     getMyPlanData(),
     getAllPlansData(),
+    getPremiumPayInfo(session?.user.currUsr.plan?.memCk ?? ''),
   ]);
   return (
     <MyPlan
       data={result.data!}
       planData={planData.data!}
       contact={phoneNumber}
+      payPremiumResponse={premiumPayResponse}
     />
   );
 };
