@@ -14,6 +14,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -79,6 +81,21 @@ export const MembersRepresentativeItem = ({
   allowUpdates = true,
   createdAt,
 }: MembersRepresentativeItemProps) => {
+  function trackPlanItemUpdateAnalytics(
+    elementCategory: string,
+    clickText: string,
+  ) {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'modal',
+      element_category: elementCategory,
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
     return (
@@ -159,6 +176,10 @@ export const MembersRepresentativeItem = ({
                   text="Update"
                   suffix={icon}
                   callback={() => {
+                    trackPlanItemUpdateAnalytics(
+                      'Your Representative(s)',
+                      'Update',
+                    );
                     showAppModal({
                       content: (
                         <EditLevelOfAccess
@@ -187,7 +208,11 @@ export const MembersRepresentativeItem = ({
                       className="font-bold primary-color"
                       text="Request Full Access"
                       suffix={icon}
-                      callback={() =>
+                      callback={() => {
+                        trackPlanItemUpdateAnalytics(
+                          'Members You Represent',
+                          'Request Full Access',
+                        );
                         showAppModal({
                           content: (
                             <PersonalRepRequestAccessOnMyPlan
@@ -201,8 +226,8 @@ export const MembersRepresentativeItem = ({
                               }
                             />
                           ),
-                        })
-                      }
+                        });
+                      }}
                     />
                   </>
                 ) : (
