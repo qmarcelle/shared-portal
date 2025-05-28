@@ -38,6 +38,7 @@ import {
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
+import { isOtherInsuranceEligible } from '../visibilityEngine/computeVisibilityRules';
 export const getMenuNavigation = (
   rules: VisibilityRules,
 ): SiteHeaderSubNavProps[] => [
@@ -330,7 +331,7 @@ export const getMenuNavigation = (
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
         showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+          isOtherInsuranceEligible(rules),
         url: '/member/myplan/otherinsurance',
         external: false,
       },
