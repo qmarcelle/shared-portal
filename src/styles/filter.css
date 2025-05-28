@@ -27,3 +27,7 @@
 .flex-modal .switch-filter {
   position: relative !important;
 }
+
+.overflow-hidden{
+  overflow: hidden;
+}
