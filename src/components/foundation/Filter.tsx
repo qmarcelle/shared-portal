@@ -35,7 +35,7 @@ interface FilterProps extends IComponent {
 
 export const FilterTile = ({ user }: { user: FilterDetails }) => {
   return (
-    <Column className="border-none flex-grow">
+    <Column className="border-none flex-grow overflow-hidden">
       <TextBox type="body-1" text={`${user.label}`} />
     </Column>
   );
