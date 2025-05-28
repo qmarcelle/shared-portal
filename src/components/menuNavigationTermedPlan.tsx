@@ -1,7 +1,4 @@
-import {
-  isBlueCareEligible,
-  isBlueCareNotEligible,
-} from '@/visibilityEngine/computeVisibilityRules';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 
@@ -11,6 +8,7 @@ export const getMenuNavigationTermedPlan = (
   {
     id: 2,
     title: 'My Plan',
+    titleLink: 'View All Plan Details',
     description: 'This is My Plan',
     category: '',
     showOnMenu: true,
@@ -60,6 +58,7 @@ export const getMenuNavigationTermedPlan = (
   {
     id: 5,
     title: 'Support',
+    titleLink: 'View All Support',
     description: 'This is Support',
     category: '',
     showOnMenu: true,
@@ -76,8 +75,8 @@ export const getMenuNavigationTermedPlan = (
       link: '/member/support',
     },
     template: {
-      firstCol: 'QT',
-      secondCol: 'Support',
+      firstCol: 'Support',
+      secondCol: '',
       thirdCol: '',
       fourthCol: '',
     },
