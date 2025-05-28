@@ -115,7 +115,7 @@ const isLobCommercial = (rules: VisibilityRules | undefined) => {
 };
 
 export function isOtherInsuranceEligible(rules?: VisibilityRules) {
-  return rules?.otherInsuranceEligible && activeAndHealthPlanMember(rules);
+  return rules?.otherInsuranceEligible;
 }
 
 export function isActiveAndNotFSAOnly(
