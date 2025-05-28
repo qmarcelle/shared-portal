@@ -216,13 +216,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Visited on 08/23/23
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       For Chris Hall
                     </p>
@@ -232,19 +232,19 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Visited on
                     </p>
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       08/23/23
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       For Chris Hall
                     </p>
@@ -254,13 +254,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Total Billed
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $535.00
                     </p>
@@ -270,13 +270,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Plan Paid
                     </p>
                     <p
                       class="body-1 body-1 mt-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       --
                     </p>
@@ -286,13 +286,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1 body-1 tertiary-color"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       My Share
                     </p>
                     <p
                       class="body-1 body-1 mt-2 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       --
                     </p>
@@ -307,7 +307,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         >
           <p
             class="body-1 m-2 mt-0"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Viewing 1 of 1 Claims
           </p>
@@ -336,7 +336,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1 pt-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Previous
                 </p>
@@ -355,7 +355,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               >
                 <p
                   class="body-1 pt-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Next
                 </p>
@@ -404,7 +404,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Page: 
               </p>
@@ -415,7 +415,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
                 class="relative"
               >
                 <div
-                  class="flex flex-row link"
+                  class="flex flex-row link "
                   tabindex="0"
                 >
                   <p
@@ -476,7 +476,7 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 of 1
               </p>

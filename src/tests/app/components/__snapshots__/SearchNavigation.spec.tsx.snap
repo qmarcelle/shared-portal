@@ -947,7 +947,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
             <a>
               <p
                 class="body-1 link-row-head"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Search
               </p>
@@ -986,7 +986,7 @@ exports[`SearchNavigation should render the UI correctly 2`] = `
           <a>
             <p
               class="body-1 link-row-head"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Search
             </p>

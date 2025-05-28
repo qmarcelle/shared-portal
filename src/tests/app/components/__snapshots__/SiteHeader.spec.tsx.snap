@@ -1158,7 +1158,7 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                     <a>
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Search
                       </p>
@@ -1256,54 +1256,6 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                   class="lg:grid-rows-4"
                 >
                   <a
-                    href="/member/support"
-                  >
-                    <div
-                      class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
-                    >
-                      <h3
-                        class="pb-3 text-sm text-black"
-                      >
-                        Quick Tip
-                      </h3>
-                      <p
-                        class="pb-1 text-base app-base-font-color "
-                      >
-                        We're here to help.
-                      </p>
-                      <p
-                        class="pb-1 text-base app-base-font-color "
-                      >
-                        <span
-                          class="font-bold"
-                        >
-                          Start a chat
-                        </span>
-                         or call us at [1-800-000-0000].
-                      </p>
-                      <img
-                        alt="Page Arrow"
-                        class="ml-auto"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
-              >
-                <div
-                  class="lg:grid-rows-4"
-                >
-                  <a
                     aria-label="Frequently Asked Questions"
                     style="display: block;"
                   >
@@ -1386,6 +1338,13 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
                 </div>
               </div>
               <div
+                class="col-start-1 col-end-5 lg:col-start-2 lg:col-end-3 py-4 border-b lg:border-0"
+              >
+                <div
+                  class="lg:grid-rows-4"
+                />
+              </div>
+              <div
                 class="col-start-1 col-end-5 lg:col-start-3 lg:col-end-4 py-4 border-b lg:border-0"
               >
                 <div
@@ -1423,13 +1382,13 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
@@ -1451,6 +1410,9 @@ exports[`SiteHeader And Navigation Menu should link to BlueCare find form for Bl
         </div>
       </div>
     </div>
+    <div
+      style="display: none;"
+    />
   </div>
 </div>
 `;
@@ -9391,7 +9353,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -9486,7 +9448,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Care
                     </p>
@@ -9546,7 +9508,7 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Estimate Costs
                     </p>
@@ -9721,13 +9683,13 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -9749,6 +9711,9 @@ exports[`SiteHeader And Navigation Menu should navigate the price vision care me
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>
 </body>
@@ -13046,7 +13011,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                         <a>
                           <p
                             class="body-1 link-row-head"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Search
                           </p>
@@ -13143,7 +13108,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     >
                       <p
                         class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Wellness
                       </p>
@@ -13226,7 +13191,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     >
                       <p
                         class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Advice & Support
                       </p>
@@ -13285,7 +13250,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       class="lg:grid-rows-4"
                     >
                       <a
-                        href="/virtualCareOptions"
+                        href="/member/findcare/virtualcare"
                       >
                         <div
                           class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -13359,13 +13324,13 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                   >
                     <p
                       class="body-2 app-base-font-color"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       View Plan:
                     </p>
                     <p
                       class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       BlueCross BlueShield of Tennessee
                     </p>
@@ -13387,6 +13352,9 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
             </div>
           </div>
         </div>
+        <div
+          style="display: none;"
+        />
       </div>
     </div>
   </body>,
@@ -13792,7 +13760,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                       <a>
                         <p
                           class="body-1 link-row-head"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Search
                         </p>
@@ -13889,7 +13857,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Wellness
                     </p>
@@ -13972,7 +13940,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                   >
                     <p
                       class="body-1 title-1 py-2 tertiary-color font-thin !text-2xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Advice & Support
                     </p>
@@ -14031,7 +13999,7 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                     class="lg:grid-rows-4"
                   >
                     <a
-                      href="/virtualCareOptions"
+                      href="/member/findcare/virtualcare"
                     >
                       <div
                         class="row-span-4 font-normal text-gray-500 lg:w-[256px] secondary-bg-color1-accent p-5 rounded-lg"
@@ -14105,13 +14073,13 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
@@ -14133,6 +14101,9 @@ exports[`SiteHeader And Navigation Menu should redirect to Premise Health SSO on
           </div>
         </div>
       </div>
+      <div
+        style="display: none;"
+      />
     </div>
   </div>,
   "debug": [Function],

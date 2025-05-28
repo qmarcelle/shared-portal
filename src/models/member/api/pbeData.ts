@@ -98,5 +98,14 @@ export type RelatedPerson = {
   effectiveOn: string;
   policyId: string;
   name: AccessStatus;
+  performer?: string;
+  requester?: string;
+  requestees?: string[];
+  policyBusinessIdentifier?: string;
+  type?: string;
+  firstName?: string;
+  lastName?: string;
+  status?: string;
+  implicit?: boolean;
   createdAt: string;
 };

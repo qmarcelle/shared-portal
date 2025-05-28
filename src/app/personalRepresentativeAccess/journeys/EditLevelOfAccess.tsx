@@ -1,3 +1,4 @@
+import { EditAccessLevel } from '@/app/shareMyInformation/models/editAccessLevel';
 import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InitModalSlide } from '@/components/composite/InitModalSlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
@@ -11,10 +12,15 @@ import { Radio } from '@/components/foundation/Radio';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { logger } from '@/utils/logger';
 import Link from 'next/link';
-import { useState } from 'react';
-import { updateConsentDataAction } from '../actions/getPersonalRepresentativeData';
+import { useEffect, useState } from 'react';
+import {
+  createConsentDataAction,
+  updateConsentDataAction,
+} from '../actions/getPersonalRepresentativeData';
 import FullAndBasicAccessOption from '../components/FullAndBasicAccessOption';
+import { CreateConsentRequest } from '../models/createConsentRequest';
 import { UpdateConsentRequest } from '../models/updateConsentRequest';
 
 const bottomNote =
@@ -22,68 +28,122 @@ const bottomNote =
 
 export type AccessType = 'basic' | 'full' | 'none';
 interface InviteToRegisterProps {
-  memberName: string;
   requestorType?: string;
-  targetType?: string;
   currentAccessType: string;
-  isMaturedMinor?: boolean;
   disableSubmit?: boolean;
   id?: string;
   policyId?: string;
-  expiresOn?: string;
-  effectiveOn?: string;
-  firstName?: string;
-  lastName?: string;
+  editAccessLevel: EditAccessLevel;
 }
 
 export const EditLevelOfAccess = ({
   changePage,
   pageIndex,
-  memberName,
-  targetType = '',
   currentAccessType,
-  isMaturedMinor,
   disableSubmit = false,
   id,
   policyId,
-  expiresOn,
-  effectiveOn,
-  firstName,
-  lastName,
+  editAccessLevel,
 }: ModalChildProps & InviteToRegisterProps) => {
   const [selectedData, setSelectedData] = useState<string>(currentAccessType);
-
+  useEffect(() => {
+    if (
+      editAccessLevel.personRoleType === 'subscriber' &&
+      editAccessLevel.isMinorMember
+    ) {
+      setSelectedData('Full Access');
+    } else {
+      setSelectedData('Basic Access');
+    }
+  }, []);
   const handleClick = (val: string) => {
     setSelectedData(val);
   };
   const handleNext = async () => {
-    try {
-      const request: UpdateConsentRequest = {
-        consentId: id,
-        policyId: policyId,
-        effectiveOn: effectiveOn,
-        expiresOn: expiresOn,
-        requestType: 'update',
-        firstName: firstName,
-        lastName: lastName,
-      };
+    if (editAccessLevel.implicit && editAccessLevel.status == 'active') {
+      try {
+        const request: CreateConsentRequest = {
+          performer: editAccessLevel.performer,
+          requester: editAccessLevel.requester,
+          requestees: editAccessLevel.requestees,
+          policyBusinessIdentifier: editAccessLevel.policyBusinessIdentifier,
+          type: editAccessLevel.type,
+          effectiveOn: editAccessLevel.effectiveOn,
+          expiresOn: editAccessLevel.expiresOn,
+          firstName: editAccessLevel.firstName,
+          lastName: editAccessLevel.lastName,
+        };
+        logger.info('/createConsent API Request : ' + request);
+        const response = await createConsentDataAction({
+          request,
+        });
+        logger.info('/createConsent API Response : ' + response?.data);
 
-      const response = await updateConsentDataAction({
-        request,
-      });
-
-      if (response?.data?.message === 'Success') {
-        changePage?.(2);
-      } else {
+        if (response?.data?.message === 'Success') {
+          changePage?.(2);
+        } else {
+          changePage?.(3);
+        }
+      } catch (error) {
         changePage?.(3);
+        logger.error('Error in creating consent:', error);
       }
-    } catch (error) {
-      changePage?.(3);
-      console.error('Error in Editing Level of Access:', error);
+    } else {
+      try {
+        const request: UpdateConsentRequest = {
+          consentId: id,
+          policyId: policyId,
+          effectiveOn: editAccessLevel.effectiveOn,
+          expiresOn: editAccessLevel.expiresOn,
+          requestType: 'update',
+          firstName: editAccessLevel.firstName,
+          lastName: editAccessLevel.lastName,
+        };
+        logger.info('/updateConsent API Request : ' + request);
+
+        const response = await updateConsentDataAction({
+          request,
+        });
+        logger.info('/updateConsent API Response : ' + response?.data);
+
+        if (response?.data?.message === 'Success') {
+          changePage?.(2);
+        } else {
+          changePage?.(3);
+        }
+      } catch (error) {
+        changePage?.(3);
+        console.error('Error in updating consent:', error);
+        logger.info('Error in updating consent:', error);
+      }
     }
   };
 
   const { dismissModal } = useAppModalStore();
+
+  const showNone = () => {
+    if (
+      editAccessLevel.personRoleType === 'dependent' ||
+      editAccessLevel.personRoleType === 'subscriber'
+    ) {
+      if (
+        !editAccessLevel.isMatureMinorMember ||
+        !editAccessLevel.isMinorMember
+      ) {
+        if (
+          editAccessLevel.targetType === 'subscriber' ||
+          editAccessLevel.targetType === 'PR' ||
+          (editAccessLevel.targetType === 'dependent' &&
+            editAccessLevel.isAdult)
+        ) {
+          return false;
+        }
+      } else if (editAccessLevel.isMatureMinorMember) {
+        return false;
+      }
+    }
+    return true;
+  };
 
   const pages = [
     <InitModalSlide
@@ -93,13 +153,16 @@ export const EditLevelOfAccess = ({
         <Column>
           <TextBox className="text-center" text="You’re changing access for:" />
           <Spacer size={16} />
-          <TextBox className="text-center font-bold" text={memberName} />
+          <TextBox
+            className="text-center font-bold"
+            text={editAccessLevel.memberName}
+          />
           <Spacer size={32} />
           <Column>
             <Radio
-              label={`Full ${isMaturedMinor ? 'Access +' : 'Sharing'}`}
+              label={`Full ${editAccessLevel.isMaturedMinor ? 'Access +' : 'Sharing'}`}
               subLabel={
-                isMaturedMinor
+                editAccessLevel.isMaturedMinor
                   ? 'Your personal representative and anyone they choose will have access to all documents and claims, even those with sensitive information.'
                   : 'They’ll see documents and claims, even those with sensitive information.'
               }
@@ -108,9 +171,9 @@ export const EditLevelOfAccess = ({
             />
             <Spacer size={16} />
             <Radio
-              label={`Basic ${isMaturedMinor ? 'Access' : 'Sharing'}`}
+              label={`Basic ${editAccessLevel.isMaturedMinor ? 'Access' : 'Sharing'}`}
               subLabel={
-                isMaturedMinor
+                editAccessLevel.isMaturedMinor
                   ? 'Your personal representative will have access to all documents and claims, but will not be able to view sensitive information.'
                   : 'They won’t be able to see documents or claims with sensitive information.'
               }
@@ -118,9 +181,9 @@ export const EditLevelOfAccess = ({
               callback={() => handleClick('Basic Access')}
             />
             <Spacer size={16} />
-            {!isMaturedMinor && (
+            {!editAccessLevel.isMaturedMinor && showNone() && (
               <>
-                {targetType !== 'subscriber' ? (
+                {editAccessLevel.targetType !== 'subscriber' ? (
                   <Radio
                     label="None"
                     subLabel="They won’t see any documents and claims."
@@ -164,9 +227,9 @@ export const EditLevelOfAccess = ({
       subLabel=""
       actionArea={
         <FullAndBasicAccessOption
-          isMaturedMinor={isMaturedMinor}
+          isMaturedMinor={editAccessLevel.isMaturedMinor}
           accessType={selectedData}
-          memberName={memberName}
+          memberName={editAccessLevel.memberName}
         />
       }
       buttonLabel="Save Permissions"
@@ -184,7 +247,7 @@ export const EditLevelOfAccess = ({
             text="The Level of access to your account information has been updated for:"
           />
           <Spacer size={16} />
-          <TextBox className="font-bold" text={memberName} />
+          <TextBox className="font-bold" text={editAccessLevel.memberName} />
         </Column>
       }
       doneCallBack={() => dismissModal()}

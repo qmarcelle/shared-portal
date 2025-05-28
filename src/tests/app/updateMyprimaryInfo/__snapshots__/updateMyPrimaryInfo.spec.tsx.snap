@@ -19,7 +19,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
         />
         <p
           class="body-1 md:w-2/3 m-4"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Choose one option below and follow the instructions to add or update your primary care provider.
         </p>
@@ -55,7 +55,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
                       </p>
@@ -150,7 +150,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
                           </p>
@@ -203,7 +203,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                                             >
                                               <p
                                                 class="body-1"
-                                                style="display: block;"
+                                                style="display: block; max-width: 100%;"
                                               >
                                                 CHRISTMAS HALL
                                               </p>
@@ -468,7 +468,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
                       </p>
@@ -552,7 +552,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
         />
         <p
           class="body-1 md:w-2/3 m-4"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Choose one option below and follow the instructions to add or update your primary care provider.
         </p>
@@ -588,7 +588,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You can search for an in-network doctor using our directory. Simply find an eligible doctor then use the Select As PCP button them as your PCP.
                       </p>
@@ -683,7 +683,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Enter your doctor's information in the form below.if there are any issues with your request, we'll contact you.
                           </p>
@@ -736,7 +736,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                                             >
                                               <p
                                                 class="body-1"
-                                                style="display: block;"
+                                                style="display: block; max-width: 100%;"
                                               >
                                                 CHRISTMAS HALL
                                               </p>
@@ -1001,7 +1001,7 @@ exports[`UpdateMyPrimaryCareProvider should render UI correctly 2`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You can download, fill out and complete a print form in order to request to add or update your primary care provider. If there are any issues with your request, we'll contact you.
                       </p>

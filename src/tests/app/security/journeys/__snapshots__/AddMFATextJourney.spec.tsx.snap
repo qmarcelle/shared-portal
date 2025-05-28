@@ -237,7 +237,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
@@ -297,7 +297,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the security code sent to you phone number to complete text message setup. We've sent a code to:
                     </p>
@@ -312,7 +312,7 @@ exports[`Add Mfa Text Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (123) 456-7891
                         </p>
