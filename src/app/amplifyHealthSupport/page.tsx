@@ -68,7 +68,7 @@ const AmplifyHealthSupport = () => {
         {/* Content Wrapper */}
         <div className="app-content self-center relative">
           {/* Advisors Card as Overlay */}
-          <div className="relative -top-[3rem] w-full z-10">
+          <div className="relative -top-[5rem] w-full z-10">
             <AmplifyAdvisors />
           </div>
 
