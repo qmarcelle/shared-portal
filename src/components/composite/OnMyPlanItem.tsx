@@ -1,4 +1,5 @@
 import { EditLevelOfAccess } from '@/app/personalRepresentativeAccess/journeys/EditLevelOfAccess';
+import { OnMyPlanData } from '@/app/shareMyInformation/models/onMyPlanData';
 import { ToolTip } from '@/components/foundation/Tooltip';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
@@ -16,14 +17,10 @@ import { Spacer } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
 import { Title } from '../foundation/Title';
 interface OnMyPlanItemProps extends IComponent {
-  memberName: string;
-  DOB: string;
   sharingType: string;
-  isMinor: boolean;
   icon?: JSX.Element;
   infoButton: boolean;
   requestorType?: string;
-  targetType?: string;
   medicalEffectiveDate?: string;
   dentalEffectiveDate?: string;
   visionEffectiveDate?: string;
@@ -33,18 +30,15 @@ interface OnMyPlanItemProps extends IComponent {
   analyticsEvent?: string;
   selectionType?: string;
   elementCategory?: string;
+  onMyPlanData: OnMyPlanData;
 }
 
 export const OnMyPlanItem = ({
-  memberName,
-  DOB,
   sharingType,
-  isMinor,
   onClick,
   className,
   infoButton,
   icon = <Image src={editIcon} alt="" />,
-  targetType,
   medicalEffectiveDate,
   dentalEffectiveDate,
   visionEffectiveDate,
@@ -53,6 +47,7 @@ export const OnMyPlanItem = ({
   analyticsEvent,
   selectionType,
   elementCategory,
+  onMyPlanData,
 }: OnMyPlanItemProps) => {
   function trackPlanItemUpdateAnalytics(
     gaEvent?: string,
@@ -141,40 +136,40 @@ export const OnMyPlanItem = ({
             </ToolTip>
           )}
         </Row>
-        {!infoButton && (
-          <>
-            {' '}
-            <Spacer size={16} />
-            <Row>
-              <Spacer axis="horizontal" size={8} />
-              <Title
-                className="font-bold primary-color"
-                text="Update"
-                suffix={icon}
-                callback={() => {
-                  isGATrackEligible &&
-                    trackPlanItemUpdateAnalytics(
-                      analyticsEvent,
-                      selectionType,
-                      elementCategory,
-                    );
-                  showAppModal({
-                    content: (
-                      <EditLevelOfAccess
-                        currentAccessType={sharingType}
-                        memberName={memberName}
-                        targetType={targetType ?? ''}
-                        isMaturedMinor={isMinor}
-                        disableSubmit={!allowUpdates}
-                      />
-                    ),
-                  });
-                }}
-              />
-              <Spacer size={40} />
-            </Row>
-          </>
-        )}
+        {!infoButton &&
+          onMyPlanData.targetType !== 'dependent' &&
+          !onMyPlanData.isMatureMinorMember && (
+            <>
+              {' '}
+              <Spacer size={16} />
+              <Row>
+                <Spacer axis="horizontal" size={8} />
+                <Title
+                  className="font-bold primary-color"
+                  text="Update"
+                  suffix={icon}
+                  callback={() => {
+                    isGATrackEligible &&
+                      trackPlanItemUpdateAnalytics(
+                        analyticsEvent,
+                        selectionType,
+                        elementCategory,
+                      );
+                    showAppModal({
+                      content: (
+                        <EditLevelOfAccess
+                          disableSubmit={!allowUpdates}
+                          editAccessLevel={onMyPlanData}
+                          currentAccessType={sharingType}
+                        />
+                      ),
+                    });
+                  }}
+                />
+                <Spacer size={40} />
+              </Row>
+            </>
+          )}
       </Column>
     );
   }
@@ -192,9 +187,9 @@ export const OnMyPlanItem = ({
         <Row className="justify-between">
           <TextBox
             className="ml-2 font-bold body-1"
-            text={capitalizeName(memberName)}
+            text={capitalizeName(onMyPlanData.memberName)}
           />
-          <TextBox text={'DOB: ' + DOB} />
+          <TextBox text={'DOB: ' + onMyPlanData.DOB} />
         </Row>
         <Spacer size={16} />
         <Row>
@@ -202,7 +197,7 @@ export const OnMyPlanItem = ({
           <Divider />
         </Row>
         <Spacer size={16} />
-        {isMinor ? getMinorContent() : getNonMinorContent()}
+        {onMyPlanData.isMinor ? getMinorContent() : getNonMinorContent()}
       </Column>
     </Card>
   );

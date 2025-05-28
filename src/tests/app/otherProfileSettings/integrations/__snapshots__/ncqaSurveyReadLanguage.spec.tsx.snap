@@ -3730,7 +3730,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Add or update details about yourself, including ethnicity, race and language preferences.
             </p>
@@ -3752,7 +3752,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 title-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       About My Profile
                     </p>
@@ -3761,7 +3761,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       We'll ask for your race, ethnicity and preferred language. You don't have to tell us. But if you do, we'll keep your answers private. And we'll use secure digital protections to keep your information safe.
                     </p>
@@ -3778,7 +3778,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 title-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Race and Ethnicity
                   </p>
@@ -3793,7 +3793,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                     >
                       <p
                         class="body-1 font-bold body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         What is your ethnicity?
                       </p>
@@ -3916,7 +3916,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 font-bold body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       What is your race?
                     </p>
@@ -4183,7 +4183,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       How well do you speak English?
                     </p>
@@ -4355,7 +4355,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       What language are you most comfortable using when speaking with your doctor?
                     </p>
@@ -4448,7 +4448,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       What language do you prefer to read?
                     </p>
@@ -4466,7 +4466,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Current Selection: Amal
                         </p>
@@ -4545,7 +4545,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Add or update details about yourself, including ethnicity, race and language preferences.
           </p>
@@ -4567,7 +4567,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 title-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     About My Profile
                   </p>
@@ -4576,7 +4576,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     We'll ask for your race, ethnicity and preferred language. You don't have to tell us. But if you do, we'll keep your answers private. And we'll use secure digital protections to keep your information safe.
                   </p>
@@ -4593,7 +4593,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
               >
                 <p
                   class="body-1 title-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Race and Ethnicity
                 </p>
@@ -4608,7 +4608,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                   >
                     <p
                       class="body-1 font-bold body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       What is your ethnicity?
                     </p>
@@ -4731,7 +4731,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 font-bold body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     What is your race?
                   </p>
@@ -4998,7 +4998,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     How well do you speak English?
                   </p>
@@ -5170,7 +5170,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     What language are you most comfortable using when speaking with your doctor?
                   </p>
@@ -5263,7 +5263,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     What language do you prefer to read?
                   </p>
@@ -5281,7 +5281,7 @@ exports[`Other Profile Settngs - NCQA Survey NCQA Survey - Update Read Language 
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Current Selection: Amal
                       </p>

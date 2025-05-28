@@ -99,7 +99,7 @@ exports[`Exit Modal Journey Should render UI properly 1`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Does this plan member have other insurance?
                         </p>

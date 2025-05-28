@@ -21,7 +21,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           You can update the Social Security Number (SSN) we have on file here.
         </p>
@@ -50,7 +50,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 mb-0"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   For privacy and security, we will not display the current social security number we have on file.
                 </p>
@@ -59,7 +59,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1 mb-0"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Your SSN is used to process important tax related documents. Adding or updating your SSN will ensure that your documents are accurate and timely.
                 </p>
@@ -89,13 +89,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       CHRISTMAS HALL
                     </p>
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       DOB: 06/29/2009
                     </p>
@@ -111,7 +111,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       A SSN was found on file.
                     </p>
@@ -158,13 +158,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       KRISSY HALL
                     </p>
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       DOB: 06/15/2009
                     </p>
@@ -180,7 +180,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       A SSN was found on file.
                     </p>
@@ -227,13 +227,13 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2 font-bold title-3"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       CHRISTIAN HALL
                     </p>
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       DOB: 10/31/2011
                     </p>
@@ -249,7 +249,7 @@ exports[`Update SSN should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       A SSN was found on file.
                     </p>

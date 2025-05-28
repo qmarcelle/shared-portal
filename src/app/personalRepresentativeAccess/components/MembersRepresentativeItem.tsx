@@ -1,4 +1,5 @@
 import { InviteToRegister } from '@/app/personalRepresentativeAccess/journeys/InviteToRegister';
+import { EditAccessLevel } from '@/app/shareMyInformation/models/editAccessLevel';
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { useAppModalStore } from '@/components/foundation/AppModal';
@@ -27,10 +28,8 @@ interface MembersRepresentativeItemProps extends IComponent {
   inviteStatus: InviteStatus;
   accessStatus: AccessStatus;
   accessStatusIsPending: boolean;
-  memberName: string;
   DOB: string;
   isOnline: boolean;
-  isMatureMinor: boolean;
   icon?: JSX.Element;
   fullAccess: boolean;
   icon1?: JSX.Element;
@@ -41,15 +40,12 @@ interface MembersRepresentativeItemProps extends IComponent {
   visibilityRules?: VisibilityRules;
   id?: string;
   policyId?: string;
-  expiresOn?: string;
-  effectiveOn?: string;
-  firstName?: string;
-  lastName?: string;
   onRequestSuccessCallBack: () => void;
   onInviteSuccessCallBack: () => void;
   pendingIcon?: JSX.Element;
   allowUpdates?: boolean;
   createdAt?: string;
+  memberRepresentativeData: EditAccessLevel;
 }
 
 export const MembersRepresentativeItem = ({
@@ -58,10 +54,8 @@ export const MembersRepresentativeItem = ({
   accessStatusIsPending,
   onRequestSuccessCallBack,
   onInviteSuccessCallBack,
-  memberName,
   DOB,
   isOnline = true,
-  isMatureMinor,
   onClick,
   className,
   fullAccess,
@@ -71,15 +65,12 @@ export const MembersRepresentativeItem = ({
   requesteeUMPID,
   id,
   policyId,
-  expiresOn,
-  effectiveOn,
-  firstName,
-  lastName,
   icon = <Image src={editIcon} alt="" />,
   icon1 = <Image src={inboxIcon} alt="" />,
   pendingIcon = <Image src={pendingLogo} alt="" />,
   allowUpdates = true,
   createdAt,
+  memberRepresentativeData,
 }: MembersRepresentativeItemProps) => {
   function trackPlanItemUpdateAnalytics(
     elementCategory: string,
@@ -125,8 +116,8 @@ export const MembersRepresentativeItem = ({
                   showAppModal({
                     content: (
                       <InviteToRegister
-                        isMaturedMinor={isMatureMinor}
-                        memberName={memberName}
+                        isMaturedMinor={memberRepresentativeData.isMaturedMinor}
+                        memberName={memberRepresentativeData.memberName}
                         memeCk={memberMemeCk!}
                         requesteeFHRID={requesteeFHRID!}
                         onRequestSuccessCallBack={onInviteSuccessCallBack}
@@ -168,7 +159,7 @@ export const MembersRepresentativeItem = ({
               />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && isMatureMinor && (
+            {!isRepresentative && memberRepresentativeData.isMaturedMinor && (
               <Row>
                 <Spacer size={42} />
                 <Title
@@ -183,16 +174,11 @@ export const MembersRepresentativeItem = ({
                     showAppModal({
                       content: (
                         <EditLevelOfAccess
-                          memberName={memberName}
-                          isMaturedMinor={isMatureMinor}
                           currentAccessType="basic"
                           disableSubmit={!allowUpdates}
                           id={id}
                           policyId={policyId}
-                          expiresOn={expiresOn}
-                          effectiveOn={effectiveOn}
-                          firstName={firstName}
-                          lastName={lastName}
+                          editAccessLevel={memberRepresentativeData}
                         />
                       ),
                     });
@@ -216,8 +202,10 @@ export const MembersRepresentativeItem = ({
                         showAppModal({
                           content: (
                             <PersonalRepRequestAccessOnMyPlan
-                              memberName={memberName}
-                              isMaturedMinor={isMatureMinor}
+                              memberName={memberRepresentativeData.memberName}
+                              isMaturedMinor={
+                                memberRepresentativeData.isMaturedMinor
+                              }
                               memeCk={memberMemeCk!}
                               requesteeFHRID={requesteeFHRID!}
                               requesteeUMPID={requesteeUMPID!}
@@ -257,7 +245,10 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="font-bold body-1" text={memberName} />
+          <TextBox
+            className="font-bold body-1"
+            text={memberRepresentativeData.memberName}
+          />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />
