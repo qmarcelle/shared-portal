@@ -8,6 +8,7 @@ import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { formatPhoneNumber } from '@/utils/inputValidator';
 import { isNCQAEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { EditEmailProfileSettings } from '../journeys/EditEmailProfileSettings';
@@ -37,6 +38,7 @@ export const ProfileInformationCard = ({
   phoneVerified,
 }: ProfileInformationCardProps) => {
   const { showAppModal } = useAppModalStore();
+  phoneNumber = formatPhoneNumber(phoneNumber);
   return (
     <Card className="large-section">
       <Column>
