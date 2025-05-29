@@ -5,31 +5,18 @@ export function getInitialClaimsFilter(claimTypes: FilterDetails[]) {
     {
       type: 'dropdown',
       label: 'Member',
-      value: [
-        {
-          label: 'All Members',
-          value: '0',
-          id: '0',
-        },
-      ],
-      selectedValue: {
-        label: 'All Members',
-        value: '0',
-        id: '0',
-      },
+      value: [],
+      selectedValue: undefined, // Will be set dynamically later
     },
     {
       type: 'dropdown',
       label: 'Claim Type',
-      value: [
-        {
-          label: 'All Types',
-          value: '0',
-          id: '0',
-        },
-        ...claimTypes,
-      ],
-      selectedValue: { label: 'All Types', value: '0', id: '0' },
+      value: [...claimTypes],
+      selectedValue: {
+        label: claimTypes[0].label,
+        value: claimTypes[0].value,
+        id: claimTypes[0].id,
+      },
     },
     {
       type: 'dropdown',

@@ -7,3 +7,11 @@ export type ClaimsData = {
   members?: RichSelectItem[];
   // pharmacyClaims?: PharmacyClaim[];
 };
+
+// Export the character-to-label map as a type
+export const characterToLabelMap: Record<string, string> = {
+  M: 'Medical',
+  D: 'Dental',
+  V: 'Vision',
+  P: 'Pharmacy',
+};

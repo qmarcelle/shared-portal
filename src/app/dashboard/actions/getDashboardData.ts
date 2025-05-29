@@ -5,6 +5,7 @@ import { getLoggedInMember } from '@/actions/memberDetails';
 import { getDedAndOOPBalanceForSubscriberAndDep } from '@/app/benefits/balances/actions/getDedAndOOPBalance';
 import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
 import { getAllClaimsData } from '@/app/claims/actions/getClaimsData';
+import { getMemberEligibleBenefits } from '@/app/claims/models/app/memberEligibleBenefits';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
@@ -63,6 +64,7 @@ export const getDashboardData = async (): Promise<
         },
       };
     }
+    const eligibleBenefits = await getMemberEligibleBenefits(session);
 
     const [
       loggedUserDetails,
@@ -77,7 +79,7 @@ export const getDashboardData = async (): Promise<
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
-      getAllClaimsData(),
+      getAllClaimsData(eligibleBenefits),      
       getDedAndOOPBalanceForSubscriberAndDep(),
       getDashboardPriorAuthData(),
     ]);
