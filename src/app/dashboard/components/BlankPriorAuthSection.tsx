@@ -5,7 +5,9 @@ import EmptyStateDocument from '../../../../public/assets/empty_state_document.s
 
 export const BlankPriorAuthSection = () => {
   function calculateDays() {
-    const defaultSearchRange = process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE;
+    const defaultSearchRange =
+      process.env.NEXT_PUBLIC_DEFAULT_PRIOR_AUTH_SEARCH_RANGE;
+
     switch (defaultSearchRange) {
       case 'A':
         return 'last 30 days.';

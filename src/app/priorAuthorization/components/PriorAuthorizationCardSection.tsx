@@ -154,7 +154,7 @@ export const PriorAuthorizationCardSection = ({
           <Pagination<PriorAuthDetails>
             key={claimList[0]}
             initialList={claimList}
-            pageSize={2}
+            pageSize={5}
             wrapperBuilder={(items) => <Column>{items}</Column>}
             itemsBuilder={(item) => (
               <PriorAuthItem

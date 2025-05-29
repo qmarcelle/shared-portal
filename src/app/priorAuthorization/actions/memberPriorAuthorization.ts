@@ -21,7 +21,7 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
       memberList.push(item.relatedPersonMemeCk.toString());
     });
     const dateRange = await getDateRange(
-      process.env.DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
+      process.env.NEXT_PUBLIC_DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
     );
     logger.info('Prior Auth Date Range', dateRange);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
