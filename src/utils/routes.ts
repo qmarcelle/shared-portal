@@ -17,6 +17,8 @@ import {
   isHealthyMaternity,
   isHingeHealthEligible,
   isManageMyPolicyEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isMedicarePrescriptionPaymentPlanEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -235,6 +237,23 @@ export const ROUTE_CONFIG: RouteConfig = {
         },
         '*': {
           title: (claimId) => `Claim#${claimId}`,
+        },
+      },
+    },
+    forms: {
+      title: 'Forms',
+      rule: (r) => r.active,
+      children: {
+        determination: {
+          title: 'Medicare Prescription Drug Coverage Determination',
+          rule: (r) => isMedicareEligible(r),
+          breadcrumbParent: '/pharmacy',
+        },
+        redetermination: {
+          title:
+            'Request for Redetermination of Medicare Prescription Drug Denial Form',
+          rule: (r) => isMedicareDsnpEligible(r),
+          breadcrumbParent: '/pharmacy',
         },
       },
     },
