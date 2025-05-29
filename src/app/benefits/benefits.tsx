@@ -251,9 +251,10 @@ const Benefits = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Title className="title-1" text="Benefits & Coverage" />
+        <Title className="title-1 my-4 mb-0" text="Benefits & Coverage" />
         <Spacer size={16} />
         <RichText
+          className="my-4 mb-0"
           spans={[
             <span key={0}>If you have questions, </span>,
             <span className="link font-bold" key={1}>
@@ -266,7 +267,7 @@ const Benefits = ({
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Filter
-              className="filter-component"
+              className="filter-component small-section"
               filterHeading="Filter Benefits"
               filterItems={[
                 {
@@ -284,7 +285,7 @@ const Benefits = ({
                 },
                 {
                   type: 'dropdown',
-                  label: 'Benefits',
+                  label: 'Benefit type',
                   value: benefitTypes,
                   selectedValue:
                     currentSelectedBenefitType === undefined
@@ -301,7 +302,7 @@ const Benefits = ({
                 );
                 onFilterSelectChange(index, data);
               }}
-              showReset={true}
+              showReset={false}
               onReset={() => {
                 onMemberSelectionChange(memberDropdownValues[0].value);
                 onBenefitTypeSelectChange(benefitTypes[0].value);
