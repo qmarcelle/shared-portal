@@ -12,16 +12,17 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { ClaimDetailsData } from '../models/app/claimDetailsData';
 
 export type ClaimDetailsProps = {
-  data: ClaimDetailsData;
+  claimData: ClaimDetailsData;
+  docURL: string;
 };
 
-const ClaimDetails = ({ data }: ClaimDetailsProps) => {
+const ClaimDetails = ({ claimData, docURL }: ClaimDetailsProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        {data?.claimInfo ? (
+        {claimData?.claimInfo ? (
           <>
-            <ClaimsPageInformation claimInfo={data.claimInfo} />
+            <ClaimsPageInformation claimInfo={claimData.claimInfo} />
             <section className="flex flex-row items-start app-body">
               <Column className="flex-grow page-section-63_33 items-stretch">
                 <CostBreakdown
@@ -88,7 +89,7 @@ const ClaimDetails = ({ data }: ClaimDetailsProps) => {
                 />
               </Column>
               <Column className=" flex-grow page-section-36_67 items-stretch">
-                <DownloadSummary />
+                <DownloadSummary docURL={docURL} />
                 <Spacer size={32} />
                 <PayProvider className="large-section" balanceAmount={30.24} />
                 <Spacer size={32} />
