@@ -18,7 +18,7 @@ export type DashboardData = {
   employerProvidedBenefits?: BenefitsProviderInfo[] | null;
   priorAuthDetail?: DashboardPriorAuthDetails | null;
   memberClaims?: ClaimDetails[];
-  payPremiumResponse?: PremiumPayResponse;
+  premiumPayResponse?: PremiumPayResponse;
   balanceData?: BalanceData;
 };
 

@@ -35,7 +35,7 @@ export const PayPremiumSection = ({
       <>
         <h2 className="title-2">Pay Premium</h2>
         <Spacer size={32} />
-        {dueDate && amountDue ? (
+        {dueDate || amountDue ? (
           <div>
             <Row>
               <TextBox text="Payment Due Date" />

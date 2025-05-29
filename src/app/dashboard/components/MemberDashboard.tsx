@@ -102,8 +102,8 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
-                  dueDate={data.payPremiumResponse?.paymentDue ?? ''}
-                  amountDue={data.payPremiumResponse?.paymentDue ?? ''}
+                  dueDate={data?.premiumPayResponse?.paymentDue ?? ''}
+                  amountDue={data?.premiumPayResponse?.currentBalance ?? ''}
                   visibilityRules={visibilityRules}
                 />
               )}
