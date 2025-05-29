@@ -8,6 +8,7 @@ import { formatDateToLocale } from '@/utils/date_formatter';
 import { useContext, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { HighlightedHeader } from '../../components/HighlightedHeader';
+import { ImpersonatingContext } from '../../providers/impersonatingProvider';
 import { LoggedInMemberContext } from '../../providers/loggedInMemberProvider';
 import { IHBCSchema } from '../../rules/schema';
 import { useNavigationStore } from '../../stores/navigationStore';
@@ -21,6 +22,7 @@ export const TnCSubmissionPage = () => {
     getValues,
   } = useFormContext<IHBCSchema>();
   const loggedInMem = useContext(LoggedInMemberContext);
+  const impersonating = useContext(ImpersonatingContext);
   const [goBackWard, goForward] = useNavigationStore((state) => [
     state.goBackWard,
     state.goForward,
@@ -43,7 +45,11 @@ export const TnCSubmissionPage = () => {
   }, [isSubmitSuccessful]);
 
   return (
-    <form onSubmit={attested ? handleSubmit(initSubmit) : undefined}>
+    <form
+      onSubmit={
+        attested && !impersonating ? handleSubmit(initSubmit) : undefined
+      }
+    >
       <Column className="gap-2">
         <HighlightedHeader text="Terms & Conditions" />
         <TextBox text='Please review the following terms and conditions and select "I Agree" to continue.' />
@@ -99,6 +105,7 @@ export const TnCSubmissionPage = () => {
             callback={attested ? () => {} : undefined}
             label="Submit"
             style="submit"
+            disable={impersonating}
           />
         </Row>
       </Column>

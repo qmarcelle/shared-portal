@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { DependentsContext } from './providers/dependentsProvider';
+import { ImpersonatingContext } from './providers/impersonatingProvider';
 import { LoggedInMemberContext } from './providers/loggedInMemberProvider';
 import { IHBCSchema, ihbcSchema } from './rules/schema';
 import { useNavigationStore } from './stores/navigationStore';
@@ -11,9 +12,10 @@ import { useNavigationStore } from './stores/navigationStore';
 type Props = {
   loggedInMember: LoggedInMember;
   members: MemberData[];
+  isImpersonating: boolean;
 };
 
-export const IHBC = ({ loggedInMember, members }: Props) => {
+export const IHBC = ({ isImpersonating, loggedInMember, members }: Props) => {
   const methods = useForm<IHBCSchema>({
     resolver: zodResolver(ihbcSchema),
     mode: 'onTouched',
@@ -32,7 +34,9 @@ export const IHBC = ({ loggedInMember, members }: Props) => {
   return (
     <DependentsContext.Provider value={{ members, setMembers: () => {} }}>
       <LoggedInMemberContext.Provider value={loggedInMember}>
-        <FormProvider {...methods}>{CurrentPage}</FormProvider>
+        <ImpersonatingContext.Provider value={isImpersonating}>
+          <FormProvider {...methods}>{CurrentPage}</FormProvider>
+        </ImpersonatingContext.Provider>
       </LoggedInMemberContext.Provider>
     </DependentsContext.Provider>
   );
