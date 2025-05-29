@@ -11,9 +11,14 @@ import { LoggedInMember } from '@/models/app/loggedin_member';
 type Props = {
   loggedInMember: LoggedInMember;
   members: MemberData[];
+  isImpersonating: boolean;
 };
 
-const ManageMyPolicy = ({ loggedInMember, members }: Props) => {
+const ManageMyPolicy = ({
+  loggedInMember,
+  members,
+  isImpersonating,
+}: Props) => {
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -23,7 +28,11 @@ const ManageMyPolicy = ({ loggedInMember, members }: Props) => {
           text="Change your plan benefits, update personal information, add/remove dependents, or cancel your policy."
           ariaLabel="Change your plan benefits, update personal information, add/remove dependents, or cancel your policy."
         ></TextBox>
-        <IHBC loggedInMember={loggedInMember} members={members} />
+        <IHBC
+          isImpersonating={isImpersonating}
+          loggedInMember={loggedInMember}
+          members={members}
+        />
       </Column>
     </div>
   );
