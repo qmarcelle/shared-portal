@@ -3,24 +3,23 @@ import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { PlanType } from '@/models/plan_type';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
-import { esApi } from '@/utils/api/esApi';
+import { memberService } from '@/utils/api/memberService';
 import {
-  formatDateToLocale,
-  getDateTwoYearsAgoLocale,
+  formatDateToIntlLocale,
+  getDateTwoYearsAgoFormatted,
 } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { HlthBenefitClaim } from '../models/api/claimsResponse';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
+import { Claim, ClaimsResponse } from '../models/api/claimsResponse';
 import { ClaimsData } from '../models/app/claimsData';
 
 export async function getClaimsForPlans({
-  subscriberCk,
   memberCk,
   plans,
   fromDate,
   toDate,
 }: {
-  subscriberCk: string;
   memberCk: string;
   plans: string;
   fromDate: string;
@@ -28,14 +27,19 @@ export async function getClaimsForPlans({
 }) {
   try {
     logger.info('Calling Claims API');
-    const resp = await esApi.get(
-      `/healthBenefitClaims?subscriberKey=${subscriberCk}&memberKey=${memberCk}&fromDate=${fromDate}&toDate=${toDate}&productTypes=${plans}`,
+
+    // const resp = await esApi.get(
+    //   `/healthBenefitClaims?subscriberKey=${subscriberCk}&memberKey=${memberCk}&fromDate=${fromDate}&toDate=${toDate}&productTypes=${plans}`,
+    // );
+
+    const resp = await memberService.get<ClaimsResponse>(
+      `/api/member/v1/members/byMemberCk/${memberCk}/claims?from=${fromDate}&to=${toDate}&type=${plans}&includeDependents=true`,
     );
 
     console.log('Raw API Response: ' + resp);
 
     // return healthBenefitClaimsMockResp;
-    return resp?.data?.data?.HlthBenefitClaims?.HlthBenefitClaim || [];
+    return resp?.data?.claims || [];
   } catch (err) {
     console.error(err);
     logger.error('ES Claims Api Failed', err);
@@ -43,9 +47,9 @@ export async function getClaimsForPlans({
   }
 }
 
-export async function getAllClaimsData(): Promise<
-  ActionResponse<number, ClaimsData>
-> {
+export async function getAllClaimsData(
+  planType: string = 'MDV', // Default to "M" if planType is not provided
+): Promise<ActionResponse<number, ClaimsData>> {
   try {
     const session = await auth();
 
@@ -54,27 +58,18 @@ export async function getAllClaimsData(): Promise<
       session!.user.currUsr!.plan!.memCk,
     );
 
-    // Get Claims for M,D,V,P
     const claimsResponse = await getClaimsForPlans({
-      subscriberCk: session!.user.currUsr!.plan!.sbsbCk,
       memberCk: session!.user.currUsr!.plan!.memCk,
-      fromDate: getDateTwoYearsAgoLocale(),
-      toDate: formatDateToLocale(new Date()),
-      plans: 'M',
+      fromDate: getDateTwoYearsAgoFormatted(),
+      toDate: formatDateToIntlLocale(new Date()),
+      plans: planType,
     });
 
-    let claims = claimsResponse ?? [];
-
-    // Ensure claims is an array
-    if (!Array.isArray(claims)) {
-      // Extract claims array from the response
-      claims = [claims];
-    }
-
+    // Map and process claims
     return {
       status: 200,
       data: {
-        claims: claims.map((claim: HlthBenefitClaim) => {
+        claims: claimsResponse.map((claim: Claim) => {
           const member = members.find(
             (member) => member.memberCK === Number(claim.memberCk),
           );
@@ -118,7 +113,7 @@ export async function getAllClaimsData(): Promise<
         }),
         members: members.map((item) => ({
           id: item.id,
-          label: item.name,
+          label: toPascalCase(item.name),
           value: item.id,
         })),
       },

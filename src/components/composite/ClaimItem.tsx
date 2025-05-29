@@ -7,6 +7,7 @@ import { StatusLabel } from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
 import { formatCurrency } from '@/utils/currency_formatter';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
@@ -85,7 +86,7 @@ export const ClaimItem = ({
             <section className="flex flex-row mb-[10px] md:flex-col">
               <Image src={getClaimIcon()} className="icon md:hidden" alt="" />
               <Header
-                text={claimInfo.issuer}
+                text={toPascalCase(claimInfo.issuer)}
                 type="title-3"
                 className="body-bold primary-color max-md:ml-[5px]"
               />
@@ -132,7 +133,7 @@ export const ClaimItem = ({
               <Column>
                 <TextBox
                   className="body-1 mt-2"
-                  text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
+                  text={`Visited on ${claimInfo.serviceDate}, For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
 
@@ -175,7 +176,7 @@ export const ClaimItem = ({
                 />
                 <TextBox
                   className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
+                  text={`For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
               <Column className="flex-grow mr-5 md:hidden">
@@ -183,7 +184,7 @@ export const ClaimItem = ({
                 <TextBox className="body-1" text={claimInfo.serviceDate} />
                 <TextBox
                   className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
+                  text={`For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
               {claimInfo.columns.map((item, index) => (
@@ -226,7 +227,7 @@ export const ClaimItem = ({
         }
       }}
       role="button"
-      aria-label={`${claimInfo.claimType} claim for ${claimInfo.memberName} from ${claimInfo.issuer} with status ${claimInfo.claimStatus}`}
+      aria-label={`${claimInfo.claimType} claim for ${toPascalCase(claimInfo.memberName)} from ${toPascalCase(claimInfo.issuer)} with status ${claimInfo.claimStatus}`}
       tabIndex={0}
     >
       {getClaimItem()}

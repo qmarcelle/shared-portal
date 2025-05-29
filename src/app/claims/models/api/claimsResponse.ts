@@ -56,6 +56,15 @@ export type Claim = {
   claimPaidCalendarDate: string;
   claimReceivedCalendarDate: string;
   bcbstpaysYou: number;
+  placeOfServiceCode?: string;
+  revenueCode?: string;
+  typeOfService?: string;
+  translatedDiagnosisCode?: string;
+  ndcCode?: string;
+  diagnosisCode?: string;
+  diagnosisType?: string;
+  procedureCode?: string;
+  procedureType?: string;
 };
 
 export type HlthBenefitClaim = {
