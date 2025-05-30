@@ -1,27 +1,53 @@
 'use client';
 
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
-import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
-import { extrenalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
-import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
+import { useMemo, useState } from 'react';
+import ExternalSpendingAccountSSOLink from './components/ExternalSpendingAccountSSOLink';
 import { RelatedLinks } from './components/RelatedLinks';
 import { SpendingAccountsBalance } from './components/SpendingAccountsBalance';
-import { MyHealthCareResponseDTO } from './model/myHealthCareResponseDTO';
+import {
+  HealthAccountInfo,
+  MyHealthCareResponseDTO,
+} from './model/myHealthCareResponseDTO';
 
 export type SpendingAccountProps = {
   contact: string;
   spendAccDTO: MyHealthCareResponseDTO;
+  accountInfo: HealthAccountInfo;
+  isExternalSpendingAccounts: boolean;
 };
 
-const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
-  const spendBalDetails = spendAccDTO.spendingBalanceBean || [];
-  const healthCareAccs = spendAccDTO.healthAccountInfo || [];
+const SpendingAccount = ({
+  contact,
+  spendAccDTO,
+  accountInfo,
+  isExternalSpendingAccounts,
+}: SpendingAccountProps) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const spendBalDetails = useMemo(
+    () => spendAccDTO.spendingBalanceBean || [],
+    [spendAccDTO.spendingBalanceBean],
+  ); // internal info
+
+  // Track selected year index for each account
+  const [selectedYearIndexes, setSelectedYearIndexes] = useState<number[]>(
+    (Array.isArray(spendBalDetails) ? spendBalDetails : []).map(() => 0),
+  );
+
+  const handleSelectedDetailChange = (
+    accountIdx: number,
+    newDetailId: string,
+  ) => {
+    const newIndexes = [...selectedYearIndexes];
+    newIndexes[accountIdx] = parseInt(newDetailId, 10);
+    setSelectedYearIndexes(newIndexes);
+  };
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -29,31 +55,9 @@ const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
           text="Spending Accounts"
           className="m-1 mb-0 !font-light !text-[32px]/[40px]"
         />
-        <section className="flex justify-start self-start">
-          {healthCareAccs.length > 0 &&
-            healthCareAccs.map((item, index) => (
-              <RichText
-                key={index}
-                spans={[
-                  <Column className="m-4 mb-0 md:flex-row block" key={0}>
-                    <TextBox
-                      className="inline"
-                      text="To manage your health spending account details"
-                      display="inline"
-                    />
-                    <AppLink
-                      label={item.linkName}
-                      url={item.linkUrl}
-                      target="_blank"
-                      className="link !flex caremark pt-0"
-                      displayStyle="inline-flex"
-                      icon={<Image src={extrenalIcon} alt="" />}
-                    />
-                  </Column>,
-                ]}
-              />
-            ))}
-        </section>
+        {isExternalSpendingAccounts && (
+          <ExternalSpendingAccountSSOLink accountInfo={accountInfo} />
+        )}
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow page-section-63_33 items-stretch">
@@ -62,17 +66,17 @@ const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
                     <SpendingAccountsBalance
                       key={index}
                       className="large-section"
-                      details={[
-                        {
-                          label: item.planYear,
-                          value: '0',
-                        },
-                      ]}
-                      onSelectedDetailChange={() => {}}
-                      selectedDetailId="0"
-                      contributionsAmount={item.contributionsAmount}
-                      distributionsAmount={item.distributionsAmount}
-                      balanceAmount={item.balanceAmount}
+                      details={item.planYears.map((planYear, planIndex) => ({
+                        label: planYear,
+                        value: planIndex.toString(),
+                      }))}
+                      yearBalanceInfo={
+                        item.yearData[selectedYearIndexes[index]]
+                      }
+                      onSelectedDetailChange={(detailId: string) =>
+                        handleSelectedDetailChange(index, detailId)
+                      }
+                      selectedDetailId={selectedYearIndexes[index].toString()}
                       transactionsLabel={item.transactionsLabel}
                       spendingBalanceTitle={item.spendingBalanceTitle}
                       accountTypeText={item.accountTypeText}
@@ -103,7 +107,7 @@ const SpendingAccount = ({ contact, spendAccDTO }: SpendingAccountProps) => {
                       <span className="link" key={1}>
                         <a>start a chat </a>
                       </span>,
-                      <span key={2}>or call us at [{contact}].</span>,
+                      <span key={2}>or call us at {contact}.</span>,
                     ]}
                   />
                   <Spacer size={24} />

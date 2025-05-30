@@ -10,7 +10,7 @@ import { Header } from '../foundation/Header';
 import { externalIcon } from '../foundation/Icons';
 import { Row } from '../foundation/Row';
 import { Spacer } from '../foundation/Spacer';
-import { StatusLabel } from '../foundation/StatusLabel';
+import { StatusLabel, StatusLabelEnum } from '../foundation/StatusLabel';
 import { TextBox } from '../foundation/TextBox';
 
 interface ClaimDetailsProps {
@@ -25,13 +25,13 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
       claimInfo.claimStatus == 'Approved' ||
       claimInfo.claimStatus == 'Completed'
     ) {
-      return 'success';
+      return StatusLabelEnum.SUCCESS;
     } else if (claimInfo.claimStatus == 'Denied') {
-      return 'error';
+      return StatusLabelEnum.ERROR;
     } else if (claimInfo.claimStatus == 'Pending') {
-      return 'neutral';
+      return StatusLabelEnum.NEUTRAL;
     } else {
-      return 'empty';
+      return StatusLabelEnum.EMPTY;
     }
   }
 

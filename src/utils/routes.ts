@@ -312,6 +312,12 @@ export const ROUTE_CONFIG: RouteConfig = {
       title: 'Spending Accounts',
       rule: (r) => isSpendingAccountsEligible(r),
       breadcrumbParent: '/myPlan',
+      children: {
+        transactions: {
+          title: 'Transactions',
+          rule: (r) => isSpendingAccountsEligible(r),
+        },
+      },
     },
     support: {
       title: 'Support',
@@ -369,11 +375,6 @@ export const ROUTE_CONFIG: RouteConfig = {
     thirdPartySharing: {
       title: 'Third Party Sharing',
       breadcrumbParent: '/sharingPermissions',
-    },
-    transactions: {
-      title: 'Transactions',
-      rule: (r) => isSpendingAccountsEligible(r),
-      breadcrumbParent: '/spendingAccounts',
     },
     virtualCareOptions: {
       title: 'Virtual Care Options',

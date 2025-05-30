@@ -12,7 +12,10 @@ import { Divider } from '../../../../components/foundation/Divider';
 import { Header } from '../../../../components/foundation/Header';
 import { Row } from '../../../../components/foundation/Row';
 import { Spacer } from '../../../../components/foundation/Spacer';
-import { StatusLabel } from '../../../../components/foundation/StatusLabel';
+import {
+  StatusLabel,
+  StatusLabelEnum,
+} from '../../../../components/foundation/StatusLabel';
 import { TextBox } from '../../../../components/foundation/TextBox';
 import { IComponent } from '../../../../components/IComponent';
 
@@ -29,17 +32,17 @@ export const PriorAuthDetailItem = ({
   function getSuccessStatus() {
     switch (authInfo?.statusDescription) {
       case 'Processed':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Denied':
-        return 'error';
+        return StatusLabelEnum.ERROR;
       case 'Pending':
-        return 'neutral';
+        return StatusLabelEnum.NEUTRAL;
       case 'PartialApproval':
-        return 'partialapproval';
+        return StatusLabelEnum.PARTIAL_APPROVAL;
       case 'Approved':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       default:
-        return 'empty';
+        return StatusLabelEnum.EMPTY;
     }
   }
 

@@ -1,3 +1,4 @@
+import { ESResponseValidation } from '@/models/enterprise/esResponse';
 import axios from 'axios';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
@@ -36,6 +37,33 @@ esApi.interceptors.request?.use(
     return config;
   },
   (error) => {
+    return Promise.reject(error);
+  },
+);
+
+esApi.interceptors.response.use(
+  (response) => {
+    const esResponse = response.data as ESResponseValidation;
+    if (
+      !esResponse.details?.componentStatus ||
+      esResponse.details?.componentStatus !== 'Success'
+    ) {
+      logger.error(`Error Response from ES: ${response.config.url}`);
+      if (esResponse?.details?.innerDetails?.statusDetails) {
+        const detailsLog = esResponse.details.innerDetails.statusDetails
+          .map(
+            (detail) =>
+              `Component: ${detail.componentName}, Status: ${detail.componentStatus}, Message: ${detail.message}`,
+          )
+          .join(' | ');
+        logger.info(`Status Details: ${detailsLog}`);
+      }
+      throw new Error(`ES Call has failures: ${esResponse.details?.message}`);
+    }
+    return response;
+  },
+  (error) => {
+    logger.error('ES API Error', error);
     return Promise.reject(error);
   },
 );

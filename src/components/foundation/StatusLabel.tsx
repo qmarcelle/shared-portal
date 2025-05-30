@@ -1,5 +1,5 @@
 export interface StatusLabelProps {
-  status: 'success' | 'neutral' | 'error' | 'empty' | 'partialapproval';
+  status: StatusLabelStatus;
   label: string;
 }
 
@@ -12,4 +12,32 @@ export const StatusLabel = ({ status, label }: StatusLabelProps) => {
       <p className="font-bold ml-2 body-2">{label}</p>
     </div>
   );
+};
+
+export enum StatusLabelEnum {
+  SUCCESS = 'success',
+  NEUTRAL = 'neutral',
+  ERROR = 'error',
+  EMPTY = 'empty',
+  PARTIAL_APPROVAL = 'partialapproval',
+}
+
+export type StatusLabelStatus =
+  (typeof StatusLabelEnum)[keyof typeof StatusLabelEnum];
+
+// Define a custom sort order for the statuses
+export const StatusLabelSortOrder: Record<StatusLabelStatus, number> = {
+  [StatusLabelEnum.SUCCESS]: 1,
+  [StatusLabelEnum.PARTIAL_APPROVAL]: 2,
+  [StatusLabelEnum.NEUTRAL]: 3,
+  [StatusLabelEnum.EMPTY]: 4,
+  [StatusLabelEnum.ERROR]: 5,
+};
+
+// Function to compare statuses based on the custom sort order
+export const compareStatusLabels = (
+  a: StatusLabelStatus,
+  b: StatusLabelStatus,
+): number => {
+  return StatusLabelSortOrder[a] - StatusLabelSortOrder[b];
 };

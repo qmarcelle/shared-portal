@@ -12,6 +12,7 @@ export type RichSelectItem = {
   id: string;
   label: string;
   value: string;
+  sortFn?: (a: any, b: any) => number; // Optional, for sorting use cases
 };
 
 interface RichDropDownProps<T> extends IComponent {

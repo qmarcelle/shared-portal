@@ -1,12 +1,19 @@
+import { StatusLabelStatus } from '@/components/foundation/StatusLabel';
+
 export interface TransactionDetails {
   id: string;
-  memberName: string;
+  providerName: string;
   serviceDate: string;
-  transactionTotal: string | null;
-  transactionStatus: string;
+  transactionTotal: number;
+  transactionStatus: StatusLabelStatus;
+  transactionStatusDescription: string;
   transactionId: string;
-  disallowedAmount?: string | null;
+  disallowedAmount?: number;
   disallowedReason?: string | null;
   disallowedFlag: boolean;
-  transactionInfo: object;
+  claimPaidAmt: number;
+  formattedClaimPaidAmt: string;
+  formattedDisallowedAmount?: string;
+  formattedTransactionTotal: string;
+  isWithdrawal?: boolean;
 }

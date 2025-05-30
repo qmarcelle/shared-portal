@@ -1,8 +1,8 @@
-'use server';
+import 'server-only';
 
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
-import { FsaAcctDetailsList } from '../model/fsaAcctDetailsResponse';
+import { FsaAcctDetailsList } from '../../model/fsaAcctDetailsResponse';
 
 export async function getFSAAcctDetails(
   memeCk: number,

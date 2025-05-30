@@ -56,6 +56,8 @@ export type Claim = {
   claimPaidCalendarDate: string;
   claimReceivedCalendarDate: string;
   bcbstpaysYou: number;
+  claimNonCoveredDescShortText: string;
+  claimNonCoveredDescLongText: string;
   placeOfServiceCode?: string;
   revenueCode?: string;
   typeOfService?: string;
