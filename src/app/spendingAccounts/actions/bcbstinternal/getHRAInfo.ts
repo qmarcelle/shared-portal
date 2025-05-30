@@ -1,8 +1,8 @@
-'use server';
+import 'server-only';
 
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
-import { HRAInfoResponse } from '../model/hraInfoResponse';
+import { HRAInfoResponse } from '../../model/hraInfoResponse';
 
 export async function getHRAInfo(memeCk: number): Promise<HRAInfoResponse> {
   try {

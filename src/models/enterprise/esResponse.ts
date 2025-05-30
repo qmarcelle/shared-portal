@@ -5,3 +5,8 @@ export interface ESResponse<T> {
   details?: ESDetails;
   errorCode?: string;
 }
+
+export interface ESResponseValidation {
+  details?: ESDetails;
+  errorCode?: string;
+}

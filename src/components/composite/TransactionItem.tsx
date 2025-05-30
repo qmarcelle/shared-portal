@@ -1,3 +1,4 @@
+import { TransactionDetails } from '@/models/transaction_details';
 import { useEffect, useState } from 'react';
 import { IComponent } from '../IComponent';
 import { Card } from '../foundation/Card';
@@ -9,9 +10,8 @@ import { StatusLabel } from '../foundation/StatusLabel';
 import { TransactionListCard } from './TransactionListCard';
 
 interface TransactionItemProps extends IComponent {
-  // TODO: Find the correct model and type it here
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  transactionInfo: any;
+  transactionInfo: TransactionDetails;
 }
 
 export const TransactionItem = ({
@@ -25,45 +25,17 @@ export const TransactionItem = ({
     setIsClient(true);
   }, []);
 
-  function getSuccessStatus() {
-    switch (transactionInfo.transactionStatus) {
-      case 'Processed':
-        return 'success';
-      case 'Denied':
-        return 'error';
-      case 'Pending':
-        return 'neutral';
-      case 'Partial Approval':
-        return 'partialapproval';
-      case 'Approved':
-        return 'success';
-      default:
-        return 'empty';
-    }
-  }
-
   function getDesktopView() {
     return (
       <Column>
         <TransactionListCard
+          baseCard={DateReceivedComponent(transactionInfo)}
           information={[
             {
-              title: transactionInfo.memberName,
+              title: transactionInfo.providerName,
               body: (
-                <section>
-                  <Row className=" py-2 m-2">
-                    <Column className="flex-grow">
-                      <span className="body-1">
-                        Date Recieved:{transactionInfo.serviceDate}
-                      </span>
-                    </Column>
-                    <Column className="flex-end">
-                      <span className="body-1 text-rose-700">
-                        {transactionInfo.transactionTotal}
-                      </span>
-                    </Column>
-                  </Row>
-                  <Spacer axis="horizontal" size={32} />
+                <>
+                  {DateReceivedComponent(transactionInfo)}
                   <Divider></Divider>
                   <Spacer axis="horizontal" size={32} />
                   <Row className="py-2 m-2">
@@ -74,48 +46,38 @@ export const TransactionItem = ({
                     </Column>
                     <Column className="flex-end">
                       <StatusLabel
-                        label={transactionInfo.transactionStatus}
-                        status={getSuccessStatus()}
+                        label={transactionInfo.transactionStatusDescription}
+                        status={transactionInfo.transactionStatus}
                       />
                     </Column>
                   </Row>
                   <Spacer axis="horizontal" size={32} />
-                  <Divider></Divider>
-                  <Spacer axis="horizontal" size={32} />
-                  {transactionInfo.disallowedFlag && (
-                    <Row className="px-3 py-2 m-2">
-                      <Column>
-                        <span className="opacity-70">Disallowed Amount</span>
-                        <Spacer axis="horizontal" size={32} />
-                        <span>{transactionInfo.disallowedAmount}</span>
-                      </Column>
-                      <Spacer axis="horizontal" size={100} />
-                      <Column>
-                        <span className="opacity-70">Disallowed Reason</span>
-                        <Spacer axis="horizontal" size={32} />
-                        <span>{transactionInfo.disallowedReason}</span>
-                      </Column>
-                    </Row>
-                  )}
                   <span className="body-1"></span>
-                </section>
+                  <Divider></Divider>
+                  <section>
+                    <Spacer axis="horizontal" size={32} />
+                    {transactionInfo.disallowedFlag && (
+                      <Row className="px-3 py-2 m-2">
+                        <Column>
+                          <span className="opacity-70">Disallowed Amount</span>
+                          <Spacer axis="horizontal" size={32} />
+                          <span>
+                            {transactionInfo.formattedDisallowedAmount}
+                          </span>
+                        </Column>
+                        <Spacer axis="horizontal" size={100} />
+                        <Column>
+                          <span className="opacity-70">Disallowed Reason</span>
+                          <Spacer axis="horizontal" size={32} />
+                          <span>{transactionInfo.disallowedReason}</span>
+                        </Column>
+                      </Row>
+                    )}
+                  </section>
+                </>
               ),
             },
           ]}
-          successStatus={
-            <Row className="px-3 py-2">
-              <Column className="flex-grow">
-                <span className="body-1">
-                  Date Recieved:{transactionInfo.serviceDate}
-                </span>
-              </Column>
-              <Column className="flex-end">
-                <span className="body-1 text-rose-700">
-                  {transactionInfo.transactionTotal}
-                </span>
-              </Column>
-            </Row>
-          }
         ></TransactionListCard>
       </Column>
     );
@@ -130,4 +92,25 @@ export const TransactionItem = ({
       {getDesktopView()}
     </Card>
   ) : null;
+};
+
+const DateReceivedComponent = (transactionDetails: TransactionDetails) => {
+  const textColor = transactionDetails.isWithdrawal ? 'text-rose-700' : ''; // Ensure 'withdrawal' exists in TransactionDetails or handle it safely
+  return (
+    <section>
+      <Row className=" py-2 m-2">
+        <Column className="flex-grow">
+          <span className="body-1">
+            Date Received:{transactionDetails.serviceDate}
+          </span>
+        </Column>
+        <Column className="flex-end">
+          <span className={`body-1 ${textColor}`}>
+            {transactionDetails.formattedTransactionTotal}
+          </span>
+        </Column>
+      </Row>
+      <Spacer axis="horizontal" size={32} />
+    </section>
+  );
 };

@@ -3,7 +3,10 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import { StatusLabel } from '@/components/foundation/StatusLabel';
+import {
+  StatusLabel,
+  StatusLabelEnum,
+} from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
 import { formatCurrency } from '@/utils/currency_formatter';
@@ -29,21 +32,21 @@ export const ClaimItem = ({
   function getSuccessStatus() {
     switch (claimInfo.claimStatus) {
       case 'Processed':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Paid':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Denied':
-        return 'error';
+        return StatusLabelEnum.ERROR;
       case 'Pending':
-        return 'neutral';
+        return StatusLabelEnum.NEUTRAL;
       case 'Partial Approval':
-        return 'partialapproval';
+        return StatusLabelEnum.PARTIAL_APPROVAL;
       case 'Approved':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Completed':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       default:
-        return 'empty';
+        return StatusLabelEnum.EMPTY;
     }
   }
 

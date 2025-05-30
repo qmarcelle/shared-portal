@@ -29,3 +29,20 @@ export interface ColumnInfo {
   isValueBold?: boolean;
   isVisibleInMobile?: boolean;
 }
+
+export const ClaimStatus = {
+  ADJUSTED_ENCOUNTER: 'Adjusted Encounter',
+  AWAITING_PROCESSING: 'Awaiting Processing',
+  CLOSED: 'Closed',
+  COMPLETED: 'Completed',
+  ENCOUNTER_PROCESSED: 'Encounter Processed',
+  ENCOUNTER_REPROCESSED: 'Encounter Reprocessed',
+  HISTORY: 'History',
+  IN_PROCESS: 'In Process',
+  ORIGINAL_CLAIM_ADJUSTED: 'Original Claim Adjusted',
+  PREDETERMINATION_COMPLETE: 'Predetermination Complete',
+  PREDETERMINATION_PENDED: 'Predetermination Pended',
+  PROCESSED: 'Processed',
+} as const;
+
+export type ClaimStatus = typeof ClaimStatus[keyof typeof ClaimStatus];
