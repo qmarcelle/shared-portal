@@ -44,7 +44,7 @@ export const PayPremiumSection = ({
             <Spacer size={12} />
             <Row>
               <TextBox text="Amount Due" />
-              <p className="body-bold ml-auto">${amountDue}</p>
+              <p className="body-bold ml-auto">${Number(amountDue).toFixed(2)}</p>
             </Row>
             <Spacer size={32} />
             {!payMyPremiumMedicareEligible(visibilityRules) ? (
