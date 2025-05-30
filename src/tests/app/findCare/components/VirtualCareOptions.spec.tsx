@@ -16,13 +16,6 @@ const renderUI = () => {
           url: 'null',
         },
         {
-          id: '2',
-          title: 'Blue of Tennessee Medical Centers Virtual Visits ',
-          description:
-            'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. ',
-          url: 'null',
-        },
-        {
           id: '3',
           title: 'Hinge Health Back & Joint Care',
           description:
