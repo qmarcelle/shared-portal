@@ -303,10 +303,6 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
         hsaBalance: 349.9,
         linkURL: '/member/myplan/spendingaccounts',
       },
-      getHelpWithBenefits: {
-        headerText: 'Get Help with Benefits',
-        linkURL: 'Benefits & Coverage FAQ',
-      },
     },
   ],
   [
@@ -425,10 +421,6 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
         fsaBalance: 1009.5,
         hsaBalance: 349.9,
         linkURL: '/member/myplan/spendingaccounts',
-      },
-      getHelpWithBenefits: {
-        headerText: 'Get Help with Benefits',
-        linkURL: 'Benefits & Coverage FAQ',
       },
     },
   ],
@@ -611,10 +603,6 @@ export const BenefitTypeMap: Map<BenefitType, BenefitTypeDetail> = new Map([
         fsaBalance: 1009.5,
         hsaBalance: 349.9,
         linkURL: '/member/myplan/spendingaccounts',
-      },
-      getHelpWithBenefits: {
-        headerText: 'Get Help with Benefits',
-        linkURL: 'Benefits & Coverage FAQ',
       },
     },
   ],

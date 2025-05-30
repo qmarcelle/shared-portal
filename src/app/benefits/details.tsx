@@ -169,6 +169,7 @@ export const Details = ({
                 />
               )}
               <GetHelpSection
+                contact={contact}
                 link="/support/faqTopics/benefits"
                 linkURL="Benefits & Coverage FAQ"
                 headerText="Get Help with Benefits"
