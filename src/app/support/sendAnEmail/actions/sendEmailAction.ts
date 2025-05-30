@@ -31,9 +31,10 @@ export async function invokeFamilyMemberDetailsAction(
 
 export async function invokeSendEmailAction(
   emailRequest: EmailRequest,
+  memberCk: string,
 ): Promise<ActionResponse<number, string>> {
   try {
-    const loggedUserInfo = await getLoggedInUserInfo('memberCk');
+    const loggedUserInfo = await getLoggedInUserInfo(memberCk);
     emailRequest.category = emailRequest.categoryValue == 'Dental' ? 'D' : 'M';
     emailRequest.groupID = loggedUserInfo.groupData.groupID;
     loggedUserInfo.members.forEach((item) => {
