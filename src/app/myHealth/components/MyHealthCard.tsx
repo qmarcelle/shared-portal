@@ -3,7 +3,7 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { isBlueCareEligible, isKatieBeckettEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ interface MyHealthCardProps extends IComponent {
   label: string;
   body: string;
   icon: string | null;
-  link?: string;
+  link?: string;  
   openInNewWindow?: boolean;
   visibilityRule?: VisibilityRules;
 }
@@ -39,18 +39,24 @@ export const MyHealthCard = ({
   }
   function getResourceForOthers() {
     return (
-      <Link href={link ?? ''} className="my-health-card my-health-card-link">
+      <Link href={link ?? ''} className="my-health-card my-health-card-link"> 
         <>{getCardDetails()}</>
       </Link>
     );
   }
 
+  const opeInNewTab = (url: string) => {
+         window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
   function getHealthLibraryLinkForBlueCare() {
     return (
       <Link
-        href={process.env.NEXT_PUBLIC_BLUECARE_HEALTH_LIBRARY_URL ?? ''}
-        target="_blank"
+        href={'#'}        
         className="my-health-card my-health-card-link"
+        onClick={() => {
+          opeInNewTab(process.env.NEXT_PUBLIC_BLUECARE_HEALTH_LIBRARY_URL ?? '');1
+        }}
       >
         <>{getCardDetails()}</>
       </Link>
@@ -74,7 +80,7 @@ export const MyHealthCard = ({
 
   return (
     <>
-      {isBlueCareEligible(visibilityRule) && openInNewWindow
+      {((isBlueCareEligible(visibilityRule)  || isKatieBeckettEligible(visibilityRule)) && openInNewWindow)
         ? getHealthLibraryLinkForBlueCare()
         : getResourceForOthers()}
     </>

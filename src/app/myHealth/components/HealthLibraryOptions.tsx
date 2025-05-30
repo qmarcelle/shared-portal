@@ -8,7 +8,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { isBlueCareEligible, isKatieBeckettEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -55,13 +55,18 @@ export const HealthLibraryOptions = ({
     );
   }
 
-  function getLinkForMyHealthBlueCare() {
+  const opeInNewTab = (url: string) => {
+         window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
+  function getLinkForMyHealthBlueCare() {  
     return (
       <AppLink
         label="Visit The Health Library"
-        className="link hover:!underline caremark !flex pt-0 pl-0"
-        url={process.env.NEXT_PUBLIC_BLUECARE_HEALTH_LIBRARY_URL ?? ''}
-        target={'_blank'}
+        className="link hover:!underline caremark !flex pt-0 pl-0"       
+        callback={() => {
+          opeInNewTab(process.env.NEXT_PUBLIC_BLUECARE_HEALTH_LIBRARY_URL ?? '');
+        }}
         icon={<Image src={externalIcon} alt="" />}
       />
     );
@@ -85,8 +90,8 @@ export const HealthLibraryOptions = ({
                     label={item.title}
                     icon={item.icon}
                     body={item.description}
-                    link={item.url}
-                    openInNewWindow={true}
+                    link={item.url} 
+                    openInNewWindow={true}                   
                     visibilityRule={visibilityRule}
                   />
                 );
@@ -104,7 +109,7 @@ export const HealthLibraryOptions = ({
                 className="body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                 key={1}
               >
-                {isBlueCareEligible(visibilityRule)
+                {isBlueCareEligible(visibilityRule) || isKatieBeckettEligible(visibilityRule)
                   ? getLinkForMyHealthBlueCare()
                   : getLinkForOthers()}
               </Row>,
