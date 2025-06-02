@@ -150,7 +150,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             {!isEmboldHealthEligible(visibilityRules) &&
               findCarePillOptions && (
                 <PillBox
-                  title="Looking for Care?"
+                  title="Looking for care?"
                   subTitle="Find a:"
                   icon={
                     <Image
