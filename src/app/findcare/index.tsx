@@ -17,6 +17,7 @@ import {
   isBlueCareNotEligible,
   isEmboldHealthEligible,
   isHingeHealthEligible,
+  isLifePointGrp,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
   isNurseChatEligible,
@@ -191,7 +192,8 @@ const FindCare = ({ findCareData }: FindCareProps) => {
           isTeladocPrimary360Eligible(visibilityRules) ||
           isTeladocEligible(visibilityRules) ||
           isNurseChatEligible(visibilityRules)) &&
-          isBlueCareNotEligible(visibilityRules) && (
+          isBlueCareNotEligible(visibilityRules) &&
+          !isLifePointGrp(visibilityRules) && (
             <section>
               <VirtualCareOptions
                 className="p-8"
