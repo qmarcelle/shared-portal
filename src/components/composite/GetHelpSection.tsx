@@ -30,7 +30,7 @@ export const GetHelpSection = ({
             <span className="link" key={1}>
               <a>start a chat </a>
             </span>,
-            <span key={2}>or call us at {contact}</span>,
+            <span key={2}>or call us at {contact}.</span>,
           ]}
         />
         <Spacer size={32} />
