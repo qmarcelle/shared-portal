@@ -29,7 +29,7 @@ const SpendingAccountPage = async () => {
           spendAccDTO={spendAccDTO.data}
           accountInfo={accountInfo}
           isExternalSpendingAccounts={
-            session!.user?.vRules?.externalSpendingAccounts || false
+            session!.user?.vRules?.externalSpendingAcct || false
           }
         />
       )

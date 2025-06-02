@@ -41,7 +41,7 @@ export const TransactionCard = ({
           <TextBox
             type="body-1"
             className="font-bold ml-2"
-            text={`${transactionsInfo.length} Transactions`}
+            text={`${transactionsInfo?.length ?? 0} Transactions`}
           />
         </Row>
 

@@ -79,11 +79,10 @@ export function computeVisibilityRules(
         (acct) => acct.accountType === 'FSA',
       ));
   rules.hasHSA =
-    rules.healthReimbursementAccount ||
-    (rules.externalSpendingAcct &&
-      loggedUserInfo.healthCareAccounts.some(
-        (acct) => acct.accountType === 'HSA',
-      ));
+    rules.externalSpendingAcct &&
+    loggedUserInfo.healthCareAccounts.some(
+      (acct) => acct.accountType === 'HSA',
+    );
 
   rules.hsaBank =
     rules.externalSpendingAcct &&
