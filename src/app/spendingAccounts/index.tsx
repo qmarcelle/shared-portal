@@ -11,6 +11,7 @@ import ExternalSpendingAccountSSOLink from './components/ExternalSpendingAccount
 import { RelatedLinks } from './components/RelatedLinks';
 import { SpendingAccountsBalance } from './components/SpendingAccountsBalance';
 import {
+  AccountYearlyData,
   HealthAccountInfo,
   MyHealthCareResponseDTO,
 } from './model/myHealthCareResponseDTO';
@@ -28,11 +29,10 @@ const SpendingAccount = ({
   accountInfo,
   isExternalSpendingAccounts,
 }: SpendingAccountProps) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const spendBalDetails = useMemo(
-    () => spendAccDTO.spendingBalanceBean || [],
-    [spendAccDTO.spendingBalanceBean],
-  ); // internal info
+    () => filterRecentYears(spendAccDTO?.acctYearlyData || []),
+    [spendAccDTO.acctYearlyData],
+  );
 
   // Track selected year index for each account
   const [selectedYearIndexes, setSelectedYearIndexes] = useState<number[]>(
@@ -60,35 +60,39 @@ const SpendingAccount = ({
         )}
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-63_33 items-stretch">
-              {spendBalDetails.length > 0
-                ? spendBalDetails.map((item, index) => (
-                    <SpendingAccountsBalance
-                      key={index}
-                      className="large-section"
-                      details={item.planYears.map((planYear, planIndex) => ({
-                        label: planYear,
-                        value: planIndex.toString(),
-                      }))}
-                      yearBalanceInfo={
-                        item.yearData[selectedYearIndexes[index]]
-                      }
-                      onSelectedDetailChange={(detailId: string) =>
-                        handleSelectedDetailChange(index, detailId)
-                      }
-                      selectedDetailId={selectedYearIndexes[index].toString()}
-                      transactionsLabel={item.transactionsLabel}
-                      spendingBalanceTitle={item.spendingBalanceTitle}
-                      accountTypeText={item.accountTypeText}
-                    />
-                  ))
-                : spendAccDTO.isApiError && (
-                    <ErrorInfoCard
-                      className="mt-4"
-                      errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
-                    />
-                  )}
-            </Column>
+            {/* this check is temporary until the external accounts integration
+            is complete. Would currently display missing information if left in */}
+            {!isExternalSpendingAccounts && (
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                {spendBalDetails.length > 0
+                  ? spendBalDetails.map((item, index) => (
+                      <SpendingAccountsBalance
+                        key={index}
+                        className="large-section"
+                        details={item.planYears.map((planYear, planIndex) => ({
+                          label: planYear,
+                          value: planIndex.toString(),
+                        }))}
+                        yearBalanceInfo={
+                          item.yearData[selectedYearIndexes[index]]
+                        }
+                        onSelectedDetailChange={(detailId: string) =>
+                          handleSelectedDetailChange(index, detailId)
+                        }
+                        selectedDetailId={selectedYearIndexes[index].toString()}
+                        transactionsLabel={item.transactionsLabel}
+                        spendingBalanceTitle={item.spendingBalanceTitle}
+                        accountTypeText={item.accountTypeText}
+                      />
+                    ))
+                  : spendAccDTO.isApiError && (
+                      <ErrorInfoCard
+                        className="mt-4"
+                        errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
+                      />
+                    )}
+              </Column>
+            )}
             <Column className="flex-grow page-section-36_67 items-stretch mt-4">
               <RelatedLinks isHealthEquity={spendAccDTO.isHealthEquity!} />
               <Spacer size={52} />
@@ -119,6 +123,32 @@ const SpendingAccount = ({
       </Column>
     </main>
   );
+};
+
+const filterRecentYears = (
+  spendingBalanceBean: AccountYearlyData[],
+): AccountYearlyData[] => {
+  if (!spendingBalanceBean || spendingBalanceBean.length === 0) {
+    return [];
+  }
+  const currentYear = new Date().getFullYear();
+
+  return spendingBalanceBean.reduce<AccountYearlyData[]>((acc, item) => {
+    const filteredPlanYears = item.planYears.filter(
+      (year) => parseInt(year, 10) >= currentYear - 2,
+    );
+    const filteredYearData = item.yearData.filter((curItem, index) =>
+      filteredPlanYears.includes(item.planYears[index]),
+    );
+    if (filteredPlanYears.length > 0) {
+      acc.push({
+        ...item,
+        planYears: filteredPlanYears,
+        yearData: filteredYearData,
+      });
+    }
+    return acc;
+  }, []);
 };
 
 export default SpendingAccount;

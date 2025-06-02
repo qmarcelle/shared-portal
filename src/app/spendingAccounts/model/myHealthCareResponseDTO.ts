@@ -4,7 +4,7 @@ export interface MyHealthCareResponseDTO {
   userId?: string;
   hraBean?: HRABean;
   fsaBean?: FSABean[];
-  spendingBalanceBean?: SpendingBalanceBean[];
+  acctYearlyData?: AccountYearlyData[];
   exflexSpndAccnt?: FSABalance;
   exHRAAccnt?: HRABalance;
   healthAccountInfo?: HealthAccountInfo[];
@@ -37,7 +37,7 @@ export interface FSABean {
   totalPledgeAmount?: string;
 }
 
-export interface SpendingBalanceBean {
+export interface AccountYearlyData {
   planYears: string[];
   yearData: SpendingBalanceYearData[];
   transactionsLabel: string;

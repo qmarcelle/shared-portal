@@ -28,6 +28,8 @@ const Transactions = ({ accountInfo }: TransactionsProps) => {
     { label: 'Last 90 days', value: '3', id: '3' },
     { label: 'Last 120 days', value: '4', id: '4' },
     { label: 'Current Calendar Year', value: '5', id: '5' },
+    { label: 'Last Calendar Year', value: '6', id: '6' },
+    { label: 'Last Two Years', value: '7', id: '7' },
   ];
 
   const [selectedAccountType, setSelectedAccountType] = useState<FilterDetails>(
@@ -39,11 +41,7 @@ const Transactions = ({ accountInfo }: TransactionsProps) => {
   );
 
   const [selectedDateRange, setSelectedDateRange] = useState<FilterDetails>(
-    dateOptions[0] || {
-      label: 'Last 30 days',
-      value: '1',
-      id: '1',
-    },
+    dateOptions[3] || { label: 'Last 120 days', value: '4', id: '4' },
   );
 
   function onFilterSelect(index: number, data: FilterItem[]) {
@@ -137,7 +135,7 @@ const Transactions = ({ accountInfo }: TransactionsProps) => {
 function getFromDateFromId(id: string): { fromDate: Date; toDate: Date } {
   const today = new Date();
   const fromDate = new Date();
-  const toDate = today;
+  const toDate = new Date();
   switch (id) {
     case '1':
       fromDate.setDate(today.getDate() - 30);
@@ -153,6 +151,15 @@ function getFromDateFromId(id: string): { fromDate: Date; toDate: Date } {
       break;
     case '5':
       fromDate.setFullYear(today.getFullYear(), 0, 1);
+      toDate.setFullYear(today.getFullYear(), 11, 31);
+      break;
+    case '6':
+      fromDate.setFullYear(today.getFullYear() - 1, 0, 1);
+      toDate.setFullYear(today.getFullYear() - 1, 11, 31);
+      break;
+    case '7':
+      fromDate.setFullYear(today.getFullYear() - 2);
+      toDate.setTime(today.getTime());
       break;
     default:
       break;

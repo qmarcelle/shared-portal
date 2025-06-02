@@ -17,7 +17,7 @@ export const mapFSABeansToSpendingBalanceBean = (
         })
         .filter((year): year is string => !!year),
     ),
-  );
+  ).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
 
   // Map each year to its data (assuming one bean per year, or take the latest if multiple)
   const yearData = planYears.map((planYear) => {

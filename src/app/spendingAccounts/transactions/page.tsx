@@ -18,6 +18,13 @@ const TransactionsPage = async () => {
     const accountInfo = session?.user.vRules
       ? mapAccountInfo(session.user.vRules)
       : ({} as HealthAccountInfo);
+
+    // No HRA Transaction service as of today 06/2025
+    if (accountInfo.accountTypes) {
+      accountInfo.accountTypes = accountInfo.accountTypes.filter(
+        (type) => type !== 'HRA',
+      );
+    }
     return (
       <main className="flex flex-col justify-center items-center page">
         <Column className="app-content app-base-font-color">

@@ -11,11 +11,11 @@ import { logger } from '@/utils/logger';
 import { isObjectEmpty } from '@/utils/object_utils';
 import { getFSAAcctDetails } from '../actions/bcbstinternal/getFSAAcctDetails';
 import {
+  AccountYearlyData,
   FSABean,
   HealthAccountInfo,
   HRABean,
   MyHealthCareResponseDTO,
-  SpendingBalanceBean,
 } from '../model/myHealthCareResponseDTO';
 import { SpendingBalanceYearData } from '../model/spendingBalanceYearData';
 import { getHRAInfo } from './bcbstinternal/getHRAInfo';
@@ -23,18 +23,26 @@ import { mapFSABeansToSpendingBalanceBean } from './bcbstinternal/mapFSABeansToS
 
 async function fetchFSAAccountDetails(memeCk: number): Promise<FSABean[]> {
   logger.info(`Fetching FSA Account Details for Member: ${memeCk}`);
-  const fsaAccDetailsList = await getFSAAcctDetails(memeCk);
-  const mappedDetails = fsaAccDetailsList.fsaAcctDetails.map((detail) => ({
-    termDate: detail.termDate,
-    fsaTypeInd: detail.fsaTypeInd,
-    accountBalance: formatCurrency(detail.accountBalance ?? 0),
-    effectiveDate: detail.effectiveDate,
-    totalExpenditure: formatCurrency(detail.paidAmountYTD ?? 0),
-    totalPledgeAmount: formatCurrency(
-      (detail.employeePledgeAmount ?? 0) + (detail.employerPledgeAmount ?? 0),
-    ),
-  }));
-  return mappedDetails;
+  try {
+    const fsaAccDetailsList = await getFSAAcctDetails(memeCk);
+    const mappedDetails = fsaAccDetailsList.fsaAcctDetails.map((detail) => ({
+      termDate: detail.termDate,
+      fsaTypeInd: detail.fsaTypeInd,
+      accountBalance: formatCurrency(detail.accountBalance ?? 0),
+      effectiveDate: detail.effectiveDate,
+      totalExpenditure: formatCurrency(detail.paidAmountYTD ?? 0),
+      totalPledgeAmount: formatCurrency(
+        (detail.employeePledgeAmount ?? 0) + (detail.employerPledgeAmount ?? 0),
+      ),
+    }));
+    return mappedDetails;
+  } catch (error) {
+    logger.error(
+      `Error fetching FSA Account Details for Member: ${memeCk}`,
+      error,
+    );
+    return [];
+  }
 }
 
 async function processHRAInfo(memeCk: number): Promise<HRABean> {
@@ -75,16 +83,17 @@ export async function myHealthCareAccountService(
       incentiveBalance: '',
       totalHRAAmount: '',
     };
+    let acctYearlyData: AccountYearlyData[] = [];
     const fsaBean: FSABean[] = [];
-    fsaBean.push(...(await fetchFSAAccountDetails(memberDetails?.memeCk)));
-    let spendingBalanceBean: SpendingBalanceBean[] = [];
-
+    if (accountInfo?.accountTypes.includes('FSA')) {
+      fsaBean.push(...(await fetchFSAAccountDetails(memberDetails?.memeCk)));
+    }
     if (accountInfo?.accountTypes.includes('HRA')) {
       Object.assign(hraBean, await processHRAInfo(memberDetails?.memeCk));
     }
 
     if ((hraBean && !isObjectEmpty(hraBean)) || fsaBean.length > 0) {
-      spendingBalanceBean = await mapSpendingAccBal(fsaBean, hraBean);
+      acctYearlyData = await mapSpendingAccBal(fsaBean, hraBean);
     } else {
       logger.info('mapSpendingAccBal Details is EMPTY');
     }
@@ -96,7 +105,7 @@ export async function myHealthCareAccountService(
         healthAccountInfo: healthAccInfo,
         hraBean: hraBean,
         fsaBean: fsaBean,
-        spendingBalanceBean: spendingBalanceBean,
+        acctYearlyData: acctYearlyData,
         isApiError: false,
       },
     };
@@ -119,20 +128,20 @@ export async function myHealthCareAccountService(
 async function mapSpendingAccBal(
   fsaBean: FSABean[],
   hraBean: HRABean,
-): Promise<SpendingBalanceBean[]> {
-  const spendingBalanceBean: SpendingBalanceBean[] = [];
+): Promise<AccountYearlyData[]> {
+  const acctYearlyData: AccountYearlyData[] = [];
   const defaultAmt = '$0.00';
   try {
     if (!isObjectEmpty(hraBean)) {
-      logger.info('Mapping HRA Bean');
-      const spendBal: SpendingBalanceBean = {} as SpendingBalanceBean;
-      spendBal.planYears = [
+      logger.info('Mapping HRA Bean', hraBean);
+      const hraAcctData: AccountYearlyData = {} as AccountYearlyData;
+      hraAcctData.planYears = [
         new Date(getCurrentDate()).getFullYear().toString(),
       ];
-      spendBal.accountTypeText = 'HRA';
-      spendBal.spendingBalanceTitle = 'Health Reimbursement Account';
-      spendBal.transactionsLabel = 'View HRA Transactions';
-      spendBal.yearData = [
+      hraAcctData.accountTypeText = 'HRA';
+      hraAcctData.spendingBalanceTitle = 'Health Reimbursement Account';
+      hraAcctData.transactionsLabel = 'View HRA Transactions';
+      hraAcctData.yearData = [
         {
           planYear: new Date(getCurrentDate()).getFullYear().toString(),
           contributionsAmount: hraBean?.totalHRAAmount || defaultAmt,
@@ -140,37 +149,40 @@ async function mapSpendingAccBal(
           balanceAmount: hraBean?.currentBalance || defaultAmt,
         } as SpendingBalanceYearData,
       ];
-      spendingBalanceBean.push(spendBal);
+      acctYearlyData.push(hraAcctData);
     }
   } catch (err) {
     logger.error('Error mapping HRA Bean', err);
   }
   try {
+    logger.info('Mapping FSA Bean', fsaBean);
     if (fsaBean.length > 0) {
       const fsaTypes = groupFSABeansByInd(fsaBean);
       // Iterate over fsaTypes and create a spendBal for each entry
       Object.entries(fsaTypes).forEach(([key, fsaTypeBeans]) => {
-        const spendBal: SpendingBalanceBean = {} as SpendingBalanceBean;
-        spendBal.transactionsLabel = 'View FSA Transactions';
+        const fsaData: AccountYearlyData = {} as AccountYearlyData;
+        fsaData.transactionsLabel = 'View FSA Transactions';
         // Set these values based on the string in the key
-        spendBal.accountTypeText = key === 'C' ? 'DCFSA' : 'FSA';
-        spendBal.spendingBalanceTitle =
+        fsaData.accountTypeText = key === 'C' ? 'DCFSA' : 'FSA';
+        fsaData.spendingBalanceTitle =
           key === 'C'
             ? 'Dependent Care Flexible Spending Account'
             : 'Flexible Spending Account';
 
         // Set these values based on the value objects
         const yearData = mapFSABeansToSpendingBalanceBean(fsaTypeBeans);
-        spendBal.planYears = yearData.planYears;
-        spendBal.yearData = yearData.yearData;
-        spendingBalanceBean.push(spendBal);
+        if (yearData.planYears.length > 0) {
+          fsaData.planYears = yearData.planYears;
+          fsaData.yearData = yearData.yearData;
+          acctYearlyData.push(fsaData);
+        }
       });
     }
   } catch (err) {
     logger.error('Error mapping FSA Bean', err);
   }
-
-  return spendingBalanceBean;
+  logger.info('Mapped Spending Balance Bean Details: ', acctYearlyData);
+  return acctYearlyData;
 }
 
 function groupFSABeansByInd(fsaBeans: FSABean[]): Record<string, FSABean[]> {
