@@ -17,11 +17,11 @@ import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
 
-import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { getMenuNavigation } from '../menuNavigation';
 import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
+import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 
 import { getBreadcrumbTrail } from '@/actions/breadcrumbs';
 import { Breadcrumb } from '@/models/app/breadcrumb';
@@ -321,7 +321,7 @@ export default function SiteHeader({
       {/* breadcrumbs */}
       {breadcrumbs.length > 1 && (
         <div className="flex flex-col justify-center items-center page">
-          <div className="app-content">
+          <div className="app-content !pb-0">
             <Breadcrumbs breadcrumbs={breadcrumbs} />
           </div>
         </div>
