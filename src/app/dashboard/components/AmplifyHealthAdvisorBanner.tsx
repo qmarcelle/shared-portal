@@ -31,7 +31,7 @@ export const AmplifyHealthAdvisorBanner = () => {
   };
   return (
     <ImageBanner
-      className="health-advisor-card basis-0 px-3 pt-3 sm:shrink-1 sm:basis-[96.7%] sm:ml-4 sm:pr-0 sm:mt-4 sm:pl-8 sm:pt-8"
+      className="health-advisor-card basis-0 px-3 pt-3 sm:shrink-1 md:basis-[100%] md:ml-0 sm:basis-[96.7%] sm:ml-4 sm:pr-0 sm:mt-4 sm:pl-8 sm:pt-8"
       body={getBannerContent()}
       image={getImage()}
     />

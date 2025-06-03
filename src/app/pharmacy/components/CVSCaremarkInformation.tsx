@@ -29,7 +29,7 @@ export const CVSCaremarkInformationCard = ({
   services,
 }: CVSCaremarkInformationCardProps) => {
   return (
-    <Column className=" m-4">
+    <Column>
       <Spacer size={32} />
       <Card className="p-4 md:p-10">
         <Column>

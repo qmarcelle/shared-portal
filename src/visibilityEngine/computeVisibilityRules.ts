@@ -457,7 +457,7 @@ export function isBiometricScreening(rules: VisibilityRules | undefined) {
 }
 
 export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
-  return (
+  return !!(
     rules?.showPharmacyTab &&
     !rules?.terminated &&
     !rules?.wellnessOnly &&
