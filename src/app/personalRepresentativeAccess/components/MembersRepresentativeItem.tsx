@@ -1,4 +1,5 @@
 import { InviteToRegister } from '@/app/personalRepresentativeAccess/journeys/InviteToRegister';
+import { EditAccessLevel } from '@/app/shareMyInformation/models/editAccessLevel';
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { useAppModalStore } from '@/components/foundation/AppModal';
@@ -14,7 +15,8 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import { formatDateToLocale } from '@/utils/date_formatter';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -26,10 +28,8 @@ interface MembersRepresentativeItemProps extends IComponent {
   inviteStatus: InviteStatus;
   accessStatus: AccessStatus;
   accessStatusIsPending: boolean;
-  memberName: string;
   DOB: string;
   isOnline: boolean;
-  isMatureMinor: boolean;
   icon?: JSX.Element;
   fullAccess: boolean;
   icon1?: JSX.Element;
@@ -40,14 +40,12 @@ interface MembersRepresentativeItemProps extends IComponent {
   visibilityRules?: VisibilityRules;
   id?: string;
   policyId?: string;
-  expiresOn?: string;
-  effectiveOn?: string;
-  firstName?: string;
-  lastName?: string;
   onRequestSuccessCallBack: () => void;
   onInviteSuccessCallBack: () => void;
   pendingIcon?: JSX.Element;
   allowUpdates?: boolean;
+  createdAt?: string;
+  memberRepresentativeData: EditAccessLevel;
 }
 
 export const MembersRepresentativeItem = ({
@@ -56,10 +54,8 @@ export const MembersRepresentativeItem = ({
   accessStatusIsPending,
   onRequestSuccessCallBack,
   onInviteSuccessCallBack,
-  memberName,
   DOB,
   isOnline = true,
-  isMatureMinor,
   onClick,
   className,
   fullAccess,
@@ -69,24 +65,36 @@ export const MembersRepresentativeItem = ({
   requesteeUMPID,
   id,
   policyId,
-  expiresOn,
-  effectiveOn,
-  firstName,
-  lastName,
-  icon = <Image src={editIcon} alt="link" />,
-  icon1 = <Image src={inboxIcon} alt="link" />,
-  pendingIcon = <Image src={pendingLogo} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
+  icon1 = <Image src={inboxIcon} alt="" />,
+  pendingIcon = <Image src={pendingLogo} alt="" />,
   allowUpdates = true,
+  createdAt,
+  memberRepresentativeData,
 }: MembersRepresentativeItemProps) => {
+  function trackPlanItemUpdateAnalytics(
+    elementCategory: string,
+    clickText: string,
+  ) {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'modal',
+      element_category: elementCategory,
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
   const { showAppModal } = useAppModalStore();
-  const currentDate: string = formatDateToLocale(new Date());
   function getProfileOfflineContent() {
     return (
       <Column>
         <Row>
           <TextBox
             className="pt-1 ml-1"
-            text={`Basic Access as of ${currentDate}`}
+            text={`${accessStatus} as of ${createdAt}`}
           />
           <Spacer axis="horizontal" size={32} />
         </Row>
@@ -108,8 +116,8 @@ export const MembersRepresentativeItem = ({
                   showAppModal({
                     content: (
                       <InviteToRegister
-                        isMaturedMinor={isMatureMinor}
-                        memberName={memberName}
+                        isMaturedMinor={memberRepresentativeData.isMaturedMinor}
+                        memberName={memberRepresentativeData.memberName}
                         memeCk={memberMemeCk!}
                         requesteeFHRID={requesteeFHRID!}
                         onRequestSuccessCallBack={onInviteSuccessCallBack}
@@ -137,7 +145,7 @@ export const MembersRepresentativeItem = ({
           <Spacer axis="horizontal" size={8} />
           {fullAccess && (
             <Row>
-              <Image src={accessGranted} className="icon" alt="Info" />
+              <Image src={accessGranted} className="icon" alt="" />
               <TextBox className="ml-2" text="Full Access" />
             </Row>
           )}
@@ -147,11 +155,11 @@ export const MembersRepresentativeItem = ({
             <Row>
               <TextBox
                 className="ml-2"
-                text={`Basic Access as of ${currentDate}`}
+                text={`${accessStatus} as of ${createdAt}`}
               />
               <Spacer size={42} />
             </Row>
-            {!isRepresentative && isMatureMinor && (
+            {!isRepresentative && memberRepresentativeData.isMaturedMinor && (
               <Row>
                 <Spacer size={42} />
                 <Title
@@ -159,19 +167,18 @@ export const MembersRepresentativeItem = ({
                   text="Update"
                   suffix={icon}
                   callback={() => {
+                    trackPlanItemUpdateAnalytics(
+                      'Your Representative(s)',
+                      'Update',
+                    );
                     showAppModal({
                       content: (
                         <EditLevelOfAccess
-                          memberName={memberName}
-                          isMaturedMinor={isMatureMinor}
                           currentAccessType="basic"
                           disableSubmit={!allowUpdates}
                           id={id}
                           policyId={policyId}
-                          expiresOn={expiresOn}
-                          effectiveOn={effectiveOn}
-                          firstName={firstName}
-                          lastName={lastName}
+                          editAccessLevel={memberRepresentativeData}
                         />
                       ),
                     });
@@ -187,12 +194,18 @@ export const MembersRepresentativeItem = ({
                       className="font-bold primary-color"
                       text="Request Full Access"
                       suffix={icon}
-                      callback={() =>
+                      callback={() => {
+                        trackPlanItemUpdateAnalytics(
+                          'Members You Represent',
+                          'Request Full Access',
+                        );
                         showAppModal({
                           content: (
                             <PersonalRepRequestAccessOnMyPlan
-                              memberName={memberName}
-                              isMaturedMinor={isMatureMinor}
+                              memberName={memberRepresentativeData.memberName}
+                              isMaturedMinor={
+                                memberRepresentativeData.isMaturedMinor
+                              }
                               memeCk={memberMemeCk!}
                               requesteeFHRID={requesteeFHRID!}
                               requesteeUMPID={requesteeUMPID!}
@@ -201,8 +214,8 @@ export const MembersRepresentativeItem = ({
                               }
                             />
                           ),
-                        })
-                      }
+                        });
+                      }}
                     />
                   </>
                 ) : (
@@ -232,11 +245,10 @@ export const MembersRepresentativeItem = ({
       <Column className="m-8">
         <Spacer size={16} />
         <Row className="justify-between">
-          {isMatureMinor ? (
-            <TextBox className="font-bold body-1" text="[Mature Minor]" />
-          ) : (
-            <TextBox className="font-bold body-1" text={memberName} />
-          )}
+          <TextBox
+            className="font-bold body-1"
+            text={memberRepresentativeData.memberName}
+          />
           <TextBox text={'DOB: ' + DOB} />
         </Row>
         <Spacer size={16} />

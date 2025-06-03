@@ -71,7 +71,6 @@ export const MembersRepresented = ({
               }
               key={index}
               className="mb-4"
-              memberName={item.memberName}
               memberMemeCk={item.memeck}
               requesteeFHRID={item.requesteeFHRID}
               requesteeUMPID={item.requesteeUMPID}
@@ -86,11 +85,8 @@ export const MembersRepresented = ({
               inviteStatus={item.inviteStatus!}
               id={item.id}
               policyId={item.policyId}
-              expiresOn={item.expiresOn}
-              effectiveOn={item.effectiveOn}
-              firstName={item.firstName}
-              lastName={item.lastName}
-              isMatureMinor={item.isMatureMinor}
+              createdAt={item.createdAt}
+              memberRepresentativeData={item}
             />
           ))}
         </Column>

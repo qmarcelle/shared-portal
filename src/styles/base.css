@@ -30,6 +30,7 @@
 @import './loader.css';
 @import './calendar.css';
 @import './plan_selector.css';
+@import './forms.css';
 
 :root {
   --primary-color: #005eb9;
@@ -135,7 +136,8 @@ body {
 }
 
 .brand-gradient {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       ellipse farthest-corner at right top,
       #5dc1fd 0%,
       #0000 60%
@@ -144,7 +146,8 @@ body {
 }
 
 .surface-gradient-flipped {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at bottom right,
       rgba(93, 193, 253, 0.3) 0%,
       transparent 60%
@@ -153,7 +156,8 @@ body {
 }
 
 .surface-gradient-amplify {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at top right,
       rgba(0, 94, 185, 0.6),
       transparent
@@ -162,7 +166,8 @@ body {
 }
 
 .surface-gradient-amplify-flipped {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       farthest-corner at bottom right,
       rgba(0, 94, 185, 0.6),
       transparent
@@ -424,7 +429,7 @@ hr {
 }
 
 .skipButton p {
-  color: #000;
+  color: #808080;
 }
 
 .skipButton {
@@ -438,7 +443,7 @@ hr {
   white-space: nowrap;
   width: 1px;
   background-color: #fff;
-  border: 2px solid #000;
+  border: 2px solid var(--secondary-color-2);
   color: #000;
   font-family: anaheim, sans-serif;
   letter-spacing: 0.15ch;
@@ -458,9 +463,16 @@ hr {
   width: auto;
   outline: none;
   position: relative;
-  top: 0rem;
+  top: 73px;
   left: 0rem;
-  z-index: 10;
+  z-index: 999;
+}
+
+#skip-to-main.link-white-text:focus {
+  text-decoration: none;
+  color: #fff !important;
+  outline-offset: 2px;
+  outline: 2px solid #fff !important;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

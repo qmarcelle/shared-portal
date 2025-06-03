@@ -2,7 +2,10 @@
 
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getLoggedInMember } from '@/actions/memberDetails';
+import { getDedAndOOPBalanceForSubscriberAndDep } from '@/app/benefits/balances/actions/getDedAndOOPBalance';
 import { getEmployerProvidedBenefits } from '@/app/benefits/employerProvidedBenefits/actions/getEmployerProvidedBenefits';
+import { getAllClaimsData } from '@/app/claims/actions/getClaimsData';
+import { getMemberEligibleBenefits } from '@/app/claims/models/app/memberEligibleBenefits';
 import { getPCPInfo } from '@/app/findcare/primaryCareOptions/actions/pcpInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
@@ -15,6 +18,7 @@ import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { error } from 'console';
 import { DashboardData } from '../models/dashboardData';
+import { getDashboardPriorAuthData } from './getDashboardPriorAuthData';
 
 export const getDashboardData = async (): Promise<
   ActionResponse<number, DashboardData>
@@ -60,17 +64,24 @@ export const getDashboardData = async (): Promise<
         },
       };
     }
+    const eligibleBenefits = await getMemberEligibleBenefits(session);
 
     const [
       loggedUserDetails,
       primaryCareProviderData,
       employerProvidedBenefits,
       planDetails,
+      claims,
+      balanceData,
+      priorAuthResponse,
     ] = await Promise.allSettled([
       getLoggedInMember(session),
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
+      getAllClaimsData(eligibleBenefits),      
+      getDedAndOOPBalanceForSubscriberAndDep(),
+      getDashboardPriorAuthData(),
     ]);
 
     let loggedUserInfo;
@@ -114,6 +125,18 @@ export const getDashboardData = async (): Promise<
             : null,
         role: session?.user.currUsr?.role,
         visibilityRules: session?.user.vRules,
+        memberClaims:
+          claims.status === 'fulfilled' && claims.value.status === 200
+            ? claims.value.data?.claims
+            : undefined,
+        priorAuthDetail:
+          priorAuthResponse.status === 'fulfilled'
+            ? priorAuthResponse.value
+            : null,
+        balanceData:
+          balanceData.status === 'fulfilled'
+            ? balanceData.value.data
+            : undefined,
       },
     };
   } catch (error) {

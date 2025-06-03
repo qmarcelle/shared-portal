@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
+exports[`MyHealthLibraryOptions should render the UI correctly - Blue Care 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -21,7 +21,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
           </p>
@@ -49,7 +49,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Learning Center
                     </p>
@@ -58,7 +58,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get more information about specific health terms, topics and conditions to better manage your health.
                     </p>
@@ -84,7 +84,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Interactive Tools
                     </p>
@@ -93,7 +93,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                     </p>
@@ -119,7 +119,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Health Videos
                     </p>
@@ -128,7 +128,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                     </p>
@@ -158,7 +158,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Symptom Checker
                     </p>
@@ -167,7 +167,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get more reliable information about the symptom you’re experiencing to help find the care you need.
                     </p>
@@ -193,7 +193,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Manage Your Diabetes
                     </p>
@@ -202,7 +202,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                     </p>
@@ -228,7 +228,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Decision Support
                     </p>
@@ -237,7 +237,660 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
+                    >
+                      We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+          />
+          <section
+            class="flex justify-start self-start my-health-link"
+          >
+            <span
+              class="rich-text body-1 undefined"
+            >
+              <div
+                class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+              >
+                <a
+                  aria-label="Visit The Health Library"
+                  href="https://bluecare.bcbst.com/healthwise/"
+                  style="display: block;"
+                  target="_blank"
+                >
+                  <button
+                    class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                    style="max-width: max-content; height: auto; display: block;"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <p
+                      class="link undefined"
+                    >
+                      Visit The Health Library
+                    </p>
+                    <p
+                      class="ml-1"
+                    >
+                      <img
+                        alt=""
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </p>
+                  </button>
+                </a>
+              </div>
+            </span>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-main large-section"
+    >
+      <div
+        class="flex flex-col"
+      >
+        <h2
+          class="title-2"
+        >
+          Health Library
+        </h2>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <p
+          class="body-1"
+          style="display: block; max-width: 100%;"
+        >
+          From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <section
+          class="my-health-image-card"
+        >
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Learning Center
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Get more information about specific health terms, topics and conditions to better manage your health.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Interactive Tools
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Health Videos
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+        <section
+          class="my-health-image-card"
+        >
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Symptom Checker
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Get more reliable information about the symptom you’re experiencing to help find the care you need.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Manage Your Diabetes
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="my-health-card my-health-card-link"
+            href="#path-1"
+          >
+            <div
+              class="card-main my-health-card-health-library"
+            >
+              <div
+                class="flex flex-col ml-2"
+              >
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <p
+                    class="body-1 link-row-head"
+                    style="display: block; max-width: 100%;"
+                  >
+                    Decision Support
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1 body-1"
+                    style="display: block; max-width: 100%;"
+                  >
+                    We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+        />
+        <section
+          class="flex justify-start self-start my-health-link"
+        >
+          <span
+            class="rich-text body-1 undefined"
+          >
+            <div
+              class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
+            >
+              <a
+                aria-label="Visit The Health Library"
+                href="https://bluecare.bcbst.com/healthwise/"
+                style="display: block;"
+                target="_blank"
+              >
+                <button
+                  class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
+                  style="max-width: max-content; height: auto; display: block;"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <p
+                    class="link undefined"
+                  >
+                    Visit The Health Library
+                  </p>
+                  <p
+                    class="ml-1"
+                  >
+                    <img
+                      alt=""
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </p>
+                </button>
+              </a>
+            </div>
+          </span>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-main large-section"
+      >
+        <div
+          class="flex flex-col"
+        >
+          <h2
+            class="title-2"
+          >
+            Health Library
+          </h2>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <p
+            class="body-1"
+            style="display: block; max-width: 100%;"
+          >
+            From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <section
+            class="my-health-image-card"
+          >
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Learning Center
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Get more information about specific health terms, topics and conditions to better manage your health.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Interactive Tools
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Health Videos
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </section>
+          <section
+            class="my-health-image-card"
+          >
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Symptom Checker
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Get more reliable information about the symptom you’re experiencing to help find the care you need.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Manage Your Diabetes
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a
+              class="my-health-card my-health-card-link"
+              href="https://bluecare.bcbst.com/healthwise/"
+              target="_blank"
+            >
+              <div
+                class="card-main my-health-card-health-library"
+              >
+                <div
+                  class="flex flex-col ml-2"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <p
+                      class="body-1 link-row-head"
+                      style="display: block; max-width: 100%;"
+                    >
+                      Decision Support
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1 body-1"
+                      style="display: block; max-width: 100%;"
                     >
                       We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                     </p>
@@ -278,7 +931,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                       class="ml-1"
                     >
                       <img
-                        alt="external"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -315,7 +968,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.
         </p>
@@ -327,7 +980,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
         >
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -343,7 +997,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Learning Center
                   </p>
@@ -352,7 +1006,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get more information about specific health terms, topics and conditions to better manage your health.
                   </p>
@@ -362,7 +1016,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           </a>
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -378,7 +1033,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Interactive Tools
                   </p>
@@ -387,7 +1042,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Our personal calculators and short quizzes make it easier for you to learn more about your health from knowing your BMI to managing stress.
                   </p>
@@ -397,7 +1052,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           </a>
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -413,7 +1069,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Health Videos
                   </p>
@@ -422,7 +1078,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find out about health-related topics with our extensive selection of videos featuring general wellness, specific conditions and more.
                   </p>
@@ -436,7 +1092,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
         >
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -452,7 +1109,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Symptom Checker
                   </p>
@@ -461,7 +1118,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get more reliable information about the symptom you’re experiencing to help find the care you need.
                   </p>
@@ -471,7 +1128,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           </a>
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -487,7 +1145,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Manage Your Diabetes
                   </p>
@@ -496,7 +1154,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get the information you need and stay up-to-date on tests using our resources to help manage your diabetes.
                   </p>
@@ -506,7 +1164,8 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
           </a>
           <a
             class="my-health-card my-health-card-link"
-            href="#path-1"
+            href="https://bluecare.bcbst.com/healthwise/"
+            target="_blank"
           >
             <div
               class="card-main my-health-card-health-library"
@@ -522,7 +1181,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1 link-row-head"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Decision Support
                   </p>
@@ -531,7 +1190,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.
                   </p>
@@ -572,7 +1231,7 @@ exports[`MyHealthLibraryOptions should render the UI correctly 1`] = `
                     class="ml-1"
                   >
                     <img
-                      alt="external"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"

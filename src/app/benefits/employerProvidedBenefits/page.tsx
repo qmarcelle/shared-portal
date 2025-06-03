@@ -11,6 +11,7 @@ const Page = async () => {
     <EmployerProvidedBenfitsPage
       benefits={result.data}
       groupId={session?.user.currUsr?.plan!.grpId}
+      visibilityRules={session?.user.vRules}
     />
   );
 };

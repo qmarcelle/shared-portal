@@ -73,7 +73,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We’ll need to confirm your email address before you can log in.
                 </p>
@@ -82,13 +82,13 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We’ve sent a code to:
                 </p>
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   a**@bcbst.com
                 </p>
@@ -97,7 +97,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Enter the security code to verify your email address.
                 </p>
@@ -134,7 +134,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1 body-1 text-lime-700"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Code resent!
                 </p>
@@ -178,7 +178,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 />
                 <p
                   class="body-1 pr-1"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
                 </p>
@@ -202,7 +202,7 @@ exports[`Display Resend Code text for email uniqueness User should see Code rese
                 </a>
                 <p
                   class="body-1"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   .
                 </p>
@@ -235,7 +235,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
               href="https://www.bcbst.com"
             >
               <img
-                alt="Blue Cross Blue Shield of Tennessee"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -289,7 +289,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We’ll need to confirm your email address before you can log in.
                 </p>
@@ -298,13 +298,13 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We’ve sent a code to:
                 </p>
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   a**@bcbst.com
                 </p>
@@ -313,7 +313,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Enter the security code to verify your email address.
                 </p>
@@ -405,7 +405,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 />
                 <p
                   class="body-1 pr-1"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   Be sure to check your spam or junk folders. You can also give us a call using the number listed on the back of your Member ID card or
                 </p>
@@ -429,7 +429,7 @@ exports[`Display Resend Code text for email uniqueness User should see Resend Co
                 </a>
                 <p
                   class="body-1"
-                  style="display: inline;"
+                  style="display: inline; max-width: 100%;"
                 >
                   .
                 </p>

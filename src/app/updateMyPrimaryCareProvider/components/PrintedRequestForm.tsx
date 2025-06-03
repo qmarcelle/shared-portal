@@ -15,7 +15,7 @@ interface PrintedRequestFormProps extends IComponent {
 }
 
 export const PrintedRequestForm = ({
-  icon = <Image src={downloadIcon} alt="link" />,
+  icon = <Image src={downloadIcon} alt="" />,
 }: PrintedRequestFormProps) => {
   function downloadPDF() {
     axios

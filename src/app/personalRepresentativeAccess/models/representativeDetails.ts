@@ -18,6 +18,7 @@ export interface RepresentativeData {
   firstName?: string;
   lastName?: string;
   isMatureMinor: boolean;
+  createdAt: string;
 }
 
 export type RepresentativeViewDetails = {

@@ -8,6 +8,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
 import { Session } from 'next-auth';
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
 
@@ -18,7 +19,7 @@ interface HealthProgramHeaderProps extends IComponent {
 }
 
 export const HealthProgramsHeaderCard = ({
-  icon = <img alt="external icon" src={externalOffsiteWhiteIcon} />,
+  icon = <Image alt="" src={externalOffsiteWhiteIcon} />,
   healthProgramHeaderDetails,
   sessionData,
 }: HealthProgramHeaderProps) => {
@@ -30,7 +31,7 @@ export const HealthProgramsHeaderCard = ({
             <img
               src={healthProgramHeaderDetails.icon}
               className="size-100"
-              alt="Info"
+              alt=""
             />
           )}
         </Column>
@@ -75,7 +76,7 @@ export const HealthProgramsHeaderCard = ({
             <img
               src={healthProgramHeaderDetails.icon}
               className="size-100 "
-              alt="Info"
+              alt=""
             />
           )}
         </Column>

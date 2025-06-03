@@ -1,9 +1,9 @@
 'use client';
 import { setExternalSessionToken } from '@/actions/ext_token';
 import { useLoginStore } from '@/app/login/stores/loginStore';
-import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
+import { setVisiblePageList } from '@/store/PageHierarchy';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { logger } from '@/utils/logger';
 import { VisibilityRules } from '@/visibilityEngine/rules';
@@ -13,14 +13,19 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { SessionIdleTimer } from '../clientComponents/IdleTimer';
-import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
+
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { getMenuNavigation } from '../menuNavigation';
+import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
-import { AlertBar } from './AlertBar';
+
+import { getBreadcrumbTrail } from '@/actions/breadcrumbs';
+import { Breadcrumb } from '@/models/app/breadcrumb';
+import Breadcrumbs from '../composite/Breadcrumbs';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -54,12 +59,12 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
-  const [pathname, setPathName] = useState<string>('/');
   const [updateLoggedUser, resetToHome] = useLoginStore((state) => [
     state.updateLoggedUser,
     state.resetToHome,
   ]);
   const sitePathName = usePathname();
+  const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
 
   useEffect(() => {
     try {
@@ -74,9 +79,14 @@ export default function SiteHeader({
     } catch (error) {
       logger.error('googleAnalytics Site Navigation PageLevel Metadata', error);
     }
-  }, [window.document.title]);
+  }, [window?.document.title]);
   useEffect(() => {
-    setPathName(sitePathName);
+    const fetchBreadcrumbs = async () => {
+      const trail = await getBreadcrumbTrail(sitePathName);
+      setBreadcrumbs(trail);
+    };
+
+    fetchBreadcrumbs();
   }, [sitePathName]);
 
   useEffect(() => {
@@ -86,7 +96,23 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+    : isBlueCareEligible(visibilityRules)
+      ? getMenuBlueCareNavigation(visibilityRules)
+      : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+
+  const pageList = [];
+  for (let i = 0; i < menuNavigation.length; i++) {
+    if (menuNavigation[i]?.showOnMenu) {
+      const parent = menuNavigation[i];
+      pageList.push(menuNavigation[i].url);
+      for (let j = 0; j < parent?.childPages.length; j++) {
+        if (parent.childPages[j]?.showOnMenu(visibilityRules)) {
+          pageList.push(parent.childPages[j].url);
+        }
+      }
+    }
+  }
+  setVisiblePageList(pageList);
 
   const toggleMenu = () => {
     if (!isOpen) {
@@ -114,16 +140,10 @@ export default function SiteHeader({
     }
   }, [selectedPlan?.memeCk]);
 
-  const breadcrumbs = pathname
-    .split('/')
-    .filter(Boolean)
-    .map((item) => appPaths.get(item.toLowerCase())!)
-    .filter(Boolean);
-
   return (
     <>
       <nav
-        className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[134px]' : 'lg:pt-[74px]'}`}
+        className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[74px]' : 'lg:pt-[74px]'}`}
       >
         {/* Header Top Bar */}
         <div className="h-18 w-full fixed top-0 left-0 right-0 flex justify-between border-b bg-white z-50">
@@ -142,7 +162,7 @@ export default function SiteHeader({
                     <span className="sr-only">Close main menu</span>
                     <Image
                       src={closeIcon}
-                      alt={'Close icon'}
+                      alt=""
                       width="18"
                       height="18"
                     ></Image>
@@ -152,7 +172,7 @@ export default function SiteHeader({
                     <span className="sr-only">Open main menu</span>
                     <Image
                       src={hamburgerMenuIcon}
-                      alt={'Menu icon'}
+                      alt=""
                       width="32"
                       height="32"
                     ></Image>
@@ -162,19 +182,9 @@ export default function SiteHeader({
             </div>
             <Link className="ml-5 lg:px-0" href="/member/home">
               {useMediaQuery({ query: '(max-width: 1023px)' }) ? (
-                <Image
-                  width="64"
-                  height="36"
-                  src={bcbstStackedlogo}
-                  alt="BCBST Stacked Logo"
-                />
+                <Image width="64" height="36" src={bcbstStackedlogo} alt="" />
               ) : (
-                <Image
-                  width="174"
-                  height="35"
-                  src={bcbstBlueLogo}
-                  alt="BCBST Logo"
-                />
+                <Image width="174" height="35" src={bcbstBlueLogo} alt="" />
               )}
             </Link>
             {selectedProfile?.type != UserRole.NON_MEM && plans.length > 1 && (
@@ -276,6 +286,7 @@ export default function SiteHeader({
                   )}
                 </div>
               ))}
+              {/* 
               <AlertBar
                 alerts={
                   (process.env.NEXT_PUBLIC_ALERTS?.length ?? 0) > 0
@@ -283,6 +294,7 @@ export default function SiteHeader({
                     : []
                 }
               />
+              */}
             </div>
           </div>
         )}
@@ -309,8 +321,8 @@ export default function SiteHeader({
       {/* breadcrumbs */}
       {breadcrumbs.length > 1 && (
         <div className="flex flex-col justify-center items-center page">
-          <div className="app-content">
-            <BreadCrumb items={breadcrumbs} />
+          <div className="app-content !pb-0">
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
           </div>
         </div>
       )}

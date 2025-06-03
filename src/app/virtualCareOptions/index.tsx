@@ -115,22 +115,6 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
                   },
                   {
                     healthcareType: 'Primary Care',
-                    icon: 'BlueTennesseIcon',
-                    healthCareName:
-                      'Blue of Tennessee Medical Centers Virtual Visits ',
-                    description:
-                      'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan.',
-                    link: 'Learn More About Blue of Tennessee Medical Centers',
-                    itemDataTitle: 'Generally good for:',
-                    itemData: [
-                      'Primary Care visits',
-                      'Urgent Care (rashes, fever, migraines, diarrhea)',
-                      'Get support for a health condition',
-                      'Get help with your health plan',
-                    ],
-                  },
-                  {
-                    healthcareType: 'Primary Care',
                     icon: 'TelaDoc',
                     healthCareName: 'Teladoc Health Primary Care Provider',
                     description:

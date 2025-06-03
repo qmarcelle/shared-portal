@@ -20,7 +20,7 @@ const UnderstandingAccessOnMyPlan = () => {
                     <Image
                       className="size-[20px] mt-1"
                       src={accessGranted}
-                      alt="success"
+                      alt=""
                     />
                   ),
                   title: 'Access Granted',

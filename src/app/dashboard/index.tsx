@@ -65,23 +65,26 @@ const Dashboard = ({ data }: DashboardProps) => {
                 <Spacer size={8} />
               </>
             )}
-            {data.memberDetails?.coverageType?.length && (
+            {data.memberDetails.selectedPlan && (
               <>
                 <TextBox
-                  text={`Policies: ${data.memberDetails?.coverageType?.join(', ')}`}
+                  text={`Policies: ${data.memberDetails?.selectedPlan.policies}`}
                 />
                 <Spacer size={16} />
               </>
             )}
             {data.memberDetails?.planName && (
-              <Link href="/member/myplan" className="link-white-text">
+              <Link
+                id="skip-to-main"
+                href="/member/myplan"
+                className="link-white-text"
+              >
                 <p className="pb-2 pt-2">View Plan Details</p>
               </Link>
             )}
           </>
         }
       />
-      <Spacer size={32}></Spacer>
       {data.role != UserRole.NON_MEM ? (
         <>
           {isWellnessQa(data.visibilityRules) ? (

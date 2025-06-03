@@ -17,7 +17,6 @@ import { Column } from '../../../components/foundation/Column';
 import { Header } from '../../../components/foundation/Header';
 import { externalIcon } from '../../../components/foundation/Icons';
 import { MemberRewards } from '../models/app/my_health_data';
-import { WellnessInfo } from './WellnessInfo';
 
 interface WellnessRewardsProps extends IComponent {
   color1?: string;
@@ -34,18 +33,13 @@ export const WellnessRewards = ({
   // color2 = '#5DC1FD',
   //color1 = '#f2f2f2',
   linkText = 'View Ways to Earn & Learn more',
-  icon = <Image alt="external icon" src={externalIcon} />,
+  icon = <Image alt="" src={externalIcon} />,
   memberRewards,
   visibilityRules,
   isMemRelation,
 }: WellnessRewardsProps) => {
   return (
     <>
-      {memberRewards?.isSelfFunded ? (
-        <Header text="Active Rewards - Self Funded" />
-      ) : (
-        <Header text="Active Rewards - Fully Insured & Level Funded" />
-      )}
       <Card className={className}>
         <>
           <Header type="title-2" text="Wellness Rewards" />
@@ -159,7 +153,7 @@ export const WellnessRewards = ({
                         url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS}`}
                       />
                     )}
-                    <Image alt="external icon" src={externalIcon} />
+                    <Image alt="" src={externalIcon} />
                   </Row>
                   <Spacer size={18} />
                   <Divider />
@@ -210,13 +204,13 @@ export const WellnessRewards = ({
           )}
         </>
       </Card>
-      <WellnessInfo
+      {/* <WellnessInfo
         header="Active Rewards - Employer Provided Reward"
         subHeader="Wellness Rewards"
         bodyText="Complete wellness tasks to earn rewards provided by your employer."
         buttonText="Learn More"
         className="section"
-      />
+      /> */}
     </>
   );
 };

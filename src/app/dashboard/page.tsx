@@ -1,3 +1,5 @@
+import { getPremiumPayInfo } from '@/actions/premiumPayInfo';
+import { auth } from '@/auth';
 import { Metadata } from 'next';
 import Dashboard from '.';
 import { getDashboardData } from './actions/getDashboardData';
@@ -9,27 +11,18 @@ export const metadata: Metadata = {
 };
 
 const DashboardPage = async () => {
-  console.log('[DashboardPage] Starting to fetch dashboard data');
-  const result = await getDashboardData();
-  console.log('[DashboardPage] Dashboard data fetched', {
-    hasData: !!result.data,
-    hasMemberDetails: !!result.data?.memberDetails,
-    memberDetailsProps: result.data?.memberDetails
-      ? Object.keys(result.data.memberDetails)
-      : [],
-    hasPlans: !!result.data?.memberDetails?.plans,
-    plansLength: result.data?.memberDetails?.plans?.length,
-    timestamp: new Date().toISOString(),
-  });
+  const session = await auth();
+  const [result, premiumPayResponse] = await Promise.all([
+    getDashboardData(),
+    getPremiumPayInfo(session?.user.currUsr.plan?.memCk ?? ''),
+  ]);
 
-  const memberDetails = result.data?.memberDetails;
+  const dashboardData = {
+    ...result.data!,
+    premiumPayResponse,
+  };
 
-  console.log('[DashboardPage] Rendering Dashboard component', {
-    hasData: !!result.data,
-    timestamp: new Date().toISOString(),
-  });
-
-  return <Dashboard data={result.data!} />;
+  return <Dashboard data={dashboardData} />;
 };
 
 export default DashboardPage;

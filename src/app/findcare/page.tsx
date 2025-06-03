@@ -1,15 +1,14 @@
-import { auth } from '@/auth';
 import { Metadata } from 'next';
-import { Session } from 'next-auth';
 import FindCare from '.';
+import { getFindCareData } from './actions/getFindCareData';
 
 export const metadata: Metadata = {
   title: 'FindCare',
 };
 
 const FindCarePage = async () => {
-  const session: Session | null = await auth();
-  return <FindCare visibilityRules={session?.user.vRules} />;
+  const findCareData = await getFindCareData();
+  return <FindCare findCareData={findCareData.data!} />;
 };
 
 export default FindCarePage;

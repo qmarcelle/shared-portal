@@ -21,7 +21,7 @@ exports[`Search Results List should render all the required components 1`] = `
             508C Telehealth and Telephonic/Audio-Only Services
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -55,7 +55,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Mobile Apps | BlueCross BlueShield of Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -89,7 +89,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Use Your Health Insurance Plan | BlueCross BlueShield of Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -123,7 +123,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Find a Doctor Near You | BlueCross BlueShield of Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -157,7 +157,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Get Healthcare Near You | BlueCross BlueShield of Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -191,7 +191,7 @@ exports[`Search Results List should render all the required components 1`] = `
             508C Frequently Asked Questions
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -225,7 +225,7 @@ exports[`Search Results List should render all the required components 1`] = `
             508C REVISION -Update to Stand-alone Vaccine Counseling (replaces March 15, 2023 memo)
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -259,7 +259,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Healthymom | Providers | BlueCare Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -293,7 +293,7 @@ exports[`Search Results List should render all the required components 1`] = `
             Individual and Family Health Insurance Plans | BlueCross BlueShield of Tennessee
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -327,7 +327,7 @@ exports[`Search Results List should render all the required components 1`] = `
             BlueCross BlueShield of Tennessee Health Insurance
           </p>
           <img
-            alt="link"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -355,7 +355,7 @@ exports[`Search Results List should render all the required components 1`] = `
   >
     <p
       class="body-1 m-2 mt-0"
-      style="display: block;"
+      style="display: block; max-width: 100%;"
     >
       Viewing 10 of 65 Items
     </p>
@@ -372,7 +372,7 @@ exports[`Search Results List should render all the required components 1`] = `
           class="flex flex-row arrow left"
         >
           <img
-            alt="previous"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -384,7 +384,7 @@ exports[`Search Results List should render all the required components 1`] = `
           />
           <p
             class="body-1 pt-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Previous
           </p>
@@ -433,12 +433,12 @@ exports[`Search Results List should render all the required components 1`] = `
         >
           <p
             class="body-1 pt-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Next
           </p>
           <img
-            alt="next"
+            alt=""
             class="right-icon"
             data-nimg="1"
             decoding="async"
@@ -450,7 +450,7 @@ exports[`Search Results List should render all the required components 1`] = `
             width="40"
           />
           <img
-            alt="next"
+            alt=""
             class="right-icon-white"
             data-nimg="1"
             decoding="async"
@@ -475,7 +475,7 @@ exports[`Search Results List should render all the required components 1`] = `
           class="flex flex-row arrow left"
         >
           <img
-            alt="previous"
+            alt=""
             data-nimg="1"
             decoding="async"
             height="40"
@@ -495,7 +495,7 @@ exports[`Search Results List should render all the required components 1`] = `
         />
         <p
           class="body-1 body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Page: 
         </p>
@@ -506,7 +506,7 @@ exports[`Search Results List should render all the required components 1`] = `
           class="relative"
         >
           <div
-            class="flex flex-row link"
+            class="flex flex-row link "
             tabindex="0"
           >
             <p
@@ -518,7 +518,7 @@ exports[`Search Results List should render all the required components 1`] = `
               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
             />
             <img
-              alt="down icon"
+              alt=""
               data-nimg="1"
               decoding="async"
               height="40"
@@ -540,7 +540,7 @@ exports[`Search Results List should render all the required components 1`] = `
                 class="size-5 mx-2 "
               >
                 <img
-                  alt="selcted"
+                  alt=""
                   class="size-5"
                   data-nimg="1"
                   decoding="async"
@@ -651,7 +651,7 @@ exports[`Search Results List should render all the required components 1`] = `
         />
         <p
           class="body-1 body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           of 7
         </p>
@@ -663,7 +663,7 @@ exports[`Search Results List should render all the required components 1`] = `
           class="flex flex-row arrow right"
         >
           <img
-            alt="next"
+            alt=""
             class="right-icon"
             data-nimg="1"
             decoding="async"
@@ -675,7 +675,7 @@ exports[`Search Results List should render all the required components 1`] = `
             width="40"
           />
           <img
-            alt="next"
+            alt=""
             class="right-icon-white"
             data-nimg="1"
             decoding="async"

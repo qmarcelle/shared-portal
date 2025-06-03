@@ -8,9 +8,15 @@ export interface GetHelpProps extends IComponent {
   link?: string;
   linkURL: string;
   headerText: string;
+  contact: string;
 }
 
-export const GetHelpSection = ({ link, linkURL, headerText }: GetHelpProps) => {
+export const GetHelpSection = ({
+  link,
+  linkURL,
+  headerText,
+  contact,
+}: GetHelpProps) => {
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
@@ -24,7 +30,7 @@ export const GetHelpSection = ({ link, linkURL, headerText }: GetHelpProps) => {
             <span className="link" key={1}>
               <a>start a chat </a>
             </span>,
-            <span key={2}>or call us at [1-800-000-000]</span>,
+            <span key={2}>or call us at {contact}.</span>,
           ]}
         />
         <Spacer size={32} />

@@ -9,6 +9,7 @@ import SearchField from '@/components/foundation/SearchField';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Banner as BannerFromResp } from '@/models/enterprise/smartSearchInquiryResponse';
+import { getVisiblePageList } from '@/store/PageHierarchy';
 import { transformFusionSearchInquiryIntoDetails } from '@/utils/fusion_search_result_page_resp_mapper';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
@@ -25,6 +26,8 @@ export const SearchResultsInfoComponent = () => {
   const [resultsCount, setResultsCount] = useState(0);
   const [banner, setBanner] = useState<Banner>();
   const [error, setError] = useState(false);
+  const visiblePageList = getVisiblePageList().join(',');
+  console.log('VisiblePageList in search ' + visiblePageList);
 
   const [searchText, setSearchText] = useState(
     searchParams.get('searchTerm') ?? '',
@@ -44,7 +47,11 @@ export const SearchResultsInfoComponent = () => {
     setSearchText(searchTerm);
     clearTimeout(searchTimeout.current);
     searchTimeout.current = setTimeout(async () => {
-      const searchResp = await invokeSmartSearchInquiry(searchTerm, sortVal);
+      const searchResp = await invokeSmartSearchInquiry(
+        searchTerm,
+        sortVal,
+        visiblePageList,
+      );
       if (searchResp.status == 200) {
         setError(false);
         if (searchResp.data?.fusion) {
@@ -68,7 +75,11 @@ export const SearchResultsInfoComponent = () => {
 
   async function sortResult(sortBy: string) {
     setSortVal(sortBy);
-    const searchResp = await invokeSmartSearchInquiry(searchText, sortBy);
+    const searchResp = await invokeSmartSearchInquiry(
+      searchText,
+      sortBy,
+      visiblePageList,
+    );
     if (searchResp.status == 200) {
       setFilteredList(
         transformFusionSearchInquiryIntoDetails(searchResp.data!),
@@ -117,7 +128,7 @@ export const SearchResultsInfoComponent = () => {
       )}
       {filteredList && filteredList.length == 0 && (
         <IconCard
-          prefixIcon={<Image src={documentEmptyIcon} alt="document-icon" />}
+          prefixIcon={<Image src={documentEmptyIcon} alt="" />}
           text="There are no results for your search."
         />
       )}

@@ -16,7 +16,7 @@ import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { useAppModalStore } from '../../components/foundation/AppModal';
-import { SpendingAccountSummary } from '../dashboard/components/SpendingAccountSummary';
+import { AnnualSpendingSummary } from '../dashboard/components/AnnualSpendingSummary';
 import { DownloadPdf } from '../spendingSummary/journeys/DownloadPdf';
 
 /* eslint-disable */
@@ -58,7 +58,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 <AppLink
                   className="!flex pl-0 manage-underline"
                   label="Download a PDF Statement"
-                  icon={<Image src={downloadIcon} alt="external" />}
+                  icon={<Image src={downloadIcon} alt="" />}
                   callback={() =>
                     showAppModal({
                       content: <DownloadPdf />,
@@ -83,7 +83,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
           </Column>
 
           <Column className="flex-grow page-section-63_33 items-stretch">
-            <SpendingAccountSummary
+            <AnnualSpendingSummary
               className="large-section statementSummary"
               title="Statement Summary up to November 8, 2023"
               subTitle="View Medical, Pharmacy, Dental and Vision for All Members"
@@ -96,11 +96,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
               service={[
                 {
                   serviceIcon: (
-                    <Image
-                      className="w-6"
-                      src={medicalIcon}
-                      alt="Medical Icon"
-                    />
+                    <Image className="w-6" src={medicalIcon} alt="" />
                   ),
                   serviceLabel: 'Medical',
                   serviceSubLabel: 'Your share',
@@ -114,11 +110,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image
-                      className="w-6"
-                      src={pharmacyIcon}
-                      alt="Pharmacy Icon"
-                    />
+                    <Image className="w-6" src={pharmacyIcon} alt="" />
                   ),
                   serviceLabel: 'Pharmacy',
                   serviceSubLabel: 'Your share',
@@ -132,7 +124,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image className="w-6" src={dentalIcon} alt="Dental Icon" />
+                    <Image className="w-6" src={dentalIcon} alt="" />
                   ),
                   serviceLabel: 'Dental',
                   serviceSubLabel: 'Your share',
@@ -146,7 +138,7 @@ const SpendingSummary = ({ filters }: SpendingSummaryPageProps) => {
                 },
                 {
                   serviceIcon: (
-                    <Image className="w-6" src={visionIcon} alt="Vision Icon" />
+                    <Image className="w-6" src={visionIcon} alt="" />
                   ),
                   serviceLabel: 'Vision',
                   serviceSubLabel: 'Your share',

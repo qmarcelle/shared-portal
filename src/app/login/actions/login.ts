@@ -7,7 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
+import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AxiosError } from 'axios';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
@@ -53,7 +53,7 @@ export async function callLogin(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
-        await setWebsphereRedirectCookie({
+        await setSTAndInteractionDataCookies({
           ...resp.data.data,
         });
         status = LoginStatus.LOGIN_OK;

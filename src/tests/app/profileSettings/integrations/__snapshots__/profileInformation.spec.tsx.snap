@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Profile Information API Integration Profile Information Email and Phone Number API Integration success scenario 1`] = `undefined`;
+
+exports[`Profile Information API Integration Profile Information Email and Phone Number API Service load failure 1`] = `undefined`;
+
+exports[`Profile Information API Integration Profile Information Email and Phone Number API integration Failure scenario 1`] = `undefined`;
+
+exports[`Profile Information API Integration Profile Information Email and Phone Number Verfication Needed 1`] = `undefined`;
+
+exports[`Profile Information API Integration Profile Information Email and Phone Number empty scenario 1`] = `undefined`;

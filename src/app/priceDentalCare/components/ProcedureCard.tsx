@@ -21,12 +21,12 @@ export const ProcedureCard = ({
   return (
     <Card type="elevated" key={label} className="small-section">
       <Row>
-        <img className="size-10" src={icon} alt="link" />
+        <Image className="size-10" src={icon} alt="" />
         <Column className="ml-4">
           <Title
             className="font-bold primary-color"
             text={label}
-            suffix={<img src={link} alt="external" />}
+            suffix={<Image src={link} alt="" />}
           />
           <TextBox className="body-1" text={body} />
         </Column>

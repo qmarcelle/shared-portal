@@ -42,34 +42,19 @@ const HealthyMaternity = () => {
               <ProgramBenefits
                 benefits={[
                   {
-                    benefitIcon: (
-                      <img
-                        src="/assets/maternity_breast_pump.svg"
-                        alt="Maternity Breast Pump Icon"
-                      />
-                    ),
+                    benefitIcon: <Image src={maternity} alt="" />,
                     benefitCopy:
                       'Connect with a nurse to learn more about your breast pump benefit.',
                     benefitLabel: 'Breast Pump Benefit',
                   },
                   {
-                    benefitIcon: (
-                      <img
-                        src="/assets/primary_care.svg"
-                        alt="Primary Care Icon"
-                      />
-                    ),
+                    benefitIcon: <Image src={primaryCare} alt="" />,
                     benefitCopy:
                       'Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.',
                     benefitLabel: 'One-on-One Support',
                   },
                   {
-                    benefitIcon: (
-                      <img
-                        src="/assets/health_support.svg"
-                        alt="Health Support Icon"
-                      />
-                    ),
+                    benefitIcon: <Image src={healthSupport} alt="" />,
                     benefitCopy:
                       // eslint-disable-next-line quotes
                       "We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.",
@@ -101,7 +86,7 @@ const HealthyMaternity = () => {
             <Spacer size={12} />
             <Image
               src={healthyMaternityVideo}
-              alt="Healthy Maternity Video Icon"
+              alt=""
               className="mx-auto pb-7"
               width={800}
               height={450}

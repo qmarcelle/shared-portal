@@ -196,7 +196,7 @@ export const AddMFAEmailJourney = ({
           {invalidErrors != undefined && invalidErrors[0] && (
             <div className="text-red-500 mt-2">
               <Row>
-                <Image src={alertErrorIcon} className="icon mt-1" alt="alert" />
+                <Image src={alertErrorIcon} className="icon mt-1" alt="" />
                 <TextBox
                   className="body-1 pt-1.5 ml-2"
                   text={invalidErrors[0]}

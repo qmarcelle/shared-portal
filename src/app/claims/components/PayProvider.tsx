@@ -55,7 +55,7 @@ export const PayProvider = ({ balanceAmount, className }: PayProviderProps) => {
             required={false}
           />
           <Image
-            alt="Mark as paid information"
+            alt=""
             title="Check this box if you have already paid this provider"
             src={infoIcon}
             aria-label="Information about marking as paid"

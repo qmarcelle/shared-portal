@@ -1,22 +1,12 @@
 'use client';
 
+import { BalanceSectionWrapper } from '@/app/benefits/balances/components/BalanceSection';
 import { BenefitsAndCoverageSection } from '@/app/dashboard/components/BenefitsAndCoverageSection';
 import { EmployeeProvidedBenefitsTile } from '@/app/dashboard/components/EmployeeProvidedBenefitsTile';
-import { MedicalBalanceSection } from '@/app/dashboard/components/MedicalBalanceSection';
 import { PayPremiumSection } from '@/app/dashboard/components/PayPremium';
 import { PillBox } from '@/app/dashboard/components/PillBox';
 import { PriorAuthSection } from '@/app/dashboard/components/PriorAuthSection';
-import { SpendingAccountSummary } from '@/app/dashboard/components/SpendingAccountSummary';
 import { PrimaryCareProvider } from '@/app/findcare/primaryCareOptions/components/PrimaryCareProvider';
-import {
-  CVS_DEEPLINK_MAP,
-  CVS_PHARMACY_SEARCH_FAST,
-  EYEMED_DEEPLINK_MAP,
-  EYEMED_PROVIDER_DIRECTORY,
-  PROV_DIR_DEEPLINK_MAP,
-  PROV_DIR_DENTAL,
-  PROV_DIR_MENTAL_HEALTH,
-} from '@/app/sso/ssoConstants';
 import { InfoCard } from '@/components/composite/InfoCard';
 import { RecentClaimSection } from '@/components/composite/RecentClaimSection';
 import { Column } from '@/components/foundation/Column';
@@ -24,23 +14,25 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import {
   isAHAdvisorpage,
+  isAnnualStatementEligible,
   isBlueCareEligible,
   isEmboldHealthEligible,
-  isLifePointGrp,
   isPayMyPremiumEligible,
-  isPharmacyBenefitsEligible,
   isPrimaryCarePhysicianEligible,
   isQuantumHealthEligible,
-  isSpendingAccountsEligible,
-  isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import EstimateCost from '../../../../public/assets/estimate_cost.svg';
 import FindCare from '../../../../public/assets/find_care_search.svg';
+import { getBenefitsAndCoverageOptions } from '../actions/getBenefitsCoverageOptions';
+import { getFindCarePillOptions } from '../actions/getFindCarePillOptions';
+import { getProcedurePillOptions } from '../actions/getProcedurePillOptions';
 import { AmplifyHealthAdvisorBanner } from '../components/AmplifyHealthAdvisorBanner';
 import { AmplifyHealthCard } from '../components/AmplifyHealthCard';
+import { BenefitDetails } from '../models/benefits_detail';
 import { DashboardData } from '../models/dashboardData';
+import { AnnualSpendingCompact } from './AnnualSpendingCompact';
 import { FindMedicalProvidersComponent } from './FindMedicalProvidersComponent';
 
 export type DashboardProps = {
@@ -49,65 +41,39 @@ export type DashboardProps = {
 
 const MemberDashboard = ({ data }: DashboardProps) => {
   const router = useRouter();
-  const { memberDetails, visibilityRules, primaryCareProvider } = data;
+  const { visibilityRules, primaryCareProvider, memberClaims, balanceData } =
+    data;
+
+  const benefitsCoverageOptions: BenefitDetails[] =
+    getBenefitsAndCoverageOptions(visibilityRules!);
+
+  const findCarePillOptions = getFindCarePillOptions(visibilityRules!, router);
+  const procedurePillOptions = getProcedurePillOptions(
+    visibilityRules!,
+    router,
+  );
   return (
     <div className="flex flex-col w-full justify-center items-center page">
       <Column className="app-content app-base-font-color">
         {!isBlueCareEligible(visibilityRules) &&
           !isQuantumHealthEligible(visibilityRules) &&
           isAHAdvisorpage(visibilityRules) && (
-            <section className="sm:flex sm:flex-row items-start">
-              <AmplifyHealthAdvisorBanner />
-            </section>
+            <>
+              <section className="sm:flex sm:flex-row items-start">
+                <AmplifyHealthAdvisorBanner />
+              </section>
+              <Spacer size={32}></Spacer>
+            </>
           )}
-        <Spacer size={32}></Spacer>
+
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RecentClaimSection
               className="large-section"
               title="Recent Claims"
               linkText="View Claims"
-              claims={[
-                {
-                  id: 'Claim98',
-                  claimStatus: 'Processed',
-                  claimType: 'Medical',
-                  claimTotal: '67',
-                  issuer: 'John Doe',
-                  memberName: 'Chris James',
-                  serviceDate: '02/06/2024',
-                  isMiniCard: true,
-                  claimInfo: {},
-                  memberId: '04',
-                  claimStatusCode: 2,
-                },
-                {
-                  id: 'Claim76',
-                  claimStatus: 'Pending',
-                  claimType: 'Pharmacy',
-                  claimTotal: '30.24',
-                  issuer: 'John Doe',
-                  memberName: 'Aly Jame',
-                  serviceDate: '01/06/2024',
-                  claimInfo: {},
-                  isMiniCard: true,
-                  memberId: '03',
-                  claimStatusCode: 2,
-                },
-                {
-                  id: 'Claim54',
-                  claimStatus: 'Denied',
-                  claimType: 'Dental',
-                  claimTotal: '65.61',
-                  issuer: 'John Doe',
-                  memberName: 'Aly Jame',
-                  serviceDate: '01/16/2024',
-                  claimInfo: {},
-                  isMiniCard: true,
-                  memberId: '08',
-                  claimStatusCode: 4,
-                },
-              ]}
+              linkUrl="/claims"
+              claimDetails={memberClaims}
             />
             {isPrimaryCarePhysicianEligible(visibilityRules) &&
               !isQuantumHealthEligible(visibilityRules) && (
@@ -121,34 +87,13 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               )}
             {!isBlueCareEligible(visibilityRules) &&
               !isQuantumHealthEligible(visibilityRules) && (
-                <MedicalBalanceSection
-                  className="large-section"
-                  members={[
-                    {
-                      label: 'Chris Hall',
-                      value: '0',
-                    },
-                    {
-                      label: 'Megan Chaler',
-                      value: '43',
-                    },
-                  ]}
-                  balanceNetworks={[
-                    {
-                      label: 'In-Network',
-                      value: '0',
-                    },
-                    { label: 'Out-of-Network', value: '1' },
-                  ]}
-                  deductibleLimit={2000}
-                  deductibleSpent={1800}
-                  onSelectedMemberChange={() => {}}
-                  onSelectedNetworkChange={() => {}}
-                  outOfPocketLimit={3000}
-                  outOfPocketSpent={1500}
-                  selectedMemberId="43"
-                  selectedNetworkId="1"
-                  displayDisclaimerText={false}
+                <BalanceSectionWrapper
+                  key="Medical"
+                  title="Medical & Pharmacy Balance"
+                  product={balanceData?.medical}
+                  phone={'phone'}
+                  showMinView={true}
+                  balanceDetailLink={true}
                 />
               )}
           </Column>
@@ -157,41 +102,32 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
-                  dueDate="08/10/2023"
-                  amountDue={1000.46}
+                  dueDate={data?.premiumPayResponse?.paymentDue ?? ''}
+                  amountDue={data?.premiumPayResponse?.currentBalance ?? ''}
                   visibilityRules={visibilityRules}
                 />
               )}
-
-            {!isBlueCareEligible(visibilityRules) &&
-              isSpendingAccountsEligible(visibilityRules) && (
-                <SpendingAccountSummary
-                  className="large-section"
-                  title="Spending Summary"
-                  linkLabel="View Spending Summary"
-                  subTitle={'October 12, 2023'}
-                  amountPaid={1199.19}
-                  totalBilledAmount={9804.31}
-                  amountSaved={8605.12}
-                  amountSavedPercentage={89}
-                  color1={'#005EB9'}
-                  color2={'#5DC1FD'}
-                />
-              )}
+            {isAnnualStatementEligible(visibilityRules) && (
+              <AnnualSpendingCompact
+                className="large-section"
+                title="Spending Summary"
+                linkLabel="Download Summary"
+                subTitle={'October 12, 2023'}
+                amountPaid={1199.19}
+                totalBilledAmount={9804.31}
+                amountSaved={8605.12}
+                amountSavedPercentage={89}
+                color1={'#005EB9'}
+                color2={'#5DC1FD'}
+              />
+            )}
             <PriorAuthSection
               className="large-section"
-              priorauth={[
-                {
-                  priorAuthStatus: 'Approved',
-                  priorAuthName: 'Magnetic Resonance Images(MRI)',
-                  member: 'Chris Hall',
-                  dateOfVisit: '01/23/23',
-                  priorAuthType: 'Medical',
-                },
-              ]}
+              priorAuth={data.priorAuthDetail ?? null}
             />
           </Column>
         </section>
+        <Spacer size={32} />
         <Header
           text="Find Care & Costs"
           type="title-2"
@@ -199,47 +135,10 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         />
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
-            {isQuantumHealthEligible(visibilityRules) &&
-              isLifePointGrp(visibilityRules) && (
-                <BenefitsAndCoverageSection
-                  className="large-section"
-                  benefits={[
-                    {
-                      benefitName: 'Dental Benefits',
-                      benefitURL: '/member/myplan/benefits',
-                    },
-                    {
-                      benefitName: 'Vision Benefits',
-                      benefitURL: '/member/myplan/benefits',
-                    },
-                  ]}
-                />
-              )}
-            {!isQuantumHealthEligible(visibilityRules) && (
+            {benefitsCoverageOptions && (
               <BenefitsAndCoverageSection
                 className="large-section"
-                benefits={[
-                  {
-                    benefitName: 'Medical Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                  {
-                    benefitName: 'Pharmacy Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                  {
-                    benefitName: 'Dental Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                  {
-                    benefitName: 'Vision Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                  {
-                    benefitName: 'Other Benefits',
-                    benefitURL: '/member/myplan/benefits',
-                  },
-                ]}
+                benefits={benefitsCoverageOptions}
               />
             )}
           </Column>
@@ -248,78 +147,21 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               isEmboldHealthEligible(visibilityRules) && (
                 <FindMedicalProvidersComponent />
               )}
-            {!isEmboldHealthEligible(visibilityRules) && (
-              <PillBox
-                title="Looking for Care? Find A:"
-                icon={
-                  <Image src={FindCare} className="w-[50px] h-[50px]" alt="" />
-                }
-                pillObjects={[
-                  {
-                    label: 'Primary Care Provider',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
-                      );
-                    },
-                  },
-                  {
-                    label: 'Dentist',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_DENTAL)!)}`,
-                      );
-                    },
-                  },
-                  {
-                    label: 'Mental Health Provider',
-                    callback: () => {
-                      router.push(
-                        `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET!.replace('{DEEPLINK}', PROV_DIR_DEEPLINK_MAP.get(PROV_DIR_MENTAL_HEALTH)!)}`,
-                      );
-                    },
-                  },
-                  isVisionEligible(visibilityRules)
-                    ? {
-                        label: 'Eye Doctor',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_EYEMED}&TargetResource=${process.env.NEXT_PUBLIC_EYEMED_SSO_TARGET!.replace('{DEEPLINK}', EYEMED_DEEPLINK_MAP.get(EYEMED_PROVIDER_DIRECTORY)!)}`,
-                          );
-                        },
-                      }
-                    : {
-                        label: 'Eye Doctor',
-                        callback: () => {
-                          router.push('');
-                        },
-                      },
-                  isPharmacyBenefitsEligible(visibilityRules)
-                    ? {
-                        label: 'Pharmacy',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
-                          );
-                        },
-                      }
-                    : {
-                        label: 'Pharmacy',
-                        callback: () => {
-                          router.push(
-                            `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
-                          );
-                        },
-                      },
-                  {
-                    label: 'Virtual Care',
-                    callback: () => {
-                      router.push('/member/findcare/virtualcare');
-                    },
-                  },
-                ]}
-              ></PillBox>
-            )}
+            {!isEmboldHealthEligible(visibilityRules) &&
+              findCarePillOptions && (
+                <PillBox
+                  title="Looking for care?"
+                  subTitle="Find a:"
+                  icon={
+                    <Image
+                      src={FindCare}
+                      className="w-[50px] h-[50px] pr-2"
+                      alt=""
+                    />
+                  }
+                  pillObjects={findCarePillOptions}
+                ></PillBox>
+              )}
 
             {isBlueCareEligible(visibilityRules) && (
               <InfoCard
@@ -329,42 +171,17 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 link={process.env.NEXT_PUBLIC_ESTIMATE_COSTS_SAPPHIRE ?? ''}
               ></InfoCard>
             )}
-            {!isBlueCareEligible(visibilityRules) && (
+            {!isBlueCareEligible(visibilityRules) && procedurePillOptions && (
               <PillBox
                 title="Planning for a procedure? You can estimate costs for:"
                 icon={
                   <Image
                     src={EstimateCost}
-                    className="w-[50px] h-[50px]"
+                    className="w-[50px] h-[50px] pr-2"
                     alt=""
                   />
                 }
-                pillObjects={[
-                  {
-                    label: 'Medical',
-                    callback: () => {
-                      console.log('Clicked Pill Medical');
-                    },
-                  },
-                  {
-                    label: 'Dental',
-                    callback: () => {
-                      console.log('Clicked Pill Dental');
-                    },
-                  },
-                  {
-                    label: 'Prescription Drugs',
-                    callback: () => {
-                      console.log('Clicked Pill Prescription Drugs');
-                    },
-                  },
-                  {
-                    label: 'Vision',
-                    callback: () => {
-                      console.log('Clicked Pill Vision');
-                    },
-                  },
-                ]}
+                pillObjects={procedurePillOptions}
               ></PillBox>
             )}
           </Column>

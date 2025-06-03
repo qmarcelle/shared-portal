@@ -37,7 +37,7 @@ export const LoginErrorTemplate = ({
     <article id="mainSection">
       <Column className="items-center">
         <Spacer size={32} />
-        <Image className="size-[80px]" src={alertBlueIcon} alt="alert" />
+        <Image className="size-[80px]" src={alertBlueIcon} alt="" />
         <Spacer size={16} />
         <Header className="title-2" text={label} />
         <Spacer size={16} />

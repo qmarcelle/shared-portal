@@ -6,11 +6,8 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -21,7 +18,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -53,7 +50,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Speak with a therapist, psychologist or psychiatrist* seven days a week from anywhere.
               </p>
@@ -62,7 +59,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you'll need to create an account.
               </p>
@@ -86,7 +83,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -103,7 +100,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -150,7 +147,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -163,7 +160,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -181,7 +178,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -194,7 +191,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Self-guided or live therapy options available
                           </p>
@@ -212,7 +209,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -225,7 +222,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Downloadable app, call or video chat available 
                           </p>
@@ -261,7 +258,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Initial visit with a psychiatrist:
                     </p>
@@ -270,7 +267,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $220 or less
                     </p>
@@ -283,7 +280,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Subsequent visits with a psychiatrist:
                     </p>
@@ -292,7 +289,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $100 or less
                     </p>
@@ -305,7 +302,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Talk therapy with a therapist:
                     </p>
@@ -314,7 +311,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $90 or less
                     </p>
@@ -368,7 +365,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Anxiety, stress, feeling overwhelmed
                           </p>
@@ -394,7 +391,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Relationship conflicts
                           </p>
@@ -420,7 +417,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Depression
                           </p>
@@ -446,7 +443,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Trauma and PTSD
                           </p>
@@ -472,7 +469,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Not feeling like yourself
                           </p>
@@ -498,7 +495,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Mood swings
                           </p>
@@ -524,7 +521,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Not wanting to get out of bed
                           </p>
@@ -550,7 +547,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Medication management (Psychiatry only)
                           </p>
@@ -571,11 +568,8 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -586,7 +580,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -618,7 +612,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Speak with a therapist, psychologist or psychiatrist* seven days a week from anywhere.
             </p>
@@ -627,7 +621,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you'll need to create an account.
             </p>
@@ -651,7 +645,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -668,7 +662,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -715,7 +709,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -728,7 +722,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -746,7 +740,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -759,7 +753,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Self-guided or live therapy options available
                         </p>
@@ -777,7 +771,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -790,7 +784,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Downloadable app, call or video chat available 
                         </p>
@@ -826,7 +820,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Initial visit with a psychiatrist:
                   </p>
@@ -835,7 +829,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $220 or less
                   </p>
@@ -848,7 +842,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Subsequent visits with a psychiatrist:
                   </p>
@@ -857,7 +851,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $100 or less
                   </p>
@@ -870,7 +864,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Talk therapy with a therapist:
                   </p>
@@ -879,7 +873,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $90 or less
                   </p>
@@ -933,7 +927,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Anxiety, stress, feeling overwhelmed
                         </p>
@@ -959,7 +953,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Relationship conflicts
                         </p>
@@ -985,7 +979,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Depression
                         </p>
@@ -1011,7 +1005,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Trauma and PTSD
                         </p>
@@ -1037,7 +1031,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Not feeling like yourself
                         </p>
@@ -1063,7 +1057,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mood swings
                         </p>
@@ -1089,7 +1083,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Not wanting to get out of bed
                         </p>
@@ -1115,7 +1109,7 @@ exports[`Teladoc Mental Health Program should redirect to SSO link on click of U
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Medication management (Psychiatry only)
                         </p>
@@ -1193,11 +1187,8 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col app-content app-base-font-color"
+        class="flex flex-col app-content app-base-font-color !p-0"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-        />
         <div
           class="flex flex-col md:m-2 m-4"
         >
@@ -1208,7 +1199,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
               class="flex flex-col mt-8"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100"
                 data-nimg="1"
                 decoding="async"
@@ -1240,7 +1231,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Speak with a therapist, psychologist or psychiatrist* seven days a week from anywhere.
               </p>
@@ -1249,7 +1240,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 The first time using this service, you'll need to create an account.
               </p>
@@ -1273,7 +1264,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   class="ml-2"
                 >
                   <img
-                    alt="external icon"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1290,7 +1281,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
               class="flex flex-col hidden md:block"
             >
               <img
-                alt="Info"
+                alt=""
                 class="size-100 "
                 data-nimg="1"
                 decoding="async"
@@ -1337,7 +1328,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1350,7 +1341,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             In-network & covered by your plan
                           </p>
@@ -1368,7 +1359,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1381,7 +1372,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Self-guided or live therapy options available
                           </p>
@@ -1399,7 +1390,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           class="flex flex-row"
                         >
                           <img
-                            alt="Info"
+                            alt=""
                             class="icon"
                             data-nimg="1"
                             decoding="async"
@@ -1412,7 +1403,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1 pt-1 ml-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Downloadable app, call or video chat available 
                           </p>
@@ -1448,7 +1439,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Initial visit with a psychiatrist:
                     </p>
@@ -1457,7 +1448,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $220 or less
                     </p>
@@ -1470,7 +1461,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Subsequent visits with a psychiatrist:
                     </p>
@@ -1479,7 +1470,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $100 or less
                     </p>
@@ -1492,7 +1483,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Talk therapy with a therapist:
                     </p>
@@ -1501,7 +1492,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 font-bold text-xl"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $90 or less
                     </p>
@@ -1555,7 +1546,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Anxiety, stress, feeling overwhelmed
                           </p>
@@ -1581,7 +1572,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Relationship conflicts
                           </p>
@@ -1607,7 +1598,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Depression
                           </p>
@@ -1633,7 +1624,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Trauma and PTSD
                           </p>
@@ -1659,7 +1650,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Not feeling like yourself
                           </p>
@@ -1685,7 +1676,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Mood swings
                           </p>
@@ -1711,7 +1702,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Not wanting to get out of bed
                           </p>
@@ -1737,7 +1728,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                           </div>
                           <p
                             class="body-1 ml-3"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Medication management (Psychiatry only)
                           </p>
@@ -1758,11 +1749,8 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col app-content app-base-font-color"
+      class="flex flex-col app-content app-base-font-color !p-0"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 64px; min-height: 64px;"
-      />
       <div
         class="flex flex-col md:m-2 m-4"
       >
@@ -1773,7 +1761,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
             class="flex flex-col mt-8"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100"
               data-nimg="1"
               decoding="async"
@@ -1805,7 +1793,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Speak with a therapist, psychologist or psychiatrist* seven days a week from anywhere.
             </p>
@@ -1814,7 +1802,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               The first time using this service, you'll need to create an account.
             </p>
@@ -1838,7 +1826,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                 class="ml-2"
               >
                 <img
-                  alt="external icon"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1855,7 +1843,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
             class="flex flex-col hidden md:block"
           >
             <img
-              alt="Info"
+              alt=""
               class="size-100 "
               data-nimg="1"
               decoding="async"
@@ -1902,7 +1890,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1915,7 +1903,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           In-network & covered by your plan
                         </p>
@@ -1933,7 +1921,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1946,7 +1934,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Self-guided or live therapy options available
                         </p>
@@ -1964,7 +1952,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         class="flex flex-row"
                       >
                         <img
-                          alt="Info"
+                          alt=""
                           class="icon"
                           data-nimg="1"
                           decoding="async"
@@ -1977,7 +1965,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1 pt-1 ml-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Downloadable app, call or video chat available 
                         </p>
@@ -2013,7 +2001,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Initial visit with a psychiatrist:
                   </p>
@@ -2022,7 +2010,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $220 or less
                   </p>
@@ -2035,7 +2023,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Subsequent visits with a psychiatrist:
                   </p>
@@ -2044,7 +2032,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $100 or less
                   </p>
@@ -2057,7 +2045,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Talk therapy with a therapist:
                   </p>
@@ -2066,7 +2054,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 font-bold text-xl"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $90 or less
                   </p>
@@ -2120,7 +2108,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Anxiety, stress, feeling overwhelmed
                         </p>
@@ -2146,7 +2134,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Relationship conflicts
                         </p>
@@ -2172,7 +2160,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Depression
                         </p>
@@ -2198,7 +2186,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Trauma and PTSD
                         </p>
@@ -2224,7 +2212,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Not feeling like yourself
                         </p>
@@ -2250,7 +2238,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mood swings
                         </p>
@@ -2276,7 +2264,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Not wanting to get out of bed
                         </p>
@@ -2302,7 +2290,7 @@ exports[`Teladoc Mental Health Program should render the UI correctly 1`] = `
                         </div>
                         <p
                           class="body-1 ml-3"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Medication management (Psychiatry only)
                         </p>

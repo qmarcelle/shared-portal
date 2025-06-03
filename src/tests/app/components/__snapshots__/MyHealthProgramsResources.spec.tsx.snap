@@ -21,7 +21,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1 mb-0"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
           </p>
@@ -71,7 +71,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                           </p>
@@ -108,7 +108,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                           </p>
@@ -145,7 +145,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                           </p>
@@ -182,7 +182,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
                           </p>
@@ -219,7 +219,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get a personal action plan, health coaching and a smart scale at no extra cost.
                           </p>
@@ -256,7 +256,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                           </p>
@@ -293,7 +293,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                           </p>
@@ -330,7 +330,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                           </p>
@@ -348,7 +348,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                   type="button"
                 >
                   <img
-                    alt="scroll right"
+                    alt=""
                     class="icon-sm"
                     data-nimg="1"
                     decoding="async"
@@ -417,7 +417,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 mb-0"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.
         </p>
@@ -467,7 +467,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.
                         </p>
@@ -504,7 +504,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
                         </p>
@@ -541,7 +541,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.
                         </p>
@@ -578,7 +578,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.
                         </p>
@@ -615,7 +615,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Get a personal action plan, health coaching and a smart scale at no extra cost.
                         </p>
@@ -652,7 +652,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.
                         </p>
@@ -689,7 +689,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.
                         </p>
@@ -726,7 +726,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.
                         </p>
@@ -744,7 +744,7 @@ exports[`Member Programs and Resources should render the UI correctly 1`] = `
                 type="button"
               >
                 <img
-                  alt="scroll right"
+                  alt=""
                   class="icon-sm"
                   data-nimg="1"
                   decoding="async"

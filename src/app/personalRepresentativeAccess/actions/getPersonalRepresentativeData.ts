@@ -12,6 +12,8 @@ import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
 import { formatDateToLocale } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
+import { CreateConsentRequest } from '../models/createConsentRequest';
+import { CreateConsentResponse } from '../models/createConsentResponse';
 import {
   RepresentativeData,
   RepresentativeViewDetails,
@@ -87,6 +89,7 @@ const computeMemberData = async (item: RelatedPerson) => {
     requesteeUMPID: item.relatedPersonUMPID,
     accessStatus: item.name,
     accessStatusIsPending: false,
+    createdAt: item.createdAt,
   };
 };
 
@@ -114,6 +117,7 @@ const computePRProfile = (
       policyId: item.policyId,
       firstName: item.relatedPersonFirstName,
       lastName: item.relatedPersonLastName,
+      createdAt: item.createdAt,
     }),
   );
   return representativesData;
@@ -143,6 +147,7 @@ export async function updateConsentDataAction({
   request: UpdateConsentRequest;
 }): Promise<ESResponse<UpdateConsentResponse> | undefined> {
   try {
+    logger.info('UpdateConsent Request action: ' + request);
     const response = await esApi.post<ESResponse<UpdateConsentResponse>>(
       `/consentOperations/updateConsent?consentId=${request.consentId}`,
       {
@@ -154,10 +159,43 @@ export async function updateConsentDataAction({
         lastName: request.lastName,
       },
     );
+    logger.info('UpdateConsent Response action: ' + response?.data);
     return response?.data;
   } catch (error) {
     console.debug(error);
-    logger.error('Update Data  - Failure' + error);
+    logger.error('Update Consent Data  - Failure' + error);
+    return {
+      data: {
+        message: 'Failure',
+      },
+    };
+  }
+}
+export async function createConsentDataAction({
+  request,
+}: {
+  request: CreateConsentRequest;
+}): Promise<ESResponse<CreateConsentResponse> | undefined> {
+  try {
+    logger.info('CreateConsent Request action: ' + request);
+    const response = await esApi.post<ESResponse<CreateConsentResponse>>(
+      '/consentOperations/createConsent',
+      {
+        performer: request.performer,
+        requester: request.requester,
+        requestees: request.requestees,
+        policyBusinessIdentifier: request.policyBusinessIdentifier,
+        type: request.type,
+        effectiveOn: request.effectiveOn,
+        expiresOn: request.expiresOn,
+        firstName: request.firstName,
+        lastName: request.lastName,
+      },
+    );
+    logger.info('CreateConsent Response action: ' + response?.data);
+    return response?.data;
+  } catch (error) {
+    logger.error('Create Consent Data  - Failure' + error);
     return {
       data: {
         message: 'Failure',

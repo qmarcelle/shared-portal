@@ -24,7 +24,7 @@ export const ClaimFormsItemCard = ({
     <Column>
       <Row>
         <AppLink label={title} className="pl-0" url={url} />
-        <Image src={downloadIcon} alt="link" />
+        <Image src={downloadIcon} alt="" />
       </Row>
       <Spacer size={16} />
       <TextBox className="body-1" text={description} />

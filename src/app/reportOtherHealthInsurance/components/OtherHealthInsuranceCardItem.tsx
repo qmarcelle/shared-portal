@@ -27,7 +27,7 @@ interface OtherHealthInsuranceCardItemProps extends IComponent {
 export const OtherHealthInsuranceCardItem = ({
   onClick,
   className,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   memberDetails,
   cobDetails,
   membersData,
@@ -78,7 +78,7 @@ export const OtherHealthInsuranceCardItem = ({
       type="elevated"
       onClick={onClick}
     >
-      {cobDetails != null && Object.keys(cobDetails).length > 0 ? (
+      {cobDetails != null ? (
         <Column className="m-4">
           <Spacer size={16} />
           <Row className="justify-between">
@@ -102,7 +102,7 @@ export const OtherHealthInsuranceCardItem = ({
           cobDetails.dentalBean != null ||
           cobDetails.medicareDentalBean != null ||
           cobDetails.medicareMedicalBean != null ? (
-            <Row>
+            <>
               {cobDetails.medicareBean && (
                 <>
                   <TextBox className="ml-2 body-1" text="Medicare Plan" />
@@ -122,6 +122,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.dentalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox className="ml-2 body-1" text="Dental Plan" />
                   <TextBox
                     className="ml-2 body-2"
@@ -139,6 +140,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.medicalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox className="ml-2 body-1" text="Medical Plan" />
                   <TextBox
                     className="ml-2 body-2"
@@ -156,6 +158,7 @@ export const OtherHealthInsuranceCardItem = ({
               )}
               {cobDetails.medicareMedicalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox
                     className="ml-2 body-1"
                     text="Medicare Medical Plan"
@@ -176,8 +179,10 @@ export const OtherHealthInsuranceCardItem = ({
                   />
                 </>
               )}
+
               {cobDetails.medicareDentalBean && (
                 <>
+                  <Spacer size={12} />
                   <TextBox
                     className="ml-2 body-1"
                     text="Medicare Dental Plan"
@@ -198,23 +203,52 @@ export const OtherHealthInsuranceCardItem = ({
                   />
                 </>
               )}
-            </Row>
+              <Spacer size={12} />
+              <Row>
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="Last Updated:"
+                  display="inline"
+                />
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text={cobDetails.lastUpdated?.toString() ?? 'N/A'}
+                  display="inline"
+                />
+              </Row>
+            </>
           ) : (
-            <Row>
+            <>
               <TextBox
                 className="ml-2 body-1"
                 text="Not covered by other health insurance."
               />
-            </Row>
+              <Spacer size={12} />
+              <Row>
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="Last Updated:"
+                  display="inline"
+                />
+                <TextBox
+                  className="ml-2 body-1 inline"
+                  text="N/A"
+                  display="inline"
+                />
+              </Row>
+            </>
           )}
           <Spacer size={16} />
           {getHealthInsuranceContent(cobDetails.memberName)}
         </Column>
       ) : (
-        <ErrorInfoCard
-          className="mt-4"
-          errorText="Oops, it looks like something went wrong. Try again later."
-        />
+        <>
+          <Column>
+            <section className="flex justify-start self-start p-4">
+              <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+            </section>
+          </Column>
+        </>
       )}
     </Card>
   );

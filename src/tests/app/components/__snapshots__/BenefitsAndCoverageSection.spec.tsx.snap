@@ -18,43 +18,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row items-center input   "
-          >
-            <input
-              class="body-1 search-textfield"
-              name="search-Field"
-              placeholder="Search Benefits"
-              type="text"
-              value=""
-            />
-            <div
-              class="flex flex-col items-end"
-            >
-              <button
-                aria-label="Search"
-                class="flex flex-col p-[0.125rem]  "
-                type="submit"
-              >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  class="icon searchhover "
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </button>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <div
             class="flex"
           >
             <label
@@ -325,43 +288,6 @@ exports[`BenefitsAndCoverageSection should render the UI correctly 1`] = `
         >
           Benefits & Coverage
         </h3>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
-        <div
-          class="flex flex-row items-center input   "
-        >
-          <input
-            class="body-1 search-textfield"
-            name="search-Field"
-            placeholder="Search Benefits"
-            type="text"
-            value=""
-          />
-          <div
-            class="flex flex-col items-end"
-          >
-            <button
-              aria-label="Search"
-              class="flex flex-col p-[0.125rem]  "
-              type="submit"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                class="icon searchhover "
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-            </button>
-          </div>
-        </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />

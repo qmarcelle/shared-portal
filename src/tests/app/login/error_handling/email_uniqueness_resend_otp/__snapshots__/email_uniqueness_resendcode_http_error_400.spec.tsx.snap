@@ -19,7 +19,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
               href="https://www.bcbst.com"
             >
               <img
-                alt="Blue Cross Blue Shield of Tennessee"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -69,7 +69,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <img
-                  alt="alert"
+                  alt=""
                   class="size-[80px]"
                   data-nimg="1"
                   decoding="async"
@@ -96,7 +96,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
                 >
                   <p
                     class="body-1 text-center"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Oops! We're sorry. Something went wrong. Please try again.
                   </p>
@@ -112,7 +112,7 @@ exports[`Email Uniqueness resend code - Http Error 400 Email uniqueness resend c
                   />
                   <p
                     class="body-1 title-3 center"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Need help?
                   </p>

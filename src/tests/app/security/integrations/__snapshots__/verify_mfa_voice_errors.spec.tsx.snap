@@ -39,7 +39,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -90,7 +90,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -130,7 +130,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       />
                       <p
                         class="body-1 mb-8"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -163,7 +163,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -224,7 +224,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -237,13 +237,13 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -259,7 +259,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -297,7 +297,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -312,7 +312,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (123) 456-7834
                         </p>
@@ -399,7 +399,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -460,7 +460,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -473,13 +473,13 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -495,7 +495,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -521,7 +521,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -551,7 +551,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -577,7 +577,7 @@ exports[`Verify Mfa Voice Journey should call verifyDevices voice api and render
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -637,7 +637,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -653,7 +653,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -688,7 +688,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -728,7 +728,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -761,7 +761,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -822,7 +822,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -835,13 +835,13 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -857,7 +857,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -895,7 +895,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -910,7 +910,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -997,7 +997,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 2`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -1058,7 +1058,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -1071,13 +1071,13 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -1093,7 +1093,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -1119,7 +1119,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -1149,7 +1149,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -1175,7 +1175,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 400 error 3`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -1235,7 +1235,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -1251,7 +1251,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -1286,7 +1286,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -1326,7 +1326,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -1359,7 +1359,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -1433,7 +1433,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
@@ -1493,7 +1493,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -1508,7 +1508,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -1669,7 +1669,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
@@ -1747,7 +1747,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -1833,7 +1833,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -1849,7 +1849,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -1884,7 +1884,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the phone number where you can receive a phone call with your security code.
                     </p>
@@ -1924,7 +1924,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                       />
                       <p
                         class="body-1 mb-8"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.
                       </p>
@@ -1957,7 +1957,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -2018,7 +2018,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -2031,13 +2031,13 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -2053,7 +2053,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -2091,7 +2091,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -2106,7 +2106,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -2193,7 +2193,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 2`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -2254,7 +2254,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                   tabindex="1"
                 >
                   <img
-                    alt="back"
+                    alt=""
                     class="modal-icon"
                     data-nimg="1"
                     decoding="async"
@@ -2267,13 +2267,13 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
                 </div>
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -2289,7 +2289,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -2315,7 +2315,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="alert"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -2345,7 +2345,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>
@@ -2371,7 +2371,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 500 error 3`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

@@ -16,7 +16,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Mental Health
             </p>
@@ -40,7 +40,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 title-3 !font-bold m-4 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Teladoc Mental Health
               </p>
@@ -49,7 +49,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1 m-4 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
               </p>
@@ -59,7 +59,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 body-1 m-4 mt-2 mb-0"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 />
                 <ul
                   class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
@@ -142,7 +142,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             />
             <img
               alt="AbleToIcon"
@@ -164,7 +164,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             >
               <p
                 class="body-1 title-3 !font-bold m-4 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 AbleTo
               </p>
@@ -173,7 +173,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1 m-4 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
               </p>
@@ -183,7 +183,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
               <div>
                 <p
                   class="body-1 body-1 m-4 mt-2 mb-0"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Generally good for:
                 </p>
@@ -243,7 +243,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Mental Health
           </p>
@@ -267,7 +267,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 title-3 !font-bold m-4 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Teladoc Mental Health
             </p>
@@ -276,7 +276,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1 m-4 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.
             </p>
@@ -286,7 +286,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <div>
               <p
                 class="body-1 body-1 m-4 mt-2 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               />
               <ul
                 class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
@@ -369,7 +369,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
         >
           <p
             class="body-1 body-2 px-3 py-1 w-fit border border-current rounded-full mb-4 ml-3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           />
           <img
             alt="AbleToIcon"
@@ -391,7 +391,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
           >
             <p
               class="body-1 title-3 !font-bold m-4 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               AbleTo
             </p>
@@ -400,7 +400,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1 m-4 mb-0"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need
             </p>
@@ -410,7 +410,7 @@ exports[`VirtualMentalHealthCareSection should render the UI correctly 1`] = `
             <div>
               <p
                 class="body-1 body-1 m-4 mt-2 mb-0"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Generally good for:
               </p>

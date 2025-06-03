@@ -25,7 +25,7 @@ export const MyHealthOffsiteLinkCard = ({
     <Card className="large-section skip-underscore">
       <Column>
         <Row>
-          <img className="size-10" src={icon} alt="link" />
+          <Image className="size-10" src={icon} alt="" />
           <section className="flex justify-start self-start my-health-link">
             <RichText
               spans={[
@@ -37,7 +37,7 @@ export const MyHealthOffsiteLinkCard = ({
                     label={title}
                     className="link hover:!underline caremark !flex pt-0 pl-0"
                     url={url}
-                    icon={<img src={extrenalIcon} alt="external" />}
+                    icon={<Image src={extrenalIcon} alt="" />}
                   />
                 </Row>,
               ]}

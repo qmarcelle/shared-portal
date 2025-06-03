@@ -13,6 +13,8 @@ import { Key } from 'react';
 import editIcon from '../../../../public/assets/edit.svg';
 import { OtherPlanDetails } from '../models/AccessOtherPlanDetails';
 
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { HideOthersPlan } from '../journeys/HideOthersPlan';
 interface AccessToOthersPlanItemProps extends IComponent {
   planDetails: OtherPlanDetails[] | null;
@@ -27,8 +29,20 @@ export const AccessToOthersPlanItem = ({
   dob,
   onClick,
   className,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: AccessToOthersPlanItemProps) => {
+  function trackOthersPlanItemUpdateAnalytics() {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: 'Hide',
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'modal',
+      element_category: "Others' Plan",
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
   const { showAppModal } = useAppModalStore();
   return (
     <Card
@@ -66,11 +80,12 @@ export const AccessToOthersPlanItem = ({
               className="font-bold primary-color "
               text="Hide"
               suffix={icon}
-              callback={() =>
+              callback={() => {
+                trackOthersPlanItemUpdateAnalytics();
                 showAppModal({
                   content: <HideOthersPlan />,
-                })
-              }
+                });
+              }}
             />
           </Column>
         ))}

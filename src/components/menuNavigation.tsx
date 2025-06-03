@@ -29,7 +29,7 @@ import {
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
   isPrimaryCarePhysicianEligible,
-  isSpendingAccountsMenuOptions,
+  isSpendingAccountsEligible,
   isTeladocEligible,
   isTeladocPrimary360Eligible,
   isWellnessOnlyBenefitsQV,
@@ -37,6 +37,7 @@ import {
   payMyPremiumMedicareEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { isOtherInsuranceEligible } from '../visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 export const getMenuNavigation = (
   rules: VisibilityRules,
@@ -113,12 +114,13 @@ export const getMenuNavigation = (
         category: 'Find Care',
         showOnMenu: () => {
           if (
-            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
-            isNewMentalHealthSupportAbleToEligible(rules) ||
-            isHingeHealthEligible(rules) ||
-            isTeladocPrimary360Eligible(rules) ||
-            isTeladocEligible(rules) ||
-            isNurseChatEligible(rules)
+            (isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+              isNewMentalHealthSupportAbleToEligible(rules) ||
+              isHingeHealthEligible(rules) ||
+              isTeladocPrimary360Eligible(rules) ||
+              isTeladocEligible(rules) ||
+              isNurseChatEligible(rules)) &&
+            !isLifePointGrp(rules)
           ) {
             return true;
           } else {
@@ -236,7 +238,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/member/myplan/claims',
+        url: '/claims',
         external: false,
       },
       {
@@ -273,20 +275,20 @@ export const getMenuNavigation = (
         description: 'This is Spending Accounts (HSA, FSA)',
         category: 'Spending',
         showOnMenu: (rules) =>
-          isNotWellnessQa(rules) && isSpendingAccountsMenuOptions(rules),
+          isNotWellnessQa(rules) && isSpendingAccountsEligible(rules),
         url: '/member/myplan/spendingaccounts',
         external: false,
       },
-      {
-        id: 76,
-        title: 'Spending Summary',
-        description: 'This is Spending Summary',
-        category: 'Spending',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
-        url: '/member/myplan/spendingsummary',
-        external: false,
-      },
+      // {
+      //   id: 76,
+      //   title: 'Spending Summary',
+      //   description: 'This is Spending Summary',
+      //   category: 'Spending',
+      //   showOnMenu: (rules) =>
+      //     isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+      //   url: '/member/myplan/spendingsummary',
+      //   external: false,
+      // },
       {
         id: 75,
         title: 'View or Pay Premium',
@@ -321,7 +323,7 @@ export const getMenuNavigation = (
           isBlueCareNotEligible(rules) &&
           isNotWellnessQa(rules) &&
           isManageMyPolicyEligible(rules),
-        url: '',
+        url: '/myPlan/manageMyPolicy',
         external: false,
       },
       {
@@ -329,8 +331,7 @@ export const getMenuNavigation = (
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        showOnMenu: (rules) => isOtherInsuranceEligible(rules),
         url: '/member/myplan/otherinsurance',
         external: false,
       },
@@ -389,9 +390,7 @@ export const getMenuNavigation = (
         title: 'Member Wellness Center',
         description: 'This is Member Wellness Center',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: (rules) => !isLifePointGrp(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
         external: true,
       },
@@ -431,7 +430,8 @@ export const getMenuNavigation = (
         title: 'Health Programs & Resources',
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
-        showOnMenu: isHealthProgamAndResourceEligible,
+        showOnMenu: (rules) =>
+          isHealthProgamAndResourceEligible(rules) && !isLifePointGrp(rules),
         url: '/member/myhealth/healthprograms',
         external: false,
       },
@@ -478,8 +478,8 @@ export const getMenuNavigation = (
       link: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`,
     },
     shortLinks: [
-      { title: 'Pharmacy Claims', link: '/claimSnapshotList' },
-      { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
+      { title: 'Pharmacy Claims', link: '/claims?type=pharmacy' },
+      // { title: 'Pharmacy Spending', link: '/member/myplan/spendingsummary' },
     ],
     template: {
       firstCol: 'QT',
@@ -571,22 +571,9 @@ export const getMenuNavigation = (
     url: isAHAdvisorpage(rules)
       ? '/member/amplifyhealthsupport'
       : '/member/support',
-    qt: {
-      // eslint-disable-next-line quotes
-      firstParagraph: "We're here to help.",
-      secondParagraph: (
-        <p className="pb-1 text-base app-base-font-color ">
-          <span className="font-bold">Start a chat</span> or call us at
-          [1-800-000-0000].
-        </p>
-      ),
-      link: isAHAdvisorpage(rules)
-        ? '/member/amplifyhealthsupport'
-        : '/member/support',
-    },
     template: {
-      firstCol: 'QT',
-      secondCol: 'Support',
+      firstCol: 'Support',
+      secondCol: '',
       thirdCol: '',
       fourthCol: '',
     },

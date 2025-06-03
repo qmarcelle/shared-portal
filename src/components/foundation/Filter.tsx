@@ -22,6 +22,8 @@ interface FilterProps extends IComponent {
   onSelectCallback: (index: number, data: FilterItem[]) => void;
   showReset: boolean;
   onReset: () => void;
+  isCallbackValid?: boolean | undefined;
+  isMultipleItem?: boolean;
   buttons?: {
     type: 'primary';
     className: string;
@@ -32,7 +34,7 @@ interface FilterProps extends IComponent {
 
 export const FilterTile = ({ user }: { user: FilterDetails }) => {
   return (
-    <Column className="border-none flex-grow">
+    <Column className="border-none flex-grow overflow-hidden">
       <TextBox type="body-1" text={`${user.label}`} />
     </Column>
   );
@@ -61,6 +63,8 @@ export const Filter = ({
   showReset,
   onReset,
   onSelectCallback,
+  isCallbackValid,
+  isMultipleItem,
 }: FilterProps) => {
   //const [filter, setFilter] = useState(filterItems);
 
@@ -115,6 +119,7 @@ export const Filter = ({
                     onSelectItem={(val) => {
                       handleDropDownUpdate(val, index);
                     }}
+                    isMultipleItem={isMultipleItem}
                   />
                 </div>
               ) : null}
@@ -131,23 +136,28 @@ export const Filter = ({
             <Spacer size={16} />
           </Fragment>
         ))}
-        <Spacer size={16} />
+
         {showReset && (
-          <a className="link flex !no-underline" href="#" onClick={onReset}>
-            <img
-              src={resetIcon}
-              className="w-[20px] h-[20px] ml-2 mr-2 items-end"
-              alt=""
-            />
-            Reset Filter
-          </a>
+          <>
+            <Spacer size={16} />
+            <a className="link flex !no-underline" href="#" onClick={onReset}>
+              <Image
+                src={resetIcon}
+                className="w-[20px] h-[20px] ml-2 mr-2 items-end"
+                alt=""
+              />
+              Reset Filter
+            </a>
+            <Spacer size={16} />
+          </>
         )}
-        <Spacer size={16} />
+
         {buttons ? (
           <Button
             className={buttons.className}
             label={buttons.label}
             type={buttons.type}
+            disable={!isCallbackValid}
             callback={() => handleCallback()}
           ></Button>
         ) : null}

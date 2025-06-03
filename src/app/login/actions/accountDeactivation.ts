@@ -3,7 +3,7 @@
 import { signIn } from '@/auth';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
-import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
+import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AccountDeactivationRequest } from '../models/api/account_deactivation_request';
 
 export async function callAccountDeactivation(
@@ -17,7 +17,7 @@ export async function callAccountDeactivation(
     );
     if (resp?.data?.data?.status === 'OK') {
       authUser = request.userName;
-      await setWebsphereRedirectCookie({
+      await setSTAndInteractionDataCookies({
         ...request.interactionData,
       });
       return resp?.data?.data?.status;

@@ -77,7 +77,7 @@ exports[`FindMedicalProvidersComponent should navigate to Sapphire SSO 1`] = `
               class="ml-2"
             >
               <img
-                alt="external icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -102,7 +102,7 @@ exports[`FindMedicalProvidersComponent should navigate to Sapphire SSO 1`] = `
               class="ml-2"
             >
               <img
-                alt="external icon"
+                alt=""
                 class="group-hover:hidden"
                 data-nimg="1"
                 decoding="async"
@@ -114,7 +114,7 @@ exports[`FindMedicalProvidersComponent should navigate to Sapphire SSO 1`] = `
                 width="40"
               />
               <img
-                alt="external icon"
+                alt=""
                 class="hidden group-hover:block absolute top-2"
                 data-nimg="1"
                 decoding="async"
@@ -211,7 +211,7 @@ exports[`FindMedicalProvidersComponent should render UI correctly 1`] = `
               class="ml-2"
             >
               <img
-                alt="external icon"
+                alt=""
                 data-nimg="1"
                 decoding="async"
                 height="40"
@@ -236,7 +236,7 @@ exports[`FindMedicalProvidersComponent should render UI correctly 1`] = `
               class="ml-2"
             >
               <img
-                alt="external icon"
+                alt=""
                 class="group-hover:hidden"
                 data-nimg="1"
                 decoding="async"
@@ -248,7 +248,7 @@ exports[`FindMedicalProvidersComponent should render UI correctly 1`] = `
                 width="40"
               />
               <img
-                alt="external icon"
+                alt=""
                 class="hidden group-hover:block absolute top-2"
                 data-nimg="1"
                 decoding="async"

@@ -1,6 +1,8 @@
-import { ClaimDetails } from '@/models/claim_details';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { PriorAuthDetails } from '../priorAuthDetails';
 
 export interface PriorAuthData {
-  claimDetails: ClaimDetails | null;
+  priorAuthDetails: PriorAuthDetails[] | null;
   phoneNumber: string;
+  visibilityRules?: VisibilityRules;
 }

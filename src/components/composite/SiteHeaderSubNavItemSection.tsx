@@ -43,13 +43,13 @@ export const SubNavItemSection = ({
   });
 
   function ChangeUrl(link: string, title: string) {
-     const analytics: AnalyticsData = {
-          event: 'navigation',
-          click_text: title.toLowerCase(),
-          click_url: url,     
-          page_section: 'header',
-          nav_section: 'header'
-        };
+    const analytics: AnalyticsData = {
+      event: 'navigation',
+      click_text: title.toLowerCase(),
+      click_url: url,
+      page_section: 'header',
+      nav_section: 'header',
+    };
     googleAnalytics(analytics);
     router.push(link);
     closeSubMenu();
@@ -70,7 +70,7 @@ export const SubNavItemSection = ({
                 <Image
                   className="ml-auto"
                   src={parentPageArrowIcon}
-                  alt="Page Arrow"
+                  alt=""
                 ></Image>
               </div>
             </Link>
@@ -80,11 +80,7 @@ export const SubNavItemSection = ({
             <a key={index} href={item.link}>
               <div className="flex row-span-1 p-2 mb-2 secondary-bg-color1-accent rounded-lg">
                 <h3 className="p-2">{item.title}</h3>
-                <Image
-                  className="ml-auto"
-                  src={parentPageArrowIcon}
-                  alt="Page Arrow"
-                />
+                <Image className="ml-auto" src={parentPageArrowIcon} alt="" />
               </div>
             </a>
           ));
@@ -108,17 +104,13 @@ export const SubNavItemSection = ({
                     <p className="pb-2 pt-2 pr-1 focus-visible:py-0 focus:py-0 primary-color hover:text-primary-focus">
                       {item.title}
                     </p>
-                    <Image
-                      className="pb-2"
-                      src={externalIcon}
-                      alt="External Link"
-                    />
+                    <Image className="pb-2" src={externalIcon} alt="" />
                   </Link>
                 ) : (
                   <AppLink
                     key={index}
                     label={item.title}
-                    callback={() => ChangeUrl(item.url,item.title)}
+                    callback={() => ChangeUrl(item.url, item.title)}
                     className="pl-0 underline-offset-4 manage-underline flex hover:primary-focus focus:p-1 w-max hover:underline focus:rounded focus:underline focus:ring-2 focus:ring-primary box-border"
                   />
                 ),

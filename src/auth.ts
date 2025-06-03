@@ -36,7 +36,7 @@ export const {
     },
     async jwt({ token, session, trigger, user }) {
       //Append necessary additional JWT values here
-      console.log('JWT callback', token, user);
+      //console.log('JWT callback', token, user);
       if (trigger == 'update') {
         console.log('JWT Update', session);
         const user = await computeSessionUser(

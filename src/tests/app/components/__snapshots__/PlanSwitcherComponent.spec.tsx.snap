@@ -24,19 +24,19 @@ exports[`PlanSwitcher Component should render the UI correctly 1`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -74,19 +74,19 @@ exports[`PlanSwitcher Component should render the UI correctly 1`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -181,19 +181,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -222,7 +222,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                     Select plan view...
                   </h3>
                   <img
-                    alt="switch"
+                    alt=""
                     class="size-5"
                     data-nimg="1"
                     decoding="async"
@@ -259,12 +259,12 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             BlueCross BlueShield of Tennessee
                           </p>
                           <img
-                            alt="selected"
+                            alt=""
                             class="size-5 m-[2px]"
                             data-nimg="1"
                             decoding="async"
@@ -281,19 +281,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -323,12 +323,12 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Tennessee Valley Authority
                           </p>
                           <img
-                            alt="selected"
+                            alt=""
                             class="size-5 m-[2px]"
                             data-nimg="1"
                             decoding="async"
@@ -345,19 +345,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Maddison Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC000000000
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Dental
                           </p>
@@ -372,7 +372,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                   class="flex flex-row items-center p-4"
                 >
                   <img
-                    alt="Maximize"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -384,7 +384,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                   />
                   <p
                     class="body-1 mx-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Past Plans
                   </p>
@@ -416,19 +416,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -457,7 +457,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                   Select plan view...
                 </h3>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5"
                   data-nimg="1"
                   decoding="async"
@@ -494,12 +494,12 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -516,19 +516,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -558,12 +558,12 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Tennessee Valley Authority
                         </p>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -580,19 +580,19 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Maddison Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC000000000
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Dental
                         </p>
@@ -607,7 +607,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                 class="flex flex-row items-center p-4"
               >
                 <img
-                  alt="Maximize"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -619,7 +619,7 @@ exports[`PlanSwitcher Component should render the UI correctly 2`] = `
                 />
                 <p
                   class="body-1 mx-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Past Plans
                 </p>
@@ -708,19 +708,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     BlueCross BlueShield of Tennessee
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -749,7 +749,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                     Select plan view...
                   </h3>
                   <img
-                    alt="switch"
+                    alt=""
                     class="size-5"
                     data-nimg="1"
                     decoding="async"
@@ -786,12 +786,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             BlueCross BlueShield of Tennessee
                           </p>
                           <img
-                            alt="selected"
+                            alt=""
                             class="size-5 m-[2px]"
                             data-nimg="1"
                             decoding="async"
@@ -808,19 +808,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234567890
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -850,12 +850,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Tennessee Valley Authority
                           </p>
                           <img
-                            alt="selected"
+                            alt=""
                             class="size-5 m-[2px]"
                             data-nimg="1"
                             decoding="async"
@@ -872,19 +872,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Maddison Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC000000000
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Dental
                           </p>
@@ -914,12 +914,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1 font-bold primary-color"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Dollar General
                           </p>
                           <img
-                            alt="selected"
+                            alt=""
                             class="size-5 m-[2px]"
                             data-nimg="1"
                             decoding="async"
@@ -936,19 +936,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Subscriber: Chris Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             ID: ABC1234567891
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Policies: Medical, Vision, Dental
                           </p>
@@ -958,7 +958,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                         >
                           <p
                             class="body-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Ended 2023
                           </p>
@@ -973,7 +973,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   class="flex flex-row items-center p-4"
                 >
                   <img
-                    alt="Minimize"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -985,7 +985,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   />
                   <p
                     class="body-1 mx-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Hide Past Plans
                   </p>
@@ -1017,19 +1017,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   BlueCross BlueShield of Tennessee
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"
@@ -1058,7 +1058,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                   Select plan view...
                 </h3>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5"
                   data-nimg="1"
                   decoding="async"
@@ -1095,12 +1095,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           BlueCross BlueShield of Tennessee
                         </p>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -1117,19 +1117,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234567890
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -1159,12 +1159,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Tennessee Valley Authority
                         </p>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -1181,19 +1181,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Maddison Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC000000000
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Dental
                         </p>
@@ -1223,12 +1223,12 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1 font-bold primary-color"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Dollar General
                         </p>
                         <img
-                          alt="selected"
+                          alt=""
                           class="size-5 m-[2px]"
                           data-nimg="1"
                           decoding="async"
@@ -1245,19 +1245,19 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Subscriber: Chris Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ID: ABC1234567891
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Policies: Medical, Vision, Dental
                         </p>
@@ -1267,7 +1267,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                       >
                         <p
                           class="body-2"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Ended 2023
                         </p>
@@ -1282,7 +1282,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                 class="flex flex-row items-center p-4"
               >
                 <img
-                  alt="Minimize"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1294,7 +1294,7 @@ exports[`PlanSwitcher Component should render the UI correctly 3`] = `
                 />
                 <p
                   class="body-1 mx-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Hide Past Plans
                 </p>
@@ -1383,19 +1383,19 @@ exports[`PlanSwitcher Component should render the UI correctly 4`] = `
                 >
                   <p
                     class="body-2 app-base-font-color"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View Plan:
                   </p>
                   <p
                     class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Tennessee Valley Authority
                   </p>
                 </div>
                 <img
-                  alt="switch"
+                  alt=""
                   class="size-5 head-icon m-[4px]"
                   data-nimg="1"
                   decoding="async"
@@ -1433,19 +1433,19 @@ exports[`PlanSwitcher Component should render the UI correctly 4`] = `
               >
                 <p
                   class="body-2 app-base-font-color"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   View Plan:
                 </p>
                 <p
                   class="body-1 font-bold text-ellipsis overflow-hidden whitespace-nowrap"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Tennessee Valley Authority
                 </p>
               </div>
               <img
-                alt="switch"
+                alt=""
                 class="size-5 head-icon m-[4px]"
                 data-nimg="1"
                 decoding="async"

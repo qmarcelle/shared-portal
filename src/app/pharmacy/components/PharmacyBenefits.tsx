@@ -72,7 +72,7 @@ const PharmacyBenefits = ({
                     className="link hover:!underline !flex p-0"
                     label="TennCare’s site for more info"
                     url="https://www.tn.gov/tenncare/members-applicants/pharmacy.html"
-                    icon={<Image src={externalIcon} alt="external" />}
+                    icon={<Image src={externalIcon} alt="" />}
                   />
                 </span>,
                 <span key={2}>on prescription coverage.</span>,

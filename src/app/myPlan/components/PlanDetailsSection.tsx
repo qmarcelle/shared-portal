@@ -46,7 +46,7 @@ export const PlanDetailsSection = ({
         {svgData && (
           <Image
             src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgData)}`}
-            alt="switch"
+            alt=""
             fill={true}
             className="!relative"
           />
@@ -143,16 +143,8 @@ export const PlanDetailsSection = ({
               label="View Who's Covered"
               initialOpen={false}
               type="card"
-              openIcon={
-                <Image
-                  className="pl-2 w-6"
-                  src={Down}
-                  alt="Down Chevron"
-                ></Image>
-              }
-              closeIcon={
-                <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-              }
+              openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+              closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
               child={
                 <OnMyPlanComponent
                   infoIcon={true}
@@ -170,16 +162,8 @@ export const PlanDetailsSection = ({
               label="View Plan Contact Information"
               initialOpen={false}
               type="card"
-              openIcon={
-                <Image
-                  className="pl-2 w-6"
-                  src={Down}
-                  alt="Down Chevron"
-                ></Image>
-              }
-              closeIcon={
-                <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-              }
+              openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+              closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
               child={
                 <PlanContactInformationSection
                   title="Below is the phone number and mailing address associated with your plan."

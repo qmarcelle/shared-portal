@@ -51,7 +51,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   A caremark.com account will let you get prescriptions by mail, price a medication and more.
                 </p>
@@ -100,7 +100,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       View or Refill My Prescriptions
                     </p>
@@ -125,7 +125,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get My Prescriptions by Mail
                     </p>
@@ -150,7 +150,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Drug Cost & My Coverage
                     </p>
@@ -175,7 +175,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find a Pharmacy
                     </p>
@@ -271,7 +271,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 A caremark.com account will let you get prescriptions by mail, price a medication and more.
               </p>
@@ -320,7 +320,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View or Refill My Prescriptions
                   </p>
@@ -345,7 +345,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get My Prescriptions by Mail
                   </p>
@@ -370,7 +370,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Drug Cost & My Coverage
                   </p>
@@ -395,7 +395,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find a Pharmacy
                   </p>
@@ -548,7 +548,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   A caremark.com account will let you get prescriptions by mail, price a medication and more.
                 </p>
@@ -597,7 +597,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       View or Refill My Prescriptions
                     </p>
@@ -622,7 +622,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get My Prescriptions by Mail
                     </p>
@@ -647,7 +647,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Drug Cost & My Coverage
                     </p>
@@ -672,7 +672,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find a Pharmacy
                     </p>
@@ -768,7 +768,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 A caremark.com account will let you get prescriptions by mail, price a medication and more.
               </p>
@@ -817,7 +817,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View or Refill My Prescriptions
                   </p>
@@ -842,7 +842,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get My Prescriptions by Mail
                   </p>
@@ -867,7 +867,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Drug Cost & My Coverage
                   </p>
@@ -892,7 +892,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find a Pharmacy
                   </p>
@@ -1045,7 +1045,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   A caremark.com account will let you get prescriptions by mail, price a medication and more.
                 </p>
@@ -1094,7 +1094,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       View or Refill My Prescriptions
                     </p>
@@ -1119,7 +1119,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get My Prescriptions by Mail
                     </p>
@@ -1144,7 +1144,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find Drug Cost & My Coverage
                     </p>
@@ -1169,7 +1169,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Find a Pharmacy
                     </p>
@@ -1265,7 +1265,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 A caremark.com account will let you get prescriptions by mail, price a medication and more.
               </p>
@@ -1314,7 +1314,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     View or Refill My Prescriptions
                   </p>
@@ -1339,7 +1339,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get My Prescriptions by Mail
                   </p>
@@ -1364,7 +1364,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find Drug Cost & My Coverage
                   </p>
@@ -1389,7 +1389,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Find a Pharmacy
                   </p>

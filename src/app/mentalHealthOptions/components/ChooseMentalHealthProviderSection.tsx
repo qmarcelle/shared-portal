@@ -28,12 +28,8 @@ export const ChooseMentalHealthProvider = ({ className }: IComponent) => {
           label="About Psychiatrists"
           initialOpen={false}
           type="card"
-          openIcon={
-            <Image className="pl-2 w-6" src={Down} alt="Down Chevron"></Image>
-          }
-          closeIcon={
-            <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-          }
+          openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+          closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
           child={
             <TextBox text="If you are looking for medication evaluation or help with ongoing medication management, schedule a visit with a psychiatrist (MD/DO). Psychiatrists are medical doctors who may or may not provide talk therapy."></TextBox>
           }
@@ -44,12 +40,8 @@ export const ChooseMentalHealthProvider = ({ className }: IComponent) => {
           label="About Therapists"
           initialOpen={false}
           type="card"
-          openIcon={
-            <Image className="pl-2 w-6" src={Down} alt="Down Chevron"></Image>
-          }
-          closeIcon={
-            <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-          }
+          openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+          closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
           child={
             <TextBox
               text={

@@ -11,6 +11,14 @@ exports[`Share My Information  Page should show Share My Information plan detail
         <div
           class="flex flex-col app-content app-base-font-color"
         >
+          <h1
+            class="title-1"
+          >
+            Share My Information
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <section
             class="flex flex-row items-start app-body"
           >
@@ -45,7 +53,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         Full Sharing
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -77,7 +85,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         Basic Sharing
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -109,7 +117,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         None
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -156,7 +164,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Set the level of access for individuals on your health plan.
                       </p>
@@ -182,13 +190,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jessica Meyer
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 07/19/1964
                           </p>
@@ -221,48 +229,10 @@ exports[`Share My Information  Page should show Share My Information plan detail
                             />
                             <p
                               class="body-1 body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
-                              Basic Sharing
+                              Basic Access
                             </p>
-                          </div>
-                           
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <span
-                              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                            />
-                            <div
-                              class="flex flex-row"
-                            >
-                              <p
-                                class="font-bold primary-color"
-                              >
-                                Update
-                              </p>
-                              <div
-                                class="ml-2"
-                              >
-                                <img
-                                  alt="link"
-                                  data-nimg="1"
-                                  decoding="async"
-                                  height="40"
-                                  loading="lazy"
-                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                  style="color: transparent;"
-                                  width="40"
-                                />
-                              </div>
-                            </div>
-                            <span
-                              style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                            />
                           </div>
                         </div>
                       </div>
@@ -281,13 +251,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Juniper Meyer
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: undefined
                           </p>
@@ -318,25 +288,12 @@ exports[`Share My Information  Page should show Share My Information plan detail
                             <span
                               style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                             />
-                            <div
-                              class="card-main undefined"
-                              style="background-color: rgba(0, 0, 0, 0.05);"
+                            <p
+                              class="body-1 body-1"
+                              style="display: block; max-width: 100%;"
                             >
-                              <div
-                                class="flex flex-col m-4"
-                              >
-                                <div
-                                  class="flex flex-row"
-                                >
-                                  <p
-                                    class="body-1 body-1"
-                                    style="display: block;"
-                                  >
-                                    This is a minor dependent. Sharing permissions aren’t applicable with this account.
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
+                              Full Access
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -369,7 +326,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Share your information with individuals not on your health plan.
                       </p>
@@ -395,13 +352,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         >
                           <p
                             class="body-1 ml-2 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Jill Valentine
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 01/19/1985
                           </p>
@@ -434,7 +391,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                             />
                             <p
                               class="body-1 body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Full Access
                             </p>
@@ -460,7 +417,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                                 class="ml-2"
                               >
                                 <img
-                                  alt="link"
+                                  alt=""
                                   data-nimg="1"
                                   decoding="async"
                                   height="40"
@@ -489,7 +446,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                           class="mr-2"
                         >
                           <img
-                            alt="link"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -523,6 +480,14 @@ exports[`Share My Information  Page should show Share My Information plan detail
       <div
         class="flex flex-col app-content app-base-font-color"
       >
+        <h1
+          class="title-1"
+        >
+          Share My Information
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
         <section
           class="flex flex-row items-start app-body"
         >
@@ -557,7 +522,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       Full Sharing
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -589,7 +554,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       Basic Sharing
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -621,7 +586,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       None
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -668,7 +633,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Set the level of access for individuals on your health plan.
                     </p>
@@ -694,13 +659,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jessica Meyer
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 07/19/1964
                         </p>
@@ -733,48 +698,10 @@ exports[`Share My Information  Page should show Share My Information plan detail
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
-                            Basic Sharing
+                            Basic Access
                           </p>
-                        </div>
-                         
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <div
-                          class="flex flex-row"
-                        >
-                          <span
-                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                          />
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="font-bold primary-color"
-                            >
-                              Update
-                            </p>
-                            <div
-                              class="ml-2"
-                            >
-                              <img
-                                alt="link"
-                                data-nimg="1"
-                                decoding="async"
-                                height="40"
-                                loading="lazy"
-                                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                                style="color: transparent;"
-                                width="40"
-                              />
-                            </div>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 40px; min-height: 40px;"
-                          />
                         </div>
                       </div>
                     </div>
@@ -793,13 +720,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Juniper Meyer
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: undefined
                         </p>
@@ -830,25 +757,12 @@ exports[`Share My Information  Page should show Share My Information plan detail
                           <span
                             style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
                           />
-                          <div
-                            class="card-main undefined"
-                            style="background-color: rgba(0, 0, 0, 0.05);"
+                          <p
+                            class="body-1 body-1"
+                            style="display: block; max-width: 100%;"
                           >
-                            <div
-                              class="flex flex-col m-4"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="body-1 body-1"
-                                  style="display: block;"
-                                >
-                                  This is a minor dependent. Sharing permissions aren’t applicable with this account.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                            Full Access
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -881,7 +795,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Share your information with individuals not on your health plan.
                     </p>
@@ -907,13 +821,13 @@ exports[`Share My Information  Page should show Share My Information plan detail
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Jill Valentine
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 01/19/1985
                         </p>
@@ -946,7 +860,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Full Access
                           </p>
@@ -972,7 +886,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                               class="ml-2"
                             >
                               <img
-                                alt="link"
+                                alt=""
                                 data-nimg="1"
                                 decoding="async"
                                 height="40"
@@ -1001,7 +915,7 @@ exports[`Share My Information  Page should show Share My Information plan detail
                         class="mr-2"
                       >
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"

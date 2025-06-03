@@ -26,23 +26,11 @@ const AlertTile = ({
   return (
     <div className="flex flex-row py-1 px-2 w-full alert-tile">
       <div>
-        <img
-          src={alertIconSrc.src}
-          className="icon"
-          alt="Alert Icon"
-          width={24}
-          height={24}
-        />
+        <Image src={AlertIcon} className="icon" alt="" />
       </div>
       <p className="mx-1 grow">{label}</p>
       <div onClick={() => closeCallback(index)}>
-        <img
-          src={closeIconSrc.src}
-          className="icon"
-          alt="Close Icon"
-          width={24}
-          height={24}
-        />
+        <Image src={CloseIcon} className="icon" alt="" />
       </div>
     </div>
   );

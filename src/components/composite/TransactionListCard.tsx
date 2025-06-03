@@ -9,33 +9,29 @@ import { Column } from '../foundation/Column';
 
 interface TransactionListCardProps extends IComponent {
   information: AccordionInfoItem[];
-  successStatus: ReactElement;
+  baseCard: ReactElement;
 }
 
 export const TransactionListCard = ({
   information,
-  successStatus,
+  baseCard,
 }: TransactionListCardProps) => {
   return (
     <Column className="items-stretch p-3">
       {information.map((info, index) => (
         <>
           <Accordion
-            key={index}
+            key={`${info.title}-${index}`}
             className="px-2 py-4"
             label={info.title}
             icon={info.icon}
+            subLabel={baseCard}
             child={info.body}
             initialOpen={false}
             type="card"
-            openIcon={
-              <Image className="pl-2 w-6" src={Down} alt="Down Chevron"></Image>
-            }
-            closeIcon={
-              <Image className="pl-2 w-6" src={Up} alt="Up Chevron"></Image>
-            }
+            openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+            closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
           ></Accordion>
-          <div>{successStatus}</div>
         </>
       ))}
     </Column>

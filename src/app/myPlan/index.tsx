@@ -1,5 +1,6 @@
 'use client';
 
+import { PremiumPayResponse } from '@/actions/premiumPayInfo';
 import { PlanDetailsSection } from '@/app/myPlan/components/PlanDetailsSection';
 import { ViewOtherPlanInformation } from '@/app/myPlan/components/ViewOtherPlanInformation';
 import { InfoCard } from '@/components/composite/InfoCard';
@@ -12,6 +13,7 @@ import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
   isPayMyPremiumEligible,
+  isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { PayPremiumSection } from '../dashboard/components/PayPremium';
 import { ManageMyPlan } from './components/ManageMyPlan';
@@ -21,8 +23,14 @@ export type MyPlanProps = {
   data: MyPlanData;
   contact: string;
   planData: AllMyPlanData<string>[];
+  payPremiumResponse: PremiumPayResponse;
 };
-const MyPlan = ({ data, contact, planData }: MyPlanProps) => {
+const MyPlan = ({
+  data,
+  contact,
+  planData,
+  payPremiumResponse,
+}: MyPlanProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <WelcomeBanner
@@ -54,13 +62,14 @@ const MyPlan = ({ data, contact, planData }: MyPlanProps) => {
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
-            {isPayMyPremiumEligible(data.visibilityRules) && (
-              <PayPremiumSection
-                className="large-section"
-                dueDate="08/10/2023"
-                amountDue={1000.46}
-              />
-            )}
+            {!isQuantumHealthEligible(data.visibilityRules) &&
+              isPayMyPremiumEligible(data.visibilityRules) && (
+                <PayPremiumSection
+                  className="large-section"
+                  dueDate={payPremiumResponse.paymentDue}
+                  amountDue={payPremiumResponse.currentBalance}
+                />
+              )}
             <ManageMyPlan
               className="small-section"
               visibilityRules={data.visibilityRules}

@@ -28,7 +28,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                 </h2>
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Select the account to switch to:
                 </p>
@@ -46,7 +46,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         View as Personal Representative:
                       </p>
@@ -55,12 +55,12 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1 !font-bold title-3 text-[--primary-color]"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Robert Hall
                         </p>
                         <img
-                          alt="link"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -76,13 +76,13 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           01/01/1943
                         </p>
@@ -123,7 +123,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       Access Others' Information
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -167,7 +167,7 @@ exports[`NonMemberDashboard should render UI correctly 1`] = `
                       Personal Representative Access
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"

@@ -4,12 +4,12 @@ import { PriorAuthorizationCardSection } from '@/app/priorAuthorization/componen
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Column } from '@/components/foundation/Column';
-import { Filter } from '@/components/foundation/Filter';
 import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { FilterItem } from '@/models/filter_dropdown_details';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useState } from 'react';
 import { PriorAuthData } from './models/app/priorAuthAppData';
@@ -18,28 +18,58 @@ export type PriorAuthorizationProps = {
   data: PriorAuthData;
   initialFilters: FilterItem[];
 };
+const onClickCallBack = (url: string) => {
+  window.open(url, '_blank');
+};
 const PriorAuthorization = ({
   data,
   initialFilters,
 }: PriorAuthorizationProps) => {
   const [filters, setFilters] = useState(initialFilters);
 
-  function onFilterSelect(index: number, filter: FilterItem[]) {
-    setFilters(filter);
+  function getAuthorizationLanguage() {
+    return (
+      <Row className="body-1 flex-grow align-top mt-4 md:!flex !block" key={2}>
+        {isBlueCareEligible(data.visibilityRules)
+          ? // eslint-disable-next-line quotes
+            "We've put together a list of how and when to get referrals and authorizations for specific services"
+          : 'Looking for a prescription drug pre-approval? Go to your'}
+        {isBlueCareEligible(data.visibilityRules) ? (
+          <AppLink
+            label="See what we cover"
+            className="link !flex caremark pt-0"
+            callback={() => {
+              onClickCallBack(
+                process.env.NEXT_PUBLIC_BLUECARE_LANGUAGE_URL ?? '',
+              );
+            }}
+            icon={<Image src={externalIcon} alt="external" />}
+          />
+        ) : (
+          <AppLink
+            label="caremark.com account"
+            className="link !flex caremark pt-0"
+            icon={<Image src={externalIcon} alt="external" />}
+            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
+          />
+        )}
+      </Row>
+    );
   }
+
+  /*function onFilterSelect(index: number, filter: FilterItem[]) {
+    setFilters(filter);
+  }*/
 
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Header
-          text="Prior Authorization"
-          className="m-4 mb-0 !font-light !text-[32px]/[40px]"
-        />
+        <Header text="Prior Authorization" type="title-1" />
         <section className="flex justify-start self-start">
           <RichText
             spans={[
               <Row
-                className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
+                className="body-1 flex-grow align-top mt-4 md:!flex !block"
                 key={1}
               >
                 Need more than two years of prior authorizations?{' '}
@@ -49,21 +79,11 @@ const PriorAuthorization = ({
                 />
                 or call us at [{data.phoneNumber}].
               </Row>,
-              <Row
-                className="body-1 flex-grow align-top mt-4 ml-4 md:!flex !block"
-                key={2}
-              >
-                Looking for a prescription drug pre-approval? Go to your{' '}
-                <AppLink
-                  label="caremark.com account"
-                  className="link !flex caremark pt-0"
-                  icon={<Image src={externalIcon} alt="external" />}
-                />
-              </Row>,
+              getAuthorizationLanguage(),
             ]}
           />
         </section>
-        {data.claimDetails == null && (
+        {data.priorAuthDetails == null && (
           <>
             <Column>
               <section className="flex justify-start self-start p-4">
@@ -72,12 +92,14 @@ const PriorAuthorization = ({
             </Column>
           </>
         )}
-        {data.claimDetails && (
+        {data.priorAuthDetails && (
           <section
             className="flex flex-row items-start app-body mt-2"
             id="Filter"
           >
-            <Column className=" flex-grow page-section-36_67 items-stretch">
+            {' '}
+            {/*
+             <Column className=" flex-grow page-section-36_67 items-stretch">
               <Filter
                 className="large-section px-0 m-0"
                 filterHeading="Filter Prior Authorizations"
@@ -86,8 +108,7 @@ const PriorAuthorization = ({
                 onSelectCallback={onFilterSelect}
                 filterItems={filters}
               />
-            </Column>
-
+            </Column> */}
             <Column className="flex-grow page-section-63_33 items-stretch">
               {data && (
                 <PriorAuthorizationCardSection
@@ -109,14 +130,9 @@ const PriorAuthorization = ({
                     value: '43',
                     id: '1',
                   }}
-                  claims={data.claimDetails}
+                  priorAuthDetails={data.priorAuthDetails}
                 />
               )}
-              <section className="flex justify-center self-center">
-                <Row className="m-2 mt-0">
-                  Viewing 5 of 5 Prior Authorizations
-                </Row>
-              </section>
             </Column>
           </section>
         )}

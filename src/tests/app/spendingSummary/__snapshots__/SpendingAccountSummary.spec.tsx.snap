@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SpendingAccountSummary should render the UI correctly 1`] = `
+exports[`AnnualSpendingSummary should render the UI correctly 1`] = `
 <body>
   <div>
     <div
@@ -20,7 +20,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
         >
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             As of
           </p>
@@ -109,7 +109,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
             />
             <p
               class="body-1 ml-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               You Paid
             </p>
@@ -130,7 +130,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
             />
             <p
               class="body-1 ml-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               You Saved
             </p>
@@ -181,7 +181,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                     Medical
                   </p>
                   <img
-                    alt="Down Chevron"
+                    alt=""
                     class="pl-2 w-6"
                     data-nimg="1"
                     decoding="async"
@@ -201,13 +201,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $30.24
                     </p>
@@ -250,7 +250,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                     Pharmacy
                   </p>
                   <img
-                    alt="Down Chevron"
+                    alt=""
                     class="pl-2 w-6"
                     data-nimg="1"
                     decoding="async"
@@ -270,13 +270,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $30.24
                     </p>
@@ -319,7 +319,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                     Dental
                   </p>
                   <img
-                    alt="Down Chevron"
+                    alt=""
                     class="pl-2 w-6"
                     data-nimg="1"
                     decoding="async"
@@ -339,13 +339,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $30.24
                     </p>
@@ -388,7 +388,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                     Vision
                   </p>
                   <img
-                    alt="Down Chevron"
+                    alt=""
                     class="pl-2 w-6"
                     data-nimg="1"
                     decoding="async"
@@ -408,13 +408,13 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your share
                     </p>
                     <p
                       class="body-1 font-bold"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       $30.24
                     </p>
@@ -430,7 +430,7 @@ exports[`SpendingAccountSummary should render the UI correctly 1`] = `
 </body>
 `;
 
-exports[`SpendingAccountSummary should render the UI correctly 2`] = `
+exports[`AnnualSpendingSummary should render the UI correctly 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -479,7 +479,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       class="ml-1"
                     >
                       <img
-                        alt="external"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -548,7 +548,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
-                                    style="display: block;"
+                                    style="display: block; max-width: 100%;"
                                   >
                                     All Members
                                   </p>
@@ -607,7 +607,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
-                                    style="display: block;"
+                                    style="display: block; max-width: 100%;"
                                   >
                                     2023
                                   </p>
@@ -666,7 +666,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                                 >
                                   <p
                                     class="body-1"
-                                    style="display: block;"
+                                    style="display: block; max-width: 100%;"
                                   >
                                     Pharmacy
                                   </p>
@@ -722,7 +722,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       As of
                     </p>
@@ -811,7 +811,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You Paid
                       </p>
@@ -832,7 +832,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                       />
                       <p
                         class="body-1 ml-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         You Saved
                       </p>
@@ -865,7 +865,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               class="mr-1"
                             >
                               <img
-                                alt="Medical Icon"
+                                alt=""
                                 class="w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -883,7 +883,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               Medical
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -903,13 +903,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $30.24
                               </p>
@@ -934,7 +934,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               class="mr-1"
                             >
                               <img
-                                alt="Pharmacy Icon"
+                                alt=""
                                 class="w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -952,7 +952,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               Pharmacy
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -972,13 +972,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $30.24
                               </p>
@@ -1003,7 +1003,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               class="mr-1"
                             >
                               <img
-                                alt="Dental Icon"
+                                alt=""
                                 class="w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -1021,7 +1021,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               Dental
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1041,13 +1041,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $30.24
                               </p>
@@ -1072,7 +1072,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               class="mr-1"
                             >
                               <img
-                                alt="Vision Icon"
+                                alt=""
                                 class="w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -1090,7 +1090,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               Vision
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1110,13 +1110,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             >
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 Your share
                               </p>
                               <p
                                 class="body-1 font-bold"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $30.24
                               </p>
@@ -1179,7 +1179,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     class="ml-1"
                   >
                     <img
-                      alt="external"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -1248,7 +1248,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   All Members
                                 </p>
@@ -1307,7 +1307,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   2023
                                 </p>
@@ -1366,7 +1366,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                               >
                                 <p
                                   class="body-1"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
                                   Pharmacy
                                 </p>
@@ -1422,7 +1422,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     As of
                   </p>
@@ -1511,7 +1511,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Paid
                     </p>
@@ -1532,7 +1532,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                     />
                     <p
                       class="body-1 ml-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       You Saved
                     </p>
@@ -1565,7 +1565,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             class="mr-1"
                           >
                             <img
-                              alt="Medical Icon"
+                              alt=""
                               class="w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1583,7 +1583,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             Medical
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -1603,13 +1603,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $30.24
                             </p>
@@ -1634,7 +1634,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             class="mr-1"
                           >
                             <img
-                              alt="Pharmacy Icon"
+                              alt=""
                               class="w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1652,7 +1652,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             Pharmacy
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -1672,13 +1672,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $30.24
                             </p>
@@ -1703,7 +1703,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             class="mr-1"
                           >
                             <img
-                              alt="Dental Icon"
+                              alt=""
                               class="w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1721,7 +1721,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             Dental
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -1741,13 +1741,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $30.24
                             </p>
@@ -1772,7 +1772,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             class="mr-1"
                           >
                             <img
-                              alt="Vision Icon"
+                              alt=""
                               class="w-6"
                               data-nimg="1"
                               decoding="async"
@@ -1790,7 +1790,7 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                             Vision
                           </p>
                           <img
-                            alt="Down Chevron"
+                            alt=""
                             class="pl-2 w-6"
                             data-nimg="1"
                             decoding="async"
@@ -1810,13 +1810,13 @@ exports[`SpendingAccountSummary should render the UI correctly 2`] = `
                           >
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Your share
                             </p>
                             <p
                               class="body-1 font-bold"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $30.24
                             </p>

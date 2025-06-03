@@ -16,7 +16,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -40,7 +40,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Update your alert preferences.
               </p>
@@ -58,7 +58,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -82,7 +82,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Change your password and edit your account security.
               </p>
@@ -100,7 +100,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -124,7 +124,7 @@ exports[`Profile Settings Card Component should render UI correctly for Active M
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 View or edit access to plan information.
               </p>
@@ -153,7 +153,7 @@ exports[`Profile Settings Card Component should render UI correctly for Terminat
             class="flex flex-row"
           >
             <img
-              alt="link"
+              alt=""
               class="size-10"
               data-nimg="1"
               decoding="async"
@@ -177,7 +177,7 @@ exports[`Profile Settings Card Component should render UI correctly for Terminat
               </div>
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 View or edit access to plan information.
               </p>

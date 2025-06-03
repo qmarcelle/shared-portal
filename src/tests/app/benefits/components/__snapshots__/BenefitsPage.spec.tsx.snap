@@ -30,7 +30,7 @@ exports[`Benefits Page should not show Joint Procedure component if MskEligible 
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   There was a problem loading your benefit information. Please try again later.
                 </p>
@@ -67,7 +67,7 @@ exports[`Benefits Page should not show Joint Procedure component if MskEligible 
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 There was a problem loading your benefit information. Please try again later.
               </p>
@@ -161,7 +161,7 @@ exports[`Benefits Page should show Joint Procedure component if MskEligible is t
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   There was a problem loading your benefit information. Please try again later.
                 </p>
@@ -198,7 +198,7 @@ exports[`Benefits Page should show Joint Procedure component if MskEligible is t
               />
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 There was a problem loading your benefit information. Please try again later.
               </p>

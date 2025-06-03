@@ -19,6 +19,8 @@ export const getProfileSettingsData = async (): Promise<
         contactInfo.email +
         ' phone: ' +
         contactInfo.phone,
+      'email verified: ' + contactInfo.email_verified_flag,
+      'phone verified: ' + contactInfo.phone_verified_flag,
     );
     return {
       status: 200,
@@ -30,6 +32,8 @@ export const getProfileSettingsData = async (): Promise<
           dob: memberDetails.dateOfBirth, // Replace dob with dateOfBirth of member object  const getData = useProfileSettingsStore();
         },
         visibilityRules: session?.user.vRules,
+        emailVerified: contactInfo.email_verified_flag,
+        phoneVerified: contactInfo.phone_verified_flag,
       },
     };
   } catch (error) {
@@ -40,6 +44,8 @@ export const getProfileSettingsData = async (): Promise<
         phone: '',
         memberDetails: { fullName: '', dob: '' },
         visibilityRules: session?.user.vRules,
+        emailVerified: false,
+        phoneVerified: false,
       },
     };
   }

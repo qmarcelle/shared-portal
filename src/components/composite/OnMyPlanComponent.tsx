@@ -41,17 +41,14 @@ export const OnMyPlanComponent = ({
           <OnMyPlanItem
             key={index}
             className="mb-4"
-            memberName={item.memberName}
-            DOB={item.DOB}
             sharingType={item.sharingType}
-            isMinor={item.isMinor}
             infoButton={infoIcon}
             requestorType={item.requestorType}
-            targetType={item.targetType}
             medicalEffectiveDate={item.medicalEffectiveDate}
             dentalEffectiveDate={item.dentalEffectiveDate}
             visionEffectiveDate={item.visionEffectiveDate}
             allowUpdates={allowUpdates}
+            onMyPlanData={item}
           />
         ))}
       </Column>

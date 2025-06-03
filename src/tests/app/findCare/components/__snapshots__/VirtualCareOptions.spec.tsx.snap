@@ -21,7 +21,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             The following options offer quick, high-quality care for a range of non-emergency needs.
           </p>
@@ -33,7 +33,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           >
             <div
               class="slick-slider slick-initialized"
-              dir="ltr"
             >
               <div
                 class="slick-list"
@@ -71,7 +70,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                           </p>
@@ -100,7 +99,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Blue of Tennessee Medical Centers Virtual Visits 
+                              Hinge Health Back & Joint Care
                             </p>
                           </div>
                           <span
@@ -108,9 +107,9 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
-                            At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                            You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                           </p>
                         </a>
                       </div>
@@ -137,43 +136,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                             <p
                               class="font-bold primary-color"
                             >
-                              Hinge Health Back & Joint Care
-                            </p>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                          />
-                          <p
-                            class="body-1"
-                            style="display: block;"
-                          >
-                            You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
-                          </p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    aria-hidden="true"
-                    class="slick-slide"
-                    data-index="3"
-                    style="outline: none; width: 0px;"
-                    tabindex="-1"
-                  >
-                    <div>
-                      <div
-                        class="card-elevated cursor-pointer mr-4 shrink-0 "
-                      >
-                        <a
-                          class="p-4 block"
-                          href="null"
-                        >
-                          <div
-                            class="flex flex-row"
-                          >
-                            <p
-                              class="font-bold primary-color"
-                            >
                               yyt
                             </p>
                           </div>
@@ -182,7 +144,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           />
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             xxx
                           </p>
@@ -191,28 +153,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="slick-arrow slick-next"
-              >
-                <button
-                  class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
-                  type="button"
-                >
-                  <img
-                    alt="scroll right"
-                    class="icon-sm"
-                    data-nimg="1"
-                    decoding="async"
-                    height="40"
-                    loading="lazy"
-                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                    style="color: transparent;"
-                    width="40"
-                  />
-                </button>
-                ,
               </div>
             </div>
             <span
@@ -223,7 +163,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
             >
               <div
                 class="primary-bg-color h-1.5 rounded-full"
-                style="width: 75%;"
+                style="width: 100%;"
               />
             </div>
           </div>
@@ -268,7 +208,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           The following options offer quick, high-quality care for a range of non-emergency needs.
         </p>
@@ -280,7 +220,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
         >
           <div
             class="slick-slider slick-initialized"
-            dir="ltr"
           >
             <div
               class="slick-list"
@@ -318,7 +257,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.
                         </p>
@@ -347,7 +286,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Blue of Tennessee Medical Centers Virtual Visits 
+                            Hinge Health Back & Joint Care
                           </p>
                         </div>
                         <span
@@ -355,9 +294,9 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
-                          At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent care help. You can even get help with your health plan. 
+                          You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
                         </p>
                       </a>
                     </div>
@@ -384,43 +323,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                           <p
                             class="font-bold primary-color"
                           >
-                            Hinge Health Back & Joint Care
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                        />
-                        <p
-                          class="body-1"
-                          style="display: block;"
-                        >
-                          You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  aria-hidden="true"
-                  class="slick-slide"
-                  data-index="3"
-                  style="outline: none; width: 0px;"
-                  tabindex="-1"
-                >
-                  <div>
-                    <div
-                      class="card-elevated cursor-pointer mr-4 shrink-0 "
-                    >
-                      <a
-                        class="p-4 block"
-                        href="null"
-                      >
-                        <div
-                          class="flex flex-row"
-                        >
-                          <p
-                            class="font-bold primary-color"
-                          >
                             yyt
                           </p>
                         </div>
@@ -429,7 +331,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           xxx
                         </p>
@@ -438,28 +340,6 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="slick-arrow slick-next"
-            >
-              <button
-                class="button-text elevated text-center flex flex-row justify-center items-center min-w-fit null max-w-fit max-h-fit p-2 m-auto"
-                type="button"
-              >
-                <img
-                  alt="scroll right"
-                  class="icon-sm"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </button>
-              ,
             </div>
           </div>
           <span
@@ -470,7 +350,7 @@ exports[`VirtualCareOptions should render UI correctly 1`] = `
           >
             <div
               class="primary-bg-color h-1.5 rounded-full"
-              style="width: 75%;"
+              style="width: 100%;"
             />
           </div>
         </div>

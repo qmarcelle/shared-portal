@@ -1,6 +1,6 @@
 import { IComponent } from '@/components/IComponent';
 import { TextBox } from '@/components/foundation/TextBox';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { InnerPagination } from './InnerPagination';
 
 interface PaginationProps<T> extends IComponent {
@@ -24,11 +24,7 @@ export const Pagination = <T,>({
   const [currentPage, setCurrentPage] = useState(1);
   const [pageItems, setPageItems] = useState(new Map<number, T[]>());
 
-  useEffect(() => {
-    mapItemList();
-  }, []);
-
-  const mapItemList = () => {
+  const mapItemList = useCallback(() => {
     const items: Map<number, T[]> = new Map<number, T[]>();
     const totalPageCount = Math.ceil(
       (totalCount ?? initialList.length) / pageSize,
@@ -39,11 +35,23 @@ export const Pagination = <T,>({
       items.set(i + 1, initialList.slice(firstItemIndex, lastItemIndex));
     }
     setPageItems(items);
-  };
+  }, [initialList, pageSize, totalCount]);
+
+  useEffect(() => {
+    mapItemList();
+  }, [initialList, mapItemList]); // Add initialList and mapItemList as dependencies to recalculate when they change
 
   const itemList = (pageItems.get(currentPage) ?? []).map((item, index) => {
     return itemsBuilder(item, index);
   });
+
+  if (initialList.length == 0) {
+    return (
+      <section className="flex justify-center self-center pt-5">
+        <TextBox className="m-2 mt-0" text={`No ${label} found`}></TextBox>
+      </section>
+    );
+  }
 
   return (
     <>

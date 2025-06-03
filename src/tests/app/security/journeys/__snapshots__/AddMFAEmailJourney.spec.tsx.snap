@@ -39,7 +39,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -90,7 +90,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -183,7 +183,7 @@ exports[`Add Mfa Email Journey should render the screens correctly 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -649,7 +649,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -665,7 +665,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -700,7 +700,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -793,7 +793,7 @@ exports[`Add Mfa Email Journey should show error when we input invalid Email Add
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -1083,7 +1083,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -1099,7 +1099,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -1134,7 +1134,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1227,7 +1227,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -1287,7 +1287,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -1303,7 +1303,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -1338,7 +1338,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                     />
                     <p
                       class="body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the email address you'd like to use for communications and security settings.
                     </p>
@@ -1364,7 +1364,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                               aria-label="Email Address"
                               class=""
                               type="email"
-                              value="m3cghmaalill1.2c3o@mgm"
+                              value="ioclmh.ac"
                             />
                             <div
                               class="cursor-pointer"
@@ -1405,7 +1405,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             class="flex flex-row"
                           >
                             <img
-                              alt="alert"
+                              alt=""
                               class="icon mt-1"
                               data-nimg="1"
                               decoding="async"
@@ -1418,7 +1418,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                             />
                             <p
                               class="body-1 body-1 pt-1.5 ml-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Invalid Email Address
                             </p>
@@ -1457,7 +1457,7 @@ exports[`Add Mfa Email Journey show error if email and confirm email address do 
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

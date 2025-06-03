@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
+import { documentFile } from '../foundation/Icons';
 import { Row } from '../foundation/Row';
 import { Spacer, SpacerX } from '../foundation/Spacer';
 import { TextBox } from '../foundation/TextBox';
@@ -18,7 +20,7 @@ export const DocumentInfoCard = ({
   receivedDate,
   memberName,
   className,
-  icon = <img src="/assets/document_file.svg" alt="link" />,
+  icon = <Image src={documentFile} alt="" />,
   onClick,
 }: DocumentsCardListProps) => {
   return (

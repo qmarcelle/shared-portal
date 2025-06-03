@@ -12,9 +12,10 @@ import { EmailAppData } from './models/email_app_data';
 
 export type SendAnEmailProps = {
   data: EmailAppData;
+  contact: string;
 };
 
-const SendAnEmail = ({ data }: SendAnEmailProps) => {
+const SendAnEmail = ({ data, contact }: SendAnEmailProps) => {
   const selectedUsers: FilterDetails[] = data.memberDetails.map(
     (item, index) => ({
       label: item.fullName,
@@ -117,6 +118,7 @@ const SendAnEmail = ({ data }: SendAnEmailProps) => {
               link="/support/faq"
               linkURL="FAQ."
               headerText="We're Here to Help"
+              contact={contact}
             />
           </Column>
         </section>

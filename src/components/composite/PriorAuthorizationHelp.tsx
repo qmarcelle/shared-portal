@@ -3,8 +3,13 @@ import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
 import { RichText } from '../foundation/RichText';
 import { Spacer } from '../foundation/Spacer';
+import { IComponent } from '../IComponent';
 
-export const PriorAuthorizationHelp = () => {
+interface priorAuthDetailProps extends IComponent {
+  contact: string;
+}
+
+export const PriorAuthorizationHelp = ({ contact }: priorAuthDetailProps) => {
   return (
     <Card className="!mt-0 md:ml-8 p-8">
       <Column className="flex flex-col">
@@ -21,7 +26,7 @@ export const PriorAuthorizationHelp = () => {
             <span className="link" key={1}>
               <a>start a chat </a>
             </span>,
-            <span key={2}>or call us at [1-800-000-000]</span>,
+            <span key={2}>or call us at [{contact}]</span>,
           ]}
         />
         <Spacer size={32} />
@@ -30,7 +35,9 @@ export const PriorAuthorizationHelp = () => {
           spans={[
             <span key={0}>You can also try our </span>,
             <span className="link" key={1}>
-              <a>Prior Authorization FAQ</a>
+              <a href="/member/support/FAQ/priorauthorizations">
+                Prior Authorization FAQ
+              </a>
             </span>,
           ]}
         />

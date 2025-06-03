@@ -25,13 +25,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Amount Billed
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 $263.00
               </p>
@@ -41,13 +41,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Plan Discount
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 --
               </p>
@@ -57,13 +57,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Plan Paid
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 $187.94
               </p>
@@ -73,13 +73,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1 body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Other Insurance Paid
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 $0.74
               </p>
@@ -99,13 +99,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
             >
               <p
                 class="body-1 font-bold"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Your Share of the Cost
               </p>
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 $0.00
               </p>
@@ -136,13 +136,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Amount Billed
             </p>
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               $263.00
             </p>
@@ -152,13 +152,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Plan Discount
             </p>
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               --
             </p>
@@ -168,13 +168,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Plan Paid
             </p>
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               $187.94
             </p>
@@ -184,13 +184,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Other Insurance Paid
             </p>
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               $0.74
             </p>
@@ -210,13 +210,13 @@ exports[`CostBreakdown CostBreakdown 1`] = `
           >
             <p
               class="body-1 font-bold"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Your Share of the Cost
             </p>
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               $0.00
             </p>

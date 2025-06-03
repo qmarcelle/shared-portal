@@ -19,7 +19,7 @@ export const PharmacyClaimSSO = () => {
           <Spacer size={32} />
           <AppLink
             label="Go to Caremark"
-            icon={<img src="/assets/external.svg" alt="external" />}
+            icon={<Image src={externalIcon} alt="" />}
           />
         </Column>
       </Card>

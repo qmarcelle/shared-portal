@@ -21,6 +21,13 @@ export async function callSignOut(): Promise<void> {
     });
     cookies().delete('interactionId');
     cookies().delete('interactionToken');
+    cookies().set('MPExternalSession', '', {
+      domain: '.bcbst.com',
+      httpOnly: true,
+      secure: true,
+      path: '/',
+      sameSite: 'none'
+    });
     await signOut({
       redirect: false,
     });

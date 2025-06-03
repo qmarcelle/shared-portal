@@ -22,7 +22,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
         />
         <p
           class="body-1 body-1 mb-2"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           If you need help, call [1-800-000-000] or email help@bcbstrewards.com.
         </p>
@@ -57,7 +57,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -67,13 +67,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Personal Health Assessment (PHA)
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Take your assessment first to start earning rewards points
                       </p>
@@ -91,7 +91,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         100 Points
                       </p>
@@ -101,13 +101,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Annual Preventive Exam
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         1 visit per year max
                       </p>
@@ -125,7 +125,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -135,13 +135,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Register for Teladoc™ Health
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         New registration only | 1 registration per person
                       </p>
@@ -159,7 +159,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -169,13 +169,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Teladoc Health Use
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Per each use | 100 points max per year
                       </p>
@@ -193,7 +193,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         1 Point
                       </p>
@@ -203,13 +203,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Daily Steps
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Per 5,000 steps | 100 points max per year
                       </p>
@@ -227,7 +227,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -237,13 +237,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Flu Shot
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         1 per year max
                       </p>
@@ -261,7 +261,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -271,13 +271,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Chronic Condition/Case Management Engagement (2 Consults)
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         After completing second consult | 1 per quarter | 100 points max per year
                       </p>
@@ -295,7 +295,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         100 Points
                       </p>
@@ -305,13 +305,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Cancer Screenings (Mammogram, Colorectal, Cervical or Prostate)
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Only 1 screening per year
                       </p>
@@ -329,7 +329,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         50 Points
                       </p>
@@ -339,13 +339,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Diabetes Management (A1C, Urine Test and Kidney Function)
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         1 test per year | 150 points max per year
                       </p>
@@ -363,7 +363,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 text-white"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         100 Points
                       </p>
@@ -373,13 +373,13 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1 body-1 font-bold my-2"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Healthy Maternity Completion
                       </p>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         1 per year max
                       </p>
@@ -408,7 +408,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                       class="ml-1"
                     >
                       <img
-                        alt="download form"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -465,7 +465,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               How do I complete the PHA?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -505,7 +505,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               When can I start completing the reward activities?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -545,7 +545,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               How do I submit my daily steps?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -585,7 +585,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               I have health issues that make completing some of the eligible wellness activities difficult. Are there any other ways I can earn points?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -644,7 +644,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               How do I redeem my points?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -684,7 +684,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               How much can my family earn?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -724,7 +724,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               How can I check the status of my Visa Gift Card?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -764,7 +764,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               Where can I view the points I’ve earned?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -823,7 +823,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               When does each quarter end?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -863,7 +863,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               What happens to my points if I don’t earn 100 points by the end of the quarter?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -903,7 +903,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               You’re missing my activity, or my points don’t match what I think they should be. How do I get it corrected?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"
@@ -943,7 +943,7 @@ exports[`PharmacyDrugInformation should render UI correctly 1`] = `
                               If I accidentally delete the email with the digital gift card, can I get a new email/gift card sent to me?
                             </p>
                             <img
-                              alt="Down Chevron"
+                              alt=""
                               class="pl-2 w-6"
                               data-nimg="1"
                               decoding="async"

@@ -91,7 +91,7 @@ export const appPaths: Map<string, AppPath> = new Map([
   [
     'priorauthorizations',
     {
-      label: 'Authorizations',
+      label: 'Prior Authorization',
       path: '/priorAuthorization',
     },
   ],
@@ -119,7 +119,7 @@ export const appPaths: Map<string, AppPath> = new Map([
   [
     'dentalcosts',
     {
-      label: 'Dental cost estimator',
+      label: 'Price Dental Care',
       path: '/priceDentalCare',
     },
   ],
@@ -387,6 +387,20 @@ export const appPaths: Map<string, AppPath> = new Map([
     {
       label: 'Healthy Maternity',
       path: '/healthymaternity',
+    },
+  ],
+  [
+    'redetermination',
+    {
+      label: 'Drug Redetermination Form',
+      path: '/redetermination',
+    },
+  ],
+  [
+    'determination',
+    {
+      label: 'Drug Determination Form',
+      path: '/determination',
     },
   ],
 ]);

@@ -1,21 +1,17 @@
-import { IComponent } from '../../../components/IComponent';
-import { Button } from '../../../components/foundation/Button';
-import { Card } from '../../../components/foundation/Card';
-import { Row } from '../../../components/foundation/Row';
-import { Spacer } from '../../../components/foundation/Spacer';
+import { IComponent } from '@/components/IComponent';
+import { Button } from '@/components/foundation/Button';
+import { Card } from '@/components/foundation/Card';
+import { Row } from '@/components/foundation/Row';
+import { Spacer } from '@/components/foundation/Spacer';
 
-import { Header } from '../../../components/foundation/Header';
+import { PillData } from '@/app/dashboard/components/PillBox';
+import { Header } from '@/components/foundation/Header';
 
 interface PillBoxProps extends IComponent {
   className: string;
   title: string;
   icon?: JSX.Element;
-  pillObjects: FindCarePillBoxData[];
-}
-
-export interface FindCarePillBoxData {
-  label: string;
-  callback?: () => void | Promise<void> | null;
+  pillObjects: PillData[];
 }
 
 export const FindCarePillBox = ({

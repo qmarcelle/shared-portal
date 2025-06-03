@@ -11,11 +11,8 @@ exports[`Personal Representative Access Page should show personal representative
         <div
           class="flex flex-col app-content app-base-font-color"
         >
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
-          />
           <h1
-            class="title-1 pl-3"
+            class="title-1"
           >
             Personal Representative Access
           </h1>
@@ -23,8 +20,8 @@ exports[`Personal Representative Access Page should show personal representative
             style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
           />
           <p
-            class="body-1 w-2/3 ml-4"
-            style="display: block;"
+            class="body-1 w-2/3"
+            style="display: block; max-width: 100%;"
           >
             Personal representatives have the legal authority to make health care decisions on behalf of the member.
           </p>
@@ -65,7 +62,7 @@ exports[`Personal Representative Access Page should show personal representative
                         Full Access
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -97,7 +94,7 @@ exports[`Personal Representative Access Page should show personal representative
                         Basic Access
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -152,13 +149,13 @@ exports[`Personal Representative Access Page should show personal representative
                           >
                             <p
                               class="body-1 font-bold body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Chris Hall
                             </p>
                             <p
                               class="body-1"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               DOB: 07/19/1964
                             </p>
@@ -189,9 +186,9 @@ exports[`Personal Representative Access Page should show personal representative
                               >
                                 <p
                                   class="body-1 ml-2"
-                                  style="display: block;"
+                                  style="display: block; max-width: 100%;"
                                 >
-                                  Basic Access as of undefined
+                                  undefined as of undefined
                                 </p>
                                 <span
                                   style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
@@ -246,11 +243,8 @@ exports[`Personal Representative Access Page should show personal representative
       <div
         class="flex flex-col app-content app-base-font-color"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
-        />
         <h1
-          class="title-1 pl-3"
+          class="title-1"
         >
           Personal Representative Access
         </h1>
@@ -258,8 +252,8 @@ exports[`Personal Representative Access Page should show personal representative
           style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
         />
         <p
-          class="body-1 w-2/3 ml-4"
-          style="display: block;"
+          class="body-1 w-2/3"
+          style="display: block; max-width: 100%;"
         >
           Personal representatives have the legal authority to make health care decisions on behalf of the member.
         </p>
@@ -300,7 +294,7 @@ exports[`Personal Representative Access Page should show personal representative
                       Full Access
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -332,7 +326,7 @@ exports[`Personal Representative Access Page should show personal representative
                       Basic Access
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -387,13 +381,13 @@ exports[`Personal Representative Access Page should show personal representative
                         >
                           <p
                             class="body-1 font-bold body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Chris Hall
                           </p>
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             DOB: 07/19/1964
                           </p>
@@ -424,9 +418,9 @@ exports[`Personal Representative Access Page should show personal representative
                             >
                               <p
                                 class="body-1 ml-2"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
-                                Basic Access as of undefined
+                                undefined as of undefined
                               </p>
                               <span
                                 style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"

@@ -64,7 +64,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       class="flex flex-col block md:hidden"
                     >
                       <img
-                        alt="download form"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -94,7 +94,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         />
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           A caremark.com account will let you get prescriptions by mail, price a medication and more.
                         </p>
@@ -103,7 +103,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         class="flex flex-col hidden md:block"
                       >
                         <img
-                          alt="download form"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -131,7 +131,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Prescription Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -143,7 +143,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               View or Refill My Prescriptions
                             </p>
@@ -156,7 +156,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Mail Order Pharmacy Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -168,7 +168,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Get My Prescriptions by Mail
                             </p>
@@ -181,7 +181,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Cost Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -193,7 +193,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Find Drug Cost & My Coverage
                             </p>
@@ -206,7 +206,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Search Pharmacy Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -218,7 +218,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Find a Pharmacy
                             </p>
@@ -249,7 +249,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="ml-1"
                         >
                           <img
-                            alt="download form"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -288,111 +288,6 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
-                    class="card-button cursor-pointer mb-4"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <section
-                      class="md:flex md:flex-row align-top m-4"
-                    >
-                      <img
-                        alt="Pharmacy"
-                        class="icon max-md:hidden"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col min-w-[95%]"
-                      >
-                        <section
-                          class="md:flex md:flex-row md:justify-between"
-                        >
-                          <section
-                            class="flex flex-row mb-[10px] md:flex-col"
-                          >
-                            <img
-                              alt="Pharmacy"
-                              class="icon md:hidden"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <h3
-                              class="title-3 body-bold primary-color max-md:ml-[5px]"
-                            >
-                              CVS PHARMACY 04428
-                            </h3>
-                          </section>
-                          <section
-                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                          >
-                            <div
-                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                            >
-                              <div
-                                class="circle rounded-full w-3 h-3 aspect-square"
-                              />
-                              <p
-                                class="font-bold ml-2 body-2"
-                              >
-                                Paid
-                              </p>
-                            </div>
-                            <div
-                              class="flex flex-col md:hidden"
-                            >
-                              <p
-                                class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
-                              >
-                                $32.99
-                              </p>
-                            </div>
-                          </section>
-                        </section>
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <div
-                            class="flex flex-col"
-                          >
-                            <p
-                              class="body-1 body-1 mt-2"
-                              style="display: block;"
-                            >
-                              Visited on 2024-11-06, For JOHN DOE
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col max-md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $32.99
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div
                     aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                     class="card-button cursor-pointer mb-4"
                     role="button"
@@ -402,7 +297,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       class="md:flex md:flex-row align-top m-4"
                     >
                       <img
-                        alt="Pharmacy"
+                        alt=""
                         class="icon max-md:hidden"
                         data-nimg="1"
                         decoding="async"
@@ -426,7 +321,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="flex flex-row mb-[10px] md:flex-col"
                           >
                             <img
-                              alt="Pharmacy"
+                              alt=""
                               class="icon md:hidden"
                               data-nimg="1"
                               decoding="async"
@@ -463,7 +358,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $52.99
                               </p>
@@ -478,7 +373,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           >
                             <p
                               class="body-1 body-1 mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Visited on 2024-11-06, For Jane DOE
                             </p>
@@ -488,9 +383,114 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $52.99
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div
+                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
+                    class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt=""
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt=""
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              CVS PHARMACY 04428
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Paid
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                                style="display: block; max-width: 100%;"
+                              >
+                                $32.99
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              Visited on 2024-11-06, For JOHN DOE
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              $32.99
                             </p>
                           </div>
                         </div>
@@ -502,7 +502,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="member/myplan/claims?type=pharmacy"
+                    href="/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -515,53 +515,6 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         class="link undefined"
                       >
                         View All Pharmacy Claims
-                      </p>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
-            >
-              <div
-                class="card-main large-section md:w-[352px] md:h-[248px]"
-              >
-                <div
-                  class="flex flex-col"
-                >
-                  <h2
-                    class="title-2"
-                  >
-                    My Pharmacy Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1"
-                    style="display: block;"
-                  >
-                    View your annual statement for your pharmacy claims.
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Pharmacy Spending Summary"
-                    href="/member/myplan/spendingsummary?type=Pharmacy"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container !flex p-0"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Pharmacy Spending Summary
                       </p>
                     </button>
                   </a>
@@ -635,7 +588,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -651,7 +604,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Download a list of all the drugs your plan covers.
                         </p>
@@ -693,7 +646,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -709,7 +662,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                         </p>
@@ -751,7 +704,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -767,7 +720,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                         </p>
@@ -835,7 +788,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   How can I find out which drugs my plan covers?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -875,7 +828,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   How do I get a prior authorization?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -915,7 +868,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   What is a specialty medication?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -955,7 +908,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   How do I know if a drug is a specialty drug?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -995,7 +948,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   How can I save money on my prescriptions?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -1054,7 +1007,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   Do I have to use a CVS pharmacy?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -1094,7 +1047,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   Why should I use a mail order pharmacy for any of my prescriptions?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -1134,7 +1087,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                   I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -1226,7 +1179,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     class="flex flex-col block md:hidden"
                   >
                     <img
-                      alt="download form"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -1256,7 +1209,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         A caremark.com account will let you get prescriptions by mail, price a medication and more.
                       </p>
@@ -1265,7 +1218,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       class="flex flex-col hidden md:block"
                     >
                       <img
-                        alt="download form"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -1293,7 +1246,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Prescription Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -1305,7 +1258,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             View or Refill My Prescriptions
                           </p>
@@ -1318,7 +1271,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Mail Order Pharmacy Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -1330,7 +1283,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get My Prescriptions by Mail
                           </p>
@@ -1343,7 +1296,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Cost Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -1355,7 +1308,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Find Drug Cost & My Coverage
                           </p>
@@ -1368,7 +1321,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Search Pharmacy Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -1380,7 +1333,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Find a Pharmacy
                           </p>
@@ -1411,7 +1364,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         class="ml-1"
                       >
                         <img
-                          alt="download form"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -1450,111 +1403,6 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
-                  class="card-button cursor-pointer mb-4"
-                  role="button"
-                  tabindex="0"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            CVS PHARMACY 04428
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Paid
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $32.99
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 2024-11-06, For JOHN DOE
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $32.99
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
                   aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
                   role="button"
@@ -1564,7 +1412,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                     class="md:flex md:flex-row align-top m-4"
                   >
                     <img
-                      alt="Pharmacy"
+                      alt=""
                       class="icon max-md:hidden"
                       data-nimg="1"
                       decoding="async"
@@ -1588,7 +1436,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           class="flex flex-row mb-[10px] md:flex-col"
                         >
                           <img
-                            alt="Pharmacy"
+                            alt=""
                             class="icon md:hidden"
                             data-nimg="1"
                             decoding="async"
@@ -1625,7 +1473,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $52.99
                             </p>
@@ -1640,7 +1488,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         >
                           <p
                             class="body-1 body-1 mt-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Visited on 2024-11-06, For Jane DOE
                           </p>
@@ -1650,9 +1498,114 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $52.99
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
+                  class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
+                >
+                  <section
+                    class="md:flex md:flex-row align-top m-4"
+                  >
+                    <img
+                      alt=""
+                      class="icon max-md:hidden"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col min-w-[95%]"
+                    >
+                      <section
+                        class="md:flex md:flex-row md:justify-between"
+                      >
+                        <section
+                          class="flex flex-row mb-[10px] md:flex-col"
+                        >
+                          <img
+                            alt=""
+                            class="icon md:hidden"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <h3
+                            class="title-3 body-bold primary-color max-md:ml-[5px]"
+                          >
+                            CVS PHARMACY 04428
+                          </h3>
+                        </section>
+                        <section
+                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                        >
+                          <div
+                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                          >
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Paid
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              $32.99
+                            </p>
+                          </div>
+                        </section>
+                      </section>
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 body-1 mt-2"
+                            style="display: block; max-width: 100%;"
+                          >
+                            Visited on 2024-11-06, For JOHN DOE
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-col max-md:hidden"
+                        >
+                          <p
+                            class="body-1 body-1 font-bold mt-2"
+                            style="display: block; max-width: 100%;"
+                          >
+                            $32.99
                           </p>
                         </div>
                       </div>
@@ -1664,7 +1617,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="member/myplan/claims?type=pharmacy"
+                  href="/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -1677,53 +1630,6 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       class="link undefined"
                     >
                       View All Pharmacy Claims
-                    </p>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
-          >
-            <div
-              class="card-main large-section md:w-[352px] md:h-[248px]"
-            >
-              <div
-                class="flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                >
-                  My Pharmacy Spending Summary
-                </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <p
-                  class="body-1"
-                  style="display: block;"
-                >
-                  View your annual statement for your pharmacy claims.
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  aria-label="View Pharmacy Spending Summary"
-                  href="/member/myplan/spendingsummary?type=Pharmacy"
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container !flex p-0"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Pharmacy Spending Summary
                     </p>
                   </button>
                 </a>
@@ -1797,7 +1703,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -1813,7 +1719,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Download a list of all the drugs your plan covers.
                       </p>
@@ -1855,7 +1761,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -1871,7 +1777,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                       </p>
@@ -1913,7 +1819,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -1929,7 +1835,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                       </p>
@@ -1997,7 +1903,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 How can I find out which drugs my plan covers?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2037,7 +1943,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 How do I get a prior authorization?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2077,7 +1983,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 What is a specialty medication?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2117,7 +2023,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 How do I know if a drug is a specialty drug?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2157,7 +2063,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 How can I save money on my prescriptions?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2216,7 +2122,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 Do I have to use a CVS pharmacy?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2256,7 +2162,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 Why should I use a mail order pharmacy for any of my prescriptions?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2296,7 +2202,7 @@ exports[`ShopOverCounterItemsCard should NOT render the  ShopOverCounterItemsCar
                                 I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -2445,7 +2351,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       class="flex flex-col block md:hidden"
                     >
                       <img
-                        alt="download form"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -2475,7 +2381,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         />
                         <p
                           class="body-1 body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           A caremark.com account will let you get prescriptions by mail, price a medication and more.
                         </p>
@@ -2484,7 +2390,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         class="flex flex-col hidden md:block"
                       >
                         <img
-                          alt="download form"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -2512,7 +2418,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Prescription Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -2524,7 +2430,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               View or Refill My Prescriptions
                             </p>
@@ -2537,7 +2443,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Mail Order Pharmacy Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -2549,7 +2455,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Get My Prescriptions by Mail
                             </p>
@@ -2562,7 +2468,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Cost Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -2574,7 +2480,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Find Drug Cost & My Coverage
                             </p>
@@ -2587,7 +2493,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="flex flex-row p-2"
                           >
                             <img
-                              alt="Search Pharmacy Icon"
+                              alt=""
                               data-nimg="1"
                               decoding="async"
                               height="40"
@@ -2599,7 +2505,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             />
                             <p
                               class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Find a Pharmacy
                             </p>
@@ -2630,7 +2536,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="ml-1"
                         >
                           <img
-                            alt="download form"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -2669,111 +2575,6 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
-                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
-                    class="card-button cursor-pointer mb-4"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <section
-                      class="md:flex md:flex-row align-top m-4"
-                    >
-                      <img
-                        alt="Pharmacy"
-                        class="icon max-md:hidden"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <div
-                        class="flex flex-col min-w-[95%]"
-                      >
-                        <section
-                          class="md:flex md:flex-row md:justify-between"
-                        >
-                          <section
-                            class="flex flex-row mb-[10px] md:flex-col"
-                          >
-                            <img
-                              alt="Pharmacy"
-                              class="icon md:hidden"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                            <h3
-                              class="title-3 body-bold primary-color max-md:ml-[5px]"
-                            >
-                              CVS PHARMACY 04428
-                            </h3>
-                          </section>
-                          <section
-                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                          >
-                            <div
-                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                            >
-                              <div
-                                class="circle rounded-full w-3 h-3 aspect-square"
-                              />
-                              <p
-                                class="font-bold ml-2 body-2"
-                              >
-                                Paid
-                              </p>
-                            </div>
-                            <div
-                              class="flex flex-col md:hidden"
-                            >
-                              <p
-                                class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
-                              >
-                                $32.99
-                              </p>
-                            </div>
-                          </section>
-                        </section>
-                        <div
-                          class="flex flex-row justify-between"
-                        >
-                          <div
-                            class="flex flex-col"
-                          >
-                            <p
-                              class="body-1 body-1 mt-2"
-                              style="display: block;"
-                            >
-                              Visited on 2024-11-06, For JOHN DOE
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col max-md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $32.99
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                  <div
                     aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                     class="card-button cursor-pointer mb-4"
                     role="button"
@@ -2783,7 +2584,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       class="md:flex md:flex-row align-top m-4"
                     >
                       <img
-                        alt="Pharmacy"
+                        alt=""
                         class="icon max-md:hidden"
                         data-nimg="1"
                         decoding="async"
@@ -2807,7 +2608,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="flex flex-row mb-[10px] md:flex-col"
                           >
                             <img
-                              alt="Pharmacy"
+                              alt=""
                               class="icon md:hidden"
                               data-nimg="1"
                               decoding="async"
@@ -2844,7 +2645,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             >
                               <p
                                 class="body-1 body-1 font-bold mt-2"
-                                style="display: block;"
+                                style="display: block; max-width: 100%;"
                               >
                                 $52.99
                               </p>
@@ -2859,7 +2660,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           >
                             <p
                               class="body-1 body-1 mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               Visited on 2024-11-06, For Jane DOE
                             </p>
@@ -2869,9 +2670,114 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $52.99
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div
+                    aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
+                    class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <section
+                      class="md:flex md:flex-row align-top m-4"
+                    >
+                      <img
+                        alt=""
+                        class="icon max-md:hidden"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                      <span
+                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                      />
+                      <div
+                        class="flex flex-col min-w-[95%]"
+                      >
+                        <section
+                          class="md:flex md:flex-row md:justify-between"
+                        >
+                          <section
+                            class="flex flex-row mb-[10px] md:flex-col"
+                          >
+                            <img
+                              alt=""
+                              class="icon md:hidden"
+                              data-nimg="1"
+                              decoding="async"
+                              height="40"
+                              loading="lazy"
+                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                              style="color: transparent;"
+                              width="40"
+                            />
+                            <h3
+                              class="title-3 body-bold primary-color max-md:ml-[5px]"
+                            >
+                              CVS PHARMACY 04428
+                            </h3>
+                          </section>
+                          <section
+                            class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                          >
+                            <div
+                              class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                            >
+                              <div
+                                class="circle rounded-full w-3 h-3 aspect-square"
+                              />
+                              <p
+                                class="font-bold ml-2 body-2"
+                              >
+                                Paid
+                              </p>
+                            </div>
+                            <div
+                              class="flex flex-col md:hidden"
+                            >
+                              <p
+                                class="body-1 body-1 font-bold mt-2"
+                                style="display: block; max-width: 100%;"
+                              >
+                                $32.99
+                              </p>
+                            </div>
+                          </section>
+                        </section>
+                        <div
+                          class="flex flex-row justify-between"
+                        >
+                          <div
+                            class="flex flex-col"
+                          >
+                            <p
+                              class="body-1 body-1 mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              Visited on 2024-11-06, For JOHN DOE
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col max-md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              $32.99
                             </p>
                           </div>
                         </div>
@@ -2883,7 +2789,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   />
                   <a
                     aria-label="View All Pharmacy Claims"
-                    href="member/myplan/claims?type=pharmacy"
+                    href="/claims?type=pharmacy"
                     style="display: block;"
                   >
                     <button
@@ -2896,53 +2802,6 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         class="link undefined"
                       >
                         View All Pharmacy Claims
-                      </p>
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex flex-col  flex-grow page-section-36_67 items-stretch"
-            >
-              <div
-                class="card-main large-section md:w-[352px] md:h-[248px]"
-              >
-                <div
-                  class="flex flex-col"
-                >
-                  <h2
-                    class="title-2"
-                  >
-                    My Pharmacy Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <p
-                    class="body-1"
-                    style="display: block;"
-                  >
-                    View your annual statement for your pharmacy claims.
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Pharmacy Spending Summary"
-                    href="/member/myplan/spendingsummary?type=Pharmacy"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container !flex p-0"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Pharmacy Spending Summary
                       </p>
                     </button>
                   </a>
@@ -2972,7 +2831,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   class="flex flex-col"
                 >
                   <img
-                    alt="Shopping Credit Icon"
+                    alt=""
                     class="size-10 block md:hidden"
                     data-nimg="1"
                     decoding="async"
@@ -2987,7 +2846,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     class="flex flex-row"
                   >
                     <img
-                      alt="Shopping Credit Icon"
+                      alt=""
                       class="size-10 mt-3 mr-2 hidden md:block"
                       data-nimg="1"
                       decoding="async"
@@ -3036,7 +2895,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   </div>
                   <p
                     class="body-1 body-1 md:ml-14 ml-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                   </p>
@@ -3093,7 +2952,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -3109,7 +2968,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Download a list of all the drugs your plan covers.
                         </p>
@@ -3151,7 +3010,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -3167,7 +3026,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                         </p>
@@ -3209,7 +3068,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                               class="ml-1"
                             >
                               <img
-                                alt="download Icon"
+                                alt=""
                                 class="inline"
                                 data-nimg="1"
                                 decoding="async"
@@ -3225,7 +3084,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         </a>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                         </p>
@@ -3293,7 +3152,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   How can I find out which drugs my plan covers?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3333,7 +3192,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   How do I get a prior authorization?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3373,7 +3232,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   What is a specialty medication?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3413,7 +3272,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   How do I know if a drug is a specialty drug?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3453,7 +3312,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   How can I save money on my prescriptions?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3512,7 +3371,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   Do I have to use a CVS pharmacy?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3552,7 +3411,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   Why should I use a mail order pharmacy for any of my prescriptions?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3592,7 +3451,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                   I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
                                 </p>
                                 <img
-                                  alt="Down Chevron"
+                                  alt=""
                                   class="pl-2 w-6"
                                   data-nimg="1"
                                   decoding="async"
@@ -3684,7 +3543,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     class="flex flex-col block md:hidden"
                   >
                     <img
-                      alt="download form"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -3714,7 +3573,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         A caremark.com account will let you get prescriptions by mail, price a medication and more.
                       </p>
@@ -3723,7 +3582,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       class="flex flex-col hidden md:block"
                     >
                       <img
-                        alt="download form"
+                        alt=""
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -3751,7 +3610,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Prescription Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -3763,7 +3622,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             View or Refill My Prescriptions
                           </p>
@@ -3776,7 +3635,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Mail Order Pharmacy Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -3788,7 +3647,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Get My Prescriptions by Mail
                           </p>
@@ -3801,7 +3660,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Cost Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -3813,7 +3672,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Find Drug Cost & My Coverage
                           </p>
@@ -3826,7 +3685,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="flex flex-row p-2"
                         >
                           <img
-                            alt="Search Pharmacy Icon"
+                            alt=""
                             data-nimg="1"
                             decoding="async"
                             height="40"
@@ -3838,7 +3697,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           />
                           <p
                             class="body-1 inline my-auto ml-4 font-bold primary-color p-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Find a Pharmacy
                           </p>
@@ -3869,7 +3728,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         class="ml-1"
                       >
                         <img
-                          alt="download form"
+                          alt=""
                           data-nimg="1"
                           decoding="async"
                           height="40"
@@ -3908,111 +3767,6 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                 />
                 <div
-                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
-                  class="card-button cursor-pointer mb-4"
-                  role="button"
-                  tabindex="0"
-                >
-                  <section
-                    class="md:flex md:flex-row align-top m-4"
-                  >
-                    <img
-                      alt="Pharmacy"
-                      class="icon max-md:hidden"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <div
-                      class="flex flex-col min-w-[95%]"
-                    >
-                      <section
-                        class="md:flex md:flex-row md:justify-between"
-                      >
-                        <section
-                          class="flex flex-row mb-[10px] md:flex-col"
-                        >
-                          <img
-                            alt="Pharmacy"
-                            class="icon md:hidden"
-                            data-nimg="1"
-                            decoding="async"
-                            height="40"
-                            loading="lazy"
-                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                            style="color: transparent;"
-                            width="40"
-                          />
-                          <h3
-                            class="title-3 body-bold primary-color max-md:ml-[5px]"
-                          >
-                            CVS PHARMACY 04428
-                          </h3>
-                        </section>
-                        <section
-                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
-                        >
-                          <div
-                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
-                          >
-                            <div
-                              class="circle rounded-full w-3 h-3 aspect-square"
-                            />
-                            <p
-                              class="font-bold ml-2 body-2"
-                            >
-                              Paid
-                            </p>
-                          </div>
-                          <div
-                            class="flex flex-col md:hidden"
-                          >
-                            <p
-                              class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
-                            >
-                              $32.99
-                            </p>
-                          </div>
-                        </section>
-                      </section>
-                      <div
-                        class="flex flex-row justify-between"
-                      >
-                        <div
-                          class="flex flex-col"
-                        >
-                          <p
-                            class="body-1 body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Visited on 2024-11-06, For JOHN DOE
-                          </p>
-                        </div>
-                        <div
-                          class="flex flex-col max-md:hidden"
-                        >
-                          <p
-                            class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
-                          >
-                            $32.99
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div
                   aria-label="Pharmacy claim for Jane DOE from CVS PHARMACY 04428 with status Denied"
                   class="card-button cursor-pointer mb-4"
                   role="button"
@@ -4022,7 +3776,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                     class="md:flex md:flex-row align-top m-4"
                   >
                     <img
-                      alt="Pharmacy"
+                      alt=""
                       class="icon max-md:hidden"
                       data-nimg="1"
                       decoding="async"
@@ -4046,7 +3800,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           class="flex flex-row mb-[10px] md:flex-col"
                         >
                           <img
-                            alt="Pharmacy"
+                            alt=""
                             class="icon md:hidden"
                             data-nimg="1"
                             decoding="async"
@@ -4083,7 +3837,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                           >
                             <p
                               class="body-1 body-1 font-bold mt-2"
-                              style="display: block;"
+                              style="display: block; max-width: 100%;"
                             >
                               $52.99
                             </p>
@@ -4098,7 +3852,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         >
                           <p
                             class="body-1 body-1 mt-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Visited on 2024-11-06, For Jane DOE
                           </p>
@@ -4108,9 +3862,114 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                         >
                           <p
                             class="body-1 body-1 font-bold mt-2"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             $52.99
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div
+                  aria-label="Pharmacy claim for JOHN DOE from CVS PHARMACY 04428 with status Paid"
+                  class="card-button cursor-pointer mb-4"
+                  role="button"
+                  tabindex="0"
+                >
+                  <section
+                    class="md:flex md:flex-row align-top m-4"
+                  >
+                    <img
+                      alt=""
+                      class="icon max-md:hidden"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
+                    <div
+                      class="flex flex-col min-w-[95%]"
+                    >
+                      <section
+                        class="md:flex md:flex-row md:justify-between"
+                      >
+                        <section
+                          class="flex flex-row mb-[10px] md:flex-col"
+                        >
+                          <img
+                            alt=""
+                            class="icon md:hidden"
+                            data-nimg="1"
+                            decoding="async"
+                            height="40"
+                            loading="lazy"
+                            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                            style="color: transparent;"
+                            width="40"
+                          />
+                          <h3
+                            class="title-3 body-bold primary-color max-md:ml-[5px]"
+                          >
+                            CVS PHARMACY 04428
+                          </h3>
+                        </section>
+                        <section
+                          class="flex flex-row justify-between md:flex-col max-lg:mr-[5px]"
+                        >
+                          <div
+                            class="success flex flex-row justify-center items-center px-2 py-1 rounded"
+                          >
+                            <div
+                              class="circle rounded-full w-3 h-3 aspect-square"
+                            />
+                            <p
+                              class="font-bold ml-2 body-2"
+                            >
+                              Paid
+                            </p>
+                          </div>
+                          <div
+                            class="flex flex-col md:hidden"
+                          >
+                            <p
+                              class="body-1 body-1 font-bold mt-2"
+                              style="display: block; max-width: 100%;"
+                            >
+                              $32.99
+                            </p>
+                          </div>
+                        </section>
+                      </section>
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <div
+                          class="flex flex-col"
+                        >
+                          <p
+                            class="body-1 body-1 mt-2"
+                            style="display: block; max-width: 100%;"
+                          >
+                            Visited on 2024-11-06, For JOHN DOE
+                          </p>
+                        </div>
+                        <div
+                          class="flex flex-col max-md:hidden"
+                        >
+                          <p
+                            class="body-1 body-1 font-bold mt-2"
+                            style="display: block; max-width: 100%;"
+                          >
+                            $32.99
                           </p>
                         </div>
                       </div>
@@ -4122,7 +3981,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 />
                 <a
                   aria-label="View All Pharmacy Claims"
-                  href="member/myplan/claims?type=pharmacy"
+                  href="/claims?type=pharmacy"
                   style="display: block;"
                 >
                   <button
@@ -4135,53 +3994,6 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       class="link undefined"
                     >
                       View All Pharmacy Claims
-                    </p>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            class="flex flex-col  flex-grow page-section-36_67 items-stretch"
-          >
-            <div
-              class="card-main large-section md:w-[352px] md:h-[248px]"
-            >
-              <div
-                class="flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                >
-                  My Pharmacy Spending Summary
-                </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <p
-                  class="body-1"
-                  style="display: block;"
-                >
-                  View your annual statement for your pharmacy claims.
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <a
-                  aria-label="View Pharmacy Spending Summary"
-                  href="/member/myplan/spendingsummary?type=Pharmacy"
-                  style="display: block;"
-                >
-                  <button
-                    class="flex flex-row link-container !flex p-0"
-                    style="max-width: max-content; height: auto; display: block;"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <p
-                      class="link undefined"
-                    >
-                      View Pharmacy Spending Summary
                     </p>
                   </button>
                 </a>
@@ -4211,7 +4023,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 class="flex flex-col"
               >
                 <img
-                  alt="Shopping Credit Icon"
+                  alt=""
                   class="size-10 block md:hidden"
                   data-nimg="1"
                   decoding="async"
@@ -4226,7 +4038,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                   class="flex flex-row"
                 >
                   <img
-                    alt="Shopping Credit Icon"
+                    alt=""
                     class="size-10 mt-3 mr-2 hidden md:block"
                     data-nimg="1"
                     decoding="async"
@@ -4275,7 +4087,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                 </div>
                 <p
                   class="body-1 body-1 md:ml-14 ml-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.
                 </p>
@@ -4332,7 +4144,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -4348,7 +4160,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Download a list of all the drugs your plan covers.
                       </p>
@@ -4390,7 +4202,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -4406,7 +4218,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         We call it the G0-510 form. You'll use it only for prescription drug claims when the claim is not filled through your pharmacist.
                       </p>
@@ -4448,7 +4260,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                             class="ml-1"
                           >
                             <img
-                              alt="download Icon"
+                              alt=""
                               class="inline"
                               data-nimg="1"
                               decoding="async"
@@ -4464,7 +4276,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                       </a>
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Mail order is easy and convenient. You can have your prescriptions delivered right to your home.
                       </p>
@@ -4532,7 +4344,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 How can I find out which drugs my plan covers?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4572,7 +4384,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 How do I get a prior authorization?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4612,7 +4424,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 What is a specialty medication?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4652,7 +4464,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 How do I know if a drug is a specialty drug?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4692,7 +4504,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 How can I save money on my prescriptions?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4751,7 +4563,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 Do I have to use a CVS pharmacy?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4791,7 +4603,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 Why should I use a mail order pharmacy for any of my prescriptions?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"
@@ -4831,7 +4643,7 @@ exports[`ShopOverCounterItemsCard should render the  ShopOverCounterItemsCard co
                                 I’ve created my caremark.com account but I can’t see prescription info for my teenage dependents. How can I do that?
                               </p>
                               <img
-                                alt="Down Chevron"
+                                alt=""
                                 class="pl-2 w-6"
                                 data-nimg="1"
                                 decoding="async"

@@ -24,7 +24,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Fill out the form below to send us your message.
             </p>
@@ -53,7 +53,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
             </div>
             <p
               class="body-1 body-2 mt-2"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Changing this email won't change the email we have on file.
             </p>
@@ -62,7 +62,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Who do you need to discuss?
             </p>
@@ -85,7 +85,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Chris Hall
                         </p>
@@ -121,7 +121,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         Switch to...
                       </h3>
                       <img
-                        alt="switch"
+                        alt=""
                         class="size-5"
                         data-nimg="1"
                         decoding="async"
@@ -148,7 +148,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                           class="size-5 mr-2"
                         >
                           <img
-                            alt="selcted"
+                            alt=""
                             class="size-5"
                             data-nimg="1"
                             decoding="async"
@@ -165,7 +165,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Chris Hall
                           </p>
@@ -187,7 +187,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             John
                           </p>
@@ -204,7 +204,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
             />
             <p
               class="body-1 body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               What can we help you with?
             </p>
@@ -227,7 +227,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Select
                         </p>
@@ -263,7 +263,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         Switch to...
                       </h3>
                       <img
-                        alt="switch"
+                        alt=""
                         class="size-5"
                         data-nimg="1"
                         decoding="async"
@@ -290,7 +290,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                           class="size-5 mr-2"
                         >
                           <img
-                            alt="selcted"
+                            alt=""
                             class="size-5"
                             data-nimg="1"
                             decoding="async"
@@ -307,7 +307,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Select
                           </p>
@@ -329,7 +329,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Benefits & Coverage
                           </p>
@@ -351,7 +351,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             New or Existing Claims
                           </p>
@@ -373,7 +373,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Deductibles
                           </p>
@@ -395,7 +395,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Pharmacy & Prescriptions
                           </p>
@@ -417,7 +417,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Find Care
                           </p>
@@ -439,7 +439,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Dental
                           </p>
@@ -461,7 +461,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Membership & Billing Questions
                           </p>
@@ -483,7 +483,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         >
                           <p
                             class="body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Other
                           </p>
@@ -538,7 +538,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Fill out the form below to send us your message.
           </p>
@@ -567,7 +567,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
           </div>
           <p
             class="body-1 body-2 mt-2"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Changing this email won't change the email we have on file.
           </p>
@@ -576,7 +576,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Who do you need to discuss?
           </p>
@@ -599,7 +599,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Chris Hall
                       </p>
@@ -635,7 +635,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       Switch to...
                     </h3>
                     <img
-                      alt="switch"
+                      alt=""
                       class="size-5"
                       data-nimg="1"
                       decoding="async"
@@ -662,7 +662,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         class="size-5 mr-2"
                       >
                         <img
-                          alt="selcted"
+                          alt=""
                           class="size-5"
                           data-nimg="1"
                           decoding="async"
@@ -679,7 +679,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Chris Hall
                         </p>
@@ -701,7 +701,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           John
                         </p>
@@ -718,7 +718,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
           />
           <p
             class="body-1 body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             What can we help you with?
           </p>
@@ -741,7 +741,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Select
                       </p>
@@ -777,7 +777,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       Switch to...
                     </h3>
                     <img
-                      alt="switch"
+                      alt=""
                       class="size-5"
                       data-nimg="1"
                       decoding="async"
@@ -804,7 +804,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                         class="size-5 mr-2"
                       >
                         <img
-                          alt="selcted"
+                          alt=""
                           class="size-5"
                           data-nimg="1"
                           decoding="async"
@@ -821,7 +821,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Select
                         </p>
@@ -843,7 +843,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Benefits & Coverage
                         </p>
@@ -865,7 +865,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           New or Existing Claims
                         </p>
@@ -887,7 +887,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Deductibles
                         </p>
@@ -909,7 +909,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Pharmacy & Prescriptions
                         </p>
@@ -931,7 +931,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Find Care
                         </p>
@@ -953,7 +953,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Dental
                         </p>
@@ -975,7 +975,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Membership & Billing Questions
                         </p>
@@ -997,7 +997,7 @@ exports[`Send an Email should render the UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Other
                         </p>

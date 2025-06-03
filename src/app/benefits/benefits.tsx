@@ -50,6 +50,13 @@ interface BenefitsProps {
   loggedInMemeck: string;
 }
 
+const benefitDetailsUrlMapping: Record<string, string> = {
+  M: 'medical',
+  D: 'dental',
+  V: 'vision',
+  S: 'wellness',
+};
+
 const Benefits = ({
   memberInfo,
   benefitsBean,
@@ -131,9 +138,10 @@ const Benefits = ({
         serviceCategory: category,
         benefitType: benefitType,
       });
-      let path = pathName(category);
-
-      router.push(`/member/myplan/benefits/${path}`);
+      const path = pathName(category);
+      router.push(
+        `/member/myplan/benefits/${benefitDetailsUrlMapping[benefitType]}/${path}`,
+      );
     },
     [router, setSelectedBenefitDetails],
   );
@@ -169,8 +177,7 @@ const Benefits = ({
           BenefitType.DENTAL,
         ),
       );
-    }
-    else setDentalBenefitsItems([]);
+    } else setDentalBenefitsItems([]);
   }, [currentUserBenefitData, onBenefitSelected, filterAndGroupByCategoryId]);
 
   const onMemberSelectionChange = useCallback(
@@ -244,10 +251,10 @@ const Benefits = ({
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Spacer size={32} />
-        <Title className="title-1" text="Benefits & Coverage" />
+        <Title className="title-1 my-4 mb-0" text="Benefits & Coverage" />
         <Spacer size={16} />
         <RichText
+          className="my-4 mb-0"
           spans={[
             <span key={0}>If you have questions, </span>,
             <span className="link font-bold" key={1}>
@@ -260,7 +267,7 @@ const Benefits = ({
         <section className="flex flex-row items-start app-body" id="Filter">
           <Column className=" flex-grow page-section-36_67 items-stretch">
             <Filter
-              className="filter-component"
+              className="filter-component small-section"
               filterHeading="Filter Benefits"
               filterItems={[
                 {
@@ -278,7 +285,7 @@ const Benefits = ({
                 },
                 {
                   type: 'dropdown',
-                  label: 'Benefits',
+                  label: 'Benefit type',
                   value: benefitTypes,
                   selectedValue:
                     currentSelectedBenefitType === undefined
@@ -295,7 +302,7 @@ const Benefits = ({
                 );
                 onFilterSelectChange(index, data);
               }}
-              showReset={true}
+              showReset={false}
               onReset={() => {
                 onMemberSelectionChange(memberDropdownValues[0].value);
                 onBenefitTypeSelectChange(benefitTypes[0].value);
@@ -317,7 +324,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] benefitsLink"
                   heading="Medical"
-                  cardIcon={<Image src={PrimaryCareIcon} alt="link" />}
+                  cardIcon={<Image src={PrimaryCareIcon} alt="" />}
                   manageBenefitItems={medicalBenefitsItems}
                 />
               )}
@@ -330,7 +337,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Pharmacy"
-                  cardIcon={<Image src={PharmacyIcon} alt="link" />}
+                  cardIcon={<Image src={PharmacyIcon} alt="" />}
                   manageBenefitItems={rxBenefitsItems}
                 />
               )}
@@ -344,7 +351,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Dental"
-                  cardIcon={<Image src={DentalIcon} alt="link" />}
+                  cardIcon={<Image src={DentalIcon} alt="" />}
                   manageBenefitItems={dentalBenefitsItems}
                 />
               )}
@@ -358,7 +365,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Vision"
-                  cardIcon={<Image src={VisionIcon} alt="link" />}
+                  cardIcon={<Image src={VisionIcon} alt="" />}
                   manageBenefitItems={[
                     {
                       title: 'Visit EyeMed',
@@ -367,7 +374,7 @@ const Benefits = ({
                       url:
                         '/sso/launch?PartnerSpId=' +
                         process.env.NEXT_PUBLIC_IDP_EYEMED,
-                      icon: <Image src={externalIcon} alt="link" />,
+                      icon: <Image src={externalIcon} alt="" />,
                     },
                   ]}
                 />
@@ -380,7 +387,7 @@ const Benefits = ({
                 <MedicalPharmacyDentalCard
                   className="small-section w-[672px] "
                   heading="Other Benefits"
-                  cardIcon={<Image src={OtherBenefit} alt="link" />}
+                  cardIcon={<Image src={OtherBenefit} alt="" />}
                   manageBenefitItems={otherBenefitItems}
                 />
               )}

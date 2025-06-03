@@ -1,5 +1,6 @@
 import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { getUserProfiles } from '@/actions/profileData';
+import { getDigitalId } from '@/app/support/actions/getDigitalId';
 import { auth } from '@/auth';
 import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
@@ -10,8 +11,23 @@ export const SiteHeaderServerWrapper = async () => {
   //const visibityRules = await getVisibilityRules();
   const session = await auth();
   const visibityRules = session?.user.vRules;
+
   if (visibityRules) {
     try {
+      let digitalIdResponse;
+      try {
+        if (
+          session?.user.currUsr?.plan!.grpId &&
+          session?.user.currUsr?.plan.memCk
+        ) {
+          digitalIdResponse = await getDigitalId(
+            session?.user.currUsr?.plan.grpId,
+            session?.user.currUsr?.plan.memCk,
+          );
+        }
+      } catch (error) {
+        logger.error('SiteHeader Action - getDigitalId Failed {}', error);
+      }
       const profiles = await getUserProfiles();
       const selectedProfile = profiles.find((item) => item.selected == true)!;
       const selectedPlanId = selectedProfile?.plans.find(
@@ -41,7 +57,7 @@ export const SiteHeaderServerWrapper = async () => {
           plans={plans}
           selectedPlan={selectedPlan}
           selectedProfile={selectedProfile}
-          userId={session?.user.id}
+          userId={digitalIdResponse?.data?.hashCode ?? ''}
           groupId={session?.user.currUsr.plan?.grpId}
         />
       );

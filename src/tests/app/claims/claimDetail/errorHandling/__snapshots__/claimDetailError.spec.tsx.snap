@@ -15,7 +15,7 @@ exports[`Claim Details Error Handling should show the Error Info Card on claim d
           class="flex flex-row flex flex-row align-top m-4"
         >
           <img
-            alt="alert"
+            alt=""
             class="icon"
             data-nimg="1"
             decoding="async"

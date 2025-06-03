@@ -24,7 +24,7 @@ export const ProviderContactInformation = ({
   label,
   providerDetails,
   className,
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
 }: ProviderContactInformationProps) => {
   const addressLine3 = `${toPascalCase(providerDetails?.city ?? '')} ${providerDetails?.state ?? ''} ${formatZip(providerDetails?.zip) ?? ''}`;
 
@@ -124,7 +124,7 @@ export const ProviderContactInformation = ({
                     <Image
                       src={emptyStateDocument}
                       className="icon !w-10 !h-10"
-                      alt="emptyStateDocument"
+                      alt=""
                     />
                     <Spacer axis="horizontal" size={8} />
                     <TextBox

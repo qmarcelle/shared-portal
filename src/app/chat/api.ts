@@ -5,12 +5,6 @@ import { logger } from '@/utils/logger';
 
 const LOG_PREFIX = '[ChatAPI:getChatInfo]';
 
-interface ChatInfoParams {
-  memberId: string;
-  planId: string;
-  memberType?: string;
-}
-
 // Define a more specific return type if known, otherwise 'any' is a placeholder.
 // Ideally, this should match the structure of the data returned by the /api/chat/getChatInfo endpoint.
 export interface ChatInfoResponse {
@@ -37,12 +31,10 @@ export interface ChatInfoResponse {
 
 export async function getChatInfo(
   memberId: string,
-  planId: string,
   memberType?: string,
 ): Promise<ChatInfoResponse> {
   const params = new URLSearchParams();
   params.append('memberId', memberId);
-  params.append('planId', planId);
   if (memberType) {
     params.append('memberType', memberType);
   }

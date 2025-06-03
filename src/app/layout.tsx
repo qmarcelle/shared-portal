@@ -1,14 +1,18 @@
 /* eslint-disable @next/next/no-sync-scripts */
 
+// import '@/../public/assets/genesys/plugins/widgets.min.css'; // Removed this import
 import '@/app/globals.css';
 import { ClientInitComponent } from '@/components/clientComponents/ClientInitComponent';
 import { FooterServerWrapper } from '@/components/serverComponents/FooterServerWrapper';
 import { SiteHeaderServerWrapper } from '@/components/serverComponents/StiteHeaderServerWrapper';
 import '@/styles/base.css';
 import '@/styles/checkbox.css';
+import '@/styles/genesys-overrides.css';
+import { SessionProvider } from 'next-auth/react';
 import 'react-responsive-modal/styles.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import '../styles/genesys-overrides.css';
 import ClientLayout from './ClientLayout';
 
 export default function RootLayout({
@@ -18,10 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="/assets/genesys/plugins/widgets.min.css" />
+      </head>
       <body>
         <ClientInitComponent />
+        <SessionProvider>
         <SiteHeaderServerWrapper />
         <ClientLayout>{children}</ClientLayout>
+        </SessionProvider>
         <FooterServerWrapper />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <script

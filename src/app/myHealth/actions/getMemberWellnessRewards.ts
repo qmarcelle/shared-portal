@@ -25,9 +25,13 @@ export const getMemberWellnessRewards = async (
         isBalance: true,
       },
     };
+
+    logger.info('Member Rewards Request'+JSON.stringify(request));
     const response: ESResponse<MemberRewardsResponse> = (
       await esApi.post('/memberRewards/member/getMbrWellness', request)
     )?.data;
+    logger.info('Member Rewards Response' + JSON.stringify(response));
+    
     if (!response?.data?.accounts?.balance?.length) throw 'No Response';
     memberRewards = getRewards(response?.data, session);
     logger.info('memberRewards', memberRewards);
@@ -46,6 +50,7 @@ const getRewards = (
   let points: number | undefined;
   let dollars: number | undefined;
   const maxPoints: number = 100;
+  const annualMaxDollars: number = 500;
   let pointConversion: number = 0;
   const balances = response.accounts?.balance;
   let isSelfFunded: boolean = true;
@@ -79,17 +84,26 @@ const getRewards = (
       points = 0.0;
       dollars = 0.0;
     }
+
+    memberRewards.quarterlyPointsEarned = points;
+    memberRewards.quarterlyMaxPoints = maxPoints;
+    memberRewards.totalAmountEarned = dollars;
+    memberRewards.totalAmount = maxPoints * pointConversion;
+    memberRewards.isSelfFunded = isSelfFunded;
   } else {
-    points = 0.0;
-    dollars = 0.0;
+    dollars = 0;
+    (balances || []).forEach((balanceObj) => {
+      if (balanceObj.rewardType === 'Fully Insured - Dollars') {
+        dollars = parseInt(balanceObj.balance);
+      }
+    });
+    memberRewards.totalAmountEarned = dollars;
+    memberRewards.totalAmount = annualMaxDollars;
+    memberRewards.isSelfFunded = isSelfFunded;
   }
   //const pointsPercentage = (points / maxPoints) * 100.0;
   //const balanceMax = maxPoints * pointConversion;
-  memberRewards.quarterlyPointsEarned = points;
-  memberRewards.quarterlyMaxPoints = maxPoints;
-  memberRewards.totalAmountEarned = dollars;
-  memberRewards.totalAmount = maxPoints * pointConversion;
-  memberRewards.isSelfFunded = isSelfFunded;
+
   return memberRewards;
 };
 

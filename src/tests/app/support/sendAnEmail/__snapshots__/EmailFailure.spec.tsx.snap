@@ -9,7 +9,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
         class="flex flex-col items-center"
       >
         <img
-          alt="alert"
+          alt=""
           class="size-[80px]"
           data-nimg="1"
           decoding="async"
@@ -39,7 +39,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
           >
             <p
               class="body-1 text-center"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We're sorry, something went wrong. Please try again later.
             </p>
@@ -56,7 +56,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
       class="flex flex-col items-center"
     >
       <img
-        alt="alert"
+        alt=""
         class="size-[80px]"
         data-nimg="1"
         decoding="async"
@@ -86,7 +86,7 @@ exports[`Send an Email Success should render the UI correctly 1`] = `
         >
           <p
             class="body-1 text-center"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We're sorry, something went wrong. Please try again later.
           </p>

@@ -27,6 +27,10 @@ export default {
       },
       async authorize(credentials): Promise<SessionUser> {
         const username = credentials.userId?.toString();
+        const impersonator =
+          credentials.impersonator && credentials.impersonator != 'null'
+            ? credentials.impersonator.toString()
+            : undefined;
         if (!username) {
           logger.error(
             'Tried to create session with an empty username. Something is very wrong!',
@@ -38,8 +42,9 @@ export default {
             username,
             undefined,
             undefined,
-            credentials.impersonator?.toString(),
+            impersonator,
           );
+          //console.log(`[DEBUG] user=${JSON.stringify(user)}`);
           return user;
         } catch (err) {
           console.log(`computeSessionUser failure username=${username}`);

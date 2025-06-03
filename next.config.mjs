@@ -40,6 +40,10 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+  devIndicators: {
+    buildActivity: true,
+    buildActivityPosition: 'bottom-right',
+  },
 };
 
 export default nextConfig;

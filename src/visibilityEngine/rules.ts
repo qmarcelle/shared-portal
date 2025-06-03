@@ -47,7 +47,6 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'payMyPremiumElig',
   'mentalHealthSupport',
   'myStrengthCompleteEligible',
-  'primary360Eligible',
   'hingeHealthEligible',
   'groupRenewalDateBeforeTodaysDate',
   'healthCoachElig',
@@ -81,7 +80,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'prevYearFullyInsured',
   'offMarketGrp',
   'isCondensedExperienceProfileHorizon',
-  'isWellnessProfileWellnessOnly',
+  'cityOfMemphisWellnessOnly',
   'ncqaEligible',
   'phaMemberEligible',
   'isMskEligible',
@@ -94,6 +93,14 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isHighDeductiblePlanMember',
   'isLifePointGrp',
   'isAmplifyHealthGroupEnabled',
+  'hasFSA',
+  'hasHRA',
+  'hasHSA',
+  'internalBCBSTSA',
+  'healthEquity',
+  'hsaBank',
+  'pinnacleBank',
+  'otherInsuranceEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

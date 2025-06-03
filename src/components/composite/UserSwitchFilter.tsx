@@ -52,7 +52,7 @@ const UserProfileTile = ({
               className={`font-bold text-xl py-1 ${isSelected ? '' : 'primary-color'}`}
             />
             <Image
-              alt="selected"
+              alt=""
               className="size-5 m-[2px]"
               src={isSelected ? checkGreenIcon : rightIcon}
             />
@@ -94,11 +94,7 @@ const UserSwitchHead = ({ user }: { user: UserProfile }) => {
         />
       </Column>
       {user.id.length > 1 && (
-        <Image
-          alt="switch"
-          className="size-5 head-icon"
-          src={switchFilterIcon}
-        />
+        <Image alt="" className="size-5 head-icon" src={switchFilterIcon} />
       )}
     </Row>
   );
@@ -127,7 +123,7 @@ export const UserSwitchFilter = ({
         label: 'All Profile Settings',
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3 ',
-        icon: <Image src={parentPageArrowIcon} alt="link" />,
+        icon: <Image src={parentPageArrowIcon} alt="" />,
         url: '/member/profile',
       },
       {
@@ -147,7 +143,7 @@ export const UserSwitchFilter = ({
         label: 'All Profile Settings',
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3',
-        icon: <Image src={parentPageArrowIcon} alt="link" />,
+        icon: <Image src={parentPageArrowIcon} alt="" />,
         url: '/member/profile',
       },
 

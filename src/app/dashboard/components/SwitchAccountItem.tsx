@@ -33,7 +33,7 @@ export const SwitchAccountItem = ({
             className={'!font-bold title-3 text-[--primary-color]'}
             text={memberName}
           />
-          <Image src={rightIcon} alt="link" />
+          <Image src={rightIcon} alt="" />
         </Row>
         <Row>
           <TextBox text="DOB: " ariaLabel="DOB: " />

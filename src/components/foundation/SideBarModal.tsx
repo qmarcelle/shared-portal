@@ -119,7 +119,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
           onClick={onBackPressed}
           className="items-center focus-icon"
         >
-          <img src={leftIcon} className="modal-icon" alt="back" />
+          <Image src={leftIcon} className="modal-icon" alt="" />
           <TextBox text="Back" className="primary-color underline" />
         </Row>
       ) : (
@@ -128,7 +128,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
       <img
         src={bcbstSilhouletteLogo}
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-        alt="bcbst logo"
+        alt=""
       />
       <div
         className="size-8 focus-icon"
@@ -136,7 +136,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
         onKeyDown={handleKeyDown}
         onClick={onClose}
       >
-        <img src={closeIcon} className="size-4" alt="close" />
+        <Image src={closeIcon} className="size-4" alt="" />
       </div>
     </Row>
   );

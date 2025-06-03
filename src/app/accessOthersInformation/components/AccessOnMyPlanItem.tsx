@@ -15,10 +15,12 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import {
   AccessStatus,
   ShareMyPlanDetails,
 } from '@/models/app/getSharePlanDetails';
+import { googleAnalytics } from '@/utils/analytics';
 import { capitalizeName } from '@/utils/capitalizeName';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
@@ -45,11 +47,23 @@ export const AccessOnMyPlanItem = ({
   onClick,
   className,
   infoButton,
-  icon = <Image src={editIcon} alt="link" />,
-  icon1 = <Image src={inboxIcon} alt="link" />,
-  pendingIcon = <Image src={pendingLogo} alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
+  icon1 = <Image src={inboxIcon} alt="" />,
+  pendingIcon = <Image src={pendingLogo} alt="" />,
   allowUpdates = true,
 }: AccessOnMyPlanItemProps) => {
+  function trackPlanItemUpdateAnalytics() {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: 'Update',
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'modal',
+      element_category: 'On My Plan',
+      action: 'click',
+    };
+    googleAnalytics(analytics);
+  }
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
     return (
@@ -149,7 +163,8 @@ export const AccessOnMyPlanItem = ({
                           ? icon
                           : undefined
                       }
-                      callback={() =>
+                      callback={() => {
+                        trackPlanItemUpdateAnalytics();
                         showAppModal({
                           content: (
                             <RequestAccessOnMyPlan
@@ -160,8 +175,8 @@ export const AccessOnMyPlanItem = ({
                               }
                             />
                           ),
-                        })
-                      }
+                        });
+                      }}
                     />
                   </>
                 ) : (

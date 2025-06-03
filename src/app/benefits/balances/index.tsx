@@ -6,9 +6,10 @@ import { TextBox } from '@/components/foundation/TextBox';
 import {
   isDentalCostEstimator,
   isFindADentist,
+  isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
-import { SpendingAccountSummary } from '../../dashboard/components/SpendingAccountSummary';
+import { AnnualSpendingSummary } from '../../dashboard/components/AnnualSpendingSummary';
 import { BalanceSectionWrapper } from './components/BalanceSection';
 import { SpendingAccountSection } from './components/SpendingAccountsSection';
 import { VisionBalance } from './components/VisionBalance';
@@ -22,7 +23,6 @@ type BalancePageProps = {
 export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className="my-4 mb-0" text="Balances" />
         <TextBox
@@ -56,7 +56,7 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
             )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <SpendingAccountSummary
+            <AnnualSpendingSummary
               className="large-section"
               title="Spending Summary"
               linkLabel="View Spending Summary"
@@ -68,12 +68,14 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
               color1={'#005EB9'}
               color2={'#5DC1FD'}
             />
-            <SpendingAccountSection
-              className="large-section"
-              fsaBalance={1009.5}
-              hsaBalance={349.9}
-              linkURL=""
-            />
+            {isSpendingAccountsEligible(data?.visibilityRules) && (
+              <SpendingAccountSection
+                className="large-section"
+                fsaBalance={1009.5}
+                hsaBalance={349.9}
+                linkURL="/member/spendingaccounts"
+              />
+            )}
           </Column>
         </section>
       </Column>

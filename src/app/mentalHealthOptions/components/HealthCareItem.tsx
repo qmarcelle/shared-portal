@@ -79,11 +79,7 @@ export const HealthCareItem = ({
           text={healthCareInfo.healthcareType}
         ></TextBox>
         {healthCareInfo.icon && (
-          <Image
-            src={getHealthIcon()}
-            className="w-1/2"
-            alt={healthCareInfo.icon}
-          />
+          <Image src={getHealthIcon()} className="w-1/2" alt="" />
         )}
         <Spacer axis="horizontal" size={8} />
         <Column className="flex flex-col flex-grow">
@@ -120,11 +116,7 @@ export const HealthCareItem = ({
             text="Medical Health"
           ></TextBox>
           {healthCareInfo.icon && (
-            <Image
-              src={getHealthIcon()}
-              className="w-1/2"
-              alt={healthCareInfo.icon}
-            />
+            <Image src={getHealthIcon()} className="w-1/2" alt="" />
           )}
           <SpacerX size={8} />
           <Column className="flex flex-col flex-grow">

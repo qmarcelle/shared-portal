@@ -7,7 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { setWebsphereRedirectCookie } from '@/utils/wps_redirect';
+import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AxiosError } from 'axios';
 import { PortalLoginResponse } from '../models/api/login';
 import { VerifyEmailOtpRequest } from '../models/api/verify_email_otp_request';
@@ -35,7 +35,7 @@ export async function callVerifyEmailOtp(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
-        await setWebsphereRedirectCookie({
+        await setSTAndInteractionDataCookies({
           ...resp.data.data,
         });
         status = LoginStatus.LOGIN_OK;

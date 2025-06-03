@@ -36,20 +36,8 @@ export const AccordionListCard = ({
               child={info.body}
               initialOpen={false}
               type="card"
-              openIcon={
-                <img
-                  className="pl-2 w-6"
-                  src="/assets/down.svg"
-                  alt="Down Chevron"
-                />
-              }
-              closeIcon={
-                <img
-                  className="pl-2 w-6"
-                  src="/assets/up.svg"
-                  alt="Up Chevron"
-                />
-              }
+              openIcon={<Image className="pl-2 w-6" src={Down} alt=""></Image>}
+              closeIcon={<Image className="pl-2 w-6" src={Up} alt=""></Image>}
               onOpenCallBack={() =>
                 info.onOpenCallBack && info.onOpenCallBack()
               }

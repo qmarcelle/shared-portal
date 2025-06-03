@@ -26,7 +26,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
         />
         <p
           class="body-1 max-md:mx-4 max-lg:mx-6"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           We work with Experian to keep your medical information secure, at no additional cost.
         </p>
@@ -67,7 +67,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                       About Enrollment
                     </p>
                     <img
-                      alt="Down Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -99,7 +99,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                       How to Re-enroll
                     </p>
                     <img
-                      alt="Up Chevron"
+                      alt=""
                       class="pl-2 w-6"
                       data-nimg="1"
                       decoding="async"
@@ -116,7 +116,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       To re-enroll, select the plan and follow the steps. Remember to re-enroll all covered members.
                     </p>
@@ -148,7 +148,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   We have two options to keep you and your family protected.
                 </p>
@@ -171,7 +171,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                         IdentityWorks Credit 1B
                       </p>
                       <img
-                        alt="external"
+                        alt=""
                         class="-mt-[5px]"
                         data-nimg="1"
                         decoding="async"
@@ -188,7 +188,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Get credit monitoring and reports, as well as fraud protection and resolution support for adults on one of our health plans. If anyone on your plan is 18 years or older, they’ll need to enroll separately.
                       </p>
@@ -200,13 +200,13 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Activation Code:
                         </p>
                         <p
                           class="body-1 font-bold pl-[5px]"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           BXSH897HGK
                         </p>
@@ -230,7 +230,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                         IdentityWorks Minor Plus
                       </p>
                       <img
-                        alt="external"
+                        alt=""
                         class="-mt-[5px]"
                         data-nimg="1"
                         decoding="async"
@@ -247,7 +247,7 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                     >
                       <p
                         class="body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Get credit and Social Security Number monitoring for all children under the age of 18 in the household.
                       </p>
@@ -259,13 +259,13 @@ exports[`Identity Protection Services should render UI correctly 1`] = `
                       >
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Activation Code:
                         </p>
                         <p
                           class="body-1 font-bold pl-[5px]"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ASBA936GWP
                         </p>

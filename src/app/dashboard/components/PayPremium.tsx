@@ -1,4 +1,5 @@
 import { IComponent } from '@/components/IComponent';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { useAppModalStore } from '@/components/foundation/AppModal';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -6,17 +7,18 @@ import { externalOffsiteWhiteIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { payMyPremiumMedicareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 import { ViewPayPremium } from './viewPayPremium';
-import { VisibilityRules } from '@/visibilityEngine/rules';
-import { payMyPremiumMedicareEligible } from '@/visibilityEngine/computeVisibilityRules';
 
 interface PayPremiumProps extends IComponent {
   dueDate: string;
-  amountDue: number;
+  amountDue: string;
   icon?: ReactNode;
-  visibilityRules?:VisibilityRules;
+  visibilityRules?: VisibilityRules;
 }
 
 export const PayPremiumSection = ({
@@ -24,33 +26,45 @@ export const PayPremiumSection = ({
   amountDue,
   className,
   visibilityRules,
-  icon = <Image alt="external icon" src={externalOffsiteWhiteIcon} />,
+  icon = <Image alt="" src={externalOffsiteWhiteIcon} />,
 }: PayPremiumProps) => {
-  const { showAppModal,dismissModal } = useAppModalStore();  
+  const { showAppModal, dismissModal } = useAppModalStore();
+  const router = useRouter();
   return (
     <Card className={className}>
-      <div>
+      <>
         <h2 className="title-2">Pay Premium</h2>
         <Spacer size={32} />
-        <Row>
-          <TextBox text="Payment Due Date" />
-          <p className="body-bold ml-auto">{dueDate}</p>
-        </Row>
-        <Spacer size={12} />
-        <Row>
-          <TextBox text="Amount Due" />
-          <p className="body-bold ml-auto">${amountDue}</p>
-        </Row>
-        <Spacer size={32} />
-        {!payMyPremiumMedicareEligible(visibilityRules) ? (
-                <Button icon={icon} label="View or Pay Premium" callback={() => null} />
-        ): (
-        <Button
-          icon={icon}
-          label="View or Pay Premium"
-          callback={() =>
-            showAppModal({
-              content: 
+        {dueDate || amountDue ? (
+          <div>
+            <Row>
+              <TextBox text="Payment Due Date" />
+              <p className="body-bold ml-auto">{dueDate}</p>
+            </Row>
+            <Spacer size={12} />
+            <Row>
+              <TextBox text="Amount Due" />
+              <p className="body-bold ml-auto">${Number(amountDue).toFixed(2)}</p>
+            </Row>
+            <Spacer size={32} />
+            {!payMyPremiumMedicareEligible(visibilityRules) ? (
+              <Button
+                icon={icon}
+                label="View or Pay Premium"
+                callback={() => {
+                  router.push(
+                    '/sso/launch?PartnerSpId=' +
+                      process.env.NEXT_PUBLIC_IDP_ELECTRONIC_PAYMENT_BOA,
+                  );
+                }}
+              />
+            ) : (
+              <Button
+                icon={icon}
+                label="View or Pay Premium"
+                callback={() =>
+                  showAppModal({
+                    content: (
                       <ViewPayPremium
                         key="first"
                         label="Open External Website"
@@ -60,12 +74,18 @@ export const PayPremiumSection = ({
                         secondaryButtonLabel="Continue"
                         primaryButtonCallback={dismissModal}
                         secondaryButtonCallback={dismissModal}
-                      />,
-            })
-          }
-        />)
-        }
-      </div>
+                      />
+                    ),
+                    modalType: 'alternate',
+                  })
+                }
+              />
+            )}
+          </div>
+        ) : (
+          <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+        )}
+      </>
     </Card>
   );
 };

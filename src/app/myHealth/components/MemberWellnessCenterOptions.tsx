@@ -56,7 +56,7 @@ export const MemberWellnessCenterOptions = ({
                     label="Visit Member Wellness Center"
                     className="link hover:!underline caremark !flex pt-0 pl-0"
                     url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`}
-                    icon={<Image src={externalIcon} alt="external" />}
+                    icon={<Image src={externalIcon} alt="" />}
                   />
                 </Row>,
               ]}

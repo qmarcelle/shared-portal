@@ -139,35 +139,37 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [
-        {
-          medicalBean: {
-            otherInsuranceCompanyName: 'METLIFE (VISION COVERAGE ONLY)',
-            otherInsurancePhoneNum: '8005439150',
-            policyIdNum: 'VISION ONLY',
-            policyHolderFirstName: '',
-            policyHolderLastName: '',
-            policyEffectiveDate: '01/01/2006',
-            policyCancelDate: '12/31/9999',
-            otherInsuranceCompanyCode: 'METLIFE',
+      data: {
+        cobList: [
+          {
+            medicalBean: {
+              otherInsuranceCompanyName: 'METLIFE (VISION COVERAGE ONLY)',
+              otherInsurancePhoneNum: '8005439150',
+              policyIdNum: 'VISION ONLY',
+              policyHolderFirstName: '',
+              policyHolderLastName: '',
+              policyEffectiveDate: '01/01/2006',
+              policyCancelDate: '12/31/9999',
+              otherInsuranceCompanyCode: 'METLIFE',
+              noOtherInsurance: false,
+            },
+            dentalBean: {
+              otherInsuranceCompanyName: 'Not Assigned',
+              otherInsurancePhoneNum: '',
+              policyIdNum: '621239891',
+              policyHolderFirstName: '',
+              policyHolderLastName: '',
+              policyEffectiveDate: '07/01/2007',
+              policyCancelDate: '12/31/9999',
+              otherInsuranceCompanyCode: '',
+              noOtherInsurance: false,
+            },
+            memeCK: '91722407',
+            forAllDependents: false,
             noOtherInsurance: false,
           },
-          dentalBean: {
-            otherInsuranceCompanyName: 'Not Assigned',
-            otherInsurancePhoneNum: '',
-            policyIdNum: '621239891',
-            policyHolderFirstName: '',
-            policyHolderLastName: '',
-            policyEffectiveDate: '07/01/2007',
-            policyCancelDate: '12/31/9999',
-            otherInsuranceCompanyCode: '',
-            noOtherInsurance: false,
-          },
-          memeCK: '91722407',
-          forAllDependents: false,
-          noOtherInsurance: false,
-        },
-      ],
+        ],
+      },
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
@@ -198,9 +200,15 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [
-        { memeCK: '91722407', forAllDependents: true, noOtherInsurance: true },
-      ],
+      data: {
+        cobList: [
+          {
+            memeCK: '91722407',
+            forAllDependents: true,
+            noOtherInsurance: true,
+          },
+        ],
+      },
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
@@ -216,7 +224,7 @@ describe('OtherHealthInsurance', () => {
     const mockAuth = jest.requireMock('src/auth').auth;
     mockAuth.mockResolvedValueOnce(vRules);
     mockedAxios.get.mockResolvedValueOnce({
-      data: [null],
+      data: {},
     });
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));
     await setupUI();
@@ -226,11 +234,7 @@ describe('OtherHealthInsurance', () => {
       );
       expect(response).toBeNull;
     });
-    expect(
-      screen.getAllByText(
-        'There was a problem loading your information. Please try refreshing the page or returning to this page later.',
-      ).length,
-    ).toBe(1);
+    screen.getByText('Not covered by other health insurance.');
   });
 
   test('other Insurance api integration 400 bad request scenario', async () => {
@@ -262,7 +266,7 @@ describe('OtherHealthInsurance', () => {
     mockedAxios.get.mockRejectedValue(
       createAxiosErrorForTest({
         errorObject: {},
-        status: 400,
+        status: 500,
       }),
     );
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(loggedinUser));

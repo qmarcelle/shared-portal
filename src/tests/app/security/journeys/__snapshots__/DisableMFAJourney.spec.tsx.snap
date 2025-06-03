@@ -39,7 +39,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -55,7 +55,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -99,7 +99,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                       >
                         <p
                           class="body-1 body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Are you sure you want to turn off the email method of mutli-factor authentication?
                         </p>
@@ -140,7 +140,7 @@ exports[`Disable MFA Journey should render the screens correctly 1`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"
@@ -200,7 +200,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                   tabindex="1"
                 />
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon modal-header-logo absolute m-auto left-0 right-0"
                   data-nimg="1"
                   decoding="async"
@@ -216,7 +216,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                   tabindex="0"
                 >
                   <img
-                    alt="close"
+                    alt=""
                     class="size-4"
                     data-nimg="1"
                     decoding="async"
@@ -242,7 +242,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                     class="flex flex-col items-center"
                   >
                     <img
-                      alt="success"
+                      alt=""
                       class="size-[80px]"
                       data-nimg="1"
                       decoding="async"
@@ -272,7 +272,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           You've Successfully turned off the email method of multi-factor authentication.
                         </p>
@@ -298,7 +298,7 @@ exports[`Disable MFA Journey should render the screens correctly 2`] = `
                 class="flex flex-row justify-center modal-footer"
               >
                 <img
-                  alt="bcbst logo"
+                  alt=""
                   class="modal-icon"
                   data-nimg="1"
                   decoding="async"

@@ -3,10 +3,14 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
-import { StatusLabel } from '@/components/foundation/StatusLabel';
+import {
+  StatusLabel,
+  StatusLabelEnum,
+} from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ClaimDetails } from '@/models/claim_details';
 import { formatCurrency } from '@/utils/currency_formatter';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
@@ -28,19 +32,21 @@ export const ClaimItem = ({
   function getSuccessStatus() {
     switch (claimInfo.claimStatus) {
       case 'Processed':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Paid':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
       case 'Denied':
-        return 'error';
+        return StatusLabelEnum.ERROR;
       case 'Pending':
-        return 'neutral';
+        return StatusLabelEnum.NEUTRAL;
       case 'Partial Approval':
-        return 'partialapproval';
+        return StatusLabelEnum.PARTIAL_APPROVAL;
       case 'Approved':
-        return 'success';
+        return StatusLabelEnum.SUCCESS;
+      case 'Completed':
+        return StatusLabelEnum.SUCCESS;
       default:
-        return 'empty';
+        return StatusLabelEnum.EMPTY;
     }
   }
 
@@ -76,22 +82,14 @@ export const ClaimItem = ({
   function getClaimItem() {
     return (
       <section className="md:flex md:flex-row align-top m-4">
-        <Image
-          src={getClaimIcon()}
-          className="icon max-md:hidden"
-          alt={claimInfo.claimType}
-        />
+        <Image src={getClaimIcon()} className="icon max-md:hidden" alt="" />
         <Spacer axis="horizontal" size={8} />
         <Column className="min-w-[95%]">
           <section className="md:flex md:flex-row md:justify-between">
             <section className="flex flex-row mb-[10px] md:flex-col">
-              <Image
-                src={getClaimIcon()}
-                className="icon md:hidden"
-                alt={claimInfo.claimType}
-              />
+              <Image src={getClaimIcon()} className="icon md:hidden" alt="" />
               <Header
-                text={claimInfo.issuer}
+                text={toPascalCase(claimInfo.issuer)}
                 type="title-3"
                 className="body-bold primary-color max-md:ml-[5px]"
               />
@@ -103,14 +101,32 @@ export const ClaimItem = ({
               />
               {claimInfo.isMiniCard && (
                 <Column className="md:hidden">
-                  <TextBox
-                    className="body-1 font-bold mt-2"
-                    text={
-                      claimInfo.claimTotal != null
-                        ? `$${claimInfo.claimTotal}`
-                        : ''
-                    }
-                  />
+                  {claimInfo.columns
+                    ?.filter((column) => column.label === 'My Share')
+                    .map((column, index) => (
+                      <TextBox
+                        key={index}
+                        className="body-1 font-bold mt-2"
+                        text={
+                          getFormattedDataValue(
+                            column.value,
+                            column.defaultValue,
+                            column.isDollar ?? false,
+                          ) ?? column.defaultValue
+                        }
+                      />
+                    ))}
+
+                  {!claimInfo.columns && (
+                    <TextBox
+                      className="body-1 font-bold mt-2"
+                      text={
+                        claimInfo.claimTotal != null
+                          ? `$${claimInfo.claimTotal}`
+                          : ''
+                      }
+                    />
+                  )}
                 </Column>
               )}
             </section>
@@ -120,22 +136,41 @@ export const ClaimItem = ({
               <Column>
                 <TextBox
                   className="body-1 mt-2"
-                  text={`Visited on ${claimInfo.serviceDate}, For ${claimInfo.memberName}`}
+                  text={`Visited on ${claimInfo.serviceDate}, For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
+
               <Column className="max-md:hidden">
-                <TextBox
-                  className="body-1 font-bold mt-2"
-                  text={
-                    claimInfo.claimTotal != null
-                      ? `$${claimInfo.claimTotal}`
-                      : ''
-                  }
-                />
+                {claimInfo.columns
+                  ?.filter((column) => column.label === 'My Share')
+                  .map((column, index) => (
+                    <TextBox
+                      key={index}
+                      className="body-1 font-bold mt-2"
+                      text={
+                        getFormattedDataValue(
+                          column.value,
+                          column.defaultValue,
+                          column.isDollar ?? false,
+                        ) ?? column.defaultValue
+                      }
+                    />
+                  ))}
+
+                {!claimInfo.columns && (
+                  <TextBox
+                    className="body-1 font-bold mt-2"
+                    text={
+                      claimInfo.claimTotal != null
+                        ? `$${claimInfo.claimTotal}`
+                        : ''
+                    }
+                  />
+                )}
               </Column>
             </Row>
           )}
-          {claimInfo.columns && (
+          {claimInfo.columns && !claimInfo.isMiniCard && (
             <Row className="mt-2">
               <Column className="mr-2 flex-grow max-md:hidden">
                 <TextBox
@@ -144,7 +179,7 @@ export const ClaimItem = ({
                 />
                 <TextBox
                   className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
+                  text={`For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
               <Column className="flex-grow mr-5 md:hidden">
@@ -152,7 +187,7 @@ export const ClaimItem = ({
                 <TextBox className="body-1" text={claimInfo.serviceDate} />
                 <TextBox
                   className="body-1 mt-2"
-                  text={`For ${claimInfo.memberName}`}
+                  text={`For ${toPascalCase(claimInfo.memberName)}`}
                 />
               </Column>
               {claimInfo.columns.map((item, index) => (
@@ -195,7 +230,7 @@ export const ClaimItem = ({
         }
       }}
       role="button"
-      aria-label={`${claimInfo.claimType} claim for ${claimInfo.memberName} from ${claimInfo.issuer} with status ${claimInfo.claimStatus}`}
+      aria-label={`${claimInfo.claimType} claim for ${toPascalCase(claimInfo.memberName)} from ${toPascalCase(claimInfo.issuer)} with status ${claimInfo.claimStatus}`}
       tabIndex={0}
     >
       {getClaimItem()}

@@ -1,10 +1,10 @@
+import { AnnualSpendingSummary } from '@/app/dashboard/components/AnnualSpendingSummary';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { SpendingAccountSummary } from '../../../app/dashboard/components/SpendingAccountSummary';
 
 const renderUI = () => {
   return render(
-    <SpendingAccountSummary
+    <AnnualSpendingSummary
       className="large-section"
       title="Spending Summary"
       linkLabel="View Spending Summary"
@@ -19,7 +19,7 @@ const renderUI = () => {
   );
 };
 
-describe('SpendingAccountSummary', () => {
+describe('AnnualSpendingSummary', () => {
   it('should render the UI correctly', async () => {
     renderUI();
     expect(screen.getByText('Spending Summary')).toBeVisible();

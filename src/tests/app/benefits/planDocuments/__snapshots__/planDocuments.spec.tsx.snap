@@ -29,38 +29,48 @@ exports[`planDocuments should render the UI correctly 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
-            <p
-              class="body-1 inline"
-              style="display: block;"
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row body-1"
             >
-              To request a printed version of any of these materials, please 
-            </p>
-            <a
-              class="inline py-0 pl-0 pr-0"
-              href="/member/support"
-            >
-              <button
-                class="inline py-0 pl-0 pr-0"
-                style="max-width: max-content; height: auto;"
-                tabindex="0"
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
               >
-                <p
-                  class="link"
+                To request a printed version of any of these materials, please
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <a
+                class="inline py-0 pl-0 pr-0"
+                href="/member/support"
+              >
+                <button
+                  class="inline py-0 pl-0 pr-0"
+                  style="max-width: max-content; height: auto;"
+                  tabindex="0"
                 >
-                  contact us
-                </p>
-              </button>
-            </a>
-            <p
-              class="body-1 inline"
-              style="display: block;"
-            >
-              .
-            </p>
+                  <p
+                    class="link"
+                  >
+                     contact us
+                  </p>
+                </button>
+              </a>
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
+              >
+                .
+              </p>
+            </div>
           </section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -94,38 +104,48 @@ exports[`planDocuments should render the UI correctly 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
-          <p
-            class="body-1 inline"
-            style="display: block;"
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row body-1"
           >
-            To request a printed version of any of these materials, please 
-          </p>
-          <a
-            class="inline py-0 pl-0 pr-0"
-            href="/member/support"
-          >
-            <button
-              class="inline py-0 pl-0 pr-0"
-              style="max-width: max-content; height: auto;"
-              tabindex="0"
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
             >
-              <p
-                class="link"
+              To request a printed version of any of these materials, please
+            </p>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <a
+              class="inline py-0 pl-0 pr-0"
+              href="/member/support"
+            >
+              <button
+                class="inline py-0 pl-0 pr-0"
+                style="max-width: max-content; height: auto;"
+                tabindex="0"
               >
-                contact us
-              </p>
-            </button>
-          </a>
-          <p
-            class="body-1 inline"
-            style="display: block;"
-          >
-            .
-          </p>
+                <p
+                  class="link"
+                >
+                   contact us
+                </p>
+              </button>
+            </a>
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
+            >
+              .
+            </p>
+          </div>
         </section>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -216,48 +236,58 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
-            <p
-              class="body-1 inline"
-              style="display: block;"
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-row body-1"
             >
-              To request a printed version of any of these materials, please 
-            </p>
-            <a
-              class="inline py-0 pl-0 pr-0"
-              href="/member/support"
-            >
-              <button
-                class="inline py-0 pl-0 pr-0"
-                style="max-width: max-content; height: auto;"
-                tabindex="0"
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
               >
-                <p
-                  class="link"
+                To request a printed version of any of these materials, please
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <a
+                class="inline py-0 pl-0 pr-0"
+                href="/member/support"
+              >
+                <button
+                  class="inline py-0 pl-0 pr-0"
+                  style="max-width: max-content; height: auto;"
+                  tabindex="0"
                 >
-                  contact us
-                </p>
-              </button>
-            </a>
-            <p
-              class="body-1 inline"
-              style="display: block;"
-            >
-              .
-            </p>
+                  <p
+                    class="link"
+                  >
+                     contact us
+                  </p>
+                </button>
+              </a>
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
+              >
+                .
+              </p>
+            </div>
           </section>
           <section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
             <div
-              class="flex flex-row justify-between"
+              class="flex flex-row"
             >
               <div
-                class="flex flex-col w-[50%]"
+                class="flex flex-col w-[36%]"
               >
                 <div
                   class="card-main py-3 px-4"
@@ -266,7 +296,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       class="size-10"
                       data-nimg="1"
                       decoding="async"
@@ -279,12 +309,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Provider Directory
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -304,7 +334,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -316,12 +346,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Medication List (Formulary) 2025
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -336,7 +366,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                 </div>
               </div>
               <div
-                class="flex flex-col w-[50%] ml-4"
+                class="flex flex-col w-[36%] ml-4"
               >
                 <div
                   class="card-main py-3 px-4"
@@ -345,7 +375,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -357,12 +387,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Pharmacy Directory
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -410,48 +440,58 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
-          <p
-            class="body-1 inline"
-            style="display: block;"
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <div
+            class="flex flex-row body-1"
           >
-            To request a printed version of any of these materials, please 
-          </p>
-          <a
-            class="inline py-0 pl-0 pr-0"
-            href="/member/support"
-          >
-            <button
-              class="inline py-0 pl-0 pr-0"
-              style="max-width: max-content; height: auto;"
-              tabindex="0"
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
             >
-              <p
-                class="link"
+              To request a printed version of any of these materials, please
+            </p>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <a
+              class="inline py-0 pl-0 pr-0"
+              href="/member/support"
+            >
+              <button
+                class="inline py-0 pl-0 pr-0"
+                style="max-width: max-content; height: auto;"
+                tabindex="0"
               >
-                contact us
-              </p>
-            </button>
-          </a>
-          <p
-            class="body-1 inline"
-            style="display: block;"
-          >
-            .
-          </p>
+                <p
+                  class="link"
+                >
+                   contact us
+                </p>
+              </button>
+            </a>
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
+            >
+              .
+            </p>
+          </div>
         </section>
         <section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row justify-between"
+            class="flex flex-row"
           >
             <div
-              class="flex flex-col w-[50%]"
+              class="flex flex-col w-[36%]"
             >
               <div
                 class="card-main py-3 px-4"
@@ -460,7 +500,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     class="size-10"
                     data-nimg="1"
                     decoding="async"
@@ -473,12 +513,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Provider Directory
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -498,7 +538,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -510,12 +550,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Medication List (Formulary) 2025
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -530,7 +570,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
               </div>
             </div>
             <div
-              class="flex flex-col w-[50%] ml-4"
+              class="flex flex-col w-[36%] ml-4"
             >
               <div
                 class="card-main py-3 px-4"
@@ -539,7 +579,7 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -551,12 +591,12 @@ exports[`planDocuments should render the UI correctly for medicare 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Pharmacy Directory
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -1210,93 +1250,58 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             />
             <p
               class="body-1 max-w-[650px]"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
             </p>
-            <p
-              class="body-1 inline"
-              style="display: block;"
-            >
-              To request a printed version of any of these materials, please 
-            </p>
-            <a
-              class="inline py-0 pl-0 pr-0"
-              href="/member/support"
-            >
-              <button
-                class="inline py-0 pl-0 pr-0"
-                style="max-width: max-content; height: auto;"
-                tabindex="0"
-              >
-                <p
-                  class="link"
-                >
-                  contact us
-                </p>
-              </button>
-            </a>
-            <p
-              class="body-1 inline"
-              style="display: block;"
-            >
-              .
-            </p>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <a
-            href=""
-          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
             <div
-              class="card-elevated small-section"
+              class="flex flex-row body-1"
             >
-              <div
-                class="flex flex-row"
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
               >
-                <img
-                  alt="link"
-                  class="size-10"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <div
-                  class="flex flex-col ml-4"
+                To request a printed version of any of these materials, please
+              </p>
+              <span
+                style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+              />
+              <a
+                class="inline py-0 pl-0 pr-0"
+                href="/member/support"
+              >
+                <button
+                  class="inline py-0 pl-0 pr-0"
+                  style="max-width: max-content; height: auto;"
+                  tabindex="0"
                 >
-                  <div
-                    class="flex flex-row link-row-head"
-                  >
-                    Request Printed Material
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                  </div>
                   <p
-                    class="body-1 body-1"
-                    style="display: block;"
+                    class="link"
                   >
-                    Ask us to mail your plan documents to you.
+                     contact us
                   </p>
-                </div>
-              </div>
+                </button>
+              </a>
+              <p
+                class="body-1 inline"
+                style="display: block; max-width: 100%;"
+              >
+                .
+              </p>
             </div>
-          </a>
+          </section>
           <section>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
             <div
-              class="flex flex-row justify-between"
+              class="flex flex-row"
             >
               <div
-                class="flex flex-col w-[50%]"
+                class="flex flex-col w-[36%]"
               >
                 <div
                   class="card-main py-3 px-4"
@@ -1305,7 +1310,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       class="size-10"
                       data-nimg="1"
                       decoding="async"
@@ -1318,12 +1323,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Provider Directory
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -1343,7 +1348,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -1355,12 +1360,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Medication List (Formulary) 2025
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -1375,7 +1380,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                 </div>
               </div>
               <div
-                class="flex flex-col w-[50%] ml-4"
+                class="flex flex-col w-[36%] ml-4"
               >
                 <div
                   class="card-main py-3 px-4"
@@ -1384,7 +1389,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     class="flex flex-row"
                   >
                     <img
-                      alt="link"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -1396,12 +1401,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                     />
                     <p
                       class="body-1 inline my-auto body-bold primary-color mx-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Pharmacy Directory
                     </p>
                     <img
-                      alt="link"
+                      alt=""
                       class="-mt-[4px]"
                       data-nimg="1"
                       decoding="async"
@@ -1417,13 +1422,13 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
               </div>
             </div>
             <div
-              class="card-main neutral container mt-4"
+              class="card-main neutral container mt-4 w-[73%]"
             >
               <div
                 class="flex flex-row flex flex-row align-top m-4"
               >
                 <img
-                  alt="alert"
+                  alt=""
                   class="icon"
                   data-nimg="1"
                   decoding="async"
@@ -1481,93 +1486,58 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
           />
           <p
             class="body-1 max-w-[650px]"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             We’ve put together quick-reference guides that explain your plan details and help you get the most from your benefits.
           </p>
-          <p
-            class="body-1 inline"
-            style="display: block;"
-          >
-            To request a printed version of any of these materials, please 
-          </p>
-          <a
-            class="inline py-0 pl-0 pr-0"
-            href="/member/support"
-          >
-            <button
-              class="inline py-0 pl-0 pr-0"
-              style="max-width: max-content; height: auto;"
-              tabindex="0"
-            >
-              <p
-                class="link"
-              >
-                contact us
-              </p>
-            </button>
-          </a>
-          <p
-            class="body-1 inline"
-            style="display: block;"
-          >
-            .
-          </p>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-        />
-        <a
-          href=""
-        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
           <div
-            class="card-elevated small-section"
+            class="flex flex-row body-1"
           >
-            <div
-              class="flex flex-row"
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
             >
-              <img
-                alt="link"
-                class="size-10"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <div
-                class="flex flex-col ml-4"
+              To request a printed version of any of these materials, please
+            </p>
+            <span
+              style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+            />
+            <a
+              class="inline py-0 pl-0 pr-0"
+              href="/member/support"
+            >
+              <button
+                class="inline py-0 pl-0 pr-0"
+                style="max-width: max-content; height: auto;"
+                tabindex="0"
               >
-                <div
-                  class="flex flex-row link-row-head"
-                >
-                  Request Printed Material
-                  <span
-                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                  />
-                </div>
                 <p
-                  class="body-1 body-1"
-                  style="display: block;"
+                  class="link"
                 >
-                  Ask us to mail your plan documents to you.
+                   contact us
                 </p>
-              </div>
-            </div>
+              </button>
+            </a>
+            <p
+              class="body-1 inline"
+              style="display: block; max-width: 100%;"
+            >
+              .
+            </p>
           </div>
-        </a>
+        </section>
         <section>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
           <div
-            class="flex flex-row justify-between"
+            class="flex flex-row"
           >
             <div
-              class="flex flex-col w-[50%]"
+              class="flex flex-col w-[36%]"
             >
               <div
                 class="card-main py-3 px-4"
@@ -1576,7 +1546,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     class="size-10"
                     data-nimg="1"
                     decoding="async"
@@ -1589,12 +1559,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Provider Directory
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -1614,7 +1584,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1626,12 +1596,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Medication List (Formulary) 2025
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -1646,7 +1616,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
               </div>
             </div>
             <div
-              class="flex flex-col w-[50%] ml-4"
+              class="flex flex-col w-[36%] ml-4"
             >
               <div
                 class="card-main py-3 px-4"
@@ -1655,7 +1625,7 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   class="flex flex-row"
                 >
                   <img
-                    alt="link"
+                    alt=""
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1667,12 +1637,12 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
                   />
                   <p
                     class="body-1 inline my-auto body-bold primary-color mx-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Pharmacy Directory
                   </p>
                   <img
-                    alt="link"
+                    alt=""
                     class="-mt-[4px]"
                     data-nimg="1"
                     decoding="async"
@@ -1688,13 +1658,13 @@ exports[`planDocuments should render the UI correctly with iframe error 1`] = `
             </div>
           </div>
           <div
-            class="card-main neutral container mt-4"
+            class="card-main neutral container mt-4 w-[73%]"
           >
             <div
               class="flex flex-row flex flex-row align-top m-4"
             >
               <img
-                alt="alert"
+                alt=""
                 class="icon"
                 data-nimg="1"
                 decoding="async"

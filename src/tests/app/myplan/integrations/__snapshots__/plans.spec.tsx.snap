@@ -21,7 +21,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
       >
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Plan Type:
         </p>
@@ -30,7 +30,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
         />
         <p
           class="body-1 body-bold"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Test Plan Type
         </p>
@@ -46,7 +46,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
         >
           <p
             class="body-1 id-card-error-msg"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Your ID card is not available at this time.
           </p>
@@ -60,7 +60,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           All members of your plan use the same ID card.
         </p>
@@ -114,7 +114,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 View Who's Covered
               </p>
               <img
-                alt="Up Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -152,13 +152,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Christmas Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 6/29/2009
                         </p>
@@ -191,7 +191,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Medical / Vision / Dental
                           </p>
@@ -248,7 +248,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                               </div>
                             </span>
                             <img
-                              alt="Info"
+                              alt=""
                               class="icon"
                               data-nimg="1"
                               decoding="async"
@@ -278,13 +278,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Krissy Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 6/15/2009
                         </p>
@@ -317,7 +317,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Medical / Vision
                           </p>
@@ -359,7 +359,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                               </div>
                             </span>
                             <img
-                              alt="Info"
+                              alt=""
                               class="icon"
                               data-nimg="1"
                               decoding="async"
@@ -389,13 +389,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                       >
                         <p
                           class="body-1 ml-2 font-bold body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Chris Hall
                         </p>
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           DOB: 8/6/1959
                         </p>
@@ -428,7 +428,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                           />
                           <p
                             class="body-1 body-1"
-                            style="display: block;"
+                            style="display: block; max-width: 100%;"
                           >
                             Dental / Medical / Vision
                           </p>
@@ -485,7 +485,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                               </div>
                             </span>
                             <img
-                              alt="Info"
+                              alt=""
                               class="icon"
                               data-nimg="1"
                               decoding="async"
@@ -548,7 +548,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 View Plan Contact Information
               </p>
               <img
-                alt="Up Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -571,7 +571,7 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 />
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Below is the phone number and mailing address associated with your plan.
                 </p>
@@ -580,19 +580,19 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 />
                 <p
                   class="body-1 body-2 mb-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Mailing Address
                 </p>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   N/A
                 </p>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   N/A
                 </p>
@@ -601,13 +601,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 />
                 <p
                   class="body-1 body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Primary Phone Number
                 </p>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   N/A
                 </p>
@@ -616,13 +616,13 @@ exports[`PlanDetailsSection renders plan details correctly 1`] = `
                 />
                 <p
                   class="body-1 body-2"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Secondary Phone Number
                 </p>
                 <p
                   class="body-1 body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   N/A
                 </p>

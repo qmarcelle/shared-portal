@@ -18,7 +18,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
           class="flex flex-row flex flex-row"
         >
           <img
-            alt="Medical"
+            alt=""
             class="w-[40px] h-[40px]"
             data-nimg="1"
             decoding="async"
@@ -60,7 +60,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                     class="ml-1"
                   >
                     <img
-                      alt="external"
+                      alt=""
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -104,7 +104,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Visited on 09/03/2024
                 </p>
@@ -114,7 +114,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   For CHRISTMAS HALL
                 </p>
@@ -124,7 +124,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Claim ID:
                 </p>
@@ -133,7 +133,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   EXT820200100
                 </p>
@@ -143,7 +143,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Network Status:
                 </p>
@@ -152,7 +152,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 />
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   In-Network
                 </p>
@@ -187,13 +187,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Amount Billed
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $263.00
                   </p>
@@ -203,13 +203,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Plan Discount
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $10.00
                   </p>
@@ -219,13 +219,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Plan Paid
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $187.94
                   </p>
@@ -235,13 +235,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 >
                   <p
                     class="body-1 body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Other Insurance Paid
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0.74
                   </p>
@@ -261,13 +261,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 >
                   <p
                     class="body-1 font-bold"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Your Share of the Cost
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     $0.00
                   </p>
@@ -310,7 +310,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                         Office Visit
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -330,13 +330,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Your share
                         </p>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $30.24
                         </p>
@@ -363,7 +363,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                         Lab Work
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -383,13 +383,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Your share
                         </p>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $30.24
                         </p>
@@ -416,7 +416,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                         Immunization
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -436,13 +436,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Your share
                         </p>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $30.24
                         </p>
@@ -469,7 +469,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                         Medical Service
                       </p>
                       <img
-                        alt="Down Chevron"
+                        alt=""
                         class="pl-2 w-6"
                         data-nimg="1"
                         decoding="async"
@@ -489,13 +489,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
                       >
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Your share
                         </p>
                         <p
                           class="body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           $30.24
                         </p>
@@ -588,13 +588,13 @@ exports[`Claim Details should show the respective claim details 1`] = `
               >
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Your estimated balance is 
                 </p>
                 <p
                   class="body-1 font-bold"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   $30.24
                 </p>
@@ -633,7 +633,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                   </div>
                 </div>
                 <img
-                  alt="Mark as paid information"
+                  alt=""
                   aria-label="Information about marking as paid"
                   data-nimg="1"
                   decoding="async"

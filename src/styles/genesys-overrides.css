@@ -1,89 +1,500 @@
-/* Override Genesys Cloud chat launcher */
-.cx-webchat-chat-button, .polished-chat-button {
+/* =============================================================================
+   BCBST Portal Chat Widget Overrides - Production Ready
+   Compatible with Genesys Cloud Chat Widget & Legacy Versions
+   ============================================================================= */
+
+/* CSS Custom Properties for Portal Theming */
+:root {
+  /* Base Chat Variables */
+  --chat-size: 56px;
+  --chat-border-radius: 28px; /* Changed from 50% to fixed value */
+  --chat-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --chat-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.2);
+  --chat-z-index: 1000;
+  --chat-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* BCBST Default Theme */
+  --chat-primary: #005eb9;
+  --chat-primary-hover: #00497e;
+  --chat-primary-active: #003d66;
+
+  /* Chat Window Variables */
+  --chat-window-width: 400px;
+  --chat-window-max-height: 600px;
+  --chat-window-z-index: 999;
+
+  /* Typography */
+  --chat-font-family:
+    'Univers-45', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --chat-font-weight: 500;
+}
+
+/* Portal Theme Variants */
+.portal-bluecare {
+  --chat-primary: #0066cc;
+  --chat-primary-hover: #0052a3;
+  --chat-primary-active: #004080;
+}
+
+.portal-amplify {
+  --chat-primary: #1976d2;
+  --chat-primary-hover: #1565c0;
+  --chat-primary-active: #0d47a1;
+}
+
+.portal-quantum {
+  --chat-primary: #2e7d32;
+  --chat-primary-hover: #1b5e20;
+  --chat-primary-active: #145a17;
+}
+
+.portal-wellness {
+  --chat-primary: #7b1fa2;
+  --chat-primary-hover: #6a1b9a;
+  --chat-primary-active: #4a148c;
+}
+
+/* =============================================================================
+   Chat Button Overrides - All Genesys Selectors
+   ============================================================================= */
+
+/* Primary Chat Button Selectors (Genesys Cloud & Legacy) */
+.cx-webchat-chat-button,
+.polished-chat-button,
+#cx_chat_form_button,
+.cx-widget.cx-webchat-chat-button,
+button[data-testid='messenger-button'] {
+  /* Positioning - DO NOT CHANGE as per requirements */
   position: fixed !important;
   bottom: 20px !important;
-  right: 0 !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+
+  /* Sizing & Shape - Updated for text button */
+  width: auto !important; /* Changed from fixed size to auto */
+  min-width: 180px !important; /* Added minimum width */
+  height: var(--chat-size) !important;
+  border-radius: var(--chat-border-radius) !important;
+
+  /* Appearance */
+  background-color: var(--chat-primary) !important;
+  color: #ffffff !important; /* Ensuring text is white for contrast against blue background */
+  border: none !important;
+  box-shadow: var(--chat-shadow) !important;
+
+  /* Layout */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #005eb9 !important;
-  color: #ffffff !important;
-  border-radius: 9999px !important;
-  width: 64px !important;
-  height: 64px !important;
-  padding: 0 !important;
-  justify-content: center !important;
-  align-items: center !important;
-  font-family: 'Univers-45', sans-serif !important;
-  font-weight: 500 !important;
-  box-shadow:
-    0 4px 6px rgba(50, 50, 93, 0.11),
-    0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  padding: 0 24px !important; /* Increased padding for more space */
+  margin: 0 !important;
+  gap: 12px !important; /* Added gap between icon and text */
+
+  /* Typography */
+  font-family: var(--chat-font-family) !important;
+  font-weight: var(--chat-font-weight) !important;
+  font-size: 16px !important; /* Added font size */
+
+  /* Interaction */
+  cursor: pointer !important;
+  z-index: var(--chat-z-index) !important;
+  transition: var(--chat-transition) !important;
   opacity: 1 !important;
-  z-index: 9999 !important;
-  animation: chatFadeIn 0.3s ease-out !important;
+
+  /* Content Handling */
+  overflow: hidden !important;
+
+  /* Reset any transforms that might interfere */
+  transform: none !important;
+  -webkit-transform: none !important;
+  transform-origin: center center !important;
+  -webkit-transform-origin: center center !important;
 }
 
-@keyframes chatFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.cx-webchat-chat-button:hover {
-  background-color: #00497e !important;
+/* Hover States */
+.cx-webchat-chat-button:hover,
+.polished-chat-button:hover,
+#cx_chat_form_button:hover,
+.cx-widget.cx-webchat-chat-button:hover,
+button[data-testid='messenger-button']:hover {
+  background-color: var(--chat-primary-hover) !important;
+  box-shadow: var(--chat-shadow-hover) !important;
   transform: translateY(-2px) !important;
 }
-.cx-webchat-chat-button:active {
+
+/* Active States */
+.cx-webchat-chat-button:active,
+.polished-chat-button:active,
+#cx_chat_form_button:active,
+.cx-widget.cx-webchat-chat-button:active,
+button[data-testid='messenger-button']:active {
+  background-color: var(--chat-primary-active) !important;
   transform: translateY(0) !important;
 }
 
-/* Ensure chat window stays fixed and visible on scroll */
+/* Focus States (Accessibility) */
+.cx-webchat-chat-button:focus,
+.polished-chat-button:focus,
+#cx_chat_form_button:focus,
+.cx-widget.cx-webchat-chat-button:focus,
+button[data-testid='messenger-button']:focus {
+  outline: 2px solid #ffffff !important;
+  outline-offset: 2px !important;
+  box-shadow:
+    var(--chat-shadow-hover),
+    0 0 0 4px rgba(0, 94, 185, 0.3) !important;
+}
+
+/* =============================================================================
+   Chat Button Content Overrides
+   ============================================================================= */
+
+/* Show Text Labels (Previously Hidden) */
+#cx_chat_form_button .cx_chat_form_button_label,
+.cx-widget.cx-webchat-chat-button .cx-side-button-label,
+button[data-testid='messenger-button'] span:not(.sr-only) {
+  display: inline-block !important; /* Changed from none to inline-block */
+  visibility: visible !important; /* Changed from hidden to visible */
+  width: auto !important; /* Changed from 0 */
+  height: auto !important; /* Changed from 0 */
+  line-height: normal !important; /* Changed from 0 */
+  font-size: 16px !important; /* Changed from 0 */
+  overflow: visible !important; /* Changed from hidden */
+  text-indent: 0 !important; /* Changed from -9999px */
+  margin-left: 0 !important; /* Removed margin since we're using gap */
+  color: #ffffff !important; /* Explicitly setting text color to white */
+  font-weight: 500 !important; /* Adding medium font weight for better readability */
+}
+
+/* Set default button text if not provided */
+#cx_chat_form_button .cx_chat_form_button_label:empty::before,
+.cx-widget.cx-webchat-chat-button .cx-side-button-label:empty::before,
+button[data-testid='messenger-button'] span:empty::before {
+  content: "Chat with us" !important;
+}
+
+/* Style Chat Icons */
+#cx_chat_form_button .cx-icon,
+.cx-widget.cx-webchat-chat-button .cx-icon,
+button[data-testid='messenger-button'] svg,
+.cx-webchat-chat-button .cx-icon {
+  display: block !important;
+  width: 24px !important;
+  height: 24px !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Notification Badge */
+.cx-webchat-chat-button::after,
+.polished-chat-button::after,
+#cx_chat_form_button::after,
+.cx-widget.cx-webchat-chat-button::after,
+button[data-testid='messenger-button']::after {
+  content: "1";
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: 10px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* =============================================================================
+   Chat Button Container Overrides
+   ============================================================================= */
+
+/* Fix Parent Container Issues */
+.cx-side-button-group {
+  position: fixed !important;
+  top: auto !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  transform-origin: center center !important;
+  -webkit-transform-origin: center center !important;
+  z-index: calc(var(--chat-z-index) - 1) !important;
+  background-color: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Genesys Chat Container */
+#genesys-chat-container,
+.genesys-chat-container {
+  position: relative !important;
+  z-index: calc(var(--chat-z-index) + 50) !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+/* =============================================================================
+   Chat Window Overrides
+   ============================================================================= */
+
+/* Main Chat Window */
 .cx-webchat {
   position: fixed !important;
   bottom: 20px !important;
   right: 20px !important;
-  z-index: 9998 !important;
+  z-index: var(--chat-window-z-index) !important;
+  max-height: var(--chat-window-max-height) !important;
+  max-width: var(--chat-window-width) !important;
+  width: var(--chat-window-width) !important;
+  border-radius: 12px !important;
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden !important;
 }
 
-/* Plan Info Header styling inside chat window */
+/* Chat Window Header with Plan Info */
 .cx-webchat .plan-info-header {
   padding: 0.75rem 1rem !important;
   background-color: #e7f6ff !important;
-  color: #005eb9 !important;
-  font-weight: 500 !important;
-  border-bottom: 1px solid #cccccc !important;
+  color: var(--chat-primary) !important;
+  font-weight: var(--chat-font-weight) !important;
+  font-family: var(--chat-font-family) !important;
+  border-bottom: 1px solid rgba(0, 94, 185, 0.1) !important;
+  font-size: 0.875rem !important;
 }
 
-/* Business hours/out-of-hours banner styling */
+/* Business Hours Banner */
 .cx-webchat .business-hours-banner {
   padding: 0.5rem 1rem !important;
-  background-color: #ffebd3 !important;
-  color: #e67500 !important;
+  background-color: #fff3cd !important;
+  color: #856404 !important;
   font-size: 0.875rem !important;
+  font-family: var(--chat-font-family) !important;
+  border-bottom: 1px solid #ffeaa7 !important;
 }
 
-/* Pre-chat UI panel */
+/* Pre-chat UI Panel */
 .cx-webchat .pre-chat-ui {
   padding: 1rem !important;
+  background-color: #ffffff !important;
 }
 
-/* Chat controls button overrides */
+/* Chat Controls */
 .cx-webchat .chat-controls .cx-btn {
-  background-color: #005eb9 !important;
+  background-color: var(--chat-primary) !important;
   color: #ffffff !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
   padding: 0.5rem 1rem !important;
+  font-family: var(--chat-font-family) !important;
+  font-weight: var(--chat-font-weight) !important;
+  border: none !important;
+  transition: var(--chat-transition) !important;
 }
 
-/* Terms and Conditions note */
+.cx-webchat .chat-controls .cx-btn:hover {
+  background-color: var(--chat-primary-hover) !important;
+}
+
+/* Terms and Conditions Note */
 .cx-webchat .terms-note {
   margin-top: 1rem !important;
-  font-size: 0.875rem !important;
-  color: #666666 !important;
+  font-size: 0.75rem !important;
+  color: #6b7280 !important;
+  font-family: var(--chat-font-family) !important;
+  line-height: 1.4 !important;
 }
+
+/* =============================================================================
+   Animations & Transitions
+   ============================================================================= */
+
+/* Chat Button Entrance Animation */
+@keyframes chatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cx-webchat-chat-button,
+.polished-chat-button,
+#cx_chat_form_button,
+.cx-widget.cx-webchat-chat-button,
+button[data-testid='messenger-button'] {
+  animation: chatFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Chat Window Animations */
+@keyframes chatWindowSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cx-webchat {
+  animation: chatWindowSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* =============================================================================
+   Responsive Design
+   ============================================================================= */
+
+/* Tablet Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --chat-size: 52px;
+    --chat-window-width: 350px;
+  }
+
+  .cx-webchat {
+    right: 16px !important;
+    bottom: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .cx-webchat-chat-button,
+  .polished-chat-button,
+  #cx_chat_form_button,
+  .cx-widget.cx-webchat-chat-button,
+  button[data-testid='messenger-button'] {
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+
+  .cx-side-button-group {
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  :root {
+    --chat-size: 48px;
+    --chat-window-width: 320px;
+  }
+
+  .cx-webchat {
+    right: 12px !important;
+    bottom: 12px !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: calc(100vh - 100px) !important;
+  }
+
+  .cx-webchat-chat-button,
+  .polished-chat-button,
+  #cx_chat_form_button,
+  .cx-widget.cx-webchat-chat-button,
+  button[data-testid='messenger-button'] {
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  .cx-side-button-group {
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+
+  /* Adjust chat window content for mobile */
+  .cx-webchat .plan-info-header,
+  .cx-webchat .business-hours-banner {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .cx-webchat .pre-chat-ui {
+    padding: 0.75rem !important;
+  }
+}
+
+/* =============================================================================
+   High Contrast & Accessibility
+   ============================================================================= */
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .cx-webchat-chat-button,
+  .polished-chat-button,
+  #cx_chat_form_button,
+  .cx-widget.cx-webchat-chat-button,
+  button[data-testid='messenger-button'] {
+    border: 2px solid #ffffff !important;
+  }
+
+  .cx-webchat {
+    border: 2px solid var(--chat-primary) !important;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .cx-webchat-chat-button,
+  .polished-chat-button,
+  #cx_chat_form_button,
+  .cx-widget.cx-webchat-chat-button,
+  button[data-testid='messenger-button'],
+  .cx-webchat {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cx-webchat-chat-button:hover,
+  .polished-chat-button:hover,
+  #cx_chat_form_button:hover,
+  .cx-widget.cx-webchat-chat-button:hover,
+  button[data-testid='messenger-button']:hover {
+    transform: none !important;
+  }
+}
+
+/* Screen Reader Support */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =============================================================================
+   Debug & Development Utilities (Remove in Production)
+   ============================================================================= */
+
+/* Uncomment for debugging positioning issues */
+/*
+.debug-chat .cx-webchat-chat-button,
+.debug-chat .cx-webchat {
+  outline: 2px dashed red !important;
+}
+
+.debug-chat .cx-side-button-group {
+  outline: 2px dashed blue !important;
+}
+*/

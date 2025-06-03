@@ -15,6 +15,7 @@ export const AUTH_FUNCTION_MAP = {
   individualSBCEligible: 'INDIVIDUAL_SBC_ELIGIBLE',
   medicareAdvantageGroupIndicator: 'MedicareAdvantageGroupIndicator',
   isCondensedExperience: 'CONDENSED_EXPERIENCE', //TODO duplicate
+  otherInsuranceEligible: 'COBUPDATEELIGIBLE',
   enRollEligible: 'ENROLLELIGIBLE',
   enableBenefitChange: 'ENABLE_BENEFIT_CHANGE_TAB',
   dentalCostEligible: 'DENTALCOSTELIGIBLE',
@@ -35,8 +36,9 @@ export const AUTH_FUNCTION_MAP = {
   phsEligible: 'PHSELIGIBLE',
   allMedicareAdvantageEligible: 'AllMedicareAdvantage',
   rxChoiceEligible: 'RX_CHOICE_ELIGIBLE',
-  rxEssentialEligible: 'RX_ESSENTIAL_PLUS_ELIGIBLE',
-  rsPreferredEligible: 'RX_PREFERRED_ELIGIBLE',
+  rxEssentialEligible: 'RX_ESSENTIAL_ELIGIBLE',
+  rxEssentialPlusEligible: 'RX_ESSENTIAL_PLUS_ELIGIBLE',
+  rxPreferredEligible: 'RX_PREFERRED_ELIGIBLE',
   medicarePrescriptionPaymentPlanEligible:
     'MEDICARE_PRESCRIPTION_PAYMENT_PLAN_ELIGIBLE',
   diabetesManagementEligible: 'TELADOC_DIABETESMGMT',

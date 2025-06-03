@@ -7,11 +7,16 @@
  * @returns The masked phone number in the format (123) 456-7890
  */
 export const formatPhoneNumber = (phone: string): string => {
+  let value: string = '';
+  if (!phone || phone.length < 10) {
+    return value;
+  }
+
   phone = phone.replace(/[^0-9]/g, '');
   const area = phone.substring(0, 3);
   const pre = phone.substring(3, 6);
   const tel = phone.substring(6, 10);
-  let value: string = '';
+
   if (area.length < 3) {
     value = '(' + area;
   } else if (area.length == 3 && pre.length < 3) {
@@ -19,6 +24,7 @@ export const formatPhoneNumber = (phone: string): string => {
   } else if (area.length == 3 && pre.length == 3) {
     value = '(' + area + ')' + ' ' + pre + '-' + tel;
   }
+
   return value;
 };
 

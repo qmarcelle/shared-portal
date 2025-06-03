@@ -15,6 +15,7 @@ interface ModalProps extends IComponent {
   store?: any;
   isChildActionAppModal?: boolean;
   childModalContent?: ReactElement & ModalChildProps;
+  modalType?: 'default' | 'alternate';
 }
 interface ModalControllerProps {
   showBack: boolean;
@@ -22,9 +23,11 @@ interface ModalControllerProps {
   pageIndex: number;
   store: null;
   isChildAction?: boolean;
+  modalType?: 'default' | 'alternate';
   updateShowBack: (isShowBack: boolean) => void;
   updateshowModal: (isShowBack: boolean) => void;
   updatepageIndex: (pageIndex: number) => void;
+  updateModalType: (type: 'default' | 'alternate') => void;
   updateStore: (store: null) => void;
   showAppModal: (props: ModalProps) => void;
   dismissModal: () => void;
@@ -42,63 +45,52 @@ export const useAppModalStore = create<ModalControllerProps>((set) => ({
   pageIndex: 0,
   store: null,
   isChildActionAppModalProp: false,
-  updateShowBack: (isShowBack: boolean) =>
-    set(() => ({ showBack: isShowBack })),
-  updateshowModal: (isShowModal: boolean) =>
-    set(() => ({ showModal: isShowModal })),
-  updatepageIndex: (pageIndex: number) => set(() => ({ pageIndex: pageIndex })),
-  updateStore: (store: null) => set(() => ({ store: store })),
+  modalType: 'default',
+
+  updateShowBack: (isShowBack: boolean) => set({ showBack: isShowBack }),
+  updateshowModal: (isShowModal: boolean) => set({ showModal: isShowModal }),
+  updatepageIndex: (pageIndex: number) => set({ pageIndex }),
+  updateStore: (store: null) => set({ store }),
+  updateModalType: (type: 'default' | 'alternate') => set({ modalType: type }),
+
   isFlexModal: false,
+
   showAppModal: ({
     content,
     store,
     isChildActionAppModal,
     childModalContent,
+    modalType = 'default',
   }: ModalProps) => {
     modalBody = content;
     childModalBody = childModalContent;
-    if (isChildActionAppModal) {
-      set(() => ({
-        isChildActionAppModalProp: isChildActionAppModal,
-      }));
-    }
-    set(() => ({
+
+    set({
+      modalType,
       showModal: true,
-    }));
-    set(() => ({
-      store: store,
-    }));
+      store,
+      isChildActionAppModalProp: !!isChildActionAppModal,
+    });
+
     pageIndexStack = [0];
   },
+
   dismissModal: () => {
-    set(() => ({
+    set({
       showModal: false,
-    }));
-    set(() => ({
       store: null,
-    }));
-    set(() => ({
       showBack: false,
-    }));
-    set(() => ({
       pageIndex: 0,
-    }));
-    set(() => ({
       isChildModal: false,
-    }));
+      modalType: 'default',
+    });
     modalBody = null;
   },
-  showChildModal: () => {
-    set(() => ({
-      isChildModal: true,
-    }));
-  },
-  dismissChildModal: () => {
-    set(() => ({
-      isChildModal: false,
-    }));
-  },
+
+  showChildModal: () => set({ isChildModal: true }),
+  dismissChildModal: () => set({ isChildModal: false }),
 }));
+
 let modalBody: ReactElement | null = null;
 let childModalBody: ReactElement | null | undefined = null;
 let pageIndexStack: number[] = [];
@@ -111,9 +103,11 @@ export const ModalContext = createContext<any>(null);
 
 interface ModalHeaderProps {
   onClose: () => any;
+  className?: any;
+  showFocusIcon?: boolean;
 }
 
-const ModalHeader = ({ onClose }: ModalHeaderProps) => {
+const ModalHeader = ({ onClose, showFocusIcon }: ModalHeaderProps) => {
   const { updatepageIndex, updateShowBack, pageIndex, showBack } =
     useAppModalStore();
   const onBackPressed = () => {
@@ -139,7 +133,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
           onClick={onBackPressed}
           className="items-center focus-icon"
         >
-          <img src="/assets/left.svg" className="modal-icon" alt="back" />
+          <Image src={leftIcon} className="modal-icon" alt="" />
           <TextBox text="Back" className="primary-color underline" />
         </Row>
       ) : (
@@ -149,15 +143,15 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
       <img
         src={bcbstSilhouletteLogo}
         className="modal-icon modal-header-logo absolute m-auto left-0 right-0"
-        alt="bcbst logo"
+        alt=""
       />
       <div
         tabIndex={0}
-        className="size-8 focus-icon"
+        className={`size-8 ${showFocusIcon ? 'focus-icon' : ''}`}
         onKeyDown={handleKeyDown}
         onClick={onClose}
       >
-        <img src="/assets/close.svg" className="size-4" alt="close" />
+        <Image src={closeIcon} className="size-4" alt="" />
       </div>
     </Row>
   );
@@ -166,7 +160,7 @@ const ModalHeader = ({ onClose }: ModalHeaderProps) => {
 const ModalFooter = () => {
   return (
     <Row className="justify-center modal-footer">
-      <img src={bcbstSilhouletteLogo} className="modal-icon" alt="bcbst logo" />
+      <Image src={bcbstSilhouletteLogo} className="modal-icon" alt="" />
     </Row>
   );
 };
@@ -184,22 +178,22 @@ export const AppModal = () => {
     dismissChildModal,
     isChildActionAppModalProp,
     isFlexModal,
+    modalType,
   } = useAppModalStore();
+
   const changePage = (pageIndex: number, showBackButton: boolean = false) => {
     updateShowBack(showBackButton);
     updatepageIndex(pageIndex);
     pageIndexStack.push(pageIndex);
   };
+
   const closeModal = () => {
     isChildActionAppModalProp ? showChildModal() : dismissModal();
   };
 
-  const closeChildModal = () => {
-    dismissChildModal();
-  };
-  const closeAllModal = () => {
-    dismissModal();
-  };
+  const closeChildModal = () => dismissChildModal();
+  const closeAllModal = () => dismissModal();
+
   return (
     <ModalContext.Provider value={store}>
       <InnerAppModal
@@ -213,6 +207,7 @@ export const AppModal = () => {
         closeChildModal={closeChildModal}
         closeAllModal={closeAllModal}
         childModalBody={childModalBody ?? <></>}
+        modalType={modalType}
       />
     </ModalContext.Provider>
   );
@@ -229,6 +224,8 @@ type InnerAppModalProps = {
   closeAllModal?: () => any;
   childModalBody?: ReactElement;
   isFlexModal: boolean;
+
+  modalType?: 'default' | 'alternate';
 };
 
 export const InnerAppModal = ({
@@ -240,28 +237,71 @@ export const InnerAppModal = ({
   isChildModal = false,
   childModalBody,
   isFlexModal,
+  modalType = 'default',
 }: InnerAppModalProps) => {
+  const isAlternate = modalType === 'alternate';
   return (
-    <Modal
-      classNames={{
-        overlay: 'modal-overlay',
-        modal: `${isFlexModal ? '!bg-transparent' : ''}`,
-      }}
-      showCloseIcon={false}
-      open={showModal}
-      closeOnOverlayClick={isFlexModal == false}
-      onClose={closeModal}
-      center={true}
-    >
-      <FocusTrap active={isFlexModal == false}>
-        <div>
-          <Column
-            className={`${!isFlexModal ? 'modal-container' : 'flex-modal'}`}
-          >
-            {!isFlexModal && <ModalHeader onClose={closeModal} />}
-            {!isFlexModal && <Spacer size={32} />}
-            <div className="flex flex-row flex-grow justify-center">
-              <div className="flex flex-row justify-center modal-content">
+    <>
+      {!isAlternate ? (
+        <Modal
+          classNames={{
+            overlay: 'modal-overlay',
+            modal: `${isFlexModal ? '!bg-transparent' : ''}`,
+          }}
+          showCloseIcon={false}
+          open={showModal}
+          closeOnOverlayClick={isFlexModal == false}
+          onClose={closeModal}
+          center={true}
+        >
+          <FocusTrap active={isFlexModal == false}>
+            <div>
+              <Column
+                className={`${!isFlexModal ? 'modal-container' : 'flex-modal'}`}
+              >
+                {!isFlexModal && (
+                  <ModalHeader onClose={closeModal} showFocusIcon={true} />
+                )}
+                {!isFlexModal && <Spacer size={32} />}
+                <div className="flex flex-row flex-grow justify-center">
+                  <div className="flex flex-row justify-center modal-content">
+                    {modalBody ? (
+                      React.cloneElement(modalBody, {
+                        changePage,
+                        pageIndex: pageIndex,
+                      })
+                    ) : (
+                      <div />
+                    )}
+                  </div>
+                </div>
+                {isChildModal && (
+                  <div className="child-modal">
+                    <div className="child-modal-content">{childModalBody}</div>
+                  </div>
+                )}
+                {!isFlexModal && <Spacer size={32} />}
+                {!isFlexModal && <ModalFooter />}
+              </Column>
+            </div>
+          </FocusTrap>
+        </Modal>
+      ) : (
+        <Modal
+          classNames={{
+            overlay: 'modal-overlay',
+            modal: `${isFlexModal ? '!bg-transparent' : ''} rounded-md`,
+          }}
+          showCloseIcon={false}
+          open={showModal}
+          closeOnOverlayClick={isFlexModal == false}
+          onClose={closeModal}
+          center={true}
+        >
+          <FocusTrap active={isFlexModal == false} className="card-main">
+            <div className="w-full max-w-xl mx-auto">
+              <Column className="flex-modal">
+                <ModalHeader onClose={closeModal} showFocusIcon={false} />
                 {modalBody ? (
                   React.cloneElement(modalBody, {
                     changePage,
@@ -270,18 +310,13 @@ export const InnerAppModal = ({
                 ) : (
                   <div />
                 )}
-              </div>
+
+                {!isFlexModal && <Spacer size={32} />}
+              </Column>
             </div>
-            {isChildModal && (
-              <div className="child-modal">
-                <div className="child-modal-content">{childModalBody}</div>
-              </div>
-            )}
-            {!isFlexModal && <Spacer size={32} />}
-            {!isFlexModal && <ModalFooter />}
-          </Column>
-        </div>
-      </FocusTrap>
-    </Modal>
+          </FocusTrap>
+        </Modal>
+      )}
+    </>
   );
 };

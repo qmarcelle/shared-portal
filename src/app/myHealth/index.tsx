@@ -27,6 +27,7 @@ import {
   isChipRewardsEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
+  isLifePointGrp,
   isMemberWellnessCenterEligible,
   isPrimaryCarePhysicianEligible,
   isQuestSelectEligible,
@@ -134,43 +135,37 @@ const healthLibraryDetails = [
 const discountCardDetails = [
   {
     id: '1',
-    icon: <Image src={fitnessLogo} alt="Footwear Icon" className="inline" />,
+    icon: <Image src={fitnessLogo} alt="Footwear Icon" className="" />,
     cardLink: 'Apparel & Footwear',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FOOTWEAR)!))}`,
   },
   {
     id: '2',
-    icon: <Image src={fitLogo} alt="Fitness Icon" className="inline" />,
+    icon: <Image src={fitLogo} alt="Fitness Icon" className="" />,
     cardLink: 'Fitness',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_FITNESS)!))}`,
   },
   {
     id: '3',
-    icon: (
-      <Image src={primaryVisionLogo} alt="Vision Icon" className="inline" />
-    ),
+    icon: <Image src={primaryVisionLogo} alt="Vision Icon" className="" />,
     cardLink: 'Hearing & Vision',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_HEARING_VISION)!))}`,
   },
   {
     id: '4',
-    icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="inline" />,
+    icon: <Image src={nutritionLogo} alt="Nutrition Icon" className="" />,
     cardLink: 'Nutrition',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_NUTRITION)!))}`,
   },
   {
     id: '5',
-    icon: (
-      <Image src={transportationLogo} alt="Travel Icon" className="inline" />
-    ),
+    icon: <Image src={transportationLogo} alt="Travel Icon" className="" />,
     cardLink: 'Travel',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_TRAVEL)!))}`,
   },
   {
     id: '6',
-    icon: (
-      <Image src={personalCareLogo} alt="Personal Icon" className="inline" />
-    ),
+    icon: <Image src={personalCareLogo} alt="Personal Icon" className="" />,
     cardLink: 'Personal Care',
     url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}${encodeURIComponent(process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_RELAY_STATE!.replace('{DEEPLINK}', BLUE_365_DEEPLINK_MAP.get(BLUE_365_PERSONAL_CARE)!))}`,
   },
@@ -227,14 +222,15 @@ const MyHealth = ({ data }: MyHealthProps) => {
 
         {!isBlueCareMember && (
           <>
-            {isMemberWellnessCenterEligible(data.visibilityRules) && (
-              <section>
-                <MemberWellnessCenterOptions
-                  className="large-section"
-                  options={memberWellnessCenterDetails}
-                />
-              </section>
-            )}
+            {isMemberWellnessCenterEligible(data.visibilityRules) &&
+              !isLifePointGrp(data.visibilityRules) && (
+                <section>
+                  <MemberWellnessCenterOptions
+                    className="large-section"
+                    options={memberWellnessCenterDetails}
+                  />
+                </section>
+              )}
           </>
         )}
         {isBlue365FitnessYourWayEligible(data.visibilityRules) && (
@@ -249,80 +245,88 @@ const MyHealth = ({ data }: MyHealthProps) => {
             linkURL={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_BLUE_365}&TargetResource=${process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET}`}
           />
         )}
-        <Spacer size={64} />
-        <Header text="Other Programs & Resources" type="title-1" />
-        <Spacer size={32} />
-        {isHealthProgamAndResourceEligible(data.visibilityRules) && (
+        {isBlueCareNotEligible(data.visibilityRules) && (
           <>
-            <section className="flex-row items-start app-body">
-              <OtherBenefits
-                className="large-section"
-                cardClassName="myHealthCard"
-                options={[
-                  {
-                    id: '1',
-                    title: 'CareTN One-on-One Health Support ',
-                    description:
-                      'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
-                    url: `${urlRedirect}caremanagement`,
-                  },
-                  {
-                    id: '2',
-                    title: 'Healthy Maternity',
-                    description:
-                      'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
-                    url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
-                    isHidden: !isHealthyMaternity(data.visibilityRules),
-                  },
-                  {
-                    id: '3',
-                    title: 'Teladoc Health Blood Pressure Management Program',
-                    description:
-                      'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
-                    url: `${urlRedirect + HealthProgramType.TeladocBP}`,
-                  },
-                  {
-                    id: '4',
-                    title: 'Teladoc Health Diabetes Management Program',
-                    description:
-                      'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
-                    url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
-                  },
-                  {
-                    id: '5',
-                    title: 'Teladoc Health Diabetes Prevention Program',
-                    description:
-                      'Get a personal action plan, health coaching and a smart scale at no extra cost.',
-                    url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
-                  },
-                  {
-                    id: '6',
-                    title: 'Teladoc Second Opinion Advice & Support',
-                    description:
-                      'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
-                    url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
-                  },
-                  {
-                    id: '7',
-                    title: 'QuestSelect™ Low-Cost Lab Testing',
-                    description:
-                      'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
-                    url: `${urlRedirect + HealthProgramType.QuestSelect}`,
-                    isHidden: !isQuestSelectEligible(data.visibilityRules),
-                  },
-                  {
-                    id: '8',
-                    title: 'Silver&Fit Fitness Program',
-                    description:
-                      'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
-                    url: `${urlRedirect + HealthProgramType.SilverFit}`,
-                    isHidden: !isSilverAndFitnessEligible(data.visibilityRules),
-                  },
-                ]}
-              />
-            </section>
+            <Spacer size={48} />
+            <Header text="Other Programs & Resources" type="title-1" />
+            <Spacer size={16} />
           </>
         )}
+        {isHealthProgamAndResourceEligible(data.visibilityRules) &&
+          !isLifePointGrp(data.visibilityRules) && (
+            <>
+              <section className="flex-row items-start app-body">
+                <OtherBenefits
+                  className="large-section"
+                  cardClassName="myHealthCard"
+                  options={[
+                    {
+                      id: '1',
+                      title: 'CareTN One-on-One Health Support ',
+                      description:
+                        'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
+                      url: `${urlRedirect}caremanagement`,
+                    },
+                    {
+                      id: '2',
+                      title: 'Healthy Maternity',
+                      description:
+                        'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+                      url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
+                      isHidden: !isHealthyMaternity(data.visibilityRules),
+                    },
+                    {
+                      id: '3',
+                      title: 'Teladoc Health Blood Pressure Management Program',
+                      description:
+                        'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
+                      url: `${urlRedirect + HealthProgramType.TeladocBP}`,
+                    },
+                    {
+                      id: '4',
+                      title: 'Teladoc Health Diabetes Management Program',
+                      description:
+                        'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+                      url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+                    },
+                    {
+                      id: '5',
+                      title: 'Teladoc Health Diabetes Prevention Program',
+                      description:
+                        'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+                      url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+                    },
+                    {
+                      id: '6',
+                      title: 'Teladoc Second Opinion Advice & Support',
+                      description:
+                        'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+                      url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+                    },
+                    {
+                      id: '7',
+                      title: 'QuestSelect™ Low-Cost Lab Testing',
+                      description:
+                        'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+                      url: `${urlRedirect + HealthProgramType.QuestSelect}`,
+                      isHidden: !isQuestSelectEligible(data.visibilityRules),
+                    },
+                    {
+                      id: '8',
+                      title: 'Silver&Fit Fitness Program',
+                      description:
+                        'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+                      url: `${urlRedirect + HealthProgramType.SilverFit}`,
+                      isHidden: !isSilverAndFitnessEligible(
+                        data.visibilityRules,
+                      ),
+                    },
+                  ]}
+                />
+              </section>
+            </>
+          )}
+        <Spacer size={32} />
         {isBlueCareNotEligible(data.visibilityRules) && (
           <section>
             <MyHealthOffsiteLinkCard
@@ -339,6 +343,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
             <HealthLibraryOptions
               className="large-section"
               options={healthLibraryDetails}
+              visibilityRule={data.visibilityRules}
             />
           </section>
         )}
@@ -379,11 +384,19 @@ const MyHealth = ({ data }: MyHealthProps) => {
             )}
           </Column>
         </section>
+        {isBlueCareEligible(data.visibilityRules) && (
+          <>
+            <Spacer size={48} />
+            <Header text="Other Programs & Resources" type="title-1" />
+            <Spacer size={24} />
+          </>
+        )}
         {isBlueCareMember && (
           <section>
             <HealthLibraryOptions
               className="large-section"
               options={healthLibraryDetails}
+              visibilityRule={data.visibilityRules}
             />
           </section>
         )}

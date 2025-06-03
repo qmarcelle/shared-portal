@@ -36,12 +36,9 @@ export const ShareMyPlanComponent = ({
           <OnMyPlanItem
             key={index}
             className="mb-4"
-            memberName={item.memberName}
-            DOB={item.DOB}
+            onMyPlanData={item}
             infoButton={infoIcon}
             sharingType={item.accessStatus}
-            isMinor={item.isMinor}
-            targetType={item.roleType}
             medicalEffectiveDate={''}
             dentalEffectiveDate={''}
             visionEffectiveDate={''}

@@ -5,11 +5,7 @@ import { TextBox } from '@/components/foundation/TextBox';
 const WellframeSection = () => {
   return (
     <section className="md:flex md:flex-row ml-7">
-      <img
-        src="/assets/wellframe.svg"
-        alt="wellframe"
-        className="mt-3 md:mt-0"
-      />
+      <Image src={wellframeLogo} alt="" className="mt-3 md:mt-0" />
       <Spacer size={16} />
       <Column className="md:p-10">
         <TextBox

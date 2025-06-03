@@ -14,25 +14,25 @@ import { NCQASelectedAnswers } from '../model/api/ncqaSelectedData';
 import { UpdateHealthEquityPreferenceRequest } from '../model/api/updateHealthEquityPreferenceRequest';
 import { OptionData, UpdateRowForm } from './UpdateRowForm';
 
-export type RaceAndEthinicityProps = {
-  raceAndEthinicityAllDetails?: NCQAAllPossibleAnswers | null;
-  raceAndEthinicitySelectedDetails?: NCQASelectedAnswers | null;
+export type RaceAndEthnicityProps = {
+  raceAndEthnicityAllDetails?: NCQAAllPossibleAnswers | null;
+  raceAndEthnicitySelectedDetails?: NCQASelectedAnswers | null;
   sessionData: Session | null;
 } & IComponent;
 
 export const RaceAndEthnicitySurvey = ({
-  raceAndEthinicityAllDetails,
-  raceAndEthinicitySelectedDetails,
+  raceAndEthnicityAllDetails,
+  raceAndEthnicitySelectedDetails,
   sessionData,
-}: RaceAndEthinicityProps) => {
+}: RaceAndEthnicityProps) => {
   const [
     memberRaceandEthicinitySelectedDetails,
     setmemberRaceandEthicinitySelectedDetails,
-  ] = useState(raceAndEthinicitySelectedDetails);
+  ] = useState(raceAndEthnicitySelectedDetails);
 
-  const selectedEthinicityData: OptionData[] = [];
+  const selectedEthnicityData: OptionData[] = [];
   memberRaceandEthicinitySelectedDetails?.ethnicities?.map((item) => {
-    selectedEthinicityData.push({
+    selectedEthnicityData.push({
       code: item.ncqaEthnicityCode,
       label: item.ncqaEthnicityDesc,
       enabled: true,
@@ -40,9 +40,9 @@ export const RaceAndEthnicitySurvey = ({
   });
 
   const ethnicityList: OptionData[] = [];
-  raceAndEthinicityAllDetails?.ethnicityCodes?.map((item) => {
+  raceAndEthnicityAllDetails?.ethnicityCodes?.map((item) => {
     const setEnabled =
-      item.ncqaEthnicityCode === selectedEthinicityData[0]?.code ? true : false;
+      item.ncqaEthnicityCode === selectedEthnicityData[0]?.code ? true : false;
     ethnicityList.push({
       code: item.ncqaEthnicityCode,
       label: item.ncqaEthnicityDesc,
@@ -50,65 +50,63 @@ export const RaceAndEthnicitySurvey = ({
     });
   });
 
-  const isEthinicitySelected =
-    selectedEthinicityData.length == 0 ? false : true;
+  const isEthnicitySelected = selectedEthnicityData.length == 0 ? false : true;
 
-  const [ethinicityOptionChange, setEthinicityOptionChange] =
+  const [ethnicityOptionChange, setEthnicityOptionChange] =
     useState(ethnicityList);
 
-  const [showEthinicityAllOptions, setShowEthinicityAllOptions] =
-    useState(false);
+  const [showEthnicityAllOptions, setShowEthnicityAllOptions] = useState(false);
 
-  const showAllEthinicityCancelCallBack = () => {
-    setShowEthinicityAllOptions(false);
+  const showAllEthnicityCancelCallBack = () => {
+    setShowEthnicityAllOptions(false);
   };
 
-  const selectedEthinicityUpdateCallBack = () => {
-    ethinicityOptionChange.forEach((item) => (item.enabled = false));
-    const originalEthinicityItem = ethinicityOptionChange.find(
-      (item) => item.code === selectedEthinicityData[0]?.code,
+  const selectedEthnicityUpdateCallBack = () => {
+    ethnicityOptionChange.forEach((item) => (item.enabled = false));
+    const originalEthnicityItem = ethnicityOptionChange.find(
+      (item) => item.code === selectedEthnicityData[0]?.code,
     );
-    if (originalEthinicityItem) {
-      originalEthinicityItem.enabled = true;
+    if (originalEthnicityItem) {
+      originalEthnicityItem.enabled = true;
     }
-    setEthinicityOptionChange([...ethinicityOptionChange]);
-    setShowEthinicityAllOptions(true);
+    setEthnicityOptionChange([...ethnicityOptionChange]);
+    setShowEthnicityAllOptions(true);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function updateEthinicityRadioButtonSelection(val: any) {
-    ethinicityOptionChange.forEach((item) => (item.enabled = false));
-    const selectedEthinicityItem = ethinicityOptionChange.find(
+  function updateEthnicityRadioButtonSelection(val: any) {
+    ethnicityOptionChange.forEach((item) => (item.enabled = false));
+    const selectedEthnicityItem = ethnicityOptionChange.find(
       (item) => item.code === val,
     );
-    if (selectedEthinicityItem) {
-      selectedEthinicityItem.enabled = true;
+    if (selectedEthnicityItem) {
+      selectedEthnicityItem.enabled = true;
     }
-    setEthinicityOptionChange([...ethinicityOptionChange]);
+    setEthnicityOptionChange([...ethnicityOptionChange]);
   }
 
   async function updateEthinincityDetails() {
-    const newEthinicityDetails = ethinicityOptionChange.find(
+    const newEthnicityDetails = ethnicityOptionChange.find(
       (item) => item.enabled == true,
     );
     const ethinincityPreferenceRequest: Partial<UpdateHealthEquityPreferenceRequest> =
       {};
 
-    if (newEthinicityDetails && newEthinicityDetails.code)
-      ethinincityPreferenceRequest.ethnicityCode = newEthinicityDetails.code;
+    if (newEthnicityDetails && newEthnicityDetails.code)
+      ethinincityPreferenceRequest.ethnicityCode = newEthnicityDetails.code;
 
-    const ethinicityResponse = await updateHealthEquityPreference(
+    const ethnicityResponse = await updateHealthEquityPreference(
       ethinincityPreferenceRequest,
     );
-    if (ethinicityResponse.status == 200) {
-      raceAndEthinicitySelectedDetails =
+    if (ethnicityResponse.status == 200) {
+      raceAndEthnicitySelectedDetails =
         await getHealthEquitySelectedAnswers(sessionData);
       setmemberRaceandEthicinitySelectedDetails(
-        raceAndEthinicitySelectedDetails,
+        raceAndEthnicitySelectedDetails,
       );
-      setShowEthinicityAllOptions(false);
+      setShowEthnicityAllOptions(false);
     } else {
-      setShowEthinicityAllOptions(true);
+      setShowEthnicityAllOptions(true);
     }
   }
 
@@ -142,7 +140,7 @@ export const RaceAndEthnicitySurvey = ({
   }
 
   const raceList: OptionData[] = [];
-  raceAndEthinicityAllDetails?.raceCodes?.map((item) => {
+  raceAndEthnicityAllDetails?.raceCodes?.map((item) => {
     const code = item.ncqaRaceCode;
     let setEnabled = false;
     for (let j = 0; j < selectedRaceData.length; j++) {
@@ -219,10 +217,10 @@ export const RaceAndEthnicitySurvey = ({
       racePreferenceRequest,
     );
     if (raceResponse.status == 200) {
-      raceAndEthinicitySelectedDetails =
+      raceAndEthnicitySelectedDetails =
         await getHealthEquitySelectedAnswers(sessionData);
       setmemberRaceandEthicinitySelectedDetails(
-        raceAndEthinicitySelectedDetails,
+        raceAndEthnicitySelectedDetails,
       );
       setShowRaceAllOptions(false);
     } else {
@@ -230,12 +228,15 @@ export const RaceAndEthnicitySurvey = ({
     }
   }
 
+  const isImpersonated = sessionData?.user.impersonated;
+  console.log(`LangPrefImp: ${isImpersonated}`);
+
   return (
     <Card className="large-section">
       <div className="flex flex-col">
         <TextBox text="Race and Ethnicity" className="title-2" />
         <Spacer size={16} />
-        {selectedEthinicityData.length > 0 && !showEthinicityAllOptions && (
+        {selectedEthnicityData.length > 0 && !showEthnicityAllOptions && (
           <Column>
             <UpdateRowForm
               label={
@@ -246,16 +247,17 @@ export const RaceAndEthnicitySurvey = ({
               }
               subLabel=""
               enabled={false}
-              saveCallback={selectedEthinicityUpdateCallBack}
+              saveCallback={selectedEthnicityUpdateCallBack}
               type="currentselection"
-              optionObjects={selectedEthinicityData}
+              optionObjects={selectedEthnicityData}
               divider={true}
+              isImpersonated={isImpersonated}
             />
             <Spacer size={32} />
           </Column>
         )}
 
-        {(selectedEthinicityData.length == 0 || showEthinicityAllOptions) && (
+        {(selectedEthnicityData.length == 0 || showEthnicityAllOptions) && (
           <Column>
             <UpdateRowForm
               label={
@@ -267,12 +269,13 @@ export const RaceAndEthnicitySurvey = ({
               subLabel=""
               enabled={false}
               saveCallback={updateEthinincityDetails}
-              cancelCallback={showAllEthinicityCancelCallBack}
-              optionsEnabled={isEthinicitySelected}
+              cancelCallback={showAllEthnicityCancelCallBack}
+              optionsEnabled={isEthnicitySelected}
               type="radio"
-              optionObjects={ethinicityOptionChange}
+              optionObjects={ethnicityOptionChange}
               divider={true}
-              selectionCallBack={updateEthinicityRadioButtonSelection}
+              selectionCallBack={updateEthnicityRadioButtonSelection}
+              isImpersonated={isImpersonated}
             />
             <Spacer size={32} />
           </Column>
@@ -289,6 +292,7 @@ export const RaceAndEthnicitySurvey = ({
             type="currentselection"
             optionObjects={selectedRaceData}
             divider={false}
+            isImpersonated={isImpersonated}
           />
         )}
         {(selectedRaceData.length == 0 || showRaceAllOptions) && (
@@ -305,6 +309,7 @@ export const RaceAndEthnicitySurvey = ({
             optionObjects={raceOptionChange}
             divider={false}
             selectionCallBack={updateRaceSelection}
+            isImpersonated={isImpersonated}
           />
         )}
       </div>

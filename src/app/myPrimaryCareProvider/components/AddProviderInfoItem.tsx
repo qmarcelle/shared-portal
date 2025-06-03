@@ -37,7 +37,7 @@ export const AddProviderInfoItem = ({
               <Image
                 src={emptyStateDocument}
                 className="icon !w-10 !h-10"
-                alt="emptyStateDocument"
+                alt=""
               />
               <Spacer axis="horizontal" size={8} />
               <TextBox

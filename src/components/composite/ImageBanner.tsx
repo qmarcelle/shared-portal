@@ -19,16 +19,7 @@ export const ImageBanner = ({
     <Card type="elevated" className={className}>
       <section className="sm:flex sm:flex-row">
         {body}
-        {imageSrc ? (
-          <img
-            className="size-10"
-            src={imageSrc}
-            alt={alt ?? 'image'}
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        ) : (
-          image
-        )}
+        {imageSrc ? <Image className="size-10" src={imageSrc} alt="" /> : image}
       </section>
     </Card>
   );

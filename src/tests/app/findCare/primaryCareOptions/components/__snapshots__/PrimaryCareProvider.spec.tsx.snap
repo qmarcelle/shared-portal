@@ -24,7 +24,7 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
               class="flex flex-row flex flex-row align-top m-4"
             >
               <img
-                alt="alert"
+                alt=""
                 class="icon"
                 data-nimg="1"
                 decoding="async"
@@ -94,7 +94,7 @@ exports[`Primary Care Provider should render Error Screen in UI When providerDet
             class="flex flex-row flex flex-row align-top m-4"
           >
             <img
-              alt="alert"
+              alt=""
               class="icon"
               data-nimg="1"
               decoding="async"

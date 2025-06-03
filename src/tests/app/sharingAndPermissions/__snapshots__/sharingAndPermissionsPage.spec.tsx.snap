@@ -43,7 +43,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
                   Share My Information
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -78,7 +78,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
                   Access Others' Information
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -113,7 +113,7 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
                   Personal Representative Access
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -131,41 +131,6 @@ exports[`SharingAndPermissions Page should render the page correctly for Member 
                   class="body-1 flex flex-row"
                 >
                   A personal representative is an individual with the legal authority to make decisions for others, such as minor dependent or other dependent individual.
-                </div>
-              </div>
-            </a>
-            <a
-              class="flex flex-col p-1 false cursor-pointer link-row-container"
-              href="/member/profile/accountsharing/thirdparty"
-            >
-              <div
-                class="flex flex-row m-2"
-              >
-                <p
-                  class="link-row-head mr-2"
-                  tabindex="0"
-                >
-                  Third Party Sharing
-                </p>
-                <img
-                  alt="link"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-              <div
-                class="m-2"
-              >
-                <div
-                  class="body-1 flex flex-row"
-                >
-                  View the apps and websites you've shared your plan information with.
                 </div>
               </div>
             </a>
@@ -220,7 +185,7 @@ exports[`SharingAndPermissions Page should render the page correctly for PR 1`] 
                   Share My Information
                 </p>
                 <img
-                  alt="link"
+                  alt=""
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -238,41 +203,6 @@ exports[`SharingAndPermissions Page should render the page correctly for PR 1`] 
                   class="body-1 flex flex-row"
                 >
                   Control how your plan information is shared with your family or individuals outside your plan.
-                </div>
-              </div>
-            </a>
-            <a
-              class="flex flex-col p-1 false cursor-pointer link-row-container"
-              href="/member/profile/accountsharing/thirdparty"
-            >
-              <div
-                class="flex flex-row m-2"
-              >
-                <p
-                  class="link-row-head mr-2"
-                  tabindex="0"
-                >
-                  Third Party Sharing
-                </p>
-                <img
-                  alt="link"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-              </div>
-              <div
-                class="m-2"
-              >
-                <div
-                  class="body-1 flex flex-row"
-                >
-                  View the apps and websites you've shared your plan information with.
                 </div>
               </div>
             </a>

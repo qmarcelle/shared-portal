@@ -66,12 +66,13 @@ export const SupportFaqTopicDetails: Map<
                 </span>,
 
                 <span key={9}>
-                  For more health insurance terms and definitions, go to the{' '}
+                  For more health insurance terms and definitions, go to
+                  the{' '}
                 </span>,
                 <span key={10}>
                   <Row>
                     <a className="link font-bold">glossary on healthcare.gov</a>
-                    <Image src={externalIcon} className="icon" alt="Info" />.
+                    <Image src={externalIcon} className="icon" alt="" />.
                   </Row>
                 </span>,
               ]}
@@ -222,7 +223,8 @@ export const SupportFaqTopicDetails: Map<
                   <a>this quick video</a>{' '}
                 </span>,
                 <span key={2}>
-                  that will introduce you to the Claim Summary. You can also{' '}
+                  that will introduce you to the Claim Summary. You can
+                  also{' '}
                 </span>,
                 <span className="link font-bold" key={3}>
                   <a href="/member/support">contact us</a>
@@ -356,7 +358,8 @@ export const SupportFaqTopicDetails: Map<
                 <span key={0}>
                   State of Tennessee Insurance Program (State of Tennessee
                   employee plan, higher education, local education and local
-                  government plans): State Division of Benefits Administration —{' '}
+                  government plans): State Division of Benefits Administration
+                  —{' '}
                 </span>,
                 <span key={1} className="font-bold">
                   1-866-579-0029
@@ -395,11 +398,7 @@ export const SupportFaqTopicDetails: Map<
                 <span key={3} className="link font-bold">
                   <Row>
                     visit online{' '}
-                    <Image
-                      className="-mt-[5px]"
-                      src={externalIcon}
-                      alt="external"
-                    />
+                    <Image className="-mt-[5px]" src={externalIcon} alt="" />
                   </Row>
                 </span>,
               ]}
@@ -550,7 +549,9 @@ export const SupportFaqTopicDetails: Map<
               spans={[
                 <span key={0}>You can </span>,
                 <span className="link font-bold" key={1}>
-                  <a href="/member/idcard">order a new Member ID card here</a>{' '}
+                  <a href="/member/idcard">
+                    order a new Member ID card here
+                  </a>{' '}
                 </span>,
                 <span key={2}>
                   or by calling or chatting with us.
@@ -558,18 +559,14 @@ export const SupportFaqTopicDetails: Map<
                 </span>,
                 <span key={3}>
                   You can also download a digital version or print your own copy
-                  of your card from that same page, or you can see it in the{' '}
+                  of your card from that same page, or you can see it in
+                  the{' '}
                 </span>,
 
                 <span key={4}>
                   <Row>
                     <span className="link font-bold"> BCBSTN℠ mobile app </span>
-                    <Image
-                      className="-mt-[5px]"
-                      src={externalIcon}
-                      alt="external"
-                    />
-                    .
+                    <Image className="-mt-[5px]" src={externalIcon} alt="" />.
                   </Row>
                 </span>,
               ]}
@@ -935,11 +932,7 @@ export const SupportFaqTopicDetails: Map<
                 label="Check Drug Cost & Coverage page"
                 displayStyle="inline"
                 icon={
-                  <Image
-                    src={externalIcon}
-                    className="icon inline"
-                    alt="Info"
-                  />
+                  <Image src={externalIcon} className="icon inline" alt="" />
                 }
               />{' '}
               on your caremark.com account.
@@ -997,11 +990,7 @@ export const SupportFaqTopicDetails: Map<
                 label="Check Drug Cost & Coverage page"
                 displayStyle="inline"
                 icon={
-                  <Image
-                    src={externalIcon}
-                    className="icon inline"
-                    alt="Info"
-                  />
+                  <Image src={externalIcon} className="icon inline" alt="" />
                 }
               />{' '}
               on your caremark.com account.
@@ -1020,11 +1009,7 @@ export const SupportFaqTopicDetails: Map<
                 label="Start Rx Delivery by Mail page "
                 displayStyle="inline"
                 icon={
-                  <Image
-                    src={externalIcon}
-                    className="icon inline"
-                    alt="Info"
-                  />
+                  <Image src={externalIcon} className="icon inline" alt="" />
                 }
               />{' '}
               on your caremark.com account. CVS Caremark Mail Service Pharmacy
@@ -1058,11 +1043,7 @@ export const SupportFaqTopicDetails: Map<
                 label="Start Rx Delivery by Mail page"
                 displayStyle="inline"
                 icon={
-                  <Image
-                    src={externalIcon}
-                    className="icon inline"
-                    alt="Info"
-                  />
+                  <Image src={externalIcon} className="icon inline" alt="" />
                 }
               />{' '}
               on your caremark.com account. CVS Caremark Mail Service Pharmacy

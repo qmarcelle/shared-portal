@@ -34,7 +34,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                   How can I find out which drugs my plan covers?
                 </p>
                 <img
-                  alt="Down Chevron"
+                  alt=""
                   class="pl-2 w-6"
                   data-nimg="1"
                   decoding="async"
@@ -74,7 +74,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                   How do I get a prior authorization?
                 </p>
                 <img
-                  alt="Down Chevron"
+                  alt=""
                   class="pl-2 w-6"
                   data-nimg="1"
                   decoding="async"
@@ -114,7 +114,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                   What is a specialty medication?
                 </p>
                 <img
-                  alt="Down Chevron"
+                  alt=""
                   class="pl-2 w-6"
                   data-nimg="1"
                   decoding="async"
@@ -154,7 +154,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                   How do I know if a drug is a specialty drug?
                 </p>
                 <img
-                  alt="Down Chevron"
+                  alt=""
                   class="pl-2 w-6"
                   data-nimg="1"
                   decoding="async"
@@ -194,7 +194,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                   How can I save money on my prescriptions?
                 </p>
                 <img
-                  alt="Down Chevron"
+                  alt=""
                   class="pl-2 w-6"
                   data-nimg="1"
                   decoding="async"
@@ -248,7 +248,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                 How can I find out which drugs my plan covers?
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -288,7 +288,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                 How do I get a prior authorization?
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -328,7 +328,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                 What is a specialty medication?
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -368,7 +368,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                 How do I know if a drug is a specialty drug?
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"
@@ -408,7 +408,7 @@ exports[`ServicesRenderedSection should render the UI correctly 1`] = `
                 How can I save money on my prescriptions?
               </p>
               <img
-                alt="Down Chevron"
+                alt=""
                 class="pl-2 w-6"
                 data-nimg="1"
                 decoding="async"

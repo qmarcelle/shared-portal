@@ -239,25 +239,6 @@ export const myHealthProgramsandResourcesDetails: Map<
     },
   ],
   [
-    HealthProgramsResourcesName.BlueOfTennesseeMedicalCentersVirtualVisits,
-    {
-      healthcareType: 'Primary Care',
-      icon: 'Sanitas',
-      healthCareName: 'Blue of Tennessee Medical Centers Virtual Visits',
-      description:
-        // eslint-disable-next-line quotes
-        'At Blue of Tennessee Medical Centers, you can see a primary care provider, some specialists and get urgent help. You can even get help with your help plan.',
-      link: 'Learn More About Blue of Tennessee Medical Centers',
-      itemDataTitle: 'Generally good for:',
-      itemData: [
-        'Primary Care visits',
-        'Urgent Care (rashes, fever, migraines, diarrhea)',
-        'Get support for a health condition',
-        'Get help with your health plan',
-      ],
-    },
-  ],
-  [
     HealthProgramsResourcesName.TeladocHealthGeneralAndUrgentCare,
     {
       healthcareType: 'Urgent Care',

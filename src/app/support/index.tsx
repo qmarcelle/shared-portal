@@ -16,6 +16,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ContactUsItemTile } from './components/ContactUsItemTile';
@@ -26,6 +27,7 @@ export type SupportProps = {
   data: SupportData;
   quantumHealthEnabled: boolean;
   phone: string;
+  visibilityRules?: VisibilityRules;
 };
 
 let ContactHeader = '';
@@ -35,7 +37,7 @@ function getQuantumHealthContent(contact: string) {
   ContactHeader = 'Contact Quantum Health';
   CONTACT_ITEMS = [
     {
-      icon: <Image src={callIcon} alt="call icon" />,
+      icon: <Image src={callIcon} alt="" />,
       label: '',
       body: (
         <>
@@ -68,7 +70,7 @@ function getGeneralContent(contact: string) {
   ContactHeader = 'Contact Us';
   CONTACT_ITEMS = [
     {
-      icon: <Image src={callIcon} alt="call icon" />,
+      icon: <Image src={callIcon} alt="" />,
       label: 'Call',
       body: (
         <>
@@ -97,7 +99,7 @@ function getGeneralContent(contact: string) {
       ),
     },
     {
-      icon: <Image src={chatIcon} alt="chat icon" />,
+      icon: <Image src={chatIcon} alt="" />,
       label: 'Chat',
       body: (
         <>
@@ -108,7 +110,7 @@ function getGeneralContent(contact: string) {
       footer: <Button callback={() => {}} label="Start a Chat" />,
     },
     {
-      icon: <Image src={emailIcon} alt="email icon" />,
+      icon: <Image src={emailIcon} alt="" />,
       label: 'Email',
       body: (
         <TextBox text="If it's after hours or you'd rather send us an email, we're right here." />
@@ -125,19 +127,19 @@ function getGeneralContent(contact: string) {
 }
 const RESOURCES = [
   {
-    icon: <Image src={questionsIcon} alt="questions icon" />,
+    icon: <Image src={questionsIcon} alt="" />,
     label: 'Frequently Asked Questions',
     link: '/member/support/FAQ',
     external: false,
   },
   {
-    icon: <Image src={glossaryIcon} alt="glossary icon" />,
+    icon: <Image src={glossaryIcon} alt="" />,
     label: 'Health Insurance Glossary',
     link: 'https://www.healthcare.gov/glossary',
     external: true,
   },
   {
-    icon: <Image src={findFormIcon} alt="find form icon" />,
+    icon: <Image src={findFormIcon} alt="" />,
     label: 'Find a Form',
     link: 'https://www.bcbst.com/use-insurance/documents-forms',
     external: true,
@@ -150,7 +152,12 @@ const ModalOverlay = ({ isOpen }: { isOpen: boolean }) => {
   return <div className="fixed modal-overlay inset-0 bg-opacity-50 z-50"></div>;
 };
 
-const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
+const Support = ({
+  data,
+  quantumHealthEnabled,
+  phone,
+  visibilityRules,
+}: SupportProps) => {
   const [isNewWindowOpen, setIsNewWindowOpen] = useState(false);
   let qualtricsWindow: WindowProxy | null;
   useEffect(() => {
@@ -240,6 +247,8 @@ const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
                         label={item.label}
                         link={item.link}
                         external={item.external}
+                        vRules={visibilityRules}
+                        openInNewWindow={true}
                       />
                     ))}
                   </Row>

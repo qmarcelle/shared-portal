@@ -35,6 +35,7 @@ export interface UpdateRowFormProps extends IComponent {
   languageSelectionCallBack?: (val: any) => void;
   validLanguage?: boolean;
   languageEmptySelect?: boolean;
+  isImpersonated?: boolean;
 }
 
 export interface OptionData {
@@ -59,6 +60,7 @@ export const UpdateRowForm = ({
   languageSelectionCallBack,
   validLanguage,
   languageEmptySelect,
+  isImpersonated = false,
 }: UpdateRowFormProps) => {
   function currentSelectionText(optionObjects: OptionData[]) {
     if (!isRaceField)
@@ -72,6 +74,14 @@ export const UpdateRowForm = ({
   function languageErrorText() {
     if (!validLanguage) return ['Invalid entry.Please try again'];
     else return [];
+  }
+
+  function checkImpersonationForSaveCallback() {
+    if (isImpersonated) {
+      alert('This functionality is not available in impersonation mode');
+      return;
+    }
+    saveCallback?.();
   }
 
   return (
@@ -168,7 +178,7 @@ export const UpdateRowForm = ({
               <Title
                 className="font-bold primary-color"
                 text="Update"
-                suffix={<Image src={editIcon} alt="link" />}
+                suffix={<Image src={editIcon} alt="" />}
               />
             </Column>
           </Column>
@@ -181,7 +191,8 @@ export const UpdateRowForm = ({
             className="w-[250px]"
             label="Save Answer"
             type="primary"
-            callback={saveCallback}
+            callback={checkImpersonationForSaveCallback}
+            disable={isImpersonated}
           />
         )}
         <Spacer axis="horizontal" size={16} />

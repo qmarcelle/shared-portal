@@ -38,7 +38,7 @@ export const ViewOtherPlanInformation = ({
             link={item.link}
             suffix={
               item.label == 'Member Handbook' ? (
-                <Image src={externalIcon} alt="external" />
+                <Image src={externalIcon} alt="" />
               ) : undefined
             }
           />

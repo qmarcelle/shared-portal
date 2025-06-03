@@ -35,7 +35,7 @@ export const SearchBanner = ({
           url={link}
           className="searchBannerLink inline"
           displayStyle="inline-flex"
-          icon={external && <Image src={externalIcon} alt="external" />}
+          icon={external && <Image src={externalIcon} alt="" />}
         />
       </Column>
     </Card>

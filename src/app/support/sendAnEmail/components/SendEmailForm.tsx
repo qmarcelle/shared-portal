@@ -50,7 +50,10 @@ const SendEmailForm = ({
       categoryValue: selectedDropDownTopic,
       dependentName: selectedNameDropDown,
     };
-    const result = await invokeSendEmailAction(emailRequest);
+    const result = await invokeSendEmailAction(
+      emailRequest,
+      selectedName.value,
+    );
     if (result.status == 200) {
       setProgress(AppProg.success);
     } else {
@@ -188,6 +191,12 @@ const SendEmailFormComponent = ({
   const setNameOption = (option: FilterDetails) => {
     setNameSelected(option);
   };
+
+  const [emailValue, setEmailValue] = useState(email);
+  const handleEmailChange = (val: string) => {
+    setEmailValue(val);
+  };
+
   return (
     <Column>
       <Header
@@ -204,7 +213,8 @@ const SendEmailFormComponent = ({
       <TextField
         type="text"
         label="We'll send an email reply to:"
-        value={email}
+        value={emailValue}
+        valueCallback={handleEmailChange}
       ></TextField>
       <TextBox
         className="body-2 mt-2"

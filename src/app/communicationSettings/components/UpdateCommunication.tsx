@@ -18,7 +18,7 @@ export const UpdateCommunication = ({
   label,
   subLabel,
   methodName,
-  icon = <img src="/assets/edit.svg" alt="link" />,
+  icon = <Image src={editIcon} alt="" />,
   divider = false,
   onClick,
 }: UpdateCommunicationProps) => {

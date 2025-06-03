@@ -19,7 +19,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
           />
           <p
             class="body-1 pl-3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Sign up for email and text alerts.
           </p>
@@ -57,13 +57,13 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                   >
                     <p
                       class="body-1 body-bold mb-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Receive Text Alerts
                     </p>
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get text alerts with plan updates and personalized health notifications.
                     </p>
@@ -108,13 +108,13 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                   >
                     <p
                       class="body-1 body-bold mb-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Receive Email Alerts
                     </p>
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get important plan updates, claims information and/or health and wellness topics sent to your email.
                     </p>
@@ -141,7 +141,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                 />
                 <p
                   class="body-1"
-                  style="display: block;"
+                  style="display: block; max-width: 100%;"
                 >
                   Choose the emails you want to receive:
                 </p>
@@ -191,7 +191,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
         />
         <p
           class="body-1 pl-3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Sign up for email and text alerts.
         </p>
@@ -229,13 +229,13 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                 >
                   <p
                     class="body-1 body-bold mb-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Receive Text Alerts
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get text alerts with plan updates and personalized health notifications.
                   </p>
@@ -280,13 +280,13 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
                 >
                   <p
                     class="body-1 body-bold mb-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Receive Email Alerts
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get important plan updates, claims information and/or health and wellness topics sent to your email.
                   </p>
@@ -313,7 +313,7 @@ exports[`EditAlertPreferncesSection handles next button click 1`] = `
               />
               <p
                 class="body-1"
-                style="display: block;"
+                style="display: block; max-width: 100%;"
               >
                 Choose the emails you want to receive:
               </p>
@@ -420,7 +420,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
           />
           <p
             class="body-1 pl-3"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Sign up for email and text alerts.
           </p>
@@ -458,13 +458,13 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                   >
                     <p
                       class="body-1 body-bold mb-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Receive Text Alerts
                     </p>
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get text alerts with plan updates and personalized health notifications.
                     </p>
@@ -509,13 +509,13 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                   >
                     <p
                       class="body-1 body-bold mb-2"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Receive Email Alerts
                     </p>
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Get important plan updates, claims information and/or health and wellness topics sent to your email.
                     </p>
@@ -548,7 +548,7 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
         />
         <p
           class="body-1 pl-3"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Sign up for email and text alerts.
         </p>
@@ -586,13 +586,13 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                 >
                   <p
                     class="body-1 body-bold mb-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Receive Text Alerts
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get text alerts with plan updates and personalized health notifications.
                   </p>
@@ -637,13 +637,13 @@ exports[`EditAlertPreferncesSection renders component and toggles checkboxes 1`]
                 >
                   <p
                     class="body-1 body-bold mb-2"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Receive Email Alerts
                   </p>
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Get important plan updates, claims information and/or health and wellness topics sent to your email.
                   </p>

@@ -1,4 +1,6 @@
 import { ReactElement } from 'react';
+import alertErrorSvg from '../../../public/assets/alert_error_red.svg';
+import editIcon from '../../../public/assets/edit.svg';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
@@ -16,6 +18,9 @@ export interface UpdateRowWithStatusProps extends IComponent {
   divider?: boolean;
   enabled?: boolean;
   onOffLabelEnabled?: boolean;
+  profile?: string;
+  emailVerified?: boolean;
+  phoneVerified?: boolean;
 }
 
 export const UpdateRowWithStatus = ({
@@ -28,6 +33,9 @@ export const UpdateRowWithStatus = ({
   icon = <img src="/assets/edit.svg" alt="" />,
   divider = false,
   onClick,
+  profile,
+  emailVerified,
+  phoneVerified,
 }: UpdateRowWithStatusProps) => {
   return (
     <Column className={className || ''} onClick={onClick}>
@@ -45,6 +53,54 @@ export const UpdateRowWithStatus = ({
           {label}
           <Spacer size={16} />
           {subLabel && <TextBox className="mb-4" text={subLabel} />}
+
+          {profile == 'Phone Number' && !subLabel && (
+            <div className="text-red-500">
+              <Row>
+                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <TextBox
+                  className="body-1 pt-1.5 ml-2"
+                  text="No phone number on file."
+                />
+              </Row>
+            </div>
+          )}
+          {profile == 'Email Address' && !subLabel && (
+            <div className="text-red-500 ">
+              <Row>
+                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <TextBox
+                  className="body-1 pt-1.5 ml-2"
+                  text="No email address on file."
+                />
+              </Row>
+            </div>
+          )}
+
+          {!emailVerified && profile == 'Phone Number' && subLabel && (
+            <div className="text-red-500">
+              <Row>
+                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <TextBox
+                  className="body-1 pt-1.5 ml-2"
+                  text="Please confirm your phone number."
+                />
+              </Row>
+            </div>
+          )}
+
+          {!phoneVerified && profile == 'Email Address' && subLabel && (
+            <div className="text-red-500 ">
+              <Row>
+                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <TextBox
+                  className="body-1 pt-1.5 ml-2"
+                  text="Please confirm your email address."
+                />
+              </Row>
+            </div>
+          )}
+
           <AppLink
             className="font-bold primary-color pl-0"
             displayStyle="flex"
