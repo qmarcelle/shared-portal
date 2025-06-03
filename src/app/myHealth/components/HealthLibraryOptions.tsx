@@ -8,6 +8,8 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { isBlueCareEligible, isKatieBeckettEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { MyHealthWellnessHealthLibInfo } from '../models/app/myheath_wellness_healthlib_options';
@@ -15,11 +17,13 @@ import { MyHealthCard } from './MyHealthCard';
 
 interface MyHealthOptionsProps extends IComponent {
   options: MyHealthWellnessHealthLibInfo[];
+  visibilityRule?: VisibilityRules;
 }
 
 export const HealthLibraryOptions = ({
   className,
   options,
+  visibilityRule,
 }: MyHealthOptionsProps) => {
   const [healthLibData, setHealthLibData] = useState(
     [] as Array<Array<MyHealthWellnessHealthLibInfo>>,
@@ -40,6 +44,34 @@ export const HealthLibraryOptions = ({
     setHealthLibData(healthLibInfo);
   }, [options]);
 
+  function getLinkForOthers() {
+    return (
+      <AppLink
+        label="Visit The Health Library"
+        className="link hover:!underline caremark !flex pt-0 pl-0"
+        url={process.env.NEXT_PUBLIC_HEALTH_LIBRARY_URL ?? ''}
+        icon={<Image src={externalIcon} alt="" />}
+      />
+    );
+  }
+
+  const opeInNewTab = (url: string) => {
+         window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
+  function getLinkForMyHealthBlueCare() {  
+    return (
+      <AppLink
+        label="Visit The Health Library"
+        className="link hover:!underline caremark !flex pt-0 pl-0"       
+        callback={() => {
+          opeInNewTab(process.env.NEXT_PUBLIC_BLUECARE_HEALTH_LIBRARY_URL ?? '');
+        }}
+        icon={<Image src={externalIcon} alt="" />}
+      />
+    );
+  }
+
   return (
     <Card className={className}>
       <Column>
@@ -58,7 +90,9 @@ export const HealthLibraryOptions = ({
                     label={item.title}
                     icon={item.icon}
                     body={item.description}
-                    link={item.url}
+                    link={item.url} 
+                    openInNewWindow={true}                   
+                    visibilityRule={visibilityRule}
                   />
                 );
               })}
@@ -75,12 +109,9 @@ export const HealthLibraryOptions = ({
                 className="body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
                 key={1}
               >
-                <AppLink
-                  label="Visit The Health Library"
-                  className="link hover:!underline caremark !flex pt-0 pl-0"
-                  url="https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89"
-                  icon={<Image src={externalIcon} alt="" />}
-                />
+                {isBlueCareEligible(visibilityRule) || isKatieBeckettEligible(visibilityRule)
+                  ? getLinkForMyHealthBlueCare()
+                  : getLinkForOthers()}
               </Row>,
             ]}
           />

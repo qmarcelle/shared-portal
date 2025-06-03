@@ -1433,7 +1433,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
@@ -1493,7 +1493,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Enter the 6-digit security code you heard to complete voice setup.
                     </p>
@@ -1508,7 +1508,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 2`] = `
                       >
                         <p
                           class="body-1 font-bold text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           (111) 111-1111
                         </p>
@@ -1669,7 +1669,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                   />
                   <p
                     class="body-1 primary-color underline"
-                    style="display: block;"
+                    style="display: block; max-width: 100%;"
                   >
                     Back
                   </p>
@@ -1747,7 +1747,7 @@ exports[`Verify Mfa Voice Journey verify Mfa Voice Devices 408 error 3`] = `
                       >
                         <p
                           class="body-1 text-center"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Oops! We're sorry. Something went wrong. Please try again.
                         </p>

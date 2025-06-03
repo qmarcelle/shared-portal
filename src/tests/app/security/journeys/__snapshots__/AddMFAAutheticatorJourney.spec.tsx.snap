@@ -717,7 +717,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                     />
                     <p
                       class="body-1 body-1 text-center"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Scan the QR Code or manually type the secret key into your authenticator app then enter the security code.
                     </p>
@@ -746,7 +746,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1 body-1 font-bold"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           Secret Key:
                         </p>
@@ -755,7 +755,7 @@ exports[`Authenticator App Setup should render the screens without error when we
                         />
                         <p
                           class="body-1"
-                          style="display: block;"
+                          style="display: block; max-width: 100%;"
                         >
                           ZEHLSQVDBQACU44JEF2BGVJ45KHFRDYJ
                         </p>

@@ -2,12 +2,10 @@ import NextAuth, { Session } from 'next-auth';
 import { getToken, JWT } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
-import { conditionalRewriteRules, rewriteRules, wildcardRewriteRules } from './lib/rewrites';
 import { SessionUser } from './userManagement/models/sessionUser';
 import { API_BASE_PATH } from './utils/routes';
-import { getRoutingRedirect } from './utils/routing';
+import { getRoutingRedirect, getURLRewrite } from './utils/routing';
 import { decodeVisibilityRules } from './visibilityEngine/converters';
-import { VisibilityRules } from './visibilityEngine/rules';
 
 const { auth } = NextAuth(authConfig);
 
@@ -35,21 +33,6 @@ const getSession = function (token: JWT, session: Session) {
       vRules: decodeVisibilityRules((token.user as SessionUser).rules ?? '0'),
     },
   };
-};
-
-const getURLRewrite = function (path: string, rules?: VisibilityRules): string | null {
-  if (conditionalRewriteRules[path] && rules) {
-    return conditionalRewriteRules[path](rules);
-  } 
-  else if (rewriteRules[path]){
-    return rewriteRules[path]
-  } else {
-    const wildcard = Object.entries(wildcardRewriteRules).find(
-      ([clientPath, mapping]) => path.includes(clientPath), //eslint-disable-line
-    );
-    if (!wildcard) return null;
-    else return path.replace(wildcard[0], wildcard[1]);
-  }
 };
 
 export default auth(async (req) => {

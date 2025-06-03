@@ -58,11 +58,14 @@ const MemberDashboard = ({ data }: DashboardProps) => {
         {!isBlueCareEligible(visibilityRules) &&
           !isQuantumHealthEligible(visibilityRules) &&
           isAHAdvisorpage(visibilityRules) && (
-            <section className="sm:flex sm:flex-row items-start">
-              <AmplifyHealthAdvisorBanner />
-            </section>
+            <>
+              <section className="sm:flex sm:flex-row items-start">
+                <AmplifyHealthAdvisorBanner />
+              </section>
+              <Spacer size={32}></Spacer>
+            </>
           )}
-        <Spacer size={32}></Spacer>
+
         <section className="flex flex-row items-start app-body">
           <Column className="flex-grow page-section-63_33 items-stretch">
             <RecentClaimSection
@@ -99,8 +102,8 @@ const MemberDashboard = ({ data }: DashboardProps) => {
               isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
-                  dueDate="08/10/2023"
-                  amountDue={1000.46}
+                  dueDate={data?.premiumPayResponse?.paymentDue ?? ''}
+                  amountDue={data?.premiumPayResponse?.currentBalance ?? ''}
                   visibilityRules={visibilityRules}
                 />
               )}
@@ -124,6 +127,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             />
           </Column>
         </section>
+        <Spacer size={32} />
         <Header
           text="Find Care & Costs"
           type="title-2"
@@ -146,11 +150,12 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             {!isEmboldHealthEligible(visibilityRules) &&
               findCarePillOptions && (
                 <PillBox
-                  title="Looking for Care? Find A:"
+                  title="Looking for care?"
+                  subTitle="Find a:"
                   icon={
                     <Image
                       src={FindCare}
-                      className="w-[50px] h-[50px]"
+                      className="w-[50px] h-[50px] pr-2"
                       alt=""
                     />
                   }
@@ -172,7 +177,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
                 icon={
                   <Image
                     src={EstimateCost}
-                    className="w-[50px] h-[50px]"
+                    className="w-[50px] h-[50px] pr-2"
                     alt=""
                   />
                 }

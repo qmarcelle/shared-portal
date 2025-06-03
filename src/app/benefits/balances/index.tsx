@@ -23,7 +23,6 @@ type BalancePageProps = {
 export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Spacer size={32} />
       <Column className="app-content app-base-font-color">
         <Header className="my-4 mb-0" text="Balances" />
         <TextBox

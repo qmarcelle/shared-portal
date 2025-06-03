@@ -37,6 +37,7 @@ import {
   payMyPremiumMedicareEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { isOtherInsuranceEligible } from '../visibilityEngine/computeVisibilityRules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
 export const getMenuNavigation = (
   rules: VisibilityRules,
@@ -113,12 +114,13 @@ export const getMenuNavigation = (
         category: 'Find Care',
         showOnMenu: () => {
           if (
-            isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
-            isNewMentalHealthSupportAbleToEligible(rules) ||
-            isHingeHealthEligible(rules) ||
-            isTeladocPrimary360Eligible(rules) ||
-            isTeladocEligible(rules) ||
-            isNurseChatEligible(rules)
+            (isNewMentalHealthSupportMyStrengthCompleteEligible(rules) ||
+              isNewMentalHealthSupportAbleToEligible(rules) ||
+              isHingeHealthEligible(rules) ||
+              isTeladocPrimary360Eligible(rules) ||
+              isTeladocEligible(rules) ||
+              isNurseChatEligible(rules)) &&
+            !isLifePointGrp(rules)
           ) {
             return true;
           } else {
@@ -321,7 +323,7 @@ export const getMenuNavigation = (
           isBlueCareNotEligible(rules) &&
           isNotWellnessQa(rules) &&
           isManageMyPolicyEligible(rules),
-        url: '',
+        url: '/myPlan/manageMyPolicy',
         external: false,
       },
       {
@@ -329,8 +331,7 @@ export const getMenuNavigation = (
         title: 'Report Other Health Insurance',
         description: 'This is Report Other Health Insurance',
         category: 'Manage My Plan',
-        showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+        showOnMenu: (rules) => isOtherInsuranceEligible(rules),
         url: '/member/myplan/otherinsurance',
         external: false,
       },
@@ -389,9 +390,7 @@ export const getMenuNavigation = (
         title: 'Member Wellness Center',
         description: 'This is Member Wellness Center',
         category: 'Wellness',
-        showOnMenu: () => {
-          return true;
-        },
+        showOnMenu: (rules) => !isLifePointGrp(rules),
         url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_ON_LIFE}`,
         external: true,
       },
@@ -431,7 +430,8 @@ export const getMenuNavigation = (
         title: 'Health Programs & Resources',
         description: 'This is Health Programs & Resources',
         category: 'Advice & Support',
-        showOnMenu: isHealthProgamAndResourceEligible,
+        showOnMenu: (rules) =>
+          isHealthProgamAndResourceEligible(rules) && !isLifePointGrp(rules),
         url: '/member/myhealth/healthprograms',
         external: false,
       },

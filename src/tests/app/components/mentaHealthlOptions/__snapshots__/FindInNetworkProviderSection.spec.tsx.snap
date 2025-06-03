@@ -38,7 +38,7 @@ exports[`FindInNetworkProviderSection should render the UI correctly and redirec
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Find a high-quality provider for either in-person or virtual telehealth appointments.
           </p>
@@ -80,7 +80,7 @@ exports[`FindInNetworkProviderSection should render the UI correctly and redirec
         />
         <p
           class="body-1"
-          style="display: block;"
+          style="display: block; max-width: 100%;"
         >
           Find a high-quality provider for either in-person or virtual telehealth appointments.
         </p>

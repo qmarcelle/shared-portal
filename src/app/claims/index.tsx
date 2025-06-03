@@ -19,6 +19,10 @@ type ClaimsPageProps = {
   phone: string;
 };
 
+const MEMBER_FILTER_INDEX = 0;
+const CLAIM_TYPE_FILTER_INDEX = 1;
+const DATE_FILTER_INDEX = 2;
+
 const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
   const initialFilter = useMemo(() => {
     return filters ?? [];
@@ -37,15 +41,21 @@ const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
   function filterClaims(selectedFilter: FilterItem[]) {
     return initialClaims.filter((item) => {
       // Member Filter
-      if (selectedFilter[0].selectedValue?.value != '0') {
-        if (selectedFilter[0].selectedValue?.value != item.memberId) {
+      if (selectedFilter[MEMBER_FILTER_INDEX].selectedValue?.value != '0') {
+        if (
+          selectedFilter[MEMBER_FILTER_INDEX].selectedValue?.value !=
+          item.memberId
+        ) {
           return false;
         }
       }
 
       // Claim Type Filter
-      if (selectedFilter[1].selectedValue?.value != '0') {
-        if (selectedFilter[1].selectedValue?.value !== item.claimType) {
+      if (selectedFilter[CLAIM_TYPE_FILTER_INDEX].selectedValue?.value != '0') {
+        if (
+          selectedFilter[CLAIM_TYPE_FILTER_INDEX].selectedValue?.value !==
+          item.claimType
+        ) {
           return false;
         }
       }
@@ -54,37 +64,49 @@ const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
       const currentDate = new Date();
       const claimDate = new Date(item.serviceDate);
       const diffInDays = getDifferenceInDays(currentDate, claimDate);
-      if (selectedFilter[2].selectedValue?.label == 'Last 30 Days') {
+      if (
+        selectedFilter[DATE_FILTER_INDEX].selectedValue?.label == 'Last 30 Days'
+      ) {
         // Check for within 30 days
         if (diffInDays >= 30) {
           return false;
         }
       }
 
-      if (selectedFilter[2].selectedValue?.label == 'Last 60 Days') {
+      if (
+        selectedFilter[DATE_FILTER_INDEX].selectedValue?.label == 'Last 60 Days'
+      ) {
         // Check for within 60 days
         if (diffInDays >= 60) {
           return false;
         }
       }
 
-      if (selectedFilter[2].selectedValue?.label == 'Last 90 Days') {
+      if (
+        selectedFilter[DATE_FILTER_INDEX].selectedValue?.label == 'Last 90 Days'
+      ) {
         // Check for within 90 days
-        if (diffInDays >= 60) {
+        if (diffInDays >= 90) {
           return false;
         }
       }
 
-      if (selectedFilter[2].selectedValue?.label == 'Last 120 Days') {
+      if (
+        selectedFilter[DATE_FILTER_INDEX].selectedValue?.label ==
+        'Last 120 Days'
+      ) {
         // Check for within 120 days
         if (diffInDays >= 120) {
           return false;
         }
       }
 
-      if (selectedFilter[2].selectedValue?.label == 'Last Calendar Year') {
-        // Check for within 365 days
-        if (diffInDays >= 365) {
+      if (
+        selectedFilter[DATE_FILTER_INDEX].selectedValue?.label ==
+        'Last Calendar Year'
+      ) {
+        const lastYear = currentDate.getFullYear() - 1;
+        if (claimDate.getFullYear() !== lastYear) {
           return false;
         }
       }

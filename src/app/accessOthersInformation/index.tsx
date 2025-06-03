@@ -8,7 +8,9 @@ import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
+import { googleAnalytics } from '@/utils/analytics';
 import { AccessToOthersPlanComponent } from './components/AccessToOthersPlanComponent';
 
 export type AccessOtherInformationProps = {
@@ -20,6 +22,21 @@ const AccessOthersInformation = ({
   accessOtherInformationDetails,
   isImpersonated = false,
 }: AccessOtherInformationProps) => {
+  function trackAccessOthersInformationAnalytics(
+    clickText: string,
+    elementCategory: string,
+  ): void {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'accordion',
+      element_category: elementCategory,
+      action: 'expand',
+    };
+    googleAnalytics(analytics);
+  }
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -48,6 +65,11 @@ const AccessOthersInformation = ({
                       mental), brain or other sensitive information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      'Full Access',
+                      'Understanding Access On My Plan',
+                    ),
                 },
                 {
                   title: 'Basic Access',
@@ -59,6 +81,11 @@ const AccessOthersInformation = ({
                       prescriptions.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      'Basic Access',
+                      'Understanding Access On My Plan',
+                    ),
                 },
                 {
                   title: 'No Access',
@@ -69,6 +96,11 @@ const AccessOthersInformation = ({
                       visits, pharmacy and prescriptions
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      'No Access',
+                      'Understanding Access On My Plan',
+                    ),
                 },
                 {
                   title: 'Special Permissions',
@@ -99,6 +131,11 @@ const AccessOthersInformation = ({
                       />
                     </Column>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      'Special Permissions',
+                      'Understanding Access On My Plan',
+                    ),
                 },
               ]}
             ></AccordionListCard>
@@ -137,7 +174,7 @@ const AccessOthersInformation = ({
               header="Understanding Access to Others' Plans"
               information={[
                 {
-                  title: 'How to Get Access to Others&apos; Plans',
+                  title: "How to Get Access to Others' Plans",
                   body: (
                     <Column className="m-1">
                       Access to view members&apos; plan information is by
@@ -146,9 +183,14 @@ const AccessOthersInformation = ({
                       plan.
                     </Column>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      "How to Get Access to Others' Plans",
+                      "Understanding Access to Others' Plans",
+                    ),
                 },
                 {
-                  title: 'How to View Others&apos; Plans',
+                  title: "How to View Others' Plans",
                   body: (
                     <Column className="m-1">
                       Once you&apos;ve been invited to view the information of
@@ -156,6 +198,11 @@ const AccessOthersInformation = ({
                       anytime using the profile button in the top right corner.
                     </Column>
                   ),
+                  onOpenCallBack: () =>
+                    trackAccessOthersInformationAnalytics(
+                      "How to View Others' Plans",
+                      "Understanding Access to Others' Plans",
+                    ),
                 },
               ]}
             ></AccordionListCard>

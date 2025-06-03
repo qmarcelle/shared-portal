@@ -93,6 +93,14 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'isHighDeductiblePlanMember',
   'isLifePointGrp',
   'isAmplifyHealthGroupEnabled',
+  'hasFSA',
+  'hasHRA',
+  'hasHSA',
+  'internalBCBSTSA',
+  'healthEquity',
+  'hsaBank',
+  'pinnacleBank',
+  'otherInsuranceEligible',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

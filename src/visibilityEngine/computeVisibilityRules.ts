@@ -63,11 +63,44 @@ export function computeVisibilityRules(
     loggedUserInfo.groupData.policyType,
   );
 
+  console.log(`FSA Pre Auth: ${rules.flexibleSpendingAccount}`);
   computeAuthFunctions(loggedUserInfo, rules);
 
   rules.externalSpendingAcct =
     loggedUserInfo.healthCareAccounts &&
     loggedUserInfo.healthCareAccounts.length > 0;
+
+  rules.hasHRA = rules.healthReimbursementAccount;
+  console.log(`FSA Post Auth: ${rules.flexibleSpendingAccount}`);
+  rules.hasFSA =
+    rules.flexibleSpendingAccount ||
+    (rules.externalSpendingAcct &&
+      loggedUserInfo.healthCareAccounts.some(
+        (acct) => acct.accountType === 'FSA',
+      ));
+  rules.hasHSA =
+    rules.externalSpendingAcct &&
+    loggedUserInfo.healthCareAccounts.some(
+      (acct) => acct.accountType === 'HSA',
+    );
+
+  rules.hsaBank =
+    rules.externalSpendingAcct &&
+    loggedUserInfo.healthCareAccounts.some(
+      (bank) => bank.bankName === 'HSABank',
+    );
+  rules.healthEquity =
+    rules.externalSpendingAcct &&
+    loggedUserInfo.healthCareAccounts.some(
+      (bank) => bank.bankName === 'HealthEquity',
+    );
+  rules.pinnacleBank =
+    rules.externalSpendingAcct &&
+    loggedUserInfo.healthCareAccounts.some(
+      (bank) => bank.bankName === 'Pinnacle',
+    );
+  rules.internalBCBSTSA =
+    rules.healthReimbursementAccount || rules.flexibleSpendingAccount;
 
   rules.isCondensedExperienceProfileHorizon =
     rules?.isCondensedExperience &&
@@ -115,7 +148,7 @@ const isLobCommercial = (rules: VisibilityRules | undefined) => {
 };
 
 export function isOtherInsuranceEligible(rules?: VisibilityRules) {
-  return rules?.otherInsuranceEligible && activeAndHealthPlanMember(rules);
+  return rules?.otherInsuranceEligible;
 }
 
 export function isActiveAndNotFSAOnly(
@@ -433,14 +466,20 @@ export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
 }
 
 export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
-  return (
-    rules?.subscriber &&
-    (rules?.fsaOnly ||
-      rules?.externalSpendingAcct ||
-      (rules?.fsaHraEligible &&
-        rules?.commercial &&
-        (rules?.flexibleSpendingAccount || rules?.healthReimbursementAccount)))
-  );
+  if (!rules?.subscriber) {
+    return false;
+  }
+
+  if (
+    rules?.fsaOnly ||
+    rules?.externalSpendingAcct ||
+    (rules?.fsaHraEligible &&
+      rules?.commercial &&
+      (rules?.flexibleSpendingAccount || rules?.healthReimbursementAccount))
+  ) {
+    return true;
+  }
+  return false;
 }
 
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {

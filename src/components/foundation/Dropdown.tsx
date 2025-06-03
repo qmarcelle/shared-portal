@@ -13,6 +13,7 @@ export type SelectItem = {
 };
 
 export interface DropDownProps {
+  label?: string;
   items: SelectItem[];
   onSelectCallback: (val: string) => void;
   initialSelectedValue: string;
@@ -23,9 +24,11 @@ export interface DropDownProps {
   maxWidth?: number | string; // Allow both number and string for flexibility
   iconAlignment?: 'flex' | 'right'; // New prop for icon alignment
   scrollThreshold?: number; // New prop for scroll threshold
+  disabled?: boolean;
 }
 
 export const Dropdown = ({
+  label,
   items,
   initialSelectedValue,
   onSelectCallback,
@@ -36,6 +39,7 @@ export const Dropdown = ({
   maxWidth,
   iconAlignment = 'flex', // Default to 'flex'
   scrollThreshold = 10, // Default threshold for scrollable dropdown
+  disabled,
 }: DropDownProps) => {
   const mappedItems = new Map(items.map((item) => [item.value, item.label]));
   const [selectedVal, setSelectedVal] = useState(initialSelectedValue);
@@ -61,10 +65,11 @@ export const Dropdown = ({
   const isScrollable = items.length > scrollThreshold;
 
   return (
-    <div className="relative">
+    <div className={`relative ${disabled ? 'opacity-50' : ''}`}>
+      {label != undefined && label}
       <div
         className={`flex flex-row link ${className}`}
-        onClick={() => setShowDrop((prev) => !prev)}
+        onClick={disabled ? undefined : () => setShowDrop((prev) => !prev)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             setShowDrop((prev) => !prev);
@@ -84,7 +89,7 @@ export const Dropdown = ({
       {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
       <section
         ref={listRef}
-        className="card-elevated z-20 dropdown-section"
+        className="card-elevated z-20 dropdown-section overflow-y-auto"
         style={{
           display: showDrop ? 'block' : 'none',
           position: 'absolute',

@@ -12,6 +12,8 @@ export type MemberData = {
   lastName?: string;
   suffix: number;
   dob: string;
+  relationship?: string;
+  gender?: string;
 };
 
 export async function getLoggedInUserInfo(

@@ -31,9 +31,9 @@ const PriorAuthorization = ({
     return (
       <Row className="body-1 flex-grow align-top mt-4 md:!flex !block" key={2}>
         {isBlueCareEligible(data.visibilityRules)
-          ? 'Looking for a prescription drug pre-approval? Go to your'
-          : // eslint-disable-next-line quotes
-            "We've put together a list of how and when to get referrals and authorizations for specific services"}
+          ? // eslint-disable-next-line quotes
+            "We've put together a list of how and when to get referrals and authorizations for specific services"
+          : 'Looking for a prescription drug pre-approval? Go to your'}
         {isBlueCareEligible(data.visibilityRules) ? (
           <AppLink
             label="See what we cover"
@@ -133,11 +133,6 @@ const PriorAuthorization = ({
                   priorAuthDetails={data.priorAuthDetails}
                 />
               )}
-              <section className="flex justify-center self-center">
-                <Row className="m-2 mt-0">
-                  Viewing 5 of 5 Prior Authorizations
-                </Row>
-              </section>
             </Column>
           </section>
         )}

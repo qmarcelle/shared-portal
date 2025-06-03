@@ -1,8 +1,10 @@
+import { SpendingBalanceYearData } from './spendingBalanceYearData';
+
 export interface MyHealthCareResponseDTO {
   userId?: string;
   hraBean?: HRABean;
   fsaBean?: FSABean[];
-  spendingBalanceBean?: SpendingBalanceBean[];
+  acctYearlyData?: AccountYearlyData[];
   exflexSpndAccnt?: FSABalance;
   exHRAAccnt?: HRABalance;
   healthAccountInfo?: HealthAccountInfo[];
@@ -35,11 +37,9 @@ export interface FSABean {
   totalPledgeAmount?: string;
 }
 
-export interface SpendingBalanceBean {
-  planYear: string;
-  contributionsAmount: string;
-  distributionsAmount: string;
-  balanceAmount: string;
+export interface AccountYearlyData {
+  planYears: string[];
+  yearData: SpendingBalanceYearData[];
   transactionsLabel: string;
   spendingBalanceTitle: string;
   accountTypeText: string;
@@ -68,8 +68,8 @@ export interface HRABalance extends Balance {
 }
 
 export type HealthAccountInfo = {
-  accountType: string;
+  accountTypes: string[];
   bankName: string;
-  linkName: string;
-  linkUrl: string;
+  linkName?: string;
+  linkUrl?: string;
 };

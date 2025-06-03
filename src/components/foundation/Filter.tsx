@@ -35,7 +35,7 @@ interface FilterProps extends IComponent {
 
 export const FilterTile = ({ user }: { user: FilterDetails }) => {
   return (
-    <Column className="border-none flex-grow">
+    <Column className="border-none flex-grow overflow-hidden">
       <TextBox type="body-1" text={`${user.label}`} />
     </Column>
   );
@@ -137,18 +137,22 @@ export const Filter = ({
             <Spacer size={16} />
           </Fragment>
         ))}
-        <Spacer size={16} />
+
         {showReset && (
-          <a className="link flex !no-underline" href="#" onClick={onReset}>
-            <Image
-              src={resetIcon}
-              className="w-[20px] h-[20px] ml-2 mr-2 items-end"
-              alt=""
-            />
-            Reset Filter
-          </a>
+          <>
+            <Spacer size={16} />
+            <a className="link flex !no-underline" href="#" onClick={onReset}>
+              <Image
+                src={resetIcon}
+                className="w-[20px] h-[20px] ml-2 mr-2 items-end"
+                alt=""
+              />
+              Reset Filter
+            </a>
+            <Spacer size={16} />
+          </>
         )}
-        <Spacer size={16} />
+
         {buttons ? (
           <Button
             className={buttons.className}

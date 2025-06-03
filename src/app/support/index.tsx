@@ -16,6 +16,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ContactUsItemTile } from './components/ContactUsItemTile';
@@ -26,6 +27,7 @@ export type SupportProps = {
   data: SupportData;
   quantumHealthEnabled: boolean;
   phone: string;
+  visibilityRules?: VisibilityRules;
 };
 
 let ContactHeader = '';
@@ -150,7 +152,12 @@ const ModalOverlay = ({ isOpen }: { isOpen: boolean }) => {
   return <div className="fixed modal-overlay inset-0 bg-opacity-50 z-50"></div>;
 };
 
-const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
+const Support = ({
+  data,
+  quantumHealthEnabled,
+  phone,
+  visibilityRules,
+}: SupportProps) => {
   const [isNewWindowOpen, setIsNewWindowOpen] = useState(false);
   let qualtricsWindow: WindowProxy | null;
   useEffect(() => {
@@ -240,6 +247,8 @@ const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
                         label={item.label}
                         link={item.link}
                         external={item.external}
+                        vRules={visibilityRules}
+                        openInNewWindow={true}
                       />
                     ))}
                   </Row>

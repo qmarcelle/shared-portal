@@ -10,9 +10,9 @@ import {
 import { Row } from './Row';
 
 export interface TextFieldProps extends IComponent {
-  label: string;
+  label: string | undefined;
   type?: 'text' | 'password' | 'email' | 'number';
-  errors?: string[] | null;
+  errors?: (string | undefined)[] | null;
   fillGuidance?: string[] | null;
   value?: string | number;
   hint?: string;
@@ -100,8 +100,11 @@ const LowerPart = ({
   errors?: string[] | null;
   fillGuidance?: string[] | null;
 }) => {
+  console.error('text field errors', errors);
   return (
-    <div className={`${errors ? 'error-container' : ''} mt-1 p-1`}>
+    <div
+      className={`${(errors?.length ?? 0) > 0 ? 'error-container' : ''} mt-1 p-1`}
+    >
       {errors && <Error errors={errors} />}
       {errors == null && fillGuidance && (
         <FillGuidance fillGuidance={fillGuidance} />
@@ -155,19 +158,23 @@ export const TextField = ({
 
   const resolvedMaxWidth = resolveMaxWidth(maxWidth);
 
+  const filteredErrors: string[] = (errors?.filter(Boolean) as string[]) ?? [];
+
   return (
     <div
       style={{ ...(resolvedMaxWidth && { maxWidth: resolvedMaxWidth }) }}
       className="flex flex-col w-full text-field"
     >
-      <p>
-        {required && <span className="text-red-500 ml-1">* </span>}
-        {label}
-      </p>
+      {label && (
+        <p>
+          {required && <span className="text-red-500 ml-1">* </span>}
+          {label}
+        </p>
+      )}
       <div
         className={`flex flex-row items-center input ${className} ${
           focus ? 'input-focus' : ''
-        } ${(errors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
+        } ${(filteredErrors?.length ?? 0) > 0 && highlightError ? 'error-input' : ''}`}
       >
         <input
           aria-label={label}
@@ -188,20 +195,22 @@ export const TextField = ({
           list={list}
           {...otherProps}
           onBlur={(e) => {
-            if (otherProps?.onBlur) {
-              otherProps.onBlur(e);
-            }
+            otherProps?.onBlur(e);
             setFocus(false);
           }}
         />
         <div className="cursor-pointer" onClick={toggleObscure}>
           {isSuffixNeeded && (
-            <SuffixIcon errors={errors} type={type} obscured={obscuredState} />
+            <SuffixIcon
+              errors={filteredErrors}
+              type={type}
+              obscured={obscuredState}
+            />
           )}
         </div>
       </div>
-      {(errors || fillGuidance) && (
-        <LowerPart errors={errors} fillGuidance={fillGuidance} />
+      {(filteredErrors.length > 0 || fillGuidance) && (
+        <LowerPart errors={filteredErrors} fillGuidance={fillGuidance} />
       )}
     </div>
   );

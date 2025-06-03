@@ -65,10 +65,10 @@ const Dashboard = ({ data }: DashboardProps) => {
                 <Spacer size={8} />
               </>
             )}
-            {data.memberDetails?.coverageType?.length && (
+            {data.memberDetails.selectedPlan && (
               <>
                 <TextBox
-                  text={`Policies: ${data.memberDetails?.coverageType?.join(', ')}`}
+                  text={`Policies: ${data.memberDetails?.selectedPlan.policies}`}
                 />
                 <Spacer size={16} />
               </>
@@ -85,7 +85,6 @@ const Dashboard = ({ data }: DashboardProps) => {
           </>
         }
       />
-      <Spacer size={32}></Spacer>
       {data.role != UserRole.NON_MEM ? (
         <>
           {isWellnessQa(data.visibilityRules) ? (

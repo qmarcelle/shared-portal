@@ -24,7 +24,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
             />
             <p
               class="body-1"
-              style="display: block;"
+              style="display: block; max-width: 100%;"
             >
               Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
             </p>
@@ -74,7 +74,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Your Health Assessment
                       </p>
@@ -83,7 +83,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.
                       </p>
@@ -131,7 +131,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Earn Wellness Points
                       </p>
@@ -140,7 +140,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.
                       </p>
@@ -188,7 +188,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     >
                       <p
                         class="body-1 link-row-head"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Interactive Programs
                       </p>
@@ -197,7 +197,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                       />
                       <p
                         class="body-1 body-1"
-                        style="display: block;"
+                        style="display: block; max-width: 100%;"
                       >
                         Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!
                       </p>
@@ -279,7 +279,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
           />
           <p
             class="body-1"
-            style="display: block;"
+            style="display: block; max-width: 100%;"
           >
             Take a free personal health assessment, track your diet and exercise, sync your fitness apps to earn wellness points and more—all in one secure place.
           </p>
@@ -329,7 +329,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your Health Assessment
                     </p>
@@ -338,7 +338,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Your personal health assessment is the starting point for your wellness program, and the key to helping us provide a more personalized experience for you.
                     </p>
@@ -386,7 +386,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Earn Wellness Points
                     </p>
@@ -395,7 +395,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Choose from a variety of activities, including tracking your steps, completing the wellness class form, or running a 5K.
                     </p>
@@ -443,7 +443,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                   >
                     <p
                       class="body-1 link-row-head"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Interactive Programs
                     </p>
@@ -452,7 +452,7 @@ exports[`MemberWellnessCenterOptions should render the UI correctly 1`] = `
                     />
                     <p
                       class="body-1 body-1"
-                      style="display: block;"
+                      style="display: block; max-width: 100%;"
                     >
                       Set a goal and create healthy habits to achieve your goal. Programs include staying tobacco free, maintaining a healthy weight, and more!
                     </p>

@@ -1,7 +1,6 @@
 'use client';
 import { setExternalSessionToken } from '@/actions/ext_token';
 import { useLoginStore } from '@/app/login/stores/loginStore';
-import { appPaths } from '@/models/app_paths';
 import { PlanDetails } from '@/models/plan_details';
 import { UserProfile } from '@/models/user_profile';
 import { setVisiblePageList } from '@/store/PageHierarchy';
@@ -14,14 +13,19 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { SessionIdleTimer } from '../clientComponents/IdleTimer';
-import { BreadCrumb } from '../composite/BreadCrumb';
 import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
+
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { getMenuNavigation } from '../menuNavigation';
+import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 
+import { getBreadcrumbTrail } from '@/actions/breadcrumbs';
+import { Breadcrumb } from '@/models/app/breadcrumb';
+import Breadcrumbs from '../composite/Breadcrumbs';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -55,12 +59,12 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubNavId, setActiveSubNavId] = useState<number | null>(null);
-  const [pathname, setPathName] = useState<string>('/');
   const [updateLoggedUser, resetToHome] = useLoginStore((state) => [
     state.updateLoggedUser,
     state.resetToHome,
   ]);
   const sitePathName = usePathname();
+  const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
 
   useEffect(() => {
     try {
@@ -77,7 +81,12 @@ export default function SiteHeader({
     }
   }, [window?.document.title]);
   useEffect(() => {
-    setPathName(sitePathName);
+    const fetchBreadcrumbs = async () => {
+      const trail = await getBreadcrumbTrail(sitePathName);
+      setBreadcrumbs(trail);
+    };
+
+    fetchBreadcrumbs();
   }, [sitePathName]);
 
   useEffect(() => {
@@ -87,7 +96,9 @@ export default function SiteHeader({
 
   const menuNavigation = selectedPlan?.termedPlan
     ? getMenuNavigationTermedPlan(visibilityRules)
-    : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
+    : isBlueCareEligible(visibilityRules)
+      ? getMenuBlueCareNavigation(visibilityRules)
+      : getMenuNavigation(visibilityRules).filter((val) => val.showOnMenu);
 
   const pageList = [];
   for (let i = 0; i < menuNavigation.length; i++) {
@@ -128,12 +139,6 @@ export default function SiteHeader({
       setExternalSessionToken();
     }
   }, [selectedPlan?.memeCk]);
-
-  const breadcrumbs = pathname
-    .split('/')
-    .filter(Boolean)
-    .map((item) => appPaths.get(item.toLowerCase())!)
-    .filter(Boolean);
 
   return (
     <>
@@ -316,8 +321,8 @@ export default function SiteHeader({
       {/* breadcrumbs */}
       {breadcrumbs.length > 1 && (
         <div className="flex flex-col justify-center items-center page">
-          <div className="app-content">
-            <BreadCrumb items={breadcrumbs} />
+          <div className="app-content !pb-0">
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
           </div>
         </div>
       )}

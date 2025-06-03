@@ -1,21 +1,16 @@
-const AuthStatus = {
-  SUCCESS: 'success',
-  ERROR: 'error',
-  NEUTRAL: 'neutral',
-  PARTIAL_APPROVAL: 'partialapproval',
-  EMPTY: 'empty',
-} as const;
+import {
+  StatusLabelEnum,
+  StatusLabelStatus,
+} from '@/components/foundation/StatusLabel';
 
-export type AuthStatus = (typeof AuthStatus)[keyof typeof AuthStatus];
-
-export function getAuthStatus(status: string): AuthStatus {
-  const statusMap: Record<string, AuthStatus> = {
-    Processed: AuthStatus.SUCCESS,
-    Paid: AuthStatus.SUCCESS,
-    Denied: AuthStatus.ERROR,
-    Pending: AuthStatus.NEUTRAL,
-    'Partial Approval': AuthStatus.PARTIAL_APPROVAL,
-    Approved: AuthStatus.SUCCESS,
+export function getAuthStatus(status: string): StatusLabelStatus {
+  const statusMap: Record<string, StatusLabelStatus> = {
+    Processed: StatusLabelEnum.SUCCESS,
+    Paid: StatusLabelEnum.SUCCESS,
+    Denied: StatusLabelEnum.ERROR,
+    Pending: StatusLabelEnum.NEUTRAL,
+    'Partial Approval': StatusLabelEnum.PARTIAL_APPROVAL,
+    Approved: StatusLabelEnum.SUCCESS,
   };
-  return statusMap[status] || AuthStatus.EMPTY;
+  return statusMap[status] || StatusLabelEnum.EMPTY;
 }

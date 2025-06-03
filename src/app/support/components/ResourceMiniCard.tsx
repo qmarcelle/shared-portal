@@ -3,6 +3,8 @@ import { externalIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { SpacerX } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -12,6 +14,8 @@ type ResourceMiniCardProps = {
   label: string;
   link: string;
   external: boolean;
+  vRules?: VisibilityRules;
+  openInNewWindow?: boolean;
 } & IComponent;
 
 export const ResourceMiniCard = ({
@@ -20,9 +24,31 @@ export const ResourceMiniCard = ({
   link,
   external,
   className,
+  vRules,
+  openInNewWindow = false,
 }: ResourceMiniCardProps) => {
-  return (
-    <Link className={className ?? ''} href={link}>
+  function getResourceForOthers() {
+    return (
+      <Link className={className ?? ''} href={link}>
+        {getFaqCardData()}
+      </Link>
+    );
+  }
+  function getSupportFaqForBlueCare() {
+    return (
+      <Link
+        className={className ?? ''}
+        href={process.env.NEXT_PUBLIC_BLUECARE_SUPPORT_FAQ_URL ?? ''}
+        target="_blank"
+        rel="noopener,noreferrer"
+      >
+        {getFaqCardData()}
+      </Link>
+    );
+  }
+
+  function getFaqCardData() {
+    return (
       <Card className="px-4 py-3">
         <Row className="items-center">
           {icon}
@@ -33,6 +59,16 @@ export const ResourceMiniCard = ({
           </div>
         </Row>
       </Card>
-    </Link>
+    );
+  }
+
+  return (
+    <>
+      {isBlueCareEligible(vRules) &&
+      label === 'Frequently Asked Questions' &&
+      openInNewWindow
+        ? getSupportFaqForBlueCare()
+        : getResourceForOthers()}
+    </>
   );
 };

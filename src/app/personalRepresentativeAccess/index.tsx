@@ -6,6 +6,8 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { AnalyticsData } from '@/models/app/analyticsData';
+import { googleAnalytics } from '@/utils/analytics';
 import { AuthorizationForm } from './components/AuthorizationForm';
 import { BecomeRepresentative } from './components/BecomeRepresentative';
 import { MembersRepresented } from './components/MembersRepresented';
@@ -20,6 +22,18 @@ const PersonalRepresentativeAccess = ({
   representativeDetails,
   isImpersonated = false,
 }: PersonalRepresentativeAccessProps) => {
+  function trackPersolRepAccessAnalytics(clickText: string): void {
+    const analytics: AnalyticsData = {
+      event: 'select_content',
+      click_text: clickText,
+      click_url: undefined,
+      page_section: undefined,
+      selection_type: 'accordion',
+      element_category: 'Understanding Access',
+      action: 'expand',
+    };
+    googleAnalytics(analytics);
+  }
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -50,6 +64,8 @@ const PersonalRepresentativeAccess = ({
                       information.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackPersolRepAccessAnalytics('Full Access'),
                 },
                 {
                   title: 'Basic Access',
@@ -61,6 +77,8 @@ const PersonalRepresentativeAccess = ({
                       prescriptions.
                     </div>
                   ),
+                  onOpenCallBack: () =>
+                    trackPersolRepAccessAnalytics('Basic Access'),
                 },
               ]}
             ></AccordionListCard>

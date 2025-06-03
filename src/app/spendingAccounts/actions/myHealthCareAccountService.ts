@@ -1,37 +1,48 @@
-'use server';
+import 'server-only';
 
 import { getLoggedInMember } from '@/actions/memberDetails';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
-import { HealthCareAccount } from '@/models/member/api/loggedInUserInfo';
+import { LoggedInMember } from '@/models/app/loggedin_member';
 import { getCurrentDate } from '@/utils/api/date';
 import { SPEND_ACC_BANK_MAP, SPEND_ACC_SSO_MAP } from '@/utils/constants';
 import { formatCurrency } from '@/utils/currency_formatter';
 import { logger } from '@/utils/logger';
+import { isObjectEmpty } from '@/utils/object_utils';
+import { getFSAAcctDetails } from '../actions/bcbstinternal/getFSAAcctDetails';
 import {
+  AccountYearlyData,
   FSABean,
   HealthAccountInfo,
   HRABean,
   MyHealthCareResponseDTO,
-  SpendingBalanceBean,
 } from '../model/myHealthCareResponseDTO';
-import { getFSAAcctDetails } from './getFSAAcctDetails';
-import { getHRAInfo } from './getHRAInfo';
+import { SpendingBalanceYearData } from '../model/spendingBalanceYearData';
+import { getHRAInfo } from './bcbstinternal/getHRAInfo';
+import { mapFSABeansToSpendingBalanceBean } from './bcbstinternal/mapFSABeansToSpendingBalanceBean';
 
 async function fetchFSAAccountDetails(memeCk: number): Promise<FSABean[]> {
   logger.info(`Fetching FSA Account Details for Member: ${memeCk}`);
-  const fsaAccDetailsList = await getFSAAcctDetails(memeCk);
-  const mappedDetails = fsaAccDetailsList.fsaAcctDetails.map((detail) => ({
-    termDate: detail.termDate,
-    fsaTypeInd: detail.fsaTypeInd,
-    accountBalance: formatCurrency(detail.accountBalance ?? 0),
-    effectiveDate: detail.effectiveDate,
-    totalExpenditure: formatCurrency(detail.paidAmountYTD ?? 0),
-    totalPledgeAmount: formatCurrency(
-      (detail.employeePledgeAmount ?? 0) + (detail.employerPledgeAmount ?? 0),
-    ),
-  }));
-  return mappedDetails;
+  try {
+    const fsaAccDetailsList = await getFSAAcctDetails(memeCk);
+    const mappedDetails = fsaAccDetailsList.fsaAcctDetails.map((detail) => ({
+      termDate: detail.termDate,
+      fsaTypeInd: detail.fsaTypeInd,
+      accountBalance: formatCurrency(detail.accountBalance ?? 0),
+      effectiveDate: detail.effectiveDate,
+      totalExpenditure: formatCurrency(detail.paidAmountYTD ?? 0),
+      totalPledgeAmount: formatCurrency(
+        (detail.employeePledgeAmount ?? 0) + (detail.employerPledgeAmount ?? 0),
+      ),
+    }));
+    return mappedDetails;
+  } catch (error) {
+    logger.error(
+      `Error fetching FSA Account Details for Member: ${memeCk}`,
+      error,
+    );
+    return [];
+  }
 }
 
 async function processHRAInfo(memeCk: number): Promise<HRABean> {
@@ -47,47 +58,42 @@ async function processHRAInfo(memeCk: number): Promise<HRABean> {
   };
 }
 
-export async function myHealthCareAccountService(): Promise<
-  ActionResponse<number, MyHealthCareResponseDTO>
-> {
-  const session = await auth();
-  const memberDetails = await getLoggedInMember(session);
-  let healthAccInfo: HealthAccountInfo[] = {} as HealthAccountInfo[];
-  let healthEquity: boolean = false;
-  if (
-    memberDetails.healthCareAccounts &&
-    memberDetails.healthCareAccounts.length > 0
-  ) {
-    healthAccInfo = await mapHealthAccLinksInfo(
-      memberDetails.healthCareAccounts,
-    );
-    healthEquity = memberDetails.healthCareAccounts.some(
-      (account) =>
-        account.bankName && account.bankName.toLowerCase() === 'healthequity',
-    );
-  }
+export async function myHealthCareAccountService(
+  accountInfo: HealthAccountInfo,
+): Promise<ActionResponse<number, MyHealthCareResponseDTO>> {
   try {
-    const hraBean: HRABean = {};
-    const fsaBean: FSABean[] = [];
-    let spendingBalanceBean: SpendingBalanceBean[] =
-      {} as SpendingBalanceBean[];
-
-    if (session?.user?.vRules?.flexibleSpendingAccount) {
-      Object.assign(
-        fsaBean,
-        await fetchFSAAccountDetails(memberDetails?.memeCk),
-      );
+    const session = await auth();
+    const memberDetails: LoggedInMember = await getLoggedInMember(session);
+    let healthAccInfo: HealthAccountInfo[] = [];
+    if (accountInfo) {
+      healthAccInfo = [
+        {
+          bankName: accountInfo.bankName,
+          accountTypes: accountInfo.accountTypes,
+          linkName:
+            SPEND_ACC_BANK_MAP[accountInfo.bankName.toLowerCase()] || '',
+          linkUrl: SPEND_ACC_SSO_MAP[accountInfo.bankName.toLowerCase()] || '',
+        },
+      ];
     }
-
-    if (session?.user?.vRules?.healthReimbursementAccount) {
+    const hraBean: HRABean = {
+      currentBalance: '',
+      employerAllocation: '',
+      totalExpenditures: '',
+      incentiveBalance: '',
+      totalHRAAmount: '',
+    };
+    let acctYearlyData: AccountYearlyData[] = [];
+    const fsaBean: FSABean[] = [];
+    if (accountInfo?.accountTypes.includes('FSA')) {
+      fsaBean.push(...(await fetchFSAAccountDetails(memberDetails?.memeCk)));
+    }
+    if (accountInfo?.accountTypes.includes('HRA')) {
       Object.assign(hraBean, await processHRAInfo(memberDetails?.memeCk));
     }
 
     if ((hraBean && !isObjectEmpty(hraBean)) || fsaBean.length > 0) {
-      spendingBalanceBean = await mapSpendingAccBal(fsaBean, hraBean);
-      logger.info(
-        `mapSpendingAccBal Details : ${JSON.stringify(spendingBalanceBean)}`,
-      );
+      acctYearlyData = await mapSpendingAccBal(fsaBean, hraBean);
     } else {
       logger.info('mapSpendingAccBal Details is EMPTY');
     }
@@ -95,12 +101,11 @@ export async function myHealthCareAccountService(): Promise<
     return {
       status: 200,
       data: {
-        userId: session?.user?.id,
+        userId: session?.user.id,
         healthAccountInfo: healthAccInfo,
         hraBean: hraBean,
         fsaBean: fsaBean,
-        spendingBalanceBean: spendingBalanceBean,
-        isHealthEquity: healthEquity,
+        acctYearlyData: acctYearlyData,
         isApiError: false,
       },
     };
@@ -109,13 +114,11 @@ export async function myHealthCareAccountService(): Promise<
       'Error Response from Spending Accounts - MyHealthCareService',
       error,
     );
-    // this is a temporary fix and needs to fixed in future when we integrate SA with ES calls for external accounts.
     return {
       status: 200,
       data: {
-        userId: session?.user?.id,
-        healthAccountInfo: healthAccInfo,
-        isHealthEquity: healthEquity,
+        userId: '',
+        healthAccountInfo: [],
         isApiError: true,
       },
     };
@@ -125,53 +128,75 @@ export async function myHealthCareAccountService(): Promise<
 async function mapSpendingAccBal(
   fsaBean: FSABean[],
   hraBean: HRABean,
-): Promise<SpendingBalanceBean[]> {
-  const spendingBalanceBean: SpendingBalanceBean[] = [];
+): Promise<AccountYearlyData[]> {
+  const acctYearlyData: AccountYearlyData[] = [];
   const defaultAmt = '$0.00';
   try {
-    if (hraBean && !isObjectEmpty(hraBean)) {
-      const spendBal: SpendingBalanceBean = {} as SpendingBalanceBean;
-      spendBal.planYear = new Date(getCurrentDate()).getFullYear().toString();
-      spendBal.accountTypeText = 'HRA';
-      spendBal.spendingBalanceTitle = 'Health Reimbursement Account';
-      spendBal.transactionsLabel = 'View HRA Transactions';
-      spendBal.contributionsAmount = hraBean?.totalHRAAmount || defaultAmt;
-      spendBal.distributionsAmount = hraBean?.totalExpenditures || defaultAmt;
-      spendBal.balanceAmount = hraBean?.currentBalance || defaultAmt;
-      spendingBalanceBean.push(spendBal);
+    if (!isObjectEmpty(hraBean)) {
+      logger.info('Mapping HRA Bean', hraBean);
+      const hraAcctData: AccountYearlyData = {} as AccountYearlyData;
+      hraAcctData.planYears = [
+        new Date(getCurrentDate()).getFullYear().toString(),
+      ];
+      hraAcctData.accountTypeText = 'HRA';
+      hraAcctData.spendingBalanceTitle = 'Health Reimbursement Account';
+      hraAcctData.transactionsLabel = 'View HRA Transactions';
+      hraAcctData.yearData = [
+        {
+          planYear: new Date(getCurrentDate()).getFullYear().toString(),
+          contributionsAmount: hraBean?.totalHRAAmount || defaultAmt,
+          distributionsAmount: hraBean?.totalExpenditures || defaultAmt,
+          balanceAmount: hraBean?.currentBalance || defaultAmt,
+        } as SpendingBalanceYearData,
+      ];
+      acctYearlyData.push(hraAcctData);
     }
-
+  } catch (err) {
+    logger.error('Error mapping HRA Bean', err);
+  }
+  try {
+    logger.info('Mapping FSA Bean', fsaBean);
     if (fsaBean.length > 0) {
-      fsaBean.forEach((fsa) => {
-        const spendBal: SpendingBalanceBean = {} as SpendingBalanceBean;
-        const dateStr = fsa.termDate ? fsa.termDate : getCurrentDate();
-        spendBal.planYear = new Date(dateStr).getFullYear().toString();
-        spendBal.accountTypeText = fsa.fsaTypeInd === 'C' ? 'DCFSA' : 'FSA';
-        spendBal.spendingBalanceTitle =
-          fsa.fsaTypeInd === 'C'
+      const fsaTypes = groupFSABeansByInd(fsaBean);
+      // Iterate over fsaTypes and create a spendBal for each entry
+      Object.entries(fsaTypes).forEach(([key, fsaTypeBeans]) => {
+        const fsaData: AccountYearlyData = {} as AccountYearlyData;
+        fsaData.transactionsLabel = 'View FSA Transactions';
+        // Set these values based on the string in the key
+        fsaData.accountTypeText = key === 'C' ? 'DCFSA' : 'FSA';
+        fsaData.spendingBalanceTitle =
+          key === 'C'
             ? 'Dependent Care Flexible Spending Account'
             : 'Flexible Spending Account';
-        spendBal.transactionsLabel = 'View FSA Transactions';
-        spendBal.contributionsAmount = fsa?.totalPledgeAmount || defaultAmt;
-        spendBal.distributionsAmount = fsa?.totalExpenditure || defaultAmt;
-        spendBal.balanceAmount = fsa?.accountBalance || defaultAmt;
-        spendingBalanceBean.push(spendBal);
+
+        // Set these values based on the value objects
+        const yearData = mapFSABeansToSpendingBalanceBean(fsaTypeBeans);
+        if (yearData.planYears.length > 0) {
+          fsaData.planYears = yearData.planYears;
+          fsaData.yearData = yearData.yearData;
+          acctYearlyData.push(fsaData);
+        }
       });
     }
-  } catch (err) {}
-
-  return spendingBalanceBean;
+  } catch (err) {
+    logger.error('Error mapping FSA Bean', err);
+  }
+  logger.info('Mapped Spending Balance Bean Details: ', acctYearlyData);
+  return acctYearlyData;
 }
 
-function isObjectEmpty(obj: object): boolean {
-  return Object.keys(obj).length === 0;
-}
+function groupFSABeansByInd(fsaBeans: FSABean[]): Record<string, FSABean[]> {
+  const groupedFSA = fsaBeans.reduce(
+    (acc, bean) => {
+      const type = bean.fsaTypeInd || 'Unknown';
+      if (!acc[type]) {
+        acc[type] = [];
+      }
+      acc[type].push(bean);
+      return acc;
+    },
+    {} as Record<string, FSABean[]>,
+  );
 
-async function mapHealthAccLinksInfo(healthCareAccounts: HealthCareAccount[]) {
-  return healthCareAccounts.map((acc) => ({
-    bankName: acc.bankName,
-    accountType: acc.accountType,
-    linkName: SPEND_ACC_BANK_MAP[acc.bankName.toLowerCase()] || '',
-    linkUrl: SPEND_ACC_SSO_MAP[acc.bankName.toLowerCase()] || '',
-  }));
+  return groupedFSA;
 }

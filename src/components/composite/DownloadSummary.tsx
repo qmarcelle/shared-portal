@@ -7,7 +7,10 @@ import { Header } from '../foundation/Header';
 import { RichText } from '../foundation/RichText';
 import { Spacer } from '../foundation/Spacer';
 
-export const DownloadSummary = () => {
+export type DownloadSummaryProps = {
+  docURL: string;
+};
+export const DownloadSummary = ({ docURL }: DownloadSummaryProps) => {
   return (
     <main className="flex flex-col justify-end items-end page">
       <Column>
@@ -27,6 +30,10 @@ export const DownloadSummary = () => {
               icon={<Image src={downloadIcon} className="ml-2" alt="" />}
               label="Claim Summary"
               type="secondary"
+              callback={() => {
+                window.open(docURL, '_blank');
+              }}
+              disable={docURL === ''}
             />
           </Column>
         </Card>

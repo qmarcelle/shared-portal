@@ -10,8 +10,8 @@ import { Row } from './Row';
 import { TextBox } from './TextBox';
 export interface CalendarFieldProps extends IComponent {
   type?: 'date';
-  label: string;
-  errors?: string[] | null;
+  label: string | undefined;
+  errors?: (string | undefined)[] | null;
   valueCallback?: (value: string) => void;
   onKeydownCallback?: (key: string) => void;
   maxWidth?: number | string; // Allow both number and string for flexibility
@@ -24,6 +24,9 @@ export interface CalendarFieldProps extends IComponent {
   minDateErrMsg?: string;
   maxDateErrMsg?: string;
   required?: boolean;
+  initValue?: string;
+  otherProps?: any;
+  showYearDropdown?: boolean;
 }
 
 export const CalendarField = ({
@@ -41,13 +44,19 @@ export const CalendarField = ({
   maxDateErrMsg,
   maxWidth,
   required = false,
+  initValue = '',
+  otherProps,
+  showYearDropdown = false,
 }: CalendarFieldProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const datePickerRef = useRef<DatePicker>(null);
   const [focus, setFocus] = useState(false);
   const inputRef = useRef<HTMLDivElement | null>(null);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(initValue);
   const [error, setError] = useState<string | undefined>('');
+
+  const filteredErrors: string[] | undefined =
+    (errors?.filter(Boolean) as string[]) ?? [];
 
   const focusCalender = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -171,9 +180,13 @@ export const CalendarField = ({
   // Sync inputValue with selectedDate
   useEffect(() => {
     if (selectedDate) {
+      console.log('Formatted Date', selectedDate);
       const formattedDate = selectedDate
         ? `${String(selectedDate.getMonth() + 1).padStart(2, '0')}/${String(selectedDate.getDate()).padStart(2, '0')}/${selectedDate.getFullYear()}`
         : '';
+      otherProps?.onChange({
+        target: { name: otherProps.name, value: formattedDate },
+      });
       setInputValue(formattedDate);
     }
   }, [selectedDate]);
@@ -188,19 +201,22 @@ export const CalendarField = ({
     <div
       ref={inputRef}
       style={{ ...(resolvedMaxWidth && { maxWidth: resolvedMaxWidth }) }}
-      className={`flex flex-col relative inline-block w-full text-field ${error ? 'border-red-500' : ''}`}
+      className={`flex flex-col relative inline-block w-full text-field ${error || filteredErrors.length > 0 ? 'border-red-500' : ''}`}
     >
-      <p className="mb-2 mt-3">
-        {required && <span className="text-red-500 ml-1">* </span>}
-        {label}
-      </p>
+      {label && (
+        <p>
+          {required && <span className="text-red-500 ml-1">* </span>}
+          {label}
+        </p>
+      )}
 
       <div
-        className={`flex flex-row items-center input relative w-full left-0 top-full ${className} ${
+        className={`flex flex-row items-center input relative w-full left-0 ${className} ${
           focus ? 'input-focus' : ''
         } ${error ? 'border !border-red-500' : ''}`}
       >
         <input
+          {...otherProps}
           aria-label={label}
           type="text"
           value={inputValue}
@@ -212,23 +228,29 @@ export const CalendarField = ({
             setFocus(true);
             onFocusCallback?.();
           }}
-          onBlur={() => setFocus(false)}
+          onBlur={(e) => {
+            otherProps?.onBlur(e);
+            setFocus(false);
+          }}
           disabled={disabled}
         />
         <div className="cursor-pointer" onMouseDown={focusCalender}>
-          {isSuffixNeeded && <SuffixIcon errors={errors} type={type} />}
+          {isSuffixNeeded && <SuffixIcon errors={filteredErrors} type={type} />}
         </div>
       </div>
 
-      {error && (
+      {(error || (filteredErrors?.length ?? 0) > 0) && (
         <div className="text-red-500 mt-1">
           <Row>
             <Image src={alertErrorSvg} className="icon mt-1" alt="" />
-            <TextBox className="body-1 pt-1.5 ml-2" text={error} />
+            <TextBox
+              className="body-1 pt-1.5 ml-2"
+              text={error ?? filteredErrors![0]}
+            />
           </Row>
         </div>
       )}
-      <div className="w-full">
+      <div className="w-full h-0">
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => {
@@ -248,6 +270,7 @@ export const CalendarField = ({
           maxDate={maxDate}
           popperClassName="react-datepicker-custom-popper"
           disabled={disabled}
+          showYearDropdown={showYearDropdown}
         />
       </div>
     </div>

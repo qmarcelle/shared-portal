@@ -10,6 +10,21 @@ export interface ShareMyPlanDetails {
   isMatureMinor: boolean;
   isMinor: boolean;
   roleType: string;
+  performer?: string;
+  requester?: string;
+  requestees?: string[];
+  policyBusinessIdentifier?: string;
+  type?: string;
+  effectiveOn?: string;
+  expiresOn?: string;
+  firstName?: string;
+  lastName?: string;
+  implicit?: boolean;
+  status?: string;
+  isAdult?: boolean;
+  isMatureMinorMember?: boolean | undefined;
+  personRoleType?: string | undefined;
+  isMinorMember?: boolean | undefined;
 }
 
 export interface ShareOutsideMyPlanDetails {
@@ -27,5 +42,8 @@ export enum AccessStatus {
 
 export type SharePlanInformationDetails = {
   memberData: ShareMyPlanDetails[] | null;
+  isMatureMinorMember?: boolean | undefined;
+  personRoleType?: string | undefined;
+  isMinorMember?: boolean | undefined;
   loggedInMemberRole?: string | null;
 };

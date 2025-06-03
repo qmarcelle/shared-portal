@@ -1,5 +1,6 @@
 import { PriorAuthDetailsSection } from '@/app/priorAuthorization/authDetails/component/PriorAuthDetailSection';
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
+import { decrypt } from '@/utils/encryption';
 import { populatePriorAuthDetails } from './action/getPriorAuthDetail';
 
 const priorAuthDetailPage = async ({
@@ -9,9 +10,7 @@ const priorAuthDetailPage = async ({
 }) => {
   const referenceId = searchParams.referenceId;
   const phoneNumber = await invokePhoneNumberAction();
-  const priorAuthDetail = await populatePriorAuthDetails(
-    decodeURIComponent(referenceId),
-  );
+  const priorAuthDetail = await populatePriorAuthDetails(decrypt(referenceId));
   return (
     <section className="">
       <PriorAuthDetailsSection

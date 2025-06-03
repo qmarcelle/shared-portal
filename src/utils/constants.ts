@@ -34,3 +34,6 @@ export const SPEND_ACC_SSO_MAP: { [key: string]: string } = {
   healthequity: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_HEALTH_EQUITY}`,
   pinnacle: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PINNACLE_BANK}`,
 };
+
+export const OPERAND_EQUAL = 'Equal';
+export const APP_NAME_DOC_SERVICE = 'DocumentServices';

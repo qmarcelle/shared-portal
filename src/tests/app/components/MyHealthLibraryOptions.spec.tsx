@@ -1,6 +1,15 @@
 import { HealthLibraryOptions } from '@/app/myHealth/components/HealthLibraryOptions';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { render, screen } from '@testing-library/react';
 
+let vRules: VisibilityRules = {};
+function setVisibilityRules(vRules: VisibilityRules) {
+  vRules.futureEffective = false;
+  vRules.fsaOnly = false;
+  vRules.wellnessOnly = false;
+  vRules.terminated = false;
+  vRules.katieBeckNoBenefitsElig = false;
+}
 const renderUI = () => {
   return render(
     <HealthLibraryOptions
@@ -55,6 +64,7 @@ const renderUI = () => {
           icon: null,
         },
       ]}
+      visibilityRule={vRules}
     />,
   );
 };
@@ -91,6 +101,33 @@ describe('MyHealthLibraryOptions', () => {
       'We’ll help you get the facts, ask the right questions and weigh your options before making any health decision, big or small.',
     );
     screen.getByText('Visit The Health Library');
+    expect(
+      screen.getByRole('link', { name: /Visit The Health Library/i }),
+    ).toHaveProperty(
+      'href',
+      `https://www.healthwise.net/bcbst/Content/CustDocument.aspx?XML=STUB.XML&XSL=CD.FRONTPAGE.XSL&sv=831a539d-ef9f-8c40-5170-bd8216690f89`,
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render the UI correctly - Blue Care', async () => {
+    vRules.blueCare = true;
+    setVisibilityRules(vRules);
+    const component = renderUI();
+    screen.getByText('Health Library');
+    screen.getByText(
+      'From checking symptoms to answering your health questions, we have a collection of useful tools and resources to help you manage your health.',
+    );
+    screen.getByText('Learning Center');
+    screen.getByText('Interactive Tools');
+    screen.getByText('Health Videos');
+    screen.getByText('Symptom Checker');
+    screen.getByText('Manage Your Diabetes');
+    screen.getByText('Decision Support');
+    screen.getByText('Visit The Health Library');
+    expect(
+      screen.getByRole('link', { name: /Visit The Health Library/i }),
+    ).toHaveProperty('href', `https://bluecare.bcbst.com/healthwise/`);
     expect(component).toMatchSnapshot();
   });
 });

@@ -17,6 +17,8 @@ import {
   isHealthyMaternity,
   isHingeHealthEligible,
   isManageMyPolicyEligible,
+  isMedicareDsnpEligible,
+  isMedicareEligible,
   isMedicarePrescriptionPaymentPlanEligible,
   isNewMentalHealthSupportAbleToEligible,
   isNewMentalHealthSupportMyStrengthCompleteEligible,
@@ -238,9 +240,31 @@ export const ROUTE_CONFIG: RouteConfig = {
         },
       },
     },
+    forms: {
+      title: 'Forms',
+      rule: (r) => r.active,
+      children: {
+        determination: {
+          title: 'Medicare Prescription Drug Coverage Determination',
+          rule: (r) => isMedicareEligible(r),
+          breadcrumbParent: '/pharmacy',
+        },
+        redetermination: {
+          title:
+            'Request for Redetermination of Medicare Prescription Drug Denial Form',
+          rule: (r) => isMedicareDsnpEligible(r),
+          breadcrumbParent: '/pharmacy',
+        },
+      },
+    },
     priorAuthorization: {
       title: 'Prior Authorization',
       rule: (r) => activeAndHealthPlanMember(r),
+      children: {
+        '*': {
+          title: (refId) => `Ref#${refId}`,
+        },
+      },
     },
     authDetail: {
       title: (authId) => `ID#${authId}`,
@@ -288,6 +312,12 @@ export const ROUTE_CONFIG: RouteConfig = {
       title: 'Spending Accounts',
       rule: (r) => isSpendingAccountsEligible(r),
       breadcrumbParent: '/myPlan',
+      children: {
+        transactions: {
+          title: 'Transactions',
+          rule: (r) => isSpendingAccountsEligible(r),
+        },
+      },
     },
     support: {
       title: 'Support',
@@ -335,7 +365,7 @@ export const ROUTE_CONFIG: RouteConfig = {
       breadcrumbParent: '/sharingPermissions',
     },
     accessOthersInformation: {
-      title: "Access Others' Information", //eslint-disable-line
+      title: 'Access Others Information', //eslint-disable-line
       breadcrumbParent: '/sharingPermissions',
     },
     personalRepresentativeAccess: {
@@ -345,11 +375,6 @@ export const ROUTE_CONFIG: RouteConfig = {
     thirdPartySharing: {
       title: 'Third Party Sharing',
       breadcrumbParent: '/sharingPermissions',
-    },
-    transactions: {
-      title: 'Transactions',
-      rule: (r) => isSpendingAccountsEligible(r),
-      breadcrumbParent: '/spendingAccounts',
     },
     virtualCareOptions: {
       title: 'Virtual Care Options',
