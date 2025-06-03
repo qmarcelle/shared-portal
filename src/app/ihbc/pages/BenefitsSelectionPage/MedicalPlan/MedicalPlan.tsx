@@ -34,6 +34,7 @@ export const MedicalPlan = () => {
 
   function updateSearch(value: string) {
     const updatedSearch = searchFilter(value);
+    console.log('updatedSearch', updatedSearch);
   }
 
   function searchFilter(val: string) {
@@ -98,7 +99,7 @@ export const MedicalPlan = () => {
             columns={CurrentBenefitGridColumns}
             rowdata={plans}
             updateSelectedRow={updateMedicalPlan}
-            selectedRowId={selectedMedicalPlan?.planId}
+            selectedRowId={selectedMedicalPlan?.planId ?? null}
           ></CustomDataGrid>
           <Spacer size={32} />
           <TextBox
@@ -123,7 +124,7 @@ export const MedicalPlan = () => {
               columns={CurrentBenefitSelectPlanGridColumns}
               rowdata={filteredDataForMedicalPlan}
               updateSelectedRow={updateMedicalPlan}
-              selectedRowId={selectedMedicalPlan?.planId}
+              selectedRowId={selectedMedicalPlan?.planId ?? null}
             ></CustomDataGrid>
           </Row>
           <Spacer size={32} />

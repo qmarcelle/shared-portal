@@ -68,7 +68,7 @@ export const DentalVisionPlan = () => {
             columns={CurrentDentalVisionColumns}
             rowdata={currentDentalPlan}
             updateSelectedRow={updateDentalPlan}
-            selectedRowId={selectedDentalPlan?.planId}
+            selectedRowId={selectedDentalPlan?.planId ?? null}
           />
           <Spacer size={32} />
           <TextBox
@@ -82,7 +82,7 @@ export const DentalVisionPlan = () => {
             columns={SelectDentalVisionColumns}
             rowdata={dentalPlan}
             updateSelectedRow={updateDentalPlan}
-            selectedRowId={selectedDentalPlan?.planId}
+            selectedRowId={selectedDentalPlan?.planId ?? null}
           />
           <Spacer size={32} />
           <TextBox
@@ -101,7 +101,7 @@ export const DentalVisionPlan = () => {
             columns={CurrentDentalVisionColumns}
             rowdata={currentVisionPlan}
             updateSelectedRow={updateVisionPlan}
-            selectedRowId={selectedVisionPlan?.planId}
+            selectedRowId={selectedVisionPlan?.planId ?? null}
           />
           <Spacer size={32} />
           <TextBox
@@ -115,7 +115,7 @@ export const DentalVisionPlan = () => {
             columns={SelectDentalVisionColumns}
             rowdata={visionPlan}
             updateSelectedRow={updateVisionPlan}
-            selectedRowId={selectedVisionPlan?.planId}
+            selectedRowId={selectedVisionPlan?.planId ?? null}
           />
           <Spacer size={32} />
           <Card
