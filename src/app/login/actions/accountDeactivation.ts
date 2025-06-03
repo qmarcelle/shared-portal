@@ -26,9 +26,8 @@ export async function callAccountDeactivation(
     }
   } catch (error) {
     logger.error(
-      'account Deactivation Failure API - Failure',
+      `account Deactivation Failure API - Failure for user: ${request.primaryUserName}`,
       error,
-      request.primaryUserName,
     );
     throw error;
   } finally {
