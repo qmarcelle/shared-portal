@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { serverConfig } from '../env-config';
 import { logger } from '../logger';
 import { getAuthToken } from './getToken';
 
@@ -11,12 +12,42 @@ export interface ChatInfoResponse {
     isOpen: boolean;
   };
   workingHours?: string;
+  // Extended fields for Genesys Cloud Chat
+  member_ck: number; // MEMBER_ID
+  first_name: string;
+  last_name: string;
+  lob_group: string; // LOB grouping
+  RoutingChatbotInteractionId: string; // RoutingChatbotInteractionId
+  IDCardBotName: string; // IDCardBotName
+  MEMBER_DOB: string; // MEMBER_DOB
+  INQ_TYPE: string; // INQ_TYPE
+  SERV_Type: string; // SERV_Type
+  PLAN_ID: string; // PLAN_ID
+  GROUP_ID: string; // GROUP_ID
+  coverage_eligibility: string; // coverage_eligibility
+  Origin: string; // Origin
+  Source: string; // Source
+  // Add any other fields as needed
 }
 
-const memSvcURL = `${process.env.PORTAL_SERVICES_URL}${process.env.MEMBERSERVICE_CONTEXT_ROOT}`;
+// Log environment variables to help with debugging
+logger.info('Member Service Environment Variables:', {
+  PORTAL_SERVICES_URL: serverConfig.PORTAL_SERVICES_URL || 'undefined',
+  MEMBERSERVICE_CONTEXT_ROOT:
+    serverConfig.MEMBERSERVICE_CONTEXT_ROOT || 'undefined',
+  NODE_ENV: serverConfig.NODE_ENV || 'undefined',
+});
+
+// Create URL with fallbacks to prevent "undefinedundefined" strings
+const portalServicesUrl = serverConfig.PORTAL_SERVICES_URL || '';
+const memberServiceContext = serverConfig.MEMBERSERVICE_CONTEXT_ROOT || '';
+const memSvcURL = `${portalServicesUrl}${memberServiceContext}`;
+
+// Log the constructed URL
+logger.info(`Member Service URL: ${memSvcURL || '(empty)'}`);
 
 export const memberService = axios.create({
-  baseURL: memSvcURL,
+  baseURL: memSvcURL || undefined, // Use undefined instead of empty string for better axios handling
   proxy:
     process.env.NEXT_PUBLIC_PROXY?.toLocaleLowerCase() === 'false'
       ? false
@@ -29,7 +60,11 @@ export const memberService = axios.create({
 memberService.interceptors.request?.use(
   async (config) => {
     try {
-      logger.info(`Request URL: ${memSvcURL}${config.url}`);
+      // Log the full request URL to help with debugging
+      const requestUrl = config.baseURL
+        ? `${config.baseURL}${config.url}`
+        : config.url;
+      logger.info(`Request URL: ${requestUrl}`);
 
       //Get Bearer Token from PING and add it in headers for ES service request.
       const token = await getAuthToken();

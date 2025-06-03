@@ -47,97 +47,42 @@ exports[`Communication Settings should render communicationSettings if user role
                   class="body-1"
                   style="display: block;"
                 >
-                  We'll send updates to the phone number and email below.
+                  We'll send alerts to the phone number and email below.
                 </p>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
                 />
                 <div
-                  class="flex flex-col"
+                  class="card-main neutral container mt-4"
                 >
-                  <p
-                    class="body-1 font-bold"
-                    style="display: block;"
-                  >
-                    Phone Number
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
                   <div
-                    class="flex flex-row"
+                    class="flex flex-row flex flex-row align-top m-4"
                   >
-                    <p
-                      class="font-bold primary-color"
-                    >
-                      Update
-                    </p>
+                    <img
+                      alt="alert"
+                      class="icon"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                    />
                     <div
-                      class="ml-2"
+                      class="flex flex-row flex flex-col flex-grow"
                     >
-                      <img
-                        alt="link"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
+                      <p
+                        class="body-1"
+                      >
+                        We can't load your profile right now. Please try again later.
+                      </p>
                     </div>
                   </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                  />
-                  <div
-                    class=""
-                    style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                  />
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                />
-                <div
-                  class="flex flex-col"
-                >
-                  <p
-                    class="body-1 font-bold"
-                    style="display: block;"
-                  >
-                    Email Address
-                  </p>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="font-bold primary-color"
-                    >
-                      Update
-                    </p>
-                    <div
-                      class="ml-2"
-                    >
-                      <img
-                        alt="link"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                  />
                 </div>
               </div>
               <div
@@ -166,8 +111,8 @@ exports[`Communication Settings should render communicationSettings if user role
                     style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                   />
                   <p
-                    class="body-1 inline"
-                    style="display: block;"
+                    class="body-1 py-0"
+                    style="display: inline;"
                   >
                     If you need to request paper copies, please
                   </p>
@@ -182,16 +127,21 @@ exports[`Communication Settings should render communicationSettings if user role
                       <p
                         class="link"
                       >
-                        contact us
+                        start a chat
                       </p>
                     </button>
                   </a>
                   <p
-                    class="body-1 inline"
-                    style="display: block;"
+                    class="body-1"
+                    style="display: inline;"
                   >
-                    or call us using the Member Service number on the back of your Member ID card.
+                    or call us at 
                   </p>
+                  <span
+                    class="whitespace-nowrap"
+                  >
+                     
+                  </span>
                 </div>
               </div>
             </div>
@@ -226,33 +176,46 @@ exports[`Communication Settings should render communicationSettings if user role
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-label="Receive Text Alerts"
+                        aria-required="false"
+                        class="flex flex-col   "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Receive Text Alerts"
+                            class="checkbox    "
+                            id="checkbox-receive-text-alerts"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2  cursor-pointer"
+                            for="checkbox-receive-text-alerts"
                           >
                             <p
-                              class="font-bold"
+                              class="body-1 body-bold mb-2"
+                              style="display: block;"
                             >
                               Receive Text Alerts
                             </p>
+                            <p
+                              class="body-1"
+                              style="display: block;"
+                            >
+                              Get text alerts with plan updates and personalized health notifications.
+                            </p>
+                            <span
+                              class="sr-only"
+                            >
+                              Receive Text Alerts
+                            </span>
                           </label>
-                          <p
-                            class="body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Get text alerts with plan updates and personalized health notifications.
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -264,33 +227,46 @@ exports[`Communication Settings should render communicationSettings if user role
                       class="flex flex-col"
                     >
                       <div
-                        class="flex flex-row gap-2 p-2   "
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-label="Receive Email Alerts"
+                        aria-required="false"
+                        class="flex flex-col   "
+                        role="checkbox"
                       >
-                        <label>
+                        <div
+                          class="flex flex-row"
+                          tabindex="0"
+                        >
                           <input
-                            id="myCheckbox"
-                            name=""
+                            aria-label="Receive Email Alerts"
+                            class="checkbox    "
+                            id="checkbox-receive-email-alerts"
                             type="checkbox"
                           />
-                        </label>
-                        <div
-                          class="flex flex-col"
-                        >
                           <label
-                            for="myCheckbox"
+                            class="ml-2  cursor-pointer"
+                            for="checkbox-receive-email-alerts"
                           >
                             <p
-                              class="font-bold"
+                              class="body-1 body-bold mb-2"
+                              style="display: block;"
                             >
                               Receive Email Alerts
                             </p>
+                            <p
+                              class="body-1"
+                              style="display: block;"
+                            >
+                              Get important plan updates, claims information and/or health and wellness topics sent to your email.
+                            </p>
+                            <span
+                              class="sr-only"
+                            >
+                              Receive Email Alerts
+                            </span>
                           </label>
-                          <p
-                            class="body-1 mt-2"
-                            style="display: block;"
-                          >
-                            Get important plan updates, claims information and/or health and wellness topics sent to your email.
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -346,97 +322,42 @@ exports[`Communication Settings should render communicationSettings if user role
                 class="body-1"
                 style="display: block;"
               >
-                We'll send updates to the phone number and email below.
+                We'll send alerts to the phone number and email below.
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
               />
               <div
-                class="flex flex-col"
+                class="card-main neutral container mt-4"
               >
-                <p
-                  class="body-1 font-bold"
-                  style="display: block;"
-                >
-                  Phone Number
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
                 <div
-                  class="flex flex-row"
+                  class="flex flex-row flex flex-row align-top m-4"
                 >
-                  <p
-                    class="font-bold primary-color"
-                  >
-                    Update
-                  </p>
+                  <img
+                    alt="alert"
+                    class="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                  />
                   <div
-                    class="ml-2"
+                    class="flex flex-row flex flex-col flex-grow"
                   >
-                    <img
-                      alt="link"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
+                    <p
+                      class="body-1"
+                    >
+                      We can't load your profile right now. Please try again later.
+                    </p>
                   </div>
                 </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                />
-                <div
-                  class=""
-                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                />
-              </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-              />
-              <div
-                class="flex flex-col"
-              >
-                <p
-                  class="body-1 font-bold"
-                  style="display: block;"
-                >
-                  Email Address
-                </p>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <div
-                  class="flex flex-row"
-                >
-                  <p
-                    class="font-bold primary-color"
-                  >
-                    Update
-                  </p>
-                  <div
-                    class="ml-2"
-                  >
-                    <img
-                      alt="link"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </div>
-                </div>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                />
               </div>
             </div>
             <div
@@ -465,8 +386,8 @@ exports[`Communication Settings should render communicationSettings if user role
                   style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
                 />
                 <p
-                  class="body-1 inline"
-                  style="display: block;"
+                  class="body-1 py-0"
+                  style="display: inline;"
                 >
                   If you need to request paper copies, please
                 </p>
@@ -481,16 +402,21 @@ exports[`Communication Settings should render communicationSettings if user role
                     <p
                       class="link"
                     >
-                      contact us
+                      start a chat
                     </p>
                   </button>
                 </a>
                 <p
-                  class="body-1 inline"
-                  style="display: block;"
+                  class="body-1"
+                  style="display: inline;"
                 >
-                  or call us using the Member Service number on the back of your Member ID card.
+                  or call us at 
                 </p>
+                <span
+                  class="whitespace-nowrap"
+                >
+                   
+                </span>
               </div>
             </div>
           </div>
@@ -525,33 +451,46 @@ exports[`Communication Settings should render communicationSettings if user role
                     class="flex flex-col"
                   >
                     <div
-                      class="flex flex-row gap-2 p-2   "
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-label="Receive Text Alerts"
+                      aria-required="false"
+                      class="flex flex-col   "
+                      role="checkbox"
                     >
-                      <label>
+                      <div
+                        class="flex flex-row"
+                        tabindex="0"
+                      >
                         <input
-                          id="myCheckbox"
-                          name=""
+                          aria-label="Receive Text Alerts"
+                          class="checkbox    "
+                          id="checkbox-receive-text-alerts"
                           type="checkbox"
                         />
-                      </label>
-                      <div
-                        class="flex flex-col"
-                      >
                         <label
-                          for="myCheckbox"
+                          class="ml-2  cursor-pointer"
+                          for="checkbox-receive-text-alerts"
                         >
                           <p
-                            class="font-bold"
+                            class="body-1 body-bold mb-2"
+                            style="display: block;"
                           >
                             Receive Text Alerts
                           </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            Get text alerts with plan updates and personalized health notifications.
+                          </p>
+                          <span
+                            class="sr-only"
+                          >
+                            Receive Text Alerts
+                          </span>
                         </label>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Get text alerts with plan updates and personalized health notifications.
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -563,33 +502,46 @@ exports[`Communication Settings should render communicationSettings if user role
                     class="flex flex-col"
                   >
                     <div
-                      class="flex flex-row gap-2 p-2   "
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-label="Receive Email Alerts"
+                      aria-required="false"
+                      class="flex flex-col   "
+                      role="checkbox"
                     >
-                      <label>
+                      <div
+                        class="flex flex-row"
+                        tabindex="0"
+                      >
                         <input
-                          id="myCheckbox"
-                          name=""
+                          aria-label="Receive Email Alerts"
+                          class="checkbox    "
+                          id="checkbox-receive-email-alerts"
                           type="checkbox"
                         />
-                      </label>
-                      <div
-                        class="flex flex-col"
-                      >
                         <label
-                          for="myCheckbox"
+                          class="ml-2  cursor-pointer"
+                          for="checkbox-receive-email-alerts"
                         >
                           <p
-                            class="font-bold"
+                            class="body-1 body-bold mb-2"
+                            style="display: block;"
                           >
                             Receive Email Alerts
                           </p>
+                          <p
+                            class="body-1"
+                            style="display: block;"
+                          >
+                            Get important plan updates, claims information and/or health and wellness topics sent to your email.
+                          </p>
+                          <span
+                            class="sr-only"
+                          >
+                            Receive Email Alerts
+                          </span>
                         </label>
-                        <p
-                          class="body-1 mt-2"
-                          style="display: block;"
-                        >
-                          Get important plan updates, claims information and/or health and wellness topics sent to your email.
-                        </p>
                       </div>
                     </div>
                   </div>

@@ -11,17 +11,26 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { useRef, useState } from 'react';
 
+import { MemberData } from '@/actions/loggedUserInfo';
 import { AddMemberDetails } from '@/models/add_member_details';
+import { createOtherInsurance } from '../actions/createOtherInsurance';
 import AddMemberPlan from '../components/AddMemberPlan';
 import OtherHealthInsurancePlan from '../components/OtherHealthInsurancePlan';
 import SelectMemberPlan from '../components/SelectMemberPlan';
+import { OtherHealthInsuranceDetails } from '../models/api/otherhealthinsurance_details';
+
 export type OtherHealthInsuranceProps = {
   memberDetails: AddMemberDetails[];
+  membersData: MemberData[];
+  selectedName: string;
 };
+
 export const OtherHealthInsurance = ({
   changePage,
   pageIndex,
   memberDetails,
+  membersData,
+  selectedName,
 }: ModalChildProps & OtherHealthInsuranceProps) => {
   const [selectedData, setSelectedData] = useState(false);
   const [selectedCheckbox, setSelectedCheckbox] = useState<string[] | null>([]);
@@ -31,8 +40,22 @@ export const OtherHealthInsurance = ({
     dentalPlan: false,
     medicarePlan: false,
   });
-
   const [isAnyChecked, setIsAnyChecked] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<'all' | 'selected'>(
+    'selected',
+  );
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState<string[]>([
+    selectedName,
+  ]);
+
+  const [companyName, setCompanyName] = useState('');
+  const [policyNumber, setPolicyNumber] = useState('');
+  const [companyNumber, setCompanyNumber] = useState('');
+  const [policyEffectiveDate, setPolicyEffectiveDate] = useState('');
+  const [policyEndDate, setPolicyEndDate] = useState('');
+  const [policyFirstName, setPolicyFirstName] = useState('');
+  const [policyLastName, setPolicyLastName] = useState('');
+  const [holderDOB, setHolderDOB] = useState('');
 
   const handleCheckboxChange = (checkboxValue: string[]) => {
     const newState = { ...checkboxState };
@@ -80,12 +103,119 @@ export const OtherHealthInsurance = ({
     if (
       checkboxState.medicalPlan &&
       checkboxState.dentalPlan &&
-      checkCountRef.current === 1
+      checkCountRef.current <= 2
     ) {
-      changePage?.(2, true);
+      if (checkCountRef.current == 1) {
+        otherInsuranceData.medicalBean!.otherInsuranceCompanyCode =
+          companyNumber;
+        otherInsuranceData.medicalBean!.otherInsuranceCompanyName = companyName;
+        otherInsuranceData.medicalBean!.policyIdNum = policyNumber;
+        otherInsuranceData.medicalBean!.policyEffectiveDate =
+          policyEffectiveDate;
+        otherInsuranceData.medicalBean!.policyCancelDate = policyEndDate;
+        otherInsuranceData.medicalBean!.policyHolderFirstName = policyFirstName;
+        otherInsuranceData.medicalBean!.policyHolderLastName = policyLastName;
+        otherInsuranceData.memberName = policyFirstName + ' ' + policyLastName;
+        otherInsuranceData.dob = holderDOB;
+        if (selectedOption == 'all') {
+          otherInsuranceData.forAllDependents = true;
+          otherInsuranceData.noOtherInsurance = false;
+          createOtherInsurance(otherInsuranceData);
+        } else if (selectedOption == 'selected') {
+          otherInsuranceData.forAllDependents = false;
+          otherInsuranceData.noOtherInsurance = false;
+          createOtherInsurance(otherInsuranceData, selectedCheckboxes);
+        }
+      }
+      if (checkCountRef.current == 2) {
+        otherInsuranceData.dentalBean!.otherInsuranceCompanyCode =
+          companyNumber;
+        otherInsuranceData.dentalBean!.otherInsuranceCompanyName = companyName;
+        otherInsuranceData.dentalBean!.policyIdNum = policyNumber;
+        otherInsuranceData.dentalBean!.policyEffectiveDate =
+          policyEffectiveDate;
+        otherInsuranceData.dentalBean!.policyCancelDate = policyEndDate;
+        otherInsuranceData.dentalBean!.policyHolderFirstName = policyFirstName;
+        otherInsuranceData.dentalBean!.policyHolderLastName = policyLastName;
+        otherInsuranceData.memberName = policyFirstName + ' ' + policyLastName;
+        otherInsuranceData.dob = holderDOB;
+        if (selectedOption == 'all') {
+          otherInsuranceData.forAllDependents = true;
+          otherInsuranceData.noOtherInsurance = false;
+          createOtherInsurance(otherInsuranceData);
+        } else if (selectedOption == 'selected') {
+          otherInsuranceData.forAllDependents = false;
+          otherInsuranceData.noOtherInsurance = false;
+          createOtherInsurance(otherInsuranceData, selectedCheckboxes);
+        }
+      }
       setSelectedCheckbox(['dentalPlan']);
+      changePage?.(2, true);
     } else {
+      submitCOBMemberData();
+      if (selectedOption == 'all') {
+        otherInsuranceData.forAllDependents = true;
+        otherInsuranceData.noOtherInsurance = false;
+        createOtherInsurance(otherInsuranceData);
+      } else if (selectedOption == 'selected') {
+        otherInsuranceData.forAllDependents = false;
+        otherInsuranceData.noOtherInsurance = false;
+        createOtherInsurance(otherInsuranceData, selectedCheckboxes);
+      }
       changePage?.(4, true);
+    }
+  };
+
+  const noOtherInsuranceData: OtherHealthInsuranceDetails = {};
+
+  const submitCOBData = () => {
+    if (selectedOption == 'all') {
+      noOtherInsuranceData.forAllDependents = true;
+      noOtherInsuranceData.noOtherInsurance = true;
+      createOtherInsurance(noOtherInsuranceData);
+    } else if (selectedOption == 'selected') {
+      noOtherInsuranceData.forAllDependents = false;
+      noOtherInsuranceData.noOtherInsurance = true;
+      createOtherInsurance(noOtherInsuranceData, selectedCheckboxes);
+    }
+    changePage?.(2, true);
+  };
+
+  const otherInsuranceData: OtherHealthInsuranceDetails = {};
+
+  const submitCOBMemberData = () => {
+    if (checkboxState.medicalPlan && !checkboxState.dentalPlan) {
+      otherInsuranceData.medicalBean!.otherInsuranceCompanyCode = companyNumber;
+      otherInsuranceData.medicalBean!.otherInsuranceCompanyName = companyName;
+      otherInsuranceData.medicalBean!.policyIdNum = policyNumber;
+      otherInsuranceData.medicalBean!.policyEffectiveDate = policyEffectiveDate;
+      otherInsuranceData.medicalBean!.policyCancelDate = policyEndDate;
+      otherInsuranceData.medicalBean!.policyHolderFirstName = policyFirstName;
+      otherInsuranceData.medicalBean!.policyHolderLastName = policyLastName;
+      otherInsuranceData.memberName = policyFirstName + ' ' + policyLastName;
+      otherInsuranceData.dob = holderDOB;
+    } else if (!checkboxState.medicalPlan && checkboxState.dentalPlan) {
+      otherInsuranceData.dentalBean!.otherInsuranceCompanyCode = companyNumber;
+      otherInsuranceData.dentalBean!.otherInsuranceCompanyName = companyName;
+      otherInsuranceData.dentalBean!.policyIdNum = policyNumber;
+      otherInsuranceData.dentalBean!.policyEffectiveDate = policyEffectiveDate;
+      otherInsuranceData.dentalBean!.policyCancelDate = policyEndDate;
+      otherInsuranceData.dentalBean!.policyHolderFirstName = policyFirstName;
+      otherInsuranceData.dentalBean!.policyHolderLastName = policyLastName;
+      otherInsuranceData.memberName = policyFirstName + ' ' + policyLastName;
+      otherInsuranceData.dob = holderDOB;
+    } else if (checkboxState.medicarePlan) {
+      otherInsuranceData.medicareBean!.otherInsuranceCompanyCode =
+        companyNumber;
+      otherInsuranceData.medicareBean!.otherInsuranceCompanyName = companyName;
+      otherInsuranceData.medicareBean!.policyIdNum = policyNumber;
+      otherInsuranceData.medicareBean!.policyEffectiveDate =
+        policyEffectiveDate;
+      otherInsuranceData.medicareBean!.policyCancelDate = policyEndDate;
+      otherInsuranceData.medicareBean!.policyHolderFirstName = policyFirstName;
+      otherInsuranceData.medicareBean!.policyHolderLastName = policyLastName;
+      otherInsuranceData.memberName = policyFirstName + ' ' + policyLastName;
+      otherInsuranceData.dob = holderDOB;
     }
   };
 
@@ -129,13 +259,18 @@ export const OtherHealthInsurance = ({
           checkboxState={checkboxState}
           onCheckboxChange={handleCheckboxChange}
           selectedData={selectedData}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          selectedCheckboxes={selectedCheckboxes}
+          setSelectedCheckboxes={setSelectedCheckboxes}
+          membersData={membersData}
         />
       }
       buttonLabel={selectedData ? 'Next' : 'Save Answer'}
       nextCallback={
         selectedData
           ? isAnyChecked
-            ? () => changePage?.(2, true)
+            ? () => submitCOBData()
             : undefined
           : () => changePage?.(4, true)
       }
@@ -149,6 +284,22 @@ export const OtherHealthInsurance = ({
         <AddMemberPlan
           selectedCheckbox={selectedCheckbox}
           memberDetails={memberDetails}
+          selectedCompanyName={companyName}
+          onCompanyNameChange={setCompanyName}
+          selectedCompanyNumber={companyNumber}
+          onCompanyNumberChange={setCompanyNumber}
+          selectedPolicyEffectiveDate={policyEffectiveDate}
+          onEffectiveDateChange={setPolicyEffectiveDate}
+          selectedPolicyEndDate={policyEndDate}
+          onEndDateChange={setPolicyEndDate}
+          selectedPolicyNumber={policyNumber}
+          onPolicyNumberChange={setPolicyNumber}
+          selectedPolicyFirstName={policyFirstName}
+          onPolicyFirstNameChange={setPolicyFirstName}
+          selectedPolicyLastName={policyLastName}
+          onPolicyLastNameChange={setPolicyLastName}
+          selectedHolderDOB={holderDOB}
+          onPolicyDOBeChange={setHolderDOB}
         />
       }
       buttonLabel="Next"
@@ -159,7 +310,18 @@ export const OtherHealthInsurance = ({
       key="Fourth"
       label=""
       subLabel=""
-      actionArea={<SelectMemberPlan selectedCheckbox={selectedCheckbox} />}
+      actionArea={
+        <SelectMemberPlan
+          selectedCheckbox={selectedCheckbox}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          selectedCheckboxes={selectedCheckboxes}
+          setSelectedCheckboxes={setSelectedCheckboxes}
+          otherInsuranceCompanyName={companyName}
+          otherInsurancePolicyNumber={policyNumber}
+          otherInsuranceEffectiveDate={policyEffectiveDate}
+        />
+      }
       buttonLabel="Save Answer"
       nextCallback={handleNextCall}
       cancelCallback={() => dismissModal()}

@@ -1,0 +1,1564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Healthy Maternity Page should render the UI correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <h1
+            class="title-1 pl-3"
+          >
+            Healthy Maternity
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 3px; min-height: 3px;"
+          />
+          <p
+            class="body-1 pl-3 body-1 m-4 ml-0 mb-0 md:w-2/3"
+            style="display: block;"
+          >
+            This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 3px; min-height: 3px;"
+          />
+          <p
+            class="body-1 pl-3 body-1 m-4 ml-0 mb-5 md:w-2/3"
+            style="display: block;"
+          >
+            You can enroll in our Healthy Maternity Program as soon as you find out you’re pregnant, at no cost to you.
+          </p>
+          <button
+            aria-label="Enroll in Health Maternity"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null ml-3 my-health-programs-header-button"
+            type="button"
+          >
+            Enroll in Health Maternity
+          </button>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 45px; min-height: 45px;"
+          />
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-63_33 items-stretch"
+            >
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+              />
+              <h1
+                class="title-1 title-2 px-3"
+              >
+                Program Benefits
+              </h1>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+              />
+              <div
+                class="flex flex-row hidden sm:flex px-3"
+              >
+                <div
+                  class="flex flex-col md:pr-4 md:w-1/3"
+                >
+                  <img
+                    alt="Maternity Breast Pump Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    Breast Pump Benefit
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Connect with a nurse to learn more about your breast pump benefit.
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:pr-4 md:w-1/3"
+                >
+                  <img
+                    alt="Primary Care Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    One-on-One Support
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:pr-4 md:w-1/3"
+                >
+                  <img
+                    alt="Health Support Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    Part of Your Care Team
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col block sm:hidden px-3"
+              >
+                <div
+                  class="flex flex-col pr-4 mb-4"
+                >
+                  <img
+                    alt="Maternity Breast Pump Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    Breast Pump Benefit
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Connect with a nurse to learn more about your breast pump benefit.
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col pr-4 mb-4"
+                >
+                  <img
+                    alt="Primary Care Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    One-on-One Support
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col pr-4 mb-4"
+                >
+                  <img
+                    alt="Health Support Icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1 font-bold"
+                    style="display: block;"
+                  >
+                    Part of Your Care Team
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
+                  </p>
+                </div>
+              </div>
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+              />
+              <div
+                class="card-main large-section overlap-bottom"
+              >
+                <section
+                  class="md:flex md:flex-row"
+                >
+                  <img
+                    alt="careTN"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="flex flex-col"
+                  >
+                    <h2
+                      class="title-2"
+                    >
+                      Healthy Maternity & CareTN Mobile App
+                    </h2>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                    />
+                    <p
+                      class="body-1"
+                      style="display: block;"
+                    >
+                      Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
+                    </p>
+                    <div>
+                      <p
+                        class="body-1 body-1 m-4 mt-2 mb-0"
+                        style="display: block;"
+                      >
+                        In the app you can:
+                      </p>
+                      <ul
+                        class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
+                      >
+                        <div>
+                          <li>
+                            Learn about eating healthy for you and your baby
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Track doctor visits and set reminders
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Get information on immunizations and when to schedule them
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                        <div>
+                          <li>
+                            Connect with maternity nurse
+                          </li>
+                          <span
+                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                          />
+                        </div>
+                      </ul>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                    />
+                    <section
+                      class="justify-start flex flex-row"
+                    >
+                      <a
+                        href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                      >
+                        <img
+                          alt="Download Amplify App from AppStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                      <a
+                        class="pl-[10px]"
+                        href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                      >
+                        <img
+                          alt="Download Amplify App from PlayStore"
+                          data-nimg="1"
+                          decoding="async"
+                          height="40"
+                          loading="lazy"
+                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                          style="color: transparent;"
+                          width="40"
+                        />
+                      </a>
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div
+        class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+      >
+        <div
+          class="flex flex-col items-start w-full app-content px-4"
+        >
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+          />
+          <h1
+            class="title-1 font-thin"
+          >
+             
+          </h1>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+          />
+          <h2
+            class="title-2 mb-3 mt-5 mx-auto"
+          >
+            What Members Are Saying
+          </h2>
+          <p
+            class="body-1 mb-3 mx-auto"
+            style="display: block;"
+          >
+            Watch the video to learn more about the Healthy Maternity program.
+          </p>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+          />
+          <img
+            alt="Healthy Maternity Video Icon"
+            class="mx-auto pb-7"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-col justify-center items-center page"
+      >
+        <div
+          class="flex flex-col app-content app-base-font-color"
+        >
+          <section
+            class="flex flex-row items-start app-body"
+          >
+            <div
+              class="flex flex-col flex-grow page-section-36_67 items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <section>
+                  <h1
+                    class="title-1 title-2 font-bold"
+                  >
+                    About Enrollment
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Complete the enrollment form to get your access code to the CareTN app.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    After enrollment, a nurse will call to welcome you and provide more details on program benefits such as the free breast pump or customized resources.
+                  </p>
+                </section>
+              </div>
+            </div>
+            <div
+              class="flex flex-col page-section-63_33  items-stretch"
+            >
+              <div
+                class="card-main large-section"
+              >
+                <section>
+                  <h1
+                    class="title-1 title-2 font-bold"
+                  >
+                    Enroll in Health Maternity
+                  </h1>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Please confirm your details below.
+                  </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <div
+                    class="card-main large-section"
+                  >
+                    <section
+                      class="w-4/5 m-auto stepSection"
+                    >
+                      <p
+                        class="body-1 stepRoundBlue"
+                        style="display: block;"
+                      >
+                        1
+                      </p>
+                      <div
+                        class="stepLineGrey"
+                        style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
+                      />
+                      <p
+                        class="body-1 stepRoundGrey"
+                        style="display: block;"
+                      >
+                        2
+                      </p>
+                      <div
+                        class="stepLineGrey"
+                        style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
+                      />
+                      <p
+                        class="body-1 stepRoundGrey"
+                        style="display: block;"
+                      >
+                        3
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <p
+                        class="body-1"
+                        style="display: block;"
+                      >
+                        Member Information
+                      </p>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Member Name
+                        </p>
+                        <div
+                          class="flex flex-row items-center input   "
+                        >
+                          <input
+                            aria-label="Member Name"
+                            class=""
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Date of Birth (MM/DD/YYYY)
+                        </p>
+                        <div
+                          class="flex flex-row items-center input   "
+                        >
+                          <input
+                            aria-label="Date of Birth (MM/DD/YYYY)"
+                            class=""
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Due Date of Baby (MM/DD/YYYY)
+                        </p>
+                        <div
+                          class="flex flex-row items-center input   "
+                        >
+                          <input
+                            aria-label="Due Date of Baby (MM/DD/YYYY)"
+                            class=""
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Email Address
+                        </p>
+                        <div
+                          class="flex flex-row items-center input   "
+                        >
+                          <input
+                            aria-label="Email Address"
+                            class=""
+                            type="email"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <div
+                        class="flex flex-col w-full text-field"
+                      >
+                        <p>
+                          Phone Number
+                        </p>
+                        <div
+                          class="flex flex-row items-center input   "
+                        >
+                          <input
+                            aria-label="Phone Number"
+                            class=""
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            class="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        aria-checked="false"
+                        aria-disabled="false"
+                        aria-invalid="false"
+                        aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                        aria-required="false"
+                        class="flex flex-col   "
+                        role="checkbox"
+                      >
+                        <div
+                          class="flex flex-row"
+                          tabindex="0"
+                        >
+                          <input
+                            aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                            class="checkbox    "
+                            id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
+                            type="checkbox"
+                          />
+                          <label
+                            class="ml-2  cursor-pointer"
+                            for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
+                          >
+                            By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
+                          </label>
+                        </div>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                      />
+                      <button
+                        aria-label="Next"
+                        class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                        type="button"
+                      >
+                        Next
+                      </button>
+                    </section>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <span
+            style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+          />
+          <div
+            class=""
+            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+          />
+          <section>
+            <section
+              class="md:flex md:flex-row ml-7"
+            >
+              <img
+                alt="wellframe"
+                class="mt-3 md:mt-0"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span
+                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+              />
+              <div
+                class="flex flex-col md:p-10"
+              >
+                <p
+                  class="body-2"
+                  style="display: block;"
+                >
+                  Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
+                </p>
+                <p
+                  class="body-2"
+                  style="display: block;"
+                >
+                  Participation is optional.
+                </p>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <h1
+          class="title-1 pl-3"
+        >
+          Healthy Maternity
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 3px; min-height: 3px;"
+        />
+        <p
+          class="body-1 pl-3 body-1 m-4 ml-0 mb-0 md:w-2/3"
+          style="display: block;"
+        >
+          This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 3px; min-height: 3px;"
+        />
+        <p
+          class="body-1 pl-3 body-1 m-4 ml-0 mb-5 md:w-2/3"
+          style="display: block;"
+        >
+          You can enroll in our Healthy Maternity Program as soon as you find out you’re pregnant, at no cost to you.
+        </p>
+        <button
+          aria-label="Enroll in Health Maternity"
+          class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null ml-3 my-health-programs-header-button"
+          type="button"
+        >
+          Enroll in Health Maternity
+        </button>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 45px; min-height: 45px;"
+        />
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-63_33 items-stretch"
+          >
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+            />
+            <h1
+              class="title-1 title-2 px-3"
+            >
+              Program Benefits
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 25px; min-height: 25px;"
+            />
+            <div
+              class="flex flex-row hidden sm:flex px-3"
+            >
+              <div
+                class="flex flex-col md:pr-4 md:w-1/3"
+              >
+                <img
+                  alt="Maternity Breast Pump Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  Breast Pump Benefit
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Connect with a nurse to learn more about your breast pump benefit.
+                </p>
+              </div>
+              <div
+                class="flex flex-col md:pr-4 md:w-1/3"
+              >
+                <img
+                  alt="Primary Care Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  One-on-One Support
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
+                </p>
+              </div>
+              <div
+                class="flex flex-col md:pr-4 md:w-1/3"
+              >
+                <img
+                  alt="Health Support Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  Part of Your Care Team
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col block sm:hidden px-3"
+            >
+              <div
+                class="flex flex-col pr-4 mb-4"
+              >
+                <img
+                  alt="Maternity Breast Pump Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  Breast Pump Benefit
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Connect with a nurse to learn more about your breast pump benefit.
+                </p>
+              </div>
+              <div
+                class="flex flex-col pr-4 mb-4"
+              >
+                <img
+                  alt="Primary Care Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  One-on-One Support
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.
+                </p>
+              </div>
+              <div
+                class="flex flex-col pr-4 mb-4"
+              >
+                <img
+                  alt="Health Support Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1 font-bold"
+                  style="display: block;"
+                >
+                  Part of Your Care Team
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 5px; min-height: 5px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  We'll work with your doctors to ensure you're getting everything you need during and after your pregnancy.
+                </p>
+              </div>
+            </div>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="card-main large-section overlap-bottom"
+            >
+              <section
+                class="md:flex md:flex-row"
+              >
+                <img
+                  alt="careTN"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <h2
+                    class="title-2"
+                  >
+                    Healthy Maternity & CareTN Mobile App
+                  </h2>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <p
+                    class="body-1"
+                    style="display: block;"
+                  >
+                    Once you've enrolled, download the CareTN app. You can use the app to message a maternity nurse and access program resources.
+                  </p>
+                  <div>
+                    <p
+                      class="body-1 body-1 m-4 mt-2 mb-0"
+                      style="display: block;"
+                    >
+                      In the app you can:
+                    </p>
+                    <ul
+                      class="list-disc m-8 mt-2 mb-0 marker:text-[#5DC1FD]"
+                    >
+                      <div>
+                        <li>
+                          Learn about eating healthy for you and your baby
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                      <div>
+                        <li>
+                          Track doctor visits and set reminders
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                      <div>
+                        <li>
+                          Get information on immunizations and when to schedule them
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                      <div>
+                        <li>
+                          Connect with maternity nurse
+                        </li>
+                        <span
+                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                        />
+                      </div>
+                    </ul>
+                  </div>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                  />
+                  <section
+                    class="justify-start flex flex-row"
+                  >
+                    <a
+                      href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                    >
+                      <img
+                        alt="Download Amplify App from AppStore"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                    <a
+                      class="pl-[10px]"
+                      href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                    >
+                      <img
+                        alt="Download Amplify App from PlayStore"
+                        data-nimg="1"
+                        decoding="async"
+                        height="40"
+                        loading="lazy"
+                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                        style="color: transparent;"
+                        width="40"
+                      />
+                    </a>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div
+      class="flex flex-col h-175px w-full text-white justify-center items-center brand-gradient  "
+    >
+      <div
+        class="flex flex-col items-start w-full app-content px-4"
+      >
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+        />
+        <h1
+          class="title-1 font-thin"
+        >
+           
+        </h1>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+        />
+        <h2
+          class="title-2 mb-3 mt-5 mx-auto"
+        >
+          What Members Are Saying
+        </h2>
+        <p
+          class="body-1 mb-3 mx-auto"
+          style="display: block;"
+        >
+          Watch the video to learn more about the Healthy Maternity program.
+        </p>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+        />
+        <img
+          alt="Healthy Maternity Video Icon"
+          class="mx-auto pb-7"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </div>
+    </div>
+    <div
+      class="flex flex-col justify-center items-center page"
+    >
+      <div
+        class="flex flex-col app-content app-base-font-color"
+      >
+        <section
+          class="flex flex-row items-start app-body"
+        >
+          <div
+            class="flex flex-col flex-grow page-section-36_67 items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <section>
+                <h1
+                  class="title-1 title-2 font-bold"
+                >
+                  About Enrollment
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Complete the enrollment form to get your access code to the CareTN app.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  After enrollment, a nurse will call to welcome you and provide more details on program benefits such as the free breast pump or customized resources.
+                </p>
+              </section>
+            </div>
+          </div>
+          <div
+            class="flex flex-col page-section-63_33  items-stretch"
+          >
+            <div
+              class="card-main large-section"
+            >
+              <section>
+                <h1
+                  class="title-1 title-2 font-bold"
+                >
+                  Enroll in Health Maternity
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Please confirm your details below.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <div
+                  class="card-main large-section"
+                >
+                  <section
+                    class="w-4/5 m-auto stepSection"
+                  >
+                    <p
+                      class="body-1 stepRoundBlue"
+                      style="display: block;"
+                    >
+                      1
+                    </p>
+                    <div
+                      class="stepLineGrey"
+                      style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
+                    />
+                    <p
+                      class="body-1 stepRoundGrey"
+                      style="display: block;"
+                    >
+                      2
+                    </p>
+                    <div
+                      class="stepLineGrey"
+                      style="width: 100%; height: 5px; background-color: rgb(204, 204, 204);"
+                    />
+                    <p
+                      class="body-1 stepRoundGrey"
+                      style="display: block;"
+                    >
+                      3
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <p
+                      class="body-1"
+                      style="display: block;"
+                    >
+                      Member Information
+                    </p>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
+                    />
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Member Name
+                      </p>
+                      <div
+                        class="flex flex-row items-center input   "
+                      >
+                        <input
+                          aria-label="Member Name"
+                          class=""
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Date of Birth (MM/DD/YYYY)
+                      </p>
+                      <div
+                        class="flex flex-row items-center input   "
+                      >
+                        <input
+                          aria-label="Date of Birth (MM/DD/YYYY)"
+                          class=""
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Due Date of Baby (MM/DD/YYYY)
+                      </p>
+                      <div
+                        class="flex flex-row items-center input   "
+                      >
+                        <input
+                          aria-label="Due Date of Baby (MM/DD/YYYY)"
+                          class=""
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Email Address
+                      </p>
+                      <div
+                        class="flex flex-row items-center input   "
+                      >
+                        <input
+                          aria-label="Email Address"
+                          class=""
+                          type="email"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <div
+                      class="flex flex-col w-full text-field"
+                    >
+                      <p>
+                        Phone Number
+                      </p>
+                      <div
+                        class="flex flex-row items-center input   "
+                      >
+                        <input
+                          aria-label="Phone Number"
+                          class=""
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-checked="false"
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                      aria-required="false"
+                      class="flex flex-col   "
+                      role="checkbox"
+                    >
+                      <div
+                        class="flex flex-row"
+                        tabindex="0"
+                      >
+                        <input
+                          aria-label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+                          class="checkbox    "
+                          id="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
+                          type="checkbox"
+                        />
+                        <label
+                          class="ml-2  cursor-pointer"
+                          for="checkbox-by-checking-this-box-i-agree-to-bluecross,-its-affiliates-and-its-service-providers-sending-me-communications-via-email.-unencrypted-email-may-possibly-be-intercepted-and-read-by-people-other-than-those-it's-addressed-to."
+                        >
+                          By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to.
+                        </label>
+                      </div>
+                    </div>
+                    <span
+                      style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                    />
+                    <button
+                      aria-label="Next"
+                      class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null undefined"
+                      type="button"
+                    >
+                      Next
+                    </button>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+        <span
+          style="display: block; width: 1px; min-width: 1px; height: 21px; min-height: 21px;"
+        />
+        <div
+          class=""
+          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        />
+        <section>
+          <section
+            class="md:flex md:flex-row ml-7"
+          >
+            <img
+              alt="wellframe"
+              class="mt-3 md:mt-0"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <div
+              class="flex flex-col md:p-10"
+            >
+              <p
+                class="body-2"
+                style="display: block;"
+              >
+                Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
+              </p>
+              <p
+                class="body-2"
+                style="display: block;"
+              >
+                Participation is optional.
+              </p>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

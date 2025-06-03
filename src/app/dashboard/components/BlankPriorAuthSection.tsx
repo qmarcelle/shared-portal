@@ -1,14 +1,13 @@
 import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
-import EmptyStateDocument from '../../../../public/assets/empty_state_document.svg';
 
 export const BlankPriorAuthSection = () => {
   return (
     <Card className="neutral container">
       <div className="flex m-4">
         <Image
-          src={EmptyStateDocument}
+          src="/assets/empty_state_document.svg"
           className="icon-document"
           alt="EmptyStateDocument"
         />

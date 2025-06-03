@@ -1,20 +1,48 @@
-import { NextAuthConfig } from 'next-auth';
+// src/app/api/auth/[...nextauth]/route.ts
+import NextAuth, { NextAuthConfig } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+// — your real providers —
+// import PingProvider from 'next-auth/providers/ping';
+// import SSOProvider  from 'next-auth/providers/your-sso';
 
 export const authConfig: NextAuthConfig = {
-  providers: [], // Configure your auth providers here
+  providers: [
+    // 1️⃣ Dev‐only auto‐login
+    ...(process.env.NEXT_PUBLIC_USE_MOCKS === 'true'
+      ? [
+          CredentialsProvider({
+            id: 'dev-login',
+            name: 'Dev Login (mock)',
+            credentials: {},
+            async authorize() {
+              // return whatever shape your app expects on session.user
+              return {
+                id: 'mock-user-1',
+                name: 'Local Dev',
+                email: 'dev@local.test',
+              };
+            },
+          }),
+        ]
+      : []),
+
+    // 2️⃣ Real providers (only when mocks are OFF)
+    ...(process.env.NEXT_PUBLIC_USE_MOCKS !== 'true'
+      ? [
+          // PingProvider({ /* ...ping options... */ }),
+          // SSOProvider({ /* ...sso options... */ }),
+        ]
+      : []),
+  ],
+
   callbacks: {
     async jwt({ token, user }) {
-      // Forward auth data from sign in to token
       if (user) {
-        return {
-          ...token,
-          ...user,
-        };
+        return { ...token, ...user };
       }
       return token;
     },
     async session({ session, token }) {
-      // Forward token data to client session
       return {
         ...session,
         user: {
@@ -24,4 +52,8 @@ export const authConfig: NextAuthConfig = {
       };
     },
   },
+
+  // any other NextAuth options you already had...
 };
+
+export default NextAuth(authConfig);

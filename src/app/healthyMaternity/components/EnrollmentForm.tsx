@@ -10,9 +10,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { IComponent } from '@/components/IComponent';
-import Image from 'next/image';
 import { useState } from 'react';
-import { successIcon } from '../../../components/foundation/Icons';
 
 interface EnrollmentFormProps extends IComponent {
   accessCode: string;
@@ -33,6 +31,8 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
   }
 
   const [isChecked, setIsChecked] = useState(false);
+  const [emailAgreement, setEmailAgreement] = useState(false);
+  const [appLinkAgreement, setAppLinkAgreement] = useState(false);
 
   const checkHandler = () => {
     setIsChecked(!isChecked);
@@ -59,7 +59,11 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           <TextField label="Email Address" type="email" />
           <Spacer size={8} />
           <TextField label="Phone Number" />
-          <Checkbox label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to." />
+          <Checkbox
+            label="By checking this box I agree to BlueCross, its affiliates and its service providers sending me communications via email. Unencrypted email may possibly be intercepted and read by people other than those it's addressed to."
+            checked={emailAgreement}
+            onChange={(newValue) => setEmailAgreement(newValue)}
+          />
           <Spacer size={8} />
           <Button label="Next" callback={navigateContent} />
         </section>
@@ -97,7 +101,11 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           {isChecked && (
             <>
               <TextBox text="Check the box to get help downloading the CareTN app:" />
-              <Checkbox label="Text me a link to the CareTN app." />
+              <Checkbox
+                label="Text me a link to the CareTN app."
+                checked={appLinkAgreement}
+                onChange={(newValue) => setAppLinkAgreement(newValue)}
+              />
             </>
           )}
           <Spacer size={18} />
@@ -122,7 +130,11 @@ export const EnrollmentForm = ({ accessCode }: EnrollmentFormProps) => {
           <TextBox text="3" className="stepRoundBlue" />
           <Spacer size={18} />
           <Column className="items-center">
-            <Image className="size-[80px]" src={successIcon} alt="success" />
+            <img
+              className="size-[80px]"
+              src="/assets/success.svg"
+              alt="success"
+            />
             <Spacer size={24} />
             <Header
               className="title-2"

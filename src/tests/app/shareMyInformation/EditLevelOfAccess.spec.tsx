@@ -51,18 +51,14 @@ describe('Edit Level Of Access Component', () => {
   });
   it('should render the UI correctly for HIPPA page for full', () => {
     const component = renderUI(1, 'subscriber', 'full');
-    expect(
-      screen.getByText('HIPAA Authorization for Full Portal Access'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Full Access')).toBeInTheDocument();
     const saveButton = screen.getByText('Save Permissions');
     fireEvent.click(saveButton);
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should render the UI correctly for HIPPA page for Basic', () => {
     const component = renderUI(1, 'subscriber', 'basic');
-    expect(
-      screen.getByText('HIPAA Authorization for Basic Portal Access'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Basic Access')).toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
   it('should render the UI correctly for Success page', () => {

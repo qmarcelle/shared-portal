@@ -220,10 +220,10 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
               class="justify-start md:flex md:flex-row"
             >
               <a
-                href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                href="https://apps.apple.com/us/app/caretn/id1494382785"
               >
                 <img
-                  alt="Download Amplify App from AppStore"
+                  alt="Download CareTN from AppStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -236,10 +236,10 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
               </a>
               <a
                 class="pl-[10px]"
-                href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                href="https://play.google.com/store/apps/details?id=com.bcbst.wellframe.app"
               >
                 <img
-                  alt="Download Amplify App from PlayStore"
+                  alt="Download CareTN from PlayStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -257,91 +257,27 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
-      <section>
-        <div
-          class="flex flex-col md:ml-10 p-5"
-        >
-          <h2
-            class="title-2"
+      <div>
+        <section>
+          <div
+            class="flex flex-col md:ml-10 p-5"
           >
-            Get Started with CareTN in 3 Easy Steps
-          </h2>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
+            <h2
+              class="title-2"
             >
-              <img
-                alt="numberStepOne"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
+              Get Started with CareTN in 3 Easy Steps
+            </h2>
             <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <div
-              class="flex flex-col"
+            <section
+              class="md:flex md:flex-row"
             >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Download the App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Scan the QR Code with your smartphone’s camera.
-              </p>
               <div
-                class="flex flex-col w-[94px]"
+                class="flex flex-col"
               >
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <button
-                  aria-label="Download CareTN"
-                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[270px] block md:max-2xl:hidden"
-                  type="button"
-                >
-                  Download CareTN
-                  <p
-                    class="ml-2"
-                  >
-                    <img
-                      alt="external icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </p>
-                </button>
                 <img
-                  alt="QRCode"
-                  class="hidden md:max-2xl:block"
+                  alt="numberStepOne"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -351,73 +287,40 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
                   style="color: transparent;"
                   width="40"
                 />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <div
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepTwo"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
               <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Enter Access Code
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Open the app on your device, tap “Sign-up” and enter your access code.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
               />
               <div
                 class="flex flex-col"
               >
-                <div
-                  class="flex flex-row card-neutral h-[44px]"
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
                 >
+                  Download the App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Scan the QR Code with your smartphone’s camera.
+                </p>
+                <div
+                  class="flex flex-col w-[94px]"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
                   <img
-                    alt="alert"
-                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    alt="QRCode"
+                    class="md:max-2xl:block"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -427,119 +330,196 @@ exports[`CareTN Program Landing Page should render Header Card section correctly
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 mt-3 ml-2"
-                    style="display: block;"
-                  >
-                    Access code could not load.
-                  </p>
                 </div>
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepTwo"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Enter Access Code
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Open the app on your device, tap “Sign-up” and enter your access code.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row card-neutral h-[44px]"
+                  >
+                    <img
+                      alt="alert"
+                      class="h-[19px] w-[19px] mt-3 ml-3"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 mt-3 ml-2"
+                      style="display: block;"
+                    >
+                      Access code could not load.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepthree"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Register In The App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Follow the directions to register in the CareTN app.
+                </p>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
           <div
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepthree"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Register In The App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Follow the directions to register in the CareTN app.
-              </p>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-        </div>
-        <div
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        </section>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="md:flex md:flex-row ml-7"
+      >
+        <img
+          alt="wellframe"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
-        <section
-          class="md:flex md:flex-row ml-7"
+        <div
+          class="flex flex-col md:p-10"
         >
-          <img
-            alt="wellframe"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            class="flex flex-col md:p-10"
+          <p
+            class="body-2"
+            style="display: block;"
           >
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
-            </p>
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Participation is optional.
-            </p>
-          </div>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
+            Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
+          </p>
+          <p
+            class="body-2"
+            style="display: block;"
+          >
+            Participation is optional.
+          </p>
+        </div>
       </section>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
     </div>
   </div>
 </body>
@@ -765,10 +745,10 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
               class="justify-start md:flex md:flex-row"
             >
               <a
-                href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                href="https://apps.apple.com/us/app/caretn/id1494382785"
               >
                 <img
-                  alt="Download Amplify App from AppStore"
+                  alt="Download CareTN from AppStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -781,10 +761,10 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
               </a>
               <a
                 class="pl-[10px]"
-                href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                href="https://play.google.com/store/apps/details?id=com.bcbst.wellframe.app"
               >
                 <img
-                  alt="Download Amplify App from PlayStore"
+                  alt="Download CareTN from PlayStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -802,91 +782,27 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
-      <section>
-        <div
-          class="flex flex-col md:ml-10 p-5"
-        >
-          <h2
-            class="title-2"
+      <div>
+        <section>
+          <div
+            class="flex flex-col md:ml-10 p-5"
           >
-            Get Started with CareTN in 3 Easy Steps
-          </h2>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
+            <h2
+              class="title-2"
             >
-              <img
-                alt="numberStepOne"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
+              Get Started with CareTN in 3 Easy Steps
+            </h2>
             <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <div
-              class="flex flex-col"
+            <section
+              class="md:flex md:flex-row"
             >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Download the App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Scan the QR Code with your smartphone’s camera.
-              </p>
               <div
-                class="flex flex-col w-[94px]"
+                class="flex flex-col"
               >
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <button
-                  aria-label="Download CareTN"
-                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[270px] block md:max-2xl:hidden"
-                  type="button"
-                >
-                  Download CareTN
-                  <p
-                    class="ml-2"
-                  >
-                    <img
-                      alt="external icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </p>
-                </button>
                 <img
-                  alt="QRCode"
-                  class="hidden md:max-2xl:block"
+                  alt="numberStepOne"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -896,73 +812,40 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
                   style="color: transparent;"
                   width="40"
                 />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <div
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepTwo"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
               <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Enter Access Code
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Open the app on your device, tap “Sign-up” and enter your access code.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
               />
               <div
                 class="flex flex-col"
               >
-                <div
-                  class="flex flex-row card-neutral h-[44px]"
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
                 >
+                  Download the App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Scan the QR Code with your smartphone’s camera.
+                </p>
+                <div
+                  class="flex flex-col w-[94px]"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
                   <img
-                    alt="alert"
-                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    alt="QRCode"
+                    class="md:max-2xl:block"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -972,119 +855,196 @@ exports[`CareTN Program Landing Page should render Process Steps UI correctly 1`
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 mt-3 ml-2"
-                    style="display: block;"
-                  >
-                    Access code could not load.
-                  </p>
                 </div>
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepTwo"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Enter Access Code
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Open the app on your device, tap “Sign-up” and enter your access code.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row card-neutral h-[44px]"
+                  >
+                    <img
+                      alt="alert"
+                      class="h-[19px] w-[19px] mt-3 ml-3"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 mt-3 ml-2"
+                      style="display: block;"
+                    >
+                      Access code could not load.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepthree"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Register In The App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Follow the directions to register in the CareTN app.
+                </p>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
           <div
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepthree"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Register In The App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Follow the directions to register in the CareTN app.
-              </p>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-        </div>
-        <div
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        </section>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="md:flex md:flex-row ml-7"
+      >
+        <img
+          alt="wellframe"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
-        <section
-          class="md:flex md:flex-row ml-7"
+        <div
+          class="flex flex-col md:p-10"
         >
-          <img
-            alt="wellframe"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            class="flex flex-col md:p-10"
+          <p
+            class="body-2"
+            style="display: block;"
           >
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
-            </p>
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Participation is optional.
-            </p>
-          </div>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
+            Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
+          </p>
+          <p
+            class="body-2"
+            style="display: block;"
+          >
+            Participation is optional.
+          </p>
+        </div>
       </section>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
     </div>
   </div>
 </body>
@@ -1310,10 +1270,10 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
               class="justify-start md:flex md:flex-row"
             >
               <a
-                href="https://apps.apple.com/us/app/amplifyhealth/id6444489335"
+                href="https://apps.apple.com/us/app/caretn/id1494382785"
               >
                 <img
-                  alt="Download Amplify App from AppStore"
+                  alt="Download CareTN from AppStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1326,10 +1286,10 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
               </a>
               <a
                 class="pl-[10px]"
-                href="https://play.google.com/store/apps/details?id=com.bcbst.amplify&hl=en_US"
+                href="https://play.google.com/store/apps/details?id=com.bcbst.wellframe.app"
               >
                 <img
-                  alt="Download Amplify App from PlayStore"
+                  alt="Download CareTN from PlayStore"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1347,91 +1307,27 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
       />
-      <section>
-        <div
-          class="flex flex-col md:ml-10 p-5"
-        >
-          <h2
-            class="title-2"
+      <div>
+        <section>
+          <div
+            class="flex flex-col md:ml-10 p-5"
           >
-            Get Started with CareTN in 3 Easy Steps
-          </h2>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
+            <h2
+              class="title-2"
             >
-              <img
-                alt="numberStepOne"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
+              Get Started with CareTN in 3 Easy Steps
+            </h2>
             <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
             />
-            <div
-              class="flex flex-col"
+            <section
+              class="md:flex md:flex-row"
             >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Download the App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Scan the QR Code with your smartphone’s camera.
-              </p>
               <div
-                class="flex flex-col w-[94px]"
+                class="flex flex-col"
               >
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                />
-                <button
-                  aria-label="Download CareTN"
-                  class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null w-[270px] block md:max-2xl:hidden"
-                  type="button"
-                >
-                  Download CareTN
-                  <p
-                    class="ml-2"
-                  >
-                    <img
-                      alt="external icon"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
-                    />
-                  </p>
-                </button>
                 <img
-                  alt="QRCode"
-                  class="hidden md:max-2xl:block"
+                  alt="numberStepOne"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -1441,73 +1337,40 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
                   style="color: transparent;"
                   width="40"
                 />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <div
-            class=""
-            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepTwo"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
               <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Enter Access Code
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Open the app on your device, tap “Sign-up” and enter your access code.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
               />
               <div
                 class="flex flex-col"
               >
-                <div
-                  class="flex flex-row card-neutral h-[44px]"
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
                 >
+                  Download the App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Scan the QR Code with your smartphone’s camera.
+                </p>
+                <div
+                  class="flex flex-col w-[94px]"
+                >
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                  />
                   <img
-                    alt="alert"
-                    class="h-[19px] w-[19px] mt-3 ml-3"
+                    alt="QRCode"
+                    class="md:max-2xl:block"
                     data-nimg="1"
                     decoding="async"
                     height="40"
@@ -1517,119 +1380,196 @@ exports[`CareTN Program Landing Page should render Program Benefits section corr
                     style="color: transparent;"
                     width="40"
                   />
-                  <p
-                    class="body-1 mt-3 ml-2"
-                    style="display: block;"
-                  >
-                    Access code could not load.
-                  </p>
                 </div>
               </div>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepTwo"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Enter Access Code
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Open the app on your device, tap “Sign-up” and enter your access code.
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <div
+                  class="flex flex-col"
+                >
+                  <div
+                    class="flex flex-row card-neutral h-[44px]"
+                  >
+                    <img
+                      alt="alert"
+                      class="h-[19px] w-[19px] mt-3 ml-3"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <p
+                      class="body-1 mt-3 ml-2"
+                      style="display: block;"
+                    >
+                      Access code could not load.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class=""
+              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+            />
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <section
+              class="md:flex md:flex-row"
+            >
+              <div
+                class="flex flex-col"
+              >
+                <img
+                  alt="numberStepthree"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+              </div>
+              <span
+                style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
+              />
+              <div
+                class="flex flex-col"
+              >
+                <p
+                  class="body-1 font-bold text-lg"
+                  style="display: block;"
+                >
+                  Register In The App
+                </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+                />
+                <p
+                  class="body-1"
+                  style="display: block;"
+                >
+                  Follow the directions to register in the CareTN app.
+                </p>
+              </div>
+            </section>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+          </div>
           <div
             class=""
             style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
           />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-          <section
-            class="md:flex md:flex-row"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <img
-                alt="numberStepthree"
-                data-nimg="1"
-                decoding="async"
-                height="40"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="40"
-              />
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-            </div>
-            <span
-              style="display: block; width: 32px; min-width: 32px; height: 1px; min-height: 1px;"
-            />
-            <div
-              class="flex flex-col"
-            >
-              <p
-                class="body-1 font-bold text-lg"
-                style="display: block;"
-              >
-                Register In The App
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Follow the directions to register in the CareTN app.
-              </p>
-            </div>
-          </section>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
-        </div>
-        <div
-          class=""
-          style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+        </section>
+      </div>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+      />
+      <section
+        class="md:flex md:flex-row ml-7"
+      >
+        <img
+          alt="wellframe"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
         />
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
         />
-        <section
-          class="md:flex md:flex-row ml-7"
+        <div
+          class="flex flex-col md:p-10"
         >
-          <img
-            alt="wellframe"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
-          />
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-          />
-          <div
-            class="flex flex-col md:p-10"
+          <p
+            class="body-2"
+            style="display: block;"
           >
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
-            </p>
-            <p
-              class="body-2"
-              style="display: block;"
-            >
-              Participation is optional.
-            </p>
-          </div>
-        </section>
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
+            Wellframe is an independent company that provides services for BlueCross BlueShield of Tennessee.
+          </p>
+          <p
+            class="body-2"
+            style="display: block;"
+          >
+            Participation is optional.
+          </p>
+        </div>
       </section>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
+      />
     </div>
   </div>
 </body>

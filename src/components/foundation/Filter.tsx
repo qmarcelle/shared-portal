@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Fragment } from 'react';
 import downIcon from '../../../public/assets/down.svg';
 import resetIcon from '../../../public/assets/reset.svg';
@@ -44,7 +43,7 @@ export const FilterHead = ({ user }: { user: FilterDetails }) => {
     <div className="body-1 input">
       <Row className="p-1 items-center">
         <FilterTile user={user} />
-        <Image
+        <img
           src={downIcon}
           className="w-[20px] h-[20px] ml-2 items-end"
           alt=""
@@ -83,6 +82,7 @@ export const Filter = ({
     const filterList = JSON.parse(JSON.stringify(filterItems)) as FilterItem[];
     if (filterList[index]) {
       filterList[index].value = value;
+      filterList[index].selectedInputValue = value;
     }
     onSelectCallback(index, filterList);
   };
@@ -122,7 +122,6 @@ export const Filter = ({
                 <TextField
                   type="text"
                   label={item.label}
-                  value={item.value as string}
                   valueCallback={(value) => {
                     handleInputUpdate(value, index);
                   }}
@@ -135,7 +134,7 @@ export const Filter = ({
         <Spacer size={16} />
         {showReset && (
           <a className="link flex !no-underline" href="#" onClick={onReset}>
-            <Image
+            <img
               src={resetIcon}
               className="w-[20px] h-[20px] ml-2 mr-2 items-end"
               alt=""

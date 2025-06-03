@@ -25,12 +25,13 @@ import { SupportData } from './model/app/support_data';
 export type SupportProps = {
   data: SupportData;
   quantumHealthEnabled: boolean;
+  phone: string;
 };
 
 let ContactHeader = '';
 let CONTACT_ITEMS: any[] = [];
 
-function getQuantumHealthContent() {
+function getQuantumHealthContent(contact: string) {
   ContactHeader = 'Contact Quantum Health';
   CONTACT_ITEMS = [
     {
@@ -40,11 +41,17 @@ function getQuantumHealthContent() {
         <>
           <RichText
             spans={[
-              <TextBox key="first" className="font-bold" text="Call " />,
               <TextBox
-                className="font-bold"
+                key="first"
+                className="body-bold"
+                text="Call "
+                display={'inline'}
+              />,
+              <TextBox
+                className="body-bold"
                 key="second"
-                text=" [1-800-000-0000]"
+                text={contact}
+                display={'inline'}
               />,
             ]}
           />
@@ -57,7 +64,7 @@ function getQuantumHealthContent() {
   ];
 }
 
-function getGeneralContent() {
+function getGeneralContent(contact: string) {
   ContactHeader = 'Contact Us';
   CONTACT_ITEMS = [
     {
@@ -72,11 +79,18 @@ function getGeneralContent() {
       footer: (
         <RichText
           spans={[
-            <TextBox key="first" text="Call " />,
+            <TextBox key="first" text="Call " display={'inline'} />,
             <TextBox
-              className="font-bold"
+              className="body-bold"
               key="second"
-              text="1-800-000-0000, TTY 711"
+              text={contact}
+              display={'inline'}
+            />,
+            <TextBox
+              className="body-bold"
+              key="third"
+              text=", TTY 711"
+              display={'inline'}
             />,
           ]}
         />
@@ -103,7 +117,7 @@ function getGeneralContent() {
         <AppLink
           className="!px-0"
           label="Send an Email"
-          url="/support/sendAnEmail"
+          url="/member/support/email"
         />
       ),
     },
@@ -113,7 +127,7 @@ const RESOURCES = [
   {
     icon: <Image src={questionsIcon} alt="questions icon" />,
     label: 'Frequently Asked Questions',
-    link: '/support/faq',
+    link: '/member/support/FAQ',
     external: false,
   },
   {
@@ -136,7 +150,7 @@ const ModalOverlay = ({ isOpen }: { isOpen: boolean }) => {
   return <div className="fixed modal-overlay inset-0 bg-opacity-50 z-50"></div>;
 };
 
-const Support = ({ data, quantumHealthEnabled }: SupportProps) => {
+const Support = ({ data, quantumHealthEnabled, phone }: SupportProps) => {
   const [isNewWindowOpen, setIsNewWindowOpen] = useState(false);
   let qualtricsWindow: WindowProxy | null;
   useEffect(() => {
@@ -169,7 +183,9 @@ const Support = ({ data, quantumHealthEnabled }: SupportProps) => {
     }
   };
   {
-    quantumHealthEnabled ? getQuantumHealthContent() : getGeneralContent();
+    quantumHealthEnabled
+      ? getQuantumHealthContent(phone)
+      : getGeneralContent(phone);
   }
   return (
     <>

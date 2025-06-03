@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request Full Access to Member - requestMemberAccess should show plan member details and changes in access request 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center page"
+  >
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 52px; min-height: 52px;"
+      />
+      <h1
+        class="title-1 pl-3"
+      >
+        Personal Representative Access
+      </h1>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+      />
+      <p
+        class="body-1 w-2/3 ml-4"
+        style="display: block;"
+      >
+        Personal representatives have the legal authority to make health care decisions on behalf of the member.
+      </p>
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-36_67 items-stretch"
+        >
+          <div
+            class="card-main  large-section"
+          >
+            <div
+              class="flex flex-col items-stretch"
+            >
+              <div>
+                <h1
+                  class="title-1 title-2"
+                >
+                  Understanding Access
+                </h1>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 22px; min-height: 22px;"
+                />
+              </div>
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Full Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+              <div
+                class=""
+                style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="flex flex-col card-main-elevated p-1 cursor-pointer px-2 py-4 "
+              >
+                <div
+                  class="flex flex-row m-1 accordion-head"
+                >
+                  <p
+                    class="mr-2 flex-grow"
+                  >
+                    Basic Access
+                  </p>
+                  <img
+                    alt="Down Chevron"
+                    class="pl-2 w-6"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="mr-2 flex-grow"
+                />
+              </div>
+            </div>
+          </div>
+          <div />
+        </div>
+        <div
+          class="flex flex-col page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div>
+              <div
+                class="flex flex-col flex flex-col"
+              >
+                <h2
+                  class="title-2"
+                >
+                  Members You Represent
+                </h2>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <div
+                  class="flex flex-col flex flex-col"
+                >
+                  <div
+                    class="card-elevated cursor-pointer mb-4"
+                  >
+                    <div
+                      class="flex flex-col m-8"
+                    >
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-row justify-between"
+                      >
+                        <p
+                          class="body-1 font-bold body-1"
+                          style="display: block;"
+                        >
+                          Rafusal Claud
+                        </p>
+                        <p
+                          class="body-1"
+                          style="display: block;"
+                        >
+                          DOB: 01/18/1985
+                        </p>
+                      </div>
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class=""
+                        style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                      />
+                      <span
+                        style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                      />
+                      <div
+                        class="flex flex-col"
+                      >
+                        <div
+                          class="flex flex-row"
+                        >
+                          <span
+                            style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
+                          />
+                        </div>
+                        <div>
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="body-1 ml-2"
+                              style="display: block;"
+                            >
+                              Basic Access as of undefined
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
+                            />
+                          </div>
+                          <div
+                            class="flex flex-row"
+                          >
+                            <p
+                              class="body-1 body-1 mb"
+                              style="display: block;"
+                            >
+                              Basic Access
+                            </p>
+                            <span
+                              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                            />
+                            <div
+                              class="flex flex-row"
+                            >
+                              <div
+                                class="mr-2"
+                              >
+                                <img
+                                  alt="link"
+                                  data-nimg="1"
+                                  decoding="async"
+                                  height="40"
+                                  loading="lazy"
+                                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                                  style="color: transparent;"
+                                  width="40"
+                                />
+                              </div>
+                              <p
+                                class="mb-4"
+                              >
+                                Pending...
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
+                />
+                <div
+                  class=""
+                  style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
+                />
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+                />
+                <span
+                  class="rich-text body-2 undefined"
+                >
+                  <span>
+                    if you have submitted a Personal Representative Authorization form, it might not yet appear on this page. For assistance, please
+                  </span>
+                  <span
+                    class="link"
+                  >
+                    <a>
+                       start a chat 
+                    </a>
+                  </span>
+                  <span>
+                    or call us at [1-800-000-000]
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div />
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

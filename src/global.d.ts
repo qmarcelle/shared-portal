@@ -1,13 +1,38 @@
-import { OAuth } from './models/enterprise/oAuth';
+/**
+ * CONSOLIDATED GLOBAL TYPE DECLARATIONS
+ *
+ * This file contains all global Window interface extensions for the application.
+ * It serves as a single source of truth for Window extensions.
+ */
+
+import { GenesysWindow } from './app/chat/types/chat-types';
 
 declare global {
-  // eslint-disable-next-line no-var
-  var accessToken: OAuth;
-  interface Window {
-    _pingOneSignals: PingOneSignals;
-    _pingOneSignalsReady: boolean;
-    dataLayer: Record<string, unknown>[];
+  interface Window extends GenesysWindow {
+    // Custom events for Genesys chat
+    addEventListener(
+      type:
+        | 'genesys-ready'
+        | 'genesys:webchat:opened'
+        | 'genesys:message:received'
+        | 'genesys:webchat:error'
+        | 'genesys:webchat:submitted'
+        | 'genesys:create-button',
+      listener: (this: Window, ev: Event) => any,
+      options?: boolean | AddEventListenerOptions,
+    ): void;
+    removeEventListener(
+      type:
+        | 'genesys-ready'
+        | 'genesys:webchat:opened'
+        | 'genesys:message:received'
+        | 'genesys:webchat:error'
+        | 'genesys:webchat:submitted'
+        | 'genesys:create-button',
+      listener: (this: Window, ev: Event) => any,
+      options?: boolean | EventListenerOptions,
+    ): void;
+
+    // Add any other global window properties here
   }
 }
-
-export type {};

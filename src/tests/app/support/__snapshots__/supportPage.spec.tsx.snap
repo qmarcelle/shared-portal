@@ -89,15 +89,21 @@ exports[`Support Page should render the page correctly 1`] = `
                   >
                     <p
                       class="body-1"
-                      style="display: block;"
+                      style="display: inline;"
                     >
                       Call 
                     </p>
                     <p
-                      class="body-1 font-bold"
-                      style="display: block;"
+                      class="body-1 body-bold"
+                      style="display: inline;"
                     >
-                      1-800-000-0000, TTY 711
+                      1-800-565-9000
+                    </p>
+                    <p
+                      class="body-1 body-bold"
+                      style="display: inline;"
+                    >
+                      , TTY 711
                     </p>
                   </span>
                 </div>
@@ -167,7 +173,7 @@ exports[`Support Page should render the page correctly 1`] = `
                   </p>
                   <a
                     aria-label="Send an Email"
-                    href="/support/sendAnEmail"
+                    href="/member/support/email"
                     style="display: block;"
                   >
                     <button
@@ -222,7 +228,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <a
                     class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                    href="/support/faq"
+                    href="/member/support/FAQ"
                   >
                     <div
                       class="card-main px-4 py-3"
@@ -465,15 +471,21 @@ exports[`Support Page should render the page correctly 1`] = `
                 >
                   <p
                     class="body-1"
-                    style="display: block;"
+                    style="display: inline;"
                   >
                     Call 
                   </p>
                   <p
-                    class="body-1 font-bold"
-                    style="display: block;"
+                    class="body-1 body-bold"
+                    style="display: inline;"
                   >
-                    1-800-000-0000, TTY 711
+                    1-800-565-9000
+                  </p>
+                  <p
+                    class="body-1 body-bold"
+                    style="display: inline;"
+                  >
+                    , TTY 711
                   </p>
                 </span>
               </div>
@@ -543,7 +555,7 @@ exports[`Support Page should render the page correctly 1`] = `
                 </p>
                 <a
                   aria-label="Send an Email"
-                  href="/support/sendAnEmail"
+                  href="/member/support/email"
                   style="display: block;"
                 >
                   <button
@@ -598,7 +610,7 @@ exports[`Support Page should render the page correctly 1`] = `
               >
                 <a
                   class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  href="/support/faq"
+                  href="/member/support/FAQ"
                 >
                   <div
                     class="card-main px-4 py-3"

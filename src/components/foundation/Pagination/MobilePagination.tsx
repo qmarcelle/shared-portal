@@ -8,7 +8,6 @@ import { Dropdown, SelectItem } from '@/components/foundation/Dropdown';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import { PaginationListProps } from './InnerPagination';
 
 interface MobilePaginationProps extends PaginationListProps {
@@ -47,11 +46,11 @@ export const MobilePagination = ({
       >
         <Row className="arrow left">
           {currentPage === 1 ? (
-            <Image src={leftInactiveIcon} alt="previous" />
+            <img src={leftInactiveIcon} alt="previous" />
           ) : (
             <>
-              <Image className="left-icon" src={leftIcon} alt="previous" />
-              <Image
+              <img className="left-icon" src={leftIcon} alt="previous" />
+              <img
                 className="left-icon-white"
                 src={leftHoverIcon}
                 alt="previous"
@@ -81,11 +80,11 @@ export const MobilePagination = ({
       >
         <Row className="arrow right">
           {currentPage === lastPage ? (
-            <Image src={rightInactiveIcon} alt="next" />
+            <img src={rightInactiveIcon} alt="next" />
           ) : (
             <>
-              <Image className="right-icon" src={rightIcon} alt="next" />
-              <Image
+              <img className="right-icon" src={rightIcon} alt="next" />
+              <img
                 className="right-icon-white"
                 src={rightHoverIcon}
                 alt="next"

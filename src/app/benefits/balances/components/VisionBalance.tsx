@@ -5,7 +5,6 @@ import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 
 interface VisionBalanceProps extends IComponent {
@@ -16,7 +15,7 @@ interface VisionBalanceProps extends IComponent {
 export const VisionBalance = ({
   className,
   linkURL,
-  icon = <Image alt="external icon" src={externalIcon} />,
+  icon = <img alt="external icon" src={externalIcon} />,
 }: VisionBalanceProps) => {
   return (
     <Card className={className}>

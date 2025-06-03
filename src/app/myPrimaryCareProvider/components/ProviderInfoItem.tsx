@@ -7,13 +7,12 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import editIcon from '@/public/assets/edit.svg';
-import Image from 'next/image';
 interface ProviderInfoItemProps extends IComponent {
   icon?: JSX.Element;
 }
 
 export const ProviderInfoItem = ({
-  icon = <Image src={editIcon} alt="link" />,
+  icon = <img src={editIcon} alt="link" />,
 }: ProviderInfoItemProps) => {
   return (
     <Card className="card-main large-section">
@@ -59,7 +58,7 @@ export const ProviderInfoItem = ({
                 className="font-bold primary-color !flex link !no-underline ml-0 pl-0"
                 label="Update"
                 icon={icon}
-                url="/updateMyPrimaryCareProvider"
+                url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&alternateText=Find a PCP&isPCPSearchRedirect=true&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`}
               />
             </Column>
           </Column>

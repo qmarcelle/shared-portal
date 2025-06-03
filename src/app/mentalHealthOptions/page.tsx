@@ -4,9 +4,12 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { ChooseMentalHealthProvider } from './components/ChooseMentalHealthProviderSection';
 import { FindInNetworkProviderSection } from './components/FindInNetworkProviderSection';
 import { VirtualMentalHealthCareSection } from './components/VirtualMentalHealthCareSection';
+const urlRedirect =
+  '/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=';
 
 const MentalHealthOptions = () => {
   return (
@@ -53,6 +56,7 @@ const MentalHealthOptions = () => {
                       'Depression',
                       'Trauma and PTSD',
                     ],
+                    url: `${urlRedirect + HealthProgramType.TeladocMentalHealth}`,
                   },
                   {
                     healthcareType: 'Mental Health',
@@ -64,6 +68,7 @@ const MentalHealthOptions = () => {
                     link: 'Learn More About AbleTo',
                     itemDataTitle: 'Generally good for:',
                     itemData: ['Anxiety', 'Depression', 'Grief', 'Stress'],
+                    url: `${urlRedirect + HealthProgramType.AbleTo}`,
                   },
                 ]}
               />

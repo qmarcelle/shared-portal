@@ -7,7 +7,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
       class="flex flex-col"
     >
       <a
-        href="/benefits"
+        href="/member/myplan/benefits"
       >
         <div
           class="card-elevated small-section"
@@ -49,7 +49,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
         </div>
       </a>
       <a
-        href="/claims"
+        href="/member/myplan/claims"
       >
         <div
           class="card-elevated small-section"
@@ -91,7 +91,7 @@ exports[`Other Plan Information Component should render UI correctly for Blue Ca
         </div>
       </a>
       <a
-        href="/priorAuth"
+        href="/member/myplan/priorauthorizations"
       >
         <div
           class="card-elevated small-section"
@@ -197,7 +197,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
       class="flex flex-col"
     >
       <a
-        href="/benefits"
+        href="/member/myplan/benefits"
       >
         <div
           class="card-elevated small-section"
@@ -239,7 +239,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
         </div>
       </a>
       <a
-        href="/claims"
+        href="/member/myplan/claims"
       >
         <div
           class="card-elevated small-section"
@@ -281,7 +281,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
         </div>
       </a>
       <a
-        href="/priorAuthorization"
+        href="/member/myplan/priorauthorizations"
       >
         <div
           class="card-elevated small-section"
@@ -323,7 +323,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
         </div>
       </a>
       <a
-        href="/spendingAccounts"
+        href="/member/myplan/spendingaccounts"
       >
         <div
           class="card-elevated small-section"
@@ -365,7 +365,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
         </div>
       </a>
       <a
-        href="/spendingSummary"
+        href="/member/myplan/spendingsummary"
       >
         <div
           class="card-elevated small-section"
@@ -407,7 +407,7 @@ exports[`Other Plan Information Component should render UI correctly for Commerc
         </div>
       </a>
       <a
-        href="/benefits/planDocuments"
+        href="/member/myplan/benefits/plandocuments"
       >
         <div
           class="card-elevated small-section"
@@ -460,7 +460,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
       class="flex flex-col"
     >
       <a
-        href="/benefits"
+        href="/member/myplan/benefits"
       >
         <div
           class="card-elevated small-section"
@@ -502,7 +502,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/claims"
+        href="/member/myplan/claims"
       >
         <div
           class="card-elevated small-section"
@@ -544,7 +544,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/priorAuthorization"
+        href="/member/myplan/priorauthorizations"
       >
         <div
           class="card-elevated small-section"
@@ -586,7 +586,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/spendingAccounts"
+        href="/member/myplan/spendingaccounts"
       >
         <div
           class="card-elevated small-section"
@@ -628,7 +628,7 @@ exports[`Other Plan Information Component should render UI correctly for other g
         </div>
       </a>
       <a
-        href="/benefits/planDocuments"
+        href="/member/myplan/benefits/plandocuments"
       >
         <div
           class="card-elevated small-section"

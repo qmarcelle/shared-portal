@@ -37,6 +37,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# exclude new portal directory (removed/cleaned up)
+/new_portal/
+
 # Development tools and temporary files
 .cursor/
 isolated-tests/
@@ -72,5 +75,4 @@ src/app/chat/__mocks__/temporaryData.ts
 
 # Other development files
 pnpm-lock.yaml
-types/
 src/app/types/

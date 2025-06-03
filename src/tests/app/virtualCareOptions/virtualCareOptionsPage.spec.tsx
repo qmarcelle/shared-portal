@@ -1,4 +1,4 @@
-import VirtualCareOptions from '@/app/virtualCareOptions/page';
+import VirtualCareOptions from '@/app/virtualCareOptions';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -15,7 +15,7 @@ describe('VirtualCareOptions Page', () => {
     ).toBeVisible();
     expect(
       screen.getByText(
-        'The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our Find Care tool.',
+        'The options below offer quick, high-quality care for a range of non-emergency needs. You can also search for in-network providers that offer in-person and virtual visits with our',
       ),
     ).toBeVisible();
     expect(

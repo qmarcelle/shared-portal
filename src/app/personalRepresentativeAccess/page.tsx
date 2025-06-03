@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const PersonalRepresentativePage = async () => {
   const session = await auth();
   const userRole = session?.user.currUsr.role;
+  const isImpersonated = session!.user.impersonated;
   if (userRole && !checkPersonalRepAccess(userRole)) {
     redirect('/dashboard');
   } else {
@@ -19,6 +20,7 @@ const PersonalRepresentativePage = async () => {
     return (
       <PersonalRepresentativeAccess
         representativeDetails={representativeDetails?.data}
+        isImpersonated={isImpersonated}
       />
     );
   }

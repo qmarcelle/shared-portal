@@ -1,94 +1,146 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { IComponent } from '../IComponent';
-import { Column } from './Column';
-
 export interface CheckboxProps extends IComponent {
   selected?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  callback?: (val: any) => void;
+  callback?: (val: boolean) => void;
   label: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value?: any;
+  value?: string | number | boolean;
   classProps?: string;
   checkProps?: string;
   body?: ReactNode;
+  disabled?: boolean;
+  checked?: boolean;
+  onChange?: (val: boolean) => void;
+  className?: string;
+  required?: boolean;
+  error?: boolean;
+  errorMessage?: string;
   id?: string;
   ariaLabel?: string;
   ariaDescribedBy?: string;
 }
 
-export const Checkbox = ({
-  label,
-  body,
-  callback,
-  selected,
-  classProps,
-  className,
-  id = Math.random().toString(36).substring(2, 9),
-  ariaLabel,
-  ariaDescribedBy,
-}: CheckboxProps) => {
-  const isDisabled = callback == null;
+export const Checkbox = memo(
+  ({
+    // Keep label required for TypeScript but handle empty values gracefully
+    label,
+    checked = false,
+    onChange,
+    disabled = false,
+    className = '',
+    required = false,
+    error = false,
+    errorMessage,
+    id,
+    body,
+    // Support for backward compatibility
+    selected,
+    callback,
+    classProps,
+    checkProps,
+    ariaLabel,
+    ariaDescribedBy,
+  }: CheckboxProps) => {
+    // Validate required label prop but don't use default value to maintain type safety
+    if (!label) {
+      console.warn('Checkbox component requires a label prop');
+    }
 
-  return (
-    <div
-      className={`flex flex-row gap-2 p-2 ${isDisabled ? 'checkbox-disabled' : ''} ${className ?? ''}`}
-      role="checkbox"
-      aria-checked={!!selected}
-      aria-label={ariaLabel || label}
-      aria-describedby={ariaDescribedBy}
-      tabIndex={0}
-      onKeyDown={(e) => {
+    // Support both new and old prop patterns
+    const isChecked = checked ?? selected ?? false;
+
+    // Preserve original disabled logic for maximum backward compatibility
+    // but also support the new pattern with onChange
+    const isDisabled =
+      disabled || (callback === undefined && onChange === undefined);
+    const handleCallback = onChange || callback;
+
+    const checkboxId =
+      id ||
+      `checkbox-${(label || 'checkbox').toLowerCase().replace(/\s+/g, '-')}`;
+
+    const inputClassName = `checkbox ${checkProps || ''} ${isChecked ? 'checked checkbox--checked' : ''} ${
+      isDisabled ? 'disabled checkbox--disabled' : ''
+    } ${error ? 'error checkbox--error' : ''}`;
+
+    const handleChange = useCallback(() => {
+      if (!isDisabled && handleCallback) {
+        handleCallback(!isChecked);
+      }
+    }, [isDisabled, handleCallback, isChecked]);
+
+    const handleKeyDown = useCallback(
+      (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          callback?.(!selected);
+          handleChange();
         }
-      }}
-    >
-      <input
-        type="checkbox"
-        name={id}
-        id={id}
-        onChange={callback}
-        checked={selected}
-        disabled={isDisabled}
-        aria-checked={!!selected}
-        aria-disabled={isDisabled}
-        aria-labelledby={`${id}-label`}
-        className="sr-only"
-      />
+      },
+      [handleChange],
+    );
+
+    return (
       <div
-        className={`w-5 h-5 border rounded ${
-          selected ? 'bg-blue-600 border-blue-600' : 'border-gray-300'
-        } ${isDisabled ? 'opacity-50' : ''}`}
-        aria-hidden="true"
+        className={`flex flex-col ${className || ''} ${callback === null ? 'checkbox-disabled' : ''} ${isDisabled ? 'checkbox-disabled' : ''}`}
+        role="checkbox"
+        aria-checked={isChecked}
+        aria-disabled={isDisabled}
+        aria-invalid={error}
+        aria-required={required}
+        aria-label={ariaLabel || label || 'Checkbox'}
+        aria-describedby={
+          ariaDescribedBy || (error ? `${checkboxId}-error` : undefined)
+        }
+        // Keep the onClick for backward compatibility with any code that might rely on it
+        onClick={(e) => {
+          // Only handle clicks on the container itself, not on its children
+          if (e.target === e.currentTarget) {
+            handleChange();
+          }
+        }}
       >
-        {selected && (
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <div
+          className="flex flex-row"
+          tabIndex={isDisabled ? -1 : 0}
+          onKeyDown={handleKeyDown}
+        >
+          <input
+            type="checkbox"
+            id={checkboxId}
+            checked={isChecked}
+            onChange={handleChange}
+            disabled={isDisabled}
+            required={required}
+            className={inputClassName}
+            aria-label={ariaLabel || label}
+          />
+          <label
+            htmlFor={checkboxId}
+            className={`ml-2 ${classProps || ''} ${isDisabled ? 'cursor-not-allowed opacity-70' : 'cursor-pointer'}`}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
+            {body ? (
+              <>
+                {body}
+                <span className="sr-only">{label}</span>
+              </>
+            ) : (
+              label
+            )}
+            {required && <span className="text-red-500 ml-1">*</span>}
+          </label>
+        </div>
+        {error && errorMessage && (
+          <div
+            id={`${checkboxId}-error`}
+            className="text-red-500 text-sm mt-1"
+            role="alert"
+          >
+            {errorMessage}
+          </div>
         )}
       </div>
-      <Column>
-        <label
-          htmlFor={id}
-          id={`${id}-label`}
-          className={`cursor-pointer ${classProps || ''}`}
-        >
-          {label}
-        </label>
-        {body}
-      </Column>
-    </div>
-  );
-};
+    );
+  },
+);
+
+Checkbox.displayName = 'Checkbox';

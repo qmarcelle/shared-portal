@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import { ReactElement } from 'react';
-import editIcon from '../../../public/assets/edit.svg';
 import { IComponent } from '../IComponent';
 import { AppLink } from '../foundation/AppLink';
 import { Column } from '../foundation/Column';
@@ -27,7 +25,7 @@ export const UpdateRowWithStatus = ({
   methodName,
   enabled = false,
   onOffLabelEnabled = true,
-  icon = <Image src={editIcon} alt="" />,
+  icon = <img src="/assets/edit.svg" alt="" />,
   divider = false,
   onClick,
 }: UpdateRowWithStatusProps) => {

@@ -1,5 +1,7 @@
+import { AnalyticsData } from '@/models/app/analyticsData';
 import { UserProfile } from '@/models/user_profile';
 import { UserRole } from '@/userManagement/models/sessionUser';
+import { googleAnalytics } from '@/utils/analytics';
 import { computeRoleNameFromType } from '@/utils/role_name_converter';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -98,7 +100,6 @@ const UserSwitchHead = ({ user }: { user: UserProfile }) => {
           src={switchFilterIcon}
         />
       )}
-      ,
     </Row>
   );
 };
@@ -127,18 +128,18 @@ export const UserSwitchFilter = ({
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3 ',
         icon: <Image src={parentPageArrowIcon} alt="link" />,
-        url: '/profileSettings',
+        url: '/member/profile',
       },
       {
         label: 'Communication Settings',
         className:
           'font-bold primary-color body-bold body-1 manage-underline mt-4',
-        url: '/communicationSettings',
+        url: '/member/profile/communication',
       },
       {
         label: 'Security Settings',
         className: 'font-bold primary-color body-bold body-1 manage-underline',
-        url: '/security',
+        url: '/member/profile/security',
       },
     ],
     [UserRole.PERSONAL_REP]: [
@@ -147,14 +148,14 @@ export const UserSwitchFilter = ({
         className:
           'font-bold !flex primary-color underline underline-offset-3 title-3',
         icon: <Image src={parentPageArrowIcon} alt="link" />,
-        url: '/profileSettings',
+        url: '/member/profile',
       },
 
       {
         label: 'Sharing & Permissions',
         className:
           'font-bold primary-color body-bold body-1 mt-4 manage-underline',
-        url: '/sharingPermissions',
+        url: '/member/profile/accountsharing',
       },
     ],
     [UserRole.AUTHORIZED_USER]: [],
@@ -163,6 +164,17 @@ export const UserSwitchFilter = ({
   const userLinks = selected.type
     ? userLinksMap[selected.type]
     : userLinksMap[UserRole.AUTHORIZED_USER];
+  const getAnalyticsData = (label: string) => {
+    const analytics: AnalyticsData = {
+      click_text: label.toLocaleLowerCase(),
+      click_url: window.location.href,
+      element_category: 'content interaction',
+      action: 'click',
+      event: 'internal_link_click',
+      content_type: undefined,
+    };
+    googleAnalytics(analytics);
+  };
   return (
     <section>
       <RichDropDown<UserProfile>
@@ -187,6 +199,7 @@ export const UserSwitchFilter = ({
               label={link.label}
               icon={link.icon}
               url={link.url}
+              callback={() => getAnalyticsData(link.label) ?? undefined}
             />
             <Spacer size={8} />
             {link.label === 'All Profile Settings' && <Divider />}

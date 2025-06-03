@@ -17,7 +17,7 @@ const InboxPage = async () => {
   return (
     <Inbox
       membersInfo={membersInfo.data!}
-      documents={documents.data!.documentMetadataList}
+      documents={documents.documentMetadataList!}
     />
   );
 };

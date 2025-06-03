@@ -9,6 +9,7 @@ export interface UserProfile {
   type: UserRole;
   selected?: boolean;
   plans: Plan[];
+  relationshipType?: string;
 }
 
 type Plan = {

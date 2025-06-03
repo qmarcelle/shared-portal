@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { IComponent } from '../IComponent';
-
 type ButtonType =
   | 'primary'
   | 'secondary'
@@ -19,7 +18,7 @@ interface ButtonProps extends IComponent {
   label?: string;
   icon?: ReactNode;
   callback?: () => void | Promise<void> | null | Promise<string>;
-  disabled?: boolean;
+  disable?: boolean;
 }
 
 export const Button = ({
@@ -30,7 +29,7 @@ export const Button = ({
   id,
   className,
   callback,
-  disabled,
+  disable = false,
 }: ButtonProps) => {
   function computeContent() {
     if (label) {
@@ -49,10 +48,10 @@ export const Button = ({
     <button
       onClick={callback}
       aria-label={label}
-      className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null || disabled ? 'inactive' : null} ${className}`}
+      className={`button-text ${type} text-center flex flex-row justify-center items-center min-w-fit ${callback == null ? 'inactive' : null} ${className}`}
       type={style}
       id={id}
-      disabled={!callback || disabled}
+      disabled={disable || (!callback ? true : false)}
     >
       {computeContent()}
     </button>

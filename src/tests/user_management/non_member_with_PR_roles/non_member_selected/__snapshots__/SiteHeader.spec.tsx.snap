@@ -41,7 +41,7 @@ exports[`SiteHeader for Non Member with PR Role should render UI correctly with 
         </div>
         <a
           class="ml-5 lg:px-0"
-          href="/dashboard"
+          href="/member/home"
         >
           <img
             alt="BCBST Logo"

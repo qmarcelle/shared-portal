@@ -393,7 +393,9 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                       </a>
                     </span>
                     <span>
-                       or call us at [1-800-000-0000].
+                       or call us at [
+                      1-800-565-9000
+                      ].
                     </span>
                   </span>
                 </div>
@@ -793,7 +795,9 @@ exports[`Submit a claim Page UI should render UI correctly 1`] = `
                     </a>
                   </span>
                   <span>
-                     or call us at [1-800-000-0000].
+                     or call us at [
+                    1-800-565-9000
+                    ].
                   </span>
                 </span>
               </div>

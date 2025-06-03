@@ -7,9 +7,6 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
-import healthSupport from '../../../public/assets/health_support.svg';
-import maternity from '../../../public/assets/maternity_breast_pump.svg';
-import primaryCare from '../../../public/assets/primary_care.svg';
 import healthyMaternityVideo from '../../../public/assets/video_healthy_maternity.jpg';
 import AboutEnrollment from './components/AboutEnrollment';
 import EnrollmentForm from './components/EnrollmentForm';
@@ -32,7 +29,7 @@ const HealthyMaternity = () => {
           <Spacer size={3} />
           <TextBox
             className="pl-3 body-1 m-4 ml-0 mb-5 md:w-2/3"
-            text="You can enroll in our Healthy Maternity Program as soon as you find out you’re pregnant, at no cost to you."
+            text="You can enroll in our Healthy Maternity Program as soon as you find out you're pregnant, at no cost to you."
           />
           <Button
             label="Enroll in Health Maternity"
@@ -46,15 +43,21 @@ const HealthyMaternity = () => {
                 benefits={[
                   {
                     benefitIcon: (
-                      <Image src={maternity} alt="Maternity Breast Pump Icon" />
+                      <img
+                        src="/assets/maternity_breast_pump.svg"
+                        alt="Maternity Breast Pump Icon"
+                      />
                     ),
                     benefitCopy:
-                      'Enroll within the first 20 weeks of your pregnancy to qualify for a free breast pump.',
-                    benefitLabel: 'Free Breast Pump',
+                      'Connect with a nurse to learn more about your breast pump benefit.',
+                    benefitLabel: 'Breast Pump Benefit',
                   },
                   {
                     benefitIcon: (
-                      <Image src={primaryCare} alt="Primary Care Icon" />
+                      <img
+                        src="/assets/primary_care.svg"
+                        alt="Primary Care Icon"
+                      />
                     ),
                     benefitCopy:
                       'Our nurses provide expert advice for high-risk care, lactation counseling, postpartum emotional support and more.',
@@ -62,7 +65,10 @@ const HealthyMaternity = () => {
                   },
                   {
                     benefitIcon: (
-                      <Image src={healthSupport} alt="Health Support Icon" />
+                      <img
+                        src="/assets/health_support.svg"
+                        alt="Health Support Icon"
+                      />
                     ),
                     benefitCopy:
                       // eslint-disable-next-line quotes
@@ -97,6 +103,8 @@ const HealthyMaternity = () => {
               src={healthyMaternityVideo}
               alt="Healthy Maternity Video Icon"
               className="mx-auto pb-7"
+              width={800}
+              height={450}
             />
           </>
         }

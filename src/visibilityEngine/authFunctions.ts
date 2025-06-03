@@ -6,7 +6,7 @@ export const AUTH_FUNCTION_MAP = {
   otcEnable: 'OTCEnable',
   showPharmacyTab: 'ENABLE_PHAR_TAB',
   chipRewardsEligible: 'CHIPELIGIBLE',
-  blueHealthRewardsEligible: 'BLUEHEALTH_REWARDS', //TODO We can consolidate these - two auth functions are not necessary for rewards
+  blueHealthRewardsEligible: 'BLUEHEALTHREWARDS', //TODO We can consolidate these - two auth functions are not necessary for rewards
   bluePerksElig: 'BLUEPRKS',
   amplifyMember: 'AMPLIFYMEMBER',
   myStrengthCompleteEligible: 'TELADOC_MYSTRENGTHCOMPLETE',
@@ -43,5 +43,12 @@ export const AUTH_FUNCTION_MAP = {
   questSelectEligible: 'QUEST_SELECT',
   isEmboldHealth: 'EMBOLD_HEALTH',
   teladocEligible: 'TELADOC',
+  prevYearMedical: 'PREV_YEAR_MEDICAL', // TODO authFunction to be created
+  prevYearFullyInsured: 'PREV_YEAR_FULLY_INSURED', // TODO authFunction to be created
   phaMemberEligible: 'PHACommercialEligible',
+  isMskEligible: 'MSK_ELIGIBLE',
+  fullyInsuredHealthyMaternity: 'FIHEALTHYMATERNITY',
+  enableHealthyMaternity: 'HEALTHYMATERNITY',
+  isWellnessOnlyBenefitsQV: 'WellnessOnlyBenefitsQV_VisibilityRule',
+  isHighDeductiblePlanMember: 'HighDeductiblePlanMember',
 };

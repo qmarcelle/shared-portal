@@ -191,15 +191,12 @@ exports[`Personal Representative Access Page should show personal representative
                                   class="body-1 ml-2"
                                   style="display: block;"
                                 >
-                                  Basic Access as of 01/01/2024
+                                  Basic Access as of undefined
                                 </p>
                                 <span
                                   style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                                 />
                               </div>
-                              <div
-                                class="flex flex-row"
-                              />
                             </div>
                           </div>
                         </div>
@@ -429,15 +426,12 @@ exports[`Personal Representative Access Page should show personal representative
                                 class="body-1 ml-2"
                                 style="display: block;"
                               >
-                                Basic Access as of 01/01/2024
+                                Basic Access as of undefined
                               </p>
                               <span
                                 style="display: block; width: 1px; min-width: 1px; height: 42px; min-height: 42px;"
                               />
                             </div>
-                            <div
-                              class="flex flex-row"
-                            />
                           </div>
                         </div>
                       </div>

@@ -29,7 +29,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -56,14 +56,14 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -106,7 +106,10 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -208,7 +211,10 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -310,7 +316,10 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -416,7 +425,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -471,13 +480,13 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                       Facility Address
                     </p>
                     <p
-                      class="body-1 body-1"
+                      class="body-1 body-1 test1"
                       style="display: block;"
                     >
                       2033 Meadowview Ln Ste 200
                     </p>
                     <p
-                      class="body-1 body-1"
+                      class="body-1 body-1 test3"
                       style="display: block;"
                     >
                       Kingsport TN 37660-7432
@@ -486,13 +495,13 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                     />
                     <p
-                      class="body-1 body-2"
+                      class="body-1 body-2 test4"
                       style="display: block;"
                     >
                       Phone
                     </p>
                     <p
-                      class="body-1 body-1"
+                      class="body-1 body-1 test5"
                       style="display: block;"
                     >
                       (423) 857-2260
@@ -661,11 +670,13 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -700,7 +711,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -745,7 +756,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -790,7 +801,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -835,7 +846,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -880,7 +891,7 @@ exports[`Dashboard Page for BlueCare should render Welcome Banner UI correctly 1
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"

@@ -4,8 +4,6 @@ import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
-import Image from 'next/image';
-import externalIcon from '../../../../public/assets/external.svg';
 
 interface BenefitsProviderInfoCardProps
   extends IComponent,
@@ -19,12 +17,12 @@ export const BenefitsProviderInfoCard = ({
 }: BenefitsProviderInfoCardProps) => {
   return (
     <Card className={`${className}`}>
-      <a className="p-4 block" href={url}>
+      <a className="p-4 block" href={url} target="_blank">
         {url != null ? (
           <Title
             className="body-bold primary-color"
             text={providedBy}
-            suffix={<Image src={externalIcon} alt="external" />}
+            suffix={<img src="/assets/external.svg" alt="external" />}
           />
         ) : (
           <TextBox text={providedBy} className="body-1 body-bold" />

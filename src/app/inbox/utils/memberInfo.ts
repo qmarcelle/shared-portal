@@ -3,6 +3,7 @@ import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { LoggedInUserInfo, Member } from '@/models/member/api/loggedInUserInfo';
 import { logger } from '@/utils/logger';
+import { formatMemberId } from '@/utils/member_utils';
 import { IMemberInfo } from '../models/api/document';
 
 export async function getMembersInfoList(): Promise<
@@ -20,7 +21,10 @@ export async function getMembersInfoList(): Promise<
       (member: Member) => {
         return {
           name: `${member.firstName} ${member.lastName}`,
-          id: `${loggedInUserInfo.subscriberID}0${member.memberSuffix}`,
+          id: formatMemberId(
+            loggedInUserInfo.subscriberID,
+            member.memberSuffix,
+          ),
         };
       },
     );

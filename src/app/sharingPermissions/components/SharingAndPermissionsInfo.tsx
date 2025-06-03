@@ -3,6 +3,7 @@ import { Column } from '@/components/foundation/Column';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { checkPersonalRepAccess } from '@/utils/getRole';
+import { useRouter } from 'next/navigation';
 
 export type SharingAndPermissionsInfoProps = {
   userRole: UserRole | undefined;
@@ -11,11 +12,13 @@ export type SharingAndPermissionsInfoProps = {
 export const SharingAndPermissionsInfo = ({
   userRole,
 }: SharingAndPermissionsInfoProps) => {
+  const router = useRouter();
   return (
     <Card className="large-section">
       <Column className="flex flex-col">
         <LinkRow
           label="Share My Information"
+          link="/member/profile/accountsharing/myinfo"
           description={
             <div className="body-1 flex flex-row">
               Control how your plan information is shared with your family or
@@ -28,6 +31,7 @@ export const SharingAndPermissionsInfo = ({
         {checkPersonalRepAccess(userRole) && (
           <LinkRow
             label="Access Others' Information"
+            link="/member/profile/accountsharing/access"
             description={
               <div className="body-1 flex flex-row">
                 View or request access to others&apos; plan information.
@@ -39,6 +43,7 @@ export const SharingAndPermissionsInfo = ({
         {checkPersonalRepAccess(userRole) && (
           <LinkRow
             label="Personal Representative Access"
+            link="/member/profile/accountsharing/personalrep"
             description={
               <div className="body-1 flex flex-row">
                 A personal representative is an individual with the legal
@@ -47,10 +52,14 @@ export const SharingAndPermissionsInfo = ({
               </div>
             }
             divider={true}
+            onClick={() => {
+              router.push('/personalRepresentativeAccess');
+            }}
           />
         )}
         <LinkRow
           label="Third Party Sharing"
+          link="/member/profile/accountsharing/thirdparty"
           description={
             <div className="body-1 flex flex-row">
               View the apps and websites you&apos;ve shared your plan

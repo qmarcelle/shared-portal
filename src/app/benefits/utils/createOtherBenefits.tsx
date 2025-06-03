@@ -16,20 +16,20 @@ export const generateOtherBenefitsForUser = (
       title: 'Identity Protection Services',
       body: 'Keeping your medical information secure is more important than ever. That’s why we offer identity theft protection with our eligible plans—free of charge.',
       externalLink: false,
-      url: '/benefits/identityProtectionServices',
+      url: '/member/myplan/benefits/identitypotection',
     });
   }
   otherBenefitItems.push({
     title: 'Health Programs & Resources',
     body: 'Your plan includes programs, guides and discounts to help make taking charge of your health easier and more affordable.',
     externalLink: false,
-    url: 'url',
+    url: '/member/myhealth/healthprograms',
   });
   if (vRules.active && vRules.otcEnable) {
     otherBenefitItems.push({
       title: 'Shop Over-the-Counter Items',
       body: 'You get a quarterly allowance for over-the-counter (OTC) items. You can spend it on things like cold medicine, vitamins and more. And once you set up an account, you can even shop for those items online. Set up or log in to your online account to get OTC items shipped right to your door.',
-      externalLink: false,
+      externalLink: true,
       icon: <Image src={externalIcon} alt="link" />,
     });
   }
@@ -48,7 +48,7 @@ export const generateOtherBenefitsForUser = (
       title: 'Employer Provided Benefits',
       body: 'Your employer offers even more programs and benefits you can explore here.',
       externalLink: false,
-      url: '/benefits/employerProvidedBenefits',
+      url: '/member/myplan/benefits/employerprovidedbenefits',
     });
   }
   return otherBenefitItems;

@@ -30,6 +30,7 @@ export const getMemberWellnessRewards = async (
     )?.data;
     if (!response?.data?.accounts?.balance?.length) throw 'No Response';
     memberRewards = getRewards(response?.data, session);
+    logger.info('memberRewards', memberRewards);
     return memberRewards;
   } catch (error) {
     logger.error('Error Response from Member Wellness Rewards', error);
@@ -47,8 +48,10 @@ const getRewards = (
   const maxPoints: number = 100;
   let pointConversion: number = 0;
   const balances = response.accounts?.balance;
+  let isSelfFunded: boolean = true;
 
   if (session?.user.vRules?.fullyInsured || session?.user.vRules?.levelFunded) {
+    isSelfFunded = false;
     pointConversion = 1;
     (balances || []).forEach((balanceObj) => {
       if (balanceObj.rewardType === 'Fully Insured - Points') {
@@ -86,5 +89,21 @@ const getRewards = (
   memberRewards.quarterlyMaxPoints = maxPoints;
   memberRewards.totalAmountEarned = dollars;
   memberRewards.totalAmount = maxPoints * pointConversion;
+  memberRewards.isSelfFunded = isSelfFunded;
   return memberRewards;
+};
+
+export const memRelation = async (session: Session | null): Promise<string> => {
+  const loggedInMember = await getLoggedInMember(session);
+
+  if (loggedInMember.memRelation === 'M') {
+    return 'member';
+  } else if (
+    loggedInMember.memRelation === 'H' ||
+    loggedInMember.memRelation === 'W'
+  ) {
+    return 'spouse';
+  } else {
+    return '';
+  }
 };

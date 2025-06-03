@@ -5,29 +5,19 @@ import { Header } from '@/components/foundation/Header';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
-import { useEffect, useState } from 'react';
-import { FaqTopicType } from '../models/faq_details';
+import { SupportFaqTopicDetails } from '../models/support_faq_topic_details';
 
 interface OtherFaqTopicsProps extends IComponent {
-  faqTopics: typeof FaqTopicType;
+  faqtype: string;
   goToFaqPage: (item: string) => void;
 }
 export const OtherFaqTopics = ({
-  faqTopics,
+  faqtype,
   goToFaqPage,
 }: OtherFaqTopicsProps) => {
-  const faqTopicsList = Object.keys(faqTopics).map(
-    (key) => faqTopics[key as keyof typeof faqTopics],
-  );
-  const [currentPageId, setCurrentPageId] = useState<string | null>('');
-  let faqType: string | null;
-  useEffect(() => {
-    const urlSearchString = window.location.search;
-    const params = new URLSearchParams(urlSearchString);
-    faqType = params.get('faqtype');
-    console.log('other faq ---- ' + faqType);
-    setCurrentPageId(faqType);
-  }, []);
+
+  console.log('...SupportFaqTopicDetails' ,...SupportFaqTopicDetails)
+
   return (
     <Card className="mt-4">
       <Column className="ml-6">
@@ -40,18 +30,17 @@ export const OtherFaqTopics = ({
         <Spacer size={16} />
         <Row>
           <ul className="ml-6 !font-thin">
-            {faqTopicsList.map((item, index) => {
+            {[...SupportFaqTopicDetails].map(([paramKey, item]) => {
               return (
-                <Column key={index} className="!font-thin">
+                <Column key={paramKey} className="!font-thin">
                   <li>
                     <Row>
                       <AppLink
-                        label={item}
+                        label={item.topicType}
                         linkUnderline="!no-underline manage-faq"
-                        className={`${currentPageId === item ? 'border-l-4  focus:outline-none border-primary font-bold p-0 pl-1' : 'p-0 '}`}
+                        className={`${faqtype === paramKey ? 'border-l-4  focus:outline-none border-primary font-bold p-0 pl-1' : 'p-0 '}`}
                         callback={() => {
-                          goToFaqPage(item);
-                          setCurrentPageId(item);
+                          goToFaqPage(paramKey!);
                         }}
                       />
                     </Row>

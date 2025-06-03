@@ -11,73 +11,84 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import buildSSOLink, { buildDropOffSSOLink } from '../actions/buildSSOPing';
-import ssoDropOffToPing from '../actions/dropOffToPing';
-import { SSO_IMPL_MAP, SSO_TEXT_MAP } from '../ssoConstants';
+import { SSOService, URLService } from '..';
 
+/**
+ * Component for launching SSO to partner sites
+ */
 const LaunchSSO = () => {
   const searchParams = useSearchParams();
-  const partnerId = searchParams.get('PartnerSpId');
-  const alternateSSOText = searchParams.get('alternateText');
+  const router = useRouter();
+  const initialized = useRef(false);
+
+  // Get parameters from the URL
+  const partnerId = searchParams.get('PartnerSpId') || '';
+  const alternateText = searchParams.get('alternateText') || undefined;
+
+  // Component state
   const [ssoUrl, setSSOUrl] = useState('');
   const [isError, setIsError] = useState(false);
-  const sso = alternateSSOText
-    ? decodeURIComponent(alternateSSOText)
-    : SSO_TEXT_MAP.get(partnerId ?? '');
-  const ssoImpl = partnerId != null ? SSO_IMPL_MAP.get(partnerId) : 'Not Found';
-  const initialized = useRef(false);
-  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isDropOffSSO = (partnerId: string): boolean => {
-    const isDropOffSSONeeded =
-      process.env.NEXT_PUBLIC_PINGONE_SSO_ENABLED?.toLocaleLowerCase() ===
-      'true'
-        ? true
-        : undefined;
-    const listOfIdp = process.env.NEXT_PUBLIC_DROP_OFF_IDP?.split(',') || [];
-    const isDropOffIdp = listOfIdp.includes(partnerId);
-    return (isDropOffSSONeeded && isDropOffIdp) ?? false;
-  };
+  // Get the display name for the provider
+  const providerName = alternateText
+    ? decodeURIComponent(alternateText)
+    : SSOService.getProviderName(partnerId);
 
+  // Convert searchParams to a string and object representation
+  const searchParamsString = searchParams.toString();
+  const searchParamsObj = Object.fromEntries(searchParams.entries());
+
+  // Handle going back
   const handleGoBack = () => {
     router.back();
   };
-  useEffect(() => {
-    (async () => {
-      if (!initialized.current) {
-        initialized.current = true;
-        let url: string = '';
-        try {
-          setIsError(false);
-          if (isDropOffSSO(partnerId ?? '')) {
-            const ref: string = await ssoDropOffToPing(
-              ssoImpl != null ? ssoImpl : '',
-            );
 
-            url = buildDropOffSSOLink(partnerId ?? '', ref);
-          } else {
-            url = buildSSOLink(searchParams.toString());
-          }
+  // Effect to initialize the SSO flow
+  useEffect(() => {
+    const initSSO = async () => {
+      if (!initialized.current && partnerId) {
+        initialized.current = true;
+        setIsLoading(true);
+
+        try {
+          // Generate the SSO URL using the URLService
+          const url = await URLService.generateSSOUrl(
+            partnerId,
+            searchParamsString,
+            searchParamsObj,
+          );
+
+          // Open the SSO URL in a new window
           const ssoWindow = window.open(url, '_blank');
+
+          // Handle errors
           if (ssoWindow) {
             ssoWindow.onload = () => {
               if (ssoWindow.status === '500') {
                 setIsError(true);
               }
             };
+
+            ssoWindow.addEventListener('SSOError', () => {
+              setIsError(true);
+              ssoWindow.close();
+            });
           }
-          ssoWindow?.addEventListener('SSOError', () => {
-            setIsError(true);
-            ssoWindow?.close();
-          });
+
+          // Store the URL for the manual link
+          setSSOUrl(url);
         } catch (error) {
-          console.log('catch block', error);
+          console.error('SSO initialization failed', error);
           setIsError(true);
+        } finally {
+          setIsLoading(false);
         }
-        setSSOUrl(url);
       }
-    })();
-  }, [partnerId, searchParams]);
+    };
+
+    initSSO();
+  }, [partnerId, searchParamsString, searchParamsObj]);
 
   return (
     <main className="flex flex-col items-center page">
@@ -91,30 +102,39 @@ const LaunchSSO = () => {
           />
         </Link>
         <Spacer size={32} />
-        {!isError ? (
+
+        {isLoading ? (
+          <Header className="title-1" text="Preparing your connection..." />
+        ) : !isError ? (
           <>
-            <Header className="title-1" text={`Taking you to ${sso}`} />
+            <Header
+              className="title-1"
+              text={`Taking you to ${providerName}`}
+            />
             <Spacer size={16} />
-            <TextBox text="We’re about to send you off to our partner’s site, if you are not automatically redirected use the link below." />
+            <TextBox text="We're about to send you off to our partner's site. If you are not automatically redirected, use the link below." />
           </>
         ) : (
           <>
             <Title className="title-1" text="Sorry, something went wrong." />
             <Spacer size={16} />
             <TextBox
-              text={`There was a problem connecting you to ${sso}. Please try again using the link below or try again later.`}
+              text={`There was a problem connecting you to ${providerName}. Please try again using the link below or try again later.`}
             />
           </>
         )}
+
         <Spacer size={16} />
-        <AppLink
-          label={`Go to ${sso}`}
-          target="_blank"
-          icon={<Image src={externalIcon} alt="external" />}
-          displayStyle="inline-flex"
-          className="p-0"
-          url={ssoUrl}
-        />
+        {ssoUrl && (
+          <AppLink
+            label={`Go to ${providerName}`}
+            target="_blank"
+            icon={<Image src={externalIcon} alt="external" />}
+            displayStyle="inline-flex"
+            className="p-0"
+            url={ssoUrl}
+          />
+        )}
       </Column>
     </main>
   );

@@ -1,0 +1,25 @@
+.breadcrumb {
+  display: flex;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+  color: var(--secondary-color-2);
+  text-decoration: none;
+}
+
+.breadcrumb a:focus,
+.breadcrumb a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  border-radius: 0.25rem;
+  color: var(--secondary-color-2);
+  text-decoration: none;
+}
+
+.breadcrumb-current {
+  color: var(--tertiary-color-1);
+}

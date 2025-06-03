@@ -3,7 +3,6 @@ import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import Image from 'next/image';
 
 interface MyHealthCardProps extends IComponent {
   label: string;
@@ -24,7 +23,7 @@ export const MyHealthCard = ({
       return (
         <Column>
           <Spacer size={8} />
-          <Image className="size-10" src={icon} alt="link" />
+          <img className="size-10" src={icon} alt="link" />
           <Spacer size={8} />
         </Column>
       );

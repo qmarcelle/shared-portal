@@ -24,28 +24,28 @@ exports[`Footer Component should render the UI correctly 1`] = `
             >
               <li>
                 <a
-                  href="/memberIDCard"
+                  href="/member/idcard"
                 >
                   Get an ID Card
                 </a>
               </li>
               <li>
                 <a
-                  href="/findcare"
+                  href="/member/findcare"
                 >
                   Find Care & Costs
                 </a>
               </li>
               <li>
                 <a
-                  href="/claims"
+                  href="/member/myplan/claims"
                 >
                   View Claims
                 </a>
               </li>
               <li>
                 <a
-                  href="/profileSettings"
+                  href="/member/profile"
                 >
                   Profile Settings
                 </a>
@@ -65,21 +65,21 @@ exports[`Footer Component should render the UI correctly 1`] = `
             >
               <li>
                 <a
-                  href="/support"
+                  href="/member/support"
                 >
                   Get Help & Contact Us
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="http://wn008422.bcbst.com:81/portal/portal_refresh1/index.html#987736460"
                 >
                   Share Website Feedback
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="http://wn008422.bcbst.com:81/portal/portal_feature_cobrowse/index.html#988880562"
                 >
                   Share Your Screen
                 </a>
@@ -99,21 +99,21 @@ exports[`Footer Component should render the UI correctly 1`] = `
             >
               <li>
                 <a
-                  href=""
+                  href="https://www.bcbst.com/about/our-company/corporate-governance/legal/nondiscrimination-notice"
                 >
                   Nondiscrimination
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="https://www.bcbst.com/use-insurance/member-rights"
                 >
                   Member Rights
                 </a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="https://www.bcbst.com/fraud"
                 >
                   Fight Fraud
                 </a>
@@ -156,72 +156,108 @@ exports[`Footer Component should render the UI correctly 1`] = `
             <div
               class="flex flex-row flex mt-4 grid grid-cols-6 md:grid-cols-3 md:grid-rows-2 lg:grid-cols-6 md:mb-2 mb-0 lg:mb-0 gap-x-2 gap-y-4"
             >
-              <img
-                alt="Facebook Icon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
-              <img
-                alt="Linkedin Icon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
-              <img
-                alt="Instagram Icon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
-              <img
-                alt="Youtube ICon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
-              <img
-                alt="Pintrest Icon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
-              <img
-                alt="X Icon"
-                data-nimg="1"
-                decoding="async"
-                height="35"
-                loading="lazy"
-                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                style="color: transparent;"
-                width="35"
-              />
+              <a
+                href="https://www.facebook.com/bcbst"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Facebook Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/bcbst"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Linkedin Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/bcbst/?hl=en"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Instagram Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
+              <a
+                href="https://www.youtube.com/@bcbstennessee/shorts"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Youtube Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
+              <a
+                href="https://www.pinterest.com/bcbst/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="Pinterest Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
+              <a
+                href="https://twitter.com/bcbst"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="X Icon"
+                  data-nimg="1"
+                  decoding="async"
+                  height="35"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="35"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -439,7 +475,7 @@ exports[`Footer Component should render the UI correctly 1`] = `
                 |
               </span>
               <a
-                href=""
+                href="https://www.bcbst.com/about/our-company/corporate-governance/privacy-security"
               >
                 Privacy & Security
               </a>
@@ -447,7 +483,7 @@ exports[`Footer Component should render the UI correctly 1`] = `
                 |
               </span>
               <a
-                href=""
+                href="https://www.bcbst.com/about/our-company/corporate-governance/legal"
               >
                 Legal
               </a>

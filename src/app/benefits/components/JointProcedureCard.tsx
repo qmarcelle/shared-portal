@@ -1,5 +1,6 @@
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
+import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
@@ -15,7 +16,7 @@ export const JointProcedureCard = ({
   return (
     <Card className={className} type="info">
       <Column>
-        <h2 className="title-3">Call Before Scheduling Your Joint Procedure</h2>
+        <Header className="title-2-bold"  type = "title-2" text = "Call Before Scheduling Your Joint Procedure"/>
         <Spacer size={32} />
         <RichText
           type="body-1"
@@ -26,7 +27,7 @@ export const JointProcedureCard = ({
               }
             </span>,
             <span key={1}>{`[${phoneNumber}] or `}</span>,
-            <span className="link-white-text" key={2}>
+            <span className="font-bold  link-white-text" key={2}>
               <a>start a chat</a>
             </span>,
             <span key={3}>{' now.'}</span>,

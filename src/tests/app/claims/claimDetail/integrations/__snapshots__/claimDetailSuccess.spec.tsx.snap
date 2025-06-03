@@ -42,6 +42,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
             >
               <a
                 aria-label="Review This Provider"
+                href="/sso/launch?PartnerSpId=https://tennessee-uat.prs.mdxdata.com/simplesaml/module.php/saml/sp/metadata.php/vitals-tennessee-ping-sp&TargetResource=https://tennessee-uat.prs.mdxdata.com/rate/doctor/4165326..890.TNB2.1&provId=4165326"
                 style="display: block;"
               >
                 <button
@@ -605,29 +606,35 @@ exports[`Claim Details should show the respective claim details 1`] = `
                 class="flex flex-row"
               >
                 <div
-                  class="flex flex-row gap-2 p-2  checkbox-disabled "
+                  aria-checked="false"
+                  aria-disabled="false"
+                  aria-invalid="false"
+                  aria-label="Mark as Paid"
+                  aria-required="false"
+                  class="flex flex-col   "
+                  role="checkbox"
                 >
-                  <label>
+                  <div
+                    class="flex flex-row"
+                    tabindex="0"
+                  >
                     <input
-                      id="myCheckbox"
-                      name=""
+                      aria-label="Mark as Paid"
+                      class="checkbox    "
+                      id="mark-as-paid-checkbox"
                       type="checkbox"
                     />
-                  </label>
-                  <div
-                    class="flex flex-col"
-                  >
                     <label
-                      for="myCheckbox"
+                      class="ml-2  cursor-pointer"
+                      for="mark-as-paid-checkbox"
                     >
-                      <p>
-                        Mark as Paid
-                      </p>
+                      Mark as Paid
                     </label>
                   </div>
                 </div>
                 <img
-                  alt="info icon"
+                  alt="Mark as paid information"
+                  aria-label="Information about marking as paid"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -635,6 +642,7 @@ exports[`Claim Details should show the respective claim details 1`] = `
                   src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
                   srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
                   style="color: transparent;"
+                  title="Check this box if you have already paid this provider"
                   width="40"
                 />
               </div>

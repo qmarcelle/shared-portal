@@ -9,7 +9,7 @@ exports[`JointProcedureCard Section should render the UI correctly 1`] = `
       class="flex flex-col"
     >
       <h2
-        class="title-3"
+        class="title-2 title-2-bold"
       >
         Call Before Scheduling Your Joint Procedure
       </h2>
@@ -26,7 +26,7 @@ exports[`JointProcedureCard Section should render the UI correctly 1`] = `
           [1800-000-000] or 
         </span>
         <span
-          class="link-white-text"
+          class="font-bold  link-white-text"
         >
           <a>
             start a chat

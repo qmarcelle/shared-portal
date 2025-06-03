@@ -404,7 +404,7 @@ describe('Primary Care Options', () => {
       screen.getAllByText('2033 Meadowview Ln Ste 200');
       screen.getAllByText('Kingsport TN 37660-7432');
       screen.getAllByText('(423) 857-2260');
-      screen.getByText('CHRISTMAS HALL');
+      screen.getByText('Christmas Hall');
       screen.getByText('06/29/2009');
     });
   });
@@ -457,7 +457,7 @@ describe('Primary Care Options', () => {
       screen.getAllByText('2033 Meadowview Ln Ste 200');
       screen.getAllByText('Kingsport TN 37660-7432');
       screen.getAllByText('(423) 857-2260');
-      screen.getByText('CHRISTMAS HALL');
+      screen.getByText('Christmas Hall');
       screen.getByText('06/29/2009');
     });
   });

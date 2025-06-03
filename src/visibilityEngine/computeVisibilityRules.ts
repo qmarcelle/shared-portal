@@ -5,6 +5,15 @@ import { Session } from 'next-auth';
 import { computeAuthFunctions } from './computeAuthFunctions';
 import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
+import {
+  condensedExperienceProfileHorizonGroups,
+  katieBeckettGroups,
+  lifePointGroup,
+  ncqaGroups,
+  offMarketGroups,
+  payPremiumMedicareOnlyGroups,
+  wellnessProfileWellnessOnlyGroups,
+} from './groups';
 import { VisibilityRules } from './rules';
 
 const COMMERCIAL_LOB = ['REGL'];
@@ -25,16 +34,12 @@ const PTYP_FULLY_INSURED: string[] = [
   'INDV',
 ];
 
-let groupId: string;
 let healthCareAccountEligible: any[] | null;
-
-// Add chat eligibility constants
-const CHAT_ELIGIBLE_LOB = ['REGL', 'INDV', 'MEDC'];
-const CLOUD_CHAT_ELIGIBLE_LOB = ['REGL', 'INDV'];
-
 export function computeVisibilityRules(
   loggedUserInfo: LoggedInUserInfo,
 ): string {
+  const groupId = loggedUserInfo.groupData.groupID;
+  //TODO: Update the rules computation logic with the current implementation
   const rules: VisibilityRules = {};
   rules.active = loggedUserInfo.isActive;
   rules.subscriber = loggedUserInfo.subscriberLoggedIn;
@@ -45,9 +50,11 @@ export function computeVisibilityRules(
   rules.medicare = MEDICARE_LOB.includes(loggedUserInfo.lob);
   rules.dsnpGrpInd = loggedUserInfo.groupData.clientID === 'ES';
   rules.isSilverFitClient = loggedUserInfo.groupData.clientID === 'MX';
+  rules.offMarketGrp = offMarketGroups.includes(groupId);
+  rules.isLifePointGrp = lifePointGroup.includes(groupId);
+  rules.isAmplifyHealthGroupEnabled = isAHAdvisorEnabled(groupId);
 
   healthCareAccountEligible = loggedUserInfo.healthCareAccounts;
-  groupId = loggedUserInfo.groupData.groupID;
   rules.selfFunded = PTYP_SELF_FUNDED.includes(
     loggedUserInfo.groupData.policyType,
   );
@@ -59,6 +66,27 @@ export function computeVisibilityRules(
   );
 
   computeAuthFunctions(loggedUserInfo, rules);
+
+  rules.isCondensedExperienceProfileHorizon =
+    rules?.isCondensedExperience &&
+    condensedExperienceProfileHorizonGroups.includes(groupId);
+
+  rules.isWellnessProfileWellnessOnly =
+    rules?.wellnessOnly && wellnessProfileWellnessOnlyGroups.includes(groupId);
+
+  rules.isWellnessQa =
+    rules?.wellnessOnly &&
+    !rules.futureEffective &&
+    !rules.terminated &&
+    !rules.fsaOnly &&
+    !wellnessProfileWellnessOnlyGroups.includes(groupId);
+
+  rules.ncqaEligible = rules?.blueCare || ncqaGroups.includes(groupId);
+
+  rules.katieBeckettEligible = katieBeckettGroups.includes(groupId);
+
+  rules.payMyPremiumMedicareEligible =
+    payPremiumMedicareOnlyGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
     if (member.memRelation == 'M') {
@@ -73,18 +101,6 @@ export function computeVisibilityRules(
   rules['premiumHealth'] = true;
   rules['pharmacy'] = true;
   rules['teladoc'] = true;
-
-  // Compute chat eligibility
-  rules.chatEligible =
-    CHAT_ELIGIBLE_LOB.includes(loggedUserInfo.lob) &&
-    !rules.futureEffective &&
-    !rules.terminated &&
-    !rules.katieBeckNoBenefitsElig;
-
-  // Compute cloud chat eligibility
-  rules.cloudChatEligible =
-    CLOUD_CHAT_ELIGIBLE_LOB.includes(loggedUserInfo.lob) && rules.chatEligible;
-
   return encodeVisibilityRules(rules);
 }
 
@@ -137,7 +153,11 @@ export function isBlueCareEligible(rules: VisibilityRules | undefined) {
 export function isPrimaryCarePhysicianEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return activeAndHealthPlanMember(rules) && rules?.myPCPElig;
+  return (
+    activeAndHealthPlanMember(rules) &&
+    rules?.myPCPElig &&
+    (rules?.blueCare || rules?.individual)
+  );
 }
 
 export function isBlue365FitnessYourWayEligible(
@@ -151,7 +171,10 @@ export function isQuantumHealthEligible(rules: VisibilityRules | undefined) {
 }
 
 export function isAHAdvisorpage(rules: VisibilityRules | undefined) {
-  return (rules?.active && rules?.amplifyMember) || isAHAdvisorEnabled(groupId);
+  return (
+    (rules?.active && rules?.amplifyMember) ||
+    rules?.isAmplifyHealthGroupEnabled
+  );
 }
 
 function isAHAdvisorEnabled(groupId: string | undefined) {
@@ -211,8 +234,7 @@ export function isBenefitBookletEnabled(rules: VisibilityRules | undefined) {
 }
 
 function hasCondensesedExperienceProfiler(rules: VisibilityRules | undefined) {
-  if (rules?.isCondensedExperience && groupId == '130430')
-    return 'FirstHorizon';
+  if (rules?.isCondensedExperienceProfileHorizon) return 'FirstHorizon';
   if (rules?.isCondensedExperience) return 'Quantum';
 }
 
@@ -283,10 +305,11 @@ export function isNewMentalHealthSupportMyStrengthCompleteEligible(
 
 export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
   return (
-    (rules?.hingeHealthEligible ||
+    ((rules?.hingeHealthEligible ||
       (rules?.groupRenewalDateBeforeTodaysDate &&
         (rules?.fullyInsured || rules?.levelFunded))) &&
-    isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly'
+      isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly') ||
+    rules?.isHighDeductiblePlanMember
   );
 }
 
@@ -348,7 +371,7 @@ export function isDiabetesManagementEligible(
 }
 export function isCareManagementEligiblity(rules: VisibilityRules | undefined) {
   return (
-    rules?.commercial &&
+    isLobCommercial(rules) &&
     rules?.cmEnable &&
     !(hasCondensesedExperienceProfiler(rules) == 'Quantum')
   );
@@ -390,11 +413,6 @@ export function isSpendingAccountsEligible(rules: VisibilityRules | undefined) {
       } else return false;
     } else return false;
   } else return false;
-}
-export function isBlueCareAndPrimaryCarePhysicianEligible(
-  rules: VisibilityRules | undefined,
-) {
-  return isBlueCareEligible(rules) || isPrimaryCarePhysicianEligible(rules);
 }
 export function isAnnualStatementEligible(rules: VisibilityRules | undefined) {
   return (
@@ -462,7 +480,7 @@ export function isSilverAndFitnessEligible(rules: VisibilityRules | undefined) {
 export function isHealthProgamAndResourceEligible(
   rules: VisibilityRules | undefined,
 ) {
-  return rules?.commercial || rules?.medicare;
+  return isLobCommercial(rules) || rules?.medicare;
 }
 export function isMedicarePrescriptionPaymentPlanEligible(
   rules: VisibilityRules | undefined,
@@ -475,6 +493,12 @@ export function isMedicarePrescriptionPaymentPlanEligible(
     !rules?.fsaOnly
   );
 }
+
+export const isWellnessQa = (rules: VisibilityRules | undefined) =>
+  rules?.isWellnessQa;
+
+export const isNotWellnessQa = (rules: VisibilityRules | undefined) =>
+  !isWellnessQa(rules);
 
 export const isTeladocEligible = (rules: VisibilityRules | undefined) =>
   rules?.teladocEligible && activeAndHealthPlanMember(rules);
@@ -489,7 +513,7 @@ export function isEmboldHealthEligible(rules: VisibilityRules | undefined) {
 function isCityOfMemphisWellnessOnlyProfiler(
   rules: VisibilityRules | undefined,
 ) {
-  if (rules?.wellnessOnly && groupId == '130447') return 'IsWellnessOnly';
+  if (rules?.isWellnessProfileWellnessOnly) return 'IsWellnessOnly';
 }
 
 export function isMemberWellnessCenterEligible(
@@ -498,10 +522,56 @@ export function isMemberWellnessCenterEligible(
   return isActiveAndNotFSAOnly(rules) && rules?.phaMemberEligible;
 }
 
-export function isChatEligible(rules: VisibilityRules | undefined) {
-  return rules?.chatEligible && activeAndHealthPlanMember(rules);
+export function isMskEligible(rules: VisibilityRules | undefined) {
+  return rules?.isMskEligible;
 }
 
-export function isCloudChatEligible(rules: VisibilityRules | undefined) {
-  return rules?.cloudChatEligible && isChatEligible(rules);
+export const isHealthyMaternity = (rules: VisibilityRules | undefined) =>
+  (rules?.fullyInsuredHealthyMaternity || rules?.enableHealthyMaternity) &&
+  (rules?.wellnessOnly || rules?.medical) &&
+  isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly';
+
+export function isNCQAEligible(rules: VisibilityRules | undefined) {
+  return rules?.ncqaEligible && rules?.active;
 }
+
+export function isTaxDocument1095BRequestEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return (
+    rules?.prevYearMedical && rules?.prevYearFullyInsured && rules?.offMarketGrp
+  );
+}
+
+export function isTaxDocument1095BRequestVisible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.prevYearMedical || rules?.prevYearFullyInsured;
+}
+
+export function isKatieBeckettEligible(rules: VisibilityRules | undefined) {
+  return rules?.katieBeckettEligible;
+}
+
+export function payMyPremiumMedicareEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return rules?.payMyPremiumMedicareEligible && rules?.active;
+}
+
+export function isWellnessOnlyBenefitsQV(rules: VisibilityRules | undefined) {
+  return rules?.isWellnessOnlyBenefitsQV;
+}
+export function isLifePointGrp(rules: VisibilityRules | undefined) {
+  return rules?.isLifePointGrp || false;
+}
+export const isChipRewardsINTEligible = (
+  rules: VisibilityRules | undefined,
+) => {
+  return (
+    !isSelfCommercial(rules) &&
+    isActiveAndNotFSAOnly(rules) &&
+    isLobCommercial(rules) &&
+    !rules?.individual
+  );
+};

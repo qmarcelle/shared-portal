@@ -7,6 +7,19 @@ const FIELDS_TO_BE_MASKED = ['password', 'newPassword'];
 class Logger {
   private sequence = 0;
 
+  // Add a new method to log environment configuration
+  logEnvironmentConfig() {
+    const envVars = {
+      NODE_ENV: process.env.NODE_ENV,
+      PORTAL_SERVICES_URL: process.env.PORTAL_SERVICES_URL,
+      MEMBERSERVICE_CONTEXT_ROOT: process.env.MEMBERSERVICE_CONTEXT_ROOT,
+      ES_API_URL: process.env.ES_API_URL,
+      ES_PORTAL_SVCS_API_URL: process.env.ES_PORTAL_SVCS_API_URL,
+    };
+
+    this.info('Current Environment Configuration:', envVars);
+  }
+
   maskFields(data: any): string | undefined {
     if (typeof data === 'object') {
       for (const key in data) {
@@ -114,4 +127,79 @@ class Logger {
     }
   }
 }
-export const logger = new Logger();
+
+/**
+ * Simple logger utility for consistent logging across the application
+ */
+
+type LogLevel = 'debug' | 'info' | 'warn' | 'error';
+
+interface LogOptions {
+  level?: LogLevel;
+  module?: string;
+  data?: any;
+}
+
+/**
+ * Logger instance for standardized logging
+ */
+export const logger = {
+  /**
+   * Log a debug message
+   */
+  debug: (message: string, data?: any) => {
+    log(message, { level: 'debug', data });
+  },
+
+  /**
+   * Log an info message
+   */
+  info: (message: string, data?: any) => {
+    log(message, { level: 'info', data });
+  },
+
+  /**
+   * Log a warning message
+   */
+  warn: (message: string, data?: any) => {
+    log(message, { level: 'warn', data });
+  },
+
+  /**
+   * Log an error message
+   */
+  error: (message: string, error?: any) => {
+    log(message, { level: 'error', data: error });
+    if (error instanceof Error && error.stack) {
+      console.error(error.stack);
+    }
+  },
+};
+
+/**
+ * Internal log function
+ */
+function log(message: string, options: LogOptions = {}) {
+  const { level = 'info', module, data } = options;
+
+  const prefix = module ? `[${module}] ` : '';
+
+  switch (level) {
+    case 'debug':
+      if (process.env.NODE_ENV !== 'production') {
+        console.debug(`${prefix}${message}`, data !== undefined ? data : '');
+      }
+      break;
+    case 'info':
+      console.info(`${prefix}${message}`, data !== undefined ? data : '');
+      break;
+    case 'warn':
+      console.warn(`${prefix}${message}`, data !== undefined ? data : '');
+      break;
+    case 'error':
+      console.error(`${prefix}${message}`, data !== undefined ? data : '');
+      break;
+  }
+}
+
+export default logger;

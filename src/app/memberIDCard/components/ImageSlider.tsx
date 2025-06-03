@@ -3,7 +3,6 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import Image from 'next/image';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 import AlertIcon from '../../../../public/assets/alert_gray.svg';
@@ -15,7 +14,7 @@ const PreviousArrow = (props: any) => {
   return (
     <>
       <div className={className} onClick={onClick}>
-        <Image className="icon-sm" src={leftIcon} alt="scroll left" />
+        <img className="icon-sm" src={leftIcon} alt="scroll left" />
       </div>
     </>
   );
@@ -27,11 +26,7 @@ const NextArrow = (props: any) => {
     <>
       <>
         <div className={className} onClick={onClick}>
-          <Image
-            className="icon-sm ml-20px"
-            src={rightIcon}
-            alt="scroll left"
-          />
+          <img className="icon-sm ml-20px" src={rightIcon} alt="scroll left" />
         </div>
       </>
     </>
@@ -68,11 +63,11 @@ export const ImageSlider = ({
       <Column>
         {svgFrontData == null && idCardErrorMessage()}
         {svgFrontData && (
-          <Image
+          <img
             src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgFrontData)}`}
             alt="FrontCard"
-            fill={true}
             className="!relative m-auto"
+            style={{ width: '100%', height: 'auto' }}
           />
         )}
       </Column>
@@ -84,11 +79,11 @@ export const ImageSlider = ({
       <Column>
         {svgBackData == null && idCardErrorMessage()}
         {svgBackData && (
-          <Image
+          <img
             src={`data:image/svg+xml;charset=utf8,${encodeURIComponent(svgBackData)}`}
             alt="BackCard"
-            fill={true}
             className="!relative m-auto"
+            style={{ width: '100%', height: 'auto' }}
           />
         )}
       </Column>
@@ -99,7 +94,7 @@ export const ImageSlider = ({
     return (
       <Column className="neutral container rounded-[0.5rem]">
         <Column className="items-center  p-4 m-[65px]">
-          <Image src={AlertIcon} className="w-[33px] h-[33px]" alt="alert" />
+          <img src={AlertIcon} className="w-[33px] h-[33px]" alt="alert" />
           <Spacer size={16} />
           <TextBox
             className="text-center"

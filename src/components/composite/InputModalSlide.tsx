@@ -11,7 +11,7 @@ import { TextBox } from '../foundation/TextBox';
 
 interface InputModalSlideProps extends IComponent {
   label: string;
-  subLabel: string;
+  subLabel: string | JSX.Element;
   buttonLabel?: string;
   actionArea: ReactElement;
   bottomNote?: string;
@@ -21,6 +21,7 @@ interface InputModalSlideProps extends IComponent {
   // TODO: Find the correct model and type it here
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cancelCallback: () => any;
+  disableSubmit?: boolean;
 }
 
 export const InputModalSlide = ({
@@ -30,6 +31,7 @@ export const InputModalSlide = ({
   actionArea,
   nextCallback,
   cancelCallback,
+  disableSubmit = false,
 }: InputModalSlideProps) => {
   const inputModalAnalytics = (buttonLabelVal: string, labelVal: string) => {
     const analytics: AnalyticsData = {
@@ -42,12 +44,20 @@ export const InputModalSlide = ({
     };
     googleAnalytics(analytics);
   };
+  function subLabelTypeCheck(subLabel: string | JSX.Element) {
+    if (typeof subLabel === 'string') {
+      return <TextBox className="body-1 text-center" text={subLabel} />;
+    } else {
+      return subLabel;
+    }
+  }
+
   return (
     <Column className="items-center">
       <Spacer size={32} />
       <Header type="title-2" text={label} />
       <Spacer size={16} />
-      <TextBox className="body-1 text-center" text={subLabel} />
+      {subLabelTypeCheck(subLabel)}
       <Column className="w-[358px]">
         <Spacer size={16} />
         {actionArea}
@@ -55,6 +65,7 @@ export const InputModalSlide = ({
           className="font-bold active"
           label={buttonLabel}
           type="primary"
+          disable={disableSubmit}
           callback={
             nextCallback
               ? () => {

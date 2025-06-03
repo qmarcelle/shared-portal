@@ -1,5 +1,3 @@
-import externalIcon from '@/../public/assets/external.svg';
-import Image from 'next/image';
 import { AppLink } from '../foundation/AppLink';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
@@ -21,7 +19,7 @@ export const PharmacyClaimSSO = () => {
           <Spacer size={32} />
           <AppLink
             label="Go to Caremark"
-            icon={<Image src={externalIcon} alt="external" />}
+            icon={<img src="/assets/external.svg" alt="external" />}
           />
         </Column>
       </Card>

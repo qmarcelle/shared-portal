@@ -1,15 +1,9 @@
-/**
- * Component Exports
- * Centralizes all component exports following the new consolidated structure
- */
+// Public exports for the chat components module
+// Export components that should be accessible to other modules
 
-// Main Components
-export { ChatTrigger } from './ChatTrigger';
-export { ChatWidget } from './ChatWidget';
-export { PlanInfoHeader } from './PlanInfoHeader';
+import { ChatClientEntry } from './ChatClientEntry';
+import { ChatLazyLoader } from './ChatLazyLoader';
+import GenesysCloudLoader from './GenesysCloudLoader';
+// Remove ChatControls export as it's deprecated
 
-// Error Handling
-export { ChatErrorBoundary } from './shared/ChatErrorBoundary';
-
-// Integration Components (to be consolidated)
-export { GenesysScripts } from './GenesysScripts';
+export { ChatClientEntry, ChatLazyLoader, GenesysCloudLoader };

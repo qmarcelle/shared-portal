@@ -10,8 +10,9 @@ import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import editIcon from '../../../../public/assets/edit.svg';
+import { LangauageDetails } from '../model/api/language';
 type OptionType = 'radio' | 'checkbox' | 'textbox' | 'currentselection';
 
 export interface UpdateRowFormProps extends IComponent {
@@ -21,13 +22,24 @@ export interface UpdateRowFormProps extends IComponent {
   enabled: boolean;
   optionObjects: OptionData[];
   saveCallback?: () => void | Promise<void> | null;
-  cancelCallback?: boolean;
+  cancelCallback?: () => void;
   type: OptionType;
   icon?: JSX.Element;
+  optionsEnabled?: boolean;
+  isRaceField?: boolean;
+  languageOptions?: LangauageDetails[];
+  isDeclineLanguageSelected?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  selectionCallBack?: (val: any, isChecked?: boolean) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  languageSelectionCallBack?: (val: any) => void;
+  validLanguage?: boolean;
+  languageEmptySelect?: boolean;
 }
 
 export interface OptionData {
   label: string;
+  code: string;
   enabled: boolean;
 }
 
@@ -39,12 +51,28 @@ export const UpdateRowForm = ({
   optionObjects,
   saveCallback,
   cancelCallback,
+  isRaceField,
+  optionsEnabled,
+  languageOptions,
+  isDeclineLanguageSelected,
+  selectionCallBack,
+  languageSelectionCallBack,
+  validLanguage,
+  languageEmptySelect,
 }: UpdateRowFormProps) => {
-  const [isCancel, setCancel] = useState(false);
+  function currentSelectionText(optionObjects: OptionData[]) {
+    if (!isRaceField)
+      return <TextBox text={'Current Selection: ' + optionObjects[0].label} />;
+    else {
+      const raceText = optionObjects.map((item) => item.label).join(',');
+      return <TextBox text={`Current Selection: ${raceText}`} />;
+    }
+  }
 
-  const updateCallBack = () => {
-    setCancel(true);
-  };
+  function languageErrorText() {
+    if (!validLanguage) return ['Invalid entry.Please try again'];
+    else return [];
+  }
 
   return (
     <Column className="w-[460px]">
@@ -55,33 +83,94 @@ export const UpdateRowForm = ({
         {type === 'radio' &&
           optionObjects.map((OptionData, index) => (
             <Column key={index}>
-              <Radio label={OptionData.label} selected={OptionData.enabled} />
+              <Radio
+                label={OptionData.label}
+                selected={OptionData.enabled}
+                value={OptionData.code}
+                callback={(val) => selectionCallBack?.(val)}
+              />
             </Column>
           ))}
         {type === 'checkbox' &&
           optionObjects.map((OptionData, index) => (
             <Column key={index}>
-              <Checkbox label={OptionData.label} selected={false} />
+              <Checkbox
+                label={OptionData.label}
+                checked={OptionData.enabled}
+                onChange={(isChecked) =>
+                  selectionCallBack?.(OptionData.code, isChecked)
+                }
+              />
             </Column>
           ))}
         {type === 'textbox' && (
-          <Column className=" w-[300px] body-1 ">
-            <Radio label="Enter Language" selected={false} />
-            <Column className="px-10 ">
-              <TextField type="text" label=""></TextField>
-            </Column>
-            <Radio label="Decline to answer" selected={false} />
-          </Column>
+          <div className=" w-[300px] body-1">
+            <Radio
+              label="Enter Language"
+              selected={
+                !isDeclineLanguageSelected && Boolean(languageEmptySelect)
+              }
+              value="L2"
+              callback={(val) => selectionCallBack?.(val)}
+            />
+            {!isDeclineLanguageSelected && Boolean(languageEmptySelect) && (
+              <Column className="px-10">
+                <TextField
+                  type="text"
+                  value={optionObjects[0]?.label}
+                  label=""
+                  list="languageList"
+                  valueCallback={(val) => languageSelectionCallBack?.(val)}
+                  errors={languageErrorText()}
+                ></TextField>
+
+                <datalist id="languageList">
+                  {languageOptions
+                    ?.filter((item) => {
+                      if (optionObjects.length > 0) {
+                        return item.ncqaLanguageDesc
+                          .toLowerCase()
+                          .startsWith(optionObjects[0]?.label.toLowerCase());
+                      } else {
+                        return item;
+                      }
+                    })
+                    .slice(0, 4)
+                    .map((item) => (
+                      <option
+                        key={item.ncqaLanguageDesc}
+                        value={item.ncqaLanguageDesc}
+                        data-value={item.ncqaLanguageCode}
+                      >
+                        {item.ncqaLanguageDesc}
+                      </option>
+                    ))}
+                </datalist>
+              </Column>
+            )}
+            <Radio
+              label="Decline to answer"
+              selected={
+                Boolean(isDeclineLanguageSelected) &&
+                Boolean(languageEmptySelect)
+              }
+              value="Z2"
+              callback={(val) => selectionCallBack?.(val)}
+            />
+          </div>
         )}
         {type === 'currentselection' && (
-          <Column className=" body-1 px-1" onClick={saveCallback}>
-            <TextBox text="Current Selection: Hispanic or Latino" />
+          <Column className=" body-1 px-1">
+            {currentSelectionText(optionObjects)}
+
             <Spacer size={8} />
-            <Title
-              className="font-bold primary-color"
-              text="Update"
-              suffix={<Image src={editIcon} alt="link" />}
-            />
+            <Column onClick={saveCallback}>
+              <Title
+                className="font-bold primary-color"
+                text="Update"
+                suffix={<Image src={editIcon} alt="link" />}
+              />
+            </Column>
           </Column>
         )}
       </Column>
@@ -96,12 +185,12 @@ export const UpdateRowForm = ({
           />
         )}
         <Spacer axis="horizontal" size={16} />
-        {cancelCallback === true && isCancel === false && (
+        {type != 'currentselection' && optionsEnabled && (
           <Button
             className="w-[250px]"
             label="Cancel"
             type="secondary"
-            callback={updateCallBack}
+            callback={cancelCallback}
           />
         )}
       </Row>

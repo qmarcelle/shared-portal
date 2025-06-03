@@ -14,8 +14,6 @@ import { FilterItem } from '@/models/filter_dropdown_details';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import downIcon from '../../../../public/assets/down.svg';
-import DownloadIcon from '../../../../public/assets/download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
@@ -96,35 +94,49 @@ export const ClaimsSnapshotCardSection = ({
 
   return (
     <Column>
-      <section className={'card-main max-sm:my-4 md:my-8'}>
-        <SearchField onSearch={handleSearch} hint="Search Claims..." />
+      <section className={'card-main max-sm:my-4 md:my-8'} role="search">
+        <SearchField
+          onSearch={handleSearch}
+          hint="Search Claims..."
+          aria-label="Search claims by member name, provider name, or claim ID"
+        />
       </section>
 
-      <div className={'xs:block md:inline-flex max-sm:my-4 md:my-2'}>
+      <div
+        className={'xs:block md:inline-flex max-sm:my-4 md:my-2'}
+        role="toolbar"
+        aria-label="Claims list controls"
+      >
         <Row className="body-1 flex-grow align-top mb-0 ">
-          Filter Results:{' '}
-          <a className="link ml-2 flex">
+          <span id="filter-label">Filter Results:</span>{' '}
+          <a
+            className="link ml-2 flex"
+            href="#"
+            aria-label={`Download ${claims.length} claims`}
+          >
             {claims.length} Claims
             <Image
-              src={DownloadIcon}
+              src="/assets/download.svg"
               className="w-[20px] h-[20px] ml-2"
               alt=""
+              aria-hidden="true"
             />
           </a>
         </Row>
 
         <Row className="body-1 items-end">
-          Sort by:{' '}
+          <span id="sort-label">Sort by:</span>{' '}
           <div>
             <RichDropDown
               minWidth="min-w-[200px]"
               headBuilder={(val) => (
-                <a className="link ml-2 flex">
+                <a className="link ml-2 flex" aria-labelledby="sort-label">
                   {val.label}{' '}
                   <Image
-                    src={downIcon}
+                    src="/assets/down.svg"
                     className="w-[20px] h-[20px] ml-2"
                     alt=""
+                    aria-hidden="true"
                   />
                 </a>
               )}
@@ -136,6 +148,7 @@ export const ClaimsSnapshotCardSection = ({
               onSelectItem={(val) => {
                 setSelectedSort(val);
               }}
+              aria-label="Sort claims by"
             />
           </div>
         </Row>
@@ -143,7 +156,11 @@ export const ClaimsSnapshotCardSection = ({
         <Spacer axis="horizontal" size={8} />
       </div>
 
-      <div className={'flex flex-col max-sm:my-4'}>
+      <div
+        className={'flex flex-col max-sm:my-4'}
+        role="region"
+        aria-label="Claims list"
+      >
         <Spacer size={12} />
         <Pagination<ClaimDetails>
           key={selectedSort.id + JSON.stringify(filter) + searchTerm}

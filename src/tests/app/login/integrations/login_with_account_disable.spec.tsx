@@ -382,7 +382,7 @@ describe('Log In User whose status is Duplicate Account', () => {
 
     await waitFor(() => {
       // Assert the user is taken to the security
-      expect(mockReplace).toHaveBeenCalledWith('/security');
+      expect(mockReplace).toHaveBeenCalledWith('/dashboard');
     });
   });
 });

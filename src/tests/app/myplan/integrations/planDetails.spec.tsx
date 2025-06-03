@@ -36,6 +36,12 @@ describe('PlanDetailsSection', () => {
 
   test('renders plan details correctly on click of view who is covered', async () => {
     mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
+    mockedAxios.get.mockResolvedValueOnce({
+      data: {
+        memberServicePhoneNumber: '1-800-565-9000',
+      },
+    });
+    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
 
     const component = await renderUI();
 
@@ -61,18 +67,23 @@ describe('PlanDetailsSection', () => {
     expect(component).toMatchSnapshot();
   });
   test('renders plan details correctly on click of view contact Information', async () => {
-    mockedFetch.mockResolvedValue(fetchRespWrapper(loggedInUserInfoMockResp));
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     mockedAxios.get.mockResolvedValueOnce({
       data: {
-        data: {
-          email: 'demo@bcbst.com',
-          email_verified_flag: true,
-          phone: '7654387656',
-          phone_verified_flag: true,
-          umpi: 'pool5',
-        },
+        memberServicePhoneNumber: '1-800-565-9000',
       },
     });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper({
+        email: 'demo@bcbst.com',
+        email_verified_flag: true,
+        phone: '7654387656',
+        phone_verified_flag: true,
+        umpi: 'pool5',
+      }),
+    );
     const component = await renderUI();
 
     await waitFor(() => {
@@ -84,13 +95,25 @@ describe('PlanDetailsSection', () => {
     const contactInfo = screen.queryAllByText(/View Plan Contact Information/i);
     fireEvent.click(contactInfo[0]);
     expect(screen.getByText('7654387656')).toBeVisible();
+    expect(screen.getByText('View All Plan Contact Information')).toBeVisible();
     expect(component).toMatchSnapshot();
   });
   test('planDetails not displayed when plan type is not available', async () => {
-    mockedFetch.mockResolvedValue(fetchRespWrapper({}));
-    mockedAxios.get.mockResolvedValueOnce({
-      data: null,
-    });
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
+    mockedAxios.get
+      .mockResolvedValueOnce({
+        data: {
+          memberServicePhoneNumber: '1-800-565-9000',
+        },
+      })
+      .mockResolvedValueOnce({
+        data: {},
+      })
+      .mockResolvedValueOnce({
+        data: null,
+      });
 
     const component = await renderUI();
     await waitFor(() => {

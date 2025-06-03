@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard - policy info Service Failure to populate the plan information when there is no active member in Facets Should not populate plan information on the dashboard and should show loading error screen 1`] = `
+<div>
+  <div
+    class="flex flex-col w-full justify-center items-center page "
+  >
+    <div
+      class="flex flex-col h-175px w-full justify-center items-center brand-gradient px-4 min-h-[250px]"
+    >
+      <div
+        class="flex flex-col items-start w-full app-content px-4"
+      >
+        <div
+          class="card-main welcomeBannerLoader w-[50%]"
+        >
+          <div
+            class="max-w-sm animate-pulse"
+            role="status"
+          >
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <span
+              class="sr-only"
+            >
+              Loading...
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="max-w-sm animate-pulse"
+                role="status"
+              >
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <span
+                  class="sr-only"
+                >
+                  Loading...
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col  flex-grow page-section-36_67 items-stretch hidden md:block"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="max-w-sm animate-pulse"
+                role="status"
+              >
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <span
+                  class="sr-only"
+                >
+                  Loading...
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard - policy info Service Failure to populate the plan information when there is no active or termed plan associated. Should not populate plan information on the dashboard and should show loading error screen 1`] = `
+<div>
+  <div
+    class="flex flex-col w-full justify-center items-center page "
+  >
+    <div
+      class="flex flex-col h-175px w-full justify-center items-center brand-gradient px-4 min-h-[250px]"
+    >
+      <div
+        class="flex flex-col items-start w-full app-content px-4"
+      >
+        <div
+          class="card-main welcomeBannerLoader w-[50%]"
+        >
+          <div
+            class="max-w-sm animate-pulse"
+            role="status"
+          >
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+            />
+            <div
+              class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+            />
+            <span
+              class="sr-only"
+            >
+              Loading...
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col app-content app-base-font-color"
+    >
+      <span
+        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+      />
+      <section
+        class="flex flex-row items-start app-body"
+      >
+        <div
+          class="flex flex-col flex-grow page-section-63_33 items-stretch"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="max-w-sm animate-pulse"
+                role="status"
+              >
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <span
+                  class="sr-only"
+                >
+                  Loading...
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col  flex-grow page-section-36_67 items-stretch hidden md:block"
+        >
+          <div
+            class="card-main large-section"
+          >
+            <div
+              class="flex flex-col"
+            >
+              <div
+                class="max-w-sm animate-pulse"
+                role="status"
+              >
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth "
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <div
+                  class="h-5 bg-gray-200 dark:bg-gray-700 mb-2.5 rounded-full loaderWidth max-w-[330px]"
+                />
+                <span
+                  class="sr-only"
+                >
+                  Loading...
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

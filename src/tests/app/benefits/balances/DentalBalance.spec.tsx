@@ -36,6 +36,7 @@ const renderUI = () => {
         },
       ]}
       balancesFlag={true}
+      contact="1-800-565-9000"
     />,
   );
 };

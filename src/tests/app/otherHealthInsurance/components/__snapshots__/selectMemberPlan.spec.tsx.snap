@@ -32,21 +32,15 @@ exports[` 1`] = `
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Company Name]
-            </p>
+            />
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Policy Identification #]
-            </p>
+            />
             <p
               class="body-1 body-1"
               style="display: block;"
-            >
-              [Policy Start Date]
-            </p>
+            />
           </div>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -94,7 +88,6 @@ exports[` 1`] = `
             <label>
               <input
                 aria-label="Select Members"
-                checked=""
                 id=""
                 name=""
                 type="radio"
@@ -109,167 +102,6 @@ exports[` 1`] = `
                 Select Members
               </p>
             </div>
-          </div>
-          <div
-            class="flex flex-col ml-7"
-          >
-            <p
-              class="body-1 body-1 text-left"
-              style="display: block;"
-            >
-              Check all that apply:
-            </p>
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  checked=""
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Chris Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Maddison Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Forrest Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Corey Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Telly Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-            />
-            <div
-              class="flex flex-row gap-2 p-2   "
-            >
-              <label>
-                <input
-                  id="myCheckbox"
-                  name=""
-                  type="checkbox"
-                />
-              </label>
-              <div
-                class="flex flex-col"
-              >
-                <label
-                  for="myCheckbox"
-                >
-                  <p>
-                    Janie Hall
-                  </p>
-                </label>
-              </div>
-            </div>
-            <span
-              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-            />
           </div>
         </div>
       </main>
@@ -303,21 +135,15 @@ exports[` 1`] = `
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Company Name]
-          </p>
+          />
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Policy Identification #]
-          </p>
+          />
           <p
             class="body-1 body-1"
             style="display: block;"
-          >
-            [Policy Start Date]
-          </p>
+          />
         </div>
         <span
           style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -365,7 +191,6 @@ exports[` 1`] = `
           <label>
             <input
               aria-label="Select Members"
-              checked=""
               id=""
               name=""
               type="radio"
@@ -380,167 +205,6 @@ exports[` 1`] = `
               Select Members
             </p>
           </div>
-        </div>
-        <div
-          class="flex flex-col ml-7"
-        >
-          <p
-            class="body-1 body-1 text-left"
-            style="display: block;"
-          >
-            Check all that apply:
-          </p>
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                checked=""
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Chris Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Maddison Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Forrest Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Corey Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Telly Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-          />
-          <div
-            class="flex flex-row gap-2 p-2   "
-          >
-            <label>
-              <input
-                id="myCheckbox"
-                name=""
-                type="checkbox"
-              />
-            </label>
-            <div
-              class="flex flex-col"
-            >
-              <label
-                for="myCheckbox"
-              >
-                <p>
-                  Janie Hall
-                </p>
-              </label>
-            </div>
-          </div>
-          <span
-            style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-          />
         </div>
       </div>
     </main>

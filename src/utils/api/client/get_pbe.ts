@@ -1,3 +1,5 @@
+'use server';
+
 import { ESResponse } from '@/models/enterprise/esResponse';
 import { PBEData } from '@/models/member/api/pbeData';
 import { logger } from '@/utils/logger';
@@ -11,7 +13,7 @@ export async function getPersonBusinessEntity(
 ): Promise<PBEData> {
   try {
     const resp = await fetch(
-      `${process.env.ES_API_URL}/searchMemberLookupDetails/getPBEConsentDetails?userName=${userId}&isPBERequired=${needPBE}&isConsentRequired=${needConsent}`,
+      `${process.env.ES_API_URL}/searchMemberLookupDetails/getPBEConsentDetails?userName=${userId}&isPBERequired=${needPBE}&isConsentRequired=${process.env.CONSENT_ENABLED == 'true' ? needConsent : false}`,
       {
         headers: {
           Authorization: `Bearer ${await getAuthToken()}`,

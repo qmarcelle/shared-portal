@@ -309,4 +309,25 @@ describe('MyHealthProgramsResources', () => {
 
     expect(component).toMatchSnapshot();
   });
+
+  it('should render the Healthy Maternity card if pzn rule is true', () => {
+    vRules.fullyInsuredHealthyMaternity = true;
+    vRules.medical = true;
+    const component = renderUI(vRules);
+    expect(screen.getByText('Healthy Maternity'));
+    expect(
+      screen.getByText(
+        'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+      ),
+    );
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should not render the Healthy Maternity card if pzn rule is false', () => {
+    const component = renderUI(vRules);
+    expect(screen.queryByText('Healthy Maternity')).toBeNull();
+
+    expect(component).toMatchSnapshot();
+  });
 });

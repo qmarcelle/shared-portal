@@ -280,6 +280,6 @@ describe('Log In of User', () => {
     expect(screen.queryByLabelText(/Confirming/i)).toBeInTheDocument();
 
     // Assert the user user is taken to dashboard
-    expect(mockReplace).toHaveBeenCalledWith('/security');
+    expect(mockReplace).toHaveBeenCalledWith('/dashboard');
   });
 });

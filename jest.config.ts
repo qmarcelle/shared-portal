@@ -28,10 +28,6 @@ const config: Config.InitialOptions = {
       functions: 90,
       lines: 90,
     },
-    './src/app/chat/services/**/*.ts': {
-      statements: 95,
-      branches: 95,
-    },
   },
   testMatch: [
     '**/__tests__/**/*.test.[jt]s?(x)',

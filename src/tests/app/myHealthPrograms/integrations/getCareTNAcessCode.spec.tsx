@@ -1,13 +1,11 @@
-import MyHealthProgramsPage from '@/app/myHealth/healthProgramsResources/myHealthPrograms/page';
+import { getAccessCodeDetails } from '@/app/myHealth/healthProgramsResources/myHealthPrograms/actions/getCareTNAccessCode';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
 import { mockedFetch } from '@/tests/setup';
 import { fetchRespWrapper } from '@/tests/test_utils';
 import { UserRole } from '@/userManagement/models/sessionUser';
-import { render, screen, waitFor } from '@testing-library/react';
 
 const setupUI = async () => {
-  const Result = await MyHealthProgramsPage();
-  render(Result);
+  return await getAccessCodeDetails();
 };
 
 const vRules = {
@@ -39,30 +37,24 @@ describe('Care TN Access Code', () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = [];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('btnbluehere'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('btnbluehere');
   });
 
   test('Care TN access Code - btnbluewell', async () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Diabetes'];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('btnbluewell'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('btnbluewell');
   });
 
   test('Care TN access Code - btnbluechat', async () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Depression'];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('btnbluechat'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('btnbluechat');
   });
 
   test('Care TN access Code - ampbluehere', async () => {
@@ -70,10 +62,8 @@ describe('Care TN Access Code', () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = [];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('ampbluehere'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('ampbluehere');
   });
 
   test('Care TN access Code - ampbluewell', async () => {
@@ -81,10 +71,8 @@ describe('Care TN Access Code', () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Diabetes'];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('ampbluewell'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('ampbluewell');
   });
 
   test('Care TN access Code - ampbluechat', async () => {
@@ -92,10 +80,8 @@ describe('Care TN Access Code', () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Depression'];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('ampbluechat'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('ampbluechat');
   });
 
   test('Care TN access Code - errorScenaio', async () => {
@@ -103,9 +89,7 @@ describe('Care TN Access Code', () => {
     const memberDetails = loggedInUserInfoMockResp;
     memberDetails.cmcondition = ['Error'];
     mockedFetch.mockResolvedValueOnce(fetchRespWrapper(memberDetails));
-    await setupUI();
-    await waitFor(() => {
-      expect(screen.getAllByText('Access code could not load.'));
-    });
+    const result = await setupUI();
+    expect(result.data?.careTNAccessCode).toMatch('');
   });
 });

@@ -34,6 +34,7 @@ import Image from 'next/image';
 import {
   CVS_DEEPLINK_MAP,
   CVS_DRUG_SEARCH_INIT,
+  CVS_PHARMACY_SEARCH_FAST,
   CVS_REFILL_RX,
 } from '../sso/ssoConstants';
 import { CVSCaremarkInformationCard } from './components/CVSCaremarkInformation';
@@ -65,7 +66,22 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
   );
   return (
     <main className="flex flex-col justify-center items-center page">
-      <WelcomeBanner name="Pharmacy" />
+      <WelcomeBanner
+        name="Pharmacy"
+        body={
+          <RichText
+            spans={[
+              <>
+                <span>
+                  Your prescription and medical plan work together. CVS Caremark
+                  <sup>TM</sup> helps manage your pharmacy benefits, but you
+                  don’t have to go to a CVS retail pharmacy.
+                </span>
+              </>,
+            ]}
+          />
+        }
+      />
       {(isBlueCare || isFreedomMaBlueAdvantageMember) && (
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body ">
@@ -115,6 +131,7 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                     {
                       serviceIcon: <Image src={costIcon} alt="Cost Icon" />,
                       serviceLabel: 'Find Drug Cost & My Coverage',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`,
                     },
                     {
                       serviceIcon: (
@@ -124,32 +141,35 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                         />
                       ),
                       serviceLabel: 'Find a Pharmacy',
+                      url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_PHARMACY_SEARCH_FAST)!)}`,
                     },
                   ]}
                 />
               </Column>
             </section>
           )}
-          <section className="flex flex-row items-start app-body">
-            <Column className="flex-grow page-section-63_33 items-stretch">
-              <RecentClaimSection
-                className="large-section"
-                title="My Recent Pharmacy Claims"
-                linkText="View All Pharmacy Claims"
-                claims={claims}
-                linkUrl="/claims?type=pharmacy"
-              />
-            </Column>
-            <Column className=" flex-grow page-section-36_67 items-stretch">
-              <PharmacySpendingSummary
-                className="large-section md:w-[352px] md:h-[248px]"
-                title="My Pharmacy Spending Summary"
-                description="View your annual statement for your pharmacy claims."
-                linkLabel="View Pharmacy Spending Summary"
-                url="/spendingSummary?type=Pharmacy"
-              />
-            </Column>
-          </section>
+          {isPharmacyBenefitsEligible(data.visibilityRules) && (
+            <section className="flex flex-row items-start app-body">
+              <Column className="flex-grow page-section-63_33 items-stretch">
+                <RecentClaimSection
+                  className="large-section"
+                  title="My Recent Pharmacy Claims"
+                  linkText="View All Pharmacy Claims"
+                  claims={claims}
+                  linkUrl="member/myplan/claims?type=pharmacy"
+                />
+              </Column>
+              <Column className=" flex-grow page-section-36_67 items-stretch">
+                <PharmacySpendingSummary
+                  className="large-section md:w-[352px] md:h-[248px]"
+                  title="My Pharmacy Spending Summary"
+                  description="View your annual statement for your pharmacy claims."
+                  linkLabel="View Pharmacy Spending Summary"
+                  url="/member/myplan/spendingsummary?type=Pharmacy"
+                />
+              </Column>
+            </section>
+          )}
           <section className="flex flex-row items-start app-body">
             <Column className="flex-grow">
               <Title

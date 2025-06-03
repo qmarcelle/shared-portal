@@ -16,9 +16,10 @@ import { BalanceData } from './models/app/balancesData';
 
 type BalancePageProps = {
   data: BalanceData | undefined;
+  phoneNumber: string;
 };
 
-export const Balances = ({ data }: BalancePageProps) => {
+export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
       <Spacer size={32} />
@@ -35,6 +36,7 @@ export const Balances = ({ data }: BalancePageProps) => {
               key="Medical"
               title="Medical & Pharmacy Balance"
               product={data?.medical}
+              phone={phoneNumber}
             />
             {isFindADentist(data?.visibilityRules) &&
               isDentalCostEstimator(data?.visibilityRules) && (
@@ -42,6 +44,7 @@ export const Balances = ({ data }: BalancePageProps) => {
                   key="Dental"
                   title="Dental Balance"
                   product={data?.dental}
+                  phone={phoneNumber}
                 />
               )}
 

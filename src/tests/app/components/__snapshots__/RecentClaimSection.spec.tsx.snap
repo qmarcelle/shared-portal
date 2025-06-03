@@ -18,7 +18,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
         />
         <div
+          aria-label="Medical claim for Chris James from John Doe with status Processed"
           class="card-button cursor-pointer mb-4"
+          role="button"
+          tabindex="0"
         >
           <section
             class="md:flex md:flex-row align-top m-4"
@@ -120,7 +123,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           </section>
         </div>
         <div
+          aria-label="Pharmacy claim for Aly Jame from John Does with status Pending"
           class="card-button cursor-pointer mb-4"
+          role="button"
+          tabindex="0"
         >
           <section
             class="md:flex md:flex-row align-top m-4"
@@ -218,7 +224,10 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
           </section>
         </div>
         <div
+          aria-label="Dental claim for Aly Jame from John Doea with status Denied"
           class="card-button cursor-pointer mb-4"
+          role="button"
+          tabindex="0"
         >
           <section
             class="md:flex md:flex-row align-top m-4"
@@ -320,7 +329,7 @@ exports[`RecentClaimSection should render UI correctly 1`] = `
         />
         <a
           aria-label="View All Claims"
-          href="/claims"
+          href="/member/myplan/claims"
           style="display: block;"
         >
           <button

@@ -39,6 +39,7 @@ export type LoginStore = {
   emailUniqueness: boolean;
   mfaNeeded: boolean;
   inactive: boolean;
+  idleTimedOut: boolean;
   updateUsername: (val: string) => void;
   updatePassword: (val: string) => void;
   updateMultipleLoginAttempts: (val: boolean) => void;
@@ -46,7 +47,7 @@ export type LoginStore = {
   processLogin: (response: PortalLoginResponse) => Promise<void>;
   resetApiErrors: () => void;
   resetToHome: () => void;
-  signOut: () => void;
+  signOut: () => Promise<void>;
   updateLoggedUser: (val: boolean) => void;
   setVerifyUniqueEmail: (
     val: ActionResponse<EmailUniquenessStatus, UpdateEmailResponse>,
@@ -78,6 +79,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     emailUniqueness: false,
     forcedPasswordReset: false,
     inactive: false,
+    idleTimedOut: false,
     emailId: '',
     userId: '',
     duplicateAccount: false,
@@ -172,6 +174,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
             interactionData: {
               interactionId: resp.data?.interactionId ?? '',
               interactionToken: resp.data?.interactionToken ?? '',
+              sessionToken: resp.data?.sessionToken ?? '',
             },
             userId: resp.data?.userId ?? '',
           });

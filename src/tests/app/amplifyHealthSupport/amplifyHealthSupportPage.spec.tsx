@@ -1,4 +1,4 @@
-import AmplifyHealthSupport from '@/app/amplifyHealthSupport/page';
+import AmplifyHealthSupport from '@/app/(protected)/amplify/member/Support/page';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 

@@ -1,6 +1,5 @@
 import downIcon from '@/public/assets/down.svg';
 import { useOutsideClickListener } from '@/utils/hooks/outside_click_listener';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { checkBlueIcon } from './Icons';
 import { Row } from './Row';
@@ -24,7 +23,7 @@ export const Dropdown = ({
   initialSelectedValue,
   onSelectCallback,
   showSelected = true,
-  icon = <Image src={downIcon} alt="down icon" />,
+  icon = <img src={downIcon} alt="down icon" />,
 }: DropDownProps) => {
   const mappedItems = new Map(items.map((item) => [item.value, item.label]));
   const [selectedVal, setSelectedVal] = useState(initialSelectedValue);
@@ -75,7 +74,7 @@ export const Dropdown = ({
             >
               {isSelcted ? (
                 <div className="size-5 mx-2 ">
-                  <Image alt="selcted" className="size-5" src={checkBlueIcon} />
+                  <img alt="selcted" className="size-5" src={checkBlueIcon} />
                 </div>
               ) : (
                 <div className={showSelected ? 'size-5 mx-2' : ''}></div>

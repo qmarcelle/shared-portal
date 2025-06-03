@@ -3,6 +3,7 @@ export interface FilterItem {
   label: string;
   value?: FilterDetails[] | string;
   selectedValue?: FilterDetails;
+  selectedInputValue?: string;
 }
 
 export interface FilterDetails {

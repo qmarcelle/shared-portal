@@ -13,6 +13,7 @@ export async function computeSessionUser(
   userId: string,
   selectedUserId?: string,
   planId?: string,
+  impersonator?: string,
 ): Promise<SessionUser> {
   try {
     logger.info('Calling computeSessionUser');
@@ -31,12 +32,29 @@ export async function computeSessionUser(
       const plans = currentUser.plans;
 
       if (planId) {
-        return computeTokenWithPlan(userId, currentUser, planId);
+        return computeTokenWithPlan(userId, currentUser, planId, impersonator);
       } else {
-        const selectedPlan = plans.length == 1 ? plans[0] : null;
+        // If no planId is provided, default to the first plan if available (even if multiple exist)
+        // This ensures currUsr.plan is populated during initial login.
+        logger.info(
+          '[computeSessionUser] No planId provided. currentUser.plans content:',
+          currentUser.plans, // Log the entire plans array
+        );
+        const selectedPlan = plans.length >= 1 ? plans[0] : null;
         if (selectedPlan) {
-          return computeTokenWithPlan(userId, currentUser, selectedPlan.memCK);
+          return computeTokenWithPlan(
+            userId,
+            currentUser,
+            selectedPlan.memCK, // Use memCK of the selected default plan
+            impersonator,
+          );
         }
+        // This block will now only be reached if currentUser has NO plans at all.
+        // This might indicate an issue with the user's data or PBE processing.
+        logger.warn(
+          '[computeSessionUser] Current user has no plans. currUsr.plan will be undefined.',
+          { userId, selectedUserId, pbeCurrentUserId: currentUser.id },
+        );
         return {
           id: userId,
           currUsr: {
@@ -45,6 +63,8 @@ export async function computeSessionUser(
             role: currentUser.type,
             plan: undefined,
           },
+          impersonated: !!impersonator,
+          impersonator,
         };
       }
     } else {
@@ -80,6 +100,7 @@ async function computeTokenWithPlan(
   userId: string,
   currentUser: UserProfile,
   planId: string,
+  impersonator?: string,
 ): Promise<SessionUser> {
   const loggedUserInfo = await getLoggedInUserInfo(planId, true, userId);
   const memberNetworks = await getMemberNetworkId(loggedUserInfo.networkPrefix);
@@ -97,9 +118,12 @@ async function computeTokenWithPlan(
         memCk: planId,
         sbsbCk: loggedUserInfo.subscriberCK,
         subId: loggedUserInfo.subscriberID,
-        ntwkId: memberNetworks[0].allowable_networks.default[0].id.toString(),
+        ntwkId:
+          memberNetworks[0].allowable_networks.default[0]?.id.toString() ?? '',
       },
     },
     rules: computeVisibilityRules(loggedUserInfo),
+    impersonated: !!impersonator,
+    impersonator: impersonator,
   };
 }

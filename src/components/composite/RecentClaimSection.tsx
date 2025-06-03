@@ -21,13 +21,13 @@ export const RecentClaimSection = ({
   className,
   title,
   linkText,
-  linkUrl = '/claims',
+  linkUrl = '/member/myplan/claims',
 }: RecentClaimSectionProps) => {
   const renderSection = (
     claims: ClaimDetails[],
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): any => {
-    const claimsList = claims.length > 3 ? claims.splice(0, 3) : claims;
+    const claimsList = claims?.length > 3 ? claims?.splice(0, 3) : claims;
     switch (true) {
       case claims && !!claims.length:
         return claimsList.map((item) => (

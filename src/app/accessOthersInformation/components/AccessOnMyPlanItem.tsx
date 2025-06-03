@@ -9,32 +9,46 @@ import { Divider } from '@/components/foundation/Divider';
 import {
   accessGranted,
   inboxIcon,
+  pendingLogo,
 } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
+import {
+  AccessStatus,
+  ShareMyPlanDetails,
+} from '@/models/app/getSharePlanDetails';
+import { capitalizeName } from '@/utils/capitalizeName';
 import Image from 'next/image';
 import editIcon from '../../../../public/assets/edit.svg';
 
 interface AccessOnMyPlanItemProps extends IComponent {
-  memberName: string;
-  DOB: string;
+  inviteStatus: boolean;
+  memberDetails: ShareMyPlanDetails;
+  loggedInMemberType: string | null;
+  onRequestSuccessCallBack: () => void;
   isOnline: boolean;
   icon?: JSX.Element;
   infoButton: boolean;
   icon1?: JSX.Element;
+  pendingIcon?: JSX.Element;
+  allowUpdates?: boolean;
 }
 
 export const AccessOnMyPlanItem = ({
-  memberName,
-  DOB,
+  inviteStatus,
+  onRequestSuccessCallBack,
+  memberDetails,
+  loggedInMemberType,
   isOnline,
   onClick,
   className,
   infoButton,
   icon = <Image src={editIcon} alt="link" />,
   icon1 = <Image src={inboxIcon} alt="link" />,
+  pendingIcon = <Image src={pendingLogo} alt="link" />,
+  allowUpdates = true,
 }: AccessOnMyPlanItemProps) => {
   const { showAppModal } = useAppModalStore();
   function getProfileOfflineContent() {
@@ -43,27 +57,59 @@ export const AccessOnMyPlanItem = ({
         <Row>
           <Spacer axis="horizontal" size={8} />
           <Card backgroundColor="rgba(0,0,0,0.05)">
-            <Column className="m-4">
+            <Column className="m-4 ">
               <Row>
                 <TextBox
                   className="body-1 "
                   text="This member has not created an online profile."
                 />
               </Row>
-              <AppLink
-                label="Invite to Register"
-                icon={icon1}
-                callback={() =>
-                  showAppModal({
-                    content: <InviteToRegister memberName={memberName} />,
-                  })
-                }
-              />
+              {!inviteStatus ? (
+                <AppLink
+                  className="!flex pl-0"
+                  label="Invite to Register"
+                  icon={icon1}
+                  callback={() =>
+                    showAppModal({
+                      content: (
+                        <InviteToRegister
+                          memberDetails={memberDetails!}
+                          onRequestSuccessCallBack={onRequestSuccessCallBack}
+                        />
+                      ),
+                    })
+                  }
+                />
+              ) : (
+                <div className="flex flex-row">
+                  <div className="mr-2">{pendingIcon}</div>
+                  <p className={className}>Pending...</p>
+                </div>
+              )}
             </Column>
           </Card>
         </Row>
       </Column>
     );
+  }
+
+  function toDisplayEditIcon(
+    memberDetails: ShareMyPlanDetails,
+    loggedInMemberType: string | null,
+  ) {
+    if (
+      loggedInMemberType != null &&
+      loggedInMemberType.toLowerCase() === 'dependent'
+    ) {
+      if (memberDetails.isMinor) return false;
+      else {
+        if (memberDetails.accessStatus !== AccessStatus.FullAccess) return true;
+        else return false;
+      }
+    } else {
+      if (memberDetails.accessStatus !== AccessStatus.FullAccess) return true;
+      else return false;
+    }
   }
 
   function getProfileOnlineContent() {
@@ -81,19 +127,57 @@ export const AccessOnMyPlanItem = ({
         {!infoButton && (
           <div>
             {' '}
-            <Spacer size={16} />
             <Row>
               <Spacer axis="horizontal" size={8} />
-              <Title
-                className="font-bold primary-color"
-                text="Update"
-                suffix={icon}
-                callback={() =>
-                  showAppModal({
-                    content: <RequestAccessOnMyPlan memberName={memberName} />,
-                  })
-                }
-              />
+              <section>
+                {!memberDetails.accessStatusIsPending ? (
+                  <>
+                    <TextBox
+                      className="body-1 mb"
+                      text={memberDetails.accessStatus}
+                    />
+                    <Spacer size={16} />
+                    <Title
+                      className="font-bold primary-color"
+                      text={
+                        toDisplayEditIcon(memberDetails, loggedInMemberType)
+                          ? 'Update'
+                          : ''
+                      }
+                      suffix={
+                        toDisplayEditIcon(memberDetails, loggedInMemberType)
+                          ? icon
+                          : undefined
+                      }
+                      callback={() =>
+                        showAppModal({
+                          content: (
+                            <RequestAccessOnMyPlan
+                              memberDetails={memberDetails}
+                              disableSubmit={!allowUpdates}
+                              onRequestSuccessCallBack={
+                                onRequestSuccessCallBack
+                              }
+                            />
+                          ),
+                        })
+                      }
+                    />
+                  </>
+                ) : (
+                  <>
+                    <TextBox
+                      className="body-1 mb"
+                      text={memberDetails.accessStatus}
+                    />
+                    <Spacer size={16} />
+                    <div className="flex flex-row">
+                      <div className="mr-2">{pendingIcon}</div>
+                      <p className={className}>Pending...</p>
+                    </div>
+                  </>
+                )}
+              </section>
               <Spacer size={40} />
             </Row>
           </div>
@@ -111,8 +195,11 @@ export const AccessOnMyPlanItem = ({
       <Column className="m-4">
         <Spacer size={16} />
         <Row className="justify-between">
-          <TextBox className="ml-2 font-bold body-1" text={memberName} />
-          <TextBox text={'DOB: ' + DOB} />
+          <TextBox
+            className="ml-2 font-bold body-1"
+            text={capitalizeName(memberDetails.memberName)}
+          />
+          <TextBox text={'DOB: ' + memberDetails.DOB} />
         </Row>
         <Spacer size={16} />
         <Row>

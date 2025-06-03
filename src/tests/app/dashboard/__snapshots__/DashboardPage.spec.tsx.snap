@@ -29,7 +29,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -56,14 +56,14 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -106,7 +106,10 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -208,7 +211,10 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -310,7 +316,10 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -416,7 +425,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -830,169 +839,6 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                   <h2
                     class="title-2"
                   >
-                    Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1"
-                      style="display: block;"
-                    >
-                      As of
-                    </p>
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <p>
-                      October 12, 2023
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <div
-                      class="flex flex-col doughnut-img mx-auto"
-                    >
-                      <canvas
-                        aria-hidden="true"
-                        class="spendingSummaryChart"
-                        height="150"
-                        role="img"
-                        width="300"
-                      />
-                      <div
-                        class="doughnut-middle-text"
-                      >
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText "
-                        >
-                          <p>
-                            Your plan paid
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            89
-                            %
-                          </p>
-                          <p>
-                            of your costs
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="chartTextDivider"
-                        >
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText"
-                        >
-                          <p>
-                            Total Billed
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            $9,804.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                  </div>
-                  <div
-                    class="sectionAlignment"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Paid
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $1,199.19
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Saved
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $8,605.12
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Spending Summary"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Summary
-                      </p>
-                    </button>
-                  </a>
-                  <div
-                    class="flex flex-col clear-left"
-                  />
-                </div>
-              </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h2
-                    class="title-2"
-                  >
                     Prior Authorization
                   </h2>
                   <span
@@ -1122,11 +968,13 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -1161,7 +1009,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1206,7 +1054,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1251,7 +1099,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1296,7 +1144,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1341,7 +1189,7 @@ exports[`Dashboard Page should render UI correctly for Pay Premium component 1`]
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -1716,7 +1564,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
               class="body-1"
               style="display: block;"
             >
-              Plan: BlueCross BlueShield of Tennessee
+              Plan: Chris B Hall Enterprises
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -1743,14 +1591,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
               class="body-1"
               style="display: block;"
             >
-              Policies: Medical, Dental, Vision
+              Policies: Medical, Wellness, Vision, Dental
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -1793,7 +1641,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
+                      aria-label="Medical claim for Chris James from John Doe with status Processed"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -1895,7 +1746,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       </section>
                     </div>
                     <div
+                      aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -1997,7 +1851,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       </section>
                     </div>
                     <div
+                      aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -2103,7 +1960,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -2517,169 +2374,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     <h2
                       class="title-2"
                     >
-                      Spending Summary
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        As of
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <p>
-                        October 12, 2023
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <div
-                        class="flex flex-col doughnut-img mx-auto"
-                      >
-                        <canvas
-                          aria-hidden="true"
-                          class="spendingSummaryChart"
-                          height="150"
-                          role="img"
-                          width="300"
-                        />
-                        <div
-                          class="doughnut-middle-text"
-                        >
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText "
-                          >
-                            <p>
-                              Your plan paid
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              89
-                              %
-                            </p>
-                            <p>
-                              of your costs
-                            </p>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="chartTextDivider"
-                          >
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText"
-                          >
-                            <p>
-                              Total Billed
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              $9,804.31
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                    </div>
-                    <div
-                      class="sectionAlignment"
-                    >
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Paid
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $1,199.19
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Saved
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $8,605.12
-                        </p>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <a
-                      aria-label="View Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container undefined"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          View Spending Summary
-                        </p>
-                      </button>
-                    </a>
-                    <div
-                      class="flex flex-col clear-left"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="card-main large-section"
-                >
-                  <div>
-                    <h2
-                      class="title-2"
-                    >
                       Prior Authorization
                     </h2>
                     <span
@@ -2809,11 +2503,13 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                         class="flex flex-col items-end"
                       >
                         <button
+                          aria-label="Search"
                           class="flex flex-col p-[0.125rem]  "
                           type="submit"
                         >
                           <img
-                            alt="Search"
+                            alt=""
+                            aria-hidden="true"
                             class="icon searchhover "
                             data-nimg="1"
                             decoding="async"
@@ -2848,7 +2544,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -2893,7 +2589,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -2938,7 +2634,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -2983,7 +2679,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -3028,7 +2724,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -3397,7 +3093,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -3424,14 +3120,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -3474,7 +3170,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -3576,7 +3275,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -3678,7 +3380,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -3784,7 +3489,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -4198,169 +3903,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                   <h2
                     class="title-2"
                   >
-                    Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1"
-                      style="display: block;"
-                    >
-                      As of
-                    </p>
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <p>
-                      October 12, 2023
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <div
-                      class="flex flex-col doughnut-img mx-auto"
-                    >
-                      <canvas
-                        aria-hidden="true"
-                        class="spendingSummaryChart"
-                        height="150"
-                        role="img"
-                        width="300"
-                      />
-                      <div
-                        class="doughnut-middle-text"
-                      >
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText "
-                        >
-                          <p>
-                            Your plan paid
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            89
-                            %
-                          </p>
-                          <p>
-                            of your costs
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="chartTextDivider"
-                        >
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText"
-                        >
-                          <p>
-                            Total Billed
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            $9,804.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                  </div>
-                  <div
-                    class="sectionAlignment"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Paid
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $1,199.19
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Saved
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $8,605.12
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Spending Summary"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Summary
-                      </p>
-                    </button>
-                  </a>
-                  <div
-                    class="flex flex-col clear-left"
-                  />
-                </div>
-              </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h2
-                    class="title-2"
-                  >
                     Prior Authorization
                   </h2>
                   <span
@@ -4490,11 +4032,13 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -4529,7 +4073,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4574,7 +4118,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4619,7 +4163,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4664,7 +4208,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -4709,7 +4253,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 1`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -5133,7 +4677,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -5160,14 +4704,14 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -5210,7 +4754,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -5312,7 +4859,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -5414,7 +4964,10 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -5520,7 +5073,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -5934,169 +5487,6 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                   <h2
                     class="title-2"
                   >
-                    Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1"
-                      style="display: block;"
-                    >
-                      As of
-                    </p>
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <p>
-                      October 12, 2023
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <div
-                      class="flex flex-col doughnut-img mx-auto"
-                    >
-                      <canvas
-                        aria-hidden="true"
-                        class="spendingSummaryChart"
-                        height="150"
-                        role="img"
-                        width="300"
-                      />
-                      <div
-                        class="doughnut-middle-text"
-                      >
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText "
-                        >
-                          <p>
-                            Your plan paid
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            89
-                            %
-                          </p>
-                          <p>
-                            of your costs
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="chartTextDivider"
-                        >
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText"
-                        >
-                          <p>
-                            Total Billed
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            $9,804.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                  </div>
-                  <div
-                    class="sectionAlignment"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Paid
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $1,199.19
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Saved
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $8,605.12
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Spending Summary"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Summary
-                      </p>
-                    </button>
-                  </a>
-                  <div
-                    class="flex flex-col clear-left"
-                  />
-                </div>
-              </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h2
-                    class="title-2"
-                  >
                     Prior Authorization
                   </h2>
                   <span
@@ -6226,11 +5616,13 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -6265,7 +5657,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6310,7 +5702,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6355,7 +5747,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6400,7 +5792,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6445,7 +5837,7 @@ exports[`Dashboard Page should render Welcome Banner UI correctly 2`] = `
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -6820,7 +6212,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               class="body-1"
               style="display: block;"
             >
-              Plan: BlueCross BlueShield of Tennessee
+              Plan: Chris B Hall Enterprises
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -6847,14 +6239,14 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               class="body-1"
               style="display: block;"
             >
-              Policies: Medical, Dental, Vision
+              Policies: Medical, Wellness, Vision, Dental
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -6897,7 +6289,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
+                      aria-label="Medical claim for Chris James from John Doe with status Processed"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -6999,7 +6394,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </section>
                     </div>
                     <div
+                      aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -7101,7 +6499,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </section>
                     </div>
                     <div
+                      aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -7207,7 +6608,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -7621,169 +7022,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     <h2
                       class="title-2"
                     >
-                      Spending Summary
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        As of
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <p>
-                        October 12, 2023
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <div
-                        class="flex flex-col doughnut-img mx-auto"
-                      >
-                        <canvas
-                          aria-hidden="true"
-                          class="spendingSummaryChart"
-                          height="150"
-                          role="img"
-                          width="300"
-                        />
-                        <div
-                          class="doughnut-middle-text"
-                        >
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText "
-                          >
-                            <p>
-                              Your plan paid
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              89
-                              %
-                            </p>
-                            <p>
-                              of your costs
-                            </p>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="chartTextDivider"
-                          >
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText"
-                          >
-                            <p>
-                              Total Billed
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              $9,804.31
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                    </div>
-                    <div
-                      class="sectionAlignment"
-                    >
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Paid
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $1,199.19
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Saved
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $8,605.12
-                        </p>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <a
-                      aria-label="View Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container undefined"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          View Spending Summary
-                        </p>
-                      </button>
-                    </a>
-                    <div
-                      class="flex flex-col clear-left"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="card-main large-section"
-                >
-                  <div>
-                    <h2
-                      class="title-2"
-                    >
                       Prior Authorization
                     </h2>
                     <span
@@ -7913,11 +7151,13 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col items-end"
                       >
                         <button
+                          aria-label="Search"
                           class="flex flex-col p-[0.125rem]  "
                           type="submit"
                         >
                           <img
-                            alt="Search"
+                            alt=""
+                            aria-hidden="true"
                             class="icon searchhover "
                             data-nimg="1"
                             decoding="async"
@@ -7952,7 +7192,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -7997,7 +7237,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8042,7 +7282,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8087,7 +7327,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8132,7 +7372,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -8455,7 +7695,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -8482,14 +7722,14 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -8532,7 +7772,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -8634,7 +7877,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -8736,7 +7982,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -8842,7 +8091,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -9256,169 +8505,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   <h2
                     class="title-2"
                   >
-                    Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1"
-                      style="display: block;"
-                    >
-                      As of
-                    </p>
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <p>
-                      October 12, 2023
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <div
-                      class="flex flex-col doughnut-img mx-auto"
-                    >
-                      <canvas
-                        aria-hidden="true"
-                        class="spendingSummaryChart"
-                        height="150"
-                        role="img"
-                        width="300"
-                      />
-                      <div
-                        class="doughnut-middle-text"
-                      >
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText "
-                        >
-                          <p>
-                            Your plan paid
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            89
-                            %
-                          </p>
-                          <p>
-                            of your costs
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="chartTextDivider"
-                        >
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText"
-                        >
-                          <p>
-                            Total Billed
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            $9,804.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                  </div>
-                  <div
-                    class="sectionAlignment"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Paid
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $1,199.19
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Saved
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $8,605.12
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Spending Summary"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Summary
-                      </p>
-                    </button>
-                  </a>
-                  <div
-                    class="flex flex-col clear-left"
-                  />
-                </div>
-              </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h2
-                    class="title-2"
-                  >
                     Prior Authorization
                   </h2>
                   <span
@@ -9548,11 +8634,13 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -9587,7 +8675,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9632,7 +8720,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9677,7 +8765,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9722,7 +8810,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -9767,7 +8855,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -10147,7 +9235,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               class="body-1"
               style="display: block;"
             >
-              Plan: BlueCross BlueShield of Tennessee
+              Plan: Chris B Hall Enterprises
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -10174,14 +9262,14 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
               class="body-1"
               style="display: block;"
             >
-              Policies: Medical, Dental, Vision
+              Policies: Medical, Wellness, Vision, Dental
             </p>
             <span
               style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
             />
             <a
               class="link-white-text"
-              href="/myPlan"
+              href="/member/myplan"
             >
               <p
                 class="pb-2 pt-2"
@@ -10224,7 +9312,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                     />
                     <div
+                      aria-label="Medical claim for Chris James from John Doe with status Processed"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -10326,7 +9417,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </section>
                     </div>
                     <div
+                      aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -10428,7 +9522,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       </section>
                     </div>
                     <div
+                      aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                       class="card-button cursor-pointer mb-4"
+                      role="button"
+                      tabindex="0"
                     >
                       <section
                         class="md:flex md:flex-row align-top m-4"
@@ -10534,7 +9631,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       aria-label="View Claims"
-                      href="/claims"
+                      href="/member/myplan/claims"
                       style="display: block;"
                     >
                       <button
@@ -10948,169 +10045,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     <h2
                       class="title-2"
                     >
-                      Spending Summary
-                    </h2>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <p
-                        class="body-1"
-                        style="display: block;"
-                      >
-                        As of
-                      </p>
-                      <span
-                        style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                      />
-                      <p>
-                        October 12, 2023
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-col"
-                    >
-                      <div
-                        class="flex flex-col doughnut-img mx-auto"
-                      >
-                        <canvas
-                          aria-hidden="true"
-                          class="spendingSummaryChart"
-                          height="150"
-                          role="img"
-                          width="300"
-                        />
-                        <div
-                          class="doughnut-middle-text"
-                        >
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText "
-                          >
-                            <p>
-                              Your plan paid
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              89
-                              %
-                            </p>
-                            <p>
-                              of your costs
-                            </p>
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="chartTextDivider"
-                          >
-                            <div
-                              class=""
-                              style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                            />
-                          </div>
-                          <span
-                            style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                          />
-                          <div
-                            class="flex flex-col justify-between pl-3 chartText"
-                          >
-                            <p>
-                              Total Billed
-                            </p>
-                            <p
-                              class="title-2-bold"
-                            >
-                              $9,804.31
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                      />
-                    </div>
-                    <div
-                      class="sectionAlignment"
-                    >
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Paid
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $1,199.19
-                        </p>
-                      </div>
-                      <span
-                        style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                      />
-                      <div
-                        class="flex flex-row"
-                      >
-                        <div
-                          style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                        />
-                        <p
-                          class="body-1 ml-2"
-                          style="display: block;"
-                        >
-                          You Saved
-                        </p>
-                        <p
-                          class="body-bold ml-auto"
-                        >
-                          $8,605.12
-                        </p>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                    <a
-                      aria-label="View Spending Summary"
-                      style="display: block;"
-                    >
-                      <button
-                        class="flex flex-row link-container undefined"
-                        style="max-width: max-content; height: auto; display: block;"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <p
-                          class="link undefined"
-                        >
-                          View Spending Summary
-                        </p>
-                      </button>
-                    </a>
-                    <div
-                      class="flex flex-col clear-left"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="card-main large-section"
-                >
-                  <div>
-                    <h2
-                      class="title-2"
-                    >
                       Prior Authorization
                     </h2>
                     <span
@@ -11240,11 +10174,13 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                         class="flex flex-col items-end"
                       >
                         <button
+                          aria-label="Search"
                           class="flex flex-col p-[0.125rem]  "
                           type="submit"
                         >
                           <img
-                            alt="Search"
+                            alt=""
+                            aria-hidden="true"
                             class="icon searchhover "
                             data-nimg="1"
                             decoding="async"
@@ -11279,7 +10215,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11324,7 +10260,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11369,7 +10305,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11414,7 +10350,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11459,7 +10395,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       />
                       <a
                         class="flex flex-row w-fit"
-                        href="#"
+                        href="/member/myplan/benefits"
                       >
                         <div
                           class="flex flex-col"
@@ -11828,7 +10764,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             class="body-1"
             style="display: block;"
           >
-            Plan: BlueCross BlueShield of Tennessee
+            Plan: Chris B Hall Enterprises
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
@@ -11855,14 +10791,14 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
             class="body-1"
             style="display: block;"
           >
-            Policies: Medical, Dental, Vision
+            Policies: Medical, Wellness, Vision, Dental
           </p>
           <span
             style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
           />
           <a
             class="link-white-text"
-            href="/myPlan"
+            href="/member/myplan"
           >
             <p
               class="pb-2 pt-2"
@@ -11905,7 +10841,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
                   />
                   <div
+                    aria-label="Medical claim for Chris James from John Doe with status Processed"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -12007,7 +10946,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </section>
                   </div>
                   <div
+                    aria-label="Pharmacy claim for Aly Jame from John Doe with status Pending"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -12109,7 +11051,10 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     </section>
                   </div>
                   <div
+                    aria-label="Dental claim for Aly Jame from John Doe with status Denied"
                     class="card-button cursor-pointer mb-4"
+                    role="button"
+                    tabindex="0"
                   >
                     <section
                       class="md:flex md:flex-row align-top m-4"
@@ -12215,7 +11160,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   />
                   <a
                     aria-label="View Claims"
-                    href="/claims"
+                    href="/member/myplan/claims"
                     style="display: block;"
                   >
                     <button
@@ -12629,169 +11574,6 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                   <h2
                     class="title-2"
                   >
-                    Spending Summary
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-row"
-                  >
-                    <p
-                      class="body-1"
-                      style="display: block;"
-                    >
-                      As of
-                    </p>
-                    <span
-                      style="display: block; width: 8px; min-width: 8px; height: 1px; min-height: 1px;"
-                    />
-                    <p>
-                      October 12, 2023
-                    </p>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                  />
-                  <div
-                    class="flex flex-col"
-                  >
-                    <div
-                      class="flex flex-col doughnut-img mx-auto"
-                    >
-                      <canvas
-                        aria-hidden="true"
-                        class="spendingSummaryChart"
-                        height="150"
-                        role="img"
-                        width="300"
-                      />
-                      <div
-                        class="doughnut-middle-text"
-                      >
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText "
-                        >
-                          <p>
-                            Your plan paid
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            89
-                            %
-                          </p>
-                          <p>
-                            of your costs
-                          </p>
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="chartTextDivider"
-                        >
-                          <div
-                            class=""
-                            style="width: 100%; height: 1px; background-color: rgb(204, 204, 204);"
-                          />
-                        </div>
-                        <span
-                          style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-                        />
-                        <div
-                          class="flex flex-col justify-between pl-3 chartText"
-                        >
-                          <p>
-                            Total Billed
-                          </p>
-                          <p
-                            class="title-2-bold"
-                          >
-                            $9,804.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                    />
-                  </div>
-                  <div
-                    class="sectionAlignment"
-                  >
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(0, 94, 185); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Paid
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $1,199.19
-                      </p>
-                    </div>
-                    <span
-                      style="display: block; width: 1px; min-width: 1px; height: 18px; min-height: 18px;"
-                    />
-                    <div
-                      class="flex flex-row"
-                    >
-                      <div
-                        style="width: 20px; height: 20px; background-color: rgb(93, 193, 253); border-radius: 50px; margin-top: 0px; margin-right: 0px;"
-                      />
-                      <p
-                        class="body-1 ml-2"
-                        style="display: block;"
-                      >
-                        You Saved
-                      </p>
-                      <p
-                        class="body-bold ml-auto"
-                      >
-                        $8,605.12
-                      </p>
-                    </div>
-                  </div>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <a
-                    aria-label="View Spending Summary"
-                    style="display: block;"
-                  >
-                    <button
-                      class="flex flex-row link-container undefined"
-                      style="max-width: max-content; height: auto; display: block;"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <p
-                        class="link undefined"
-                      >
-                        View Spending Summary
-                      </p>
-                    </button>
-                  </a>
-                  <div
-                    class="flex flex-col clear-left"
-                  />
-                </div>
-              </div>
-              <div
-                class="card-main large-section"
-              >
-                <div>
-                  <h2
-                    class="title-2"
-                  >
                     Prior Authorization
                   </h2>
                   <span
@@ -12921,11 +11703,13 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                       class="flex flex-col items-end"
                     >
                       <button
+                        aria-label="Search"
                         class="flex flex-col p-[0.125rem]  "
                         type="submit"
                       >
                         <img
-                          alt="Search"
+                          alt=""
+                          aria-hidden="true"
                           class="icon searchhover "
                           data-nimg="1"
                           decoding="async"
@@ -12960,7 +11744,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13005,7 +11789,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13050,7 +11834,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13095,7 +11879,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"
@@ -13140,7 +11924,7 @@ exports[`Dashboard Page should render the Find Medical Providers card if the pzn
                     />
                     <a
                       class="flex flex-row w-fit"
-                      href="#"
+                      href="/member/myplan/benefits"
                     >
                       <div
                         class="flex flex-col"

@@ -83,7 +83,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=careTN"
                             >
                               <div
                                 class="flex flex-row"
@@ -120,44 +120,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
-                            >
-                              <div
-                                class="flex flex-row"
-                              >
-                                <p
-                                  class="font-bold primary-color"
-                                >
-                                  Healthy Maternity
-                                </p>
-                              </div>
-                              <span
-                                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                              />
-                              <p
-                                class="body-1"
-                                style="display: block;"
-                              >
-                                This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy. 
-                              </p>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        aria-hidden="false"
-                        class="slick-slide slick-active"
-                        data-index="2"
-                        style="outline: none; width: 0px;"
-                        tabindex="-1"
-                      >
-                        <div>
-                          <div
-                            class="card-elevated cursor-pointer mr-4 shrink-0 myHealthCard"
-                          >
-                            <a
-                              class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocBP"
                             >
                               <div
                                 class="flex flex-row"
@@ -182,9 +145,9 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        aria-hidden="true"
-                        class="slick-slide"
-                        data-index="3"
+                        aria-hidden="false"
+                        class="slick-slide slick-active"
+                        data-index="2"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -194,7 +157,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesManagement"
                             >
                               <div
                                 class="flex flex-row"
@@ -221,7 +184,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="4"
+                        data-index="3"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -231,7 +194,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocHealthDiabetesPrevention"
                             >
                               <div
                                 class="flex flex-row"
@@ -258,7 +221,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="5"
+                        data-index="4"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -268,7 +231,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=TeladocSecondOption"
                             >
                               <div
                                 class="flex flex-row"
@@ -295,7 +258,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                       <div
                         aria-hidden="true"
                         class="slick-slide"
-                        data-index="6"
+                        data-index="5"
                         style="outline: none; width: 0px;"
                         tabindex="-1"
                       >
@@ -305,7 +268,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                           >
                             <a
                               class="p-4 block"
-                              href="null"
+                              href="/myHealth/healthProgramsResources/myHealthPrograms?healthProgramType=SilverFit"
                             >
                               <div
                                 class="flex flex-row"
@@ -362,7 +325,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                 >
                   <div
                     class="primary-bg-color h-1.5 rounded-full"
-                    style="width: 43%;"
+                    style="width: 50%;"
                   />
                 </div>
               </div>
@@ -371,7 +334,7 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
               />
               <a
                 aria-label="View All Health Programs & Resources"
-                href="/myHealth/healthProgramsResources"
+                href="/member/myhealth/healthprograms"
                 style="display: block;"
               >
                 <button
@@ -1235,86 +1198,6 @@ exports[`My Health Page should render My Health Page correctly 1`] = `
                   </span>
                 </section>
               </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div
-            class="card-main large-section skip-underscore"
-          >
-            <div
-              class="flex flex-col"
-            >
-              <div
-                class="flex flex-row"
-              >
-                <img
-                  alt="link"
-                  class="size-10"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <section
-                  class="flex justify-start self-start my-health-link"
-                >
-                  <span
-                    class="rich-text body-1 undefined"
-                  >
-                    <div
-                      class="flex flex-row body-1 flex-grow md:!flex !block align-top mt-4 ml-2"
-                    >
-                      <a
-                        aria-label="Dental Health Library"
-                        href=""
-                        style="display: block;"
-                      >
-                        <button
-                          class="flex flex-row link-container link hover:!underline caremark !flex pt-0 pl-0"
-                          style="max-width: max-content; height: auto; display: block;"
-                          tabindex="-1"
-                          type="button"
-                        >
-                          <p
-                            class="link undefined"
-                          >
-                            Dental Health Library
-                          </p>
-                          <p
-                            class="ml-1"
-                          >
-                            <img
-                              alt="external"
-                              data-nimg="1"
-                              decoding="async"
-                              height="40"
-                              loading="lazy"
-                              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                              style="color: transparent;"
-                              width="40"
-                            />
-                          </p>
-                        </button>
-                      </a>
-                    </div>
-                  </span>
-                </section>
-              </div>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
-              />
-              <p
-                class="body-1 body-1 ml-11"
-                style="display: block;"
-              >
-                Check dental symptoms and get your dental questions answered.
-              </p>
             </div>
           </div>
         </section>

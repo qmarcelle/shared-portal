@@ -20,6 +20,8 @@ export const VirtualMentalHealthCareSection = ({
             itemDataTitle={item.itemDataTitle}
             itemData={item.itemData}
             healthCareInfo={item}
+            redirectLink={item.redirectLink}
+            sessionData={item.sessionData}
           />
         ))}
     </div>

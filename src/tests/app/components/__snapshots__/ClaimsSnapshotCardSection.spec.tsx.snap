@@ -8,11 +8,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
     >
       <section
         class="card-main max-sm:my-4 md:my-8"
+        role="search"
       >
         <div
           class="flex flex-row items-center input   "
         >
           <input
+            aria-label="Search claims by member name, provider name, or claim ID"
             class="body-1 search-textfield"
             name="search-Field"
             placeholder="Search Claims..."
@@ -23,11 +25,13 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
             class="flex flex-col items-end"
           >
             <button
+              aria-label="Search"
               class="flex flex-col p-[0.125rem]  "
               type="submit"
             >
               <img
-                alt="Search"
+                alt=""
+                aria-hidden="true"
                 class="icon searchhover "
                 data-nimg="1"
                 decoding="async"
@@ -43,20 +47,29 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         </div>
       </section>
       <div
+        aria-label="Claims list controls"
         class="xs:block md:inline-flex max-sm:my-4 md:my-2"
+        role="toolbar"
       >
         <div
           class="flex flex-row body-1 flex-grow align-top mb-0"
         >
-          Filter Results:
+          <span
+            id="filter-label"
+          >
+            Filter Results:
+          </span>
            
           <a
+            aria-label="Download 1 claims"
             class="link ml-2 flex"
+            href="#"
           >
             1
              Claims
             <img
               alt=""
+              aria-hidden="true"
               class="w-[20px] h-[20px] ml-2"
               data-nimg="1"
               decoding="async"
@@ -72,7 +85,11 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         <div
           class="flex flex-row body-1 items-end"
         >
-          Sort by:
+          <span
+            id="sort-label"
+          >
+            Sort by:
+          </span>
            
           <div>
             <div
@@ -84,12 +101,14 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
               >
                 <div>
                   <a
+                    aria-labelledby="sort-label"
                     class="link ml-2 flex"
                   >
                     Date (Most Recent)
                      
                     <img
                       alt=""
+                      aria-hidden="true"
                       class="w-[20px] h-[20px] ml-2"
                       data-nimg="1"
                       decoding="async"
@@ -111,7 +130,9 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
         />
       </div>
       <div
+        aria-label="Claims list"
         class="flex flex-col max-sm:my-4"
+        role="region"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 12px; min-height: 12px;"
@@ -120,7 +141,10 @@ exports[`ClaimsSnapshotCardSection should render UI correctly 1`] = `
           class="flex flex-col"
         >
           <div
+            aria-label="Medical claim for Chris Hall from John Hopkins with status Pending"
             class="card-button cursor-pointer mb-4"
+            role="button"
+            tabindex="0"
           >
             <section
               class="md:flex md:flex-row align-top m-4"

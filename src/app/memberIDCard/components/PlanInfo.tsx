@@ -8,14 +8,14 @@ export const PlanInfo = () => {
       label: 'My Plan Details',
       description: 'View your plan details.',
       iconName: enrollment,
-      link: '/myPlan',
+      link: '/member/myplan',
     },
     {
       label: 'Benefits & Coverage',
       // eslint-disable-next-line quotes
       description: "View what's covered under your plan.",
       iconName: benefits,
-      link: '/benefits',
+      link: '/member/myplan/benefits',
     },
   ];
 

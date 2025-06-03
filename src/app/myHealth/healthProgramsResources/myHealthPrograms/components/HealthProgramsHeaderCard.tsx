@@ -7,10 +7,9 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
-import Image from 'next/image';
+import { Session } from 'next-auth';
 import { ReactNode } from 'react';
 import { HealthProgramHeaderCardDetails } from '../models/health_program_header_card_details';
-import { Session } from 'next-auth';
 
 interface HealthProgramHeaderProps extends IComponent {
   icon?: ReactNode;
@@ -19,7 +18,7 @@ interface HealthProgramHeaderProps extends IComponent {
 }
 
 export const HealthProgramsHeaderCard = ({
-  icon = <Image alt="external icon" src={externalOffsiteWhiteIcon} />,
+  icon = <img alt="external icon" src={externalOffsiteWhiteIcon} />,
   healthProgramHeaderDetails,
   sessionData,
 }: HealthProgramHeaderProps) => {
@@ -28,7 +27,7 @@ export const HealthProgramsHeaderCard = ({
       <Row className="md:hidden">
         <Column className="mt-8">
           {healthProgramHeaderDetails.icon && (
-            <Image
+            <img
               src={healthProgramHeaderDetails.icon}
               className="size-100"
               alt="Info"
@@ -73,7 +72,7 @@ export const HealthProgramsHeaderCard = ({
         </Column>
         <Column className="hidden md:block">
           {healthProgramHeaderDetails.icon && (
-            <Image
+            <img
               src={healthProgramHeaderDetails.icon}
               className="size-100 "
               alt="Info"

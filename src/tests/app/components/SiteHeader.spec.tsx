@@ -50,6 +50,7 @@ const plans: PlanDetails[] = [
     planName: 'BlueCross BlueShield of Tennessee',
     policies: 'Medical, Dental, Vision',
     subscriberName: 'Chris Hall',
+    termedPlan: false,
   },
 ];
 
@@ -60,6 +61,7 @@ function setVisibilityRules(vRules: VisibilityRules) {
   vRules.wellnessOnly = false;
   vRules.terminated = false;
   vRules.katieBeckNoBenefitsElig = false;
+  vRules.WellnessOnlyBenefitsQV = true;
 }
 function setisActiveAndNotFSAOnly(vRules: VisibilityRules) {
   vRules.futureEffective = false;
@@ -87,12 +89,24 @@ process.env.NEXT_PUBLIC_CVS_SSO_TARGET =
   'https://caremark/{DEEPLINK}?newLogin=yes';
 process.env.NEXT_PUBLIC_IDP_ON_LIFE = 'OnLife';
 process.env.NEXT_PUBLIC_IDP_EMBOLD = 'EMBOLD';
+process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY =
+  'https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml';
+process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET =
+  'https://uat.bcbst.sapphirecareselect.com/{DEEPLINK}';
+process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET =
+  'https://uat.bcbst.sapphirecareselect.com/search/search_specialties/980000071/1/%7B%22limit%22:10,%22radius%22:%2225%22,%22sort%22:%22has_sntx%20desc,%20distance%20asc%22,%22sort_translation%22:%22app_global_sort_distance%22,%22preserveFilters%22:true,%22is_pcp%22:%22Y%22%7D?network_id=39& locale=en';
+process.env.NEXT_PUBLIC_IDP_BLUE_365 = 'Blue365';
+process.env.NEXT_PUBLIC_BLUE_365_CATEGORY_SSO_TARGET =
+  'https://login-preview.blue365deals.com/app/blue365federation_blue365pie_1/exk9o0yn7dV1D3p9i0h7/sso/saml?RelayState=';
+process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS = 'sp_bluehealthrewards';
+process.env.NEXT_PUBLIC_IDP_PREMISE_HEALTH =
+  'https://scheduleruat.ehealthscreenings.com/SSO';
 
 describe('SiteHeader And Navigation Menu', () => {
   beforeEach(() => {
     vRules = {};
   });
-
+  const baseUrl = window.location.origin;
   it('should render the UI correctly', async () => {
     const component = renderUI(vRules);
     expect(screen.getByText('My Profile:')).toBeVisible();
@@ -110,8 +124,6 @@ describe('SiteHeader And Navigation Menu', () => {
   });
 
   it('should navigate the menu links correctly', async () => {
-    const baseUrl = window.location.origin;
-
     const component = renderUI(vRules);
 
     /**** Nav Links For Find Care & Cost  */
@@ -224,7 +236,22 @@ describe('SiteHeader And Navigation Menu', () => {
     /**** Nav Links For My Health  */
 
     fireEvent.click(screen.getAllByText('My Health')[0]);
-
+    expect(
+      screen.getByRole('link', {
+        name: 'Member Discounts External Link',
+      }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=Blue365&TargetResource=https://login-preview.blue365deals.com/app/blue365federation_blue365pie_1/exk9o0yn7dV1D3p9i0h7/sso/saml?RelayState=`,
+    );
+    expect(
+      screen.getByRole('link', {
+        name: 'Wellness Rewards External Link',
+      }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=sp_bluehealthrewards`,
+    );
     expect(
       screen.getByRole('link', {
         name: 'Member Wellness Center External Link',
@@ -286,7 +313,7 @@ describe('SiteHeader And Navigation Menu', () => {
 
     expect(
       screen.getByRole('link', { name: /Pharmacy Spending/i }),
-    ).toHaveProperty('href', `${baseUrl}/spendingSummary`);
+    ).toHaveProperty('href', `${baseUrl}/member/myplan/spendingsummary`);
 
     /**** Nav Links For Support  */
 
@@ -337,6 +364,20 @@ describe('SiteHeader And Navigation Menu', () => {
 
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
     expect(screen.getByText('Find a Provider')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Find a Provider External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&redirectLink=PCPSearchRedirect`,
+    );
+    expect(screen.getByText('Price Medical Care')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Price Medical Care External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&TargetResource=https://uat.bcbst.sapphirecareselect.com/?guided_search=wayfinding_home_findCost_header`,
+    );
+
     expect(screen.getByText('Primary Care Options')).toBeInTheDocument();
     expect(screen.getByText('Mental Health Options')).toBeVisible();
     expect(screen.getByText('Price Medical Care')).toBeVisible();
@@ -441,8 +482,16 @@ describe('SiteHeader And Navigation Menu', () => {
 
     fireEvent.click(screen.getAllByText('Find Care & Costs')[0]);
     expect(screen.getByText('Price Vision Care')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Price Vision Care External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://uat.bcbst.sapphirecareselect.com/auth/metadata.xml&TargetResource=https://uat.bcbst.sapphirecareselect.com/?guided_search=wayfinding_tile_cost_vision_health`,
+    );
+
     expect(component.baseElement).toMatchSnapshot();
   });
+
   it('should be able to render Bimetric Screening menu ', () => {
     vRules.ohdEligible = true;
     const component = renderUI(vRules);
@@ -584,5 +633,51 @@ describe('SiteHeader And Navigation Menu', () => {
     ).toBeNull();
 
     expect(component.container).toMatchSnapshot();
+  });
+
+  it('should show  Update Katie Beckett Banking Info if group id is 155000', async () => {
+    vRules.katieBeckettEligible = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('Update Katie Beckett Banking Info')).toBeVisible();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+  it('should redirect to Premise Health SSO onclick of Biometric Screening link in menu nav', async () => {
+    vRules.ohdEligible = true;
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getByText('My Health'));
+    expect(screen.getByText('Biometric Screening')).toBeVisible();
+    expect(
+      screen.getByRole('link', { name: 'Biometric Screening External Link' }),
+    ).toHaveProperty(
+      'href',
+      `${baseUrl}/sso/launch?PartnerSpId=https://scheduleruat.ehealthscreenings.com/SSO`,
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should show Member Handbook for WellnessOnlyBenefitsQV', async () => {
+    vRules.isWellnessOnlyBenefitsQV = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(screen.getByText('Member Handbook')).toBeVisible();
+
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should link to Member Handbook Pdf for Wellness eligible users', async () => {
+    vRules.isWellnessOnlyBenefitsQV = true;
+    setVisibilityRules(vRules);
+    const component = renderUI(vRules);
+    fireEvent.click(screen.getAllByText('My Plan')[0]);
+    expect(
+      screen
+        .getByText('Member Handbook')
+        .hasAttribute('/assets/pdf/Member_Wellness_Plan_Brochure.pdf'),
+    );
+    expect(component.baseElement).toMatchSnapshot();
   });
 });

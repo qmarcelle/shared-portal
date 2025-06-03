@@ -8,9 +8,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
       <main
         class="flex flex-col justify-center items-center page"
       >
-        <span
-          style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-        />
         <div
           class="flex flex-col app-content app-base-font-color"
         >
@@ -57,6 +54,29 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                   >
                     Some services have limits on how many are covered. You may still have a cost for them. If you reach maximum, you can still get them, but your plan won't cover them.
                   </p>
+                  <span
+                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                  />
+                  <span
+                    class="rich-text body-1 undefined"
+                  >
+                    <span>
+                      Services Used is based on your processed claims. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
+                       
+                    </span>
+                    <span
+                      class="link"
+                    >
+                      <a>
+                         start a chat 
+                      </a>
+                    </span>
+                    <span>
+                       or call us at [
+                      1-800-565-9000
+                      ].
+                    </span>
+                  </span>
                   <span
                     style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                   />
@@ -735,28 +755,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                       style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                     />
                   </div>
-                  <div
-                    class="flex flex-col"
-                  >
-                    <span
-                      class="rich-text body-2 undefined"
-                    >
-                      <span>
-                        Services Used is based on your processed claims. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
-                         
-                      </span>
-                      <span
-                        class="link"
-                      >
-                        <a>
-                           start a chat 
-                        </a>
-                      </span>
-                      <span>
-                         or call us at [1-800-000-0000].
-                      </span>
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -764,7 +762,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
               class="flex flex-col  flex-grow page-section-36_67 items-stretch"
             >
               <a
-                href="/findcare"
+                href="/member/findcare"
               >
                 <div
                   class="card-elevated small-section"
@@ -806,7 +804,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 </div>
               </a>
               <a
-                href="/claims"
+                href="/member/myplan/claims"
               >
                 <div
                   class="card-elevated small-section"
@@ -847,60 +845,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                   </div>
                 </div>
               </a>
-              <div
-                class="card-main large-section"
-              >
-                <div
-                  class="flex flex-col flex flex-col"
-                >
-                  <h2
-                    class="title-2"
-                  >
-                    Get Help with Services Used
-                  </h2>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                  />
-                  <span
-                    class="rich-text body-1 undefined"
-                  >
-                    <span>
-                      if you need help, please help reach out to us.You can
-                       
-                    </span>
-                    <span
-                      class="link"
-                    >
-                      <a>
-                        start a chat 
-                      </a>
-                    </span>
-                    <span>
-                      or call us at [1-800-000-000]
-                    </span>
-                  </span>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                  />
-                  <span
-                    class="rich-text body-1 undefined"
-                  >
-                    <span>
-                      You can also try our 
-                    </span>
-                    <span
-                      class="link"
-                    >
-                      <a>
-                        Benefits & Coverage FAQ.
-                      </a>
-                    </span>
-                  </span>
-                  <span
-                    style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                  />
-                </div>
-              </div>
             </div>
           </section>
         </div>
@@ -911,9 +855,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
     <main
       class="flex flex-col justify-center items-center page"
     >
-      <span
-        style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-      />
       <div
         class="flex flex-col app-content app-base-font-color"
       >
@@ -960,6 +901,29 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 >
                   Some services have limits on how many are covered. You may still have a cost for them. If you reach maximum, you can still get them, but your plan won't cover them.
                 </p>
+                <span
+                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+                />
+                <span
+                  class="rich-text body-1 undefined"
+                >
+                  <span>
+                    Services Used is based on your processed claims. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
+                     
+                  </span>
+                  <span
+                    class="link"
+                  >
+                    <a>
+                       start a chat 
+                    </a>
+                  </span>
+                  <span>
+                     or call us at [
+                    1-800-565-9000
+                    ].
+                  </span>
+                </span>
                 <span
                   style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
                 />
@@ -1638,28 +1602,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                     style="display: block; width: 1px; min-width: 1px; height: 8px; min-height: 8px;"
                   />
                 </div>
-                <div
-                  class="flex flex-col"
-                >
-                  <span
-                    class="rich-text body-2 undefined"
-                  >
-                    <span>
-                      Services Used is based on your processed claims. There may be a delay in the Services Used list updating. If you're unsure if a service has been used,
-                       
-                    </span>
-                    <span
-                      class="link"
-                    >
-                      <a>
-                         start a chat 
-                      </a>
-                    </span>
-                    <span>
-                       or call us at [1-800-000-0000].
-                    </span>
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -1667,7 +1609,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
             class="flex flex-col  flex-grow page-section-36_67 items-stretch"
           >
             <a
-              href="/findcare"
+              href="/member/findcare"
             >
               <div
                 class="card-elevated small-section"
@@ -1709,7 +1651,7 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
               </div>
             </a>
             <a
-              href="/claims"
+              href="/member/myplan/claims"
             >
               <div
                 class="card-elevated small-section"
@@ -1750,60 +1692,6 @@ exports[`ServicesUsed should render the UI correctly 1`] = `
                 </div>
               </div>
             </a>
-            <div
-              class="card-main large-section"
-            >
-              <div
-                class="flex flex-col flex flex-col"
-              >
-                <h2
-                  class="title-2"
-                >
-                  Get Help with Services Used
-                </h2>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-                />
-                <span
-                  class="rich-text body-1 undefined"
-                >
-                  <span>
-                    if you need help, please help reach out to us.You can
-                     
-                  </span>
-                  <span
-                    class="link"
-                  >
-                    <a>
-                      start a chat 
-                    </a>
-                  </span>
-                  <span>
-                    or call us at [1-800-000-000]
-                  </span>
-                </span>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-                />
-                <span
-                  class="rich-text body-1 undefined"
-                >
-                  <span>
-                    You can also try our 
-                  </span>
-                  <span
-                    class="link"
-                  >
-                    <a>
-                      Benefits & Coverage FAQ.
-                    </a>
-                  </span>
-                </span>
-                <span
-                  style="display: block; width: 1px; min-width: 1px; height: 24px; min-height: 24px;"
-                />
-              </div>
-            </div>
           </div>
         </section>
       </div>

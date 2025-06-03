@@ -43,7 +43,7 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                 class="body-1 max-w-[400px]"
                 style="display: block;"
               >
-                Your advisors are here to answer your questions. Chat online or call   1-866-258-3267, anytime 24/7.
+                Your advisors are here to answer your questions. Chat online or call 1-866-258-3267, anytime 24/7.
               </p>
               <span
                 style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -89,13 +89,13 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
         </div>
       </div>
       <div
-        class="flex flex-col relative bottom-[3rem]"
+        class="app-content self-center relative"
       >
         <div
-          class="app-content self-center"
+          class="relative -top-[3rem] w-full z-10"
         >
           <div
-            class="card-main large-section"
+            class="card-main large-section shadow-lg relative -mt-12 z-10 bg-white"
           >
             <div
               class="flex flex-col"
@@ -248,6 +248,10 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
               </section>
             </div>
           </div>
+        </div>
+        <div
+          class="flex flex-col w-full"
+        >
           <span
             style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
           />
@@ -346,51 +350,99 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
             </div>
           </section>
         </div>
-      </div>
-      <section
-        class="flex flex-col w-full -mt-16"
-      >
         <div
-          class="app-content self-center relative top-12"
+          class="card-main large-section"
         >
           <div
-            class="card-main large-section"
+            class="flex flex-col"
           >
-            <div
-              class="flex flex-col"
+            <h1
+              class="title-1 title-2"
             >
-              <h1
-                class="title-1 title-2"
+              Resources
+            </h1>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
+            />
+            <p
+              class="body-1"
+              style="display: block;"
+            >
+              Find answers to your health insurance questions or find a form.
+            </p>
+            <span
+              style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
+            />
+            <div
+              class="flex flex-col gap-y-4 md:gap-4 md:flex-row"
+            >
+              <a
+                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                href="/faq"
               >
-                Resources
-              </h1>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
-              />
-              <p
-                class="body-1"
-                style="display: block;"
-              >
-                Find answers to your health insurance questions or find a form.
-              </p>
-              <span
-                style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
-              />
-              <div
-                class="flex flex-col gap-y-4 md:gap-4 md:flex-row"
-              >
-                <a
-                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  href="/faq"
+                <div
+                  class="card-main px-4 py-3"
                 >
                   <div
-                    class="card-main px-4 py-3"
+                    class="flex flex-row items-center"
                   >
-                    <div
-                      class="flex flex-row items-center"
-                    >
+                    <img
+                      alt="call"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <div>
+                      <p
+                        class="link inline !no-underline"
+                      >
+                        Frequently Asked Questions
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a
+                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                href="https://www.healthcare.gov/glossary"
+              >
+                <div
+                  class="card-main px-4 py-3"
+                >
+                  <div
+                    class="flex flex-row items-center"
+                  >
+                    <img
+                      alt="call"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <div>
+                      <p
+                        class="link inline !no-underline"
+                      >
+                        Health Insurance Glossary
+                      </p>
                       <img
-                        alt="call"
+                        alt="external"
+                        class="inline"
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -400,31 +452,43 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div>
-                        <p
-                          class="link inline !no-underline"
-                        >
-                          Frequently Asked Questions
-                        </p>
-                      </div>
                     </div>
                   </div>
-                </a>
-                <a
-                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  href="https://www.healthcare.gov/glossary"
+                </div>
+              </a>
+              <a
+                class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
+                href="https://www.bcbst.com/use-insurance/documents-forms"
+              >
+                <div
+                  class="card-main px-4 py-3"
                 >
                   <div
-                    class="card-main px-4 py-3"
+                    class="flex flex-row items-center"
                   >
-                    <div
-                      class="flex flex-row items-center"
-                    >
+                    <img
+                      alt="call"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                    <span
+                      style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
+                    />
+                    <div>
+                      <p
+                        class="link inline !no-underline"
+                      >
+                        Find a Form
+                      </p>
                       <img
-                        alt="call"
+                        alt="external"
+                        class="inline"
                         data-nimg="1"
                         decoding="async"
                         height="40"
@@ -434,108 +498,40 @@ exports[`Amplify Health Support Page should render the page correctly 1`] = `
                         style="color: transparent;"
                         width="40"
                       />
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div>
-                        <p
-                          class="link inline !no-underline"
-                        >
-                          Health Insurance Glossary
-                        </p>
-                        <img
-                          alt="external"
-                          class="inline"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
                     </div>
                   </div>
-                </a>
-                <a
-                  class="basis-auto sm:basis-0 shrink sm:shrink-0 grow"
-                  href="https://www.bcbst.com/use-insurance/documents-forms"
-                >
-                  <div
-                    class="card-main px-4 py-3"
-                  >
-                    <div
-                      class="flex flex-row items-center"
-                    >
-                      <img
-                        alt="call"
-                        data-nimg="1"
-                        decoding="async"
-                        height="40"
-                        loading="lazy"
-                        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                        style="color: transparent;"
-                        width="40"
-                      />
-                      <span
-                        style="display: block; width: 16px; min-width: 16px; height: 1px; min-height: 1px;"
-                      />
-                      <div>
-                        <p
-                          class="link inline !no-underline"
-                        >
-                          Find a Form
-                        </p>
-                        <img
-                          alt="external"
-                          class="inline"
-                          data-nimg="1"
-                          decoding="async"
-                          height="40"
-                          loading="lazy"
-                          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                          style="color: transparent;"
-                          width="40"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="w-full surface-gradient-amplify-flipped"
+      >
         <div
-          class="w-full surface-gradient-amplify-flipped"
+          class="flex flex-col mt-16 text-white items-center px-4 gap-4"
         >
-          <div
-            class="flex flex-col mt-16 text-white items-center px-4 gap-4"
+          <h2
+            class="title-2 text-center"
           >
-            <h2
-              class="title-2 text-center"
-            >
-              Have feedback about our website?
-            </h2>
-            <p
-              class="body-1 text-center"
-              style="display: block;"
-            >
-              We want to hear from you. Share your feedback about your experience using our website.
-            </p>
-            <button
-              aria-label="Share Your Feedback"
-              class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
-              type="button"
-            >
-              Share Your Feedback
-            </button>
-          </div>
+            Have feedback about our website?
+          </h2>
+          <p
+            class="body-1 text-center"
+            style="display: block;"
+          >
+            We want to hear from you. Share your feedback about your experience using our website.
+          </p>
+          <button
+            aria-label="Share Your Feedback"
+            class="button-text primary text-center flex flex-row justify-center items-center min-w-fit null !bg-transparent outline outline-primary-content my-8 max-w-[256px]"
+            type="button"
+          >
+            Share Your Feedback
+          </button>
         </div>
-      </section>
+      </div>
     </section>
   </main>
 </div>

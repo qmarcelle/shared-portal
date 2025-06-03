@@ -1,0 +1,6 @@
+86kO96tDoBw4ojJ0ue6AT4VyksdGGI0PXAWmaiI9qMCieizbJu09JQQJ99BEACAAAAA30W9AAAASAZDO2aJV
+
+curl -u {username}[:{personalaccesstoken}] https://dev.azure.com/{organization}/_apis/projects?api-version=2.0
+
+BCBST-EIT
+

@@ -53,7 +53,8 @@ export const ClaimItem = ({
       if (isDollar) {
         return formatCurrency(value as number);
       } else {
-        return value as string;
+        // For non-dollar values, format numbers with 2 decimal places without currency symbol
+        return typeof value === 'number' ? value.toFixed(2) : (value as string);
       }
     } else {
       return defaultValue;
@@ -187,6 +188,15 @@ export const ClaimItem = ({
       className={`cursor-pointer ${className}`}
       type="button"
       onClick={() => callBack?.(claimInfo.encryptedClaimId ?? '')}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          callBack?.(claimInfo.encryptedClaimId ?? '');
+        }
+      }}
+      role="button"
+      aria-label={`${claimInfo.claimType} claim for ${claimInfo.memberName} from ${claimInfo.issuer} with status ${claimInfo.claimStatus}`}
+      tabIndex={0}
     >
       {getClaimItem()}
     </Card>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Card } from '../foundation/Card';
 import { IComponent } from '../IComponent';
 
@@ -21,7 +20,12 @@ export const ImageBanner = ({
       <section className="sm:flex sm:flex-row">
         {body}
         {imageSrc ? (
-          <Image className="size-10" src={imageSrc} alt={alt ?? 'image'} />
+          <img
+            className="size-10"
+            src={imageSrc}
+            alt={alt ?? 'image'}
+            style={{ width: 'auto', height: 'auto' }}
+          />
         ) : (
           image
         )}

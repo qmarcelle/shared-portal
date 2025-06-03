@@ -8,38 +8,93 @@ import {
 } from '@/components/foundation/AppModal';
 import { Column } from '@/components/foundation/Column';
 import { Radio } from '@/components/foundation/Radio';
+import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
+import alertErrorSvg from '@/public/assets/alert_error_red.svg';
+import {
+  formatPhoneNumber,
+  isValidMobileNumber,
+  validateLength,
+} from '@/utils/inputValidator';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const bottomNote =
-  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and confictions.';
-//const headerText = 'Confirm Phone Number';
+  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and conditions.';
 
 interface UpdateCommunicationTextProps {
   initNumber: string;
+  phone: string;
 }
 
 export const UpdateCommunicationText = ({
   changePage,
   pageIndex,
   initNumber,
+  phone,
 }: ModalChildProps & UpdateCommunicationTextProps) => {
   const { dismissModal } = useAppModalStore();
-  /* const [mainAuthDevice, setMainAuthDevice] = useState(initNumber);
-  const [newAuthDevice, setNewAuthDevice] = useState('');
-  const [confirmCode, setConfirmCode] = useState(''); */
+  const [newAuthDevice, setNewAuthDevice] = useState(phone);
+  const [mainAuthDevice, setMainAuthDevice] = useState(phone);
+  const [error, setError] = useState('');
+  const [nextDisabled, setNextDisabled] = useState(false);
 
-  /* const initNewDevice = async () => {
-    // Do API call for new device
-    setMainAuthDevice(newAuthDevice);
-    changePage?.(1, true);
+  useEffect(() => {
+    if (pageIndex === 0) {
+      setNewAuthDevice(phone);
+      setError('');
+      setNextDisabled(false);
+    }
+  }, [pageIndex, phone]);
+
+  const initNewDevice = async () => {
+    try {
+      if (newAuthDevice === '') {
+        setNewAuthDevice(mainAuthDevice);
+      } else {
+        setMainAuthDevice(newAuthDevice);
+      }
+      changePage?.(1, true); // Change to page 1 on successful validation
+      setNextDisabled(true);
+    } catch (errorMessage: unknown) {
+      console.error('Error updating the phone', errorMessage);
+      setNextDisabled(true);
+    }
   };
 
-  const submitCode = async () => {
-    // Do API call for submit code
-    changePage?.(3, false);
-  }; */
+  const validatePhoneNumber = (value: string) => {
+    setNewAuthDevice(value);
+    const isValidPhone = isValidMobileNumber(value);
+    const isValidLength = validateLength(value);
+
+    if (!isValidPhone || !isValidLength) {
+      setError('Please enter a valid Phone number.');
+      setNextDisabled(true);
+      console.log('Invalid phone number:', value);
+      return;
+    }
+
+    if (value === '') {
+      setError('');
+      setNextDisabled(true);
+      return;
+    }
+
+    setError('');
+    setNextDisabled(false);
+  };
+
+  const getNextCallback = (
+    newAuthDevice: string,
+    initNewDevice: () => void,
+  ): (() => void) | undefined => {
+    if (isValidMobileNumber(newAuthDevice)) {
+      return () => initNewDevice();
+    }
+    return undefined;
+  };
 
   const pages = [
     <InputModalSlide
@@ -48,13 +103,27 @@ export const UpdateCommunicationText = ({
       subLabel="Enter the new phone number you'd like to use for communications and security settings."
       buttonLabel="Next"
       actionArea={
-        <Column className="items-center">
+        <Column>
           <Spacer size={32} />
-          <TextField label="Phone Number" />
-          <Spacer size={24} />
+          <TextField
+            value={newAuthDevice}
+            valueCallback={(val) => validatePhoneNumber(val)}
+            label="Phone Number"
+          />
+          <Spacer size={16} />
+          {error && (
+            <div className="text-red-500 m-2 mt-0 ml-0">
+              <Row>
+                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
+                <TextBox className="body-1 pt-1.5 ml-2" text={error} />
+              </Row>
+            </div>
+          )}
         </Column>
       }
-      nextCallback={() => changePage?.(1, true)}
+      nextCallback={
+        nextDisabled ? undefined : getNextCallback(newAuthDevice, initNewDevice)
+      }
       cancelCallback={() => dismissModal()}
     />,
     <SelectModalSlide
@@ -68,9 +137,12 @@ export const UpdateCommunicationText = ({
           />
           <Spacer size={24} />
           <Column>
-            <Radio label="Text a code to (123) 456-0000" selected={true} />
             <Radio
-              label="Call with a code to (123) 456-0000"
+              label={`Text a code to ${formatPhoneNumber(newAuthDevice)}`}
+              selected={true}
+            />{' '}
+            <Radio
+              label={`Call with a code to ${formatPhoneNumber(newAuthDevice)}`}
               selected={false}
             />
           </Column>
