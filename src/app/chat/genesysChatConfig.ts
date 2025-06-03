@@ -136,7 +136,7 @@ interface ApiConfig {
 }
 
 import { logger } from '@/utils/logger';
-import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
+// import { CHAT_ENDPOINTS, getChatConfig } from './config/endpoints';
 import { ChatSettings } from './types/chat-types';
 
 /**
@@ -255,7 +255,7 @@ export function buildGenesysChatConfig({
 
   const env: NodeJS.ProcessEnv =
     typeof process !== 'undefined' ? process.env : ({} as NodeJS.ProcessEnv);
-  const endpoints = getChatConfig();
+  // const endpoints = getChatConfig();
 
   // --- Explicit sensible defaults for all required fields ---
   const defaults: Partial<GenesysChatConfig> = {
@@ -266,23 +266,23 @@ export function buildGenesysChatConfig({
       '',
     clickToChatEndpoint:
       (apiConfig.clickToChatEndpoint as string) ||
-      endpoints.CLICK_TO_CHAT_ENDPOINT ||
+      // endpoints.CLICK_TO_CHAT_ENDPOINT ||
       env.NEXT_PUBLIC_CLICK_TO_CHAT_ENDPOINT ||
       'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
     gmsChatUrl:
       staticConfig.gmsChatUrl ||
       env.NEXT_PUBLIC_GMS_CHAT_URL ||
-      endpoints.CLICK_TO_CHAT_ENDPOINT ||
+      // endpoints.CLICK_TO_CHAT_ENDPOINT ||
       'https://api3.bcbst.com/stge/soa/api/cci/genesyschat',
     widgetUrl:
       staticConfig.widgetUrl ||
       env.NEXT_PUBLIC_GENESYS_WIDGET_URL ||
-      CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
+      // CHAT_ENDPOINTS.WIDGETS_CSS_URL ||
       '/assets/genesys/plugins/widgets.min.css',
     clickToChatJs:
       staticConfig.clickToChatJs ||
       env.NEXT_PUBLIC_GENESYS_CLICK_TO_CHAT_JS ||
-      CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
+      // CHAT_ENDPOINTS.CLICK_TO_CHAT_SCRIPT_URL ||
       '/assets/genesys/click_to_chat.js',
     coBrowseLicence:
       staticConfig.coBrowseLicence || env.NEXT_PUBLIC_COBROWSE_LICENSE || '',
@@ -363,10 +363,14 @@ export function buildGenesysChatConfig({
       staticConfig.opsPhoneHours || env.NEXT_PUBLIC_OPS_HOURS || '',
     idCardChatBotName: staticConfig.idCardChatBotName || '',
     chatTokenEndpoint:
-      staticConfig.chatTokenEndpoint || endpoints.CHAT_TOKEN_ENDPOINT || '',
+      staticConfig.chatTokenEndpoint ||
+      // endpoints.CHAT_TOKEN_ENDPOINT ||
+      env.NEXT_PUBLIC_CHAT_TOKEN_ENDPOINT ||
+      '',
     coBrowseEndpoint:
       staticConfig.coBrowseEndpoint ||
-      endpoints.COBROWSE_LICENSE_ENDPOINT ||
+      // endpoints.COBROWSE_LICENSE_ENDPOINT ||
+      env.NEXT_PUBLIC_COBROWSE_LICENSE_ENDPOINT ||
       '',
     timestamp: new Date().toISOString(),
   };

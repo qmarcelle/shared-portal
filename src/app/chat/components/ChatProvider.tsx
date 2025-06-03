@@ -473,7 +473,7 @@ export default function ChatProvider({
         `[ChatProvider] Plan context hook error. Halting.`,
         planContextError,
       );
-      if (!configErrorStore) setErrorStore(planContextError);
+      if (!configErrorStore) setErrorStore(planContextError as Error | null);
       initializedRef.current = true;
       return;
     }

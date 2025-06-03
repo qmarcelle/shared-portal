@@ -3,12 +3,10 @@ import { resolveMaxWidth } from '../MaxWidthResolver';
 
 export interface TextBoxProps extends IComponent {
   text: string;
-  type?: string;
   ariaLabel?: string;
   id?: string;
-  display?: 'inline' | 'block';
   tabFocus?: number;
-  display?: 'block' | 'inline';
+  display?: 'inline' | 'block';
   type?: 'title-1' | 'title-2' | 'title-3' | 'body-1' | 'body-2';
   maxWidth?: string | number;
   isRequiredLabel?: boolean;
@@ -21,6 +19,7 @@ export const TextBox = ({
   ariaLabel,
   id,
   display = 'block',
+  tabFocus,
   maxWidth = '100%',
   isRequiredLabel = false,
 }: TextBoxProps) => {
