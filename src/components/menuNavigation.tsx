@@ -25,6 +25,7 @@ import {
   isNotWellnessQa,
   isNurseChatEligible,
   isPayMyPremiumEligible,
+  isPharmacyBenefitsEligible,
   isPriceDentalCareMenuOptions,
   isPriceVisionCareMenuOptions,
   isPrimaryCareMenuOption,
@@ -465,7 +466,7 @@ export const getMenuNavigation = (
     titleLink: 'View All Pharmacy',
     description: 'This is Pharmacy',
     category: '',
-    showOnMenu: isNotWellnessQa(rules),
+    showOnMenu:isNotWellnessQa(rules) && isPharmacyBenefitsEligible(rules),
     url: '/member/pharmacy',
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',
