@@ -27,14 +27,16 @@ const PriorAuthorization = ({
 }: PriorAuthorizationProps) => {
   const [filters, setFilters] = useState(initialFilters);
 
-  function getAuthorizationLanguage() {
+  function getAuthorizationLanguageForBlueCare() {
     return (
-      <Row className="body-1 flex-grow align-top mt-4 md:!flex !block" key={2}>
-        {isBlueCareEligible(data.visibilityRules)
-          ? // eslint-disable-next-line quotes
-            "We've put together a list of how and when to get referrals and authorizations for specific services"
-          : 'Looking for a prescription drug pre-approval? Go to your'}
-        {isBlueCareEligible(data.visibilityRules) ? (
+      <Column
+        className="body-1 flex-grow align-top mt-4 md:!flex !block"
+        key={2}
+      >
+        We&apos;ve put together a list of how and when to get referrals and
+        authorizations for specific
+        <Row>
+          services.
           <AppLink
             label="See what we cover"
             className="link !flex caremark pt-0"
@@ -45,14 +47,21 @@ const PriorAuthorization = ({
             }}
             icon={<Image src={externalIcon} alt="external" />}
           />
-        ) : (
-          <AppLink
-            label="caremark.com account"
-            className="link !flex caremark pt-0"
-            icon={<Image src={externalIcon} alt="external" />}
-            url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
-          />
-        )}
+        </Row>
+      </Column>
+    );
+  }
+
+  function getAuthorizationLanguage() {
+    return (
+      <Row className="body-1 flex-grow align-top mt-4 md:!flex !block" key={2}>
+        Looking for a prescription drug pre-approval? Go to your
+        <AppLink
+          label="caremark.com account"
+          className="link !flex caremark pt-0"
+          icon={<Image src={externalIcon} alt="external" />}
+          url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}`}
+        />
       </Row>
     );
   }
@@ -79,7 +88,9 @@ const PriorAuthorization = ({
                 />
                 or call us at [{data.phoneNumber}].
               </Row>,
-              getAuthorizationLanguage(),
+              isBlueCareEligible(data.visibilityRules)
+                ? getAuthorizationLanguageForBlueCare()
+                : getAuthorizationLanguage(),
             ]}
           />
         </section>
