@@ -52,6 +52,9 @@ export async function callVerifyEmailOtp(
       case 'Duplicate_Account':
         status = LoginStatus.DUPLICATE_ACCOUNT;
         break;
+      case 'NEW_EMAIL_REQUIRED':
+        status = LoginStatus.EMAIL_UNIQUENESS;
+        break;
     }
     if (!resp.data.data) throw 'Invalid API response'; //Unlikely to ever occur but needs to be here to appease TypeScript on the following line
     return {

@@ -10,7 +10,7 @@ import { Title } from '@/components/foundation/Title';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import buildSSOLink, { buildDropOffSSOLink } from '../actions/buildSSOPing';
 import ssoDropOffToPing from '../actions/dropOffToPing';
 import { SSO_IMPL_MAP, SSO_TEXT_MAP } from '../ssoConstants';
@@ -25,7 +25,7 @@ const LaunchSSO = () => {
     ? decodeURIComponent(alternateSSOText)
     : SSO_TEXT_MAP.get(partnerId ?? '');
   const ssoImpl = partnerId != null ? SSO_IMPL_MAP.get(partnerId) : 'Not Found';
-  const initialized = useRef(false);
+  //const initialized = useRef(false);
   const router = useRouter();
 
   const isDropOffSSO = (partnerId: string): boolean => {
@@ -44,38 +44,35 @@ const LaunchSSO = () => {
   };
   useEffect(() => {
     (async () => {
-      if (!initialized.current) {
-        initialized.current = true;
-        let url: string = '';
-        try {
-          setIsError(false);
-          if (isDropOffSSO(partnerId ?? '')) {
-            const ref: string = await ssoDropOffToPing(
-              ssoImpl != null ? ssoImpl : '',
-            );
+      let url: string = '';
+      try {
+        setIsError(false);
+        if (isDropOffSSO(partnerId ?? '')) {
+          const ref: string = await ssoDropOffToPing(
+            ssoImpl != null ? ssoImpl : '',
+          );
 
-            url = buildDropOffSSOLink(partnerId ?? '', ref);
-          } else {
-            url = buildSSOLink(searchParams.toString());
-          }
-          const ssoWindow = window.open(url, '_blank');
-          if (ssoWindow) {
-            ssoWindow.onload = () => {
-              if (ssoWindow.status === '500') {
-                setIsError(true);
-              }
-            };
-          }
-          ssoWindow?.addEventListener('SSOError', () => {
-            setIsError(true);
-            ssoWindow?.close();
-          });
-        } catch (error) {
-          console.log('catch block', error);
-          setIsError(true);
+          url = buildDropOffSSOLink(partnerId ?? '', ref);
+        } else {
+          url = buildSSOLink(searchParams.toString());
         }
-        setSSOUrl(url);
+        const ssoWindow = window.open(url, '_blank');
+        if (ssoWindow) {
+          ssoWindow.onload = () => {
+            if (ssoWindow.status === '500') {
+              setIsError(true);
+            }
+          };
+        }
+        ssoWindow?.addEventListener('SSOError', () => {
+          setIsError(true);
+          ssoWindow?.close();
+        });
+      } catch (error) {
+        console.log('catch block', error);
+        setIsError(true);
       }
+      setSSOUrl(url);
     })();
   }, [partnerId, searchParams]);
 
