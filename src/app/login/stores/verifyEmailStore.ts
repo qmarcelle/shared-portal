@@ -97,6 +97,16 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
           });
           return;
         }
+        if (resp.status == LoginStatus.EMAIL_UNIQUENESS) {
+          useLoginStore.setState({
+            emailUniqueness: true,
+            interactionData: {
+              interactionId: resp.data!.interactionId,
+              interactionToken: resp.data!.interactionToken,
+            },
+          });
+          return;
+        }
         // Process login response for further operations
         await useLoginStore.getState().processLogin(resp.data!);
       } catch (err) {

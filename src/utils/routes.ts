@@ -55,6 +55,7 @@ export const ROUTE_CONFIG: RouteConfig = {
       rule: false,
       children: {
         launch: {},
+        redirect: {},
         auth: {
           auth: true,
           inboundDestination: '/dashboard',
