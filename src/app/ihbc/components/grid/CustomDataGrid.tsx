@@ -1,23 +1,30 @@
 import { InnerPagination } from '@/components/foundation/Pagination/InnerPagination';
 import { useEffect, useState } from 'react';
-import DataGrid from 'react-data-grid';
+import { DataGrid } from 'react-data-grid';
 import 'react-data-grid/lib/styles.css';
 import { IColumnHeader, IGridConfig } from '../../models/GridConfigModels';
 import { GridEnum } from './GridEnum';
 import { RadioButtonFormatter } from './RadioButtonFormatter';
 
-interface CustomDataGridProps {
+interface CustomDataGridProps<T extends object> {
   gridconfig: IGridConfig;
   columns: IColumnHeader[];
-  rowdata: any[];
-  updateSelectedRow: (value: any) => void;
-  selectedRowId: any;
+  rowdata: T[];
+  updateSelectedRow: (value: T) => void;
+  selectedRowId: string | number | null;
 }
 
-function rowKeyGetter(rowdata: any) {
-  return rowdata.id;
+function rowKeyGetter<T extends object>(rowdata: T): string | number {
+  if (
+    typeof (rowdata as Record<string, unknown>).id === 'string' ||
+    typeof (rowdata as Record<string, unknown>).id === 'number'
+  ) {
+    return (rowdata as Record<string, unknown>).id as string | number;
+  }
+  return '';
 }
-function rowClass(rowdata: any, rowIdx: number) {
+
+function rowClass<T extends object>(rowdata: T, rowIdx: number) {
   return rowIdx % 2 === 0 ? 'odd' : 'even';
 }
 
@@ -43,21 +50,21 @@ const rowDisplayCount = (rowcount: number, gridconfig: IGridConfig) => {
   }
 };
 
-const CustomDataGrid = ({
+const CustomDataGrid = <T extends object>({
   gridconfig,
   columns,
   rowdata,
   updateSelectedRow,
   selectedRowId,
-}: CustomDataGridProps) => {
-  const [rows, setRows] = useState(rowdata);
-  const [selectedRow, setSelectedRow] = useState(null);
-  const [pagination, setPagination] = useState(gridconfig.pagination);
+}: CustomDataGridProps<T>) => {
+  const [rows, setRows] = useState<T[]>(rowdata);
+  const [selectedRow, setSelectedRow] = useState<string | number | null>(null);
+  const [pagination] = useState(gridconfig.pagination);
 
   useEffect(() => {
     setRows(rowdata);
     console.log('selectedRowId', selectedRowId);
-    setSelectedRow(selectedRowId!);
+    setSelectedRow(selectedRowId ?? null);
   }, [rowdata, selectedRowId]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,10 +72,9 @@ const CustomDataGrid = ({
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const paginatedRows = rows.slice(startIndex, endIndex); // Assuming your data is in a variable called 'rows'
-  const totalPages = Math.ceil(rows.length / pageSize);
+  const paginatedRows = rows.slice(startIndex, endIndex);
 
-  const handlePageChange = (newPage: any) => {
+  const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
   };
 
@@ -78,10 +84,12 @@ const CustomDataGrid = ({
       console.log('here', col.key);
       return {
         ...col,
-        renderCell: ({ row }: any) => (
+        renderCell: ({ row }: { row: T }) => (
           <RadioButtonFormatter
+            // @ts-expect-error: dynamic access
             value={row.planId}
             handleRadioChange={() => updateSelectedRow(row)}
+            // @ts-expect-error: dynamic access
             isSelected={row.planId == selectedRow}
           />
         ),
@@ -89,9 +97,8 @@ const CustomDataGrid = ({
     }
     return col;
   });
-  //In the RadioButtonRenderer component , pass the handleChange function and the row ID
 
-  let rowcount = rowdata.length;
+  const rowcount = rowdata.length;
   const dynamicHeight = rowDisplayCount(rowcount, gridconfig);
   return (
     <div>
@@ -115,7 +122,7 @@ const CustomDataGrid = ({
           currentPage={currentPage}
           totalCount={rowcount ?? 10}
           pageSize={pageSize}
-          onPageChange={(page: any) => handlePageChange(page)}
+          onPageChange={(page: number) => handlePageChange(page)}
         />
       )}
     </div>
