@@ -27,4 +27,6 @@ export const hingeHealthLinks: Map<string, string> = new Map([
   ['111166', process.env.NEXT_PUBLIC_HINGE_HEALTH_UNAKA ?? ''],
   ['101814', process.env.NEXT_PUBLIC_HINGE_HEALTH_UPRIGHT_HOLDINGS ?? ''],
   ['103293', process.env.NEXT_PUBLIC_HINGE_HEALTH_EAST_MAN_CREDIT ?? ''],
+  ['95536', process.env.NEXT_PUBLIC_HINGE_HEALTH_VICTORY_AUTOMOTIVE ?? ''],
+  ['144433', process.env.NEXT_PUBLIC_HINGE_HEALTH_VSL ?? ''],
 ]);
