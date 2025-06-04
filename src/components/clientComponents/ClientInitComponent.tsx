@@ -26,7 +26,7 @@ export const ClientInitComponent = () => {
     initPingOne();
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (document.activeElement === skipLinkRef.current && e.key === 'Tab') {
+      if (document.activeElement === skipLinkRef.current && e.key === 'Enter') {
         e.preventDefault();
         const targetEl = document.getElementById('skip-to-main');
         targetEl?.focus();
