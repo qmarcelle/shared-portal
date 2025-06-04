@@ -27,16 +27,19 @@ export const VirtualCareOptions = ({
         <TextBox text="The following options offer quick, high-quality care for a range of non-emergency needs." />
         <Spacer size={32} />
         <SlidingCarousel>
-          {options.map((item) => (
-            <VirtualCareOptionsCard
-              key={item.id}
-              id={item.id}
-              className="mr-4 shrink-0 "
-              description={item.description}
-              title={item.title}
-              url={item.url}
-            />
-          ))}
+          {options
+            .filter((item) => item.isShow)
+            .map((item) => (
+              <VirtualCareOptionsCard
+                key={item.id}
+                id={item.id}
+                className="mr-4 shrink-0"
+                description={item.description}
+                title={item.title}
+                url={item.url}
+                isShow={item.isShow}
+              />
+            ))}
         </SlidingCarousel>
         <Spacer size={23} />
         <AppLink label="Learn More & Compare Virtual Care Options" />

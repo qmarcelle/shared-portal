@@ -27,10 +27,12 @@ import {
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { getProcedurePillOptions } from '../dashboard/actions/getProcedurePillOptions';
+import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { FindCarePillBox } from './components/FindCarePillBox';
 import { FindCareData } from './models/find_care_data';
 import { PrimaryCareProvider } from './primaryCareOptions/components/PrimaryCareProvider';
 export type FindCareProps = { findCareData: FindCareData };
+const urlRedirect = '/member/myhealth/healthprograms/';
 
 const FindCare = ({ findCareData }: FindCareProps) => {
   const router = useRouter();
@@ -204,42 +206,52 @@ const FindCare = ({ findCareData }: FindCareProps) => {
                     description:
                       // eslint-disable-next-line quotes
                       "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need.",
-                    url: 'null',
+                    url: `${urlRedirect + HealthProgramType.AbleTo}`,
+                    isShow:
+                      isNewMentalHealthSupportAbleToEligible(visibilityRules),
                   },
                   {
                     id: '2',
                     title: 'Hinge Health Back & Joint Care',
                     description:
                       'You and your eligible family members can get help for back and joint issues with personalized therapy from the comfort of your home.',
-                    url: 'null',
+                    url: `${urlRedirect + HealthProgramType.HingeHealth}`,
+                    isShow: isHingeHealthEligible(visibilityRules),
                   },
                   {
                     id: '3',
                     title: 'Talk to a Nurse',
                     description:
                       'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care.',
-                    url: '',
+                    url: `${urlRedirect + HealthProgramType.TalkToNurse}`,
+                    isShow: isNurseChatEligible(visibilityRules),
                   },
                   {
                     id: '4',
                     title: 'Teladoc Health General & Urgent Care',
                     description:
                       'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
-                    url: 'null',
+                    url: `${urlRedirect + HealthProgramType.TeladocHealthGeneralUrgentCare}`,
+                    isShow: isTeladocEligible(visibilityRules),
                   },
                   {
                     id: '5',
                     title: 'Teladoc Health Primary Care Provider',
                     description:
                       'With Primary 360, you can talk to a board-certified primary care doctor by video or phone, seven days a week.',
-                    url: '',
+                    url: `${urlRedirect + HealthProgramType.TeladocPrimaryCareProvider}`,
+                    isShow: isTeladocPrimary360Eligible(visibilityRules),
                   },
                   {
                     id: '6',
                     title: 'Teladoc Mental Health',
                     description:
                       'Speak with a therapist, psychologist or psychiatrist seven days a week from anywhere.',
-                    url: '',
+                    url: `${urlRedirect + HealthProgramType.TeladocMentalHealth}`,
+                    isShow:
+                      isNewMentalHealthSupportMyStrengthCompleteEligible(
+                        visibilityRules,
+                      ),
                   },
                 ]}
               />

@@ -99,19 +99,27 @@ export const SlidingCarousel = ({ children }: SlidingCarouselProps) => {
   const progress = Math.round(
     ((currentSlide + slidesToShow) / children.length) * 100,
   );
-
+  let isMultipleSlide = true;
+  if (children.length <= 2) {
+    isMultipleSlide = false;
+  }
+  console.log('isMultipleSlide', isMultipleSlide);
   return (
-    <div className="slider-container carousel flex flex-col">
+    <div
+      className={`slider-container carousel flex flex-col slider-wrapper ${!isMultipleSlide ? 'single-slide' : ''}`}
+    >
       <Slider ref={sliderRef} {...settings}>
         {children}
       </Slider>
       <Spacer size={8} />
-      <div className="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center">
-        <div
-          className="primary-bg-color h-1.5 rounded-full"
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
+      {isMultipleSlide && (
+        <div className="w-[200px] bg-gray-200 rounded-full h-1.5 dark:bg-gray-700 self-center">
+          <div
+            className="slide-card primary-bg-color h-1.5 rounded-full"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+      )}
     </div>
   );
 };

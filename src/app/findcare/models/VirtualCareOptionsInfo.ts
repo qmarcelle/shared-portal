@@ -3,4 +3,5 @@ export interface VirtualCareOptionsInfo {
   title: string;
   description: string;
   url?: string;
+  isShow?: boolean;
 }
