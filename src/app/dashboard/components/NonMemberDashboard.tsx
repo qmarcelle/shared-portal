@@ -50,6 +50,10 @@ const NonMemberDashboard = ({ profiles }: NonMemberDashboardProps) => {
                       dependent or other dependent individual.
                     </div>
                   }
+                  onClick={() => {
+                    window.location.href =
+                      '/member/profile/accountsharing/personalrep';
+                  }}
                 />
               </Column>
             </Card>
