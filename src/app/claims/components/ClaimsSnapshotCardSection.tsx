@@ -15,7 +15,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
-import DownloadIcon from '../../../../public/assets/download.svg';
 
 interface ClaimsSnapshotCardSectionProps extends IComponent {
   claims: ClaimDetails[];
@@ -110,20 +109,7 @@ export const ClaimsSnapshotCardSection = ({
         aria-label="Claims list controls"
       >
         <Row className="body-1 flex-grow align-top mb-0 ">
-          <span id="filter-label">Filter Results:</span>{' '}
-          <a
-            className="link ml-2 flex"
-            href="#"
-            aria-label={`Download ${claims.length} claims`}
-          >
-            {claims.length} Claims
-            <Image
-              src={DownloadIcon}
-              className="w-[20px] h-[20px] ml-2"
-              alt=""
-              aria-hidden="true"
-            />
-          </a>
+          <span id="filter-label">Filter Results: {claims.length} Claims</span>   
         </Row>
 
         <Row className="body-1 items-end">

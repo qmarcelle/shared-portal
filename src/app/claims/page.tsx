@@ -39,7 +39,7 @@ const MyClaimsPage = async ({
       getPharmacyClaims(),
     ]);
 
-    if (result.status !== 200 || pharmacyClaims.status !== 200) {
+    if (result.status !== 200) {
       throw new Error('Failed to fetch claims data');
     }
 
