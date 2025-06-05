@@ -175,9 +175,15 @@ export const useSubmitApplicationStore = createWithEqualityFn<State & Actions>(
               : 'N',
           applSubmittedDate: formatDateToIntlLocale(new Date()),
           applStatusCode: 'string',
-          medicalRatePerMonth: medicalPlan ? +medicalPlan.rate! : undefined,
-          dentalRatePerMonth: dentalPlan ? +dentalPlan.rate! : undefined,
-          visionRatePerMonth: visionPlan ? +visionPlan.rate! : undefined,
+          medicalRatePerMonth: medicalPlan
+            ? +medicalPlan.rate!.substring(1)
+            : undefined,
+          dentalRatePerMonth: dentalPlan
+            ? +dentalPlan.rate!.substring(1)
+            : undefined,
+          visionRatePerMonth: visionPlan
+            ? +visionPlan.rate!.substring(1)
+            : undefined,
           dependents: undefined,
           addresses: undefined, // residence, billing, etc
           planSearchMembers: [], // members on plan

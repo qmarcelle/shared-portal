@@ -101,6 +101,7 @@ export const Dropdown = ({
           return (
             <Row
               key={item.label}
+              onClick={() => onSelect(item)}
               className={`${isSelcted ? 'dropdown-item-selected' : ''} dropdown-item p-2 cursor-pointer`}
             >
               {isSelcted ? (
@@ -110,7 +111,7 @@ export const Dropdown = ({
               ) : (
                 <div className={showSelected ? 'size-5 mx-2' : ''}></div>
               )}
-              <div key={item.value} onClick={() => onSelect(item)}>
+              <div key={item.value}>
                 <p className="whitespace-nowrap mx-2">{item.label}</p>
               </div>
             </Row>

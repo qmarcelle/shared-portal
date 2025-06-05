@@ -50,8 +50,8 @@ export const ihbcSchema = z.object({
         .optional(),
       changeTobaccoUse: z
         .object({
-          primaryApplicant: z.enum(['Y','N']).optional(),
-          spouse: z.enum(['Y','N']).optional(),
+          primaryApplicant: z.enum(['Y', 'N']).optional(),
+          spouse: z.enum(['Y', 'N']).optional(),
         })
         .optional(),
     })
@@ -107,7 +107,10 @@ export const ihbcSchema = z.object({
           z.object({
             firstName: z.string().min(1).max(15),
             dob: z.string().min(10, 'Date of Birth cannot be empty'),
-            relationship: z.string().min(1),
+            relationship: z
+              .string()
+              .min(1)
+              .refine((item) => item != '0'),
             gender: z.enum(['M', 'F']),
             tobaccoUse: z
               .enum(['Y', 'N', '0'])
@@ -120,7 +123,10 @@ export const ihbcSchema = z.object({
           z.object({
             firstName: z.string().min(1).max(15),
             dob: z.string().min(10, 'Date of Birth cannot be empty'),
-            relationship: z.string().min(1),
+            relationship: z
+              .string()
+              .min(1)
+              .refine((item) => item != '0'),
             gender: z.enum(['M', 'F']),
             tobaccoUse: z
               .enum(['Y', 'N', '0'])
