@@ -418,6 +418,11 @@ export function getHingeHealthLink(session: Session | null) {
   }
   return hingeHealthLink;
 }
+
+export function isDentalEligible(rules: VisibilityRules | undefined) {
+  return rules?.dental && activeAndHealthPlanMember(rules);
+}
+
 export function isVisionEligible(rules: VisibilityRules | undefined) {
   return rules?.vision && activeAndHealthPlanMember(rules);
 }

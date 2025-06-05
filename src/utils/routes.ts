@@ -225,6 +225,14 @@ export const ROUTE_CONFIG: RouteConfig = {
             },
           },
         },
+        pharmacy: {
+          rule: (r) => r.medical,
+          children: {
+            '*': {
+              title: (category) => category,
+            },
+          },
+        },
       },
     },
     claims: {

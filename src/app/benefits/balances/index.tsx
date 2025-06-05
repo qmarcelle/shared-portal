@@ -4,8 +4,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import {
-  isDentalCostEstimator,
-  isFindADentist,
+  isDentalEligible,
   isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -38,15 +37,14 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
               product={data?.medical}
               phone={phoneNumber}
             />
-            {isFindADentist(data?.visibilityRules) &&
-              isDentalCostEstimator(data?.visibilityRules) && (
-                <BalanceSectionWrapper
-                  key="Dental"
-                  title="Dental Balance"
-                  product={data?.dental}
-                  phone={phoneNumber}
-                />
-              )}
+            {isDentalEligible(data?.visibilityRules) && (
+              <BalanceSectionWrapper
+                key="Dental"
+                title="Dental Balance"
+                product={data?.dental}
+                phone={phoneNumber}
+              />
+            )}
 
             {isVisionEligible(data?.visibilityRules) && (
               <VisionBalance
