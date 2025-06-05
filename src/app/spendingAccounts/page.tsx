@@ -21,7 +21,10 @@ const SpendingAccountPage = async () => {
       ? mapAccountInfo(session.user.vRules)
       : ({} as HealthAccountInfo);
     const spendAccDTO = await myHealthCareAccountService(accountInfo);
-
+    let expensesURL: string = '';
+    if (session!.user?.vRules?.healthEquity) {
+      expensesURL = 'https://learn.healthequity.com/qme/';
+    }
     return (
       spendAccDTO.data && (
         <SpendingAccount
@@ -31,6 +34,7 @@ const SpendingAccountPage = async () => {
           isExternalSpendingAccounts={
             session!.user?.vRules?.externalSpendingAcct || false
           }
+          expensesURL={expensesURL}
         />
       )
     );

@@ -61,21 +61,20 @@ async function processHRAInfo(memeCk: number): Promise<HRABean> {
 export async function myHealthCareAccountService(
   accountInfo: HealthAccountInfo,
 ): Promise<ActionResponse<number, MyHealthCareResponseDTO>> {
+  const session = await auth();
+  const memberDetails: LoggedInMember = await getLoggedInMember(session);
+  let healthAccInfo: HealthAccountInfo[] = [];
+  if (accountInfo) {
+    healthAccInfo = [
+      {
+        bankName: accountInfo.bankName,
+        accountTypes: accountInfo.accountTypes,
+        linkName: SPEND_ACC_BANK_MAP[accountInfo.bankName.toLowerCase()] || '',
+        linkUrl: SPEND_ACC_SSO_MAP[accountInfo.bankName.toLowerCase()] || '',
+      },
+    ];
+  }
   try {
-    const session = await auth();
-    const memberDetails: LoggedInMember = await getLoggedInMember(session);
-    let healthAccInfo: HealthAccountInfo[] = [];
-    if (accountInfo) {
-      healthAccInfo = [
-        {
-          bankName: accountInfo.bankName,
-          accountTypes: accountInfo.accountTypes,
-          linkName:
-            SPEND_ACC_BANK_MAP[accountInfo.bankName.toLowerCase()] || '',
-          linkUrl: SPEND_ACC_SSO_MAP[accountInfo.bankName.toLowerCase()] || '',
-        },
-      ];
-    }
     const hraBean: HRABean = {
       currentBalance: '',
       employerAllocation: '',
@@ -117,8 +116,8 @@ export async function myHealthCareAccountService(
     return {
       status: 200,
       data: {
-        userId: '',
-        healthAccountInfo: [],
+        userId: session?.user.id,
+        healthAccountInfo: healthAccInfo,
         isApiError: true,
       },
     };

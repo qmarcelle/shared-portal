@@ -8,7 +8,6 @@ export interface MyHealthCareResponseDTO {
   exflexSpndAccnt?: FSABalance;
   exHRAAccnt?: HRABalance;
   healthAccountInfo?: HealthAccountInfo[];
-  isHealthEquity?: boolean;
   isApiError: boolean;
 }
 

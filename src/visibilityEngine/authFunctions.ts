@@ -40,7 +40,7 @@ export const AUTH_FUNCTION_MAP = {
   rxEssentialPlusEligible: 'RX_ESSENTIAL_PLUS_ELIGIBLE',
   rxPreferredEligible: 'RX_PREFERRED_ELIGIBLE',
   medicarePrescriptionPaymentPlanEligible:
-    'MEDICARE_PRESCRIPTION_PAYMENT_PLAN_ELIGIBLE',
+    'MEDICARE_PRESCIPTION_PAYMENT_PLAN_ELIGIBLE',
   diabetesManagementEligible: 'TELADOC_DIABETESMGMT',
   questSelectEligible: 'QUEST_SELECT',
   isEmboldHealth: 'EMBOLD_HEALTH',

@@ -21,6 +21,7 @@ export type SpendingAccountProps = {
   spendAccDTO: MyHealthCareResponseDTO;
   accountInfo: HealthAccountInfo;
   isExternalSpendingAccounts: boolean;
+  expensesURL: string;
 };
 
 const SpendingAccount = ({
@@ -28,6 +29,7 @@ const SpendingAccount = ({
   spendAccDTO,
   accountInfo,
   isExternalSpendingAccounts,
+  expensesURL,
 }: SpendingAccountProps) => {
   const spendBalDetails = useMemo(
     () => filterRecentYears(spendAccDTO?.acctYearlyData || []),
@@ -56,15 +58,23 @@ const SpendingAccount = ({
           className="m-1 mb-0 !font-light !text-[32px]/[40px]"
         />
         {isExternalSpendingAccounts && (
-          <ExternalSpendingAccountSSOLink accountInfo={accountInfo} />
+          <ExternalSpendingAccountSSOLink
+            accountInfo={
+              spendAccDTO?.healthAccountInfo?.length
+                ? spendAccDTO.healthAccountInfo[0]
+                : accountInfo
+            }
+          />
         )}
+
         <Column className="app-content app-base-font-color">
           <section className="flex flex-row items-start app-body">
             {/* this check is temporary until the external accounts integration
             is complete. Would currently display missing information if left in */}
-            {!isExternalSpendingAccounts && (
-              <Column className="flex-grow page-section-63_33 items-stretch">
-                {spendBalDetails.length > 0
+
+            <Column className="flex-grow page-section-63_33 items-stretch">
+              {!isExternalSpendingAccounts &&
+                (spendBalDetails.length > 0
                   ? spendBalDetails.map((item, index) => (
                       <SpendingAccountsBalance
                         key={index}
@@ -90,11 +100,11 @@ const SpendingAccount = ({
                         className="mt-4"
                         errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
                       />
-                    )}
-              </Column>
-            )}
+                    ))}
+            </Column>
+
             <Column className="flex-grow page-section-36_67 items-stretch mt-4">
-              <RelatedLinks isHealthEquity={spendAccDTO.isHealthEquity!} />
+              <RelatedLinks expensesURL={expensesURL} />
               <Spacer size={52} />
               <Card className="!mt-0 md:ml-8 p-8">
                 <Column className="flex flex-col">
