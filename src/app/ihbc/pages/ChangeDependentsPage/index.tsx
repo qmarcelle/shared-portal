@@ -6,12 +6,12 @@ import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
 import { TextField } from '@/components/foundation/TextField';
 import { LoggedInMember } from '@/models/app/loggedin_member';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import { useContext, useEffect, useState } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import getCounties from '../../actions/getCounties';
 import { HighlightedHeader } from '../../components/HighlightedHeader';
 import { Table } from '../../components/Table';
-import { DependentsContext } from '../../providers/dependentsProvider';
 import { LoggedInMemberContext } from '../../providers/loggedInMemberProvider';
 import { getAvailRelationships } from '../../rules/relationships';
 import { IHBCSchema } from '../../rules/schema';
@@ -26,6 +26,7 @@ export const ChangeDependentsPage = () => {
     watch,
     formState: { isValid, errors },
     getValues,
+    setValue,
   } = useFormContext<IHBCSchema>();
 
   const addDeps = getValues('addDeps');
@@ -65,10 +66,15 @@ export const ChangeDependentsPage = () => {
   console.error('Field Errors', errors);
   const valid = useSelectiveValidation<IHBCSchema>('addDeps.existingDeps');
 
-  const { members } = useContext(DependentsContext);
+  const member = useContext(LoggedInMemberContext);
 
   const [counties, setCounties] = useState<string[]>([]);
   const zipCode = watch('addDeps.zip');
+
+  useEffect(() => {
+    setValue('addDeps.zip', member.homeAddress.zipcode);
+  }, []);
+
   useEffect(() => {
     if (zipCode?.length == 5) {
       loadCounties();
@@ -82,6 +88,14 @@ export const ChangeDependentsPage = () => {
   async function loadCounties() {
     const result = await getCounties(zipCode);
     if (result) {
+      if (
+        result.find(
+          (item) =>
+            item.toLowerCase() == member.homeAddress.county.toLowerCase(),
+        )
+      ) {
+        setValue('addDeps.county', toPascalCase(member.homeAddress.county));
+      }
       setCounties(result);
     }
   }
@@ -96,10 +110,11 @@ export const ChangeDependentsPage = () => {
     name: 'addDeps.dependents',
   });
 
-  const { fields: existingDepsFields } = useFieldArray({
-    control,
-    name: 'addDeps.existingDeps',
-  });
+  const { fields: existingDepsFields, remove: removeExistingDep } =
+    useFieldArray({
+      control,
+      name: 'addDeps.existingDeps',
+    });
 
   const generateItemBuilder = <
     T extends keyof Omit<NonNullable<IHBCSchema['addDeps']>, 'county' | 'zip'>,
@@ -198,9 +213,13 @@ export const ChangeDependentsPage = () => {
               }}
             />
           </td>
-          {depType == 'dependents' && (
+          {item.relationship.toLowerCase() != 'self' && (
             <Button
-              callback={() => remove(index)}
+              callback={() =>
+                depType == 'dependents'
+                  ? remove(index)
+                  : removeExistingDep(index)
+              }
               className="w-fit"
               type="ghost"
               label="Remove"
@@ -227,7 +246,9 @@ export const ChangeDependentsPage = () => {
         <div className="shrink-0">
           <Dropdown
             label="County"
-            initialSelectedValue="Select County"
+            initialSelectedValue={
+              getValues('addDeps.county') ?? 'Select County'
+            }
             items={[
               { label: 'Select County', value: 'Select County' },
               ...counties.map((item) => ({ label: item, value: item })),

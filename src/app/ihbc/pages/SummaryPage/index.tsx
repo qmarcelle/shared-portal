@@ -27,13 +27,21 @@ export const SummaryPage = () => {
       state.eventDate,
       state.selectedEffectiveDate,
     ]);
-  const [medicalPlan, dentalPlan, visionPlan] = useBenefitSelectionStore(
-    (state) => [
-      state.selectedMedicalPlan,
-      state.selectedDentalPlan,
-      state.selectedVisionPlan,
-    ],
-  );
+  const [
+    selectedMedicalPlan,
+    selectedDentalPlan,
+    selectedVisionPlan,
+    currentMedicalPlan,
+    currentDentalPlan,
+    currentVisionPlan,
+  ] = useBenefitSelectionStore((state) => [
+    state.selectedMedicalPlan,
+    state.selectedDentalPlan,
+    state.selectedVisionPlan,
+    state.medicalPlan[0],
+    state.currentDentalPlan[0],
+    state.currentVisionPlan[0],
+  ]);
   const [isOEActive] = useIhbcMainStore((state) => [state.isOEActive]);
   const [goBackWard, goForward] = useNavigationStore((state) => [
     state.goBackWard,
@@ -191,7 +199,7 @@ export const SummaryPage = () => {
       >
         <LabelledData
           label="Add Dependents"
-          value={data.addDeps?.dependents ? 'Yes' : 'No'}
+          value={(data.addDeps?.dependents?.length ?? 0) > 0 ? 'Yes' : 'No'}
         />
         {data.addDeps?.dependents?.map((item) => (
           <AddDependentDataViewer key={item.firstName} dependent={item} />
@@ -280,20 +288,26 @@ export const SummaryPage = () => {
         {[
           {
             label: 'Medical Benefit Plan Change',
-            value: medicalPlan,
+            value: selectedMedicalPlan,
+            existingValue: currentMedicalPlan,
           },
           {
             label: 'Dental Plan Change',
-            value: dentalPlan,
+            value: selectedDentalPlan,
+            existingValue: currentDentalPlan,
           },
           {
             label: 'Vision Plan Change',
-            value: visionPlan,
+            value: selectedVisionPlan,
+            existingValue: currentVisionPlan,
           },
-        ].map(({ label, value }) => (
+        ].map(({ label, value, existingValue }) => (
           <Column key={label}>
-            <LabelledData label={label} value={value ? 'Yes' : 'No'} />
-            {value && (
+            <LabelledData
+              label={label}
+              value={value != existingValue ? 'Yes' : 'No'}
+            />
+            {value != existingValue && value && (
               <>
                 <TextBox className="text-primary" text={value.planName} />
                 <LabelledData label="Rate per month" value={value.rate} />

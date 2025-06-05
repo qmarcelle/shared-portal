@@ -53,14 +53,14 @@ export const LandingPage = () => {
 
 Plan changes related to qualifying events will be effective based on the event date. Termination and/or cancellation requests will be effective on the requested effective date. If you have questions, please contact 1-800-845-2738."
       />
-      {applications.length > 0 && (
-        <PastApplications applications={applications} />
-      )}
       <Button
         callback={goForward}
         className="w-fit self-center"
         label="Start New Change Request"
       />
+      {applications.length > 0 && (
+        <PastApplications applications={applications} />
+      )}
     </Column>
   );
 };

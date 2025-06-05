@@ -37,7 +37,7 @@ const InitialSelectionPage = () => {
         members.map((item) => ({
           firstName: `${item.firstName}`,
           dob: item.dob,
-          relationship: item.relationship == 'M' ? 'Self' : item.relationship!,
+          relationship: item.relationship == 'M' ? 'Self' : '0',
           tobaccoUse: '0' as const,
           gender: item.gender == 'M' ? ('M' as const) : ('F' as const),
         })),
