@@ -2,6 +2,7 @@ import NextAuth, { Session } from 'next-auth';
 import { getToken, JWT } from 'next-auth/jwt';
 import { NextResponse } from 'next/server';
 import authConfig from './auth.config';
+import { WPS_REDIRECTS } from './lib/wps_redirects';
 import { SessionUser } from './userManagement/models/sessionUser';
 import { API_BASE_PATH } from './utils/routes';
 import { getRoutingRedirect, getURLRewrite } from './utils/routing';
@@ -35,8 +36,31 @@ const getSession = function (token: JWT, session: Session) {
   };
 };
 
+/**
+ * Return a redirect to a new URL, preserving any query parameters in the original request
+ * @param path 
+ * @param oldUrl 
+ * @returns 
+ */
+const redirectWithQueryString = (path: string, oldUrl: URL): Response => {
+  const newUrl = new URL(path, oldUrl);
+  if (oldUrl.search) {
+    if (!newUrl.search) {
+      newUrl.search = oldUrl.search;
+    } else {
+      oldUrl.searchParams.forEach((key, val) => newUrl.searchParams.append(key, val));
+    }
+  }
+  return Response.redirect(newUrl);
+}
+
 export default auth(async (req) => {
+  const { method, nextUrl } = req;
   const isLoggedIn = !!req.auth;
+  const wpsRedirect = WPS_REDIRECTS[nextUrl.pathname];
+  if (wpsRedirect) {
+    return redirectWithQueryString(wpsRedirect, nextUrl);
+  }
   let session = null;
   if (isLoggedIn) {
     const jwt = await getToken({
@@ -52,7 +76,6 @@ export default auth(async (req) => {
   //console.log(`MW session=${JSON.stringify(session)}`);
 
   const routeUser = getRouteUser(session);
-  const { method, nextUrl } = req;
   console.log(`Router <${routeUser}> ${method} ${nextUrl.pathname}`);
   //We check for a rewrite here so we can check the PZN/breadcrumb logic against the internal URL path, then return the rewrite at the end
   const rewrite = getURLRewrite(nextUrl.pathname, session?.user?.vRules);
@@ -98,11 +121,7 @@ export default auth(async (req) => {
         new URL(`/login?TargetResource=${encoded}`, nextUrl),
       );
     } else {
-      const redirectUrl = new URL(redirect, nextUrl);
-      if (nextUrl.searchParams) {
-        redirectUrl.search = nextUrl.search;
-      }
-      return Response.redirect(new URL(redirectUrl, nextUrl));
+      return redirectWithQueryString(redirect, nextUrl);
     }
   }
 
