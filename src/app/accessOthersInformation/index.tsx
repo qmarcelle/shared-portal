@@ -240,6 +240,7 @@ const AccessOthersInformation = ({
                         policies: 'Dental',
                       },
                     ],
+                    accessStatus: 'Full Access',
                   },
                   {
                     memberName: 'Jane Doe',
@@ -252,6 +253,7 @@ const AccessOthersInformation = ({
                         policies: 'Medical, Vision, Dental',
                       },
                     ],
+                    accessStatus: 'No Access',
                   },
                 ]}
               />

@@ -9,4 +9,5 @@ export type AccessOtherPlanDetails = {
   memberName: string;
   dob: string;
   otherPlanData: OtherPlanDetails[] | null;
+  accessStatus: string;
 };

@@ -6,7 +6,10 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { Title } from '@/components/foundation/Title';
 import { IComponent } from '@/components/IComponent';
-import { ShareOutsideMyPlanDetails } from '@/models/app/getSharePlanDetails';
+import {
+  AccessStatus,
+  ShareOutsideMyPlanDetails,
+} from '@/models/app/getSharePlanDetails';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import addIcon from '../../../../public/assets/add.svg';
@@ -60,15 +63,19 @@ export const ShareOutsideMyPlanComponent = ({
           </>
         ) : (
           <>
-            {ShareOutsideMyPlanDetails?.map((item, index) => (
-              <ShareOutsideMyPlanItem
-                key={index}
-                className="mb-4"
-                memberName={item.memberName}
-                DOB={item.DOB}
-                sharingType={item.accessStatus}
-              />
-            ))}
+            {ShareOutsideMyPlanDetails?.map(
+              (item, index) =>
+                item.accessStatus &&
+                item.accessStatus !== AccessStatus.NoAccess && (
+                  <ShareOutsideMyPlanItem
+                    key={index}
+                    className="mb-4"
+                    memberName={item.memberName}
+                    DOB={item.DOB}
+                    sharingType={item.accessStatus}
+                  />
+                ),
+            )}
           </>
         )}
 

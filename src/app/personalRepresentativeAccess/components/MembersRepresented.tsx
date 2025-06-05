@@ -6,6 +6,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { IComponent } from '@/components/IComponent';
+import { AccessStatus } from '@/models/app/getSharePlanDetails';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { useState } from 'react';
 import {
@@ -61,34 +62,38 @@ export const MembersRepresented = ({
         )}
         <Spacer size={32} />
         <Column className="flex flex-col">
-          {representativesData?.map((item, index) => (
-            <MembersRepresentativeItem
-              onRequestSuccessCallBack={() =>
-                updateMemberAccessToPending(item.memeck!)
-              }
-              onInviteSuccessCallBack={() =>
-                updateMemberInviteStateToPending(item.memeck!)
-              }
-              key={index}
-              className="mb-4"
-              memberMemeCk={item.memeck}
-              requesteeFHRID={item.requesteeFHRID}
-              requesteeUMPID={item.requesteeUMPID}
-              DOB={item.DOB}
-              isOnline={item.isOnline}
-              fullAccess={item.fullAccess}
-              isRepresentative={isRepresentative}
-              visibilityRules={visibilityRules}
-              allowUpdates={allowUpdates}
-              accessStatus={item.accessStatus!}
-              accessStatusIsPending={item.accessStatusIsPending!}
-              inviteStatus={item.inviteStatus!}
-              id={item.id}
-              policyId={item.policyId}
-              createdAt={item.createdAt}
-              memberRepresentativeData={item}
-            />
-          ))}
+          {representativesData?.map(
+            (item, index) =>
+              item.accessStatus &&
+              item.accessStatus !== AccessStatus.NoAccess && (
+                <MembersRepresentativeItem
+                  onRequestSuccessCallBack={() =>
+                    updateMemberAccessToPending(item.memeck!)
+                  }
+                  onInviteSuccessCallBack={() =>
+                    updateMemberInviteStateToPending(item.memeck!)
+                  }
+                  key={index}
+                  className="mb-4"
+                  memberMemeCk={item.memeck}
+                  requesteeFHRID={item.requesteeFHRID}
+                  requesteeUMPID={item.requesteeUMPID}
+                  DOB={item.DOB}
+                  isOnline={item.isOnline}
+                  fullAccess={item.fullAccess}
+                  isRepresentative={isRepresentative}
+                  visibilityRules={visibilityRules}
+                  allowUpdates={allowUpdates}
+                  accessStatus={item.accessStatus!}
+                  accessStatusIsPending={item.accessStatusIsPending!}
+                  inviteStatus={item.inviteStatus!}
+                  id={item.id}
+                  policyId={item.policyId}
+                  createdAt={item.createdAt}
+                  memberRepresentativeData={item}
+                />
+              ),
+          )}
         </Column>
         <Spacer size={12} />
         <Divider></Divider>
