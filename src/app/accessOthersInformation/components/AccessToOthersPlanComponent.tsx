@@ -1,6 +1,7 @@
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
+import { AccessStatus } from '@/models/app/getSharePlanDetails';
 import { ReactElement } from 'react';
 import { AccessOtherPlanDetails } from '../models/AccessOtherPlanDetails';
 import { AccessToOthersPlanItem } from './AccessToOthersPlanItem';
@@ -28,15 +29,19 @@ export const AccessToOthersPlanComponent = ({
         </div>
       )}
       <Column className="flex flex-col">
-        {accessOtherPlanDetails?.map((item, index) => (
-          <AccessToOthersPlanItem
-            key={index}
-            className="mt-8"
-            planDetails={item.otherPlanData}
-            name={item.memberName}
-            dob={item.dob}
-          />
-        ))}
+        {accessOtherPlanDetails?.map(
+          (item, index) =>
+            item.accessStatus &&
+            item.accessStatus !== AccessStatus.NoAccess && (
+              <AccessToOthersPlanItem
+                key={index}
+                className="mt-8"
+                planDetails={item.otherPlanData}
+                name={item.memberName}
+                dob={item.dob}
+              />
+            ),
+        )}
       </Column>
     </Column>
   );
