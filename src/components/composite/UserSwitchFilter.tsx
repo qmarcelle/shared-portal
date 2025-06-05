@@ -155,7 +155,27 @@ export const UserSwitchFilter = ({
       },
     ],
     [UserRole.AUTHORIZED_USER]: [],
-    [UserRole.NON_MEM]: [],
+    [UserRole.NON_MEM]: [
+      {
+        label: 'All Profile Settings',
+        className:
+          'font-bold !flex primary-color underline underline-offset-3 title-3 ',
+        icon: <Image src={parentPageArrowIcon} alt="" />,
+        url: '/member/profile',
+      },
+
+      {
+        label: 'Security Settings',
+        className:
+          'font-bold primary-color body-bold body-1 mt-4 manage-underline',
+        url: '/member/profile/security',
+      },
+      {
+        label: 'Sharing & Permissions',
+        className: 'font-bold primary-color body-bold body-1 manage-underline',
+        url: '/member/profile/accountsharing',
+      },
+    ],
   };
   const userLinks = selected.type
     ? userLinksMap[selected.type]
