@@ -7,6 +7,8 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import { UserProfile } from '@/models/user_profile';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { SwitchAccountComponent } from './SwitchAccountComponent';
 
 type NonMemberDashboardProps = {
@@ -14,6 +16,10 @@ type NonMemberDashboardProps = {
 };
 
 const NonMemberDashboard = ({ profiles }: NonMemberDashboardProps) => {
+  const router = useRouter();
+  useEffect(() => {
+    router.refresh();
+  }, []);
   return (
     <div className="flex flex-col justify-center w-full items-center page">
       <Column className="app-content app-base-font-color">
