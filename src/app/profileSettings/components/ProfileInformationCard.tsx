@@ -23,8 +23,6 @@ interface ProfileInformationCardProps extends IComponent {
   email: string;
   visibilityRules?: VisibilityRules;
   status: number;
-  emailVerified: boolean;
-  phoneVerified: boolean;
 }
 
 export const ProfileInformationCard = ({
@@ -34,8 +32,6 @@ export const ProfileInformationCard = ({
   phoneNumber,
   visibilityRules,
   status,
-  emailVerified,
-  phoneVerified,
 }: ProfileInformationCardProps) => {
   const { showAppModal } = useAppModalStore();
   phoneNumber = formatPhoneNumber(phoneNumber);
@@ -94,8 +90,6 @@ export const ProfileInformationCard = ({
               divider={true}
               onOffLabelEnabled={false}
               profile="Phone Number"
-              emailVerified={emailVerified}
-              phoneVerified={phoneVerified}
             />
             <Spacer size={16} />
             <UpdateRowWithStatus
