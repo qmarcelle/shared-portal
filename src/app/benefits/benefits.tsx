@@ -55,6 +55,7 @@ const benefitDetailsUrlMapping: Record<string, string> = {
   D: 'dental',
   V: 'vision',
   S: 'wellness',
+  R: 'pharmacy',
 };
 
 const Benefits = ({

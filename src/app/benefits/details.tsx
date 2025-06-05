@@ -4,7 +4,9 @@ import { InfoCard } from '@/components/composite/InfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import estimateCost from '@/public/assets/estimate_cost.svg';
+import pharmacyCost from '@/public/assets/estimate_pharmacy_cost.svg';
 import servicesUsed from '@/public/assets/services_used.svg';
+import { CVS_DEEPLINK_MAP, CVS_DRUG_SEARCH_INIT } from '../sso/ssoConstants';
 import { BalanceSectionWrapper } from './balances/components/BalanceSection';
 import {
   SpendingAccountSection,
@@ -122,18 +124,34 @@ export const Details = ({
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch md:ml-4">
             <>
-              <InfoCard
-                label="Estimate Costs"
-                body="Plan your upcoming care costs before you make an appointment."
-                icon={estimateCost}
-                link="/member/findcare"
-              />
-              <InfoCard
-                label="Services Used"
-                body="View a list of common services, the maximum amount covered by your plan and how many you've used."
-                icon={servicesUsed}
-                link="/member/myplan/servicesused"
-              />
+              {selectedBenefitDetails.benefitType ===
+                BenefitType.MEDICAL.toString() && (
+                <>
+                  <InfoCard
+                    label="Estimate Costs"
+                    body="Plan your upcoming care costs before you make an appointment."
+                    icon={estimateCost}
+                    link="/member/findcare"
+                  />
+                  <InfoCard
+                    label="Services Used"
+                    body="View a list of common services, the maximum amount covered by your plan and how many you've used."
+                    icon={servicesUsed}
+                    link="/member/myplan/servicesused"
+                  />
+                </>
+              )}
+              {selectedBenefitDetails.benefitType ===
+                BenefitType.RX.toString() && (
+                <>
+                  <InfoCard
+                    label="Find Drug Costs and Coverage"
+                    body="Your pharmacy benefits are managed by CVS Caremark. You can estimate drug costs and view your coverage at caremark.com."
+                    icon={pharmacyCost}
+                    link={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_CVS_CAREMARK}&TargetResource=${process.env.NEXT_PUBLIC_CVS_SSO_TARGET?.replace('{DEEPLINK}', CVS_DEEPLINK_MAP.get(CVS_DRUG_SEARCH_INIT)!)}`}
+                  />
+                </>
+              )}
               {/* Add Medical Balances Card */}
               {[
                 BenefitType.MEDICAL.toString(),

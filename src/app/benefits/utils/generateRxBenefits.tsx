@@ -21,7 +21,7 @@ export function generateRxBenefits(
           medicalBenefits?.networkTiers,
           filterAndGroupByCategoryId(medicalBenefits?.coveredServices, 107),
           { category: 'Prescription Drugs', id: 107 },
-          BenefitType.MEDICAL,
+          BenefitType.RX,
         ),
     },
   ];
