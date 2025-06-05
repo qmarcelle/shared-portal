@@ -144,7 +144,7 @@ export const UpdateCommunicationEmail = ({
     <ChangeAuthDeviceSlide
       key={0}
       label="Update Email Address"
-      subLabel="Enter the new email address you'd like to use for communications and security settings."
+      subLabel=" Enter the email address you'll like to use for communication and security settings. You'll need to update your multi-factor authentication email address separately."
       actionArea={
         <Column>
           <TextField

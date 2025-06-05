@@ -87,7 +87,7 @@ exports[`UpdateCommunicationEmail renders initial page with email input 1`] = `
         class="body-1 text-center"
         style="display: block; max-width: 100%;"
       >
-        Enter the new email address you'd like to use for communications and security settings.
+         Enter the email address you'll like to use for communication and security settings. You'll need to update your multi-factor authentication email address separately.
       </p>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -165,7 +165,7 @@ exports[`UpdateCommunicationEmail shows error for invalid email address 1`] = `
         class="body-1 text-center"
         style="display: block; max-width: 100%;"
       >
-        Enter the new email address you'd like to use for communications and security settings.
+         Enter the email address you'll like to use for communication and security settings. You'll need to update your multi-factor authentication email address separately.
       </p>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -269,7 +269,7 @@ exports[`UpdateCommunicationEmail shows error if email addresses do not match 1`
         class="body-1 text-center"
         style="display: block; max-width: 100%;"
       >
-        Enter the new email address you'd like to use for communications and security settings.
+         Enter the email address you'll like to use for communication and security settings. You'll need to update your multi-factor authentication email address separately.
       </p>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -400,7 +400,7 @@ exports[`UpdateCommunicationEmail validates email address and shows confirmation
         class="body-1 text-center"
         style="display: block; max-width: 100%;"
       >
-        Enter the new email address you'd like to use for communications and security settings.
+         Enter the email address you'll like to use for communication and security settings. You'll need to update your multi-factor authentication email address separately.
       </p>
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
