@@ -20,8 +20,6 @@ export interface UpdateRowWithStatusProps extends IComponent {
   enabled?: boolean;
   onOffLabelEnabled?: boolean;
   profile?: string;
-  emailVerified?: boolean;
-  phoneVerified?: boolean;
 }
 
 export const UpdateRowWithStatus = ({
@@ -35,8 +33,6 @@ export const UpdateRowWithStatus = ({
   divider = false,
   onClick,
   profile,
-  emailVerified,
-  phoneVerified,
 }: UpdateRowWithStatusProps) => {
   return (
     <Column className={className || ''} onClick={onClick}>
@@ -73,30 +69,6 @@ export const UpdateRowWithStatus = ({
                 <TextBox
                   className="body-1 pt-1.5 ml-2"
                   text="No email address on file."
-                />
-              </Row>
-            </div>
-          )}
-
-          {!emailVerified && profile == 'Phone Number' && subLabel && (
-            <div className="text-red-500">
-              <Row>
-                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
-                <TextBox
-                  className="body-1 pt-1.5 ml-2"
-                  text="Please confirm your phone number."
-                />
-              </Row>
-            </div>
-          )}
-
-          {!phoneVerified && profile == 'Email Address' && subLabel && (
-            <div className="text-red-500 ">
-              <Row>
-                <Image src={alertErrorSvg} className="icon mt-1" alt="alert" />
-                <TextBox
-                  className="body-1 pt-1.5 ml-2"
-                  text="Please confirm your email address."
                 />
               </Row>
             </div>

@@ -25,8 +25,6 @@ const ProfileSettings = ({ status, data, userRole }: ProfileSettingsProps) => {
               email={data.email}
               visibilityRules={data.visibilityRules}
               status={status}
-              emailVerified={data.emailVerified}
-              phoneVerified={data.phoneVerified}
             />
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
