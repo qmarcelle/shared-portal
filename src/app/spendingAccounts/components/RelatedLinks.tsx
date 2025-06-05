@@ -9,10 +9,10 @@ import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
 
 interface RelatedLinkProps {
-  isHealthEquity: boolean;
+  expensesURL: string;
 }
 
-export const RelatedLinks = ({ isHealthEquity }: RelatedLinkProps) => {
+export const RelatedLinks = ({ expensesURL }: RelatedLinkProps) => {
   return (
     <Card className="!mt-0 md:ml-8 p-8">
       <Column className="flex flex-col">
@@ -31,13 +31,13 @@ export const RelatedLinks = ({ isHealthEquity }: RelatedLinkProps) => {
           spending account
         </Row>
         <Spacer size={24} />
-        {isHealthEquity && (
+        {expensesURL && (
           <>
             <Divider></Divider>
             <Spacer size={24} />
             <AppLink
               label="Eligible Expenses"
-              url="http://learn.healthequity.com/qme/"
+              url={expensesURL}
               target="_blank"
               className="link n0-underline !flex caremark"
               icon={<Image src={extrenalIcon} alt="" />}

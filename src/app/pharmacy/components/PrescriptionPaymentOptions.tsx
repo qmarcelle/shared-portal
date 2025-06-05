@@ -142,6 +142,7 @@ export const PrescriptionPaymentsOptions = ({
         icon={icon}
         displayStyle="flex"
         url="https://www.ssa.gov/medicare/part-d-extra-help"
+        target="_blank"
         callback={
           trackLinkAnalytics(
             'social security extra help program',
