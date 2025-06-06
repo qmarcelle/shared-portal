@@ -24,7 +24,7 @@ export const ViewCareOptions = ({
   options,
 }: ViewCareOptionsProps) => {
   const router = useRouter();
-  const visibleOptions = options.filter((item) => item.visible);
+  const visibleOptions = options.filter((item) => item.visible == true);
 
   if (visibleOptions.length === 0) return null;
 
@@ -33,7 +33,7 @@ export const ViewCareOptions = ({
       <Column className="flex flex-col">
         <Title className="title-1" text="View Care Options" />
         <Spacer size={32} />
-        {options.map((item, index) => (
+        {visibleOptions.map((item, index) => (
           <Card
             key={index}
             className="mb-4"

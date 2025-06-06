@@ -103,7 +103,6 @@ export const SlidingCarousel = ({ children }: SlidingCarouselProps) => {
   if (children.length <= 2) {
     isMultipleSlide = false;
   }
-  console.log('isMultipleSlide', isMultipleSlide);
   return (
     <div
       className={`slider-container carousel flex flex-col slider-wrapper ${!isMultipleSlide ? 'single-slide' : ''}`}
