@@ -2,6 +2,7 @@
 
 import { AccessOnMyPlanComponent } from '@/app/accessOthersInformation/components/AccessOnMyPlanComponent';
 import { AccordionListCard } from '@/components/composite/AccordionListCard';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -12,15 +13,18 @@ import { AnalyticsData } from '@/models/app/analyticsData';
 import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
 import { googleAnalytics } from '@/utils/analytics';
 import { AccessToOthersPlanComponent } from './components/AccessToOthersPlanComponent';
+import { OtherMemberDetails } from './models/OtherPlanInfoDetails';
 
 export type AccessOtherInformationProps = {
   accessOtherInformationDetails?: SharePlanInformationDetails;
   isImpersonated?: boolean;
+  auResp?: OtherMemberDetails | null;
 };
 
 const AccessOthersInformation = ({
   accessOtherInformationDetails,
   isImpersonated = false,
+  auResp,
 }: AccessOtherInformationProps) => {
   function trackAccessOthersInformationAnalytics(
     clickText: string,
@@ -37,6 +41,24 @@ const AccessOthersInformation = ({
     };
     googleAnalytics(analytics);
   }
+  const accessOtherPlanDetails = auResp?.memberData?.map((member) => {
+    const memberPlans = auResp.plans?.filter(
+      (plan) => plan.memeCk === member.memberCk,
+    );
+
+    return {
+      memberName: member.memberName,
+      dob: member.DOB,
+      otherPlanData:
+        memberPlans?.map((plan) => ({
+          planName: plan.planName,
+          subscriber: plan.subscriberName,
+          id: plan.id,
+          policies: plan.policies,
+        })) || [],
+    };
+  });
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -207,64 +229,29 @@ const AccessOthersInformation = ({
               ]}
             ></AccordionListCard>
           </Column>
-          {/* {accessOtherPlanDetails ? ( // uncomment while API Integration */}
           <Column className="page-section-63_33 items-stretch">
             <Card className="large-section">
-              <AccessToOthersPlanComponent
-                header={
+              <>
+                <Header type="title-2" text="Others' Plans" />
+                <Spacer size={16} />
+                <TextBox text="Below is the access granted to you to other member's plan information." />
+
+                {accessOtherPlanDetails ? (
                   <Column>
-                    <Header type="title-2" text="Others' Plans" />
+                    <AccessToOthersPlanComponent
+                      infoIcon={false}
+                      accessOtherPlanDetails={accessOtherPlanDetails || null}
+                    />
                   </Column>
-                }
-                subHeader={
-                  <Column>
-                    <TextBox text="Below is the access granted to you to other member's plan information." />
-                  </Column>
-                }
-                infoIcon={false}
-                accessOtherPlanDetails={[
-                  {
-                    memberName: 'Ellie Williams',
-                    dob: '01/01/1993',
-                    otherPlanData: [
-                      {
-                        planName: 'BlueCross BlueShield of Tennessee',
-                        subscriber: 'Ellie Williams',
-                        id: 'ABC1234567890',
-                        policies: 'Medical, Vision, Dental',
-                      },
-                      {
-                        planName: 'Tennessee Valley Authority',
-                        subscriber: 'Ellie Williams',
-                        id: 'ABC1234555555',
-                        policies: 'Dental',
-                      },
-                    ],
-                    accessStatus: 'Full Access',
-                  },
-                  {
-                    memberName: 'Jane Doe',
-                    dob: '01/01/1988',
-                    otherPlanData: [
-                      {
-                        planName: 'BlueCross BlueShield of Tennessee',
-                        subscriber: 'Ellie Williams',
-                        id: 'ABC1234567890',
-                        policies: 'Medical, Vision, Dental',
-                      },
-                    ],
-                    accessStatus: 'No Access',
-                  },
-                ]}
-              />
+                ) : (
+                  <ErrorInfoCard
+                    className="mt-4"
+                    errorText="You have not been granted access to other member's plan information"
+                  />
+                )}
+              </>
             </Card>
           </Column>
-          {/* ) : ( // Error Handling uncomment while API Integration */}
-          {/* <ErrorInfoCard
-              className="mt-4"
-              errorText="You have not been granted access to other member's plan information"
-            />
-          )} */}
         </section>
       </Column>
     </main>
