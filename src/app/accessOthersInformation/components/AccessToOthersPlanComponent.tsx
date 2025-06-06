@@ -1,5 +1,4 @@
 import { Column } from '@/components/foundation/Column';
-import { Spacer } from '@/components/foundation/Spacer';
 import { IComponent } from '@/components/IComponent';
 import { AccessStatus } from '@/models/app/getSharePlanDetails';
 import { ReactElement } from 'react';
@@ -15,19 +14,9 @@ interface AccessToOthersPlanComponentProps extends IComponent {
 
 export const AccessToOthersPlanComponent = ({
   accessOtherPlanDetails,
-  header,
-  subHeader,
 }: AccessToOthersPlanComponentProps) => {
   return (
     <Column className="flex flex-col">
-      {header}
-      {subHeader && (
-        <div>
-          {' '}
-          <Spacer size={16} />
-          {subHeader}
-        </div>
-      )}
       <Column className="flex flex-col">
         {accessOtherPlanDetails?.map(
           (item, index) =>
