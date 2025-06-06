@@ -53,7 +53,7 @@ export const OnMyPlanComponent = ({
         ))}
       </Column>
       <Spacer size={32} />
-      <AppLink label="View Benefits & Coverage" />
+      <AppLink label="View Benefits & Coverage" url="/member/myplan/benefits" />
     </Column>
   );
 };

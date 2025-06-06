@@ -33,7 +33,7 @@ export const AboutPlanContactInfo = () => {
               keeping your account secure. For that info,{' '}
             </span>,
             <span className="link" key={1}>
-              <a> check profile settings.</a>
+              <a href="/profileSettings"> check profile settings.</a>
             </span>,
           ]}
         />
