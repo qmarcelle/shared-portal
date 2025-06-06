@@ -56,21 +56,25 @@ export const Pagination = <T,>({
   return (
     <>
       {wrapperBuilder(itemList)}
-      {label && pageItems.get(currentPage) ? (
-        <section className="flex justify-center self-center pt-5">
-          <TextBox
-            className="m-2 mt-0"
-            text={`Viewing ${currentPage > 1 ? (currentPage - 1) * pageSize + (pageItems.get(currentPage)?.length ?? 0) : pageItems.get(currentPage)?.length} of ${totalCount ?? initialList.length} ${label}`}
-          ></TextBox>
-        </section>
-      ) : null}
-      <InnerPagination
-        className="pagination"
-        currentPage={currentPage}
-        totalCount={totalCount ?? initialList.length}
-        pageSize={pageSize}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
+      {(totalCount ?? 0) > pageSize && (
+        <>
+          {label && pageItems.get(currentPage) ? (
+            <section className="flex justify-center self-center pt-5">
+              <TextBox
+                className="m-2 mt-0"
+                text={`Viewing ${currentPage > 1 ? (currentPage - 1) * pageSize + (pageItems.get(currentPage)?.length ?? 0) : pageItems.get(currentPage)?.length} of ${totalCount ?? initialList.length} ${label}`}
+              ></TextBox>
+            </section>
+          ) : null}
+          <InnerPagination
+            className="pagination"
+            currentPage={currentPage}
+            totalCount={totalCount ?? initialList.length}
+            pageSize={pageSize}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
+        </>
+      )}
     </>
   );
 };

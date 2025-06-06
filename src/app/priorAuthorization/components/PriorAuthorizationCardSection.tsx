@@ -32,7 +32,7 @@ const PriorAuthFilterTile = ({ user }: { user: PriorAuthFilterDetails }) => {
 const PriorAuthFilterHead = ({ user }: { user: PriorAuthFilterDetails }) => {
   return (
     <div className="body-1 link">
-      <Row className="p-1 items-center">
+      <Row className="p-1 items-center font-bold">
         <PriorAuthFilterTile user={user} />
         <Image
           src={downIcon}
