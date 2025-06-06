@@ -74,7 +74,9 @@ exports[`PlanContactInformation should render the UI correctly 1`] = `
               <span
                 class="link"
               >
-                <a>
+                <a
+                  href="/profileSettings"
+                >
                    check profile settings.
                 </a>
               </span>
