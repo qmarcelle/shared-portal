@@ -4,7 +4,7 @@ import { portalSvcsApi } from '@/utils/api/portalApi';
 import { logger } from '@/utils/logger';
 import { ProcedureResponse } from '../models/procedureResponse';
 
-export async function getProcedureCategories(): Promise<ProcedureResponse> {
+export async function getProcedureCategories(): Promise<ProcedureResponse | null> {
   try {
     const response = await portalSvcsApi.get(
       '/CostEstimatorService/ProcedureCategories/member',
@@ -13,6 +13,6 @@ export async function getProcedureCategories(): Promise<ProcedureResponse> {
     return response?.data;
   } catch (error) {
     logger.error('Error Response from Get Procedure Categories API', error);
-    throw error;
+    return null;
   }
 }
