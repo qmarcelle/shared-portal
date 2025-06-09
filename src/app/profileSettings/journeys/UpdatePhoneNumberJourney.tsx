@@ -26,11 +26,11 @@ export const UpdatePhoneNumberJourney = ({
   pageIndex,
   phoneNumber,
 }: ModalChildProps & InviteToRegisterProps) => {
-  const {dismissModal} = useAppModalStore();
+  const { dismissModal } = useAppModalStore();
   const pages = [
     <InputModalSlide
       label="Update Phone Number"
-      subLabel="Enter the new phone number you'd like to use for communications and security settings."
+      subLabel="Enter the phone number you'll like to use for communication and security settings. You'll need to update your multi-factor authentication phone number separately."
       buttonLabel="Next"
       actionArea={
         <Column className="items-center">
