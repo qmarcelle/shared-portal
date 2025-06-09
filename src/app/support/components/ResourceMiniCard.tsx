@@ -34,11 +34,18 @@ export const ResourceMiniCard = ({
       </Link>
     );
   }
-  function getSupportFaqForBlueCare() {
+  function getResourceForBlueCare() {
+    let url = '';
+    if (label === 'Find a Form') {
+      url = process.env.NEXT_PUBLIC_BLUECARE_FIND_FORM_URL ?? '';
+    } else if (label === 'Frequently Asked Questions') {
+      url = process.env.NEXT_PUBLIC_BLUECARE_SUPPORT_FAQ_URL ?? '';
+    }
+
     return (
       <Link
         className={className ?? ''}
-        href={process.env.NEXT_PUBLIC_BLUECARE_SUPPORT_FAQ_URL ?? ''}
+        href={url}
         target="_blank"
         rel="noopener,noreferrer"
       >
@@ -64,10 +71,9 @@ export const ResourceMiniCard = ({
 
   return (
     <>
-      {isBlueCareEligible(vRules) &&
-      label === 'Frequently Asked Questions' &&
-      openInNewWindow
-        ? getSupportFaqForBlueCare()
+      {(isBlueCareEligible(vRules) && label === 'Frequently Asked Questions') ||
+      (label === 'Find a Form' && openInNewWindow)
+        ? getResourceForBlueCare()
         : getResourceForOthers()}
     </>
   );
