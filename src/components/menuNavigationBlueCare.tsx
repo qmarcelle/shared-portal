@@ -84,7 +84,6 @@ export const getMenuBlueCareNavigation = (
         openInNewWindow: true,
       },
       {
-        //reminder
         id: 96,
         title: 'View Claims',
         description: 'This is View Claims',
@@ -108,7 +107,6 @@ export const getMenuBlueCareNavigation = (
       },
 
       {
-        //REMINDER
         id: 73,
         title: 'Update Katie Beckett Banking Info',
         description: 'This is Updating Katie Beckett Banking Info',
@@ -255,6 +253,7 @@ export const getMenuBlueCareNavigation = (
         },
         url: 'https://bluecare.bcbst.com/get-care/documents-forms',
         external: true,
+        openInNewWindow: true,
       },
       {
         id: 85,
