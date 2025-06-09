@@ -38,13 +38,17 @@ export const getPersonalRepresentativeData = async (): Promise<
       status: 200,
       data: {
         representativeData:
-          session?.user.currUsr.role === 'PR'
+          session?.user.currUsr.role === 'PR' ||
+          session?.user.currUsr.role === 'NM'
             ? await computeMemberProfile(pbeResponse, selectedPR)
             : computePRProfile(pbeResponse, selectedPlan),
         visibilityRules: session?.user.vRules,
-        isRepresentativeLoggedIn: session?.user.currUsr.role === 'PR',
+        isRepresentativeLoggedIn:
+          session?.user.currUsr.role === 'PR' ||
+          session?.user.currUsr.role === 'NM',
         isMatureMinor:
-          session?.user.currUsr.role === 'PR'
+          session?.user.currUsr.role === 'PR' ||
+          session?.user.currUsr.role === 'NM'
             ? false
             : computeMemberAge(new Date(pbeResponse.getPBEDetails[0].dob)),
       },
