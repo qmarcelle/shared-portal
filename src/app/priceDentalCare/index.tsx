@@ -87,10 +87,12 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
     [networks],
   );
 
-  const categoryDropdownValues = useMemo(
-    () => getCategoryDropdownValues(categories),
-    [categories],
-  );
+  const categoryDropdownValues = useMemo(() => {
+    if (categories) {
+      return getCategoryDropdownValues(categories);
+    }
+    return [];
+  }, [categories]);
 
   type procedureOption = {
     label: string;
@@ -157,7 +159,7 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
       const category = categoryDropdownValues.find(
         (item) => item.value === selectedCategory,
       );
-      const procedureCategory = categories.procedureCategories.find(
+      const procedureCategory = categories?.procedureCategories.find(
         (item) => item.id === parseInt(selectedCategory),
       );
       if (category === undefined) {
