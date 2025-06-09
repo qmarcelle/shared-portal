@@ -13,7 +13,6 @@ import {
   isBlueCareEligible,
   isBlueCareNotEligible,
   isChipRewardsEligible,
-  isEnrollEligible,
   isHealthProgamAndResourceEligible,
   isHingeHealthEligible,
   isKatieBeckettEligible,
@@ -303,7 +302,9 @@ export const getMenuNavigation = (
         url: '/balances',
         external: true,
       },
-      {
+      /******* Commenting as of now as per Bug-75649 the requirement is on hold ********/
+
+      /*  {
         id: 74,
         title: 'Enroll in a Health Plan',
         description: 'This is Enroll in a Health Plan',
@@ -314,7 +315,8 @@ export const getMenuNavigation = (
           isNotWellnessQa(rules),
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
         external: true,
-      },
+      }, */
+
       {
         id: 101,
         title: 'Manage My Policy',
@@ -466,7 +468,7 @@ export const getMenuNavigation = (
     titleLink: 'View All Pharmacy',
     description: 'This is Pharmacy',
     category: '',
-    showOnMenu:isNotWellnessQa(rules) && isPharmacyBenefitsEligible(rules),
+    showOnMenu: isNotWellnessQa(rules) && isPharmacyBenefitsEligible(rules),
     url: '/member/pharmacy',
     qt: {
       firstParagraph: 'CVS Caremark™ helps manage your pharmacy benefits.',

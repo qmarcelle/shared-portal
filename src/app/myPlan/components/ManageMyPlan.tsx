@@ -25,6 +25,7 @@ export const ManageMyPlan = ({
   visibilityRules,
 }: ManageMyPlanProps) => {
   let manageMyPlanDetails;
+
   if (
     isBlueCareEligible(visibilityRules) &&
     isKatieBeckettEligible(visibilityRules)
@@ -66,12 +67,15 @@ export const ManageMyPlan = ({
         externalLink: false,
         url: '/member/myplan/ssn',
       },
-      {
+
+      /******* Commenting as of now as per Bug-75649 the requirement is on hold ********/
+
+      /*{
         title: 'Enroll in a Health Plan',
         body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
         externalLink: true,
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
-      },
+      }, */
     ];
 
   if (isOtherInsuranceEligible(visibilityRules)) {
