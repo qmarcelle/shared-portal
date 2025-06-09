@@ -21,7 +21,7 @@ import { Procedure, ProcedureResponse } from './models/procedureResponse';
 
 export type PriceDentalCareProps = {
   networks: Networks;
-  categories: ProcedureResponse;
+  categories: ProcedureResponse | null;
 };
 
 export const getCategoryDropdownValues = (categories: ProcedureResponse) => {
