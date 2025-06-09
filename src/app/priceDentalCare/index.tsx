@@ -1,4 +1,5 @@
 'use client';
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Filter } from '@/components/foundation/Filter';
@@ -20,13 +21,14 @@ import { Procedure, ProcedureResponse } from './models/procedureResponse';
 
 export type PriceDentalCareProps = {
   networks: Networks;
-  categories: ProcedureResponse;
+  categories: ProcedureResponse | null;
 };
 
 export const getCategoryDropdownValues = (categories: ProcedureResponse) => {
   logger.info('Mapping Categories to dropdown values');
   let i: number = 2;
-  return categories.procedureCategories.map((category) => ({
+  if (!Array.isArray(categories)) return [];
+  return categories?.procedureCategories?.map((category) => ({
     label: category.name,
     value: category.id.toString(),
     id: '' + i++,
@@ -36,7 +38,8 @@ export const getCategoryDropdownValues = (categories: ProcedureResponse) => {
 export const getNetworkDropdownValues = (networks: Network[]) => {
   logger.info('Mapping networks to dropdown values');
   let i: number = 2;
-  return networks.map((network) => ({
+  if (!Array.isArray(networks)) return [];
+  return networks?.map((network) => ({
     label: network.networkDesc,
     value: network.networkPrefix,
     id: '' + i++,
@@ -80,14 +83,16 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
   };
 
   const networkDropdownValues = useMemo(
-    () => getNetworkDropdownValues(networks.networks),
+    () => getNetworkDropdownValues(networks?.networks),
     [networks],
   );
 
-  const categoryDropdownValues = useMemo(
-    () => getCategoryDropdownValues(categories),
-    [categories],
-  );
+  const categoryDropdownValues = useMemo(() => {
+    if (categories) {
+      return getCategoryDropdownValues(categories);
+    }
+    return [];
+  }, [categories]);
 
   type procedureOption = {
     label: string;
@@ -154,7 +159,7 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
       const category = categoryDropdownValues.find(
         (item) => item.value === selectedCategory,
       );
-      const procedureCategory = categories.procedureCategories.find(
+      const procedureCategory = categories?.procedureCategories.find(
         (item) => item.id === parseInt(selectedCategory),
       );
       if (category === undefined) {
@@ -207,132 +212,143 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
       onProcedureSelectChange(data[index].selectedValue?.value);
     else if (index == 3) onZipCodeChange(data[index].selectedInputValue);
   }
-
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color !p-0">
         <Title className="title-1" text="Price Dental Care" />
-        <section className="flex justify-start self-start">
-          <RichText
-            spans={[
-              <Row key={0}>
-                We&apos;ll help give you a better idea of what your dental care
-                will cost. We base these costs on the type of care you need and
-                where you live.
-              </Row>,
-            ]}
-          />
-        </section>
-
-        <section className="flex flex-row items-start app-body" id="Filter">
-          <Column className=" flex-grow page-section-36_67 items-stretch">
-            <Filter
-              className="small-section px-0 m-0  md:w-[288px] w-auto"
-              filterHeading="Filter Dental Costs"
-              onReset={() => {}}
-              showReset={false}
-              buttons={{
-                className: 'font-bold',
-                type: 'primary',
-                label: 'Estimate Cost',
-                callback: (value) => {
-                  handleDentalCard(value);
-                },
-              }}
-              isMultipleItem={true}
-              isCallbackValid={
-                currentSelectedZipCode !== '' &&
-                currentSelectedProcedure.value !== '1' &&
-                currentSelectedNetwork.value !== '1'
-              }
-              filterItems={[
-                {
-                  type: 'dropdown',
-                  label: 'Dental Network',
-                  value: [
-                    {
-                      label: 'Choose Network',
-                      value: '1',
-                      id: '1',
+        {(networks == null || categories == null) && (
+          <>
+            <Column>
+              <section className="flex justify-start self-start p-4">
+                <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+              </section>
+            </Column>
+          </>
+        )}
+        {networks != null && categories != null && (
+          <>
+            <section className="flex justify-start self-start">
+              <RichText
+                spans={[
+                  <Row key={0}>
+                    We&apos;ll help give you a better idea of what your dental
+                    care will cost. We base these costs on the type of care you
+                    need and where you live.
+                  </Row>,
+                ]}
+              />
+            </section>
+            <section className="flex flex-row items-start app-body" id="Filter">
+              <Column className=" flex-grow page-section-36_67 items-stretch">
+                <Filter
+                  className="small-section px-0 m-0  md:w-[288px] w-auto"
+                  filterHeading="Filter Dental Costs"
+                  onReset={() => {}}
+                  showReset={false}
+                  buttons={{
+                    className: 'font-bold',
+                    type: 'primary',
+                    label: 'Estimate Cost',
+                    callback: (value) => {
+                      handleDentalCard(value);
                     },
-                    ...networkDropdownValues,
-                  ],
-                  selectedValue: currentSelectedNetwork,
-                },
-                {
-                  type: 'dropdown',
-                  label: 'Category',
-                  value: [
+                  }}
+                  isMultipleItem={true}
+                  isCallbackValid={
+                    currentSelectedZipCode !== '' &&
+                    currentSelectedProcedure.value !== '1' &&
+                    currentSelectedNetwork.value !== '1'
+                  }
+                  filterItems={[
                     {
-                      label: 'Select Category',
-                      value: '1',
-                      id: '1',
+                      type: 'dropdown',
+                      label: 'Dental Network',
+                      value: [
+                        {
+                          label: 'Choose Network',
+                          value: '1',
+                          id: '1',
+                        },
+                        ...networkDropdownValues,
+                      ],
+                      selectedValue: currentSelectedNetwork,
                     },
-                    ...categoryDropdownValues,
-                  ],
-                  selectedValue: currentSelectedCategory,
-                },
-                {
-                  type: 'dropdown',
-                  label: 'Procedure',
-                  value: [
                     {
-                      label: 'Select Procedure',
-                      value: '1',
-                      id: '1',
+                      type: 'dropdown',
+                      label: 'Category',
+                      value: [
+                        {
+                          label: 'Select Category',
+                          value: '1',
+                          id: '1',
+                        },
+                        ...categoryDropdownValues,
+                      ],
+                      selectedValue: currentSelectedCategory,
                     },
-                    ...procedureDropdownValues,
-                  ],
-                  selectedValue: currentSelectedProcedure,
-                },
-                {
-                  type: 'input',
-                  label: 'Zip Code',
-                  value: currentSelectedZipCode,
-                  selectedInputValue: currentSelectedZipCode,
-                },
-              ]}
-              onSelectCallback={(index, data) => {
-                onFilterSelectChange(index, data);
-              }}
-            />
-          </Column>
-          <Spacer axis="horizontal" size={32} />
-          {procedureCost && procedureCost.costEstimate ? (
-            <>
-              <Column className="flex-grow page-section-63_33 items-stretch">
-                <PriceDentalCareCard
-                  procedures={[
                     {
-                      id: '1',
-                      label: 'Find a Dentist',
-                      body: 'Get started searching for a dentist near you.',
-                      icon: DentalIcon,
-                      link: externalIcon,
+                      type: 'dropdown',
+                      label: 'Procedure',
+                      value: [
+                        {
+                          label: 'Select Procedure',
+                          value: '1',
+                          id: '1',
+                        },
+                        ...procedureDropdownValues,
+                      ],
+                      selectedValue: currentSelectedProcedure,
+                    },
+                    {
+                      type: 'input',
+                      label: 'Zip Code',
+                      value: currentSelectedZipCode,
+                      selectedInputValue: currentSelectedZipCode,
                     },
                   ]}
-                  showEstimateCost={showEstimateCost}
-                  procedureSelected={currentSelectedProcedure.label}
-                  customaryCost={procedureCost.costEstimate!.customaryCost}
-                  networkAllowanceCost={
-                    procedureCost.costEstimate!.networkMaxAllowance
-                  }
+                  onSelectCallback={(index, data) => {
+                    onFilterSelectChange(index, data);
+                  }}
                 />
               </Column>
-            </>
-          ) : (
-            <>
-              <Card className="cardColor mt-4">
-                <Column className={'flex flex-col'}>
-                  <TextBox
-                    className="body-1 center mt-4 ml-4"
-                    text="We're not able to load cost estimator right now. Please try again later."
-                  />
-                </Column>
-              </Card>
-            </>
-          )}
-        </section>
+              <Spacer axis="horizontal" size={32} />
+              {procedureCost && procedureCost.costEstimate ? (
+                <>
+                  <Column className="flex-grow page-section-63_33 items-stretch">
+                    <PriceDentalCareCard
+                      procedures={[
+                        {
+                          id: '1',
+                          label: 'Find a Dentist',
+                          body: 'Get started searching for a dentist near you.',
+                          icon: DentalIcon,
+                          link: externalIcon,
+                        },
+                      ]}
+                      showEstimateCost={showEstimateCost}
+                      procedureSelected={currentSelectedProcedure.label}
+                      customaryCost={procedureCost.costEstimate!.customaryCost}
+                      networkAllowanceCost={
+                        procedureCost.costEstimate!.networkMaxAllowance
+                      }
+                    />
+                  </Column>
+                </>
+              ) : (
+                <>
+                  <Card className="cardColor mt-4">
+                    <Column className={'flex flex-col'}>
+                      <TextBox
+                        className="body-1 center mt-4 ml-4"
+                        text="We're not able to load cost estimator right now. Please try again later."
+                      />
+                    </Column>
+                  </Card>
+                </>
+              )}
+            </section>
+          </>
+        )}
       </Column>
     </main>
   );
