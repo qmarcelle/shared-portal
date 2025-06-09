@@ -1,28 +1,23 @@
-import { LoggedInMember } from '@/models/app/loggedin_member';
+import { Member } from '@/models/member/api/loggedInUserInfo';
 import { memberService } from '@/utils/api/memberService';
 import { logger } from '@/utils/logger';
-import { OtherHealthInsuranceDetails } from '../models/api/otherhealthinsurance_details';
+import { UpdateOtherInsuranceRequest } from '../models/api/updateOtherInsuranceRequest';
 
 export async function createCOB(
-  insuranceRequest: OtherHealthInsuranceDetails[],
-  loggedInMember: LoggedInMember,
-  userId: string,
+  insuranceRequest: UpdateOtherInsuranceRequest[],
+  membersToProcess: Member[],
 ) {
   try {
-    const request = {
-      insuranceRequest,
-      userId,
-    };
-    const updateCOBResponse = await memberService.post<
-      OtherHealthInsuranceDetails[]
-    >(
-      `/api/member/v1/members/byMemberCk/${loggedInMember.memeCk}/otherInsurance`,
-      request,
-    );
-
-    return updateCOBResponse.data;
+    let updateCOBResponse = '';
+    membersToProcess.map(async (member) => {
+      updateCOBResponse = await memberService.post(
+        `/api/member/v1/members/byMemberCk/${member.memberCk}/otherInsurance`,
+        insuranceRequest,
+      );
+    });
+    return updateCOBResponse;
   } catch (error) {
-    logger.error('Error Response from upadate COB API', error);
+    logger.error('Error Response from update COB API', error);
     throw error;
   }
 }
