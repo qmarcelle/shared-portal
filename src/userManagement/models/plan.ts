@@ -3,4 +3,5 @@ export type MemberPlan = {
   name: string;
   subscriber: string;
   policies: string[];
+  lob?: string;
 };

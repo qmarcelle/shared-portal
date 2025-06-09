@@ -5,11 +5,37 @@
  * The values are taken from CHAT_INTEGRATION.md.
  */
 
+// TypeScript declaration for Node.js process environment variables
+declare const process: {
+  env: {
+    NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID?: string;
+    NEXT_PUBLIC_GENESYS_CLOUD_PROD_DEPLOYMENT_ID?: string;
+    NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT?: string;
+    NEXT_PUBLIC_GENESYS_CLOUD_BOOTSTRAP_URL?: string;
+  };
+};
+
+/**
+ * Interface for Genesys Cloud configuration object
+ */
+export interface GenesysCloudConfig {
+  deploymentId: string;
+  environment: string;
+  bootstrapUrl: string;
+}
+
+/**
+ * Interface for the default configuration with both deployment IDs
+ */
+interface DefaultGenesysCloudConfig extends GenesysCloudConfig {
+  prodDeploymentId: string;
+}
+
 /**
  * Default Genesys Cloud Configuration
  * This configuration is used when no environment variables are available.
  */
-export const DEFAULT_GENESYS_CLOUD_CONFIG = {
+export const DEFAULT_GENESYS_CLOUD_CONFIG: DefaultGenesysCloudConfig = {
   // First deployment key (Possibly Development/Test)
   deploymentId: '52dd824c-f565-47a6-a6d5-f30d81c97491',
   // Production deployment key
@@ -21,30 +47,64 @@ export const DEFAULT_GENESYS_CLOUD_CONFIG = {
 };
 
 /**
- * Get the Genesys Cloud configuration based on the current environment
+ * Resolves the deployment ID based on production flag and environment variables
+ * @param isProd - Whether to use production deployment ID
+ * @returns The appropriate deployment ID
  */
-export function getGenesysCloudConfig(isProd = false) {
+function resolveDeploymentId(isProd: boolean): string {
+  if (isProd) {
+    return (
+      process.env.NEXT_PUBLIC_GENESYS_CLOUD_PROD_DEPLOYMENT_ID ||
+      DEFAULT_GENESYS_CLOUD_CONFIG.prodDeploymentId
+    );
+  }
+  return (
+    process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
+    DEFAULT_GENESYS_CLOUD_CONFIG.deploymentId
+  );
+}
+
+/**
+ * Resolves the environment from environment variables or fallback
+ * @returns The Genesys Cloud environment string
+ */
+function resolveEnvironment(): string {
+  return (
+    process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
+    DEFAULT_GENESYS_CLOUD_CONFIG.environment
+  );
+}
+
+/**
+ * Resolves the bootstrap URL from environment variables or fallback
+ * @returns The Genesys Cloud bootstrap URL
+ */
+function resolveBootstrapUrl(): string {
+  return (
+    process.env.NEXT_PUBLIC_GENESYS_CLOUD_BOOTSTRAP_URL ||
+    DEFAULT_GENESYS_CLOUD_CONFIG.bootstrapUrl
+  );
+}
+
+/**
+ * Get the Genesys Cloud configuration based on the current environment
+ * @param isProd - Whether to use production configuration (default: false)
+ * @returns Complete Genesys Cloud configuration object
+ */
+export function getGenesysCloudConfig(isProd = false): GenesysCloudConfig {
   return {
-    deploymentId: isProd
-      ? process.env.NEXT_PUBLIC_GENESYS_CLOUD_PROD_DEPLOYMENT_ID ||
-        DEFAULT_GENESYS_CLOUD_CONFIG.prodDeploymentId
-      : process.env.NEXT_PUBLIC_GENESYS_CLOUD_DEPLOYMENT_ID ||
-        DEFAULT_GENESYS_CLOUD_CONFIG.deploymentId,
-    environment:
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_ENVIRONMENT ||
-      DEFAULT_GENESYS_CLOUD_CONFIG.environment,
-    bootstrapUrl:
-      process.env.NEXT_PUBLIC_GENESYS_CLOUD_BOOTSTRAP_URL ||
-      DEFAULT_GENESYS_CLOUD_CONFIG.bootstrapUrl,
+    deploymentId: resolveDeploymentId(isProd),
+    environment: resolveEnvironment(),
+    bootstrapUrl: resolveBootstrapUrl(),
   };
 }
 
 /**
- * Generates the Genesys Cloud script that should be injected into the page
+ * Generates the Genesys Cloud initialization script template
+ * @param config - The Genesys Cloud configuration object
+ * @returns The complete JavaScript initialization script
  */
-export function generateGenesysCloudScript(isProd = false): string {
-  const config = getGenesysCloudConfig(isProd);
-
+function createGenesysScript(config: GenesysCloudConfig): string {
   return `
     (function (g, e, n, es, ys) {
       g['_genesysJs'] = e;
@@ -59,4 +119,14 @@ export function generateGenesysCloudScript(isProd = false): string {
       deploymentId: '${config.deploymentId}'
     });
   `;
+}
+
+/**
+ * Generates the Genesys Cloud script that should be injected into the page
+ * @param isProd - Whether to use production configuration (default: false)
+ * @returns The complete JavaScript script for injection
+ */
+export function generateGenesysCloudScript(isProd = false): string {
+  const config = getGenesysCloudConfig(isProd);
+  return createGenesysScript(config);
 }

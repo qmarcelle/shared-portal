@@ -17,9 +17,9 @@ import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { usePlanContext } from '../hooks/usePlanContext';
 import { useUserContext } from '../hooks/useUserContext';
 import {
-  chatConfigSelectors,
-  CurrentPlanDetails,
-  useChatStore,
+    chatConfigSelectors,
+    CurrentPlanDetails,
+    useChatStore,
 } from '../stores/chatStore';
 
 interface ChatProviderProps {
@@ -90,7 +90,10 @@ export default function ChatProvider({
       setIsLoadingLoggedInMember(true);
       try {
         const details = await getLoggedInMember(session);
-        if (process.env.NODE_ENV === 'development') {
+        if (
+          typeof process !== 'undefined' &&
+          process.env.NODE_ENV === 'development'
+        ) {
           console.log(
             '[ChatProvider] LoggedInMember details fetched:',
             details,
@@ -103,7 +106,7 @@ export default function ChatProvider({
         setLoggedInMemberDetails(details);
       } catch (error) {
         logger.error(
-          `[ChatProvider] Error fetching LoggedInMember details:`,
+          '[ChatProvider] Error fetching LoggedInMember details:',
           error,
         );
         setLoggedInMemberDetails(null);
@@ -227,7 +230,7 @@ export default function ChatProvider({
         }
       } catch (error) {
         logger.error(
-          `[ChatProvider] UserProfile useEffect: Error computing UserProfile from PBEData:`,
+          '[ChatProvider] UserProfile useEffect: Error computing UserProfile from PBEData:',
           error,
         );
         setUserProfileData(null);
@@ -236,7 +239,7 @@ export default function ChatProvider({
       }
     } else {
       logger.warn(
-        `[ChatProvider] UserProfile useEffect: session.user.currUsr.umpi missing. Cannot compute profile.`,
+        '[ChatProvider] UserProfile useEffect: session.user.currUsr.umpi missing. Cannot compute profile.',
       );
       setUserProfileData(null);
       setIsLoadingUserProfile(false);
@@ -297,7 +300,7 @@ export default function ChatProvider({
       (!userProfileData.plans || userProfileData.plans.length === 0)
     ) {
       logger.warn(
-        `[ChatProvider] SyncUserProfileToPlanStore: UserProfileData exists but has no plans. Resetting PlanStore.`,
+        '[ChatProvider] SyncUserProfileToPlanStore: UserProfileData exists but has no plans. Resetting PlanStore.',
       );
       // Get current values from store to compare before resetting
       const currentStorePlans = usePlanStore.getState().plans;
@@ -439,6 +442,7 @@ export default function ChatProvider({
   }, [storeSelectedPlanId]);
 
   const initializeChatConfig = useCallback(() => {
+    // **CLOUD FLOW STEP 3** - All data dependencies loaded, ready to build configuration
     if (
       !session?.user ||
       !userContext ||
@@ -449,17 +453,23 @@ export default function ChatProvider({
       !mainAppPlanData?.selectedPlan
     ) {
       logger.error(
-        `[ChatProvider] initializeChatConfig called but essential data is missing. Bailing.`,
+        '[ChatProvider] [CLOUD FLOW] Essential data missing for configuration building. Cannot proceed.',
         {
-          /* details */
-        }, // Details can be added if needed for specific debugging
+          hasSession: !!session?.user,
+          hasUserContext: !!userContext,
+          hasPlanContext: !!planContext,
+          hasLoggedInMember: !!loggedInMemberDetails,
+          hasUserProfile: !!userProfileData?.id,
+          hasPbeData: !!pbeData,
+          hasSelectedPlan: !!mainAppPlanData?.selectedPlan,
+        },
       );
       return;
     }
 
     if (initAttemptsRef.current >= maxInitAttempts) {
-      logger.warn(
-        `[ChatProvider] Max init attempts reached (${maxInitAttempts}). Halting.`,
+      logger.error(
+        `[ChatProvider] [CLOUD FLOW] Max configuration attempts reached (${maxInitAttempts}). Chat system unavailable.`,
       );
       if (!configErrorStore && !planContextError)
         setErrorStore(new Error('ChatProvider: Max init attempts.'));
@@ -470,7 +480,7 @@ export default function ChatProvider({
 
     if (planContextError) {
       logger.error(
-        `[ChatProvider] Plan context hook error. Halting.`,
+        '[ChatProvider] [CLOUD FLOW] Plan context error detected. Chat configuration aborted.',
         planContextError,
       );
       if (!configErrorStore) setErrorStore(planContextError);
@@ -478,8 +488,9 @@ export default function ChatProvider({
       return;
     }
 
-    initializedRef.current = true; // Mark as attempting/initialized for this cycle
+    initializedRef.current = true;
 
+    // **CLOUD FLOW STEP 4** - Prepare API call and data context for configuration building
     const apiCallMemberId = mainAppPlanData.selectedPlan!.id;
     const currentPlanDetailsForBuild: CurrentPlanDetails = {
       numberOfPlans: mainAppPlanData.numberOfPlans,
@@ -488,6 +499,17 @@ export default function ChatProvider({
       currentPlanLOB: mainAppPlanData.selectedPlan!.lob || 'Unknown LOB',
     };
 
+    logger.info(
+      '[ChatProvider] [CLOUD FLOW] Initiating configuration loading. This will call getChatInfo API → buildGenesysChatConfig() → GenesysCloudLoader.',
+      {
+        memberId: apiCallMemberId,
+        planDetails: currentPlanDetailsForBuild,
+        memberFirstName: loggedInMemberDetails.firstName,
+        memberLOB: loggedInMemberDetails.lob,
+      },
+    );
+
+    // **FLOW CONTINUES** - This calls chatStore.loadChatConfiguration()
     loadChatConfiguration(
       apiCallMemberId,
       loggedInMemberDetails,
@@ -496,7 +518,7 @@ export default function ChatProvider({
       currentPlanDetailsForBuild,
     ).catch((e) => {
       logger.error(
-        `[ChatProvider] loadChatConfiguration call failed externally (promise rejected).`,
+        '[ChatProvider] [CLOUD FLOW] Configuration loading failed. Chat system will be unavailable.',
         e,
       );
       if (!useChatStore.getState().config.error) {

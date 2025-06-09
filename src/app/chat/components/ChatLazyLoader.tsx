@@ -5,23 +5,16 @@
  * @description Component responsible for deferring the loading of the entire Genesys chat system
  * until explicit user interaction (e.g., clicking a "Chat with Us" button) or automatically.
  * This is a key performance optimization, preventing heavy chat scripts from impacting
- * initial page load times. It dynamically loads ChatProvider, ChatWidget, and ChatControls.
+ * initial page load times. It dynamically loads ChatProvider and ChatWidget.
  * As per README.md: Defers loading of the chat system until user interaction or auto-initializes.
  */
 
 import { logger } from '@/utils/logger';
-import React, {
-  ComponentType,
-  lazy,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { lazy, useCallback, useEffect, useRef, useState } from 'react';
 
 const LOG_PREFIX = '[ChatLazyLoader]';
 
-// Extend window interface for the global flag
+// Extend window interface for chat lazy loader flag
 declare global {
   interface Window {
     _chatLazyLoaderInitialized?: boolean;
@@ -32,29 +25,23 @@ interface ChatLazyLoaderProps {
   autoInitialize?: boolean;
 }
 
-// Define prop types for the lazily loaded components
-interface ChatProviderProps {
-  children: React.ReactNode;
-  autoInitialize?: boolean;
-  maxInitAttempts?: number;
-}
+// Prop types are inferred from the actual components when lazily loaded
 
-interface ChatWidgetProps {
-  containerId?: string;
-  showLoaderStatus?: boolean;
-  forceFallbackButton?: boolean;
-}
-
+// **CLOUD FLOW STEP 1** - Lazy load core chat components for performance optimization
 const ChatProvider = lazy(() =>
   import('@/app/chat/components/ChatProvider').then((mod) => {
-    logger.info(`${LOG_PREFIX} Dynamic import for ChatProvider resolved.`);
-    return { default: mod.default as ComponentType<ChatProviderProps> };
+    logger.info(
+      `${LOG_PREFIX} [CLOUD FLOW] ChatProvider component loaded via dynamic import. Ready for configuration loading.`,
+    );
+    return { default: mod.default };
   }),
 );
 const ChatWidget = lazy(() =>
   import('@/app/chat/components/ChatWidget').then((mod) => {
-    logger.info(`${LOG_PREFIX} Dynamic import for ChatWidget resolved.`);
-    return { default: mod.default as ComponentType<ChatWidgetProps> };
+    logger.info(
+      `${LOG_PREFIX} [CLOUD FLOW] ChatWidget component loaded via dynamic import. Ready for script loading and UI rendering.`,
+    );
+    return { default: mod.default };
   }),
 );
 
@@ -89,27 +76,40 @@ export const ChatLazyLoader: React.FC<ChatLazyLoaderProps> = ({
 
   const initializeChat = useCallback(() => {
     logger.info(
-      `${LOG_PREFIX} initializeChat called for instance ${instanceId}. Current chatInitialized (from state): ${chatInitialized}, isInstanceInitialized (ref): ${isInstanceInitialized.current}`,
+      `${LOG_PREFIX} [CLOUD FLOW] initializeChat triggered for instance ${instanceId}. Starting chat system activation.`,
+      {
+        chatInitialized,
+        isInstanceInitialized: isInstanceInitialized.current,
+        autoInitialize,
+      },
     );
+
     if (!isInstanceInitialized.current) {
+      // **CLOUD FLOW STEP 2** - User interaction or auto-timer triggered chat initialization
+      logger.info(
+        `${LOG_PREFIX} [CLOUD FLOW] Activating chat system. This will render ChatProvider → ChatWidget → Configuration Loading.`,
+      );
+
       setChatInitialized(true);
       isInstanceInitialized.current = true;
+
+      // **FLOW CONTINUES** - Next step is React rendering ChatProvider component
       logger.info(
-        `${LOG_PREFIX} Instance ${instanceId}: Set chatInitialized to true. isInstanceInitialized set to true.`,
+        `${LOG_PREFIX} [CLOUD FLOW] Chat system activated. Flow continues: ChatProvider will call chatStore.loadChatConfiguration().`,
       );
     } else {
       logger.info(
-        `${LOG_PREFIX} Instance ${instanceId}: initializeChat called but isInstanceInitialized was already true. No action taken.`,
+        `${LOG_PREFIX} [CLOUD FLOW] Chat system already initialized for this instance. Skipping duplicate activation.`,
       );
     }
-  }, [instanceId]);
+  }, [instanceId, chatInitialized, autoInitialize]);
 
   useEffect(() => {
     logger.info(
       `${LOG_PREFIX} Effect for auto-initialization running for instance ${instanceId}. autoInitialize: ${autoInitialize}, isInstanceInitialized (ref): ${isInstanceInitialized.current}, window._chatLazyLoaderInitialized: ${typeof window !== 'undefined' ? window._chatLazyLoaderInitialized : 'undefined'}`,
     );
 
-    let timerId: NodeJS.Timeout | undefined;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
 
     if (autoInitialize && !isInstanceInitialized.current) {
       logger.info(
@@ -176,10 +176,3 @@ export const ChatLazyLoader: React.FC<ChatLazyLoaderProps> = ({
     </ChatProvider>
   );
 };
-
-// Add TypeScript interface for global window object if not already present globally
-declare global {
-  interface Window {
-    dataLayer?: unknown[]; // For Google Tag Manager or similar analytics
-  }
-}
