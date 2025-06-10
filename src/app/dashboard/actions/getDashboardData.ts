@@ -13,6 +13,7 @@ import { CoverageType } from '@/models/member/api/loggedInUserInfo';
 import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { UserRole } from '@/userManagement/models/sessionUser';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
@@ -28,7 +29,10 @@ export const getDashboardData = async (): Promise<
     // Check if current user is non member
     if (session?.user.currUsr.role == UserRole.NON_MEM) {
       // Get the name of the non member and send off
-      const pbe = await getPersonBusinessEntity(session!.user!.id);
+      const pbe = await getPersonBusinessEntity(
+        ALLOWED_PBE_SEARCH_PARAM.UserName,
+        session!.user!.id,
+      );
       return {
         status: 200,
         data: {
@@ -41,7 +45,10 @@ export const getDashboardData = async (): Promise<
         },
       };
     } else if (session?.user.currUsr.plan == null) {
-      const pbe = await getPersonBusinessEntity(session!.user!.id);
+      const pbe = await getPersonBusinessEntity(
+        ALLOWED_PBE_SEARCH_PARAM.UserName,
+        session!.user!.id,
+      );
       const profiles = computeUserProfilesFromPbe(
         pbe,
         session?.user.currUsr.umpi,
@@ -79,7 +86,7 @@ export const getDashboardData = async (): Promise<
       getPCPInfo(session),
       getEmployerProvidedBenefits(session?.user.currUsr?.plan.memCk ?? ''),
       getPolicyInfo((session?.user.currUsr?.plan.memCk ?? '').split(',')),
-      getAllClaimsData(eligibleBenefits),      
+      getAllClaimsData(eligibleBenefits),
       getDedAndOOPBalanceForSubscriberAndDep(),
       getDashboardPriorAuthData(),
     ]);

@@ -10,6 +10,7 @@ import {
 } from '@/models/member/api/pbeData';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { formatDateToLocale } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 import { CreateConsentRequest } from '../models/createConsentRequest';
@@ -26,7 +27,10 @@ export const getPersonalRepresentativeData = async (): Promise<
 > => {
   try {
     const session = await auth();
-    const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    const pbeResponse = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      session!.user!.id,
+    );
     const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
       (item) => item?.memeCk === session?.user.currUsr?.plan?.memCk,
     );
@@ -128,7 +132,10 @@ const computePRProfile = (
 };
 
 const isAccountOnline = async (umpiID: string) => {
-  const pbeResponse = await getPersonBusinessEntity(umpiID);
+  const pbeResponse = await getPersonBusinessEntity(
+    ALLOWED_PBE_SEARCH_PARAM.UmpiId,
+    umpiID,
+  );
   return pbeResponse.getPBEDetails[0].hasAccount;
 };
 
