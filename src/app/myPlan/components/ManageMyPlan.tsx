@@ -44,7 +44,7 @@ export const ManageMyPlan = ({
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
+        url: '/member/myplan/ssn',
       },
       {
         title: 'Manage My Policy',
@@ -65,7 +65,7 @@ export const ManageMyPlan = ({
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/myPlan/updateSocialSecurityNumber',
+        url: '/member/myplan/ssn',
       },
 
       /******* Commenting as of now as per Bug-75649 the requirement is on hold ********/
