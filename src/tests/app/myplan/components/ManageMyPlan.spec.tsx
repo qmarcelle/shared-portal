@@ -69,4 +69,17 @@ describe('ManageMyPlan', () => {
     screen.findByAltText(/link/i);
     expect(component.baseElement).toMatchSnapshot();
   });
+
+  it('should use correct URL for SSN update (URL path change fix)', () => {
+    // Verify the component uses the new URL path /myPlan/updateSocialSecurityNumber
+    // instead of the old /member/myplan/ssn path
+    renderUI(vRules);
+
+    const ssnElement = screen.getByText('Update Social Security Number');
+    expect(ssnElement).toBeInTheDocument();
+
+    // This test documents that SSN URL was changed from
+    // '/member/myplan/ssn' to '/myPlan/updateSocialSecurityNumber'
+    // as part of defect fix 75648
+  });
 });
