@@ -38,11 +38,11 @@ const TransactionsPage = async () => {
           <section className="ml-4">
             <RichText
               spans={[
-                <span key={1}>If you need help,</span>,
+                <span key={1}>If you need help, </span>,
                 <span className="link" key={2}>
-                  <a> start a chat,</a>
+                  <a>start a chat or</a>
                 </span>,
-                <span key={3}> call us at {phoneNumber}</span>,
+                <span key={3}> call us at [{phoneNumber}].</span>,
               ]}
             />
           </section>
