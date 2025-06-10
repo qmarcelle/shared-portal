@@ -7,6 +7,7 @@ import { computeCoverageTypes } from './computeCoverageType';
 import { encodeVisibilityRules } from './converters';
 import {
   condensedExperienceProfileHorizonGroups,
+  hideManageMyPlanGroups,
   katieBeckettGroups,
   lifePointGroup,
   ncqaGroups,
@@ -463,7 +464,7 @@ export function isBiometricScreening(rules: VisibilityRules | undefined) {
 
 export function isPharmacyBenefitsEligible(rules: VisibilityRules | undefined) {
   return !!(
-    rules?.showPharmacyTab &&
+    (rules?.showPharmacyTab || rules?.commercial) &&
     !rules?.terminated &&
     !rules?.wellnessOnly &&
     !rules?.fsaOnly
@@ -651,9 +652,18 @@ export const isChipRewardsINTEligible = (
   rules: VisibilityRules | undefined,
 ) => {
   return (
-    !isSelfCommercial(rules) &&
+    (rules?.individual || rules?.blueHealthRewardsEligible) &&
     isActiveAndNotFSAOnly(rules) &&
-    isLobCommercial(rules) &&
-    !rules?.individual
+    rules?.chipRewardsEligible &&
+    rules?.commercial
   );
 };
+
+// Defect 75824: Function to check if Manage My Plan should be hidden for specific groups
+export function isManageMyPlanVisible(
+  rules: VisibilityRules | undefined,
+  groupId?: string,
+): boolean {
+  if (!groupId) return true;
+  return !hideManageMyPlanGroups.includes(groupId);
+}
