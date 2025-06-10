@@ -286,7 +286,7 @@ const Benefits = ({
                 },
                 {
                   type: 'dropdown',
-                  label: 'Benefit type',
+                  label: 'Benefit Type',
                   value: benefitTypes,
                   selectedValue:
                     currentSelectedBenefitType === undefined
