@@ -6,7 +6,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col  m-4"
+        class="flex flex-col"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -226,7 +226,7 @@ exports[`CVSCaremark should redirect sso link on click of Find Drug Cost & My Co
   </body>,
   "container": <div>
     <div
-      class="flex flex-col  m-4"
+      class="flex flex-col"
     >
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -503,7 +503,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col  m-4"
+        class="flex flex-col"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -723,7 +723,7 @@ exports[`CVSCaremark should redirect sso link on click of Find a Pharmacy 1`] = 
   </body>,
   "container": <div>
     <div
-      class="flex flex-col  m-4"
+      class="flex flex-col"
     >
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -1000,7 +1000,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
   "baseElement": <body>
     <div>
       <div
-        class="flex flex-col  m-4"
+        class="flex flex-col"
       >
         <span
           style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
@@ -1220,7 +1220,7 @@ exports[`CVSCaremark should render the UI correctly 1`] = `
   </body>,
   "container": <div>
     <div
-      class="flex flex-col  m-4"
+      class="flex flex-col"
     >
       <span
         style="display: block; width: 1px; min-width: 1px; height: 32px; min-height: 32px;"
