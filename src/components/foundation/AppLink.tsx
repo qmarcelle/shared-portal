@@ -31,28 +31,17 @@ export const AppLink = forwardRef<HTMLAnchorElement, LinkProps>(
     },
     ref,
   ) => {
-    // Defect 76162: Enhanced styling for proper link clickability and accessibility
-    const baseLinkClasses =
-      'cursor-pointer hover:text-primary-600 focus:ring-2 focus:ring-primary-500 focus:outline-none active:text-primary-800 transition-colors duration-200';
-
     if (type === 'default') {
       return (
         <a
-          style={{ display: `${displayStyle}`, cursor: 'pointer' }}
+          style={{ display: `${displayStyle}` }}
           href={url}
           aria-label={label}
-          role="link"
           target={target}
           ref={ref}
-          className={baseLinkClasses}
-          onClick={(e) => {
-            if (callback) {
-              e.preventDefault();
-              callback();
-            }
-          }}
         >
           <button
+            onClick={callback}
             tabIndex={-1}
             style={{
               maxWidth: 'max-content',
@@ -76,11 +65,9 @@ export const AppLink = forwardRef<HTMLAnchorElement, LinkProps>(
             maxWidth: 'max-content',
             height: 'auto',
             display: `${displayStyle}`,
-            cursor: 'pointer',
           }}
           type="button"
-          className={`flex flex-row link-container ${className} ${baseLinkClasses}`}
-          aria-label={label}
+          className={`flex flex-row link-container ${className}`}
         >
           <p
             className={`link ${linkUnderline}`}
@@ -103,21 +90,13 @@ export const AppLink = forwardRef<HTMLAnchorElement, LinkProps>(
             maxWidth: 'max-content',
             height: 'auto',
             display: `${displayStyle}`,
-            cursor: 'pointer',
           }}
           tabIndex={linkIndex}
           href={url}
           aria-label={label}
-          role="link"
           target={target}
-          className={`flex flex-row link-container ${className} ${baseLinkClasses}`}
+          className={`flex flex-row link-container ${className}`}
           ref={ref}
-          onClick={(e) => {
-            if (callback) {
-              e.preventDefault();
-              callback();
-            }
-          }}
         >
           <p className={`link ${linkUnderline}`}>{label}</p>
           {icon && <p className="ml-1">{icon}</p>}
