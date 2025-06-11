@@ -1,6 +1,7 @@
 import { getPingOneData } from '@/app/pingOne/setupPingOne';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
+import { AxiosError } from 'axios';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callLogin } from '../actions/login';
@@ -186,6 +187,24 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (err) {
         // Log the error
         logger.error('Error from Login Api', err);
+
+        // Defects 75000, 74996, 74987, 74990, 75003: Enhanced HTTP error handling
+        // Check if this is an HTTP error (AxiosError) and handle specific status codes
+        if (err instanceof AxiosError && err.response) {
+          const httpStatusCode = err.response.status;
+          const httpErrorMessage =
+            inlineErrorCodeMessageMap.get(httpStatusCode);
+
+          if (httpErrorMessage != null) {
+            // Set indicator for login button
+            set(() => ({ loginProg: AppProg.failed }));
+            set((state) => ({
+              apiErrors: [...state.apiErrors, httpErrorMessage],
+            }));
+            return;
+          }
+        }
+
         const errorCode =
           (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
             ?.errorCode ?? '';
