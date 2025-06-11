@@ -29,6 +29,7 @@ export const ManageMyPlan = ({
 
   let manageMyPlanDetails;
 
+  // BlueCare + Katie Beckett members: Show Katie Beckett Banking Info only
   if (
     isBlueCareEligible(visibilityRules) &&
     isKatieBeckettEligible(visibilityRules)
@@ -41,48 +42,38 @@ export const ManageMyPlan = ({
         url: '/member/myplan/katiebeckett',
       },
     ];
-  } else if (isManageMyPolicyEligible(visibilityRules))
-    manageMyPlanDetails = [
-      {
-        title: 'Update Social Security Number',
-        body: 'Add or update the Social Security Number associated with your plan.',
-        externalLink: false,
-        url: '/member/myplan/ssn',
-      },
-      {
-        title: 'Manage My Policy',
-        body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
-        externalLink: false,
-        url: '/member/myplan/managepolicy',
-      },
-    ];
-  else
-    manageMyPlanDetails = [
-      {
+  }
+  // Off-marketplace members: Show all three options per original story
+  else {
+    manageMyPlanDetails = [];
+
+    // Always add "Report Other Health Insurance" for off-marketplace members
+    if (isOtherInsuranceEligible(visibilityRules)) {
+      manageMyPlanDetails.push({
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
         url: '/member/myplan/otherinsurance',
-      },
-      {
-        title: 'Update Social Security Number',
-        body: 'Add or update the Social Security Number associated with your plan.',
+      });
+    }
+
+    // Always add "Update Social Security Number" (no duplicates)
+    manageMyPlanDetails.push({
+      title: 'Update Social Security Number',
+      body: 'Add or update the Social Security Number associated with your plan.',
+      externalLink: false,
+      url: '/member/myplan/ssn',
+    });
+
+    // Add "Manage My Policy" if eligible
+    if (isManageMyPolicyEligible(visibilityRules)) {
+      manageMyPlanDetails.push({
+        title: 'Manage My Policy',
+        body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
-        url: '/member/myplan/ssn',
-      },
-
-      /******* Commenting as of now as per Bug-75649 the requirement is on hold ********/
-
-      /*{
-        title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
-        externalLink: true,
-        url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
-      }, */
-    ];
-
-  if (isOtherInsuranceEligible(visibilityRules)) {
-    manageMyPlanDetails = [...manageMyPlanDetails];
+        url: '/member/myplan/managepolicy',
+      });
+    }
   }
 
   return (
