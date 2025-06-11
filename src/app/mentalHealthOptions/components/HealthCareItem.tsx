@@ -28,6 +28,7 @@ interface HealthCareItemProps extends IComponent {
   itemDataTitle: string;
   redirectLink?: (groupId: Session | null) => string;
   sessionData?: Session | null;
+  url?: string;
 }
 
 export const HealthCareItem = ({
@@ -37,6 +38,7 @@ export const HealthCareItem = ({
   itemData,
   redirectLink,
   sessionData,
+  url, // eslint-disable-line @typescript-eslint/no-unused-vars
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);
@@ -94,9 +96,11 @@ export const HealthCareItem = ({
           <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
           <AppLink
             className="text-left"
-            type="link"
             label={healthCareInfo.link}
-            url={redirectLink?.(sessionData!) ?? ''}
+            callback={() => {
+              window.location.href = redirectLink?.(sessionData!) ?? ' ';
+            }}
+            url={healthCareInfo.url}
           />
         </Column>
       </Row>
@@ -129,9 +133,11 @@ export const HealthCareItem = ({
             <ListOrder title={itemDataTitle} itemData={itemData}></ListOrder>
             <AppLink
               className="text-left"
-              type="link"
               label={healthCareInfo.link}
-              url={redirectLink?.(sessionData!) ?? ''}
+              callback={() => {
+                window.location.href = redirectLink?.(sessionData!) ?? ' ';
+              }}
+              url={healthCareInfo.url}
             />
           </Column>
         </Row>
