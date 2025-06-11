@@ -10,6 +10,7 @@ import {
 import { PBEData, RelationshipInfo } from '@/models/member/api/pbeData';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { calculateAge } from '@/utils/api/date';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { formatDateToLocale } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 
@@ -18,7 +19,10 @@ export const getPlanInformationData = async (): Promise<
 > => {
   try {
     const session = await auth();
-    const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    const pbeResponse = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      session!.user!.id,
+    );
     logger.info('Success Response from PBE API', pbeResponse);
     const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
       (item) => item.memeCk === session?.user.currUsr?.plan?.memCk,
