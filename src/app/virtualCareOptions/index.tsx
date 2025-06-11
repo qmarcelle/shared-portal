@@ -1,26 +1,106 @@
 'use client';
-
-import { VirtualMentalHealthCareSection } from '@/app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
-import { VirtualCareOption } from './actions/getVirtualCareOptions';
+import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
+import { Session } from 'next-auth';
+import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
+import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { OtherBenefits } from './components/OtherBenefits';
+const urlRedirect = '/member/myhealth/healthprograms/';
 
-export interface VirtualCareOptionsProps {
-  virtualCareOptions: VirtualCareOption[];
-}
+export type VirtualCareOptionsProps = {
+  sessionData?: Session | null;
+};
 
-const VirtualCareOptions = ({
-  virtualCareOptions,
-}: VirtualCareOptionsProps) => {
-  // Filter options based on server-side visibility rules
-  const filteredOptions = virtualCareOptions.filter(
-    (option) => option.isVisible,
-  );
+const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
+  // Defects 76150, 76164: PZN rules for Virtual Diabetes Prevention Program visibility
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const visibilityRules = (sessionData as any)?.visibilityRules;
+
+  // PZN rule: DPP card should only show when all conditions are met
+  const isDPPEligible =
+    visibilityRules &&
+    visibilityRules.diabetesPreventionEligible &&
+    visibilityRules.teladocEligible &&
+    !visibilityRules.fsaOnly &&
+    !visibilityRules.terminated &&
+    !visibilityRules.wellnessOnly &&
+    visibilityRules.groupRenewalDateBeforeTodaysDate;
+
+  // Filter options based on PZN rules
+  const getFilteredOptions = () => {
+    const allOptions = [
+      {
+        id: '1',
+        title: 'CareTN One-on-One Health Support ',
+        description:
+          'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
+        url: `${urlRedirect}caremanagement`,
+      },
+      {
+        id: '2',
+        title: 'Healthy Maternity',
+        description:
+          'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
+        url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
+      },
+      {
+        id: '3',
+        title: 'Teladoc Health Blood Pressure Management Program',
+        description:
+          'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
+        url: `${urlRedirect + HealthProgramType.TeladocBP}`,
+      },
+      {
+        id: '4',
+        title: 'Teladoc Health Diabetes Management Program',
+        description:
+          'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
+        url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+      },
+      {
+        id: '5',
+        title: 'Virtual Diabetes Prevention Program (DPP)',
+        description:
+          'Get a personal action plan, health coaching and a smart scale at no extra cost.',
+        url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+      },
+      {
+        id: '6',
+        title: 'Teladoc Second Opinion Advice & Support',
+        description:
+          'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
+        url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+      },
+      {
+        id: '7',
+        title: 'QuestSelect™ Low-Cost Lab Testing',
+        description:
+          'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
+        url: `${urlRedirect + HealthProgramType.QuestSelect}`,
+      },
+      {
+        id: '8',
+        title: 'Silver&Fit Fitness Program',
+        description:
+          'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
+        url: `${urlRedirect + HealthProgramType.SilverFit}`,
+      },
+    ];
+
+    // Filter out DPP card if not eligible per PZN rules
+    return allOptions.filter((option) => {
+      if (option.id === '5') {
+        // Virtual Diabetes Prevention Program
+        return isDPPEligible;
+      }
+      return true;
+    });
+  };
 
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -86,13 +166,14 @@ const VirtualCareOptions = ({
                     redirectLink: () => {
                       return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
                     },
-                    sessionData: null,
+                    sessionData: sessionData,
                   },
                   {
                     healthcareType: 'Mental Health',
                     icon: 'AbleToIcon',
                     healthCareName: 'AbleTo',
                     description:
+                      // eslint-disable-next-line quotes
                       "AbleTo's personalized and focused 8-week programs help you with sleep, stress, anxiety and more. Get the help you need",
                     link: 'Learn More About AbleTo',
                     itemDataTitle: 'Generally good for:',
@@ -100,7 +181,7 @@ const VirtualCareOptions = ({
                     redirectLink: () => {
                       return process.env.NEXT_PUBLIC_ABLETO ?? '';
                     },
-                    sessionData: null,
+                    sessionData: sessionData,
                   },
                   {
                     healthcareType: 'Physical Therapy',
@@ -116,10 +197,8 @@ const VirtualCareOptions = ({
                       'Pelvic pain and incontinence',
                       'Neck and shoulder pain',
                     ],
-                    redirectLink: () => {
-                      return process.env.NEXT_PUBLIC_HINGE_HEALTH ?? '';
-                    },
-                    sessionData: null,
+                    redirectLink: getHingeHealthLink,
+                    sessionData: sessionData,
                   },
                   {
                     healthcareType: 'Primary Care',
@@ -138,7 +217,41 @@ const VirtualCareOptions = ({
                     redirectLink: () => {
                       return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
                     },
-                    sessionData: null,
+                    sessionData: sessionData,
+                  },
+                  {
+                    healthcareType: 'Urgent Care',
+                    icon: 'TelaDoc',
+                    healthCareName: 'Teladoc Health General & Urgent Care',
+                    description:
+                      'Access to board-certified physicians 24/7 for the diagnosis and treatment of non-emergency conditions.',
+                    link: 'Learn More About Teladoc Health Urgent Care',
+                    itemDataTitle: 'Generally good for:',
+                    itemData: [
+                      'Allergies, cold, fever or flu',
+                      'Skin condition (rashes or insect bites)',
+                      'Urinary tract infections',
+                      'Constipation or diarrhea ',
+                    ],
+                    redirectLink: () => {
+                      return `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_TELADOC}`;
+                    },
+                    sessionData: sessionData,
+                  },
+                  {
+                    healthcareType: 'Urgent Care',
+                    healthCareName: 'Talk to a Nurse',
+                    description:
+                      'Connect with a nurse anytime 24/7 at no cost to you. They can answer questions and help you make decisions about your care. ',
+                    link: 'Learn More About Nurse Chat',
+                    itemDataTitle: 'Generally good for:',
+                    itemData: [
+                      'Assessing symptoms and advice',
+                      'General health information',
+                      'Education and support on conditions or procedures',
+                      'Help making decisions for surgery or other treatments ',
+                    ],
+                    sessionData: sessionData,
                   },
                 ]}
               />
@@ -152,7 +265,7 @@ const VirtualCareOptions = ({
           <OtherBenefits
             className="large-section"
             cardClassName="myHealthCard"
-            options={filteredOptions}
+            options={getFilteredOptions()}
           />
         </section>
       </Column>
