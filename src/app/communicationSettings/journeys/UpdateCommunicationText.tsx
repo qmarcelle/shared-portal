@@ -56,9 +56,7 @@ export const UpdateCommunicationText = ({
       } else {
         setMainAuthDevice(newAuthDevice);
       }
-      // Skip OTP verification (pages 1 and 2) and go directly to success (page 3)
-      // Fix for defect 73524: Remove OTP pages, jump directly to success
-      changePage?.(3, true);
+      changePage?.(1, true); // Change to page 1 on successful validation
       setNextDisabled(true);
     } catch (errorMessage: unknown) {
       console.error('Error updating the phone', errorMessage);
