@@ -246,7 +246,7 @@ export const ROUTE_CONFIG: RouteConfig = {
           rule: (r) => isClaimsPageVisible(r) && r.active,
         },
         '*': {
-          title: (claimId) => `Claim#${claimId}`,
+          title: 'Claims Details',
         },
       },
     },
@@ -272,7 +272,7 @@ export const ROUTE_CONFIG: RouteConfig = {
       rule: (r) => activeAndHealthPlanMember(r),
       children: {
         '*': {
-          title: (refId) => `Ref#${refId}`,
+          title: 'Prior Authorization Details',
         },
       },
     },

@@ -17,15 +17,14 @@ import { PlanSwitcher } from '../composite/PlanSwitcherComponent';
 import { SiteHeaderNavSection } from '../composite/SiteHeaderNavSection';
 import { SiteHeaderSubNavSection } from '../composite/SiteHeaderSubNavSection';
 
+import { useBreadcrumbStore } from '@/store/breadcrumbStore';
 import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
+import Breadcrumbs from '../composite/Breadcrumbs';
 import { getMenuNavigation } from '../menuNavigation';
 import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 
-import { getBreadcrumbTrail } from '@/actions/breadcrumbs';
-import { Breadcrumb } from '@/models/app/breadcrumb';
-import Breadcrumbs from '../composite/Breadcrumbs';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -64,7 +63,7 @@ export default function SiteHeader({
     state.resetToHome,
   ]);
   const sitePathName = usePathname();
-  const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
+  const { breadcrumbs, updateBreadcrumbs } = useBreadcrumbStore();
 
   useEffect(() => {
     try {
@@ -80,13 +79,9 @@ export default function SiteHeader({
       logger.error('googleAnalytics Site Navigation PageLevel Metadata', error);
     }
   }, [window?.document.title]);
-  useEffect(() => {
-    const fetchBreadcrumbs = async () => {
-      const trail = await getBreadcrumbTrail(sitePathName);
-      setBreadcrumbs(trail);
-    };
 
-    fetchBreadcrumbs();
+  useEffect(() => {
+    updateBreadcrumbs(sitePathName);
   }, [sitePathName]);
 
   useEffect(() => {
