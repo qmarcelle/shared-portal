@@ -7,11 +7,7 @@ import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { AnalyticsData } from '@/models/app/analyticsData';
-import {
-  AccessStatus,
-  ShareOutsideMyPlanDetails,
-  SharePlanInformationDetails,
-} from '@/models/app/getSharePlanDetails';
+import { SharePlanInformationDetails } from '@/models/app/getSharePlanDetails';
 import { googleAnalytics } from '@/utils/analytics';
 import { ShareMyPlanComponent } from './components/ShareMyPlanComponent';
 import { ShareOutsideMyPlanComponent } from './components/ShareOutsideMyPlanComponent';
@@ -35,13 +31,6 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
     googleAnalytics(analytics);
   }
 
-  const testMember: ShareOutsideMyPlanDetails[] = [
-    {
-      memberName: 'JILL VALENTINE',
-      DOB: '01/19/1985',
-      accessStatus: AccessStatus.FullAccess,
-    },
-  ];
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -126,7 +115,7 @@ const ShareMyInformation = ({ data }: ShareMyInformationProps) => {
                     <TextBox text="Share your information with individuals not on your health plan." />
                   </Column>
                 }
-                ShareOutsideMyPlanDetails={testMember}
+                ShareOutsideMyPlanDetails={data!.outsideMyPlanData}
               />
             </Card>
           </Column>

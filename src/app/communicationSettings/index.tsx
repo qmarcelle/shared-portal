@@ -6,13 +6,20 @@ import { RequestPrintMaterialSection } from '@/app/communicationSettings/compone
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
-import { CommunicationSettingsAppData } from './models/app/communicationSettingsAppData';
+import { useState } from 'react';
+import {
+  CommunicationSettingsAppData,
+  ContactPreference,
+} from './models/app/communicationSettingsAppData';
 
 export type CommunicationSettingsProps = {
   data: CommunicationSettingsAppData;
 };
 
 const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
+  const [preferenceData, setpreferenceData] = useState(
+    data?.contactPreferences ?? [],
+  );
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -27,6 +34,7 @@ const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
               className="large-section"
               phone={data?.mobileNumber}
               email={data?.emailAddress}
+              preferenceData={preferenceData}
             />
             <RequestPrintMaterialSection
               className="large-section"
@@ -43,6 +51,9 @@ const CommunicationSettings = ({ data }: CommunicationSettingsProps) => {
                 tierOne: data?.tierOne,
                 tierOneDescriptions: data?.tierOneDescriptions,
                 dutyToWarn: data?.dutyToWarn,
+              }}
+              onRequestSuccessCallBack={(val: ContactPreference[]) => {
+                setpreferenceData([...val]);
               }}
             />
           </Column>

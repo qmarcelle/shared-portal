@@ -69,6 +69,11 @@ export const useVerifyEmailStore = createWithEqualityFn<VerifyEmailStore>(
             break;
         }
         useLoginStore.setState({
+          inactive:
+            useLoginStore.getState().verifyEmail &&
+            useLoginStore.getState().inactive
+              ? false
+              : useLoginStore.getState().inactive,
           verifyEmail: false,
           verifyUniqueEmail: false,
         });

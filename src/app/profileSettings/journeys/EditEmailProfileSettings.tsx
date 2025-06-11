@@ -19,12 +19,14 @@ import { useEffect, useState } from 'react';
 
 interface EditEmailSettingsJourneyProps {
   email: string;
+  onRequestEmailSuccessCallBack: (arg0: string) => void;
 }
 
 export const EditEmailProfileSettings = ({
   changePage,
   pageIndex,
   email,
+  onRequestEmailSuccessCallBack,
 }: ModalChildProps & EditEmailSettingsJourneyProps) => {
   const { dismissModal } = useAppModalStore();
 
@@ -44,7 +46,7 @@ export const EditEmailProfileSettings = ({
       setConfirmEmail('');
       setShowConfirmEmail(false);
       setError('');
-      setNextDisabled(false);
+      setNextDisabled(true);
     }
   }, [pageIndex, email]);
 
@@ -74,14 +76,13 @@ export const EditEmailProfileSettings = ({
         );
         setNextDisabled(true); // Disable the Next button if there's an error
       } else if (response.details?.componentStatus === 'Success') {
-        changePage?.(1, true);
-        setShowConfirmEmail(false);
-        setNextDisabled(false);
+        onRequestEmailSuccessCallBack(newAuthDevice);
+        changePage?.(1, false);
       } else {
-        changePage?.(2, true);
+        changePage?.(2, false);
       }
     } catch (errorMessage: unknown) {
-      changePage?.(2, true);
+      changePage?.(2, false);
       console.error(
         'error in emailUniqueness for updating the email',
         errorMessage,
@@ -99,11 +100,12 @@ export const EditEmailProfileSettings = ({
     } else {
       setError('');
     }
+    setNextDisabled(false);
   };
 
   const validateEmailAddress = (value: string) => {
     setNewAuthDevice(value);
-    setNextDisabled(false); // Enable the Next button when user starts typing
+
     const isValidEmail = isValidEmailAddress(value);
     const isValidLength = validateLength(value);
 

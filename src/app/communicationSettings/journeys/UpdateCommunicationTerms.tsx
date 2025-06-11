@@ -9,6 +9,7 @@ import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { saveDataAction } from '../actions/communicationSettingsAction';
+import { ContactPreference } from '../models/app/communicationSettingsAppData';
 
 interface UpdateCommunicationTermsProps {
   selectedPreferences: {
@@ -25,12 +26,14 @@ interface UpdateCommunicationTermsProps {
     }[];
     dutyToWarn: string[];
   };
+  onRequestSuccessCallBack: (val: ContactPreference[]) => void;
 }
 
 export const UpdateCommunicationTerms = ({
   changePage,
   pageIndex,
   selectedPreferences,
+  onRequestSuccessCallBack,
 }: ModalChildProps & UpdateCommunicationTermsProps) => {
   const { dismissModal } = useAppModalStore();
 
@@ -41,6 +44,7 @@ export const UpdateCommunicationTerms = ({
 
       if (response.details?.componentStatus === 'Success') {
         changePage?.(1, true);
+        onRequestSuccessCallBack(selectedPreferences.contactPreference);
       } else {
         changePage?.(2, true);
       }

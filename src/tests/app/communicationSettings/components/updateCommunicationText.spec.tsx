@@ -1,5 +1,9 @@
 import { UpdateCommunicationText } from '@/app/communicationSettings/journeys/UpdateCommunicationText';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
+import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
+import { mockedAxios } from '@/tests/__mocks__/axios';
+import { mockedFetch } from '@/tests/setup';
+import { fetchRespWrapper } from '@/tests/test_utils';
 import '@testing-library/jest-dom';
 import {
   act,
@@ -8,6 +12,7 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 jest.mock('src/auth', () => ({
   auth: jest.fn(() =>
     Promise.resolve({
@@ -15,8 +20,8 @@ jest.mock('src/auth', () => ({
         currUsr: {
           plan: {
             grpId: '21908',
-            sbsbCk: '54363200',
-            memCk: '54363201',
+            sbsbCk: '502622000',
+            memCk: '502622001',
           },
         },
       },
@@ -35,6 +40,9 @@ const renderUI = () => {
 
 describe('UpdateCommunicationText Component', () => {
   beforeEach(() => {
+    mockedFetch.mockResolvedValueOnce(
+      fetchRespWrapper(loggedInUserInfoMockResp),
+    );
     act(() => {
       dismissAppModal();
       renderUI();
@@ -42,9 +50,33 @@ describe('UpdateCommunicationText Component', () => {
       showAppModal({
         content: (
           <UpdateCommunicationText
-            initNumber={'1234567890'}
-            phone={'1234567890'}
+            phone={'123456789'}
             changePage={mockChangePage}
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            onRequestPhoneNoSuccessCallBack={(arg0: string) => {}}
+            email={'test@gmail.com'}
+            preferenceData={[
+              {
+                optOut: 'I',
+                communicationCategory: 'TEXT',
+                communicationMethod: 'TEXT',
+              },
+              {
+                optOut: 'O',
+                communicationCategory: 'PLIN',
+                communicationMethod: 'EML',
+              },
+              {
+                optOut: 'I',
+                communicationCategory: 'CLMS',
+                communicationMethod: 'EML',
+              },
+              {
+                optOut: 'I',
+                communicationCategory: 'HLTW',
+                communicationMethod: 'EML',
+              },
+            ]}
           />
         ),
       });
@@ -69,14 +101,137 @@ describe('UpdateCommunicationText Component', () => {
     });
   });
 
-  it('enables Next button for valid phone number and calls changePage', async () => {
+  it('enables Next button for valid phone number and calls API', async () => {
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          updateContactPreference: {
+            ticketNumber: 'D8BD5CDF-7FB3-4D72-9EBE-7E0B254A19C4',
+            status: '3',
+          },
+          validationFailure: {},
+        },
+        details: {
+          componentName: 'membercontactpreference',
+          componentStatus: 'Success',
+          returnCode: '0',
+          subSystemName: 'Multiple Services',
+          message: '',
+          problemTypes: '0',
+          innerDetails: {},
+        },
+      },
+    });
     const phoneNumberInput = screen.getByLabelText('Phone Number');
-    fireEvent.change(phoneNumberInput, { target: { value: '1234567890' } });
-    fireEvent.blur(phoneNumberInput);
+    await userEvent.type(phoneNumberInput, '0');
+
     await waitFor(() => {
       expect(screen.getByText('Next')).not.toBeDisabled();
     });
     fireEvent.click(screen.getByText('Next'));
-    expect(screen.getByText('Confirm Phone Number')).toBeVisible();
+
+    await waitFor(() => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/memberContactPreference',
+        {
+          mobileNumber: '1234567890',
+          emailAddress: 'test@gmail.com',
+          memberKey: '502622001',
+          subscriberKey: '502622000',
+          groupKey: '21908',
+          lineOfBusiness: 'REGL',
+          contactPreference: [
+            {
+              optOut: 'I',
+              communicationCategory: 'TEXT',
+              communicationMethod: 'TEXT',
+            },
+            {
+              optOut: 'O',
+              communicationCategory: 'PLIN',
+              communicationMethod: 'EML',
+            },
+            {
+              optOut: 'I',
+              communicationCategory: 'CLMS',
+              communicationMethod: 'EML',
+            },
+            {
+              optOut: 'I',
+              communicationCategory: 'HLTW',
+              communicationMethod: 'EML',
+            },
+          ],
+        },
+      );
+      expect(screen.getByText('Phone Number Updated')).toBeVisible();
+    });
+  });
+
+  it('enables Next button for valid phone number and calls API - Failure Scenario', async () => {
+    mockedAxios.post.mockResolvedValueOnce({
+      data: {
+        data: {
+          updateContactPreference: {
+            ticketNumber: 'D8BD5CDF-7FB3-4D72-9EBE-7E0B254A19C4',
+            status: '3',
+          },
+          validationFailure: {},
+        },
+        details: {
+          componentName: 'membercontactpreference',
+          componentStatus: 'Failure',
+          returnCode: '0',
+          subSystemName: 'Multiple Services',
+          message: '',
+          problemTypes: '0',
+          innerDetails: {},
+        },
+      },
+    });
+    const phoneNumberInput = screen.getByLabelText('Phone Number');
+    await userEvent.type(phoneNumberInput, '0');
+
+    await waitFor(() => {
+      expect(screen.getByText('Next')).not.toBeDisabled();
+    });
+    fireEvent.click(screen.getByText('Next'));
+
+    await waitFor(() => {
+      expect(mockedAxios.post).toHaveBeenCalledWith(
+        '/memberContactPreference',
+        {
+          mobileNumber: '1234567890',
+          emailAddress: 'test@gmail.com',
+          memberKey: '502622001',
+          subscriberKey: '502622000',
+          groupKey: '21908',
+          lineOfBusiness: 'REGL',
+          contactPreference: [
+            {
+              optOut: 'I',
+              communicationCategory: 'TEXT',
+              communicationMethod: 'TEXT',
+            },
+            {
+              optOut: 'O',
+              communicationCategory: 'PLIN',
+              communicationMethod: 'EML',
+            },
+            {
+              optOut: 'I',
+              communicationCategory: 'CLMS',
+              communicationMethod: 'EML',
+            },
+            {
+              optOut: 'I',
+              communicationCategory: 'HLTW',
+              communicationMethod: 'EML',
+            },
+          ],
+        },
+      );
+      expect(screen.getByText('Something went wrong.')).toBeVisible();
+    });
   });
 });

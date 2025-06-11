@@ -11,8 +11,8 @@ import { IComponent } from '@/components/IComponent';
 import { formatPhoneNumber } from '@/utils/inputValidator';
 import { isNCQAEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
+import { useState } from 'react';
 import { EditEmailProfileSettings } from '../journeys/EditEmailProfileSettings';
-import { UpdatePhoneNumberJourney } from '../journeys/UpdatePhoneNumberJourney';
 
 /* eslint-disable */
 
@@ -34,7 +34,8 @@ export const ProfileInformationCard = ({
   status,
 }: ProfileInformationCardProps) => {
   const { showAppModal } = useAppModalStore();
-  phoneNumber = formatPhoneNumber(phoneNumber);
+  const [emailAddressData, setEmailAddressData] = useState(email);
+  const [phoneNumberData, setphoneNumberData] = useState(phoneNumber);
   return (
     <Card className="large-section">
       <Column>
@@ -77,30 +78,44 @@ export const ProfileInformationCard = ({
             <Spacer size={16} />
             <UpdateRowWithStatus
               key={'Phone Number'}
-              onClick={() =>
-                showAppModal({
-                  content: (
-                    <UpdatePhoneNumberJourney phoneNumber={phoneNumber} />
-                  ),
-                })
+              onClick={
+                () => {}
+                // showAppModal({
+                //   content: (
+                //     <UpdatePhoneNumberJourney
+                //       phoneNumber={phoneNumberData}
+                //       onRequestPhoneNoSuccessCallBack={(updatedPhoneNo) => {
+                //         setphoneNumberData(updatedPhoneNo);
+                //       }}
+                //     />
+                //   ),
+                // })
               }
               label={<TextBox className="font-bold" text="Phone Number" />}
-              subLabel={phoneNumber}
+              subLabel={formatPhoneNumber(phoneNumberData)}
               methodName="Update"
               divider={true}
               onOffLabelEnabled={false}
               profile="Phone Number"
+              showApplinkComp={false}
             />
             <Spacer size={16} />
             <UpdateRowWithStatus
               key={'Email'}
               onClick={() =>
                 showAppModal({
-                  content: <EditEmailProfileSettings email={email} />,
+                  content: (
+                    <EditEmailProfileSettings
+                      email={emailAddressData}
+                      onRequestEmailSuccessCallBack={(updatedEmail) => {
+                        setEmailAddressData(updatedEmail);
+                      }}
+                    />
+                  ),
                 })
               }
               label={<TextBox className="font-bold" text="Email Address" />}
-              subLabel={email}
+              subLabel={emailAddressData}
               methodName="Update"
               divider={true}
               onOffLabelEnabled={false}

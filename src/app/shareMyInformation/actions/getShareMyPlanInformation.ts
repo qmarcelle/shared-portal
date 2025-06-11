@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import {
   ShareMyPlanDetails,
+  ShareOutsideMyPlanDetails,
   SharePlanInformationDetails,
 } from '@/models/app/getSharePlanDetails';
 import { PBEData, RelationshipInfo } from '@/models/member/api/pbeData';
@@ -37,6 +38,7 @@ export const getShareMyPlanInformation = async (): Promise<
         isMatureMinorMember,
         personRoleType,
         isMinorMember,
+        outsideMyPlanData: outsideMyPlanDetails(pbeResponse, selectedPlan),
       },
     };
   } catch (error) {
@@ -48,6 +50,7 @@ export const getShareMyPlanInformation = async (): Promise<
         isMatureMinorMember: false,
         personRoleType: undefined,
         isMinorMember: false,
+        outsideMyPlanData: null,
       },
     };
   }
@@ -88,6 +91,24 @@ const computeMemberDetails = (
       implicit: item.implicit,
       isAdult: isAdult,
       isMatureMinor: isMinor,
+    });
+  });
+
+  return memberDetails;
+};
+const outsideMyPlanDetails = (
+  pbeResponse: PBEData,
+  selectedPlan: RelationshipInfo | undefined,
+): ShareOutsideMyPlanDetails[] => {
+  const memberDetails: ShareOutsideMyPlanDetails[] = [];
+  selectedPlan?.relatedPersons.map((item) => {
+    if (item.relatedPersonRoleType !== 'AU') return null;
+    const dob = new Date(item.relatedPersonDob);
+
+    memberDetails.push({
+      memberName: `${item.relatedPersonFirstName}  ${item.relatedPersonLastName}`,
+      DOB: formatDateToLocale(dob),
+      accessStatus: item.name ?? 'Full Sharing',
     });
   });
 

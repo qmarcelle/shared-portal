@@ -20,6 +20,7 @@ export interface UpdateRowWithStatusProps extends IComponent {
   enabled?: boolean;
   onOffLabelEnabled?: boolean;
   profile?: string;
+  showApplinkComp?: boolean;
 }
 
 export const UpdateRowWithStatus = ({
@@ -33,6 +34,7 @@ export const UpdateRowWithStatus = ({
   divider = false,
   onClick,
   profile,
+  showApplinkComp = true,
 }: UpdateRowWithStatusProps) => {
   return (
     <Column className={className || ''} onClick={onClick}>
@@ -73,18 +75,19 @@ export const UpdateRowWithStatus = ({
               </Row>
             </div>
           )}
-
-          <AppLink
-            className="font-bold primary-color pl-0"
-            displayStyle="flex"
-            linkUnderline="!no-underline"
-            label={methodName}
-            icon={icon}
-            type="button"
-          />
+          {showApplinkComp && (
+            <AppLink
+              className="font-bold primary-color pl-0"
+              displayStyle="flex"
+              linkUnderline="!no-underline"
+              label={methodName}
+              icon={icon}
+              type="button"
+            />
+          )}
         </Column>
       </Row>
-      {divider && <Divider className="mt-8" />}
+      {divider && <Divider className="mt-3" />}
     </Column>
   );
 };

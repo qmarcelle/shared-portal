@@ -32,6 +32,7 @@ export const getPlanInformationData = async (): Promise<
       data: {
         memberData: computeMemberDetails(pbeResponse, selectedPlan),
         loggedInMemberRole: selectedPlan?.personRoleType,
+        outsideMyPlanData: outsideMyPlanDetails(pbeResponse, selectedPlan),
       },
     };
   } catch (error) {
@@ -41,6 +42,7 @@ export const getPlanInformationData = async (): Promise<
       data: {
         memberData: null,
         loggedInMemberRole: null,
+        outsideMyPlanData: null,
       },
     };
   }
@@ -76,3 +78,11 @@ const computeMemberDetails = (
 
   return memberDetails;
 };
+function outsideMyPlanDetails(
+  pbeResponse: PBEData,
+  selectedPlan: RelationshipInfo | undefined,
+):
+  | import('@/models/app/getSharePlanDetails').ShareOutsideMyPlanDetails[]
+  | null {
+  throw new Error('Function not implemented.');
+}
