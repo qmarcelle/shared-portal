@@ -604,7 +604,7 @@ export function isMemberWellnessCenterEligible(
 }
 
 export function isMskEligible(rules: VisibilityRules | undefined) {
-  return rules?.isMskEligible;
+  return !!rules?.isMskEligible;
 }
 
 export const isHealthyMaternity = (rules: VisibilityRules | undefined) =>
