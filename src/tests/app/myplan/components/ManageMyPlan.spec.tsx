@@ -22,51 +22,65 @@ describe('ManageMyPlan', () => {
     vRules = {};
   });
 
-  it('should render UI correctly for other groups', () => {
+  it('should render UI correctly for off-marketplace members with other insurance eligibility', () => {
+    vRules.otherInsuranceEligible = true;
     const component = renderUI(vRules);
     screen.getAllByRole('heading', { name: 'Manage My Plan' });
     screen.getByText('Report Other Health Insurance');
-    screen.findByAltText(/link/i);
     screen.getByText('Update Social Security Number');
-    screen.findByAltText(/link/i);
-    screen.getByText('Enroll in a Health Plan');
-    screen.findByAltText(/link/i);
+    // Should only have one instance of Update Social Security Number
+    expect(screen.getAllByText('Update Social Security Number')).toHaveLength(
+      1,
+    );
     expect(component.baseElement).toMatchSnapshot();
   });
 
-  it('should render UI correctly for Blue Care groups', () => {
+  it('should render UI correctly for Blue Care + Katie Beckett eligible members', () => {
     vRules.blueCare = true;
-    setVisibilityRules(vRules);
-    const component = renderUI(vRules);
-    screen.getAllByRole('heading', { name: 'Manage My Plan' });
-    screen.getByText('Katie Beckett Banking Info');
-    screen.findByAltText(/link/i);
-    expect(component.baseElement).toMatchSnapshot();
-  });
-  it('should render UI correctly for Blue Care groups 155000', () => {
     vRules.katieBeckettEligible = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);
     screen.getAllByRole('heading', { name: 'Manage My Plan' });
     screen.getByText('Katie Beckett Banking Info');
-    screen.findByAltText(/link/i);
+    // Should not show other options for BlueCare + Katie Beckett
+    expect(
+      screen.queryByText('Report Other Health Insurance'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('Update Social Security Number'),
+    ).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 
-  it('should render UI correctly for  groups 120800,129800', () => {
+  it('should render UI correctly for members with manage policy eligibility', () => {
     vRules.enableBenefitChange = true;
     vRules.subscriber = true;
     vRules.wellnessOnly = false;
     vRules.futureEffective = false;
+    vRules.otherInsuranceEligible = true;
 
     const component = renderUI(vRules);
     screen.getAllByRole('heading', { name: 'Manage My Plan' });
     screen.getByText('Report Other Health Insurance');
-    screen.findByAltText(/link/i);
     screen.getByText('Update Social Security Number');
-    screen.findByAltText(/link/i);
     screen.getByText('Manage My Policy');
-    screen.findByAltText(/link/i);
+    // Verify no duplicates
+    expect(screen.getAllByText('Update Social Security Number')).toHaveLength(
+      1,
+    );
+    expect(component.baseElement).toMatchSnapshot();
+  });
+
+  it('should show only Update Social Security Number for members without other insurance or manage policy eligibility', () => {
+    // No special eligibility rules set
+    const component = renderUI(vRules);
+    screen.getAllByRole('heading', { name: 'Manage My Plan' });
+    screen.getByText('Update Social Security Number');
+    // Should not show options user is not eligible for
+    expect(
+      screen.queryByText('Report Other Health Insurance'),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Manage My Policy')).not.toBeInTheDocument();
     expect(component.baseElement).toMatchSnapshot();
   });
 
