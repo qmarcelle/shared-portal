@@ -57,7 +57,7 @@ export const Pagination = <T,>({
   // This fixes the issue where pagination was showing even with a single result
   // The pageSize check ensures we maintain the same threshold as specified in the defect
   const shouldShowPagination =
-    (totalCount ?? initialList.length) > pageSize && pageSize <= 5;
+    (totalCount ?? initialList.length) > pageSize;
 
   return (
     <>
