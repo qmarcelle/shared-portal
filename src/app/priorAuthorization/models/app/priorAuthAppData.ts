@@ -1,8 +1,7 @@
-import { VisibilityRules } from '@/visibilityEngine/rules';
-import { PriorAuthDetails } from '../priorAuthDetails';
+import { PriorAuthDetails } from '../../models/priorAuthDetails';
 
 export interface PriorAuthData {
   priorAuthDetails: PriorAuthDetails[] | null;
   phoneNumber: string;
-  visibilityRules?: VisibilityRules;
+  authorizationType: 'blueCare' | 'standard';
 }

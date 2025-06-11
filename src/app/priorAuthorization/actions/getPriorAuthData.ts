@@ -4,6 +4,7 @@ import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSe
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
+import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { PriorAuthData } from '../models/app/priorAuthAppData';
 import { invokePriorAuthDetails } from './memberPriorAuthorization';
 
@@ -16,6 +17,12 @@ export const getPriorAuthData = async (): Promise<
       invokePhoneNumberAction(),
       invokePriorAuthDetails(),
     ]);
+
+    // Compute authorization type server-side
+    const authorizationType = isBlueCareEligible(session?.user.vRules)
+      ? 'blueCare'
+      : 'standard';
+
     return {
       status: 200,
       data: {
@@ -25,7 +32,7 @@ export const getPriorAuthData = async (): Promise<
             : null,
         phoneNumber:
           phoneNumber.status === 'fulfilled' ? phoneNumber.value : '',
-        visibilityRules: session?.user.vRules,
+        authorizationType,
       },
     };
   } catch (error) {
@@ -35,7 +42,7 @@ export const getPriorAuthData = async (): Promise<
       data: {
         priorAuthDetails: null,
         phoneNumber: '',
-        visibilityRules: session?.user.vRules,
+        authorizationType: 'standard',
       },
     };
   }
