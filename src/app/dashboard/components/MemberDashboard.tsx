@@ -173,7 +173,7 @@ const MemberDashboard = ({ data }: DashboardProps) => {
             )}
             {!isBlueCareEligible(visibilityRules) && procedurePillOptions && (
               <PillBox
-                title="Planning for a procedure? You can estimate costs for:"
+                title="Planning for a procedure? Estimate costs for:"
                 icon={
                   <Image
                     src={EstimateCost}

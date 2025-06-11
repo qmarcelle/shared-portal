@@ -191,7 +191,7 @@ export const getMenuBlueCareNavigation = (
     titleLink: 'This is Pharmacy',
     description: '',
     category: 'Pharmacy',
-    url: 'https://www.tn.gov/tenncare/members-applicants/pharmacy.html',
+    url: '/member/pharmacy',
     showOnMenu: false,
     template: {
       firstCol: '',

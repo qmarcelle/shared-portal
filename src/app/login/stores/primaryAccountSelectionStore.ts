@@ -1,5 +1,6 @@
 import { AppProg } from '@/models/app_prog';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { logger } from '@/utils/logger';
 import { FormEvent } from 'react';
 import { shallow } from 'zustand/shallow';
@@ -36,6 +37,7 @@ export const usePrimaryAccountSelectionStore =
           let pbe;
           try {
             pbe = await getPersonBusinessEntity(
+              ALLOWED_PBE_SEARCH_PARAM.UserName,
               useLoginStore.getState().username,
             );
           } catch (err) {
