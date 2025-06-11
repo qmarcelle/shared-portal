@@ -1,14 +1,20 @@
 import { auth } from '@/auth';
-import { Metadata } from 'next';
-import VirtualCareOptions from '.';
+import { VisibilityRules } from '@/visibilityEngine/rules';
+import { getVirtualCareOptions } from './actions/getVirtualCareOptions';
+import VirtualCareOptions from './index';
 
-export const metadata: Metadata = {
-  title: 'VirtualCareOptions',
-};
-
-const VirtualCareOptionsPage = async () => {
+export default async function VirtualCareOptionsPage() {
   const session = await auth();
-  return <VirtualCareOptions sessionData={session} />;
-};
+  // Cast session to include visibilityRules
+  const visibilityRules = (
+    session as unknown as { visibilityRules: VisibilityRules }
+  )?.visibilityRules;
 
-export default VirtualCareOptionsPage;
+  if (!visibilityRules) {
+    return null;
+  }
+
+  const virtualCareOptions = await getVirtualCareOptions(visibilityRules);
+
+  return <VirtualCareOptions virtualCareOptions={virtualCareOptions} />;
+}
