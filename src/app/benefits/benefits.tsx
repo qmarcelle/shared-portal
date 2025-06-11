@@ -16,6 +16,7 @@ import { RichText } from '@/components/foundation/RichText';
 import { Filter } from '@/components/foundation/Filter';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { Member } from '@/models/member/api/loggedInUserInfo';
+import { useBreadcrumbStore } from '@/store/breadcrumbStore';
 import {
   isBlue365FitnessYourWayEligible,
   isMskEligible,
@@ -89,6 +90,8 @@ const Benefits = ({
     setCurrentSelectedBenefitType,
   } = useBenefitsStore();
 
+  const { setDynamicBreadcrumbText } = useBreadcrumbStore();
+
   const filterAndGroupByCategoryId = useCallback(
     (data: CoveredService[] | undefined, categoryId: number) => {
       if (data === undefined) {
@@ -139,12 +142,13 @@ const Benefits = ({
         serviceCategory: category,
         benefitType: benefitType,
       });
+      setDynamicBreadcrumbText(category.category);
       const path = pathName(category);
       router.push(
         `/member/myplan/benefits/${benefitDetailsUrlMapping[benefitType]}/${path}`,
       );
     },
-    [router, setSelectedBenefitDetails],
+    [router, setSelectedBenefitDetails, setDynamicBreadcrumbText],
   );
 
   useEffect(() => {

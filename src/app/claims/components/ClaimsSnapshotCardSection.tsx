@@ -109,7 +109,7 @@ export const ClaimsSnapshotCardSection = ({
         aria-label="Claims list controls"
       >
         <Row className="body-1 flex-grow align-top mb-0 ">
-          <span id="filter-label">Filter Results: {claims.length} Claims</span>   
+          <span id="filter-label">Filter Results: {claims.length} Claims</span>
         </Row>
 
         <Row className="body-1 items-end">
