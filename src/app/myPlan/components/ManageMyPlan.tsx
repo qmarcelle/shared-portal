@@ -6,6 +6,7 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import {
   isBlueCareEligible,
@@ -24,6 +25,8 @@ export const ManageMyPlan = ({
   className,
   visibilityRules,
 }: ManageMyPlanProps) => {
+  const router = useRouter();
+
   let manageMyPlanDetails;
 
   if (
@@ -35,7 +38,7 @@ export const ManageMyPlan = ({
         title: 'Katie Beckett Banking Info',
         body: 'Find and update your bank draft details for your plan here.',
         externalLink: false,
-        url: '/member/myplan/katiebeckett',
+        url: '/myPlan/katiebeckett',
       },
     ];
   } else if (isManageMyPolicyEligible(visibilityRules))
@@ -44,13 +47,13 @@ export const ManageMyPlan = ({
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/member/myplan/ssn',
+        url: '/myPlan/updateSocialSecurityNumber',
       },
       {
         title: 'Manage My Policy',
         body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
-        url: '/member/myplan/managepolicy',
+        url: '/myPlan/managepolicy',
       },
     ];
   else
@@ -59,20 +62,20 @@ export const ManageMyPlan = ({
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
-        url: '/member/myplan/otherinsurance',
+        url: '/myPlan/otherinsurance',
       },
       {
         title: 'Update Social Security Number',
         body: 'Add or update the Social Security Number associated with your plan.',
         externalLink: false,
-        url: '/member/myplan/ssn',
+        url: '/myPlan/updateSocialSecurityNumber',
       },
 
       /******* Commenting as of now as per Bug-75649 the requirement is on hold ********/
 
       /*{
         title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
+        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
         externalLink: true,
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
       }, */
@@ -118,7 +121,7 @@ export const ManageMyPlan = ({
                   }
                   divider={false}
                   onClick={() => {
-                    window.location.href = items.url;
+                    router.push(items.url);
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}
