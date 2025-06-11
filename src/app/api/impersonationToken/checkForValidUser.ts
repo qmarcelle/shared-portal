@@ -1,10 +1,14 @@
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { memberService } from '@/utils/api/memberService';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { logger } from '@/utils/logger';
 
 export const checkForValidUser = async (userId: string) => {
   try {
-    const pbe = await getPersonBusinessEntity(userId);
+    const pbe = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      userId,
+    );
     if (!pbe.getPBEDetails) {
       logger.error('No PBE details found for user:', userId);
       throw new Error('No PBE details found');
