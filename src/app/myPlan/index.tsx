@@ -12,6 +12,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isBlueCareNotEligible,
   isPayMyPremiumEligible,
   isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
@@ -70,10 +71,12 @@ const MyPlan = ({
                   amountDue={payPremiumResponse.currentBalance}
                 />
               )}
-            <ManageMyPlan
-              className="small-section"
-              visibilityRules={data.visibilityRules}
-            />
+            {isBlueCareNotEligible(data.visibilityRules) && (
+              <ManageMyPlan
+                className="small-section"
+                visibilityRules={data.visibilityRules}
+              />
+            )}
             {isBlueCareEligible(data.visibilityRules) && (
               <InfoCard
                 key="Profile Settings"
