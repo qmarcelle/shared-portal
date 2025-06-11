@@ -4,6 +4,7 @@ import { revalidateUser } from '@/actions/revalidateUser';
 import { PBEData } from '@/models/member/api/pbeData';
 import { UserProfile } from '@/models/user_profile';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { logger } from '@/utils/logger';
 import { computeUserProfilesFromPbe } from '@/utils/profile_computer';
 import { computeVisibilityRules } from '@/visibilityEngine/computeVisibilityRules';
@@ -21,7 +22,13 @@ export async function computeSessionUser(
     // Get the PBE of the loggedIn user
     // The loggedIn user here is the user who has logged in
     // and not the user role to which user has switched to.
-    const pbe = await getPersonBusinessEntity(userId, true, true, true);
+    const pbe = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      userId,
+      true,
+      true,
+      true,
+    );
 
     // Get the current user to which user has either switched to or
     // their actual role with the selected plan.
