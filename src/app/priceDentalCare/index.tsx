@@ -27,7 +27,6 @@ export type PriceDentalCareProps = {
 export const getCategoryDropdownValues = (categories: ProcedureResponse) => {
   logger.info('Mapping Categories to dropdown values');
   let i: number = 2;
-  if (!Array.isArray(categories)) return [];
   return categories?.procedureCategories?.map((category) => ({
     label: category.name,
     value: category.id.toString(),
@@ -38,7 +37,6 @@ export const getCategoryDropdownValues = (categories: ProcedureResponse) => {
 export const getNetworkDropdownValues = (networks: Network[]) => {
   logger.info('Mapping networks to dropdown values');
   let i: number = 2;
-  if (!Array.isArray(networks)) return [];
   return networks?.map((network) => ({
     label: network.networkDesc,
     value: network.networkPrefix,

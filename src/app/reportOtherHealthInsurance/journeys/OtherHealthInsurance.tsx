@@ -106,7 +106,7 @@ export const OtherHealthInsurance = ({
       checkCountRef.current <= 2
     ) {
       if (checkCountRef.current == 1) {
-        otherInsuranceData.otherInsurance.map((otherInsurance) => {
+        otherInsuranceData.otherInsurance?.map((otherInsurance) => {
           otherInsurance.companyId = companyNumber;
           otherInsurance.coverageType = 'C';
           otherInsurance.companyName = companyName;
@@ -128,7 +128,7 @@ export const OtherHealthInsurance = ({
         }
       }
       if (checkCountRef.current == 2) {
-        otherInsuranceData.otherInsurance.map((otherInsurance) => {
+        otherInsuranceData.otherInsurance?.map((otherInsurance) => {
           otherInsurance.coverageType = 'D';
           otherInsurance.companyId = companyNumber;
           otherInsurance.companyName = companyName;
@@ -173,7 +173,7 @@ export const OtherHealthInsurance = ({
       noOtherInsuranceData.applyToAll = true;
       noOtherInsuranceData.noOtherInsurance = true;
       noOtherInsuranceData.coverageTypes = [];
-      noOtherInsuranceData.otherInsurance.map((otherInsurance) => {
+      noOtherInsuranceData.otherInsurance?.map((otherInsurance) => {
         otherInsurance.coverageType = 'D';
         otherInsurance.companyId = companyNumber;
         otherInsurance.companyName = companyName;
@@ -189,7 +189,7 @@ export const OtherHealthInsurance = ({
       noOtherInsuranceData.applyToAll = false;
       noOtherInsuranceData.noOtherInsurance = true;
       noOtherInsuranceData.coverageTypes = [];
-      noOtherInsuranceData.otherInsurance.map((otherInsurance) => {
+      noOtherInsuranceData.otherInsurance?.map((otherInsurance) => {
         otherInsurance.coverageType = 'D';
         otherInsurance.companyId = 'NOOTHER';
         otherInsurance.companyName = '';
@@ -209,7 +209,7 @@ export const OtherHealthInsurance = ({
 
   const submitCOBMemberData = () => {
     if (checkboxState.medicalPlan && !checkboxState.dentalPlan) {
-      otherInsuranceData.otherInsurance.map((otherInsurance) => {
+      otherInsuranceData.otherInsurance?.map((otherInsurance) => {
         otherInsurance.coverageType = 'C';
         otherInsurance.companyId = companyNumber;
         otherInsurance.companyName = companyName;
@@ -221,7 +221,7 @@ export const OtherHealthInsurance = ({
         otherInsurance.policyHolderBirthDate = new Date(holderDOB);
       });
     } else if (!checkboxState.medicalPlan && checkboxState.dentalPlan) {
-      otherInsuranceData.otherInsurance.map((otherInsurance) => {
+      otherInsuranceData.otherInsurance?.map((otherInsurance) => {
         otherInsurance.coverageType = 'D';
         otherInsurance.companyId = companyNumber;
         otherInsurance.companyName = companyName;
@@ -233,7 +233,7 @@ export const OtherHealthInsurance = ({
         otherInsurance.policyHolderBirthDate = new Date(holderDOB);
       });
     } else if (checkboxState.medicarePlan) {
-      otherInsuranceData.otherInsurance.map((otherInsurance) => {
+      otherInsuranceData.otherInsurance?.map((otherInsurance) => {
         otherInsurance.coverageType = 'M';
         otherInsurance.companyId = companyNumber;
         otherInsurance.companyName = companyName;
@@ -348,6 +348,7 @@ export const OtherHealthInsurance = ({
           otherInsuranceCompanyName={companyName}
           otherInsurancePolicyNumber={policyNumber}
           otherInsuranceEffectiveDate={policyEffectiveDate}
+          membersData={membersData}
         />
       }
       buttonLabel="Save Answer"

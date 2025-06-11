@@ -40,9 +40,10 @@ const TransactionsPage = async () => {
               spans={[
                 <span key={1}>If you need help, </span>,
                 <span className="link" key={2}>
-                  <a>start a chat or</a>
+                  <a>start a chat </a>
                 </span>,
-                <span key={3}> call us at [{phoneNumber}].</span>,
+                <span key={3}>or</span>,
+                <span key={4}> call us at {phoneNumber}.</span>,
               ]}
             />
           </section>
