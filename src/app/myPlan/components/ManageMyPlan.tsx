@@ -38,7 +38,7 @@ export const ManageMyPlan = ({
         title: 'Katie Beckett Banking Info',
         body: 'Find and update your bank draft details for your plan here.',
         externalLink: false,
-        url: '/myPlan/katiebeckett',
+        url: '/member/myplan/katiebeckett',
       },
     ];
   } else if (isManageMyPolicyEligible(visibilityRules))
@@ -53,7 +53,7 @@ export const ManageMyPlan = ({
         title: 'Manage My Policy',
         body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',
         externalLink: false,
-        url: '/myPlan/managepolicy',
+        url: '/member/myplan/managepolicy',
       },
     ];
   else
@@ -62,7 +62,7 @@ export const ManageMyPlan = ({
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
-        url: '/reportOtherHealthInsurance',
+        url: '/member/myplan/otherinsurance',
       },
       {
         title: 'Update Social Security Number',
