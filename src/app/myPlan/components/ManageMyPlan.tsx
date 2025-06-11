@@ -9,7 +9,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import {
-  isBlueCareEligible,
   isKatieBeckettEligible,
   isManageMyPolicyEligible,
   isOtherInsuranceEligible,
@@ -30,10 +29,7 @@ export const ManageMyPlan = ({
   let manageMyPlanDetails;
 
   // BlueCare + Katie Beckett members: Show Katie Beckett Banking Info only
-  if (
-    isBlueCareEligible(visibilityRules) &&
-    isKatieBeckettEligible(visibilityRules)
-  ) {
+  if (isKatieBeckettEligible(visibilityRules)) {
     manageMyPlanDetails = [
       {
         title: 'Katie Beckett Banking Info',
