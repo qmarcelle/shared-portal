@@ -10,7 +10,11 @@ const priorAuthDetailPage = async ({
 }) => {
   const referenceId = searchParams.referenceId;
   const phoneNumber = await invokePhoneNumberAction();
-  const priorAuthDetail = await populatePriorAuthDetails(decrypt(referenceId));
+  let priorAuthDetail = null;
+  if (referenceId) {
+    const decryptedReferenceId = decrypt(referenceId);
+    priorAuthDetail = await populatePriorAuthDetails(decryptedReferenceId);
+  }
   return (
     <section className="">
       <PriorAuthDetailsSection

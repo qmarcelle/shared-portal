@@ -1,13 +1,13 @@
+import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
 import { IComponent } from '@/components/IComponent';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Card } from '@/components/foundation/Card';
 import { Spacer } from '@/components/foundation/Spacer';
-import { DashboardPriorAuthDetails } from '../models/priorAuth_details';
 import { BlankPriorAuthSection } from './BlankPriorAuthSection';
 import { PriorAuthCard } from './PriorAuthCard';
 
 interface PriorAuthSectionProps extends IComponent {
-  priorAuth: DashboardPriorAuthDetails | null;
+  priorAuth: MemberPriorAuthDetail | null;
 }
 
 export const PriorAuthSection = ({

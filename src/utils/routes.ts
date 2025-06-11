@@ -268,16 +268,15 @@ export const ROUTE_CONFIG: RouteConfig = {
       },
     },
     priorAuthorization: {
-      title: 'Prior Authorization',
+      title: 'Prior Authorizations',
       rule: (r) => activeAndHealthPlanMember(r),
       children: {
-        '*': {
+        authDetails: {
           title: 'Prior Authorization Details',
+          rule: (r) => activeAndHealthPlanMember(r),
         },
       },
-    },
-    authDetail: {
-      title: (authId) => `ID#${authId}`,
+      breadcrumbParent: '/myPlan',
     },
     spendingSummary: {
       title: 'Spending Summary',

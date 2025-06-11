@@ -2,6 +2,7 @@ export interface PriorAuthDetails {
   issuer: string;
   memberName: string;
   serviceDate: string;
+  serviceDateFormatted: string;
   priorAuthStatus: string;
   priorAuthTotal: string | null;
   // TODO: Find the correct Model and type it here

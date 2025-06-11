@@ -1,8 +1,10 @@
 import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
+import { ErrorCard } from '@/components/composite/ErrorCard';
 import { RichText } from '@/components/foundation/RichText';
 import AlertIcon from '@/public/assets/alert_gray.svg';
 import MedicalIcon from '@/public/assets/medical.svg';
 import { formatDate } from '@/utils/inputValidator';
+import { isObjectEmpty } from '@/utils/object_utils';
 import { formatPhone } from '@/utils/phone_formatter';
 import Image from 'next/image';
 import { PriorAuthorizationHelp } from '../../../../components/composite/PriorAuthorizationHelp';
@@ -50,9 +52,22 @@ export const PriorAuthDetailItem = ({
     return MedicalIcon;
   }
 
+  if (!authInfo) {
+    return (
+      <Column className="flex flex-col justify-center items-center page priorAuthDetail">
+        <Spacer size={32} />
+        <ErrorCard
+          errorText={
+            'There was an issue loading the Prior Authorization. Please try again later.'
+          }
+        />
+        <Spacer size={32} />
+      </Column>
+    );
+  }
+
   return (
     <main className="flex flex-col justify-center items-center page priorAuthDetail">
-      <Spacer size={32}></Spacer>
       <Column className={'app-content app-base-font-color m-5'}>
         <Row className="md:max-my-8">
           <Image
@@ -62,7 +77,7 @@ export const PriorAuthDetailItem = ({
           />
           <Spacer axis="horizontal" size={8} />
           <Header
-            type="title-3"
+            type="title-1"
             text={authInfo?.serviceGroupDescription ?? ''}
             className="md:text-3xl !font-light ml-5 w-3/5 mb-4"
           />
@@ -117,7 +132,7 @@ export const PriorAuthDetailItem = ({
                       type="body-1"
                       className="mt-4"
                       spans={[
-                        <span key={0}>For more information,Please</span>,
+                        <span key={0}>For more information, Please</span>,
                         <span className="link" key={1}>
                           <a> start a chat </a>
                         </span>,
@@ -255,13 +270,13 @@ export const PriorAuthDetailItem = ({
                     className="my-4"
                   />
                   <Row>
-                    {authInfo?.getProviderFacilityId === null ? (
+                    {isObjectEmpty(authInfo?.getProviderFacilityId) ? (
                       <Card className="neutral container mt-4">
                         <Row className="flex flex-row align-top m-4">
                           <TextBox
                             type="body-1"
                             className="w-4/5"
-                            text="Facility Information Unavailable."
+                            text="Facility information unavailable."
                           ></TextBox>
                         </Row>
                       </Card>

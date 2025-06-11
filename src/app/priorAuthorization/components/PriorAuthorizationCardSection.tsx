@@ -5,92 +5,53 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Pagination } from '@/components/foundation/Pagination';
-import { RichDropDown } from '@/components/foundation/RichDropDown';
+import {
+  RichDropDown,
+  RichSelectItem,
+} from '@/components/foundation/RichDropDown';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import downIcon from '../../../../public/assets/down.svg';
-import { PriorAuthDetails } from '../models/priorAuthDetails';
-import { PriorAuthFilterDetails } from '../models/priorAuthFilterDetails';
+import { MemberPriorAuthDetail } from '../models/priorAuthData';
+import { usePriorAuthStore } from '../store/priorAuthStore';
+import { mapToPriorAuthDetails } from '../utils/priorAuthMapper';
 import { PriorAuthItem } from './PriorAuthItem';
 
-interface ClaimsSnapshotCardSectionProps extends IComponent {
-  priorAuthDetails: any;
-  sortBy: PriorAuthFilterDetails[];
-  selectedDate: any;
-  onSelectedDateChange: () => any;
+interface PriorAuthCardProps extends IComponent {
+  priorAuthDetails: MemberPriorAuthDetail[];
+  sortBy: RichSelectItem[];
 }
 
-const PriorAuthFilterTile = ({ user }: { user: PriorAuthFilterDetails }) => {
-  return (
-    <Column className="border-none flex-grow">
-      <TextBox type="body-1" text={`${user.label}`} />
-    </Column>
-  );
-};
-
-const PriorAuthFilterHead = ({ user }: { user: PriorAuthFilterDetails }) => {
-  return (
-    <div className="body-1 link">
-      <Row className="p-1 items-center font-bold">
-        <PriorAuthFilterTile user={user} />
-        <Image
-          src={downIcon}
-          className="w-[20px] h-[20px] ml-2 items-end"
-          alt=""
-        />
-      </Row>
-    </div>
-  );
-};
 export const PriorAuthorizationCardSection = ({
   priorAuthDetails,
   sortBy,
-  selectedDate,
-}: ClaimsSnapshotCardSectionProps) => {
+}: PriorAuthCardProps) => {
   const router = useRouter();
-  const [claimList, setClaimList] = useState([]);
-  const [selected, setSelected] = useState(selectedDate);
+  const [selectedSort, setSelectedSort] = useState(sortBy[0]);
+  const [priorAuthList, setPriorAuthList] = useState<MemberPriorAuthDetail[]>(
+    [...priorAuthDetails].sort(selectedSort.sortFn),
+  );
+  const { setSelectedPriorAuth } = usePriorAuthStore();
   useEffect(() => {
-    setClaimList(
-      priorAuthDetails &&
-        priorAuthDetails.sort((a: any, b: any) => {
-          return (
-            new Date(b.serviceDate).getTime() -
-            new Date(a.serviceDate).getTime()
-          );
-        }),
-    );
-  }, [priorAuthDetails]);
-  const setSortingOption = (option: any) => {
-    setSelected(option);
-    getData(option.label);
-  };
+    if (selectedSort.sortFn) {
+      const sortedList = [...priorAuthDetails].sort(selectedSort.sortFn);
+      console.log('SortedList', sortedList);
+      setPriorAuthList(sortedList);
+    } else {
+      setPriorAuthList(priorAuthDetails);
+    }
+  }, [selectedSort, priorAuthDetails]);
 
-  const getData = (option: any) => {
-    const list = [...claimList];
-
-    const sortedData = list.sort((a: any, b: any) => {
-      if (option == 'Date (Most Recent)') {
-        return (
-          new Date(b.serviceDate).getTime() - new Date(a.serviceDate).getTime()
-        );
-      } else if (option == 'Status (Denied First)') {
-        if (a.claimStatus === 'Denied' && b.claimStatus !== 'Denied') {
-          return -1;
-        } else if (a.claimStatus !== 'Denied' && b.claimStatus === 'Denied') {
-          return 1;
-        } else {
-          return 0;
-        }
-      }
-      return 0;
-    });
-    setClaimList(sortedData);
-  };
-  console.log('claimList', claimList);
   const navigateToPriorAuthDetails = (referenceId: string) => {
-    router.push(`/priorAuthorization/authDetails?referenceId=${referenceId}`);
+    console.log(
+      'Navigating to Prior Auth Details with referenceId:',
+      referenceId,
+    );
+    setSelectedPriorAuth(
+      priorAuthList.find((auth) => auth.referenceId === referenceId) ?? null,
+    );
+    router.push('/priorAuthorization/authDetails');
   };
 
   function priorAuthErrorMessage() {
@@ -109,27 +70,39 @@ export const PriorAuthorizationCardSection = ({
   return (
     <Column className="mt-2">
       <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2 relative'}>
-        <Row className="body-1 align-top mb-0 flex-grow">
-          <></>
-          {/* Filter Results:{' '}
+        <Row className="body-1 flex-grow align-top mb-0 ">
+          Filter Results:{' '}
           <TextBox
             type="body-1"
             className="font-bold ml-2"
-            text="5 Prior Authorizations"
-          />*/}
+            text={`${priorAuthDetails?.length ?? 0} Prior Authorizations`}
+          />
         </Row>
         <Row className="body-1 items-end">
           <div className="body-1 mb-1">Sort by:</div>
           <div>
             <RichDropDown
-              minWidth="min-w-[280px]"
-              headBuilder={(val) => <PriorAuthFilterHead user={val} />}
+              minWidth="min-w-[200px]"
+              headBuilder={(val) => (
+                <a className="link ml-2 flex" aria-labelledby="sort-label">
+                  {val.label}{' '}
+                  <Image
+                    src={downIcon}
+                    className="w-[20px] h-[20px] ml-2"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </a>
+              )}
               itemData={sortBy}
-              itemsBuilder={(data) => <PriorAuthFilterTile user={data} />}
-              selected={selected}
+              itemsBuilder={(data) => (
+                <p className="text-nowrap">{data.label}</p>
+              )}
+              selected={selectedSort}
               onSelectItem={(val) => {
-                setSortingOption(val);
+                setSelectedSort(val);
               }}
+              aria-label="Sort claims by"
             />
           </div>
         </Row>
@@ -137,35 +110,24 @@ export const PriorAuthorizationCardSection = ({
       </div>
 
       <div className={'flex flex-col max-sm:my-4'}>
-        {/*} <Spacer size={16} />
-        {claimList == null && priorAuthErrorMessage()}
-        {claimList &&
-          claimList.map((item: any) => (
-            <PriorAuthItem
-              key={item.referenceId}
-              className="mb-4"
-              priorAuthDetails={item}
-              callBack={navigateToPriorAuthDetails}
-            />
-          ))}*/}
         <Spacer size={16} />
-        {claimList == null && priorAuthErrorMessage()}
-        {claimList && (
-          <Pagination<PriorAuthDetails>
-            key={claimList[0]}
-            initialList={claimList}
+        {priorAuthDetails == null && priorAuthErrorMessage()}
+        {priorAuthList && (
+          <Pagination<MemberPriorAuthDetail>
+            key={selectedSort.label} // Ensure key changes when sort changes
+            initialList={priorAuthList}
             pageSize={5}
             wrapperBuilder={(items) => <Column>{items}</Column>}
-            itemsBuilder={(item) => (
+            itemsBuilder={(item, index) => (
               <PriorAuthItem
-                key={item.referenceId}
+                key={`${item.referenceId}-${index}`} // Combine referenceId with index for uniqueness
                 className="mb-4"
-                priorAuthDetails={item}
+                priorAuthDetails={mapToPriorAuthDetails(item)}
                 callBack={navigateToPriorAuthDetails}
               />
             )}
             label="Prior Authorizations"
-            totalCount={claimList.length}
+            totalCount={priorAuthList.length}
           />
         )}
       </div>

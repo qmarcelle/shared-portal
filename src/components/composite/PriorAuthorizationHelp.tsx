@@ -21,12 +21,12 @@ export const PriorAuthorizationHelp = ({ contact }: priorAuthDetailProps) => {
         <RichText
           spans={[
             <span key={0}>
-              if you need help, please help reach out to us.You can{' '}
+              If you need help, please reach out to us. You can{' '}
             </span>,
             <span className="link" key={1}>
               <a>start a chat </a>
             </span>,
-            <span key={2}>or call us at [{contact}]</span>,
+            <span key={2}>or call us at {contact}</span>,
           ]}
         />
         <Spacer size={32} />

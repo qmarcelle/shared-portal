@@ -7,6 +7,10 @@ export function isObject(data: any) {
 }
 
 export function isObjectEmpty(data: any): boolean {
+  if (data === undefined || data === null) {
+    return true;
+  }
+
   if (!isObject(data)) {
     return true;
   }

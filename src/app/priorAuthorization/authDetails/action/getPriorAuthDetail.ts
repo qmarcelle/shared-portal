@@ -1,10 +1,9 @@
 'use server';
+import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
 import { auth } from '@/auth';
-import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
-import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
+import { DateFilterValues, getDateRange } from '@/utils/filterUtils';
 import { logger } from '@/utils/logger';
-import { getDateRange } from '../../actions/memberPriorAuthorization';
 import { MemberPriorAuthDetail } from '../../models/priorAuthData';
 
 export async function populatePriorAuthDetails(
@@ -12,35 +11,38 @@ export async function populatePriorAuthDetails(
 ): Promise<MemberPriorAuthDetail | null> {
   try {
     const session = await auth();
-    const memberList: string[] = [];
-    const pbeResponse = await getPersonBusinessEntity(
-      ALLOWED_PBE_SEARCH_PARAM.UserName,
-      session!.user!.id,
+    const loggedInUserInfo = await getLoggedInUserInfo(
+      session!.user!.currUsr!.plan!.memCk,
     );
-    const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
-      (item) => item?.memeCk === session?.user.currUsr?.plan?.memCk,
+    const sessionMembers = loggedInUserInfo.members.map((member) =>
+      member.memberCk.toString(),
     );
-    memberList.push(session?.user.currUsr?.plan?.memCk ?? '');
-    selectedPlan?.relatedPersons.forEach((item) => {
-      memberList.push(item.relatedPersonMemeCk.toString());
-    });
-    const dateRange = await getDateRange(
-      process.env.NEXT_PUBLIC_DEFAULT_PRIOR_AUTH_SEARCH_RANGE ?? 'A',
-    );
+    const dateRange = await getDateRange(DateFilterValues.LastTwoYears);
     let priorAuthDetail;
-    for (const memberData of memberList) {
-      const apiResponse = await esApi.get(
-        `/memberPriorAuthDetails?memberKey=${memberData}&fromDate=${dateRange.fromDate}&toDate=${dateRange.toDate}`, // froDate and toDate is dependant on filter integration
-      );
-      if (
-        apiResponse?.data?.data?.memberPriorAuthDetails
-          ?.memberPriorAuthDetail != null
-      ) {
-        priorAuthDetail =
-          apiResponse?.data?.data?.memberPriorAuthDetails?.memberPriorAuthDetail.find(
-            (item: { referenceId: string }) => item.referenceId === referenceId,
-          );
-        if (priorAuthDetail != null) return priorAuthDetail;
+    for (const memberData of sessionMembers) {
+      try {
+        const apiResponse = await esApi.get(
+          `/memberPriorAuthDetails?memberKey=${memberData}&fromDate=${dateRange.fromDate}&toDate=${dateRange.toDate}`, // froDate and toDate is dependant on filter integration
+        );
+        if (
+          apiResponse?.data?.data?.memberPriorAuthDetails
+            ?.memberPriorAuthDetail != null
+        ) {
+          priorAuthDetail =
+            apiResponse?.data?.data?.memberPriorAuthDetails?.memberPriorAuthDetail.find(
+              (item: { referenceId: string }) =>
+                item.referenceId === referenceId,
+            );
+          if (priorAuthDetail != null) {
+            return priorAuthDetail;
+          }
+        }
+      } catch (error) {
+        logger.error(
+          `Error fetching prior auth details for member ${memberData}`,
+          error,
+        );
+        continue; // Skip to the next member if an error occurs
       }
     }
     return priorAuthDetail ?? null;

@@ -1,32 +1,39 @@
 'use server';
 
-import { invokePriorAuthDetails } from '@/app/priorAuthorization/actions/memberPriorAuthorization';
-import { PriorAuthDetails } from '@/app/priorAuthorization/models/priorAuthDetails';
-import { PriorAuthType } from '@/app/priorAuthorization/models/priorAuthType';
+import { getLoggedInUserInfo } from '@/actions/loggedUserInfo';
+import { getPriorAuthsFromES } from '@/app/priorAuthorization/actions/getPriorAuthsFromES';
+import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
+import { sortByDateHighToLow } from '@/app/priorAuthorization/utils/priorAuthSorts';
+import { auth } from '@/auth';
+import { DateFilterValues, getDateRange } from '@/utils/filterUtils';
 import { logger } from '@/utils/logger';
-import { DashboardPriorAuthDetails } from '../models/priorAuth_details';
 
-export async function getDashboardPriorAuthData(): Promise<DashboardPriorAuthDetails | null> {
+export async function getDashboardPriorAuthData(): Promise<MemberPriorAuthDetail | null> {
   try {
-    const priorAuthResponse = await invokePriorAuthDetails();
-    if (priorAuthResponse.length > 0)
-      return computePriorAuthDetail(priorAuthResponse[0]);
-    return null;
+    console.log('Invoked ES Call with session data');
+    const session = await auth();
+    const loggedInUserInfo = await getLoggedInUserInfo(
+      session!.user!.currUsr!.plan!.memCk,
+    );
+    const sessionMembers = loggedInUserInfo.members.map((member) =>
+      member.memberCk.toString(),
+    );
+    const dateRange = getDateRange(DateFilterValues.Last30Days);
+    logger.info('Prior Auth Date Range', dateRange);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+    const priorAuths = await getPriorAuthsFromES(
+      sessionMembers,
+      dateRange.fromDate,
+      dateRange.toDate,
+    );
+    if (priorAuths.length === 0) {
+      return null;
+    }
+    const sortedPriorAuths = priorAuths.sort(sortByDateHighToLow);
+    return sortedPriorAuths[0];
   } catch (error) {
     logger.error('Error in Prior Authorization Service - Dashboard{} ', error);
     return null;
   }
-}
-
-function computePriorAuthDetail(
-  priorAuthDetails: PriorAuthDetails,
-): DashboardPriorAuthDetails {
-  return {
-    priorAuthName: priorAuthDetails.issuer,
-    priorAuthType: PriorAuthType.MEDICAL,
-    dateOfVisit: priorAuthDetails.serviceDate,
-    priorAuthStatus: priorAuthDetails.priorAuthStatus,
-    member: priorAuthDetails.memberName,
-    referenceId: priorAuthDetails.referenceId ?? '',
-  };
 }

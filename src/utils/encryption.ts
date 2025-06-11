@@ -1,4 +1,5 @@
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
+import 'server-only';
 
 const ALGORITHM = 'aes-256-cbc';
 

@@ -6,7 +6,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { StatusLabel } from '@/components/foundation/StatusLabel';
 import { TextBox } from '@/components/foundation/TextBox';
-import { encrypt } from '@/utils/encryption';
 import Image from 'next/image';
 import MedicalIcon from '../../../../public/assets/medical.svg';
 import { PriorAuthDetails } from '../models/priorAuthDetails';
@@ -74,7 +73,7 @@ export const PriorAuthItem = ({
               <Column>
                 <TextBox
                   className="body-1 mt-2"
-                  text={`Visited on ${priorAuthDetails.serviceDate}, For ${priorAuthDetails.memberName}`}
+                  text={`Visited on ${priorAuthDetails.serviceDateFormatted}, For ${priorAuthDetails.memberName}`}
                 />
               </Column>
               <Column className="max-md:hidden">
@@ -94,7 +93,7 @@ export const PriorAuthItem = ({
               <Column className="mr-2 flex-grow max-md:hidden">
                 <TextBox
                   className="body-1"
-                  text={`Visited on ${priorAuthDetails.serviceDate}`}
+                  text={`Visited on ${priorAuthDetails.serviceDateFormatted}`}
                 />
                 <TextBox
                   className="body-1 mt-2"
@@ -140,11 +139,11 @@ export const PriorAuthItem = ({
     <Card
       className={`cursor-pointer ${className}`}
       type="button"
-      onClick={() => callBack?.(encrypt(priorAuthDetails.referenceId ?? ''))}
+      onClick={() => callBack?.(priorAuthDetails.referenceId ?? '')}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          callBack?.(encrypt(priorAuthDetails.referenceId ?? ''));
+          callBack?.(priorAuthDetails.referenceId ?? '');
         }
       }}
       role="button"
