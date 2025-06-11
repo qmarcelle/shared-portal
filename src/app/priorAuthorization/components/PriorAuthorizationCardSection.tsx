@@ -51,6 +51,7 @@ export const PriorAuthorizationCardSection = ({
   const router = useRouter();
   const [claimList, setClaimList] = useState([]);
   const [selected, setSelected] = useState(selectedDate);
+
   useEffect(() => {
     setClaimList(
       priorAuthDetails &&
@@ -62,6 +63,7 @@ export const PriorAuthorizationCardSection = ({
         }),
     );
   }, [priorAuthDetails]);
+
   const setSortingOption = (option: any) => {
     setSelected(option);
     getData(option.label);
@@ -88,10 +90,6 @@ export const PriorAuthorizationCardSection = ({
     });
     setClaimList(sortedData);
   };
-  console.log('claimList', claimList);
-  const navigateToPriorAuthDetails = (referenceId: string) => {
-    router.push(`/priorAuthorization/authDetails?referenceId=${referenceId}`);
-  };
 
   function priorAuthErrorMessage() {
     return (
@@ -106,20 +104,15 @@ export const PriorAuthorizationCardSection = ({
       </Column>
     );
   }
+
   return (
     <Column className="mt-2">
       <div className={'xs:block md:inline-flex max-sm:m-4 md:my-2 relative'}>
         <Row className="body-1 align-top mb-0 flex-grow">
           <></>
-          {/* Filter Results:{' '}
-          <TextBox
-            type="body-1"
-            className="font-bold ml-2"
-            text="5 Prior Authorizations"
-          />*/}
         </Row>
         <Row className="body-1 items-end">
-          <div className="body-1 mb-1">Sort by:</div>
+          <div className="body-1 mb-1 font-bold">Sort by:</div>
           <div>
             <RichDropDown
               minWidth="min-w-[280px]"
@@ -137,17 +130,6 @@ export const PriorAuthorizationCardSection = ({
       </div>
 
       <div className={'flex flex-col max-sm:my-4'}>
-        {/*} <Spacer size={16} />
-        {claimList == null && priorAuthErrorMessage()}
-        {claimList &&
-          claimList.map((item: any) => (
-            <PriorAuthItem
-              key={item.referenceId}
-              className="mb-4"
-              priorAuthDetails={item}
-              callBack={navigateToPriorAuthDetails}
-            />
-          ))}*/}
         <Spacer size={16} />
         {claimList == null && priorAuthErrorMessage()}
         {claimList && (
@@ -161,7 +143,11 @@ export const PriorAuthorizationCardSection = ({
                 key={item.referenceId}
                 className="mb-4"
                 priorAuthDetails={item}
-                callBack={navigateToPriorAuthDetails}
+                callBack={(referenceId) => {
+                  router.push(
+                    `/priorAuthorization/authDetails?referenceId=${referenceId}`,
+                  );
+                }}
               />
             )}
             label="Prior Authorizations"

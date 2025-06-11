@@ -39,7 +39,7 @@ export const Pagination = <T,>({
 
   useEffect(() => {
     mapItemList();
-  }, [initialList, mapItemList]); // Add initialList and mapItemList as dependencies to recalculate when they change
+  }, [initialList, mapItemList]);
 
   const itemList = (pageItems.get(currentPage) ?? []).map((item, index) => {
     return itemsBuilder(item, index);
@@ -53,10 +53,16 @@ export const Pagination = <T,>({
     );
   }
 
+  // [Defect 73528] Only show pagination when more than 5 results
+  // This fixes the issue where pagination was showing even with a single result
+  // The pageSize check ensures we maintain the same threshold as specified in the defect
+  const shouldShowPagination =
+    (totalCount ?? initialList.length) > pageSize && pageSize <= 5;
+
   return (
     <>
       {wrapperBuilder(itemList)}
-      {(totalCount ?? 0) > pageSize && (
+      {shouldShowPagination && (
         <>
           {label && pageItems.get(currentPage) ? (
             <section className="flex justify-center self-center pt-5">
