@@ -10,11 +10,6 @@ import { securityIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
-import {
-  isBlueCareEligible,
-  isPayMyPremiumEligible,
-  isQuantumHealthEligible,
-} from '@/visibilityEngine/computeVisibilityRules';
 import { PayPremiumSection } from '../dashboard/components/PayPremium';
 import { ManageMyPlan } from './components/ManageMyPlan';
 import { AllMyPlanData, MyPlanData } from './model/app/myPlanData';
@@ -24,12 +19,19 @@ export type MyPlanProps = {
   contact: string;
   planData: AllMyPlanData<string>[];
   payPremiumResponse: PremiumPayResponse;
+  isQuantumHealthEligible: boolean;
+  isPayMyPremiumEligible: boolean;
+  isBlueCareEligible: boolean;
 };
+
 const MyPlan = ({
   data,
   contact,
   planData,
   payPremiumResponse,
+  isQuantumHealthEligible,
+  isPayMyPremiumEligible,
+  isBlueCareEligible,
 }: MyPlanProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -62,19 +64,18 @@ const MyPlan = ({
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
-            {!isQuantumHealthEligible(data.visibilityRules) &&
-              isPayMyPremiumEligible(data.visibilityRules) && (
-                <PayPremiumSection
-                  className="large-section"
-                  dueDate={payPremiumResponse.paymentDue}
-                  amountDue={payPremiumResponse.currentBalance}
-                />
-              )}
+            {!isQuantumHealthEligible && isPayMyPremiumEligible && (
+              <PayPremiumSection
+                className="large-section"
+                dueDate={payPremiumResponse.paymentDue}
+                amountDue={payPremiumResponse.currentBalance}
+              />
+            )}
             <ManageMyPlan
               className="small-section"
               visibilityRules={data.visibilityRules}
             />
-            {isBlueCareEligible(data.visibilityRules) && (
+            {isBlueCareEligible && (
               <InfoCard
                 key="Profile Settings"
                 label="Profile Settings"

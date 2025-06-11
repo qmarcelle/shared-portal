@@ -30,6 +30,7 @@ const VirtualCareOptions = ({
         description:
           'The care management program lets you message a BlueCross nurse or other health professional for support and answers — at no cost to you.',
         url: `${urlRedirect}caremanagement`,
+        rule: () => true, // Always visible
       },
       {
         id: '2',
@@ -37,6 +38,7 @@ const VirtualCareOptions = ({
         description:
           'This program offers personalized pre- and post-natal care, confidential maternity health advice and around-the-clock support to keep you and your baby healthy.',
         url: `${urlRedirect + HealthProgramType.HealthyMaternity}`,
+        rule: () => true, // Always visible
       },
       {
         id: '3',
@@ -44,6 +46,7 @@ const VirtualCareOptions = ({
         description:
           'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
         url: `${urlRedirect + HealthProgramType.TeladocBP}`,
+        rule: () => true, // Always visible
       },
       {
         id: '4',
@@ -51,6 +54,7 @@ const VirtualCareOptions = ({
         description:
           'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
         url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+        rule: () => true, // Always visible
       },
       {
         id: '5',
@@ -58,6 +62,7 @@ const VirtualCareOptions = ({
         description:
           'Get a personal action plan, health coaching and a smart scale at no extra cost.',
         url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+        rule: () => isDPPEligible, // DPP eligibility calculated server-side
       },
       {
         id: '6',
@@ -65,6 +70,7 @@ const VirtualCareOptions = ({
         description:
           'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
         url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+        rule: () => true, // Always visible
       },
       {
         id: '7',
@@ -72,6 +78,7 @@ const VirtualCareOptions = ({
         description:
           'As an independent lab, QuestSelect can make sure you get the lowest price when you need lab testing — even if you have your sample drawn at another provider.',
         url: `${urlRedirect + HealthProgramType.QuestSelect}`,
+        rule: () => true, // Always visible
       },
       {
         id: '8',
@@ -79,17 +86,12 @@ const VirtualCareOptions = ({
         description:
           'Get healthy with gym memberships, a personalized Get Started Program and a library of digital workout videos.',
         url: `${urlRedirect + HealthProgramType.SilverFit}`,
+        rule: () => true, // Always visible
       },
     ];
 
-    // Filter out DPP card if not eligible per PZN rules (calculated server-side)
-    return allOptions.filter((option) => {
-      if (option.id === '5') {
-        // Virtual Diabetes Prevention Program
-        return isDPPEligible;
-      }
-      return true;
-    });
+    // Filter options based on their rule callbacks
+    return allOptions.filter((option) => option.rule());
   };
 
   return (

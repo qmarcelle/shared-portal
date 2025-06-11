@@ -1,7 +1,6 @@
 import { getPingOneData } from '@/app/pingOne/setupPingOne';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { logger } from '@/utils/logger';
-import { AxiosError } from 'axios';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import { callLogin } from '../actions/login';
@@ -10,7 +9,7 @@ import { PortalLoginResponse } from '../models/api/login';
 import { UpdateEmailResponse } from '../models/api/update_email_response';
 import { AppProg } from '../models/app/app_prog';
 import {
-  inlineErrorCodeMessageMap,
+  internalErrorMessageMap,
   pingErrorCodes,
   slideErrorCodes,
 } from '../models/app/error_code_message_map';
@@ -188,56 +187,37 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
         // Log the error
         logger.error('Error from Login Api', err);
 
-        // Defects 75000, 74996, 74987, 74990, 75003: Enhanced HTTP error handling
-        // Check if this is an HTTP error (AxiosError) and handle specific status codes
-        if (err instanceof AxiosError && err.response) {
-          const httpStatusCode = err.response.status;
-          const httpErrorMessage =
-            inlineErrorCodeMessageMap.get(httpStatusCode);
-
-          if (httpErrorMessage != null) {
-            // Set indicator for login button
-            set(() => ({ loginProg: AppProg.failed }));
-            set((state) => ({
-              apiErrors: [...state.apiErrors, httpErrorMessage],
-            }));
-            return;
-          }
-        }
-
-        const errorCode =
-          (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
-            ?.errorCode ?? '';
         // Set indicator for login button
         set(() => ({ loginProg: AppProg.failed }));
-        const errorMessage = inlineErrorCodeMessageMap.get(
+
+        // Handle ActionResponse errors from server (not direct HTTP errors)
+        const errorCode =
           (err as ActionResponse<LoginStatus, PortalLoginResponse>)?.error
-            ?.errorCode ?? '',
-        );
-        if (errorMessage != null) {
+            ?.errorCode ?? '';
+        const internalErrorMessage = internalErrorMessageMap.get(errorCode);
+
+        if (internalErrorMessage) {
           set((state) => ({
-            apiErrors: [...state.apiErrors, errorMessage],
+            apiErrors: [...state.apiErrors, internalErrorMessage],
           }));
         } else if (slideErrorCodes.includes(errorCode)) {
-          if (errorCode == 'UI-405') {
+          if (errorCode === 'UI-405') {
             set({
               multipleLoginAttempts: true,
-              loginProg: AppProg.failed,
             });
           }
         } else if (pingErrorCodes.includes(errorCode)) {
-          if (errorCode == 'PP-600') {
+          if (errorCode === 'PP-600') {
             set({
               isRiskScoreHigh: true,
             });
-            return;
-          } else if (errorCode == 'PP-601') {
+          } else if (errorCode === 'PP-601') {
             set({
               riskLevelNotDetermined: true,
             });
-            return;
           }
         } else {
+          // For any unhandled errors, set the generic error flag
           set(() => ({ unhandledErrors: true }));
         }
       }
