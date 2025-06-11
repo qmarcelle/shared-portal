@@ -46,4 +46,5 @@ export type SharePlanInformationDetails = {
   personRoleType?: string | undefined;
   isMinorMember?: boolean | undefined;
   loggedInMemberRole?: string | null;
+  outsideMyPlanData: ShareOutsideMyPlanDetails[] | null;
 };
