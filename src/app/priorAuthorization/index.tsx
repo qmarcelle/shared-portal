@@ -8,25 +8,18 @@ import { Header } from '@/components/foundation/Header';
 import { externalIcon } from '@/components/foundation/Icons';
 import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
-import { FilterItem } from '@/models/filter_dropdown_details';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
-import { useState } from 'react';
 import { PriorAuthData } from './models/app/priorAuthAppData';
 
 export type PriorAuthorizationProps = {
   data: PriorAuthData;
-  initialFilters: FilterItem[];
 };
+
 const onClickCallBack = (url: string) => {
   window.open(url, '_blank');
 };
-const PriorAuthorization = ({
-  data,
-  initialFilters,
-}: PriorAuthorizationProps) => {
-  const [filters, setFilters] = useState(initialFilters);
 
+const PriorAuthorization = ({ data }: PriorAuthorizationProps) => {
   function getAuthorizationLanguageForBlueCare() {
     return (
       <Column
@@ -66,10 +59,6 @@ const PriorAuthorization = ({
     );
   }
 
-  /*function onFilterSelect(index: number, filter: FilterItem[]) {
-    setFilters(filter);
-  }*/
-
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -88,7 +77,7 @@ const PriorAuthorization = ({
                 />
                 or call us at [{data.phoneNumber}].
               </Row>,
-              isBlueCareEligible(data.visibilityRules)
+              data.authorizationType === 'blueCare'
                 ? getAuthorizationLanguageForBlueCare()
                 : getAuthorizationLanguage(),
             ]}
@@ -108,18 +97,6 @@ const PriorAuthorization = ({
             className="flex flex-row items-start app-body mt-2"
             id="Filter"
           >
-            {' '}
-            {/*
-             <Column className=" flex-grow page-section-36_67 items-stretch">
-              <Filter
-                className="large-section px-0 m-0"
-                filterHeading="Filter Prior Authorizations"
-                onReset={() => {}}
-                showReset={true}
-                onSelectCallback={onFilterSelect}
-                filterItems={filters}
-              />
-            </Column> */}
             <Column className="flex-grow page-section-63_33 items-stretch">
               {data && (
                 <PriorAuthorizationCardSection
