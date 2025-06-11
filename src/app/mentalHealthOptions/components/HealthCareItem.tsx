@@ -38,7 +38,7 @@ export const HealthCareItem = ({
   itemData,
   redirectLink,
   sessionData,
-  url,
+  url, // eslint-disable-line @typescript-eslint/no-unused-vars
 }: HealthCareItemProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isClient, setIsClient] = useState(false);

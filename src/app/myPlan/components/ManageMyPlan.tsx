@@ -6,6 +6,7 @@ import { Header } from '@/components/foundation/Header';
 import { LinkRow } from '@/components/foundation/LinkRow';
 import { Spacer } from '@/components/foundation/Spacer';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import {
   isBlueCareEligible,
@@ -24,6 +25,8 @@ export const ManageMyPlan = ({
   className,
   visibilityRules,
 }: ManageMyPlanProps) => {
+  const router = useRouter();
+
   let manageMyPlanDetails;
 
   if (
@@ -72,7 +75,7 @@ export const ManageMyPlan = ({
 
       /*{
         title: 'Enroll in a Health Plan',
-        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We’ll walk you through your options and help you choose the right one for your family.',
+        body: 'All our plans include a wide choice of doctors and healthy, money-saving extras. We'll walk you through your options and help you choose the right one for your family.',
         externalLink: true,
         url: 'https://www.bcbst.com/secure/restricted/apps/eNrollWizardWeb/entrypoint.do',
       }, */
@@ -118,7 +121,7 @@ export const ManageMyPlan = ({
                   }
                   divider={false}
                   onClick={() => {
-                    window.location.href = items.url;
+                    router.push(items.url);
                   }}
                 />
                 {index !== manageMyPlanDetails.length - 1 && <Divider />}
