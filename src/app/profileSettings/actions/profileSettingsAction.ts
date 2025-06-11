@@ -30,7 +30,7 @@ export async function invokePhoneNumberAction(): Promise<string> {
     const memberDetails = await getLoggedInMember(session);
     console.log('before call' + memberDetails.groupId);
     const effectiveDate = new Date().toLocaleDateString(); // current date
-    
+
     const phoneNumberResponse = await idCardService.get(
       `/OperationHours?groupId=${memberDetails.groupId}&subscriberCk=${session?.user.currUsr?.plan!.sbsbCk}&effectiveDate=${effectiveDate}`,
     );

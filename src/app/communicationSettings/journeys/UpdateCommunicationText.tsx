@@ -1,13 +1,11 @@
+import { ErrorDisplaySlide } from '@/components/composite/ErrorDisplaySlide';
 import { InputModalSlide } from '@/components/composite/InputModalSlide';
-import { SelectModalSlide } from '@/components/composite/SelectModalSlide';
 import { SuccessSlide } from '@/components/composite/SuccessSlide';
-import { AppLink } from '@/components/foundation/AppLink';
 import {
   ModalChildProps,
   useAppModalStore,
 } from '@/components/foundation/AppModal';
 import { Column } from '@/components/foundation/Column';
-import { Radio } from '@/components/foundation/Radio';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -20,20 +18,27 @@ import {
 } from '@/utils/inputValidator';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { saveDataAction } from '../actions/communicationSettingsAction';
 
-const bottomNote =
-  'By sending the code I agree to receive a one-time security code. Message and data rates may apply, Subject to terms and conditions.';
+import {
+  CommunicationSettingsSaveRequest,
+  ContactPreference,
+} from '../models/app/communicationSettingsAppData';
 
 interface UpdateCommunicationTextProps {
-  initNumber: string;
+  onRequestPhoneNoSuccessCallBack: (arg0: string) => void;
   phone: string;
+  email: string;
+  preferenceData: ContactPreference[];
 }
 
 export const UpdateCommunicationText = ({
   changePage,
   pageIndex,
-  initNumber,
+  onRequestPhoneNoSuccessCallBack,
   phone,
+  email,
+  preferenceData,
 }: ModalChildProps & UpdateCommunicationTextProps) => {
   const { dismissModal } = useAppModalStore();
   const [newAuthDevice, setNewAuthDevice] = useState(phone);
@@ -45,7 +50,7 @@ export const UpdateCommunicationText = ({
     if (pageIndex === 0) {
       setNewAuthDevice(phone);
       setError('');
-      setNextDisabled(false);
+      setNextDisabled(true);
     }
   }, [pageIndex, phone]);
 
@@ -56,11 +61,26 @@ export const UpdateCommunicationText = ({
       } else {
         setMainAuthDevice(newAuthDevice);
       }
-      changePage?.(1, true); // Change to page 1 on successful validation
-      setNextDisabled(true);
+
+      const selectedPreferences: CommunicationSettingsSaveRequest = {
+        mobileNumber: newAuthDevice.replace(/\D/g, ''),
+        emailAddress: email,
+        contactPreference: preferenceData,
+        memberKey: '',
+        subscriberKey: '',
+        groupKey: '',
+        lineOfBusiness: '',
+      };
+      const response = await saveDataAction(selectedPreferences);
+      if (response.details?.componentStatus === 'Success') {
+        onRequestPhoneNoSuccessCallBack(newAuthDevice);
+        changePage?.(1, false);
+      } else {
+        changePage?.(2, false);
+      }
     } catch (errorMessage: unknown) {
       console.error('Error updating the phone', errorMessage);
-      setNextDisabled(true);
+      changePage?.(2, false);
     }
   };
 
@@ -75,13 +95,11 @@ export const UpdateCommunicationText = ({
       console.log('Invalid phone number:', value);
       return;
     }
-
     if (value === '') {
       setError('');
       setNextDisabled(true);
       return;
     }
-
     setError('');
     setNextDisabled(false);
   };
@@ -126,57 +144,31 @@ export const UpdateCommunicationText = ({
       }
       cancelCallback={() => dismissModal()}
     />,
-    <SelectModalSlide
-      key={1}
-      label="Confirm Phone Number"
-      subLabel={
-        <Column>
-          <TextBox
-            className="text-center"
-            text="We just need to verify your phone number. How would you like to receive the security code?"
-          />
-          <Spacer size={24} />
-          <Column>
-            <Radio
-              label={`Text a code to ${formatPhoneNumber(newAuthDevice)}`}
-              selected={true}
-            />{' '}
-            <Radio
-              label={`Call with a code to ${formatPhoneNumber(newAuthDevice)}`}
-              selected={false}
-            />
-          </Column>
-        </Column>
-      }
-      bottomNote={<TextBox className="body-2" text={bottomNote} />}
-      buttonLabel="Send Code"
-      nextCallback={() => changePage?.(2, true)}
-      cancelCallback={() => dismissModal()}
-    />,
-    <InputModalSlide
-      key={2}
-      label="Confirm Phone Number"
-      subLabel="Enter the security code we sent to:"
-      actionArea={
-        <Column className="items-center">
-          <TextBox className="font-bold" text={initNumber} />
-          <Spacer size={32} />
-          <TextField label="Enter Security Code" />
-          <AppLink className="self-start" label="Resend Code" />
-          <Spacer size={32} />
-        </Column>
-      }
-      nextCallback={() => changePage?.(3, true)}
-      cancelCallback={() => dismissModal()}
-    />,
+
     <SuccessSlide
-      key={3}
+      key={1}
       label="Phone Number Updated"
       body={
         <Column className="items-center">
           <TextBox className="text-center" text="Your phone number is:" />
           <Spacer size={16} />
-          <TextBox className="font-bold" text={initNumber} />
+          <TextBox
+            className="font-bold"
+            text={formatPhoneNumber(newAuthDevice)}
+          />
+        </Column>
+      }
+      doneCallBack={() => dismissModal()}
+    />,
+    <ErrorDisplaySlide
+      key={2}
+      label="Something went wrong."
+      body={
+        <Column className="items-center">
+          <TextBox
+            className="text-center"
+            text="We’re unable to update your information at this time. Please try again later."
+          />
         </Column>
       }
       doneCallBack={() => dismissModal()}

@@ -8,18 +8,25 @@ import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
+import { useState } from 'react';
+import { ContactPreference } from '../models/app/communicationSettingsAppData';
 import { UpdateCommunication } from './UpdateCommunication';
+import { formatPhoneNumber } from '@/utils/inputValidator';
 
 interface ContactInformationProps extends IComponent {
   phone: string;
   email: string;
+  preferenceData: ContactPreference[];
 }
 
 export const ContactInformationSection = ({
   phone,
   email,
   className,
+  preferenceData,
 }: ContactInformationProps) => {
+  const [emailAddress, setEmailAddress] = useState(email);
+  const [phoneNumber, setphoneNumber] = useState(phone);
   const { showAppModal } = useAppModalStore();
   return (
     <Card className={className}>
@@ -36,14 +43,18 @@ export const ContactInformationSection = ({
                 showAppModal({
                   content: (
                     <UpdateCommunicationText
-                      initNumber="(123) 456-0000"
-                      phone={phone}
+                      phone={phoneNumber}
+                      email={emailAddress}
+                      onRequestPhoneNoSuccessCallBack={(updatedPhoneNo) => {
+                        setphoneNumber(updatedPhoneNo);
+                      }}
+                      preferenceData={preferenceData}
                     />
                   ),
                 })
               }
               label={<TextBox className="font-bold" text="Phone Number" />}
-              subLabel={phone}
+              subLabel={formatPhoneNumber(phoneNumber)}
               methodName="Update"
               divider={true}
             />
@@ -52,11 +63,18 @@ export const ContactInformationSection = ({
               key={'email'}
               onClick={() =>
                 showAppModal({
-                  content: <UpdateCommunicationEmail email={email} />,
+                  content: (
+                    <UpdateCommunicationEmail
+                      email={emailAddress}
+                      onRequestEmailSuccessCallBack={(updatedEmail) => {
+                        setEmailAddress(updatedEmail);
+                      }}
+                    />
+                  ),
                 })
               }
               label={<TextBox className="font-bold" text="Email Address" />}
-              subLabel={email}
+              subLabel={emailAddress}
               methodName="Update"
               divider={false}
             />

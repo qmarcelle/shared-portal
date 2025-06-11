@@ -3,6 +3,7 @@ import { UpdateCommunicationTerms } from '@/app/communicationSettings/journeys/U
 import {
   CommunicationSettingsAppData,
   CommunicationSettingsSaveResponse,
+  ContactPreference,
 } from '@/app/communicationSettings/models/app/communicationSettingsAppData';
 import { AppModal, useAppModalStore } from '@/components/foundation/AppModal';
 import { loggedInUserInfoMockResp } from '@/mock/loggedInUserInfoMockResp';
@@ -91,6 +92,7 @@ describe('communication Information API Integration', () => {
           <UpdateCommunicationTerms
             selectedPreferences={selectedPreferences}
             changePage={mockChangePage}
+            onRequestSuccessCallBack={(val: ContactPreference[]) => {}}
           />
         ),
       });
@@ -153,7 +155,12 @@ describe('communication Information API Integration', () => {
     mockedAxios.post.mockResolvedValueOnce({
       data: {},
     });
-    render(<EditAlertPreferncesSection alertPreferenceData={preferenceData} />);
+    render(
+      <EditAlertPreferncesSection
+        alertPreferenceData={preferenceData}
+        onRequestSuccessCallBack={([]: ContactPreference[]) => {}}
+      />,
+    );
     expect(
       screen.getByText(
         // eslint-disable-next-line quotes

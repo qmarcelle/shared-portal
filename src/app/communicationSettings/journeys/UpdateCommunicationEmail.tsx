@@ -23,12 +23,14 @@ const headerText = 'Confirm Email Address';
 
 interface UpdateCommunicationEmailProps {
   email: string;
+  onRequestEmailSuccessCallBack: (arg0: string) => void;
 }
 
 export const UpdateCommunicationEmail = ({
   changePage,
   pageIndex,
   email,
+  onRequestEmailSuccessCallBack,
 }: ModalChildProps & UpdateCommunicationEmailProps) => {
   const { dismissModal } = useAppModalStore();
   const [mainAuthDevice, setMainAuthDevice] = useState(email);
@@ -46,7 +48,7 @@ export const UpdateCommunicationEmail = ({
       setConfirmCode('');
       setShowConfirmEmail(false);
       setError('');
-      setNextDisabled(false);
+      setNextDisabled(true);
     }
   }, [pageIndex, email]);
 
@@ -76,19 +78,17 @@ export const UpdateCommunicationEmail = ({
         );
         setNextDisabled(true); // Disable the Next button if there's an error
       } else if (response.details?.componentStatus === 'Success') {
-        changePage?.(2, true);
-        setShowConfirmEmail(false);
-        setNextDisabled(false);
+        changePage?.(2, false);
+        onRequestEmailSuccessCallBack(newAuthDevice);
       } else {
-        changePage?.(3, true);
+        changePage?.(3, false);
       }
     } catch (errorMessage: unknown) {
-      changePage?.(3, true);
+      changePage?.(3, false);
       console.error(
         'error in emailUniqueness for updating the email',
         errorMessage,
       );
-      setNextDisabled(true); // Disable the Next button if there's an error
     }
   };
 
@@ -99,7 +99,6 @@ export const UpdateCommunicationEmail = ({
 
   const validateEmailAddress = (value: string) => {
     setNewAuthDevice(value);
-    setNextDisabled(false); // Enable the Next button when user starts typing
     const isValidEmail = isValidEmailAddress(value);
     const isValidLength = validateLength(value);
 
@@ -108,16 +107,15 @@ export const UpdateCommunicationEmail = ({
       setShowConfirmEmail(false);
       return;
     }
-
     if (value === '') {
       setError('');
       setShowConfirmEmail(false);
       return;
     }
-
     setShowConfirmEmail(true);
     setError('');
   };
+
   const handleConfirmEmailChange = (val: string) => {
     setConfirmEmail(val);
     if (val === '') {
@@ -127,6 +125,7 @@ export const UpdateCommunicationEmail = ({
     } else {
       setError('');
     }
+    setNextDisabled(false);
   };
 
   const getNextCallback = (

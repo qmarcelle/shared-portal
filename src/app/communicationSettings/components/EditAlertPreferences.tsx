@@ -22,6 +22,7 @@ import {
 
 interface EditAlertPreferncesProps extends IComponent {
   alertPreferenceData: CommunicationSettingsAppData;
+  onRequestSuccessCallBack: ([]: ContactPreference[]) => void;
 }
 
 const normalizeText = (text: string) =>
@@ -30,6 +31,7 @@ const normalizeText = (text: string) =>
 export const EditAlertPreferncesSection = ({
   className,
   alertPreferenceData,
+  onRequestSuccessCallBack,
 }: EditAlertPreferncesProps) => {
   useEffect(() => {
     const fetchSavedPreferences = async () => {
@@ -231,7 +233,12 @@ export const EditAlertPreferncesSection = ({
 
     showAppModal({
       content: (
-        <UpdateCommunicationTerms selectedPreferences={selectedPreferences} />
+        <UpdateCommunicationTerms
+          selectedPreferences={selectedPreferences}
+          onRequestSuccessCallBack={(val: ContactPreference[]) =>
+            onRequestSuccessCallBack(val)
+          }
+        />
       ),
     });
   };

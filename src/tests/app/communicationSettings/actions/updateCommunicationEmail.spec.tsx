@@ -51,6 +51,8 @@ describe('communication settings update email API Integration', () => {
           <UpdateCommunicationEmail
             changePage={mockChangePage}
             email={'test@bcbst.com'}
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            onRequestEmailSuccessCallBack={(arg0: string) => {}}
           />
         ),
       });
