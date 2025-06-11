@@ -62,7 +62,7 @@ export const ManageMyPlan = ({
         title: 'Report Other Health Insurance',
         body: 'Do you or anyone else on your plan have other insurance? Let us know so we can process your claims correctly.',
         externalLink: false,
-        url: '/myPlan/otherinsurance',
+        url: '/reportOtherHealthInsurance',
       },
       {
         title: 'Update Social Security Number',
