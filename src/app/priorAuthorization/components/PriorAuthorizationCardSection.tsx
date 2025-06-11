@@ -112,7 +112,7 @@ export const PriorAuthorizationCardSection = ({
           <></>
         </Row>
         <Row className="body-1 items-end">
-          <div className="body-1 mb-1 font-bold">Sort by:</div>
+          <div className="body-1 mb-1">Sort by:</div>
           <div>
             <RichDropDown
               minWidth="min-w-[280px]"
