@@ -53,10 +53,11 @@ export const Pagination = <T,>({
     );
   }
 
-  // [Defect 73528] Only show pagination when there are more items than the page size
-  // This fixes the issue where pagination was showing even with ≤5 results
-  // Pagination should only appear when the total items exceed the page size
-  const shouldShowPagination = (totalCount ?? initialList.length) > pageSize;
+  // [Defect 73528] Only show pagination when more than 5 results
+  // This fixes the issue where pagination was showing even with a single result
+  // The pageSize check ensures we maintain the same threshold as specified in the defect
+  const shouldShowPagination =
+    (totalCount ?? initialList.length) > pageSize && pageSize <= 5;
 
   return (
     <>
