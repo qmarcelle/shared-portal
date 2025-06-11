@@ -37,3 +37,8 @@ export const SPEND_ACC_SSO_MAP: { [key: string]: string } = {
 
 export const OPERAND_EQUAL = 'Equal';
 export const APP_NAME_DOC_SERVICE = 'DocumentServices';
+
+export enum ALLOWED_PBE_SEARCH_PARAM {
+  UserName = 'userName',
+  UmpiId = 'umpiId',
+}

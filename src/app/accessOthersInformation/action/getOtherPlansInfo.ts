@@ -2,6 +2,7 @@ import { getPolicyInfo } from '@/actions/getPolicyInfo';
 import { auth } from '@/auth';
 import { ActionResponse } from '@/models/app/actionResponse';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { logger } from '@/utils/logger';
 import { transformPolicyToPlans } from '@/utils/policy_computer';
 import {
@@ -14,7 +15,10 @@ export const OtherPlanInformationData = async (): Promise<
 > => {
   try {
     const session = await auth();
-    const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    const pbeResponse = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      session!.user!.id,
+    );
 
     logger.info('Success Response from PBE API', pbeResponse);
 

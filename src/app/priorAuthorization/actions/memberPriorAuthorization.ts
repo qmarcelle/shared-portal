@@ -2,6 +2,7 @@
 import { auth } from '@/auth';
 import { getPersonBusinessEntity } from '@/utils/api/client/get_pbe';
 import { esApi } from '@/utils/api/esApi';
+import { ALLOWED_PBE_SEARCH_PARAM } from '@/utils/constants';
 import { formatDateToShortYear } from '@/utils/date_formatter';
 import { logger } from '@/utils/logger';
 import { format, startOfYear, subDays, subYears } from 'date-fns';
@@ -12,7 +13,10 @@ export async function invokePriorAuthDetails(): Promise<PriorAuthDetails[]> {
   try {
     const session = await auth();
     const memberList: string[] = [];
-    const pbeResponse = await getPersonBusinessEntity(session!.user!.id);
+    const pbeResponse = await getPersonBusinessEntity(
+      ALLOWED_PBE_SEARCH_PARAM.UserName,
+      session!.user!.id,
+    );
     const selectedPlan = pbeResponse.getPBEDetails[0].relationshipInfo.find(
       (item) => item?.memeCk === session?.user.currUsr?.plan?.memCk,
     );
