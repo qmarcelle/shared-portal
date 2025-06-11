@@ -30,10 +30,12 @@ const SelectMemberPlan: React.FC<SelectMemberPlanProps> = ({
   otherInsurancePolicyNumber,
   otherInsuranceEffectiveDate,
 }) => {
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value as 'all' | 'selected');
-  };
-
+  const handleOptionChange = (val: any) => {
+    if (val === 'all' || val === 'selected') {
+      setSelectedOption(val);
+    }
+  }
+  
   const handleCheckboxChange = (label: string) => {
     return (val: boolean) => {
       if (val) {
