@@ -14,24 +14,14 @@ const urlRedirect = '/member/myhealth/healthprograms/';
 
 export type VirtualCareOptionsProps = {
   sessionData?: Session | null;
+  isDPPEligible: boolean;
 };
 
-const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
-  // Defects 76150, 76164: PZN rules for Virtual Diabetes Prevention Program visibility
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const visibilityRules = (sessionData as any)?.visibilityRules;
-
-  // PZN rule: DPP card should only show when all conditions are met
-  const isDPPEligible =
-    visibilityRules &&
-    visibilityRules.diabetesPreventionEligible &&
-    visibilityRules.teladocEligible &&
-    !visibilityRules.fsaOnly &&
-    !visibilityRules.terminated &&
-    !visibilityRules.wellnessOnly &&
-    visibilityRules.groupRenewalDateBeforeTodaysDate;
-
-  // Filter options based on PZN rules
+const VirtualCareOptions = ({
+  sessionData,
+  isDPPEligible,
+}: VirtualCareOptionsProps) => {
+  // Filter options based on server-side calculated PZN rules
   const getFilteredOptions = () => {
     const allOptions = [
       {
@@ -92,7 +82,7 @@ const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
       },
     ];
 
-    // Filter out DPP card if not eligible per PZN rules
+    // Filter out DPP card if not eligible per PZN rules (calculated server-side)
     return allOptions.filter((option) => {
       if (option.id === '5') {
         // Virtual Diabetes Prevention Program
