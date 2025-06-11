@@ -6,7 +6,6 @@ import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import { getHingeHealthLink } from '@/visibilityEngine/computeVisibilityRules';
-import { VisibilityRules } from '@/visibilityEngine/rules';
 import { Session } from 'next-auth';
 import { VirtualMentalHealthCareSection } from '../../app/mentalHealthOptions/components/VirtualMentalHealthCareSection';
 import { HealthProgramType } from '../myHealth/healthProgramsResources/myHealthPrograms/models/health_program_type';
@@ -14,13 +13,13 @@ import { OtherBenefits } from './components/OtherBenefits';
 const urlRedirect = '/member/myhealth/healthprograms/';
 
 export type VirtualCareOptionsProps = {
-  sessionData?: Session | null | { visibilityRules?: VisibilityRules };
+  sessionData?: Session | null;
 };
 
 const VirtualCareOptions = ({ sessionData }: VirtualCareOptionsProps) => {
   // Defects 76150, 76164: PZN rules for Virtual Diabetes Prevention Program visibility
-  const visibilityRules = (sessionData as { visibilityRules?: VisibilityRules })
-    ?.visibilityRules;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const visibilityRules = (sessionData as any)?.visibilityRules;
 
   // PZN rule: DPP card should only show when all conditions are met
   const isDPPEligible =
