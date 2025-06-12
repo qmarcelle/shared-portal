@@ -38,7 +38,7 @@ export const getMenuBlueCareNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&redirectLink=PCPSearchRedirect`,
+        url: `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_PROVIDER_DIRECTORY}&TargetResource=${process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET}`,
         external: true,
       },
     ],

@@ -64,11 +64,12 @@ export default async function generateProviderDirectorySSOMap(
       searchParams?.isPCPSearchRedirect?.toLocaleLowerCase() == 'true'
         ? true
         : false;
-    let target = process.env.PROVIDER_DIRECTORY_VITALS_SSO_TARGET ?? '';
+    let target =
+      process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_VITALS_SSO_TARGET ?? '';
     if (redirectLink) {
       target += decodeURI(redirectLink);
     } else if (pcpSearch) {
-      target = process.env.PROVIDER_DIRECTORY_PCP_SSO_TARGET ?? '';
+      target = process.env.NEXT_PUBLIC_PROVIDER_DIRECTORY_PCP_SSO_TARGET ?? '';
     }
 
     ssoParamMap.set(SSO_SUBSCRIBER_ID, subscriberId);
