@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const VirtualCareOptionsPage = async () => {
   const session = await auth();
-  return <VirtualCareOptions sessionData={session} />;
+  return <VirtualCareOptions visibilityRules={session?.user.vRules} />;
 };
 
 export default VirtualCareOptionsPage;

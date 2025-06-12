@@ -3,6 +3,10 @@ export const inlineErrorCodeMessageMap = new Map<string | number, string>([
   [401, "Oops! We're sorry. Something went wrong. Please try again."],
   [408, "Oops! We're sorry. Something went wrong. Please try again."],
   [500, "Oops! We're sorry. Something went wrong. Please try again."],
+  [404, "Oops! We're sorry. Something went wrong. Please try again."],
+  [502, "Oops! We're sorry. Something went wrong. Please try again."],
+  [503, "Oops! We're sorry. Something went wrong. Please try again."],
+  [504, "Oops! We're sorry. Something went wrong. Please try again."],
   [
     'MF-402',
     'There is a problem with the security code. Try re-entering or resending the code.',

@@ -12,9 +12,11 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { Title } from '@/components/foundation/Title';
 import {
   isBlueCareEligible,
+  isBlueCareNotEligible,
   isPayMyPremiumEligible,
   isQuantumHealthEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
+import { VisibilityRules } from '@/visibilityEngine/rules';
 import { PayPremiumSection } from '../dashboard/components/PayPremium';
 import { ManageMyPlan } from './components/ManageMyPlan';
 import { AllMyPlanData, MyPlanData } from './model/app/myPlanData';
@@ -24,12 +26,14 @@ export type MyPlanProps = {
   contact: string;
   planData: AllMyPlanData<string>[];
   payPremiumResponse: PremiumPayResponse;
+  visibilityRules: VisibilityRules | undefined;
 };
 const MyPlan = ({
   data,
   contact,
   planData,
   payPremiumResponse,
+  visibilityRules,
 }: MyPlanProps) => {
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -62,19 +66,21 @@ const MyPlan = ({
             />
           </Column>
           <Column className="flex-grow page-section-36_67 items-stretch">
-            {!isQuantumHealthEligible(data.visibilityRules) &&
-              isPayMyPremiumEligible(data.visibilityRules) && (
+            {!isQuantumHealthEligible(visibilityRules) &&
+              isPayMyPremiumEligible(visibilityRules) && (
                 <PayPremiumSection
                   className="large-section"
                   dueDate={payPremiumResponse.paymentDue}
                   amountDue={payPremiumResponse.currentBalance}
                 />
               )}
-            <ManageMyPlan
-              className="small-section"
-              visibilityRules={data.visibilityRules}
-            />
-            {isBlueCareEligible(data.visibilityRules) && (
+            {isBlueCareNotEligible(visibilityRules) && (
+              <ManageMyPlan
+                className="small-section"
+                visibilityRules={data.visibilityRules}
+              />
+            )}
+            {isBlueCareEligible(visibilityRules) && (
               <InfoCard
                 key="Profile Settings"
                 label="Profile Settings"

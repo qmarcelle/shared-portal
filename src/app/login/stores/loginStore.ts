@@ -186,6 +186,7 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
       } catch (err) {
         // Log the error
         logger.error('Error from Login Api', err);
+
         const errorCode =
           (err as ActionResponse<LoginStatus, PortalLoginResponse>).error
             ?.errorCode ?? '';

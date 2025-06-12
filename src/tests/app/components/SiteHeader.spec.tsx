@@ -636,7 +636,7 @@ describe('SiteHeader And Navigation Menu', () => {
     expect(component.container).toMatchSnapshot();
   });
 
-  it('should show  Update Katie Beckett Banking Info if group id is 155000', async () => {
+  it('should show Update Katie Beckett Banking Info if group id is 155000', async () => {
     vRules.katieBeckettEligible = true;
     setVisibilityRules(vRules);
     const component = renderUI(vRules);

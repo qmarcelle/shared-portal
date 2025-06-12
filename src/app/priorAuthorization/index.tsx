@@ -12,7 +12,6 @@ import { RichText } from '@/components/foundation/RichText';
 import { Row } from '@/components/foundation/Row';
 import { FilterItem } from '@/models/filter_dropdown_details';
 import { DateFilterValues, getDateRange } from '@/utils/filterUtils';
-import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getPriorAuthsFromES } from './actions/getPriorAuthsFromES';
@@ -156,7 +155,7 @@ const PriorAuthorization = ({ data }: PriorAuthorizationProps) => {
                 />
                 or call us at {data.phoneNumber}.
               </Row>,
-              isBlueCareEligible(data.visibilityRules)
+              data.authorizationType === 'blueCare'
                 ? getAuthorizationLanguageForBlueCare
                 : getAuthorizationLanguage,
             ]}

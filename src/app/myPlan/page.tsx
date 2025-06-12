@@ -18,12 +18,14 @@ const MyPlanPage = async () => {
     getAllPlansData(),
     getPremiumPayInfo(session?.user.currUsr.plan?.memCk ?? ''),
   ]);
+
   return (
     <MyPlan
       data={result.data!}
       planData={planData.data!}
       contact={phoneNumber}
       payPremiumResponse={premiumPayResponse}
+      visibilityRules={session?.user.vRules}
     />
   );
 };
