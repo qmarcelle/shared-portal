@@ -42,7 +42,10 @@ export const VirtualCareOptions = ({
             ))}
         </SlidingCarousel>
         <Spacer size={23} />
-        <AppLink label="Learn More & Compare Virtual Care Options" />
+        <AppLink
+          label="Learn More & Compare Virtual Care Options"
+          url="/member/findcare/virtualcare"
+        />
       </Column>
     </Card>
   );
