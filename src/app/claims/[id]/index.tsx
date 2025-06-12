@@ -9,14 +9,25 @@ import { DownloadSummary } from '@/components/composite/DownloadSummary';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { Column } from '@/components/foundation/Column';
 import { Spacer } from '@/components/foundation/Spacer';
+import { filterUniqueByAttributes } from '@/utils/object_utils';
 import { ClaimDetailsData } from '../models/app/claimDetailsData';
 
 export type ClaimDetailsProps = {
   claimData: ClaimDetailsData;
   docURL: string;
+  phoneNumber: string;
 };
 
-const ClaimDetails = ({ claimData, docURL }: ClaimDetailsProps) => {
+const ClaimDetails = ({
+  claimData,
+  docURL,
+  phoneNumber,
+}: ClaimDetailsProps) => {
+  const claimServices = filterUniqueByAttributes(
+    claimData?.claimDetailServices || [],
+    ['srvLineItemSeq'],
+  );
+
   return (
     <main className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
@@ -26,74 +37,42 @@ const ClaimDetails = ({ claimData, docURL }: ClaimDetailsProps) => {
             <section className="flex flex-row items-start app-body">
               <Column className="flex-grow page-section-63_33 items-stretch">
                 <CostBreakdown
-                  amountBilled={263.0}
-                  planPaid={187.94}
-                  otherInsurancePaid={0.74}
-                  yourCost={0.0}
-                  planDiscount={10}
+                  amountBilled={claimData?.claim?.claimTotalChargeAmt}
+                  planPaid={claimData?.claim?.claimPaidAmt}
+                  otherInsurancePaid={claimData?.claim?.claimCOBAmt}
+                  yourCost={claimData?.claim?.claimPatientOweAmt}
+                  planDiscount={
+                    claimData?.claim?.claimTotalChargeAmt -
+                    claimData?.claim?.totalAllowedAmt
+                  }
                 />
                 <Spacer size={32} />
                 <ServicesRenderedSection
-                  serviceTitle="Immunization"
+                  serviceTitle={'Services Rendered On This Claim'}
                   className="large-section"
-                  service={[
-                    {
-                      serviceLabel: 'Office Visit',
-                      serviceSubLabel: 'Your share',
-                      serviceSubLabelValue: 30.24,
-                      serviceCode: '345678',
-                      labelText1: 'Amount Billed',
-                      labelValue1: 145.0,
-                      labelText2: 'Plan Discount',
-                      labelValue2: 114.76,
-                      labelText3: 'Plan Paid',
-                      labelValue3: 0.0,
-                    },
-                    {
-                      serviceLabel: 'Lab Work',
-                      serviceSubLabel: 'Your share',
-                      serviceSubLabelValue: 30.24,
-                      serviceCode: '345678',
-                      labelText1: 'Amount Billed',
-                      labelValue1: 145.0,
-                      labelText2: 'Plan Discount',
-                      labelValue2: 114.76,
-                      labelText3: 'Plan Paid',
-                      labelValue3: 0.0,
-                    },
-                    {
-                      serviceLabel: 'Immunization',
-                      serviceSubLabel: 'Your share',
-                      serviceSubLabelValue: 30.24,
-                      serviceCode: '345678',
-                      labelText1: 'Amount Billed',
-                      labelValue1: 145.0,
-                      labelText2: 'Plan Discount',
-                      labelValue2: 114.76,
-                      labelText3: 'Plan Paid',
-                      labelValue3: 0.0,
-                    },
-                    {
-                      serviceLabel: 'Medical Service',
-                      serviceSubLabel: 'Your share',
-                      serviceSubLabelValue: 30.24,
-                      serviceCode: '345678',
-                      labelText1: 'Amount Billed',
-                      labelValue1: 145.0,
-                      labelText2: 'Plan Discount',
-                      labelValue2: 114.76,
-                      labelText3: 'Plan Paid',
-                      labelValue3: 0.0,
-                    },
-                  ]}
+                  service={claimServices.map((service) => ({
+                    serviceLabel: service.srvLineDesc,
+                    serviceSubLabel: 'Your Share',
+                    serviceSubLabelValue: service.srvcPatientOwe,
+                    labelText1: 'Amount Billed',
+                    labelValue1: service.srvcTotalChargeAmt,
+                    labelText2: 'Plan Discount',
+                    labelValue2:
+                      service.srvcTotalChargeAmt - service.allowedAmt,
+                    labelText3: 'Plan Paid',
+                    labelValue3: service.providerPaidAmount,
+                  }))}
                 />
               </Column>
               <Column className=" flex-grow page-section-36_67 items-stretch">
                 <DownloadSummary docURL={docURL} />
                 <Spacer size={32} />
-                <PayProvider className="large-section" balanceAmount={30.24} />
+                <PayProvider
+                  className="large-section"
+                  balanceAmount={claimData?.claim?.claimPatientOweAmt}
+                />
                 <Spacer size={32} />
-                <ClaimsHelpCard />
+                <ClaimsHelpCard phoneNumber={phoneNumber} />
               </Column>
             </section>
           </>

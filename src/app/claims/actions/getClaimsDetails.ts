@@ -5,7 +5,10 @@ import { CoverageTypes } from '@/userManagement/models/coverageType';
 import { memberService } from '@/utils/api/memberService';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { ClaimDetailResponse } from '../models/api/claimsResponse';
+import {
+  ClaimDetailResponse,
+  ClaimDetailServicesResponse,
+} from '../models/api/claimsResponse';
 import { ClaimDetailsData } from '../models/app/claimDetailsData';
 
 export async function getClaimDetails(
@@ -18,6 +21,23 @@ export async function getClaimDetails(
       `/api/v1/claims/${subscriberCk}/${claimId}/${claimType}`,
     );
     return resp.data.claim;
+  } catch (err) {
+    console.error(err);
+    logger.error('Claim Details Api Failed', err);
+    throw err;
+  }
+}
+
+export async function getClaimDetailServices(
+  memberCk: string,
+  claimId: string,
+  claimType: string,
+) {
+  try {
+    const resp = await memberService.get<ClaimDetailServicesResponse>(
+      `/api/v1/claimdetails?memberCk=${memberCk}&claimId=${claimId}&productType=${claimType}`,
+    );
+    return resp.data.claimDetail;
   } catch (err) {
     console.error(err);
     logger.error('Claim Details Api Failed', err);
@@ -41,6 +61,11 @@ export async function getClaimDetailsData(
       claimId,
       claimType,
     );
+    const claimDetailServices = await getClaimDetailServices(
+      session?.user.currUsr.plan?.memCk ?? '',
+      claimId,
+      claimType,
+    );
     const member = members.find((member) => member.memberCK == claim.memberCk);
     return {
       status: 200,
@@ -60,6 +85,7 @@ export async function getClaimDetailsData(
           claimInfo: {},
           providerId: claim.providerId,
         },
+        claimDetailServices: claimDetailServices,
       },
     };
   } catch (error) {

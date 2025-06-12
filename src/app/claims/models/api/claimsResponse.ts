@@ -134,6 +134,36 @@ export type HlthBenefitClaim = {
   procedureType?: string;
 };
 
+export type ClaimDetailService = {
+  srvLineItemSeq: number;
+  srvLineProcCode: string;
+  modifier: string;
+  srvLineDesc: string;
+  srvLineProcDetail: string;
+  srvcTotalChargeAmt: number;
+  srvcPatientOwe: number;
+  allowedAmt: number;
+  providerPaidAmount: number;
+  claimLowServiceDate: string;
+  claimLowServiceCalendarDate: string;
+  claimHighServiceDate: string;
+  claimHighServiceCalendarDate: string;
+  placeOfServiceCode: string;
+  revenueCode: string;
+  typeOfService: string;
+  translatedDiagnosisCode: string;
+  ndcCode: string;
+  diagnosisCode: string;
+  diagnosisType: string;
+  procedureCode: string;
+  procedureType: string;
+  providerSpecialityCode: string;
+};
+
 export type ClaimDetailResponse = {
   claim: Claim;
+};
+
+export type ClaimDetailServicesResponse = {
+  claimDetail: ClaimDetailService[];
 };

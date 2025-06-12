@@ -5,7 +5,11 @@ import { Header } from '../foundation/Header';
 import { RichText } from '../foundation/RichText';
 import { Spacer } from '../foundation/Spacer';
 
-export const ClaimsHelpCard = () => {
+export type ClaimsHelpCardProps = {
+  phoneNumber: string;
+};
+
+export const ClaimsHelpCard = ({ phoneNumber }: ClaimsHelpCardProps) => {
   return (
     <Column>
       <Card type="elevated" className="small-section">
@@ -18,7 +22,7 @@ export const ClaimsHelpCard = () => {
               <span className="link">
                 <a>start a chat</a>
               </span>,
-              <span> or call us at [1-800-000-000].</span>,
+              <span> or call us at {phoneNumber}.</span>,
             ]}
           />
           <Spacer size={16} />
@@ -26,7 +30,7 @@ export const ClaimsHelpCard = () => {
             spans={[
               <span>You can also try our </span>,
               <span className="link">
-                <a>Claims FAQ.</a>
+                <a href="/member/support/FAQ/claims">Claims FAQ.</a>
               </span>,
             ]}
           />

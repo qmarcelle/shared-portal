@@ -1,4 +1,5 @@
 import { ClaimDetails } from '@/models/claim_details';
+import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import DentalIcon from '../../../public/assets/dental.svg';
 import MedicalIcon from '../../../public/assets/medical.svg';
@@ -97,7 +98,7 @@ export const ClaimsPageInformation = ({ claimInfo }: ClaimDetailsProps) => {
               <TextBox text={`Visited on ${claimInfo.serviceDate}`} />
             </Row>
             <Row className="py-1">
-              <TextBox text={`For ${claimInfo.memberName}`} />
+              <TextBox text={`For ${toPascalCase(claimInfo.memberName)}`} />
             </Row>
             <Row className="py-1">
               <TextBox text="Claim ID:" />

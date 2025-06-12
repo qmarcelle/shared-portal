@@ -1,4 +1,5 @@
 import { getLoggedInMember } from '@/actions/memberDetails';
+import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { auth } from '@/auth';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
@@ -21,6 +22,7 @@ const ClaimsDetailPage = async ({
   const { id } = params;
   const claimType = searchParams.type;
   const result = await getClaimDetailsData(decodeURIComponent(id), claimType);
+  const phoneNumber = await invokePhoneNumberAction();
 
   const session = await auth();
   const memberDetails = await getLoggedInMember(session);
@@ -30,7 +32,13 @@ const ClaimsDetailPage = async ({
     session?.user.id || '',
   );
   logger.info('[CLAIMS] docURL :: ', docUrl);
-  return <ClaimDetails claimData={result.data!} docURL={docUrl} />;
+  return (
+    <ClaimDetails
+      claimData={result.data!}
+      docURL={docUrl}
+      phoneNumber={phoneNumber}
+    />
+  );
 };
 
 export default ClaimsDetailPage;
