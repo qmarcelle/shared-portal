@@ -42,6 +42,7 @@ export const MFAInfoComponent = ({
         <DisableMFAJourney
           deviceType={mfa.deviceType}
           emailOrPhone={mfa.emailOrPhone!}
+          allowUpdates={allowUpdates}
         />
       );
     }
@@ -107,6 +108,7 @@ export const MFAInfoComponent = ({
               <DisableMFAWarning
                 key={mfaDevicesEnabled ? '1' : '0'}
                 enabled={mfaDevicesEnabled}
+                allowUpdates={allowUpdates}
               />
             </div>
           )}

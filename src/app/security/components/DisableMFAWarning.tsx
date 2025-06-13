@@ -11,9 +11,13 @@ import { useSecuritySettingsStore } from '../stores/security_settings_store';
 
 type DisableMFAWarningProps = {
   enabled: boolean;
+  allowUpdates?: boolean;
 };
 
-export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
+export const DisableMFAWarning = ({
+  enabled,
+  allowUpdates = true,
+}: DisableMFAWarningProps) => {
   // TODO: Connect with Store
   const [checked, setChecked] = useState(enabled);
   const { toggleError, toggleMfa } = useSecuritySettingsStore((state) => ({
@@ -53,12 +57,11 @@ export const DisableMFAWarning = ({ enabled }: DisableMFAWarningProps) => {
                 });
               }
             }}
+            disableToggle={!allowUpdates}
           />
         </Row>
         {checked ? (
-          <TextBox
-            text="We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in."
-          />
+          <TextBox text="We'll send a one-time security code to your email by default. Set up multiple methods for more options when you log in." />
         ) : (
           <p className="body-1">
             Turn on MFA to keep your account more secure.

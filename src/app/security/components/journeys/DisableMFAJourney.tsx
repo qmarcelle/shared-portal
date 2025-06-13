@@ -19,6 +19,7 @@ const headerText = 'Turn Off Method';
 export interface DisableMFAJourneyProps {
   deviceType: MfaDeviceType;
   emailOrPhone: string;
+  allowUpdates?: boolean;
 }
 
 export const DisableMFAJourney = ({
@@ -26,12 +27,14 @@ export const DisableMFAJourney = ({
   pageIndex,
   deviceType,
   emailOrPhone,
+  allowUpdates = true,
 }: ModalChildProps & DisableMFAJourneyProps) => {
   const { deleteMfaDevice } = useSecuritySettingsStore();
   const { dismissModal } = useAppModalStore();
 
   const callDeleteMfaDevice = async () => {
     try {
+      if (!allowUpdates) return;
       const analytics: AnalyticsData = {
         click_text: 'turn off method',
         click_url: undefined,
@@ -61,11 +64,12 @@ export const DisableMFAJourney = ({
             text={
               'Are you sure you want to turn off the ' +
               `${deviceType}` +
-              ' method of mutli-factor authentication?'
+              ' method of multi-factor authentication?'
             }
           />
         </Column>
       }
+      disableSubmit={!allowUpdates}
       cancelCallback={() => dismissModal()}
       nextCallback={callDeleteMfaDevice}
     />,

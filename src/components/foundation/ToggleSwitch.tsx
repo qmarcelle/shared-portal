@@ -4,16 +4,19 @@ import { IComponent } from '../IComponent';
 type ToggleSwitchProps = {
   onToggleCallback?: () => void;
   initChecked?: boolean;
+  disableToggle?: boolean;
 } & IComponent;
 
 export const ToggleSwitch = ({
   initChecked = false,
   onToggleCallback,
   ariaLabel = 'switch',
+  disableToggle = false,
 }: ToggleSwitchProps) => {
   const [checkedState, setChecked] = useState(initChecked);
 
   const onToggle = () => {
+    if (disableToggle) return;
     console.log('OnToggle called');
     setChecked(!checkedState);
     onToggleCallback?.();

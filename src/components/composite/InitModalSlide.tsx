@@ -16,6 +16,7 @@ interface InitModalSlideProps extends IComponent {
   bottomNote?: ReactElement;
   nextCallback: () => any;
   cancelCallback: () => any;
+  disableSubmit?: boolean;
   changeAuthButton?: ReactElement;
 }
 
@@ -28,6 +29,7 @@ export const InitModalSlide = ({
   bottomNote,
   nextCallback,
   cancelCallback,
+  disableSubmit = false,
 }: InitModalSlideProps) => {
   return (
     <Column className="items-center">
@@ -51,6 +53,7 @@ export const InitModalSlide = ({
           callback={() => {
             nextCallback();
           }}
+          disable={disableSubmit}
         ></Button>
         <Spacer size={16} />
         <AppLink
