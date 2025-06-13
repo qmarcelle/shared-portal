@@ -29,5 +29,5 @@ export const BecomeRepresentative = ({
       </Card>
     );
   }
-  return <div>{isRepresentative ? getRepresentativeContent() : null}</div>;
+  return <div>{!isRepresentative ? getRepresentativeContent() : null}</div>;
 };
