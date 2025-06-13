@@ -100,7 +100,11 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
 
   const [procedureDropdownValues, setProcedureDropdownValues] = useState<
     procedureOption[]
-  >([]);
+  >(
+    getProcedureDropdownValues(
+      categories?.procedureCategories[0].procedures || [],
+    ),
+  );
 
   const [currentSelectedZipCode, setcurrentSelectedZipCode] = useState('');
 
@@ -110,7 +114,8 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
         console.log('zipCode is undefined');
         return;
       }
-      console.log(`zipCode: ${zipCode}`);
+
+      if (zipCode.length > 5) zipCode = zipCode.substring(0, 5);
       setcurrentSelectedZipCode(zipCode);
     },
     [setcurrentSelectedZipCode],
@@ -212,7 +217,7 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
   }
   return (
     <main className="flex flex-col justify-center items-center page">
-      <Column className="app-content app-base-font-color !p-0">
+      <Column className="app-content app-base-font-color">
         <Title className="title-1" text="Price Dental Care" />
         {(networks == null || categories == null) && (
           <>
@@ -248,12 +253,17 @@ const PriceDentalCare = ({ networks, categories }: PriceDentalCareProps) => {
                     type: 'primary',
                     label: 'Estimate Cost',
                     callback: (value) => {
+                      currentSelectedZipCode !== '' &&
+                        currentSelectedZipCode.length >= 5 &&
+                        currentSelectedProcedure.value !== '1' &&
+                        currentSelectedNetwork.value !== '1';
                       handleDentalCard(value);
                     },
                   }}
                   isMultipleItem={true}
                   isCallbackValid={
                     currentSelectedZipCode !== '' &&
+                    currentSelectedZipCode.length >= 5 &&
                     currentSelectedProcedure.value !== '1' &&
                     currentSelectedNetwork.value !== '1'
                   }

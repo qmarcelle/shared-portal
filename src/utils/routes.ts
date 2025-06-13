@@ -296,6 +296,7 @@ export const ROUTE_CONFIG: RouteConfig = {
     priceDentalCare: {
       title: 'Price Dental Care',
       rule: (r) => isPriceDentalCareMenuOptions(r) || isLifePointGrp(r),
+      breadcrumbParent: '/findcare',
     },
     myPrimaryCareProvider: {
       title: 'My Primary Care Provider',
