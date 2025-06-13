@@ -14,6 +14,7 @@ import { Spacer } from '../../../components/foundation/Spacer';
 import { TextBox } from '../../../components/foundation/TextBox';
 import { Title } from '../../../components/foundation/Title';
 import { OtherHealthInsurance } from '../journeys/OtherHealthInsurance';
+import { InsuranceData } from '../models/api/insurance_data';
 import { OtherHealthInsuranceDetails } from '../models/api/otherhealthinsurance_details';
 
 interface OtherHealthInsuranceCardItemProps extends IComponent {
@@ -78,7 +79,13 @@ export const OtherHealthInsuranceCardItem = ({
       type="elevated"
       onClick={onClick}
     >
-      {cobDetails != null ? (
+      {cobDetails === null ? (
+        <Column>
+          <section className="flex justify-start self-start">
+            <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
+          </section>
+        </Column>
+      ) : (
         <Column className="m-4">
           <Spacer size={16} />
           <Row className="justify-between">
@@ -97,127 +104,13 @@ export const OtherHealthInsuranceCardItem = ({
             <Divider />
           </Row>
           <Spacer size={16} />
-          {cobDetails.medicalBean != null ||
-          cobDetails.medicareBean != null ||
-          cobDetails.dentalBean != null ||
-          cobDetails.medicareDentalBean != null ||
-          cobDetails.medicareMedicalBean != null ? (
-            <>
-              {cobDetails.medicareBean && (
-                <>
-                  <TextBox className="ml-2 body-1" text="Medicare Plan" />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareBean.otherInsuranceCompanyName}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareBean.policyIdNum}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareBean.policyEffectiveDate}
-                  />
-                </>
-              )}
-              {cobDetails.dentalBean && (
-                <>
-                  <Spacer size={12} />
-                  <TextBox className="ml-2 body-1" text="Dental Plan" />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.dentalBean.otherInsuranceCompanyName}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.dentalBean.policyIdNum}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.dentalBean.policyEffectiveDate}
-                  />
-                </>
-              )}
-              {cobDetails.medicalBean && (
-                <>
-                  <Spacer size={12} />
-                  <TextBox className="ml-2 body-1" text="Medical Plan" />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicalBean.otherInsuranceCompanyName}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicalBean.policyIdNum}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicalBean.policyEffectiveDate}
-                  />
-                </>
-              )}
-              {cobDetails.medicareMedicalBean && (
-                <>
-                  <Spacer size={12} />
-                  <TextBox
-                    className="ml-2 body-1"
-                    text="Medicare Medical Plan"
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={
-                      cobDetails.medicareMedicalBean.otherInsuranceCompanyName
-                    }
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareMedicalBean.policyIdNum}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareMedicalBean.policyEffectiveDate}
-                  />
-                </>
-              )}
-
-              {cobDetails.medicareDentalBean && (
-                <>
-                  <Spacer size={12} />
-                  <TextBox
-                    className="ml-2 body-1"
-                    text="Medicare Dental Plan"
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={
-                      cobDetails.medicareDentalBean.otherInsuranceCompanyName
-                    }
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareDentalBean.policyIdNum}
-                  />
-                  <TextBox
-                    className="ml-2 body-2"
-                    text={cobDetails.medicareDentalBean.policyEffectiveDate}
-                  />
-                </>
-              )}
-              <Spacer size={12} />
-              <Row>
-                <TextBox
-                  className="ml-2 body-1 inline"
-                  text="Last Updated:"
-                  display="inline"
-                />
-                <TextBox
-                  className="ml-2 body-1 inline"
-                  text={cobDetails.lastUpdated?.toString() ?? 'N/A'}
-                  display="inline"
-                />
-              </Row>
-            </>
-          ) : (
+          {[
+            cobDetails.medicalBean,
+            cobDetails.medicareBean,
+            cobDetails.dentalBean,
+            cobDetails.medicareDentalBean,
+            cobDetails.medicareMedicalBean,
+          ].every((bean) => !bean) ? (
             <>
               <TextBox
                 className="ml-2 body-1"
@@ -237,19 +130,58 @@ export const OtherHealthInsuranceCardItem = ({
                 />
               </Row>
             </>
+          ) : (
+            [
+              { bean: cobDetails.medicalBean, label: 'Medical Plan' },
+              { bean: cobDetails.medicareBean, label: 'Medicare Plan' },
+              { bean: cobDetails.dentalBean, label: 'Dental Plan' },
+              {
+                bean: cobDetails.medicareDentalBean,
+                label: 'Medicare Dental Plan',
+              },
+              {
+                bean: cobDetails.medicareMedicalBean,
+                label: 'Medicare Medical Plan',
+              },
+            ].map(
+              ({ bean, label }) =>
+                bean && <>{getcobDetailsSection(bean, label)}</>,
+            )
           )}
           <Spacer size={16} />
           {getHealthInsuranceContent(cobDetails.memberName)}
         </Column>
-      ) : (
-        <>
-          <Column>
-            <section className="flex justify-start self-start p-4">
-              <ErrorInfoCard errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later." />
-            </section>
-          </Column>
-        </>
       )}
     </Card>
   );
+
+  function getcobDetailsSection(cobBean: InsuranceData, cobBeanType: string) {
+    return (
+      <>
+        <>
+          <Spacer size={12} />
+          <TextBox className="ml-2 body-1" text={cobBeanType} />
+          <TextBox
+            className="ml-2 body-2"
+            text={cobBean.otherInsuranceCompanyName}
+          />
+          <TextBox className="ml-2 body-2" text={cobBean.policyIdNum} />
+          <TextBox className="ml-2 body-2" text={cobBean.policyEffectiveDate} />
+        </>
+        <Spacer size={12} />
+        <Row>
+          <TextBox
+            className="ml-2 body-1 inline"
+            text="Last Updated:"
+            display="inline"
+          />
+          <TextBox
+            className="ml-2 body-1 inline"
+            text={cobBean.lastUpdated?.toString() ?? 'N/A'}
+            display="inline"
+          />
+        </Row>
+      </>
+    );
+  }
 };
