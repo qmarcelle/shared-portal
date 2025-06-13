@@ -48,9 +48,11 @@ import { PharmacyData } from './models/app/pharmacyData';
 export type PharmacyProps = {
   data: PharmacyData;
   claims: ClaimDetails[];
+  hasUserConsent: boolean;
+  consent: string;
 };
 
-const Pharmacy = ({ data, claims }: PharmacyProps) => {
+const Pharmacy = ({ data, claims, hasUserConsent, consent }: PharmacyProps) => {
   const getOtcContent = () => (
     <ShopOverCounterItemsCard
       icon={shoppingCreditIcon}
@@ -431,6 +433,8 @@ const Pharmacy = ({ data, claims }: PharmacyProps) => {
                         <PrescriptionPaymentsOptions
                           isMedicare={true}
                           isBlueCarePlus={false}
+                          hasUserConsent={hasUserConsent}
+                          consent={consent}
                         />
                       </Column>
                     </section>

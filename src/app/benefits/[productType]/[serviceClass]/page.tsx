@@ -11,7 +11,7 @@ const BenefitDetailsPage = async ({
     linkURL: '/member/myplan/spendingaccounts',
     hsaBalance: 1000,
     fsaBalance: 500,
-    className: 'm-2 mt-4 p-8',
+    className: 'large-section',
   };
   const phoneNumber = await invokePhoneNumberAction();
   const balanceData = await getDedAndOOPBalanceForSubscriberAndDep();

@@ -157,3 +157,23 @@ export function convertDatesOfObject<T extends object>(obj: T): T {
     return obj;
   }
 }
+
+/**
+ * Format date in given pattern
+ * @param date Date
+ * @param pattern string
+ * @returns Difference in days between two dates
+ */
+export function formatDate(pattern: string, date?: Date) {
+  return format(date ?? new Date(), pattern);
+}
+
+/**
+ * Returns Next Year Jan 01 date from current date in java standards
+ * @returns Returns Next Year Jan 01
+ */
+export function getNextYearJanuaryFirstJavaStandard(): string {
+  const nextYear = new Date().getFullYear() + 1;
+  const nextYearJanuaryFirst = new Date(nextYear, 0, 1);
+  return formatDateToJavaStandard(nextYearJanuaryFirst);
+}

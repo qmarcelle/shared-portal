@@ -6,6 +6,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import estimateCost from '@/public/assets/estimate_cost.svg';
 import pharmacyCost from '@/public/assets/estimate_pharmacy_cost.svg';
 import servicesUsed from '@/public/assets/services_used.svg';
+import { isSpendingAccountsEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { CVS_DEEPLINK_MAP, CVS_DRUG_SEARCH_INIT } from '../sso/ssoConstants';
 import { BalanceSectionWrapper } from './balances/components/BalanceSection';
 import {
@@ -178,14 +179,15 @@ export const Details = ({
                 />
               )}
 
-              {spendingAccountInfo && (
-                <SpendingAccountSection
-                  fsaBalance={spendingAccountInfo.fsaBalance}
-                  hsaBalance={spendingAccountInfo.hsaBalance}
-                  linkURL={spendingAccountInfo.linkURL}
-                  className={spendingAccountInfo.className}
-                />
-              )}
+              {isSpendingAccountsEligible(balanceData?.visibilityRules) &&
+                spendingAccountInfo && (
+                  <SpendingAccountSection
+                    fsaBalance={spendingAccountInfo.fsaBalance}
+                    hsaBalance={spendingAccountInfo.hsaBalance}
+                    linkURL={spendingAccountInfo.linkURL}
+                    className={spendingAccountInfo.className}
+                  />
+                )}
               <GetHelpSection
                 contact={contact}
                 link="/support/faqTopics/benefits"

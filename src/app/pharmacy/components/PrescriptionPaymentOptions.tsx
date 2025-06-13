@@ -15,6 +15,8 @@ interface PrescriptionPaymentsOptionsProps extends IComponent {
   icon?: ReactNode;
   isMedicare: boolean;
   isBlueCarePlus: boolean;
+  hasUserConsent: boolean;
+  consent: string;
 }
 
 const trackLinkAnalytics = (clickText: string, clickType: string) => {
@@ -33,6 +35,8 @@ export const PrescriptionPaymentsOptions = ({
   icon = <Image alt="" src={externalIcon} />,
   isMedicare,
   isBlueCarePlus,
+  hasUserConsent,
+  consent,
 }: PrescriptionPaymentsOptionsProps) => {
   const callRetroactive = () => {
     trackLinkAnalytics('get a retroactive election', 'internal_link_click');
@@ -48,6 +52,15 @@ export const PrescriptionPaymentsOptions = ({
       );
     }
   };
+
+  let m3pUrl: string = '';
+
+  if (!hasUserConsent) {
+    m3pUrl = `/pharmacy/medicalPrescriptionPaymentPlan?consent=${consent}`;
+  } else {
+    m3pUrl = `/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_M3P}`;
+  }
+
   return (
     <Column>
       <AppLink
@@ -55,7 +68,7 @@ export const PrescriptionPaymentsOptions = ({
         className="pl-0"
         icon={icon}
         displayStyle="flex"
-        url={`/sso/launch?PartnerSpId=${process.env.NEXT_PUBLIC_IDP_M3P}`}
+        url={m3pUrl}
         callback={
           trackLinkAnalytics(
             'Medicare Prescription Payment Plan Sign-up',

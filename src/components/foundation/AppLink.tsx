@@ -1,7 +1,7 @@
 import { ReactNode, forwardRef } from 'react';
 import { IComponent } from '../IComponent';
 
-type ButtonType = 'default' | 'link' | 'button';
+type ButtonType = 'default' | 'link' | 'button' | 'inlinelink';
 
 export interface LinkProps extends IComponent {
   url?: string;
@@ -103,7 +103,27 @@ export const AppLink = forwardRef<HTMLAnchorElement, LinkProps>(
         </a>
       );
     }
-
+    if (type == 'inlinelink') {
+      return (
+        <a
+          style={{
+            maxWidth: 'max-content',
+            height: 'auto',
+            display: `${displayStyle}`,
+          }}
+          tabIndex={linkIndex}
+          href={url}
+          aria-label={label}
+          target={target}
+          className={`flex flex-row link-container link ${className}`}
+          ref={ref}
+          onClick={callback}
+        >
+          {' '}
+          {label} {icon}
+        </a>
+      );
+    }
     //  return null;
   },
 );

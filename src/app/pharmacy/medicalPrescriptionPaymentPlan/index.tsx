@@ -1,5 +1,6 @@
 'use client';
 
+import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -13,8 +14,9 @@ import { Title } from '@/components/foundation/Title';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { googleAnalytics } from '@/utils/analytics';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { hipaaUpdateConsent } from '../actions/hippaConsent';
 
 const opeInNewTab = (url: string) => {
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -35,30 +37,30 @@ const trackLinkAnalytics = (clickText: string) => {
 
 const headerText = () => {
   return (
-    <p className="max-w-[650px] body-1">
+    <p className="max-w-[660px] body-1">
       {`Now you can pay for your prescription drugs over time with a monthly
-      payment.You can learn more by reading this`}
-      <a
-        className="primary-color !font-bold ml-1 underline"
-        href={
-          'https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf'
-        }
+      payment. You can learn more by reading this `}
+      <AppLink
+        className="!font-bold inline p-0"
+        label="fact sheet"
+        type="inlinelink"
+        displayStyle="inline"
+        url="https://www.bcbst-medicare.com/docs/Medicare_Prescription_Payment_Plan_Fact_Sheet.pdf"
         target="_blank"
         onClick={trackLinkAnalytics('fact sheet') ?? undefined}
-      >
-        fact sheet
-      </a>
+      />
       {'. Or if you need help paying for prescriptions, '}
       <AppLink
-        className="!font-bold inline-flex p-0"
-        label=" Social Security Extra Help program"
+        className="!font-bold inline p-0"
+        // eslint-disable-next-line quotes
+        label={"Social Security's Extra Help program"}
         icon={<Image className="inline" alt="" src={externalIcon} />}
+        type="inlinelink"
         displayStyle="inline"
-        callback={() => {
-          opeInNewTab('https://www.ssa.gov/medicare/part-d-extra-help');
-        }}
+        url="https://www.ssa.gov/medicare/part-d-extra-help"
+        target="_blank"
       />
-      could lower your cost.
+      {'could lower your cost.'}
     </p>
   );
 };
@@ -67,13 +69,14 @@ const checkboxPaymentPlanText = () => {
   return (
     <div>
       I have read and agree to the Medicare Prescription Payment Plan
-      <a
-        className="primary-color !font-bold ml-1"
-        href={termsAndConditionsPDF}
+      <AppLink
+        className="!font-bold inline p-0"
+        label={'Terms and Conditions'}
+        type="inlinelink"
+        displayStyle="inline"
+        url={termsAndConditionsPDF}
         target="_blank"
-      >
-        Terms and Conditions
-      </a>
+      />
       .
     </div>
   );
@@ -107,7 +110,19 @@ const MedicalPrescriptionPaymentPlan = () => {
   const router = useRouter();
   const [readAgreement, setReadAgreement] = useState(false);
   const [agreedTc, setAgreedTc] = useState(false);
+  const [isUpdateConsent, setUpdateConsent] = useState(false);
+  const [isError, setIsError] = useState(false);
 
+  const searchParams = useSearchParams();
+  const consentType = searchParams.get('consent') ?? '';
+  useEffect(() => {
+    if (consentType === 'update') {
+      setUpdateConsent(true);
+    }
+    if (consentType === 'error') {
+      setIsError(true);
+    }
+  }, []);
   const isFormValid: boolean = readAgreement && agreedTc;
   return (
     <main className="flex flex-col justify-center items-center page">
@@ -187,6 +202,15 @@ const MedicalPrescriptionPaymentPlan = () => {
                 checked={agreedTc}
                 onChange={(newValue) => setAgreedTc(newValue)}
               />
+              {isError && (
+                <>
+                  <Spacer size={32} />
+                  <ErrorInfoCard
+                    className="mt-4"
+                    errorText="There was a problem loading your information. Please try refreshing the page or returning to this page later."
+                  />
+                </>
+              )}
               <Spacer size={32} />
               <Row className="pl-3 pr-3">
                 <Button
@@ -202,13 +226,24 @@ const MedicalPrescriptionPaymentPlan = () => {
                   type="primary"
                   className="outline outline-primary-content max-w-[256px]"
                   label="I Agree"
+                  disable={!isFormValid}
                   callback={
-                    !isFormValid
-                      ? undefined
-                      : () => {
+                    isFormValid
+                      ? async () => {
+                          setIsError(false);
                           TandCLinkAnalytics();
-                          router.replace('/dashboard');
+                          const result =
+                            await hipaaUpdateConsent(isUpdateConsent);
+                          if (result.status === 200) {
+                            router.replace(
+                              '/sso/launch?PartnerSpId=' +
+                                process.env.NEXT_PUBLIC_IDP_M3P,
+                            );
+                          } else {
+                            setIsError(true);
+                          }
                         }
+                      : undefined
                   }
                 />
               </Row>
