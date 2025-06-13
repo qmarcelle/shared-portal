@@ -190,6 +190,7 @@ const Pharmacy = ({ data, claims, hasUserConsent, consent }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          target: '_blank',
                         },
                         {
                           linkTitle: 'Prescription Drug Claim Form',
@@ -205,6 +206,7 @@ const Pharmacy = ({ data, claims, hasUserConsent, consent }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          target: '_blank',
                         },
                         {
                           linkTitle: 'Prescription Mail Service Order Form',
@@ -218,13 +220,14 @@ const Pharmacy = ({ data, claims, hasUserConsent, consent }: PharmacyProps) => {
                               className="inline"
                             />
                           ),
+                          target: '_blank',
                         },
                         {
                           linkTitle:
                             'Request for Medicare Prescription Drug Coverage Determination',
                           linkDescription:
                             'You can request an exception for prescription drug coverage.',
-                          linkURL: '/forms/determination',
+                          linkURL: '/member/forms/determination',
                           linkIcon: (
                             <Image src={rightIcon} alt="" className="inline" />
                           ),
@@ -235,7 +238,7 @@ const Pharmacy = ({ data, claims, hasUserConsent, consent }: PharmacyProps) => {
                             'Request for Redetermination of Medicare Prescription Drug Denial',
                           linkDescription:
                             'If you received a Notice of Denial of Medicare Prescription Drug Coverage, you can ask us for a redetermination (appeal).',
-                          linkURL: '/forms/redetermination',
+                          linkURL: '/member/forms/redetermination',
                           linkIcon: (
                             <Image src={rightIcon} alt="" className="inline" />
                           ),

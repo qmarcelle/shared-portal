@@ -24,7 +24,7 @@ import {
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
-  isChipRewardsEligible,
+  isChipRewardsINTEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
   isLifePointGrp,
@@ -199,7 +199,7 @@ const MyHealth = ({ data }: MyHealthProps) => {
         }
       />
       <Column className="app-content app-base-font-color">
-        {isChipRewardsEligible(data.visibilityRules) && (
+        {isChipRewardsINTEligible(data.visibilityRules) && (
           <section>
             <WellnessRewards
               memberRewards={data.memberRewards}

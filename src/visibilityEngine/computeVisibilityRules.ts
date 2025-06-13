@@ -125,11 +125,14 @@ export function computeVisibilityRules(
     payPremiumMedicareOnlyGroups.includes(groupId);
 
   for (const member of loggedUserInfo.members) {
-    if (member.memRelation == 'M') {
+    if (member.loggedIn) {
       rules.futureEffective = member.futureEffective;
       rules.terminated = !member.isActive;
       computeCoverageTypes(member, rules);
       computeMemberAge(member, rules);
+      if (['H', 'W'].includes(member.memRelation)) {
+        rules.spouse = true;
+      }
       break;
     }
   }
@@ -665,10 +668,10 @@ export const isChipRewardsINTEligible = (
   rules: VisibilityRules | undefined,
 ) => {
   return (
-    (rules?.individual || rules?.blueHealthRewardsEligible) &&
+    rules?.commercial &&
     isActiveAndNotFSAOnly(rules) &&
-    rules?.chipRewardsEligible &&
-    rules?.commercial
+    !isSelfCommercial(rules) &&
+    (rules.spouse || rules.subscriber)
   );
 };
 

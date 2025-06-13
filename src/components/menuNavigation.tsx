@@ -546,7 +546,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/pharmacy',
+        url: '/member/pharmacy',
         external: false,
       },
       {
@@ -557,7 +557,7 @@ export const getMenuNavigation = (
         showOnMenu: () => {
           return true;
         },
-        url: '/pharmacy',
+        url: '/member/pharmacy',
         external: false,
       },
     ],

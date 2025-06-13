@@ -101,6 +101,7 @@ export const MEMBER_ATTRIBUTES_LIST: string[] = [
   'hsaBank',
   'pinnacleBank',
   'otherInsuranceEligible',
+  'spouse',
 ] as const;
 
 export type VisibilityRule = (typeof MEMBER_ATTRIBUTES_LIST)[number];

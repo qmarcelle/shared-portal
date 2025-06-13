@@ -102,6 +102,10 @@ export const rewriteRules: Record<string, string> = {
   '/member/profile/accountsharing/personalrep': '/personalRepresentativeAccess',
   '/member/profile/accountsharing/thirdparty': '/thirdPartySharing',
   '/member/profile/communication': '/communicationSettings',
+
+  // pharmacy forms
+  '/member/forms/determination': '/forms/determination',
+  '/member/forms/redetermination': '/forms/redetermination',
 };
 
 export const conditionalRewriteRules: Record<

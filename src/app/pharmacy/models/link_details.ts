@@ -6,4 +6,5 @@ export interface LinkDetails {
   linkTitle: string;
   linkURL?: string;
   isHidden?: boolean;
+  target?: string;
 }

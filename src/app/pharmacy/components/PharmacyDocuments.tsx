@@ -13,16 +13,18 @@ interface PharmacyDocumentsProps extends IComponent {
 export const PharmacyDocuments = ({ linkDetails }: PharmacyDocumentsProps) => {
   const pharmacyDocumentDetails = linkDetails.filter((item) => !item.isHidden);
   return (
-    <Column>
+    <Column className="px-3">
       {pharmacyDocumentDetails.map((item, index) => (
         <Column key={index}>
           <Column className="items-stretch">
             <AppLink
               label={item.linkTitle}
               icon={item.linkIcon}
-              className="text-left pl-0"
+              className="inline p-0"
               displayStyle="inline"
               url={item.linkURL}
+              type="inlinelink"
+              target={item.target ? item.target : ''}
             />
             <TextBox text={item.linkDescription} />
             <Spacer size={18} />
