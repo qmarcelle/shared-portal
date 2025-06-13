@@ -78,7 +78,7 @@ const SpendingAccount = ({
                   ? spendBalDetails.map((item, index) => (
                       <SpendingAccountsBalance
                         key={index}
-                        className="large-section"
+                        className="large-section mb-8 last:mb-0"
                         details={item.planYears.map((planYear, planIndex) => ({
                           label: planYear,
                           value: planIndex.toString(),
@@ -103,10 +103,9 @@ const SpendingAccount = ({
                     ))}
             </Column>
 
-            <Column className="flex-grow page-section-36_67 items-stretch mt-4">
+            <Column className="flex-grow page-section-36_67 items-stretch space-y-8">
               <RelatedLinks expensesURL={expensesURL} />
-              <Spacer size={52} />
-              <Card className="!mt-0 md:ml-8 p-8">
+              <Card className="md:ml-8 p-8">
                 <Column className="flex flex-col">
                   <Header
                     type="title-2"
