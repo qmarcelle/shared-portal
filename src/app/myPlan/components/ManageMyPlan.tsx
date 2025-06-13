@@ -54,14 +54,14 @@ export const ManageMyPlan = ({
     }
 
     // Add "Manage My Policy" if eligible
+    // if (isManageMyPolicyEligible(visibilityRules)) {
+    manageMyPlanDetails.push({
+      title: 'Update Social Security Number',
+      body: 'Add or update the Social Security Number associated with your plan.',
+      externalLink: false,
+      url: '/member/myplan/ssn',
+    });
     if (isManageMyPolicyEligible(visibilityRules)) {
-      manageMyPlanDetails.push({
-        title: 'Update Social Security Number',
-        body: 'Add or update the Social Security Number associated with your plan.',
-        externalLink: false,
-        url: '/member/myplan/ssn',
-      });
-
       manageMyPlanDetails.push({
         title: 'Manage My Policy',
         body: 'Change your plan benefits, update personal information, add/remove dependents, or cancel your policy.',

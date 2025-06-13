@@ -41,7 +41,7 @@ export const MemberListItemCard = ({
         <Divider />
         <Spacer size={16} />
         {isSSN ? (
-          <TextBox className="ml-2" text="A SSN was found on file." />
+          <TextBox className="ml-2" text="An SSN was found on file." />
         ) : (
           <Row>
             <div className="inline-flex">

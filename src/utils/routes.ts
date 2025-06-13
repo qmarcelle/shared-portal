@@ -93,7 +93,6 @@ export const ROUTE_CONFIG: RouteConfig = {
         },
         updateSocialSecurityNumber: {
           title: 'Update Social Security Number',
-          rule: (r) => isManageMyPolicyEligible(r),
         },
         planContactInformation: {
           title: 'Plan Contact Information',
