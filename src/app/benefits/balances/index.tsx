@@ -1,4 +1,5 @@
 'use client';
+import { AnnualSpendingCompact } from '@/app/dashboard/components/AnnualSpendingCompact';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
 import { Spacer } from '@/components/foundation/Spacer';
@@ -8,7 +9,6 @@ import {
   isSpendingAccountsEligible,
   isVisionEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
-import { AnnualSpendingSummary } from '../../dashboard/components/AnnualSpendingSummary';
 import { BalanceSectionWrapper } from './components/BalanceSection';
 import { SpendingAccountSection } from './components/SpendingAccountsSection';
 import { VisionBalance } from './components/VisionBalance';
@@ -54,10 +54,10 @@ export const Balances = ({ data, phoneNumber }: BalancePageProps) => {
             )}
           </Column>
           <Column className=" flex-grow page-section-36_67 items-stretch">
-            <AnnualSpendingSummary
+            <AnnualSpendingCompact
               className="large-section"
               title="Spending Summary"
-              linkLabel="View Spending Summary"
+              linkLabel="Download Summary"
               subTitle={'October 12, 2023'}
               amountPaid={1199.19}
               totalBilledAmount={9804.31}
