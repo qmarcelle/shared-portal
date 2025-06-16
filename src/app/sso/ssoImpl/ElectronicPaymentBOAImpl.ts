@@ -5,7 +5,7 @@ import {
   PremiumPayResponse,
 } from '@/actions/premiumPayInfo';
 import { LoggedInMember } from '@/models/app/loggedin_member';
-import { formatDateToGiven } from '@/utils/date_formatter';
+import { formatDateToGiven, UNIXTimeSeconds } from '@/utils/date_formatter';
 import { isEligible } from '@/utils/member_utils';
 import {
   BOA_PARTNER_KEY,
@@ -48,7 +48,10 @@ export default async function generateElectronicPaymentBOAMap(
   ssoParamMap.set(SSO_PARTNER_KEY, partnerKey);
   ssoParamMap.set(SSO_PARTNER_SIGNATURE_KEY, partnerSignatureKey);
   //To Do - Need to add session id
-  ssoParamMap.set(SSO_PARTNER_SESSION_ID, '');
+  ssoParamMap.set(
+    SSO_PARTNER_SESSION_ID,
+    Buffer.from(memberData.userId + UNIXTimeSeconds).toString('base64'),
+  );
   ssoParamMap.set(
     SSO_TIME_STAMP,
     formatDateToGiven(
