@@ -1,12 +1,19 @@
 import { FilterDetails, FilterItem } from '@/models/filter_dropdown_details';
 
-export function getInitialClaimsFilter(claimTypes: FilterDetails[]) {
+export function getInitialClaimsFilter(
+  members: FilterDetails[],
+  claimTypes: FilterDetails[],
+) {
   const filterItems: FilterItem[] = [
     {
       type: 'dropdown',
       label: 'Member',
-      value: [],
-      selectedValue: undefined, // Will be set dynamically later
+      value: [...members],
+      selectedValue: {
+        label: members[0].label,
+        value: members[0].value,
+        id: members[0].id,
+      }, // Will be set dynamically later
     },
     {
       type: 'dropdown',

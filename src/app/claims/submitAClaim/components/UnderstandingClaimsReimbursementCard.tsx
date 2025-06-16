@@ -32,7 +32,7 @@ export const UnderstandingClaimsReimbursementCard = ({
             <span className="link" key={1}>
               <a> start a chat </a>
             </span>,
-            <span key={3}> or call us at [{contact}].</span>,
+            <span key={3}> or call us at {contact}.</span>,
           ]}
         />
       </Column>

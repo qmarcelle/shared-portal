@@ -66,19 +66,23 @@ const MyClaimsPage = async ({
     );
 
     // Create a FilterDetails array of objects
-    const filterDetailsArray: FilterDetails[] = eligibleClaimsTypes.map(
-      (char) => ({
-        label: characterToLabelMap[char],
-        value: characterToLabelMap[char],
-        id: characterToLabelMap[char],
+    const memberItems: FilterDetails[] = (claimsData?.members ?? []).map(
+      (member) => ({
+        label: member.label,
+        value: member.value,
+        id: member.id,
       }),
     );
 
-    const filterItems = getInitialClaimsFilter(filterDetailsArray);
-    filterItems[MEMBER_FILTER_INDEX].value = [
-      ...(filterItems[MEMBER_FILTER_INDEX].value! as FilterDetails[]),
-      ...(result?.data?.members ?? []),
-    ];
+    // Create a FilterDetails array of objects
+    const claimTypeItems: FilterDetails[] = eligibleClaimsTypes.map((char) => ({
+      label: characterToLabelMap[char],
+      value: characterToLabelMap[char],
+      id: characterToLabelMap[char],
+    }));
+
+    const filterItems = getInitialClaimsFilter(memberItems, claimTypeItems);
+
     // Set the selectedValue to the first added member, if available
     if (claimsData?.members && claimsData.members.length > 0) {
       filterItems[MEMBER_FILTER_INDEX].selectedValue = claimsData?.members[0];

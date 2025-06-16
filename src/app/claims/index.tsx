@@ -116,8 +116,17 @@ const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
   }
 
   function resetFilter() {
-    setFilter(initialFilter);
-    setClaims(initialClaims);
+    const updatedFilter = initialFilter.map((filterItem) => ({
+      ...filterItem,
+      selectedValue: {
+        label: filterItem.selectedValue?.label || '',
+        value: filterItem.selectedValue?.value || '',
+        id: filterItem.selectedValue?.id || '',
+      },
+    }));
+
+    setFilter(updatedFilter);
+    setClaims(filterClaims(updatedFilter)); // Reapply the filter to update claims
   }
 
   function refineClaimsWithSearch() {
@@ -162,7 +171,7 @@ const ClaimsSnapshot = ({ filters, claimsList, phone }: ClaimsPageProps) => {
                 <span className="link font-bold" key={1}>
                   start a chat
                 </span>,
-                <span key={2}> or call us at [{phone}].</span>,
+                <span key={2}> or call us at {phone}.</span>,
               ]}
             />
 

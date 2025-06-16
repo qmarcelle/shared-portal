@@ -48,7 +48,7 @@ const ClaimDetails = ({
                 />
                 <Spacer size={32} />
                 <ServicesRenderedSection
-                  serviceTitle={'Services Rendered On This Claim'}
+                  serviceTitle={'Services On This Claim'}
                   className="large-section"
                   service={claimServices.map((service) => ({
                     serviceLabel: service.srvLineDesc,
