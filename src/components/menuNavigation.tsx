@@ -213,7 +213,9 @@ export const getMenuNavigation = (
         description: 'This is Services Used',
         category: 'Plan Details',
         showOnMenu: (rules) =>
-          isBlueCareNotEligible(rules) && isNotWellnessQa(rules),
+          isBlueCareNotEligible(rules) &&
+          isNotWellnessQa(rules) &&
+          rules?.medical,
         url: '/member/myplan/servicesused',
         external: false,
       },

@@ -134,12 +134,14 @@ export const Details = ({
                     icon={estimateCost}
                     link="/member/findcare"
                   />
-                  <InfoCard
-                    label="Services Used"
-                    body="View a list of common services, the maximum amount covered by your plan and how many you've used."
-                    icon={servicesUsed}
-                    link="/member/myplan/servicesused"
-                  />
+                  {balanceData?.visibilityRules?.medical && (
+                    <InfoCard
+                      label="Services Used"
+                      body="View a list of common services, the maximum amount covered by your plan and how many you've used."
+                      icon={servicesUsed}
+                      link="/member/myplan/servicesused"
+                    />
+                  )}
                 </>
               )}
               {selectedBenefitDetails.benefitType ===
