@@ -24,10 +24,11 @@ export const ProfileHeaderCardItem = ({
       return;
     }
     await switchUser(userId);
-    if (path.includes('/dashboard') == false) {
-      router.replace('/dashboard');
+    if (window.chatConfig) {
+      window.location.reload();
+    } else {
+      router.refresh();
     }
-    router.refresh();
     onClick!();
   }
 

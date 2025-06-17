@@ -7,7 +7,7 @@ import { ESResponse } from '@/models/enterprise/esResponse';
 import { esApi } from '@/utils/api/esApi';
 import { decrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
+import { clearGenesysCookies, setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AxiosError } from 'axios';
 import { LoginResponse } from '../models/api/login';
 import { SelectMfaDeviceResponse } from '../models/api/select_mfa_device_response';
@@ -91,6 +91,7 @@ export async function callSubmitMfaOtp(
       status = SubmitMFAStatus.DUPLICATE_ACCOUNT;
     } else {
       authUser = username;
+      await clearGenesysCookies();
       await setSTAndInteractionDataCookies({
         ...resp.data.data,
       });

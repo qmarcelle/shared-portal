@@ -1,33 +1,11 @@
 'use server';
 
 import { signOut } from '@/auth';
-import { cookies } from 'next/headers';
+import { clearAllExternalCookies } from '@/utils/ping_cookies';
 
 export async function callSignOut(): Promise<void> {
   try {
-    cookies().set('ST', '', {
-      domain: '.bcbst.com',
-      httpOnly: true,
-      secure: true,
-      path: '/',
-      sameSite: 'none',
-    });
-    cookies().set('ST-NO-SS', '', {
-      domain: '.bcbst.com',
-      httpOnly: true,
-      secure: true,
-      path: '/',
-      sameSite: 'none',
-    });
-    cookies().delete('interactionId');
-    cookies().delete('interactionToken');
-    cookies().set('MPExternalSession', '', {
-      domain: '.bcbst.com',
-      httpOnly: true,
-      secure: true,
-      path: '/',
-      sameSite: 'none'
-    });
+    await clearAllExternalCookies();
     await signOut({
       redirect: false,
     });

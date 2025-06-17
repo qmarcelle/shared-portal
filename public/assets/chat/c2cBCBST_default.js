@@ -1,0 +1,1419 @@
+//Convert JSP Variables to JS declarations - done
+//Remove JSTL Tags                         - done
+//Inject JSP Variables in JS declarations  - Braden ongoing
+//Look at Injected Values
+//Fix URLs                                  - progress
+//Remove comments
+// Load click to chat data before initializing widget
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+const rawCookie = getCookie('_genesys.widgets.webchat.state.session');
+
+if (rawCookie) {    
+  console.log('there is an active chat session'); 
+                window.chatConfig.setActive(true); }
+else {
+console.log('There is no active chat session')
+    
+}
+
+var chatData = window.chatConfig;
+var isIDCardEligible =
+  chatData.isIDCardEligible == undefined ? false : chatData.isIDCardEligible;
+var routingchatbotEligible =
+  chatData.routingChatbotEligible == undefined
+    ? false
+    : chatData.routingChatbotEligible;
+var isCobraEligible =
+  chatData.isCobraEligible == undefined ? false : chatData.isCobraEligible;
+var chatbotEligible =
+  chatData.chatbotEligible == undefined ? false : chatData.chatbotEligible;
+var isDemoMember =
+  chatData.isDemoMember == undefined ? false : chatData.isDemoMember;
+var isAmplifyMem =
+  chatData.isAmplifyMem == undefined ? false : chatData.isAmplifyMem;
+var isDental = chatData.isDental == undefined ? false : chatData.isDental;
+var isChatAvailable =
+  chatData.isChatAvailable == undefined ? false : chatData.isChatAvailable;
+var isMedical = chatData.isMedical == undefined ? false : chatData.isMedical;
+var isVision = chatData.isVision == undefined ? false : chatData.isVision;
+var isBlueEliteGroup =
+  chatData.isBlueEliteGroup == undefined ? false : chatData.isBlueEliteGroup;
+var isWellnessOnly =
+  chatData.isWellnessOnly == undefined ? false : chatData.isWellnessOnly;
+
+var clickToChatToken = chatData.clickToChatToken;
+var clickToChatEndpoint = chatData.clickToChatEndpoint;
+var clickToChatDemoEndPoint = chatData.clickToChatDemoEndPoint;
+var coBrowseLicence = chatData.coBrowseLicence;
+// var cobrowseSource = chatData.coBrowseSource;
+// var cobrowseURL = chatData.coBrowseURL;
+var opsPhone = chatData.opsPhone;
+var opsPhoneHours = chatData.opsPhoneHours;
+var user_id = chatData.user_id;
+var user_name = chatData.user_name;
+var groupID = chatData.groupID;
+var memberClientID = chatData.memberClientID;
+var groupType = chatData.groupType;
+var workingHrs = chatData.workingHrs;
+var rawChatHrs = chatData.rawChatHrs;
+var memberMedicalPlanId = chatData.memberMedicalPlanId;
+var memberDOB = chatData.memberDOB;
+var formattedFirstName = chatData.formattedFirstName;
+var memberLastName = chatData.memberLastName;
+var idCardChatBotName = chatData.idCardChatBotName;
+var subscriberId = chatData.subscriberId;
+var sfx = chatData.sfx;
+var memberFirstname = chatData.formattedFirstName;
+var CSCS_ID = 'ABANTF01'; // modify later TODO: loggedInUserInfo.planDetails.find((plan) => plan.productCategory == M).PlanClassID
+
+var callCobrowse;
+var localWidgetPlugin;
+
+//TODO: Braden is busy , so hard coding a bunch of app settings for now. Need to move to process envs later. We do not anticipate this changing frequently.
+var ClickToChat_AfterHoursSelfServiceLinks = {
+  'Order ID Cards': '/member/idcard',
+  'Update Other Insurance': '/member/myplan/otherinsurance',
+  'Update your Account Settings': '/member/profile',
+  'Pay Premium': '/balances',
+};
+
+var ClickToChat_AfterHoursSelfServiceLinksForMAG = {
+  'See your Medication List': 'bcbst.page.mypharmacy.druglists',
+  'Document & Forms':
+    'https://www.bcbst-medicare.com/use-insurance/documents-forms',
+  'Find Care': '/member/findcare',
+  'Order ID card': '/member/idcard',
+  'Frequently Asked Questions':
+    'https://www.bcbst.com/use-insurance/faqs/?cm_sp=nav-_-header_use_insurance-_-faqs',
+};
+
+var ClickToChat_SelfServiceLinksFor_116884 = {
+  'Over-the-Counter Shopping': 'http://www.cvs.com/otchs/bcbstma',
+  'See your Medication List': 'bcbst.page.mypharmacy.druglists',
+  'Document & Forms':
+    'https://www.bcbst-medicare.com/use-insurance/documents-forms',
+  'Find Care': '/member/findcare',
+  'Order ID card': '/member/idcard',
+};
+
+var ClickToChat_SelfServiceLinksFor_116884_ABANTF00 = {
+  'Over-the-Counter Shopping': 'http://www.cvs.com/otchs/bcbstma',
+  'Document & Forms':
+    'https://www.bcbst-medicare.com/use-insurance/documents-forms',
+  'Find Care': '/member/findcare',
+  'Order ID card': '/member/idcard',
+};
+
+var medicareAdvantageGroups =
+  '129969,129970,129971,130300,145130,120970,115602,128361,142512,118069,122059,124377,115613,115617,118068,121489,142513,132570';
+
+function isMedicalAdvantageGroup() {
+  if (!medicareAdvantageGroups || groupID) {
+    return false;
+  }
+
+  const groupList = medicareAdvantageGroups.split(',').map((g) => g.trim());
+  return groupList.includes(groupID);
+}
+
+function getAfterHoursChatLinks() {
+  if (isMedicalAdvantageGroup()) {
+    return ClickToChat_AfterHoursSelfServiceLinksForMAG;
+  } else if (groupID === '116884') {
+    return CSCS_ID === 'ABANTF00'
+      ? ClickToChat_SelfServiceLinksFor_116884_ABANTF00
+      : ClickToChat_SelfServiceLinksFor_116884;
+  } else {
+    return ClickToChat_AfterHoursSelfServiceLinks;
+  }
+}
+var selfServiceLinks = getAfterHoursChatLinks();
+
+var chatURL = function () {
+  return isDemoMember ? clickToChatDemoEndPoint : clickToChatEndpoint;
+};
+
+var clientID = function () {
+  if (isBlueEliteGroup) return 'INDVMX';
+  else if (groupType === 'INDV') return 'INDV';
+  else return memberClientID;
+};
+
+var calculatedCiciId = clientID();
+
+var isDentalOnly = function () {
+  //if (!('${isMedical}'=='true' || '${isVision}'=='true' || '${isWellnessOnly}'=='true') && isDental == 'true') return true;  //TODO:Convert to JS
+  //else return false;
+  return !(isMedical || isVision || isWellnessOnly) && isDental;
+};
+
+var gmsServicesConfig = {
+  GMSChatURL: chatURL,
+};
+
+var webAlert = new Audio('/assets/chat/bell.mp3'); //TODO: Convert to static
+webAlert.muted = true;
+
+var defaultedClientID = function (clientID) {
+  var clientIDList = ['INDVMX', 'BA', 'INDV', 'CK', 'BC', 'DS', 'CT']; //Based on US# 411607, the clientID needs to be replaced with default if it not in the array.
+  if (clientID == null || clientID == undefined) {
+    return 'Default';
+  }
+  for (var i = 0; i < clientIDList.length; i++) {
+    if (clientIDList[i] == clientID.trim()) return clientIDList[i];
+  }
+  return 'Default';
+};
+
+var clientIdConst = {
+  BlueCare: 'BC',
+  BlueCarePlus: 'DS',
+  CoverTN: 'CT',
+  CoverKids: 'CK',
+  SeniorCare: 'BA',
+  Individual: 'INDV',
+  BlueElite: 'INDVMX',
+};
+
+var chatTypeConst = {
+  BlueCareChat: 'BlueCare_Chat',
+  SeniorCareChat: 'SCD_Chat',
+  DefaultChat: 'MBAChat',
+};
+
+var setOptions = function (optionsVariable) {
+  var options =
+    calculatedCiciId == clientIdConst.SeniorCare
+      ? []
+      : [
+          {
+            disabled: 'disabled',
+            selected: 'selected',
+            text: 'Select one',
+          },
+        ];
+
+  switch (optionsVariable) {
+    case clientIdConst.BlueCare:
+      options.push({ text: 'Eligibility', value: 'Eligibility' });
+      options.push({ text: 'TennCare PCP', value: 'TennCare PCP' });
+      options.push({ text: 'Benefits', value: 'Benefits' });
+      options.push({ text: 'Transportation', value: 'Transportation' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      break;
+    case clientIdConst.BlueCarePlus:
+    case clientIdConst.CoverTN:
+    case clientIdConst.CoverKids:
+      options.push({ text: 'Eligibility', value: 'Eligibility' });
+      options.push({ text: 'Benefits', value: 'Benefits' });
+      options.push({ text: 'Claims Financial', value: 'Claims Financial' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      options.push({
+        text: 'Member Update Information',
+        value: 'Member Update Information',
+      });
+      options.push({ text: 'Pharmacy', value: 'Pharmacy' });
+      break;
+    case clientIdConst.SeniorCare:
+      break;
+    case 'dentalOnly':
+      options.push({
+        text: 'Benefits and Coverage',
+        value: 'Benefits and Coverage',
+      });
+      options.push({
+        text: 'New or Existing Claims',
+        value: 'New Or Existing Claims',
+      });
+      if (groupType === 'INDV')
+        options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+      options.push({ text: 'Deductibles', value: 'Deductibles' });
+      options.push({ text: 'Find Care', value: 'Find Care' });
+      if (isCobraEligible) options.push({ text: 'COBRA', value: 'COBRA' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      options.push({ text: 'Other', value: 'Other' });
+      break;
+    case clientIdConst.Individual:
+      options.push({
+        text: 'Benefits and Coverage',
+        value: 'Benefits and Coverage',
+      });
+      options.push({
+        text: 'New or Existing Claims',
+        value: 'New Or Existing Claims',
+      });
+      options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+      options.push({ text: 'Deductibles', value: 'Deductibles' });
+      options.push({
+        text: 'Pharmacy and Prescriptions',
+        value: 'Pharmacy And Prescriptions',
+      });
+      options.push({ text: 'Find Care', value: 'Find Care' });
+      if (isDental) options.push({ text: 'Dental', value: 'Dental' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      options.push({ text: 'Other', value: 'Other' });
+      break;
+    case clientIdConst.BlueElite:
+      options.push({ text: 'Address Update', value: 'Address Update' });
+      options.push({ text: 'Bank Draft', value: 'Bank Draft' });
+      options.push({ text: 'Premium Billing', value: 'Premium Billing' });
+      options.push({
+        text: 'Report Date of Death',
+        value: 'Report Date of Death',
+      });
+      if (isDental) options.push({ text: 'Dental', value: 'Dental' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      options.push({ text: 'All Other', value: 'All Other' });
+      break;
+    default:
+      options.push({
+        text: 'Benefits and Coverage',
+        value: 'Benefits and Coverage',
+      });
+      options.push({
+        text: 'New or Existing Claims',
+        value: 'New Or Existing Claims',
+      });
+      options.push({ text: 'Deductibles', value: 'Deductibles' });
+      options.push({
+        text: 'Pharmacy and Prescriptions',
+        value: 'Pharmacy And Prescriptions',
+      });
+      options.push({ text: 'Find Care', value: 'Find Care' });
+      if (isDental) options.push({ text: 'Dental', value: 'Dental' });
+      if (isCobraEligible) options.push({ text: 'COBRA', value: 'COBRA' });
+      if (isIDCardEligible && chatbotEligible)
+        options.push({ text: 'ID Card Request', value: 'OrderIDCard' });
+      options.push({ text: 'Other', value: 'Other' });
+  }
+  return options;
+};
+
+var chatType = function (calculatedCiciId) {
+  switch (calculatedCiciId) {
+    case clientIdConst.BlueCare:
+    case clientIdConst.BlueCarePlus:
+    case clientIdConst.CoverTN:
+    case clientIdConst.CoverKids:
+      return chatTypeConst.BlueCareChat;
+    case clientIdConst.SeniorCare:
+      return chatTypeConst.SeniorCareChat;
+    case clientIdConst.BlueElite:
+      return chatTypeConst.SeniorCareChat;
+    case clientIdConst.Individual:
+      return chatTypeConst.DefaultChat;
+    default:
+      return chatTypeConst.DefaultChat;
+  }
+};
+
+var chatBotAvatar = function () {
+  return ` 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
+  <title>BCBST-chatbot-avatar-20210112</title>
+  <g id="BCBST-chatbot-avatar-20210112" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group">
+      <g id="Group-33">
+        <path d="M15.9932914,31.9865828 C24.8261578,31.9865828 31.9865828,24.8261578 31.9865828,15.9932914 C31.9865828,7.16042504 24.8261578,0 15.9932914,0 C7.16042504,0 0,7.16042504 0,15.9932914 C0,24.8261578 7.16042504,31.9865828 15.9932914,31.9865828" id="Fill-1" fill="#00A6E0"/>
+        <path d="M22.4895836,6.61774981 L9.95449874,6.61774981 C7.58772009,6.61774981 5.66898207,8.53648783 5.66898207,10.903495 L5.66898207,18.5133315 C5.66898207,22.6231504 8.74517744,22.7988482 8.74517744,22.7988482 L8.74517744,26.1286514 C8.74517744,26.8675415 9.61384163,27.2644036 10.1724645,26.7804923 L14.7703073,22.7988482 L22.4895836,22.7988482 C24.8561338,22.7988482 26.7746433,20.8801101 26.7746433,18.5133315 L26.7746433,10.903495 C26.7746433,8.53648783 24.8561338,6.61774981 22.4895836,6.61774981" id="Fill-3" fill="#FFFFFF"/>
+      </g>
+      <g id="BCBST_logo_stacked_BlueBlack_CMYK_2019_rrChecked" transform="translate(7.681342, 11.069182)">
+        <g id="Group" transform="translate(0.000000, 5.903564)"/>
+        <g id="Group" transform="translate(1.084556, 0.000000)" fill="#0072BC" fill-rule="nonzero">
+          <path d="M3.87999466,4.44375457 C3.86341348,4.44375457 3.86341348,4.44375457 3.84683231,4.46033574 L3.13384184,5.53811203 C3.36597827,5.63759908 3.61469588,5.6873426 3.87999466,5.6873426 C4.14529344,5.6873426 4.39401104,5.63759908 4.62614748,5.53811203 L3.91315701,4.46033574 C3.89657583,4.46033574 3.87999466,4.44375457 3.87999466,4.44375457" id="Path"/>
+          <path d="M3.18358536,3.56495236 L2.10580907,3.46546531 C2.07264672,3.5981147 2.05606555,3.74734527 2.05606555,3.89657583 C2.05606555,4.34426752 2.22187728,4.75879687 2.48717606,5.07383917 L3.23332888,3.64785823 C3.26649123,3.5981147 3.26649123,3.56495236 3.18358536,3.56495236" id="Path"/>
+          <path d="M3.36597827,2.15555259 C3.01777362,2.25503963 2.7193125,2.45401372 2.48717606,2.7193125 L3.43230297,2.7193125 C3.44888414,2.7193125 3.46546531,2.70273132 3.43230297,2.66956897 C3.3493971,2.55350076 3.26649123,2.32136433 3.36597827,2.15555259" id="Path"/>
+          <path d="M5.25623208,2.7193125 C5.02409565,2.45401372 4.72563452,2.25503963 4.37742987,2.15555259 C4.47691691,2.3379455 4.39401104,2.57008193 4.294524,2.66956897 C4.27794283,2.68615015 4.27794283,2.70273132 4.294524,2.7193125 L5.25623208,2.7193125 Z" id="Path"/>
+          <path d="M4.55982278,3.56495236 C4.47691691,3.56495236 4.47691691,3.5981147 4.49349809,3.64785823 L5.23965091,5.07383917 C5.50494969,4.75879687 5.67076142,4.34426752 5.67076142,3.89657583 C5.67076142,3.74734527 5.65418025,3.5981147 5.6210179,3.46546531 L4.55982278,3.56495236 Z" id="Path"/>
+          <path d="M5.57127438,2.18871494 L5.57127438,0.0497435213 L2.17213376,0.0497435213 L2.17213376,2.18871494 L0.0331623475,2.18871494 L0.0331623475,5.60443673 L2.17213376,5.60443673 L2.17213376,7.74340814 L5.57127438,7.74340814 L5.57127438,5.58785556 L7.7102458,5.58785556 L7.7102458,2.18871494 L5.57127438,2.18871494 Z M3.87999466,1.79076677 C4.72563452,1.79076677 5.45520617,2.28820198 5.78682964,3.00119245 L4.294524,3.00119245 C4.07896874,3.00119245 3.9794817,2.86854306 3.9794817,2.76905602 C3.9794817,2.6529878 3.99606287,2.60324428 4.09554992,2.48717606 C4.21161813,2.3379455 4.12871226,2.07264672 3.87999466,2.05606555 C3.63127705,2.05606555 3.56495236,2.3379455 3.6644394,2.48717606 C3.76392644,2.61982545 3.78050762,2.6529878 3.78050762,2.76905602 C3.78050762,2.86854306 3.68102057,3.00119245 3.46546531,3.00119245 L1.97315968,3.00119245 C2.30478315,2.28820198 3.0343548,1.79076677 3.87999466,1.79076677 M1.77418559,3.89657583 C1.77418559,3.63127705 1.82392911,3.38255945 1.90683498,3.15042301 L1.90683498,3.15042301 L1.90683498,3.15042301 L3.31623475,3.2830724 C3.58153353,3.31623475 3.61469588,3.58153353 3.54837118,3.73076409 L2.58666311,5.55469321 L2.58666311,5.55469321 C2.08922789,5.17332621 1.77418559,4.55982278 1.77418559,3.89657583 M5.04067682,5.65418025 L5.04067682,5.65418025 C4.70905335,5.86973551 4.31110518,6.0023849 3.87999466,6.0023849 C3.44888414,6.0023849 3.05093597,5.86973551 2.7193125,5.65418025 L2.7193125,5.65418025 L2.7193125,5.65418025 L2.7193125,5.65418025 L3.74734527,4.11213109 C3.83025114,4.01264405 3.92973818,4.01264405 4.01264405,4.11213109 L5.04067682,5.65418025 C5.04067682,5.65418025 5.04067682,5.65418025 5.04067682,5.65418025 L5.04067682,5.65418025 Z M5.17332621,5.55469321 L5.17332621,5.55469321 L4.21161813,3.73076409 C4.14529344,3.58153353 4.17845579,3.31623475 4.44375457,3.2830724 L5.85315434,3.15042301 L5.85315434,3.15042301 L5.85315434,3.15042301 C5.9360602,3.38255945 5.98580373,3.63127705 5.98580373,3.89657583 C5.98580373,4.55982278 5.67076142,5.17332621 5.17332621,5.55469321" id="Shape"/>
+          <path d="M14.5582706,0.0497435213 C13.7292119,0.464272865 12.9167344,0.696409298 11.9384451,0.696409298 C10.976737,0.696409298 10.1476783,0.464272865 9.31861965,0.0497435213 C8.77144092,1.11093864 8.68853505,2.85196189 9.15280791,4.294524 C9.6004996,5.6873426 10.4793018,6.96409298 11.9218639,7.75998932 C13.364426,6.96409298 14.2432283,5.6873426 14.6909199,4.294524 C15.1883552,2.85196189 15.1054493,1.11093864 14.5582706,0.0497435213 M14.1769036,4.12871226 C13.7789554,5.32255678 13.1322896,6.36717072 11.9550263,7.11332354 C11.9550263,7.11332354 11.9550263,7.11332354 11.9550263,7.11332354 L11.9550263,7.11332354 C11.9550263,7.11332354 11.9550263,7.11332354 11.9550263,7.11332354 C10.7611818,6.3837519 10.1310972,5.32255678 9.73314899,4.12871226 C9.36836317,3.06751714 9.2854573,1.82392911 9.68340547,0.862221035 C10.2803277,1.06119512 10.6285324,1.12751982 10.9435747,1.17726334 C11.2420358,1.22700686 11.5073346,1.26016921 11.9550263,1.26016921 L11.9550263,1.26016921 C12.402718,1.26016921 12.6680167,1.22700686 12.9664779,1.17726334 C13.2815202,1.12751982 13.646306,1.06119512 14.2266471,0.862221035 C14.6245953,1.84051029 14.5416894,3.06751714 14.1769036,4.12871226" id="Shape"/>
+          <path d="M11.5570781,2.13897141 C11.5902405,2.17213376 11.5902405,2.22187728 11.639984,2.20529611 C11.6731463,2.20529611 11.6897275,2.18871494 11.7063087,2.15555259 C11.7063087,2.15555259 11.739471,2.15555259 11.7560522,2.15555259 C11.6897275,2.08922789 11.5570781,2.08922789 11.4741722,2.08922789 C11.5073346,2.13897141 11.5239158,2.12239024 11.5570781,2.13897141" id="Path"/>
+          <path d="M12.983059,1.45914329 C12.6348544,1.50888681 12.2866498,1.54204916 11.9550263,1.54204916 L11.9550263,1.54204916 C11.6234028,1.54204916 11.2751982,1.50888681 10.9269935,1.45914329 C10.5787889,1.40939977 10.2471654,1.3264939 9.88237956,1.24358803 C9.63366195,1.9565785 9.68340547,2.85196189 9.88237956,3.6644394 C10.2471654,5.17332621 11.1591299,6.3174272 11.9550263,6.83144359 C12.7509226,6.3174272 13.6794683,5.17332621 14.027673,3.6644394 C14.2266471,2.86854306 14.2763906,1.9565785 14.027673,1.24358803 C13.6628872,1.34307507 13.3312637,1.40939977 12.983059,1.45914329 M11.739471,6.11845312 C11.7228898,6.20135898 11.7560522,6.23452133 11.7560522,6.26768368 C11.739471,6.33400837 11.7063087,6.3174272 11.6897275,6.26768368 C11.6565651,6.20135898 11.639984,6.18477781 11.6234028,6.08529077 C11.6068216,5.9360602 11.6897275,5.86973551 11.7228898,5.83657316 C11.7560522,5.80341081 11.7892145,5.78682964 11.7892145,5.78682964 L11.8057957,6.03554725 C11.8057957,6.01896607 11.7560522,6.03554725 11.739471,6.11845312 M12.0710945,6.36717072 C12.0710945,6.40033307 12.0545133,6.43349542 11.9716075,6.43349542 C11.9052828,6.43349542 11.8721204,6.41691424 11.8721204,6.35058955 C11.8555392,6.05212842 11.8555392,5.50494969 11.8555392,5.50494969 C11.8555392,5.50494969 11.9384451,5.53811203 11.9716075,5.55469321 C11.9881886,5.55469321 12.021351,5.58785556 12.0710945,5.6210179 C12.0710945,5.63759908 12.0876757,5.63759908 12.0876757,5.65418025 C12.0876757,5.86973551 12.0710945,6.26768368 12.0710945,6.36717072 M12.3198121,5.80341081 C12.2534874,5.85315434 12.1705815,5.88631668 12.1705815,5.88631668 L12.1871627,5.67076142 C12.1871627,5.67076142 12.2037439,5.65418025 12.2037439,5.6210179 C12.1871627,5.57127438 12.0379321,5.47178734 11.9550263,5.43862499 C11.8721204,5.40546264 11.7560522,5.3723003 11.6731463,5.33913795 C11.4907534,5.25623208 11.4078475,5.09042034 11.4907534,4.90802743 C11.5239158,4.84170274 11.5902405,4.79195922 11.639984,4.77537804 C11.6897275,4.74221569 11.7560522,4.72563452 11.7560522,4.72563452 L11.7726334,4.9909333 C11.7726334,4.9909333 11.7560522,5.00751447 11.739471,5.02409565 C11.7228898,5.07383917 11.7726334,5.09042034 11.7726334,5.10700152 C11.8887016,5.15674504 12.0710945,5.23965091 12.2037439,5.3059756 C12.3695556,5.40546264 12.4358803,5.47178734 12.4358803,5.60443673 C12.4192991,5.6873426 12.3861368,5.75366729 12.3198121,5.80341081 M11.8389581,4.57640396 C11.9550263,4.59298513 12.0047698,4.59298513 12.120838,4.6095663 L12.1042568,5.12358269 L11.9881886,5.057258 L11.8721204,5.00751447 L11.8389581,4.57640396 Z M12.5851109,4.69247217 C12.5685297,4.79195922 12.502205,4.85828391 12.402718,4.92460861 C12.3032309,4.9909333 12.1871627,4.9909333 12.1871627,4.9909333 L12.2037439,4.675891 C12.2037439,4.675891 12.2203251,4.675891 12.2369062,4.64272865 C12.2534874,4.62614748 12.2534874,4.6095663 12.2534874,4.57640396 C12.2534874,4.55982278 12.2369062,4.54324161 12.2037439,4.52666043 C12.1705815,4.51007926 12.120838,4.51007926 12.1042568,4.51007926 C11.9550263,4.49349809 11.8057957,4.47691691 11.6565651,4.44375457 C11.3912664,4.39401104 11.1922923,4.24478048 11.2088735,3.9794817 C11.2254546,3.79708879 11.4078475,3.74734527 11.5404969,3.69760175 C11.5902405,3.78050762 11.6234028,3.84683231 11.639984,3.89657583 C11.6565651,3.96290053 11.6731463,4.01264405 11.6731463,4.01264405 C11.6731463,4.01264405 11.6068216,4.02922522 11.6234028,4.07896874 C11.6234028,4.12871226 11.6731463,4.14529344 11.7063087,4.14529344 C11.9052828,4.17845579 12.1540004,4.19503696 12.2866498,4.24478048 C12.3695556,4.27794283 12.4690427,4.32768635 12.5187862,4.39401104 C12.6016921,4.49349809 12.6182732,4.57640396 12.5851109,4.69247217 M11.7228898,3.44888414 C11.7228898,3.44888414 11.7892145,3.44888414 11.9384451,3.46546531 C12.0545133,3.46546531 12.1374192,3.51520884 12.1374192,3.51520884 L12.120838,4.07896874 C11.9881886,4.06238757 11.9052828,4.0458064 11.7892145,4.02922522 C11.7560522,3.83025114 11.7063087,3.74734527 11.6234028,3.5981147 C11.6068216,3.56495236 11.6234028,3.54837118 11.6234028,3.54837118 C11.639984,3.53179001 11.7228898,3.51520884 11.7228898,3.51520884 L11.7228898,3.44888414 Z M12.2369062,4.01264405 C12.2369062,4.01264405 12.2534874,3.74734527 12.2534874,3.61469588 C12.3198121,3.58153353 12.3363933,3.51520884 12.3198121,3.46546531 C12.3032309,3.43230297 12.2534874,3.41572179 12.2203251,3.39914062 C12.0710945,3.36597827 11.9384451,3.3493971 11.7892145,3.33281592 C11.6565651,3.31623475 11.5404969,3.29965358 11.4244287,3.26649123 C11.1757111,3.20016653 10.9601559,3.08409832 10.8440876,2.85196189 C10.7114382,2.57008193 10.8275065,2.22187728 11.1093864,2.07264672 C11.3083605,1.97315968 11.5404969,1.98974085 11.7560522,2.07264672 C11.8223769,2.10580907 11.8721204,2.15555259 11.9052828,2.22187728 C11.9218639,2.25503963 11.9550263,2.25503963 11.9716075,2.28820198 C11.9881886,2.30478315 11.9550263,2.32136433 11.9550263,2.32136433 C11.9052828,2.3379455 11.7560522,2.3379455 11.7063087,2.3379455 C11.639984,2.3379455 11.5404969,2.3379455 11.4741722,2.35452667 C11.5404969,2.38768902 11.6068216,2.43743254 11.6731463,2.47059489 C11.7063087,2.48717606 11.739471,2.48717606 11.7726334,2.50375724 C11.7892145,2.50375724 11.8389581,2.52033841 11.8389581,2.53691958 C11.8389581,2.55350076 11.8057957,2.57008193 11.7726334,2.57008193 C11.7063087,2.58666311 11.639984,2.58666311 11.5570781,2.57008193 C11.4410099,2.53691958 11.3912664,2.47059489 11.3083605,2.52033841 C11.258617,2.55350076 11.258617,2.61982545 11.2751982,2.68615015 C11.3083605,2.78563719 11.4078475,2.83538071 11.5073346,2.86854306 C11.8389581,2.9680301 12.1705815,2.91828658 12.502205,3.08409832 C12.6182732,3.15042301 12.7675038,3.26649123 12.784085,3.41572179 C12.8669908,3.94631935 12.2369062,4.01264405 12.2369062,4.01264405 M12.8006661,2.2716208 C12.784085,2.3379455 12.7675038,2.3379455 12.7343414,2.37110785 C12.6514356,2.43743254 12.5519485,2.52033841 12.4358803,2.61982545 C12.3695556,2.68615015 12.3032309,2.7193125 12.2534874,2.80221836 C12.2369062,2.81879954 12.2203251,2.86854306 12.2203251,2.86854306 C12.0379321,2.83538071 11.8555392,2.83538071 11.7228898,2.80221836 L11.7228898,2.6529878 C11.7228898,2.6529878 11.9052828,2.6529878 11.9218639,2.53691958 C11.9218639,2.53691958 11.9218639,2.50375724 11.9052828,2.48717606 C11.8887016,2.47059489 11.8223769,2.45401372 11.8223769,2.43743254 C11.9550263,2.45401372 12.0710945,2.50375724 12.2203251,2.57008193 C12.2369062,2.55350076 12.2037439,2.50375724 12.2037439,2.48717606 C12.1871627,2.47059489 12.1705815,2.45401372 12.120838,2.43743254 C12.0379321,2.42085137 11.8389581,2.38768902 11.8389581,2.38768902 C11.8389581,2.38768902 11.9052828,2.38768902 12.0047698,2.38768902 C12.0545133,2.38768902 12.0876757,2.37110785 12.1042568,2.35452667 C12.120838,2.3379455 12.1042568,2.30478315 12.0710945,2.2716208 C12.0545133,2.25503963 12.0379321,2.22187728 12.021351,2.20529611 C12.0047698,2.17213376 11.9716075,2.12239024 11.9384451,2.08922789 C11.8887016,2.03948437 11.7560522,1.98974085 11.7560522,1.98974085 C11.7560522,1.98974085 11.739471,1.90683498 11.7726334,1.85709146 C11.7892145,1.82392911 11.8555392,1.82392911 11.8887016,1.82392911 C11.9881886,1.87367263 12.1042568,1.93999733 12.2369062,1.97315968 C12.2700686,1.98974085 12.2700686,2.00632202 12.2700686,2.03948437 C12.2866498,2.12239024 12.2534874,2.2716208 12.2700686,2.32136433 C12.2866498,2.3379455 12.3032309,2.3379455 12.3198121,2.3379455 C12.4524615,2.2716208 12.5353674,2.15555259 12.6680167,2.08922789 C12.6680167,2.05606555 12.8338285,2.13897141 12.8006661,2.2716208" id="Shape"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+`;
+};
+
+var customCobrowse = {
+  agentJoined: 'Your session has started, we can now view your screen',
+  youLeft: 'You have left the session. Screen share is now terminated.',
+  sessionTimedOut: 'Session timed out. Screen share is now terminated.',
+  sessionInactiveTimedOut: 'Session timed out. Screen share is now terminated.',
+  agentLeft:
+    'Representative has left the session. Screen share is now terminated.',
+  sessionError: 'Unexpected error occured. Screen share is now terminated.',
+  sessionsOverLimit:
+    'Representative is currently busy with another Screen share session. Screen share is now terminated.',
+  serverUnavailable:
+    'Could not reach Co-browse server. Screen share is now terminated.',
+  sessionStarted:
+    "Your session ID is {sessionId}. Read this ID number to the representative you're speaking with when they ask for it.",
+  exitBtnTitle: 'Stop sharing screen',
+  sessionStartedAutoConnect:
+    'Screen sharing started. Waiting for representative to connect to the session',
+  modeUpgraded: 'Screen share was upgraded. Agent has control over the page.',
+  modeDowngraded: 'Screen share was downgraded. Agent has no control',
+  modalTitle: '',
+  areYouOnPhone:
+    "<div class='scrSharingHead'>Are you on the phone with us?</div><div class='scrSharingSubHead'>We can help better if we can see your screen.</div>",
+  areYouOnPhoneOrChat:
+    "<div class='scrSharingHead'>Are you on the phone with us?</div><div class='scrSharingSubHead'>We can help better if we can see your screen.</div>",
+  connectBeforeCobrowse:
+    "<div class='scrSharingHead'>How would you like to talk to us?</div><div class='scrSharingSubHead'>Choose an option to talk to our Member Services team</div></br><button id='phoneDetails_coBrowse' class='btn btn-secondary channelBtn' onclick=openCallUsWidget()>Phone <span class='phoneIcon'></span></button>",
+  modeUpgradeRequested:
+    "<div class='scrSharingHead'>Sharing your screen</div><div class='scrSharingSubHead'>	We can see your BCBST.com screen. If you agree we can also click on the screen 	to help you further. Is that OK?</div>",
+  toolbarContent: 'Session ID: {sessionId} - ',
+};
+customCobrowse['connectBeforeCobrowse'] =
+  "<div class='scrSharingHead'>How would you like to talk to us?</div><div class='scrSharingSubHead'>Choose an option to talk to our Member Services team</div></br><button id='phoneDetails_coBrowse' class='btn btn-secondary channelBtn' onclick=openCallUsWidget()>Phone <span class='phoneIcon'></span></button><button id='openChat_coBrowse' class='btn btn-secondary channelBtn' style='position: relative;' onclick=openWebChatWidget()>Chat <span class='chatIcon'></span></button>";
+
+var customCallUs = {
+  CallUsTitle: 'Call Us',
+  SubTitle: '',
+  CancelButtonText: '',
+  CoBrowseText:
+    "<span class='cx-cobrowse-offer'>Already on a call? </br><a role='link' tabindex='0' class='cx-cobrowse-link'>Share your screen with us</a></span>",
+  CoBrowse: 'Start screen sharing',
+  CoBrowseWarning:
+    'Co-browse allows your agent to see and control your desktop, to help guide you. When on a live call with an Agent, request a code to start Co-browse and enter it below. Not yet on a call? Just cancel out of this screen to return to Call Us page.',
+  AriaWindowLabel: 'Call Us Window',
+  AriaCallUsClose: 'Call Us Close',
+  AriaBusinessHours: 'Business Hours',
+  AriaCallUsPhoneApp: 'Opens the phone application',
+  AriaCobrowseLink: 'Opens the Co-browse Session',
+  AriaCancelButtonText: 'Call Us Cancel',
+};
+
+var showCoBrowseSession = function () {
+  $('.gcb-appStatus').show();
+  $('.gcb-toolbar').show();
+};
+var cobrowseShowTokenPopUp = function (session) {
+  if (session.widgetOrigin != undefined && session.widgetOrigin == false) {
+    $('#cobrowse-sessionToken').text(session.token.match(/.{1,3}/g).join('-'));
+    $('.gcb-appStatus').hide();
+    $('.gcb-toolbar').hide();
+    $('#cobrowse-sessionYesModal').modal({
+      backdrop: 'static',
+      keyboard: false,
+    });
+  }
+  $('.gcb-toolbar .gcb-toolbar-icon-exit').text('Stop Sharing Screen');
+};
+
+var cobrowseAgentJoined = function () {
+  $('#cobrowse-sessionYesModal').modal('hide');
+  showCoBrowseSession();
+};
+
+var cobrowseSessionCheck = function (session) {
+  if (session) {
+    $('.gcb-toolbar .gcb-toolbar-icon-exit').text('Stop Sharing Screen');
+  }
+};
+
+var addAfterHoursLinks = function (form) {
+  form.inputs.push({
+    custom:
+      "<tr><td colspan='2' class='i18n' style='font-family: universStd;'>In the meantime, you can use your BCBST.com account to:</td></tr>",
+  });
+
+  // <c:forEach var="entry" items="${selfServiceLinks}"> //TODO:Convent to for-loop
+  Object.entries(selfServiceLinks).forEach(([key, value]) => {
+    form.inputs.push({
+      custom: `<tr><td colspan='2'><a style='margin: 10px 0; font-size: 13px; text-transform: capitalize;' class='btn btn-secondary buttonWide' href='${value}' target='_blank'>${key}</a></td></tr>`,
+    });
+  });
+  // </c:forEach>
+};
+
+var customizeAmplify = function () {
+  //<c:if test="${isAmplifyMem =='true' }">
+  if (isAmplifyMem) {
+    $('.cx-webchat').addClass('amplifyHealth');
+    $("div[class='cx-icon'], span[class='cx-icon']").html(
+      '<img src="/wps/wcm/myconnect/member/029bc5b8-e440-485e-89f5-6bdc04a0325e/Chat-Icon-40x40.svg?MOD=AJPERES&amp;ContentCache=NONE&amp;CACHE=NONE&amp;CVID=oe5Lict" alt="" style="width: 45px;height: 45px;padding-bottom: 10px;padding-right: 10px;">',
+    ); //TODO: Convert to static
+  }
+  //</c:if>
+};
+
+function applyMessageScaler() {
+  if (chatType(calculatedCiciId) == chatTypeConst.SeniorCareChat) {
+    var webchatDiv = $('.cx-webchat');
+    if (webchatDiv != null) webchatDiv.addClass('webchatScaler webchatSenior');
+
+    var transcriptDiv = $('.cx-webchat .cx-body .cx-transcript');
+    if (transcriptDiv != null) transcriptDiv.addClass('transcriptScaler');
+  } else if (chatType(calculatedCiciId) == chatTypeConst.BlueCareChat) {
+    var webchatDiv = $('.cx-webchat');
+    if (webchatDiv != null) webchatDiv.addClass('webchatScaler');
+
+    var transcriptDiv = $('.cx-webchat .cx-body .cx-transcript');
+    if (transcriptDiv != null) transcriptDiv.addClass('transcriptScaler');
+  }
+}
+
+var startCoBrowseCall = function () {
+  $('#cobrowse-sessionConfirm').modal({
+    backdrop: 'static',
+    keyboard: false,
+  });
+};
+var endCoBrowseCall = function () {
+  callCobrowse
+    ? callCobrowse.exitSession()
+    : console.error('Co-browse Api is undefined to exit Session');
+};
+
+var closeChatWindow = function () {
+  if (localWidgetPlugin) {
+    console.log('[GA4] - Chat Interaction - End Chat');
+    // GA - end chat interactions
+    // window.elementTag(
+    //   $(this).text(),
+    //   'Chat',
+    //   { action: 'click', selection_type: 'widget' },
+    //   'select_content',
+    //   null,
+    // );
+    localWidgetPlugin
+      .command('WebChat.close')
+      .done(function (e) {
+        console.log(e); // WebChat closed successfully
+      })
+      .fail(function (e) {
+        console.log(e);
+        // WebChat is already closed or no active chat session
+      });
+  }
+};
+
+var minimizeChat = function () {
+  localWidgetPlugin
+    .command('WebChat.minimize')
+    .done(function (e) {
+      console.log(e); // WebChat closed successfully
+    })
+    .fail(function (e) {
+      console.log(e);
+      // WebChat is already closed or no active chat session
+    });
+};
+
+var minimizeChatAndPlanSwitch = function () {
+  minimizeChat();
+  window.chatConfig.setActive(false);
+  $('#planSelectorDropdown').click();
+};
+
+var setChatDisclaimerMesg = function (calculatedCiciId) {
+  var disclaimerMesg = '';
+  switch (calculatedCiciId) {
+    case clientIdConst.BlueCare:
+    case clientIdConst.BlueCarePlus:
+      disclaimerMesg =
+        'For quality assurance your chat may be monitored and/or recorded. Benefits are based on the member&#39 eligibility when services are rendered. Benefits are determined by the Division of TennCare and are subject to change.';
+      break;
+    case clientIdConst.CoverTN:
+      disclaimerMesg =
+        'This information provided today is based on current eligibility and contract limitations. Final determination will be made upon the completion of the processing of your claim.';
+      break;
+    default:
+      disclaimerMesg =
+        'This information provided today is based on current eligibility and contract limitations.<br>Final determination will be made upon the completion of the processing of your claim.<br>For quality assurance your chat may be monitored and/or recorded.<br><br>Estimates are not a confirmation of coverage or benefits. The Health Care Cost Estimator tool is designed to help you plan for health care costs. Your actual cost may be different based on your health status and services provided. Final determination will be made when the claims are received based on eligibility at time of service. Payment of benefits remains subject to any contract terms, exclusions, and/or riders. <br> <br> To better serve you, we may send you a survey or questions about your chat experience by email. Communications via unencrypted email over the internet are not secure, and there is a possibility that information included in an email can be intercepted and read by other parties besides the person to whom it is addressed.';
+  }
+  return disclaimerMesg;
+};
+
+var OpenChatDisclaimer = function () {
+  if (localWidgetPlugin) {
+    var disclaimerMesg = setChatDisclaimerMesg(calculatedCiciId);
+    localWidgetPlugin
+      .command('WebChat.showOverlay', {
+        html: $(
+          "<div id='disclaimerId'><p class='termsNConditions'><span class='modalTitle'>Terms and Conditions</span> <br><br> " +
+            disclaimerMesg +
+            " </p> </div><div style='padding-bottom:10px; background-color:#fff;'><button type='button' class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatDisclaimer();'>CLOSE</button></div>",
+        ),
+        hideFooter: true,
+      })
+      .done(function (e) {
+        // WebChat opened successfully
+        $("button[data-message='ChatFormSubmit']").hide();
+      })
+      .fail(function (e) {
+        // WebChat isn't opened
+      });
+  }
+};
+
+var CloseChatDisclaimer = function () {
+  if (localWidgetPlugin) {
+    localWidgetPlugin
+      .command('WebChat.hideOverlay')
+      .done(function (e) {
+        // WebChat opened successfully
+        $("button[data-message='ChatFormSubmit']").show();
+      })
+      .fail(function (e) {
+        // WebChat isn't opened
+      });
+  }
+};
+
+var OpenChatConnectionErrorOverlay = function () {
+  if (localWidgetPlugin) {
+    localWidgetPlugin
+      .command('WebChat.showOverlay', {
+        html: $(
+          "<div><p class='termsNConditions'><span class='modalTitle'>Error Connecting to Chat Server</span><br><br>We're sorry for the inconvenience, please logout and log back in.</p></div><div style='padding-bottom:10px; background-color:#fff;'><button type='button' class='cx-btn cx-btn-primary buttonWide' onclick='CloseChatErrorOverlay();'>CLOSE</button></div>",
+        ),
+        hideFooter: false,
+      })
+      .done(function (e) {
+        // WebChat opened successfully
+      })
+      .fail(function (e) {
+        // WebChat isn't opened
+      });
+  }
+};
+
+var CloseChatConnectionErrorOverlay = function () {
+  if (localWidgetPlugin) {
+    localWidgetPlugin
+      .command('WebChat.hideOverlay')
+      .done(function (e) {
+        // WebChat opened successfully
+      })
+      .fail(function (e) {
+        // WebChat isn't opened
+      });
+  }
+};
+
+var openCallUsWidget = function () {
+  $('.gcb-smoke-base').hide();
+  if (localWidgetPlugin) {
+    localWidgetPlugin
+      .command('CallUs.open')
+      .done(function (e) {})
+      .fail(function (e) {
+        console.error('Error opening call us widget');
+      });
+  }
+};
+
+var openWebChatWidget = function () {
+  $('#cobrowse-contactUsScreen1').modal('hide');
+  if (localWidgetPlugin) {
+    localWidgetPlugin
+      .command('WebChat.open')
+      .done(function (e) {
+        customizeAmplify();
+        // WebChat opened successfully
+      })
+      .fail(function (e) {
+        console.error('Error opening WebChat  widget');
+      });
+  }
+};
+
+function showCobrowseModal() {
+  $('#cobrowse-sessionConfirm').modal('hide');
+  CobrowseIO.createSessionCode().then(function (code) {
+    $('#cobrowse-sessionToken').text(code);
+  });
+  $('#cobrowse-sessionYesModal').modal({
+    backdrop: 'static',
+    keyboard: false,
+  });
+}
+
+function showCobrowseContactUsModal() {
+  $('#cobrowse-sessionConfirm').modal('hide');
+  $('#cobrowse-contactUsScreen1').modal({
+    backdrop: 'static',
+    keyboard: false,
+  });
+}
+
+function cobrowseContactUsOption() {
+  console.log('cobrowsePhoneOption triggered');
+  $('#cobrowse-contactUsScreen1').modal('hide');
+  $('#cobrowse-contactUsScreen2').modal('show');
+}
+
+function cobrowseClosePopup() {
+  $('#cobrowse-contactUsScreen2').modal('hide');
+}
+
+function cobrowseSessionModal() {
+  $('#cobrowse-contactUsScreen2').modal('hide');
+  CobrowseIO.createSessionCode().then(function (code) {
+    $('#cobrowse-sessionToken').text(code);
+  });
+  $('#cobrowse-sessionYesModal').modal({
+    backdrop: 'static',
+    keyboard: false,
+  });
+}
+
+var clearCookies = function () {
+  if (localWidgetPlugin) localWidgetPlugin.command('WebChat.close');
+
+  document.cookie.split(';').forEach(function (cookie) {
+    const name = cookie.split('=')[0].trim();
+    if (name.startsWith('_genesys.')) {
+      document.cookie =
+        name +
+        '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.bcbst.com';
+      console.log('Resetting ' + name);
+    }
+  });
+};
+
+if (chatData == undefined || chatData.isChatAvailable == undefined) {
+  console.log(
+    'Chat is not available due to chatData being empty or chat data not available for the group. Will exit after printing chat.',
+  );
+  console.log(chatData);
+  //Means the group is ineligible for chat.  //return;
+} else {
+  // window.onbeforeunload = function () {
+  //   console.log('unload older cookies');
+  //   clearCookies();
+  // };
+
+  $('#signoutButton').on('click', function (event) {
+    event.preventDefault(); // Prevents the default navigation
+    //clear cookies
+    console.log('Sign out button clicked!');
+    clearCookies();
+  });
+
+  (function waitForjQuery(callback) {
+    if (typeof window.jQuery !== 'undefined') {
+      callback();
+    } else {
+      setTimeout(function () {
+        waitForjQuery(callback);
+      }, 50); // Check every 50ms
+    }
+  })(function () {
+    // jQuery is now loaded and ready to use
+    console.log('Jquery has been loaded');
+    $(document).ready(function () {
+      (function (w, t, c, p, s, e) {
+        p = new Promise(function (r) {
+          w[c] = {
+            client: function () {
+              if (!s) {
+                s = document.createElement(t);
+                s.src = 'https://js.cobrowse.io/CobrowseIO.js';
+                s.async = 1;
+                e = document.getElementsByTagName(t)[0];
+                e.parentNode.insertBefore(s, e);
+                s.onload = function () {
+                  r(w[c]);
+                };
+              }
+              return p;
+            },
+          };
+        });
+      })(window, 'script', 'CobrowseIO');
+      CobrowseIO.client().then(function () {
+        CobrowseIO.license = coBrowseLicence;
+        CobrowseIO.customData = {
+          user_id: user_id,
+          user_name: user_name,
+        };
+        CobrowseIO.capabilities = [
+          'cursor',
+          'keypress',
+          'laser',
+          'pointer',
+          'scroll',
+          'select',
+        ];
+        console.log('CobroseIO initialized');
+        CobrowseIO.start();
+        CobrowseIO.createSessionCode().then(function (code) {
+          $('#cobrowse-sessionToken').text(code);
+        });
+
+        function Consent() {
+          var container = document.createElement('div');
+          function content(title, description) {
+            return (
+              '\
+                  <div style="background: rgba(50, 50, 50, 0.4); position: fixed; z-index: 2147483647; bottom: 0; top: 0; left: 0; right: 0">\
+                    <div class="cobrowse-card">\
+                      <div style="text-align:left; margin-bottom:10px"><b>' +
+              title +
+              '</b></div>\
+                      <div>' +
+              description +
+              '</div>\
+                      <div style="float:left; color:rgb(0, 122, 255);">\
+                        <a class="cobrowse-allow btn btn-primary cobrowse-allow-button" style="margin-left: 10px;">Yes</a>\
+                        <a class="cobrowse-deny btn btn-secondary cobrowse-deny-button">No</a>\
+                      </div>\
+                    </div>\
+                  </div>\
+                '
+            );
+          }
+
+          this.show = function (title, description) {
+            return new Promise(
+              function (resolve) {
+                container.innerHTML = content(title, description);
+                container.querySelector('.cobrowse-allow').addEventListener(
+                  'click',
+                  function () {
+                    resolve(true);
+                    this.hide();
+                    setTimeout(function () {
+                      document.querySelector(
+                        '.cbio_session_controls',
+                      ).innerHTML = 'End Screen Sharing';
+                    }, 400);
+                  }.bind(this),
+                );
+                container.querySelector('.cobrowse-deny').addEventListener(
+                  'click',
+                  function () {
+                    resolve(false);
+                    this.hide();
+                  }.bind(this),
+                );
+                if (document.body) document.body.appendChild(container);
+              }.bind(this),
+            );
+          }.bind(this);
+
+          this.hide = function () {
+            if (container.parentNode) {
+              container.parentNode.removeChild(container);
+            }
+          }.bind(this);
+        }
+        CobrowseIO.confirmSession = function () {
+          return new Consent().show(
+            "We'd like to share your screen",
+            "Sharing your screen with us only lets us see your BCBST.com account in your browser. We can't see anything else on your screen. Is that OK?",
+          );
+        };
+        function remoteConsent() {
+          var container = document.createElement('div');
+          function content(title, description) {
+            return (
+              '\
+                    <div style="background: rgba(50, 50, 50, 0.4); position: fixed; z-index: 2147483647; bottom: 0; top: 0; left: 0; right: 0">\
+                      <div class="cobrowse-card">\
+                        <div style="text-align:left; margin-bottom:10px"><b>' +
+              title +
+              '</b></div>\
+                        <div>' +
+              description +
+              '</div>\
+                        <div style="float:left; color:rgb(0, 122, 255);">\
+                          <a class="cobrowse-allow btn btn-primary cobrowse-allow-button" style="margin-left: 10px;">Yes</a>\
+                          <a class="cobrowse-deny btn btn-secondary cobrowse-deny-button">No</a>\
+                        </div>\
+                      </div>\
+                    </div>\
+                  '
+            );
+          }
+
+          this.show = function (title, description) {
+            return new Promise(
+              function (resolve) {
+                container.innerHTML = content(title, description);
+                container.querySelector('.cobrowse-allow').addEventListener(
+                  'click',
+                  function () {
+                    resolve(true);
+                    this.hide();
+                  }.bind(this),
+                );
+                container.querySelector('.cobrowse-deny').addEventListener(
+                  'click',
+                  function () {
+                    resolve(false);
+                    this.hide();
+                  }.bind(this),
+                );
+                if (document.body) document.body.appendChild(container);
+              }.bind(this),
+            );
+          }.bind(this);
+
+          this.hide = function () {
+            if (container.parentNode) {
+              container.parentNode.removeChild(container);
+            }
+          }.bind(this);
+        }
+
+        CobrowseIO.confirmRemoteControl = function () {
+          return new remoteConsent().show(
+            "We'd like to share control of your screen",
+            'We can see your BCBST.com screen. If you agree to share control with us, we can help you further. Is that OK?',
+          );
+        };
+      });
+    });
+
+    var initLocalWidgetConfiguration = function () {
+      // ##### Widget Define UI
+      // Global Genesys Object
+      //TODO: Reinitialize ?? Remove IF Checks.
+      // if (!window._genesys) {
+      //   window._genesys = {};
+      // }
+      // if (!window._gt) window._gt = [];
+
+      // if (!window._genesys.widgets) {
+      //   window._genesys.widgets = {};
+      // }
+
+      // if (!window._genesys.cobrowse) {
+      //   window._genesys.onReady = [];
+      //   window._genesys.cobrowse = {};
+      // }
+      window._genesys = {};
+      window._gt = [];
+      window._genesys.widgets = {};
+      window._genesys.cobrowse = {};
+      window._genesys.onReady = [];
+      // Initialize per widget - not to override extensions if defined before.
+      //Initializes widgets configuration object.
+      window._genesys.widgets.main = {
+        debug: false,
+        theme: 'light',
+        lang: 'en',
+        mobileMode: 'auto',
+        downloadGoogleFont: false,
+        plugins: [],
+        i18n: { en: {} },
+        header: { Authorization: 'Bearer ' + clickToChatToken },
+      };
+
+      window._genesys.widgets.main.i18n.en.callus = customCallUs;
+      window._genesys.widgets.callus = {
+        contacts: [
+          {
+            displayName: 'Call us at',
+            i18n: 'opsPhoneNumber',
+            number: opsPhone,
+          },
+        ],
+        hours: [opsPhoneHours],
+      };
+
+      //<c:if test="${isChatEligibleMember or isDemoMember}">
+      window._genesys.widgets.main.plugins.push('cx-webchat-service');
+      window._genesys.widgets.main.plugins.push('cx-webchat');
+
+      if (isDemoMember) {
+        window._genesys.widgets.main.i18n.en.webchat = {
+          ChatButton: 'Chat with us',
+          ChatTitle: 'Chat with us',
+          BotConnected: '',
+          BotDisconnected: '',
+          ChatFormSubmit: 'START CHAT',
+          ConfirmCloseWindow:
+            "<div class='modalTitle'>We'll be right here if we can</br>help with anything else.</div></br></br>Closing this window will end this session.",
+          ChatEndCancel: 'STAY',
+          ChatEndConfirm: 'CLOSE CHAT',
+          ConfirmCloseCancel: 'STAY',
+          ConfirmCloseConfirm: 'CLOSE CHAT',
+          ActionsCobrowseStart: 'Share Screen',
+          ChatEndQuestion:
+            "<div class='modalTitle'>We'll be right here if we can</br>help with anything else.</div></br></br>Closing this window will end our chat.",
+          Errors: {
+            StartFailed:
+              "<div class='modalTitle'>This is a Demo only chat.</div>",
+          },
+        };
+      } else if (!isDemoMember) {
+        window._genesys.widgets.main.i18n.en.webchat = {
+          ChatButton: 'Chat with us',
+          ChatTitle: 'Chat with us',
+          BotConnected: '',
+          BotDisconnected: '',
+          ChatFormSubmit: 'START CHAT',
+          ConfirmCloseWindow:
+            "<div class='modalTitle'>We'll be right here if we can</br>help with anything else.</div></br></br>Closing this window will end the session.",
+          ChatEndCancel: 'STAY',
+          ChatEndConfirm: 'CLOSE CHAT',
+          ConfirmCloseCancel: 'STAY',
+          ActionsCobrowseStart: 'Share Screen',
+          ConfirmCloseConfirm: 'CLOSE CHAT',
+          ChatEndQuestion:
+            "<div class='modalTitle'>We'll be right here if we can</br>help with anything else.</div></br></br>Closing this window will end our chat.",
+        };
+      }
+
+      //		<c:if test="${isAmplifyMem =='true' }"> TODO:Change to JS
+      if (
+        isAmplifyMem &&
+        window._genesys.widgets.main.i18n.en.webchat['ChatButton']
+      ) {
+        window._genesys.widgets.main.i18n.en.webchat['ChatButton'] =
+          'Chat with an advisor';
+        window._genesys.widgets.main.i18n.en.webchat['ChatTitle'] =
+          'Chat with an advisor';
+      }
+      //		</c:if>
+
+      if (!isChatAvailable) {
+        window._genesys.widgets.webchat = {
+          dataURL: gmsServicesConfig.GMSChatURL(),
+          enableCustomHeader: true,
+          emojis: false,
+          uploadsEnabled: false,
+          maxMessageLength: 10000,
+          autoInvite: {
+            enabled: false,
+            timeToInviteSeconds: 5,
+            inviteTimeoutSeconds: 30,
+          },
+          chatButton: {
+            enabled: true,
+            openDelay: 100,
+            effectDuration: 100,
+            hideDuringInvite: true,
+          },
+          form: {
+            inputs: [
+              {
+                custom:
+                  "<tr><td colspan='2' class='i18n' data-message='You&#39;ve reached us after business hours,<br>but we&#39;ll be ready to chat again soon.' style='font-family: universStd;'></td></tr>",
+              },
+              {
+                custom:
+                  "<tr><td id='reachUs' colspan='2' class='i18n' style='font-family: universStd;'>Reach us " +
+                  workingHrs +
+                  '</td></tr>',
+              },
+            ],
+          },
+        };
+        //<c:if test="${groupType eq 'REGL' || groupType eq 'INDV' || isMedicalAdvantageGroup == true || groupID eq '116884'}"> :TODO://convert to JS
+        if (
+          groupType == 'REGL' ||
+          groupType == 'INDV' ||
+          isMedicalAdvantageGroup == true ||
+          groupID == '116884'
+        )
+          addAfterHoursLinks(window._genesys.widgets.webchat.form);
+      } else {
+        let custominputs = [
+          {
+            custom: isAmplifyMem
+              ? "<tr class='activeChat'><td colspan='2' class='i18n' data-message='Questions or need advice? Let&#39;s talk.' style='font-size:30px'></td></tr>"
+              : "<tr class='activeChat'><td colspan='2' class='i18n' data-message='We&#39;re right here <br>for you. Let&#39;s chat.' style='font-size:30px'></td></tr>",
+          },
+          {
+            custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
+          },
+        ];
+
+        if (window.isMultiplePlan == true) {
+          custominputs.push(
+            {
+              custom:
+                "<tr class='activeChat'><td colspan='2' class='i18n' data-message='Start a chat to get help with the plan' style='font-size:21px'></td></tr>",
+            },
+            {
+              custom: "<tr class='activeChat'><td colspan='2'></td></tr>",
+            },
+            {
+              custom:
+                "<tr class='activeChat'><td colspan='1'><b style='font-size:25px;'>" +
+                window.selectedPlan +
+                "</b></td> <td colspan='1'> <a style='color:#566dd9;font-size:25px;' href='#' onclick='minimizeChatAndPlanSwitch(); return false;'>Switch</a> </td></tr>",
+            },
+          );
+        }
+
+        if (!routingchatbotEligible) {
+          custominputs.push(
+            {
+              custom:
+                calculatedCiciId == clientIdConst.SeniorCare
+                  ? "<tr class='activeChat'><td colspan='2'><br></td></tr>"
+                  : "<tr class='activeChat'><td colspan='2' class='cx-control-label i18n' data-message='What can we help you with today?'></td></tr>",
+            },
+            {
+              id: 'question_field',
+              name: 'SERV_TYPE',
+              type: 'select',
+              options: setOptions(
+                isDentalOnly() ? 'dentalOnly' : calculatedCiciId,
+              ),
+              validateWhileTyping: true,
+              validate: function (event, form, input, label, $, CXBus, Common) {
+                if (input && input.val()) {
+                  $('button[data-message="ChatFormSubmit"]').removeAttr(
+                    'disabled',
+                  );
+                  $('button[data-message="ChatFormSubmit"]').attr({
+                    id: 'startChat',
+                    class:
+                      'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
+                  });
+                  return true;
+                } else if (calculatedCiciId == clientIdConst.SeniorCare) {
+                  return true;
+                } else {
+                  return false;
+                }
+              },
+            },
+          );
+        } else {
+          custominputs.push(
+            {
+              name: 'SERV_TYPE',
+              value: null,
+              type: 'hidden',
+            },
+            {
+              name: 'ChatBotID',
+              value: 'RoutingChatbot',
+              type: 'hidden',
+            },
+          );
+        }
+
+        custominputs.push(
+          {
+            id: 'LOB',
+            name: 'LOB',
+            value: defaultedClientID(clientID()),
+            type: 'hidden',
+          },
+          {
+            id: 'IsMedicalEligible',
+            name: 'IsMedicalEligible',
+            value: isMedical,
+            type: 'hidden',
+          },
+          {
+            id: 'IsDentalEligible',
+            name: 'IsDentalEligible',
+            value: isDental,
+            type: 'hidden',
+          },
+          {
+            id: 'IsVisionEligible',
+            name: 'IsVisionEligible',
+            value: isVision,
+            type: 'hidden',
+          },
+          {
+            id: 'IDCardBotName',
+            name: 'IDCardBotName',
+            //value: <c:choose><c:when test="${routingchatbotEligible}">'${idCardChatBotName}'</c:when><c:otherwise>''</c:otherwise></c:choose>, //TODO:Convert
+            value: routingchatbotEligible ? idCardChatBotName : '',
+            type: 'hidden',
+          },
+          {
+            custom:
+              "<tr class='activeChat'><td>By starting the chat, you agree with our <a style='color:#566dd9;' href='#' onclick='OpenChatDisclaimer(); return false;'>Terms and Conditions</a> for chat.</td></tr>",
+          },
+          {
+            custom: "<tr class='activeChat'><td colspan='2'><br></td></tr>",
+          },
+          {
+            id: 'firstName_field',
+            name: 'firstname',
+            label: 'First Name',
+            value: memberFirstname,
+            type: 'hidden',
+          },
+          {
+            id: 'lastname_field',
+            name: 'lastname',
+            label: 'Last Name',
+            value: memberLastName,
+            type: 'hidden',
+          },
+          {
+            id: 'memberId_field',
+            name: 'MEMBER_ID',
+            label: 'Member ID',
+            value: subscriberId + '-' + sfx,
+            type: 'hidden',
+          },
+          {
+            id: 'groupId_field',
+            name: 'GROUP_ID',
+            label: 'Group ID',
+            value: groupID,
+            type: 'hidden',
+          },
+          {
+            id: 'planId_field',
+            name: 'PLAN_ID',
+            label: 'Plan ID',
+            value: memberMedicalPlanId,
+            type: 'hidden',
+          },
+          {
+            id: 'dob_field',
+            name: 'MEMBER_DOB',
+            label: 'MEMBER DOB',
+            value: memberDOB,
+            type: 'hidden',
+          },
+          {
+            id: 'inquiryType_field',
+            name: 'INQ_TYPE',
+            label: 'Inquiry Type',
+            value: chatType(calculatedCiciId),
+            type: 'hidden',
+          },
+        );
+
+        window._genesys.widgets.webchat = {
+          dataURL: gmsServicesConfig.GMSChatURL(),
+          enableCustomHeader: true,
+          emojis: false,
+          uploadsEnabled: false,
+          maxMessageLength: 10000,
+          autoInvite: {
+            enabled: false,
+            timeToInviteSeconds: 5,
+            inviteTimeoutSeconds: 30,
+          },
+          chatButton: {
+            enabled: true,
+            openDelay: 100,
+            effectDuration: 100,
+            hideDuringInvite: true,
+          },
+          userData: {
+            firstname: formattedFirstName,
+            lastname: memberLastName,
+          },
+          form: {
+            inputs: custominputs,
+          },
+        };
+      }
+    };
+
+    // ##### Widget Configuration
+    initLocalWidgetConfiguration();
+    window._genesys.onReady.push(function (jApi) {
+      console.log('Cobrowse Associated');
+      callCobrowse = jApi.cobrowse;
+      callCobrowse.onSessionStarted.add(cobrowseShowTokenPopUp);
+      callCobrowse.onAgentJoined.add(cobrowseAgentJoined);
+      callCobrowse.onInitialized.add(cobrowseSessionCheck);
+    });
+    console.log('Genesys Customized');
+    console.log(window._genesys);
+
+    var genesysisScript = document.createElement('script');
+    genesysisScript.src = '/assets/chat/genesysis_default.js?cb=v4';
+    genesysisScript.async = false;
+    genesysisScript.id = 'genesysis_default_js';
+    document.head.appendChild(genesysisScript);
+
+    // ##### Widget Define Local Customization
+    window._genesys.widgets.onReady = function (CXBus) {
+      // Use the CXBus object provided here to interface with the bus
+      // CXBus here is analogous to window._genesys.widgets.bus
+      localWidgetPlugin = CXBus.registerPlugin('LocalCustomization');
+      localWidgetPlugin.subscribe('WebChat.started', function (e) { 
+        console.log('Chat started----------');
+        window.chatConfig.setActive(true);
+      });
+      localWidgetPlugin.subscribe('WebChat.completed', function (e) {
+        console.log('Chat completed------------');
+        window.chatConfig.setActive(false);
+      });
+      localWidgetPlugin.subscribe('WebChat.opened', function (e) {
+        // start of Date parsing for out-of-operational hours in real time
+        let dt = new Date();
+        let dtTimeStr = dt.toLocaleTimeString('en-US', {
+          hour12: false,
+          timeZone: 'America/New_York',
+        });
+        dtTimeStr = dtTimeStr.split(':')[0] + '.' + dtTimeStr.split(':')[1];
+
+        let currentHrMin = parseFloat(dtTimeStr);
+        let endChatHours = rawChatHrs.substring(
+          rawChatHrs.lastIndexOf('_') + 1,
+        );
+        let endChatHrMin = parseFloat(endChatHours);
+
+        if (
+          typeof endChatHrMin == 'number' &&
+          0 < endChatHrMin &&
+          endChatHrMin < 12 &&
+          endChatHrMin != 24
+        )
+          endChatHrMin += 12;
+        // end of Date parsing for out-of-operational hours in real time
+
+        customizeAmplify();
+        $("button[data-message='ChatFormCancel']").hide();
+        if (routingchatbotEligible) {
+          $("button[data-message='ChatFormSubmit']").attr({
+            id: 'startChat',
+            class: 'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
+          });
+        } else {
+          $("button[data-message='ChatFormSubmit']").attr({
+            disabled: 'disabled',
+            id: 'startChat',
+            class:
+              'cx-btn cx-btn-default cx-disabled i18n cx-btn-primary buttonWide',
+          });
+          $('#question_field').attr(
+            'class',
+            'cx-input cx-form-control dropdownInput i18n',
+          );
+        }
+
+        $("button[data-message='ConfirmCloseCancel']").attr(
+          'class',
+          'cx-close-cancel cx-btn cx-btn-default i18n btn-secondary',
+        );
+        $("button[data-message='ChatEndCancel']").attr(
+          'class',
+          'cx-end-cancel cx-btn cx-btn-default i18n btn-secondary',
+        );
+        $("button[data-message='ChatEndConfirm']").click(closeChatWindow);
+        $("textarea[data-message='ChatInputPlaceholder']").css(
+          'background',
+          'none',
+        );
+
+        // start of Condition when member log in during active hours but open chat after working hours
+        if (isChatAvailable && currentHrMin > endChatHrMin) {
+          let tempUnavailableChatForm = {
+            inputs: [
+              {
+                custom:
+                  "<tr><td colspan='2' class='i18n' style='font-family: universStd;'>You&#39;ve reached us after business hours,<br>but we&#39;ll be ready to chat again soon.</td></tr>",
+              },
+              {
+                custom:
+                  "<tr><td id='reachUs' colspan='2' class='i18n' style='font-family: universStd;'>Reach us " +
+                  workingHrs +
+                  '</td></tr>',
+              },
+            ],
+          };
+
+          //<c:if test="${groupType eq 'REGL' || groupType eq 'INDV' || isMedicalAdvantageGroup == true || groupID eq '116884'}"> TODO://Convert
+          if (
+            groupType == 'REGL' ||
+            groupType == 'INDV' ||
+            isMedicalAdvantageGroup == true ||
+            groupID == '116884'
+          ) {
+            addAfterHoursLinks(tempUnavailableChatForm);
+          }
+          //</c:if>
+
+          $('.activeChat').hide();
+
+          tempUnavailableChatForm.inputs.forEach(function (element) {
+            if (element.custom)
+              $('.cx-form > .cx-form-inputs > table').append(element.custom);
+          });
+
+          $(
+            '.cx-button-group.cx-buttons-binary > button[data-message="ChatFormSubmit"]',
+          ).hide();
+        }
+        // end of Condition when member log in during active hours but open chat after working hours
+
+        if (calculatedCiciId == clientIdConst.SeniorCare) {
+          $('#question_field').hide();
+          $('button[data-message="ChatFormSubmit"]').removeAttr('disabled');
+          $('button[data-message="ChatFormSubmit"]').attr({
+            id: 'startChat',
+            class: 'cx-btn cx-btn-default i18n cx-btn-primary buttonWide',
+          });
+        }
+
+        if (!isChatAvailable) {
+          $('.cx-button-group.cx-buttons-binary').hide();
+        }
+      });
+
+      localWidgetPlugin.subscribe('WebChat.messageAdded', function (e) {
+        $('.cx-avatar.bot').find('svg').replaceWith(chatBotAvatar()); //TODO:
+        webAlert.muted = false;
+
+        //code to play audio notification on message from Agent
+        if (e.data.message.type == 'Agent') {
+          webAlert.play();
+        }
+      });
+
+      localWidgetPlugin.subscribe('WebChat.errors', function (e) {
+        OpenChatConnectionError();
+      });
+
+      localWidgetPlugin.subscribe('WebChat.submitted', function (e) {
+        console.log('[GA4] - Chat Interaction - Start Chat');
+        // GA - start chat interactions
+        // window.elementTag(
+        //   $(this).text(),
+        //   'Chat',
+        //   { action: 'click', selection_type: 'widget' },
+        //   'select_content',
+        //   null,
+        // );
+        applyMessageScaler();
+        customizeAmplify();
+      });
+
+      localWidgetPlugin.subscribe('CallUs.opened', function (e) {
+        $('.cx-phone-number').after(
+          "<div class='cx-phone-subtitle'><span>Once you&rsquo;re on the line with us, say you want to &ldquo;share you screen.&rdquo;</span></div>",
+        );
+        $('.cx-call-us .cx-availability .cx-hours').prepend(
+          '<span><b>Hours of operation</b></span>',
+        );
+        $('.cx-call-us .cx-availability').after(
+          "<div class='cx-shareScreen-link'><span class='cx-cobrowse-offer' style='display: inline;'>Already on a call? <br><a role='link' href='javascript:startCoBrowseCall()' tabindex='0' class='cx-cobrowse-link'>Share your screen with us</a></span></div>",
+        );
+      });
+    };
+
+    // Play muted sound once for user interaction issue
+    $('.cx-widget.cx-webchat-chat-button').click(function () {
+      if (webAlert.muted) {
+        webAlert.play();
+      }
+    });
+  });
+}

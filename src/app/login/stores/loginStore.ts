@@ -318,10 +318,11 @@ export const useLoginStore = createWithEqualityFn<LoginStore>(
     signOut: async () => {
       try {
         await callSignOut();
-        set({
-          loggedUser: false,
-        });
-        get().resetToHome();
+        window.location.reload();
+        // set({
+        //   loggedUser: false,
+        // });
+        // get().resetToHome();
         return;
       } catch (error) {
         // Log the error

@@ -159,7 +159,16 @@ export function convertDatesOfObject<T extends object>(obj: T): T {
 }
 
 /**
- * Format date in given pattern
+ * Converts a date string from MM/dd/yyyy to ISO 8601 format (yyyy-MM-ddTHH:mm:ss).
+ * @param date The date string in MM/dd/yyyy format.
+ * @returns The date string in ISO 8601 format.
+ */
+export function convertToISO8601(date: string): string {
+  const parsedDate = parse(date, 'MM/dd/yyyy', new Date());
+  return format(parsedDate, "yyyy-MM-dd'T'HH:mm:ss");
+}
+
+/* Format date in given pattern
  * @param date Date
  * @param pattern string
  * @returns Difference in days between two dates

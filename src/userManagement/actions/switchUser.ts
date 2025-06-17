@@ -2,10 +2,12 @@
 
 import { auth, unstable_update } from '@/auth';
 import { logger } from '@/utils/logger';
+import { clearGenesysCookies } from '@/utils/ping_cookies';
 
 export async function switchUser(userId?: string, planId?: string) {
   const session = await auth();
   try {
+    await clearGenesysCookies();
     if (session) {
       await unstable_update({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

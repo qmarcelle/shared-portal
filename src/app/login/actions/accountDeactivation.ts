@@ -3,7 +3,7 @@
 import { signIn } from '@/auth';
 import { esApi } from '@/utils/api/esApi';
 import { logger } from '@/utils/logger';
-import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
+import { clearGenesysCookies, setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AccountDeactivationRequest } from '../models/api/account_deactivation_request';
 
 export async function callAccountDeactivation(
@@ -17,6 +17,7 @@ export async function callAccountDeactivation(
     );
     if (resp?.data?.data?.status === 'OK') {
       authUser = request.userName;
+      await clearGenesysCookies();
       await setSTAndInteractionDataCookies({
         ...request.interactionData,
       });

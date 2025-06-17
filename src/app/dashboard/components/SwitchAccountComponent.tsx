@@ -20,7 +20,11 @@ export const SwitchAccountComponent = ({
 
   async function switchProfile(userId: string) {
     await switchUser(userId);
-    router.refresh();
+    if (window.chatConfig) {
+      window.location.reload();
+    } else {
+      router.refresh();
+    }
   }
 
   return (

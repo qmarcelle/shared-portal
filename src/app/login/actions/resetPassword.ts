@@ -7,7 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
+import { clearGenesysCookies, setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AxiosError } from 'axios';
 import { PasswordResetRequest } from '../models/api/password_reset_request';
 import { PasswordResetResponse } from '../models/api/password_reset_response';
@@ -29,6 +29,7 @@ export async function callResetPassword(
       resp.data.data?.message == 'COMPLETED' ||
       resp.data.data?.message == 'MFA_Disabled'
     ) {
+      await clearGenesysCookies();
       await setSTAndInteractionDataCookies({
         ...resp.data.data,
       });

@@ -1,7 +1,49 @@
 import { PingOneSession } from '@/app/login/models/app/pingone_session';
 import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
+import 'server-only';
 import { UNIXTimeSeconds } from './date_formatter';
+
+const GENESYS_COOKIE_PREFIX = '_genesys.widgets.webchat';
+
+export async function clearAllExternalCookies(): Promise<void> {
+  cookies().set('ST', '', {
+    domain: '.bcbst.com',
+    httpOnly: true,
+    secure: true,
+    path: '/',
+    sameSite: 'none',
+  });
+  cookies().set('ST-NO-SS', '', {
+    domain: '.bcbst.com',
+    httpOnly: true,
+    secure: true,
+    path: '/',
+    sameSite: 'none',
+  });
+  cookies().delete('interactionId');
+  cookies().delete('interactionToken');
+  cookies().set('MPExternalSession', '', {
+    domain: '.bcbst.com',
+    httpOnly: true,
+    secure: true,
+    path: '/',
+    sameSite: 'none',
+  });
+  await clearGenesysCookies();
+}
+
+export async function clearGenesysCookies(): Promise<void> {
+  cookies()
+    .getAll()
+    .forEach((cookie) => {
+      if (cookie.name.startsWith(GENESYS_COOKIE_PREFIX)) {
+        cookies().set(cookie.name, '', {
+          domain: '.bcbst.com',
+        });
+      }
+    });
+}
 
 export async function setSTAndInteractionDataCookies(
   interactionData: Partial<PingOneSession>,

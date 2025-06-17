@@ -25,6 +25,7 @@ import { getMenuBlueCareNavigation } from '../menuNavigationBlueCare';
 import { getMenuNavigationTermedPlan } from '../menuNavigationTermedPlan';
 import { SiteHeaderMenuSection } from './../composite/SiteHeaderMenuSection';
 
+import { C2CLegacy } from '@/app/clicktochat/c2cComponent';
 import {
   bcbstBlueLogo,
   bcbstStackedlogo,
@@ -137,6 +138,7 @@ export default function SiteHeader({
 
   return (
     <>
+      <C2CLegacy memCK={selectedPlan?.memeCk}></C2CLegacy>
       <nav
         className={`primary-color sm:pt-[74px] ${selectedPlan ? 'lg:pt-[74px]' : 'lg:pt-[74px]'}`}
       >

@@ -1,0 +1,178 @@
+<div
+  id="cobrowse-sessionConfirm"
+  class="modal"
+  style="
+    background: rgba(50, 50, 50, 0.4);
+    position: fixed;
+    z-index: 2147483647;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  "
+>
+  <div class="cobrowse-card" style="width: 100%">
+    <div style="text-align: left; margin-bottom: 5px">
+      <b>Are you on the phone with us?</b>
+    </div>
+    <div>We can help better if we can see your screen.</div>
+    <div style="float: left; margin-top: 10px; color: rgb(0, 122, 255)">
+      <a
+        class="btn btn-secondary cobrowse-deny-button"
+        onclick="showCobrowseContactUsModal()"
+        >No</a
+      >
+      <a
+        class="btn btn-primary cobrowse-allow-button"
+        style="margin-left: 10px"
+        onclick="showCobrowseModal()"
+        >Yes</a
+      >
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="cobrowse-sessionYesModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-bottom">
+    <div class="modal-content sessionmodalcontent">
+      <div class="modal-body">
+        <div class="scrSharingHead">
+          Your session ID is
+          <span id="cobrowse-sessionToken" class="sessiontoken"></span>
+        </div>
+        <div class="scrSharingSubHead">
+          Read this ID number to the representative you're speaking with when
+          they ask for it.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          style="margin-top: 0px"
+          data-dismiss="modal"
+          onclick="endCoBrowseCall()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  id="cobrowse-contactUsScreen1"
+  tabindex="-1"
+  role="dialog"
+  style="
+    background: rgba(50, 50, 50, 0.4);
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  "
+>
+  <div
+    style="
+      color: #333;
+      font-family: sans-serif;
+      line-height: 230%;
+      position: fixed;
+      padding: 25px;
+      background: white;
+      top: 50px;
+      left: 50%;
+      width: 75%;
+      max-width: 520px;
+      transform: translateX(-50%);
+    "
+  >
+    <div class="scrSharingHead">How would you like to talk to us?</div>
+    <div class="cobrowse-scrSharingSubHead">
+      Choose an option to talk to our Member Services team
+    </div>
+    <button
+      id="phoneDetails_coBrowse"
+      class="cobrowse-btn cobrowse-btn-secondary cobrowse-channelBtn"
+      onclick="cobrowseContactUsOption()"
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;PHONE
+      <span class="phoneIcon cobrowse-phoneicon"></span>
+    </button>
+    ${(isChatEligibleMember || isDemoMember)
+    <button
+      id="openChat_coBrowse"
+      class="cobrowse-btn cobrowse-btn-secondary cobrowse-channelBtn"
+      style="position: relative"
+      onclick="openWebChatWidget()"
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;CHAT
+      <span class="chatIcon cobrowse-chaticon"></span>
+    </button>
+  </div>
+</div>
+
+<div class="modal" id="cobrowse-contactUsScreen2" tabindex="-1" role="dialog">
+  <div
+    style="
+      background: rgba(50, 50, 50, 0);
+      position: fixed;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+    "
+  >
+    <div
+      style="
+        color: #333;
+        font-family: sans-serif;
+        line-height: 230%;
+        position: fixed;
+        padding: 25px;
+        background: white;
+        border-radius: 15px;
+        top: 50px;
+        left: 50%;
+        width: 75%;
+        max-width: 700px;
+        transform: translateX(-50%);
+      "
+    >
+      <a class="cobrowse-chatClose" onclick="cobrowseClosePopup()">&#x2716;</a>
+      <div class="cobrowse-main-phone">
+        <div class="cobrowse-phone-title"><span> Call us at </span></div>
+        <div class="cobrowse-phone-number">
+          <span class="i18n" style="font-size: 36px">
+            <a class="href-col" href="javascript:void(0);"> ${opsPhone} </a>
+          </span>
+        </div>
+        <div class="cobrowse-phone-subtitle">
+          <span
+            >Once you&apos;re on the line with us, say you want to &quot;share
+            you screen.&quot;</span
+          >
+        </div>
+      </div>
+      <div class="cobrowse-availability">
+        <div class="cobrowse-hours">
+          <span><b>Hours of operation</b></span>
+          <div class="hrs-opt">${opsPhoneHours}</div>
+        </div>
+      </div>
+      <div class="cobrowse-shareScreen-link">
+        <span class="cobrowse-cobrowse-offer" style="display: inline"
+          >Already on a call? <br /><a
+            role="link"
+            onclick="cobrowseSessionModal()"
+            tabindex="0"
+            class="cobrowse-cobrowse-link"
+            >Share your screen with us</a
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</div>

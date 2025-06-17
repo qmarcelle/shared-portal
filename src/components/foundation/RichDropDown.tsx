@@ -28,7 +28,9 @@ interface RichDropDownProps<T> extends IComponent {
   minWidth?: string;
   showSelected?: boolean;
   divider?: boolean;
+  disabled?: boolean;
   isMultipleItem?: boolean;
+  domId?: string;
 }
 
 const DefaultDropDownHead = () => {
@@ -54,11 +56,13 @@ export const RichDropDown = <T extends { id: string }>({
   showSelected = true,
   divider = true,
   onClickFooter,
+  disabled = false,
+  domId,
 }: RichDropDownProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
   const listRef = useRef(null);
   const openDropDown = () => {
-    if (itemData.length > 1 || isMultipleItem) setIsOpen(true);
+    if (!disabled && (itemData.length > 1 || isMultipleItem)) setIsOpen(true);
     else return;
   };
 
@@ -94,7 +98,9 @@ export const RichDropDown = <T extends { id: string }>({
           tabIndex={1}
           className={`switch-filter ${itemData.length > 1 || isMultipleItem ? 'default' : 'disabled'}`}
         >
-          <div onClick={openDropDown}>{headBuilder(selected)}</div>
+          <div id={domId} onClick={openDropDown}>
+            {headBuilder(selected)}
+          </div>
         </Column>
       )}
       {isOpen && (

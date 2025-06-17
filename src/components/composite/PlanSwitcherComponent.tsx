@@ -1,3 +1,4 @@
+import { useChatStore } from '@/app/clicktochat/stores/clickToChatStore';
 import { AnalyticsData } from '@/models/app/analyticsData';
 import { PlanDetails } from '@/models/plan_details';
 import { switchUser } from '@/userManagement/actions/switchUser';
@@ -5,7 +6,7 @@ import { googleAnalytics } from '@/utils/analytics';
 import { toPascalCase } from '@/utils/pascale_case_formatter';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppModalStore } from '../foundation/AppModal';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
@@ -21,6 +22,7 @@ import { RichDropDown } from '../foundation/RichDropDown';
 import { Row } from '../foundation/Row';
 import { TextBox } from '../foundation/TextBox';
 import { IComponent } from '../IComponent';
+import { TooltipHoverWrapper } from './TooltipHoverWrapper';
 
 export interface PlanSwitcherProps extends IComponent {
   plans: PlanDetails[];
@@ -163,6 +165,7 @@ export const PlanSwitcher = ({
       setIsCurrentPlan(true);
     }
   };
+  const {chatActive, setChatActive} = useChatStore();
   function trackPlanSwitcherAnalytics() {
     const analytics: AnalyticsData = {
       event: 'select_content',
@@ -176,13 +179,29 @@ export const PlanSwitcher = ({
     googleAnalytics(analytics);
   }
 
+  useEffect(() => {
+    window.selectedPlan = selectedPlan?.planName;
+  }, [selectedPlan]);
+  useEffect(() => {
+    window.isMultiplePlan = isMultiplePlan;
+  }, []);
+
   return (
     <div className={`${className}`}>
       <RichDropDown<PlanDetails>
         headBuilder={
-          !isModal ? (val) => <SelectedPlan plan={val} /> : undefined
+          !isModal
+            ? (val) => (
+                chatActive ? <TooltipHoverWrapper label="End your chat session to switch plans.">
+                  <SelectedPlan plan={val} />
+                </TooltipHoverWrapper>
+                : <SelectedPlan plan={val} />
+              )
+            : undefined
         }
         itemData={plansToShow}
+        domId={'planSelectorDropdown'}
+        disabled={chatActive}
         itemsBuilder={(data, index, selected) => (
           <PlanDetailTile
             plan={data}
@@ -192,14 +211,18 @@ export const PlanSwitcher = ({
         )}
         isMultipleItem={isMultiplePlan}
         selected={selected}
-        onSelectItem={(val) => {
+        onSelectItem={async (val) => {
           trackPlanSwitcherAnalytics();
           setSelected(val);
-          switchUser(undefined, val.memeCk);
+          await switchUser(undefined, val.memeCk);
           if (isModal) {
             dismissModal();
           }
-          router.refresh();
+          if (window.chatConfig) {
+            window.location.reload(); //If chat is loaded, we need a full reload to cleanup the vendor code for the new plan. Otherwise just refresh router
+          } else {
+            router.refresh();
+          }
         }}
         showSelected={false}
         divider={false}

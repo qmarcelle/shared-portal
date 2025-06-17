@@ -7,7 +7,7 @@ import { esApi } from '@/utils/api/esApi';
 import { UNIXTimeSeconds } from '@/utils/date_formatter';
 import { encrypt } from '@/utils/encryption';
 import { logger } from '@/utils/logger';
-import { setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
+import { clearGenesysCookies, setSTAndInteractionDataCookies } from '@/utils/ping_cookies';
 import { AxiosError } from 'axios';
 import { headers } from 'next/headers';
 import { userAgent } from 'next/server';
@@ -53,6 +53,7 @@ export async function callLogin(
       case 'MFA_Disabled':
       case 'COMPLETED':
         authUser = request.username;
+        await clearGenesysCookies();
         await setSTAndInteractionDataCookies({
           ...resp.data.data,
         });

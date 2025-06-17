@@ -20,6 +20,18 @@ export async function getAuthToken() {
   return token;
 }
 
+export async function fetAuthTokenFromPing() {
+  let token: undefined | string;
+  const retry: number = 1;
+  try {
+    //If token is not available or token gets expired invoke the token api
+    token = await invokePingToken(retry);
+  } catch (error) {
+    logger.error('PING Auth Token API - Failure', error);
+  }
+  return token;
+}
+
 export async function invokePingToken(retry: number) {
   let token: undefined | string;
   try {

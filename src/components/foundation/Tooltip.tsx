@@ -4,7 +4,7 @@ import { IComponent } from '../IComponent';
 interface ToolTipProps extends IComponent {
   showTooltip: boolean;
   label: ReactNode;
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 export const ToolTip = ({
