@@ -7,7 +7,7 @@ import { Spacer } from '@/components/foundation/Spacer';
 import { Button } from '@/components/foundation/Button';
 import { Column } from '@/components/foundation/Column';
 import { Dropdown } from '@/components/foundation/Dropdown';
-import { downloadIcon } from '@/components/foundation/Icons';
+import { downloadIcon, downloadWhiteIcon } from '@/components/foundation/Icons';
 import { Row } from '@/components/foundation/Row';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
@@ -79,12 +79,23 @@ export const AnnualSpendingCompact = ({
           <Column className="flex flex-row items-center">
             <Spacer size={18} />
             <Button
-              type="pill"
+              type="secondary"
               label={linkLabel}
-              className="primary-color body-1"
+              className="body-1 relative group"
               callback={sendToPHS}
               icon={
-                <Image src={downloadIcon} className="-mt-[4px]" alt="link" />
+                <>
+                  <Image
+                    className="group-hover:hidden"
+                    alt=""
+                    src={downloadIcon}
+                  />
+                  <Image
+                    className="hidden group-hover:block absolute top-2"
+                    alt=""
+                    src={downloadWhiteIcon}
+                  />
+                </>
               }
             />
           </Column>
