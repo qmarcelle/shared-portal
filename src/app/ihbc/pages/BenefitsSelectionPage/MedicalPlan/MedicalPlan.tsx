@@ -88,7 +88,7 @@ export const MedicalPlan = () => {
           >
             <TextBox
               className="body-1"
-              text="To Keep your current benefits, select keep Current Benefits from the below grid."
+              text="To keep your current benefits, select Keep Current Benefits from the below grid."
             />
           </Card>
           <Spacer size={32} />

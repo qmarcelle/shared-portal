@@ -97,7 +97,13 @@ const SpecialEnrolmentPage = () => {
               text="For quicker processing of your application, you may submit "
             />,
             <span key="two">
-              <a className="link">Acceptable Documentation</a>
+              <a
+                className="link"
+                href="/assets/SEP & Residency Validation Grid 11.21.2024.pdf"
+                target="_blank"
+              >
+                Acceptable Documentation
+              </a>
             </span>,
             <TextBox
               key="three"

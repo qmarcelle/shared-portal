@@ -22,7 +22,7 @@ const ManageMyPolicy = ({
   return (
     <div className="flex flex-col justify-center items-center page">
       <Column className="app-content app-base-font-color">
-        <Header type="title-1" className="font-bold" text="Manage My policy" />
+        <Header type="title-1" className="font-bold" text="Manage My Policy" />
         <Spacer size={16} />
         <TextBox
           text="Change your plan benefits, update personal information, add/remove dependents, or cancel your policy."

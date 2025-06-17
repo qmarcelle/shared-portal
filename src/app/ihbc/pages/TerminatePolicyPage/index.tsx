@@ -35,7 +35,7 @@ export const TerminatePolicyPage = () => {
   return (
     <Column className="gap-2">
       <HighlightedHeader text="Terminate Policy" />
-      <TextBox text="if you would like to cancel your coverage, please complete the below information, You may cancel your medical policy and continue to keep your dental and/or vision policy.Or you can choose to cancel your dental or vision policy and keep your medical policy , " />
+      <TextBox text="If you would like to cancel your coverage, please complete the below information. You may cancel your medical policy and continue to keep your dental and/or vision policy, or you can choose to cancel your dental or vision policy and keep your medical policy." />
       <Column>
         <Checkbox
           value="terminateprimaryapplicant"
