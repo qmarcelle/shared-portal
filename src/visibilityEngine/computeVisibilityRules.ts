@@ -527,10 +527,12 @@ export function isFreedomMaBlueAdvantage(rules: VisibilityRules | undefined) {
   return rules?.active && rules.otcEnable && !rules.showPharmacyTab;
 }
 
-export function isBloodPressureManagementEligible(rules: VisibilityRules) {
-  return (
-    rules.teladocEligible &&
-    rules.hypertensionMgmt &&
+export function isBloodPressureManagementEligible(
+  rules: VisibilityRules | undefined,
+) {
+  return !!(
+    rules?.teladocEligible &&
+    rules?.hypertensionMgmt &&
     activeAndHealthPlanMember(rules)
   );
 }

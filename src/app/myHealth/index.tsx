@@ -21,10 +21,13 @@ import healthSupportIcon from '@/public/assets/health_support.svg';
 import healthSurveyIcon from '@/public/assets/health_survey.svg';
 import {
   isBiometricScreening,
+  isBloodPressureManagementEligible,
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
   isChipRewardsINTEligible,
+  isDiabetesManagementEligible,
+  isDiabetesPreventionEligible,
   isHealthProgamAndResourceEligible,
   isHealthyMaternity,
   isLifePointGrp,
@@ -32,6 +35,7 @@ import {
   isPrimaryCarePhysicianEligible,
   isQuestSelectEligible,
   isSilverAndFitnessEligible,
+  isTeladocSecondOpinionAdviceAndSupportEligible,
 } from '@/visibilityEngine/computeVisibilityRules';
 import Image from 'next/image';
 import { PrimaryCareProvider } from '../findcare/primaryCareOptions/components/PrimaryCareProvider';
@@ -281,6 +285,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
                       description:
                         'Get a free smart blood pressure monitor, expert tips and action plans and health coaching at no extra cost.',
                       url: `${urlRedirect + HealthProgramType.TeladocBP}`,
+                      isHidden: !isBloodPressureManagementEligible(
+                        data.visibilityRules,
+                      ),
                     },
                     {
                       id: '4',
@@ -288,6 +295,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
                       description:
                         'Personalized coaching, unlimited strips, a smart meter, tips and action plans at no extra cost.',
                       url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesManagement}`,
+                      isHidden: !isDiabetesManagementEligible(
+                        data.visibilityRules,
+                      ),
                     },
                     {
                       id: '5',
@@ -295,6 +305,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
                       description:
                         'Get a personal action plan, health coaching and a smart scale at no extra cost.',
                       url: `${urlRedirect + HealthProgramType.TeladocHealthDiabetesPrevention}`,
+                      isHidden: !isDiabetesPreventionEligible(
+                        data.visibilityRules,
+                      ),
                     },
                     {
                       id: '6',
@@ -302,6 +315,9 @@ const MyHealth = ({ data }: MyHealthProps) => {
                       description:
                         'Use Teladoc Health to get a second opinion on any diagnosis, treatment or surgery at no extra cost.',
                       url: `${urlRedirect + HealthProgramType.TeladocSecondOption}`,
+                      isHidden: !isTeladocSecondOpinionAdviceAndSupportEligible(
+                        data.visibilityRules,
+                      ),
                     },
                     {
                       id: '7',

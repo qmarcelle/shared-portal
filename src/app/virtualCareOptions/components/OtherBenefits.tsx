@@ -40,6 +40,7 @@ export const OtherBenefits = ({
                 description={item.description}
                 title={item.title}
                 url={item.url}
+                isShow={!item.isHidden}
               />
             ))}
         </SlidingCarousel>
