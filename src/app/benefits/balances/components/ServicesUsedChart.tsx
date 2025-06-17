@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
 import { RichText } from '@/components/foundation/RichText';
@@ -50,7 +51,7 @@ export const ServicesUsedChart = ({
               a service has been used,{' '}
             </span>,
             <span className="link" key={1}>
-              <a> start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={3}> or call us at [{contact}].</span>,
           ]}

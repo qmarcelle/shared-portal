@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Divider } from '@/components/foundation/Divider';
@@ -108,7 +109,7 @@ export const MembersRepresented = ({
                 please
               </span>,
               <span className="link" key={1}>
-                <a> start a chat </a>
+                <ChatTrigger>start a chat</ChatTrigger>
               </span>,
               <span key={2}>or call us at [1-800-000-000]</span>,
             ]}
@@ -120,7 +121,7 @@ export const MembersRepresented = ({
             spans={[
               <span key={0}>For assistance, please</span>,
               <span className="link" key={1}>
-                <a> start a chat </a>
+                <ChatTrigger>start a chat</ChatTrigger>
               </span>,
               <span key={2}>or call us at [1-800-000-000]</span>,
             ]}
@@ -149,7 +150,7 @@ export const MembersRepresented = ({
               form, it might not yet appear on this page. For assistance, please
             </span>,
             <span className="link" key={1}>
-              <a> start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={2}>or call us at [1-800-000-000]</span>,
           ]}

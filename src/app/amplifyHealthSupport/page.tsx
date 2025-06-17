@@ -1,5 +1,6 @@
 'use client';
 
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { WelcomeBanner } from '@/components/composite/WelcomeBanner';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -36,7 +37,9 @@ const AmplifyHealthSupport = () => {
           />
           <Spacer size={32}></Spacer>
           <section className="md:flex md:flex-row">
-            <Button label="Start a Chat" type="card" callback={() => {}} />
+            <ChatTrigger className="your-button-class">
+              Start a Chat
+            </ChatTrigger>
             <Spacer axis="horizontal" size={32} />
             <Button
               className="!bg-transparent outline outline-primary-content mt-[10px] md:mt-[0px]"

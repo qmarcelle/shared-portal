@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -20,7 +21,7 @@ export const ClaimsHelpCard = ({ phoneNumber }: ClaimsHelpCardProps) => {
             spans={[
               <span>If you need help, please reach out to us. You can </span>,
               <span className="link">
-                <a>start a chat</a>
+                <ChatTrigger>start a chat</ChatTrigger>
               </span>,
               <span> or call us at {phoneNumber}.</span>,
             ]}

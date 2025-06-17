@@ -1,5 +1,6 @@
 'use server';
 
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { invokePhoneNumberAction } from '@/app/profileSettings/actions/profileSettingsAction';
 import { auth } from '@/auth';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
@@ -40,7 +41,7 @@ const TransactionsPage = async () => {
               spans={[
                 <span key={1}>If you need help, </span>,
                 <span className="link" key={2}>
-                  <a>start a chat </a>
+                  <ChatTrigger>start a chat</ChatTrigger>
                 </span>,
                 <span key={3}>or</span>,
                 <span key={4}> call us at {phoneNumber}.</span>,

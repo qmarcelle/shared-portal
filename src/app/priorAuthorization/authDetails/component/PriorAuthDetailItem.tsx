@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { MemberPriorAuthDetail } from '@/app/priorAuthorization/models/priorAuthData';
 import { ErrorCard } from '@/components/composite/ErrorCard';
 import { RichText } from '@/components/foundation/RichText';
@@ -134,7 +135,7 @@ export const PriorAuthDetailItem = ({
                       spans={[
                         <span key={0}>For more information, Please</span>,
                         <span className="link" key={1}>
-                          <a> start a chat </a>
+                          <ChatTrigger>start a chat</ChatTrigger>
                         </span>,
                         <span key={2}>or call us at [{contact}]</span>,
                       ]}

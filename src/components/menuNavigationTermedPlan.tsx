@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { isBlueCareEligible } from '@/visibilityEngine/computeVisibilityRules';
 import { VisibilityRules } from '@/visibilityEngine/rules';
 import { SiteHeaderSubNavProps } from './composite/SiteHeaderSubNavSection';
@@ -68,8 +69,8 @@ export const getMenuNavigationTermedPlan = (
       firstParagraph: "We're here to help.",
       secondParagraph: (
         <p className="pb-1 text-base app-base-font-color ">
-          <span className="font-bold">Start a chat</span> or call us at
-          [1-800-000-0000].
+          <ChatTrigger className="font-bold">Start a chat</ChatTrigger> or call
+          us at [1-800-000-0000].
         </p>
       ),
       link: '/member/support',

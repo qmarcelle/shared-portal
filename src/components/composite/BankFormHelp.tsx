@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -16,7 +17,7 @@ export const BankFormHelp = () => (
               If you need help, please reach out to us. You can{' '}
             </span>,
             <span key="2" className="link font-bold">
-              <a>start a chat</a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key="3"> or call us at [1-800-000-000].</span>,
           ]}

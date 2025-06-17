@@ -6,6 +6,7 @@ import { Card } from '../../../components/foundation/Card';
 import { Dropdown, SelectItem } from '../../../components/foundation/Dropdown';
 import { Spacer } from '../../../components/foundation/Spacer';
 
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { TextBox } from '@/components/foundation/TextBox';
 import { ServicesUsedItem } from '@/models/app/servicesused_details';
 import { useState } from 'react';
@@ -46,7 +47,7 @@ export const MedicalServices = ({
               a service has been used,{' '}
             </span>,
             <span className="link" key={1}>
-              <a> start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={3}> or call us at [{contact}].</span>,
           ]}

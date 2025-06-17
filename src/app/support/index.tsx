@@ -1,5 +1,6 @@
 'use client';
 
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { AppLink } from '@/components/foundation/AppLink';
 import { Button } from '@/components/foundation/Button';
 import { Card } from '@/components/foundation/Card';
@@ -107,7 +108,9 @@ function getGeneralContent(contact: string) {
           <TextBox text="Mon - Fri" />
         </>
       ),
-      footer: <Button callback={() => {}} label="Start a Chat" />,
+      footer: (
+        <ChatTrigger className="your-button-class">Start a Chat</ChatTrigger>
+      ),
     },
     {
       icon: <Image src={emailIcon} alt="" />,

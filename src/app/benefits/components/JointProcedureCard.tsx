@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -16,7 +17,11 @@ export const JointProcedureCard = ({
   return (
     <Card className={className} type="info">
       <Column>
-        <Header className="title-2-bold"  type = "title-2" text = "Call Before Scheduling Your Joint Procedure"/>
+        <Header
+          className="title-2-bold"
+          type="title-2"
+          text="Call Before Scheduling Your Joint Procedure"
+        />
         <Spacer size={32} />
         <RichText
           type="body-1"
@@ -28,7 +33,7 @@ export const JointProcedureCard = ({
             </span>,
             <span key={1}>{`[${phoneNumber}] or `}</span>,
             <span className="font-bold  link-white-text" key={2}>
-              <a>start a chat</a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={3}>{' now.'}</span>,
           ]}

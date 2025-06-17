@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
@@ -24,7 +25,7 @@ export const PriorAuthorizationHelp = ({ contact }: priorAuthDetailProps) => {
               If you need help, please reach out to us. You can{' '}
             </span>,
             <span className="link" key={1}>
-              <a>start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={2}>or call us at {contact}</span>,
           ]}

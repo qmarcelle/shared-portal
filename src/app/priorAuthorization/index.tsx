@@ -1,5 +1,6 @@
 'use client';
 
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { PriorAuthorizationCardSection } from '@/app/priorAuthorization/components/PriorAuthorizationCardSection';
 import { ErrorInfoCard } from '@/components/composite/ErrorInfoCard';
 import { AppLink } from '@/components/foundation/AppLink';
@@ -149,10 +150,7 @@ const PriorAuthorization = ({ data }: PriorAuthorizationProps) => {
                 key={1}
               >
                 Need more than two years of prior authorizations?{' '}
-                <AppLink
-                  label="Start a chat"
-                  className="link !flex caremark pt-0"
-                />
+                <ChatTrigger>Start a chat</ChatTrigger>
                 or call us at {data.phoneNumber}.
               </Row>,
               data.authorizationType === 'blueCare'
