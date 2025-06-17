@@ -7,6 +7,7 @@ import {
   isBalancesPageVisible,
   isBenefitBookletEnabled,
   isBloodPressureManagementEligible,
+  isBlueCareEligible,
   isChipRewardsEligible,
   isClaimsPageVisible,
   isDiabetesManagementEligible,
@@ -309,7 +310,7 @@ export const ROUTE_CONFIG: RouteConfig = {
     },
     pharmacy: {
       title: 'Pharmacy',
-      rule: (r) => isPharmacyBenefitsEligible(r),
+      rule: (r) => isPharmacyBenefitsEligible(r) || isBlueCareEligible(r),
       children: {
         medicalPrescriptionPaymentPlan: {
           title: 'Medical Prescription Payment Plan',
