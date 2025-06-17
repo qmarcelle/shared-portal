@@ -224,7 +224,7 @@ export const myHealthProgramsandResourcesDetails: Map<
     {
       healthcareType: 'Primary Care',
       icon: 'TelaDoc',
-      healthCareName: 'Teladoc Health Primary Card Provider',
+      healthCareName: 'Teladoc Health Primary Care Provider',
       description:
         'With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.',
       link: 'Learn More About Teladoc Health Primary Care',

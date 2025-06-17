@@ -3774,7 +3774,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                         class="body-1 title-3 !font-bold m-4 mb-0"
                         style="display: block; max-width: 100%;"
                       >
-                        Teladoc Health Primary Card Provider
+                        Teladoc Health Primary Care Provider
                       </p>
                       <span
                         style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"
@@ -3952,7 +3952,7 @@ exports[`MyHealthProgramsResources should render UI correctly for Teladoc Health
                       class="body-1 title-3 !font-bold m-4 mb-0"
                       style="display: block; max-width: 100%;"
                     >
-                      Teladoc Health Primary Card Provider
+                      Teladoc Health Primary Care Provider
                     </p>
                     <span
                       style="display: block; width: 1px; min-width: 1px; height: 16px; min-height: 16px;"

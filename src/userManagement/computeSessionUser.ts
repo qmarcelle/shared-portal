@@ -41,7 +41,17 @@ export async function computeSessionUser(
       if (planId) {
         return computeTokenWithPlan(userId, currentUser, planId, impersonator);
       } else {
-        const selectedPlan = plans.length == 1 ? plans[0] : null;
+        /*
+        Default to the first plan if there is only one unique MEME_CK in the plan list.
+        Sometimes the PBE has multiple related persons that have the same MEME_CK, and we don't want the plan selector to pop up in these cases
+        */
+        const distinctMemeCKs = new Set<string>();
+        plans.filter(plan => {
+          if (distinctMemeCKs.has(plan.memCK)) return false;
+          distinctMemeCKs.add(plan.memCK);
+          return true;
+        });
+        const selectedPlan = distinctMemeCKs.size == 1 ? plans[0] : null;
         if (selectedPlan) {
           return computeTokenWithPlan(
             userId,

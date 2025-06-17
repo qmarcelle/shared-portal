@@ -80,7 +80,7 @@ describe('MyHealthProgramsResources', () => {
     activeAndHealthPlanMemberProfiler(vRules);
     const component = renderUI(vRules);
     screen.getByText('Primary Care');
-    screen.getByText('Teladoc Health Primary Card Provider');
+    screen.getByText('Teladoc Health Primary Care Provider');
     screen.getByText(
       'With Primary 360, you can talk to a board-certified primary acre doctor by video or phone seven days a week.',
     );

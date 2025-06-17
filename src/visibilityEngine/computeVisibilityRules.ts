@@ -151,6 +151,10 @@ const isLobCommercial = (rules: VisibilityRules | undefined) => {
   return rules?.commercial || rules?.individual;
 };
 
+const isCommercialFull = (rules: VisibilityRules | undefined) => {
+  return rules?.commercial && rules?.fullyInsured;
+}
+
 export function isOtherInsuranceEligible(rules?: VisibilityRules) {
   return rules?.otherInsuranceEligible;
 }
@@ -358,7 +362,7 @@ export function isNewMentalHealthSupportAbleToEligible(
   rules: VisibilityRules | undefined,
 ) {
   return (
-    (rules?.mentalHealthSupport || rules?.fullyInsured) &&
+    (rules?.mentalHealthSupport || isCommercialFull(rules)) &&
     rules?.medical &&
     isActiveAndNotFSAOnly(rules)
   );
@@ -379,8 +383,8 @@ export function isHingeHealthEligible(rules: VisibilityRules | undefined) {
     ((rules?.hingeHealthEligible ||
       (rules?.groupRenewalDateBeforeTodaysDate &&
         (rules?.fullyInsured || rules?.levelFunded))) &&
-      isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly') ||
-    rules?.isHighDeductiblePlanMember
+      isCityOfMemphisWellnessOnlyProfiler(rules) != 'IsWellnessOnly') &&
+    !rules?.isHighDeductiblePlanMember
   );
 }
 
