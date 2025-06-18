@@ -2,6 +2,7 @@ import { Button } from '@/components/foundation/Button';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { IComponent } from '../../../components/IComponent';
 import { Card } from '../../../components/foundation/Card';
 import { Column } from '../../../components/foundation/Column';
@@ -22,6 +23,7 @@ export const WellnessInfo = ({
   bodyText,
   buttonText,
 }: WellnessInfoProps) => {
+  const router = useRouter();
   return (
     <>
       <Spacer size={32} />
@@ -37,7 +39,12 @@ export const WellnessInfo = ({
             className="w-1/5"
             label={buttonText}
             icon={<Image alt="" src={externalIcon} />}
-            callback={() => null}
+            callback={() => {
+              router.push(
+                '/sso/launch?PartnerSpId=' +
+                  process.env.NEXT_PUBLIC_IDP_CHIP_REWARDS,
+              );
+            }}
           />
         </Column>
       </Card>
