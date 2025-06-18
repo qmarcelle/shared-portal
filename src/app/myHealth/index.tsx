@@ -25,6 +25,7 @@ import {
   isBlue365FitnessYourWayEligible,
   isBlueCareEligible,
   isBlueCareNotEligible,
+  isChipRewardsEligible,
   isChipRewardsINTEligible,
   isDiabetesManagementEligible,
   isDiabetesPreventionEligible,
@@ -53,6 +54,7 @@ import { HealthLibraryOptions } from './components/HealthLibraryOptions';
 import { MemberDiscounts } from './components/MemberDiscounts';
 import { MemberWellnessCenterOptions } from './components/MemberWellnessCenterOptions';
 import { MyHealthOffsiteLinkCard } from './components/MyHealthOffsiteLinkCard';
+import { WellnessInfo } from './components/WellnessInfo';
 import { WellnessRewards } from './components/WellnessRewards';
 import { HealthProgramType } from './healthProgramsResources/myHealthPrograms/models/health_program_type';
 import { MyHealthData } from './models/app/my_health_data';
@@ -209,6 +211,17 @@ const MyHealth = ({ data }: MyHealthProps) => {
               memberRewards={data.memberRewards}
               className="section"
               isMemRelation={data.isMemRelation}
+            />
+          </section>
+        )}
+        {isChipRewardsEligible(data.visibilityRules) && (
+          <section>
+            <WellnessInfo
+              header=""
+              subHeader="Wellness Rewards"
+              bodyText="Complete wellness tasks to earn rewards provided by your employer."
+              buttonText="Learn More"
+              className="section"
             />
           </section>
         )}

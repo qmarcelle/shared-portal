@@ -30,8 +30,6 @@ interface WellnessRewardsProps extends IComponent {
 
 export const WellnessRewards = ({
   className,
-  // color2 = '#5DC1FD',
-  //color1 = '#f2f2f2',
   linkText = 'View Ways to Earn & Learn more',
   icon = <Image alt="" src={externalIcon} />,
   memberRewards,
@@ -204,13 +202,6 @@ export const WellnessRewards = ({
           )}
         </>
       </Card>
-      {/* <WellnessInfo
-        header="Active Rewards - Employer Provided Reward"
-        subHeader="Wellness Rewards"
-        bodyText="Complete wellness tasks to earn rewards provided by your employer."
-        buttonText="Learn More"
-        className="section"
-      /> */}
     </>
   );
 };
