@@ -1,7 +1,7 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { IComponent } from '@/components/IComponent';
 import { Card } from '@/components/foundation/Card';
 import { Header } from '@/components/foundation/Header';
-import { InlineLink } from '@/components/foundation/InlineLink';
 import { Row } from '@/components/foundation/Row';
 import { Spacer } from '@/components/foundation/Spacer';
 import { TextBox } from '@/components/foundation/TextBox';
@@ -28,8 +28,8 @@ export const RequestPrintMaterialSection = ({
           display="inline"
           text="If you need to request paper copies, please"
         />
-        <InlineLink className="inline py-0" label="start a chat" />
-        <TextBox display="inline" text={`or call us at `} />
+        <ChatTrigger className="inline py-0">start a chat</ChatTrigger>
+        <TextBox display="inline" text={'or call us at '} />
         <span className="whitespace-nowrap">{`${phoneNumber}`} </span>
       </div>
     </Card>

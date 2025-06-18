@@ -1,3 +1,4 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { Card } from '@/components/foundation/Card';
 import { Column } from '@/components/foundation/Column';
 import { Header } from '@/components/foundation/Header';
@@ -19,7 +20,7 @@ export const AboutPlanContactInfo = () => {
               can contact your employer or{' '}
             </span>,
             <span className="link" key={1}>
-              <a> start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={3}> with us.</span>,
           ]}

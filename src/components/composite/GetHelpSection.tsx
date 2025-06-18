@@ -1,9 +1,11 @@
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { IComponent } from '../../components/IComponent';
 import { Card } from '../foundation/Card';
 import { Column } from '../foundation/Column';
 import { Header } from '../foundation/Header';
 import { RichText } from '../foundation/RichText';
 import { Spacer } from '../foundation/Spacer';
+
 export interface GetHelpProps extends IComponent {
   link?: string;
   linkURL: string;
@@ -28,7 +30,7 @@ export const GetHelpSection = ({
               if you need help, please help reach out to us.You can{' '}
             </span>,
             <span className="link" key={1}>
-              <a>start a chat </a>
+              <ChatTrigger>start a chat</ChatTrigger>
             </span>,
             <span key={2}>or call us at {contact}.</span>,
           ]}

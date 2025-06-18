@@ -1,6 +1,7 @@
 'use client';
 
 import { PremiumPayResponse } from '@/actions/premiumPayInfo';
+import { ChatTrigger } from '@/app/clicktochat/components/ChatTrigger';
 import { PlanDetailsSection } from '@/app/myPlan/components/PlanDetailsSection';
 import { ViewOtherPlanInformation } from '@/app/myPlan/components/ViewOtherPlanInformation';
 import { InfoCard } from '@/components/composite/InfoCard';
@@ -46,7 +47,7 @@ const MyPlan = ({
             spans={[
               <span key={0}>If you have questions, </span>,
               <span className="link !text-white" key={1}>
-                <a>start a chat</a>
+                <ChatTrigger>start a chat</ChatTrigger>
               </span>,
               <span key={2}> or call us at [{contact}].</span>,
             ]}
